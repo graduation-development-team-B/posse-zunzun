@@ -22,7 +22,6 @@ import {
   draftFor,
   editDraft,
   nextQuestion,
-  submitAnswer,
 } from "@/lib/quiz/session";
 import {
   absoluteTerminalPath,
@@ -81,7 +80,7 @@ export default function QuizScreen() {
 
 function QuestionScreen({ question: q }: { question: QuestionItem }) {
   const router = useRouter();
-  const { state, mutate, error } = useLearning();
+  const { state, mutate, confirmAnswer, error } = useLearning();
   const session = state.session!;
   const draft = draftFor(state, q, catalog);
   const answer = answerFor(state, q);
@@ -187,14 +186,12 @@ function QuestionScreen({ question: q }: { question: QuestionItem }) {
   const confirm = async () => {
     setBusy(true);
     try {
-      await mutate((s) =>
-        submitAnswer(s, q, catalog, {
-          input,
-          executed,
-          status: consoleResult?.status,
-          lines: consoleResult?.lines,
-        }),
-      );
+      await confirmAnswer(q, {
+        input,
+        executed,
+        status: consoleResult?.status,
+        lines: consoleResult?.lines,
+      });
     } catch {
     } finally {
       setBusy(false);

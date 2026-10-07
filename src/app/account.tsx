@@ -2,15 +2,66 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { CtaButton, IconButton } from '@/components/drill/buttons';
+import { SelectField } from '@/components/drill/form';
 import { Icon } from '@/components/drill/icons';
 import { RadioDot, SelectCard } from '@/components/drill/select';
 import { Body, DText, Footer, Screen } from '@/components/drill/ui';
 import { Drill, Radius } from '@/constants/drill';
-import { ACCOUNT_ROWS, CURRENT_PHASE, PHASES, type PhaseId } from '@/data/drill';
+import { PHASES, type PhaseId } from '@/data/drill';
+import { GENERATION_OPTIONS, POSSE_OPTIONS } from '@/data/profileOptions';
+import { useAuth } from '@/lib/auth/provider';
 
 /** アカウント：フェーズの切り替えと登録情報 */
 export default function AccountScreen() {
-  const [phase, setPhase] = useState<PhaseId>(CURRENT_PHASE.id);
+  const { user, profile, settings, profileReady, savePhase, saveProfile, signOut, error: authError } = useAuth();
+  const [selectedPhase, setSelectedPhase] = useState<PhaseId | null>(null);
+  const [profileDraftState, setProfileDraftState] = useState<{
+    userId: string;
+    posse: string | null;
+    cohort: string | null;
+  } | null>(null);
+  const profileDraft = profileDraftState?.userId === user?.id ? profileDraftState : null;
+  const selectedPosse = profileDraft?.posse ?? profile?.posse ?? null;
+  const selectedCohort = profileDraft?.cohort ?? profile?.cohort ?? null;
+  const phase: PhaseId = selectedPhase ?? settings?.phase ?? 'ph1';
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const save = async () => {
+    setBusy(true);
+    setError('');
+    try {
+      await savePhase(phase);
+      await saveProfile({ posse: selectedPosse, cohort: selectedCohort });
+      setProfileDraftState(null);
+    } catch {
+      setError('設定を保存できませんでした。通信を確認して再度お試しください。');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const showProfileChoices = profileReady && (!profile?.posse || !profile?.cohort);
+  const rows = [
+    { label: '名前', value: profile?.display_name ?? '読み込み中…' },
+    { label: 'メールアドレス', value: user?.email ?? '—' },
+    { label: 'パスワード', value: '••••••••' },
+    ...(!showProfileChoices ? [
+      { label: '所属POSSE', value: profile?.posse ?? '未設定' },
+      { label: '期生', value: profile?.cohort ?? '未設定' },
+    ] : []),
+  ];
+
+  const logout = async () => {
+    setBusy(true);
+    setError('');
+    try {
+      await signOut();
+    } catch {
+      setError('ログアウトできませんでした。再度お試しください。');
+    } finally {
+      setBusy(false);
+    }
+  };
 
   return (
     <Screen>
@@ -37,9 +88,10 @@ export default function AccountScreen() {
                 key={p.id}
                 label={`${p.code} ${p.title}`}
                 selected={p.id === phase}
-                onPress={() => setPhase(p.id)}
+                disabled={p.id === 'ph3'}
+                onPress={() => p.id !== 'ph3' && setSelectedPhase(p.id)}
                 paddingV={10}
-                style={styles.phaseCard}>
+                style={[styles.phaseCard, p.id === 'ph3' && styles.phaseUnavailable]}>
                 <View style={styles.phaseRow}>
                   <RadioDot selected={p.id === phase} />
                   <View style={styles.phaseText}>
@@ -66,11 +118,12 @@ export default function AccountScreen() {
             登録情報
           </DText>
           <View style={styles.rows}>
-            {ACCOUNT_ROWS.map((row, i) => (
+            {rows.map((row, i) => (
               <Pressable
                 key={row.label}
                 role="button"
                 aria-label={`${row.label}を変更`}
+                disabled
                 style={[styles.row, i > 0 && styles.rowBorder]}>
                 <DText size={13} color={Drill.textSub} style={styles.rowLabel}>
                   {row.label}
@@ -82,9 +135,29 @@ export default function AccountScreen() {
               </Pressable>
             ))}
           </View>
+          {showProfileChoices && (
+            <View style={styles.profileChoices}>
+              <DText size={12} lh={1.6} color={Drill.textSub}>
+                POSSEと期生を選んで保存してください。
+              </DText>
+              <SelectField
+                label="所属POSSE"
+                value={selectedPosse}
+                options={POSSE_OPTIONS}
+                onChange={(posse) => setProfileDraftState({ userId: user?.id ?? '', posse, cohort: selectedCohort })}
+              />
+              <SelectField
+                label="期生"
+                value={selectedCohort}
+                options={GENERATION_OPTIONS}
+                onChange={(cohort) => setProfileDraftState({ userId: user?.id ?? '', posse: selectedPosse, cohort })}
+              />
+            </View>
+          )}
         </View>
 
-        <Pressable role="button" style={styles.logout}>
+        {Boolean(authError || error) && <DText role="alert" color={Drill.danger}>{error || authError}</DText>}
+        <Pressable role="button" disabled={busy} onPress={() => void logout()} style={styles.logout}>
           <DText size={14} weight="bold" color={Drill.dangerText}>
             ログアウト
           </DText>
@@ -92,7 +165,11 @@ export default function AccountScreen() {
       </Body>
 
       <Footer>
-        <CtaButton label="保存する" href="/" />
+        <CtaButton
+          label={!profileReady ? '読み込み中…' : busy ? '保存しています…' : '保存する'}
+          onPress={() => void save()}
+          disabled={busy || !profileReady}
+        />
       </Footer>
     </Screen>
   );
@@ -104,10 +181,12 @@ const styles = StyleSheet.create({
   hint: { marginTop: 2 },
   phases: { gap: 8 },
   phaseCard: { minHeight: 66, justifyContent: 'center' },
+  phaseUnavailable: { opacity: 0.45 },
   phaseRow: { flexDirection: 'row', alignItems: 'center', gap: 14 },
   phaseText: { flex: 1, gap: 2 },
   phaseTitle: { flexDirection: 'row', alignItems: 'baseline', gap: 8 },
   rows: { borderRadius: Radius.lg, borderWidth: 1, borderColor: Drill.border, backgroundColor: Drill.surface, overflow: 'hidden' },
+  profileChoices: { gap: 12 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 52, paddingLeft: 16, paddingRight: 12 },
   rowBorder: { borderTopWidth: 1, borderTopColor: Drill.divider },
   rowLabel: { width: 88 },

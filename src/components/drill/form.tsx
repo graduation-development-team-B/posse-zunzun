@@ -19,7 +19,14 @@ export function Field({ label, children }: { label: string; children: ReactNode 
 
 type TextFieldProps = Pick<
   ComponentProps<typeof TextInput>,
-  'value' | 'onChangeText' | 'placeholder' | 'inputMode' | 'autoComplete' | 'secureTextEntry'
+  | 'value'
+  | 'onChangeText'
+  | 'placeholder'
+  | 'inputMode'
+  | 'autoComplete'
+  | 'secureTextEntry'
+  | 'autoCapitalize'
+  | 'autoCorrect'
 > & { label: string };
 
 export function TextField({ label, ...input }: TextFieldProps) {
@@ -35,10 +42,10 @@ export function TextField({ label, ...input }: TextFieldProps) {
   );
 }
 
-type PasswordFieldProps = Pick<ComponentProps<typeof TextInput>, 'value' | 'onChangeText'> & { label: string };
+type PasswordFieldProps = Pick<ComponentProps<typeof TextInput>, 'value' | 'onChangeText' | 'autoComplete'> & { label: string };
 
 /** 表示／非表示を切り替えられるパスワード欄 */
-export function PasswordField({ label, value, onChangeText }: PasswordFieldProps) {
+export function PasswordField({ label, value, onChangeText, autoComplete = 'new-password' }: PasswordFieldProps) {
   const [shown, setShown] = useState(false);
   return (
     <Field label={label}>
@@ -49,7 +56,7 @@ export function PasswordField({ label, value, onChangeText }: PasswordFieldProps
           onChangeText={onChangeText}
           placeholder="8文字以上"
           placeholderTextColor={Drill.textFaint}
-          autoComplete="new-password"
+          autoComplete={autoComplete}
           secureTextEntry={!shown}
           style={styles.passwordInput}
         />
@@ -166,4 +173,3 @@ const styles = StyleSheet.create({
   },
   option: { minHeight: 44, justifyContent: 'center', paddingHorizontal: 12 },
 });
-

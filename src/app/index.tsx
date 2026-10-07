@@ -11,6 +11,7 @@ import { WeekStrip } from '@/components/drill/week-strip';
 import { Drill, Radius } from '@/constants/drill';
 import {
   CURRENT_PHASE,
+  PHASES,
   WEEK_STATE_LABEL,
   type Week,
 } from '@/data/drill';
@@ -18,9 +19,12 @@ import { catalog } from '@/lib/content/catalog';
 import { availablePhaseCodes } from '@/lib/content/phase';
 import { useDashboard } from '@/lib/progress/dashboard';
 import { beginSession } from '@/lib/quiz/session';
+import { useAuth } from '@/lib/auth/provider';
 
 export default function HomeScreen() {
   const router = useRouter();
+  const { settings } = useAuth();
+  const currentPhase = PHASES.find((phase) => phase.id === settings?.phase) ?? CURRENT_PHASE;
   const { state, ready, error, stats, weeks: WEEKS, days: THIS_WEEK, level, reviewTags: REVIEW_TAGS, mascotLines: MASCOT_LINES, next: nextWeek, todayStudied, mutate } = useDashboard();
   const active = state.session && !state.session.completedAt ? state.session : null;
   const activeWeek = WEEKS.find(w=>w.id===active?.weekKey) ?? nextWeek;
@@ -43,7 +47,7 @@ export default function HomeScreen() {
           <Link href="/account" asChild>
             <Pressable role="link" aria-label="アカウントとフェーズの設定" style={styles.phaseLink}>
               <DText size={12} weight="bold" mono color={Drill.accentText}>
-                {CURRENT_PHASE.code}
+                {currentPhase.code}
               </DText>
               <View style={styles.avatar}>
                 <Icon name="user" size={18} />

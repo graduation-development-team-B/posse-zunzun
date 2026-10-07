@@ -18,6 +18,7 @@ type SelectCardProps = {
   onPress: () => void;
   children: ReactNode;
   label: string;
+  disabled?: boolean;
   /** 余白（選択中は枠が太くなる分だけ内側の余白を1px減らして大きさを保つ） */
   paddingV?: number;
   paddingH?: number;
@@ -31,6 +32,7 @@ export function SelectCard({
   onPress,
   children,
   label,
+  disabled = false,
   paddingV = 10,
   paddingH = 16,
   radius = Radius.md,
@@ -42,6 +44,8 @@ export function SelectCard({
       role="radio"
       aria-checked={selected}
       aria-label={label}
+      aria-disabled={disabled}
+      disabled={disabled}
       onPress={onPress}
       style={({ pressed }) => [
         {
