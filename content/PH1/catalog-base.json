@@ -1,0 +1,1286 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026-10-06.ph1-week01-06-git.1",
+  "updatedAt": "2026-10-07T00:00:00.000Z",
+  "catalog": {
+    "weekUnits": [
+      {
+        "id": "week-unit-week1",
+        "key": "week1",
+        "order": 1,
+        "title": "Week01｜HTML基礎・Webの仕組み",
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "week-unit-week2",
+        "key": "week2",
+        "order": 2,
+        "title": "Week02｜Tailwindで見た目を整える",
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "week-unit-week3",
+        "key": "week3",
+        "order": 3,
+        "title": "Week03｜Flexboxレイアウト",
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "week-unit-week4",
+        "key": "week4",
+        "order": 4,
+        "title": "Week04｜Gridレイアウト・擬似クラス",
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "week-unit-week5",
+        "key": "week5",
+        "order": 5,
+        "title": "Week05｜レスポンシブデザイン",
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "week-unit-week6",
+        "key": "week6",
+        "order": 6,
+        "title": "Week06｜JavaScript基礎（変数・型・条件分岐・関数）",
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "week-unit-git-github-level1",
+        "key": "git_github_level1",
+        "order": 7,
+        "title": "Git/GitHub Level 1｜基本操作とPull Request",
+        "published": true,
+        "deleted": false
+      }
+    ],
+    "questions": [],
+    "terms": [
+      {
+        "id": "term-week1-html",
+        "weekUnitId": "week-unit-week1",
+        "name": "HTML",
+        "definition": "Webページの内容や構造に意味を与えるためのマークアップ言語です。",
+        "usageExamples": ["h1やp、imgなどの要素をHTMLに記述します。"],
+        "sourceReference": {
+          "weekKey": "week1",
+          "sectionHeading": "2. HTMLはページの構造を書く言語"
+        },
+        "relatedTermNames": ["属性", "要素"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week1-element",
+        "weekUnitId": "week-unit-week1",
+        "name": "要素",
+        "definition": "開始タグや属性、内容、終了タグなどで構成されるHTMLのひとまとまりです。",
+        "usageExamples": ["カード全体をarticle要素としてまとめます。"],
+        "sourceReference": {
+          "weekKey": "week1",
+          "sectionHeading": "2. HTMLはページの構造を書く言語"
+        },
+        "relatedTermNames": ["HTML", "タグ"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week1-attribute",
+        "weekUnitId": "week-unit-week1",
+        "name": "属性",
+        "definition": "HTML要素に補足情報を渡すため、開始タグの中に指定する名前と値です。",
+        "usageExamples": ["imgのsrcやalt、aのhrefは属性です。"],
+        "sourceReference": {
+          "weekKey": "week1",
+          "sectionHeading": "4. 属性"
+        },
+        "relatedTermNames": ["HTML", "alt"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week1-tailwind-cdn",
+        "weekUnitId": "week-unit-week1",
+        "name": "Tailwind CDN",
+        "definition": "CDNからTailwind CSSを読み込み、HTMLのclassでスタイルを指定する方法です。",
+        "usageExamples": [
+          "script要素でCDNを読み込んでbg-gray-800を指定します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week1",
+          "sectionHeading": "5. Tailwind CDN で見た目をつける"
+        },
+        "relatedTermNames": ["HTML", "class属性"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week1-relative-path",
+        "weekUnitId": "week-unit-week1",
+        "name": "相対パス",
+        "definition": "現在のHTMLファイルの場所を基準に、画像や別ファイルの場所を表す指定方法です。",
+        "usageExamples": ["./images/poster.jpgでimages内の画像を参照します。"],
+        "sourceReference": {
+          "weekKey": "week1",
+          "sectionHeading": "4. 属性"
+        },
+        "relatedTermNames": ["src属性", "画像"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week3-flexbox",
+        "weekUnitId": "week-unit-week3",
+        "name": "Flexbox",
+        "definition": "親要素に指定して子要素を一方向に並べ、主軸と交差軸の配置を制御するCSSのレイアウト方式です。",
+        "usageExamples": ["親にflexを指定してカードを横並びにします。"],
+        "sourceReference": {
+          "weekKey": "week3",
+          "sectionHeading": "2. Flexboxの基本：「親」に `flex` をつける"
+        },
+        "relatedTermNames": ["justify-content", "align-items", "flex-col"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week3-justify-content",
+        "weekUnitId": "week-unit-week3",
+        "name": "justify-content",
+        "definition": "Flexコンテナの主軸方向における子要素の配置を制御するCSSプロパティです。",
+        "usageExamples": [
+          "justify-betweenでロゴとナビゲーションを左右両端に配置します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week3",
+          "sectionHeading": "3. justify-content：横方向の並び方を決める"
+        },
+        "relatedTermNames": ["align-items", "Flexbox"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week3-align-items",
+        "weekUnitId": "week-unit-week3",
+        "name": "align-items",
+        "definition": "Flexコンテナの交差軸方向における子要素の揃え方を制御するCSSプロパティです。",
+        "usageExamples": [
+          "items-centerでロゴ画像とテキストを上下中央に揃えます。"
+        ],
+        "sourceReference": {
+          "weekKey": "week3",
+          "sectionHeading": "4. align-items：縦方向の揃え方を決める"
+        },
+        "relatedTermNames": ["justify-content", "Flexbox"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week3-gap",
+        "weekUnitId": "week-unit-week3",
+        "name": "gap",
+        "definition": "FlexboxまたはGridコンテナの子要素間の間隔を均等に設定するCSSプロパティです。",
+        "usageExamples": ["gap-4でカード間に16pxの間隔を設けます。"],
+        "sourceReference": {
+          "weekKey": "week3",
+          "sectionHeading": "5. gap：要素と要素の間隔を決める"
+        },
+        "relatedTermNames": ["Flexbox"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week3-flex-col",
+        "weekUnitId": "week-unit-week3",
+        "name": "flex-col",
+        "definition": "Flexコンテナの主軸を縦方向に設定するTailwindクラス（flex-direction: column）です。",
+        "usageExamples": ["flex flex-colで要素を縦に並べます。"],
+        "sourceReference": {
+          "weekKey": "week3",
+          "sectionHeading": "6. flex-col：縦方向に並べる"
+        },
+        "relatedTermNames": ["Flexbox"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week3-flex-wrap",
+        "weekUnitId": "week-unit-week3",
+        "name": "flex-wrap",
+        "definition": "Flexコンテナで子要素が幅を超えた際に次の行に折り返すよう設定するプロパティです。",
+        "usageExamples": ["flex flex-wrapで多数のタグを折り返して表示します。"],
+        "sourceReference": {
+          "weekKey": "week3",
+          "sectionHeading": "7. flex-wrap：はみ出した時に折り返す"
+        },
+        "relatedTermNames": ["Flexbox"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week4-css-grid",
+        "weekUnitId": "week-unit-week4",
+        "name": "CSS Grid",
+        "definition": "行と列の2次元格子状にレイアウトを組むCSSのレイアウトシステムです。",
+        "usageExamples": [
+          "grid grid-cols-3でダッシュボードを3列に分割します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week4",
+          "sectionHeading": "2. Gridの基本クラス"
+        },
+        "relatedTermNames": ["col-span", "Flexbox"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week4-col-span",
+        "weekUnitId": "week-unit-week4",
+        "name": "col-span",
+        "definition": "グリッドアイテムが占める列数を指定するTailwindクラスです。",
+        "usageExamples": ["col-span-2で要素を2列分の幅にします。"],
+        "sourceReference": {
+          "weekKey": "week4",
+          "sectionHeading": "3. col-span で幅を変える"
+        },
+        "relatedTermNames": ["CSS Grid"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week4-hover",
+        "weekUnitId": "week-unit-week4",
+        "name": "hover:",
+        "definition": "マウスカーソルが要素上にある状態のスタイルを指定するTailwindの擬似クラスプレフィックスです。",
+        "usageExamples": ["hover:bg-blue-500でホバー時に背景色を変えます。"],
+        "sourceReference": {
+          "weekKey": "week4",
+          "sectionHeading": "5. hover: で状態に応じたスタイル"
+        },
+        "relatedTermNames": [],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week4-transition",
+        "weekUnitId": "week-unit-week4",
+        "name": "transition",
+        "definition": "CSSプロパティの変化をなめらかにアニメーション表示するCSSの機能です。",
+        "usageExamples": [
+          "transition-colors duration-200でホバー時の色変化をアニメーション化します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week4",
+          "sectionHeading": "5. hover: で状態に応じたスタイル"
+        },
+        "relatedTermNames": ["hover:"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week4-grid-cols",
+        "weekUnitId": "week-unit-week4",
+        "name": "grid-cols",
+        "definition": "CSS Gridコンテナの列数を指定するTailwindクラス（grid-template-columns）です。",
+        "usageExamples": ["grid-cols-3で3列グリッドを作ります。"],
+        "sourceReference": {
+          "weekKey": "week4",
+          "sectionHeading": "2. Gridの基本クラス"
+        },
+        "relatedTermNames": ["CSS Grid", "col-span"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week5-responsive",
+        "weekUnitId": "week-unit-week5",
+        "name": "レスポンシブデザイン",
+        "definition": "画面サイズや端末の種類に応じてレイアウトやスタイルを自動調整するWebデザイン手法です。",
+        "usageExamples": [
+          "スマホは1列、PCは3列に切り替わるカードレイアウトを作ります。"
+        ],
+        "sourceReference": {
+          "weekKey": "week5",
+          "sectionHeading": "1. なぜレスポンシブデザインが必要か"
+        },
+        "relatedTermNames": ["ブレイクポイント", "モバイルファースト"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week5-breakpoint",
+        "weekUnitId": "week-unit-week5",
+        "name": "ブレイクポイント",
+        "definition": "レスポンシブデザインでレイアウトが切り替わる画面幅の境界値です。Tailwindではsm/md/lg/xl/2xlで定義されています。",
+        "usageExamples": ["md:（768px以上）でPC用のレイアウトに切り替えます。"],
+        "sourceReference": {
+          "weekKey": "week5",
+          "sectionHeading": "3. ブレイクポイント接頭辞"
+        },
+        "relatedTermNames": ["レスポンシブデザイン", "モバイルファースト"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week5-mobile-first",
+        "weekUnitId": "week-unit-week5",
+        "name": "モバイルファースト",
+        "definition": "まずモバイル（小画面）向けのスタイルを定義し、大きな画面向けを上書き追加するWebデザインのアプローチです。",
+        "usageExamples": [
+          "flex flex-col md:flex-rowでスマホ縦・PC横を実現します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week5",
+          "sectionHeading": "2. Tailwindはモバイルファースト"
+        },
+        "relatedTermNames": ["レスポンシブデザイン", "ブレイクポイント"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week5-media-query",
+        "weekUnitId": "week-unit-week5",
+        "name": "メディアクエリ",
+        "definition": "画面幅などの条件に応じてCSSを切り替えるCSS機能です。Tailwindではsmやmdなどのブレイクポイント接頭辞として利用します。",
+        "usageExamples": [
+          "@media (min-width: 768px)で768px以上に適用するスタイルを書きます。"
+        ],
+        "sourceReference": {
+          "weekKey": "week5",
+          "sectionHeading": "3. ブレイクポイント接頭辞"
+        },
+        "relatedTermNames": ["ブレイクポイント", "レスポンシブデザイン"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week5-viewport",
+        "weekUnitId": "week-unit-week5",
+        "name": "viewport",
+        "definition": "ブラウザでWebページが実際に表示される領域のことです。デバイスの画面幅に合わせてスケールするため、metaタグでの設定が必要です。",
+        "usageExamples": [
+          "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+        ],
+        "sourceReference": {
+          "weekKey": "week5",
+          "sectionHeading": "5. DevToolsでレスポンシブを確認する"
+        },
+        "relatedTermNames": ["レスポンシブデザイン", "ブレイクポイント"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week6-const",
+        "weekUnitId": "week-unit-week6",
+        "name": "const",
+        "definition": "JavaScriptで再代入不可の変数を宣言するキーワードです。宣言時に初期値が必要で、変数への再代入はエラーになります。",
+        "usageExamples": ["const PI = 3.14159;で定数を定義します。"],
+        "sourceReference": {
+          "weekKey": "week6",
+          "sectionHeading": "3. 変数：値に名前をつける"
+        },
+        "relatedTermNames": ["let"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week6-let",
+        "weekUnitId": "week-unit-week6",
+        "name": "let",
+        "definition": "JavaScriptで再代入可能な変数を宣言するキーワードです。ブロックスコープを持ちます。",
+        "usageExamples": ["let count = 0; count++;で再代入します。"],
+        "sourceReference": {
+          "weekKey": "week6",
+          "sectionHeading": "3. 変数：値に名前をつける"
+        },
+        "relatedTermNames": ["const"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week6-arrow-function",
+        "weekUnitId": "week-unit-week6",
+        "name": "アロー関数",
+        "definition": "JavaScriptの簡潔な関数記法で、`(引数) => { 処理 }` の形で書きます。",
+        "usageExamples": [
+          "const add = (a, b) => a + b;で加算関数を定義します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week6",
+          "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+        },
+        "relatedTermNames": ["const", "return"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week6-return",
+        "weekUnitId": "week-unit-week6",
+        "name": "return",
+        "definition": "JavaScript関数から値を返すキーワードです。returnに続く式が関数の戻り値になります。",
+        "usageExamples": [
+          "return weight / (height * height);でBMIの計算結果を返します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week6",
+          "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+        },
+        "relatedTermNames": ["アロー関数"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week6-number-conversion",
+        "weekUnitId": "week-unit-week6",
+        "name": "Number()",
+        "definition": "文字列や他の型を数値に変換するJavaScriptの組み込み関数です。",
+        "usageExamples": [
+          "Number(input.value)でフォームの入力値を数値に変換します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week6",
+          "sectionHeading": "4. データ型：値の種類"
+        },
+        "relatedTermNames": ["let", "const"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week6-nan",
+        "weekUnitId": "week-unit-week6",
+        "name": "NaN",
+        "definition": "Not a Number（数値でない）を表すJavaScriptの特殊値です。数値に変換できない文字列を演算すると発生します。",
+        "usageExamples": ["Number('abc')はNaNを返します。"],
+        "sourceReference": {
+          "weekKey": "week6",
+          "sectionHeading": "9. よくある間違いと確認ポイント"
+        },
+        "relatedTermNames": ["Number()"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week3-flex-direction",
+        "weekUnitId": "week-unit-week3",
+        "name": "flex-direction",
+        "definition": "Flexコンテナの主軸の向きを決めるCSSプロパティで、rowなら横方向、columnなら縦方向に子要素を並べます。",
+        "usageExamples": [
+          "flex-colでflex-direction: columnを指定し、カードを縦に並べます。"
+        ],
+        "sourceReference": {
+          "weekKey": "week3",
+          "sectionHeading": "6. flex-col：縦方向に並べる"
+        },
+        "relatedTermNames": ["Flexbox", "flex-col"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week3-flex-container",
+        "weekUnitId": "week-unit-week3",
+        "name": "Flexコンテナ",
+        "definition": "display: flexが指定された親要素で、直接の子要素を主軸と交差軸に沿って配置するためのレイアウト用コンテナです。",
+        "usageExamples": [
+          "flex flex-wrapでカードを画面幅に合わせて折り返します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week3",
+          "sectionHeading": "7. flex-wrap：はみ出した時に折り返す"
+        },
+        "relatedTermNames": ["Flexbox", "gap"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week4-odd",
+        "weekUnitId": "week-unit-week4",
+        "name": "odd:",
+        "definition": "親要素の中で奇数番目にある子要素へ、指定したTailwindのスタイルを適用する擬似クラスプレフィックスです。",
+        "usageExamples": [
+          "odd:bg-gray-100でリストの奇数行に背景色を付けます。"
+        ],
+        "sourceReference": {
+          "weekKey": "week4",
+          "sectionHeading": "6. odd: / even: で行ごとに色を変える"
+        },
+        "relatedTermNames": ["even:", "CSS Grid"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week4-pseudo-class",
+        "weekUnitId": "week-unit-week4",
+        "name": "擬似クラス",
+        "definition": "要素の特定状態や親の中での位置に応じてCSSを適用する仕組みで、hoverやoddなどが代表例です。",
+        "usageExamples": [
+          "hover:でマウスが乗った状態、odd:で奇数番目の状態を表します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week4",
+          "sectionHeading": "5. hover: で状態に応じたスタイル"
+        },
+        "relatedTermNames": ["hover:", "odd:"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week5-mobile-first-principle",
+        "weekUnitId": "week-unit-week5",
+        "name": "モバイルファースト設計",
+        "definition": "小さな画面向けの基本レイアウトを先に作り、ブレイクポイントで広い画面向けの指定を追加する設計方針です。",
+        "usageExamples": [
+          "flex-colを基本にしてmd:flex-rowでPC幅だけ横並びにします。"
+        ],
+        "sourceReference": {
+          "weekKey": "week5",
+          "sectionHeading": "2. Tailwindはモバイルファースト"
+        },
+        "relatedTermNames": ["レスポンシブデザイン", "ブレイクポイント"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week5-hidden",
+        "weekUnitId": "week-unit-week5",
+        "name": "hidden",
+        "definition": "要素を表示領域から隠すTailwindクラスで、display: noneを指定し、通常はレイアウト上の領域も占有しません。",
+        "usageExamples": [
+          "hidden md:blockでスマホでは隠し、PC幅で表示します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week5",
+          "sectionHeading": "3. ブレイクポイント接頭辞"
+        },
+        "relatedTermNames": ["ブレイクポイント", "レスポンシブデザイン"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week6-boolean",
+        "weekUnitId": "week-unit-week6",
+        "name": "boolean",
+        "definition": "trueまたはfalseの2つの値で状態を表すJavaScriptのデータ型で、条件分岐の判定によく利用します。",
+        "usageExamples": [
+          "const isReady = true;で準備ができた状態を表します。"
+        ],
+        "sourceReference": {
+          "weekKey": "week6",
+          "sectionHeading": "4. データ型：値の種類"
+        },
+        "relatedTermNames": ["条件分岐", "const"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week6-parameter",
+        "weekUnitId": "week-unit-week6",
+        "name": "引数",
+        "definition": "関数を呼び出すときに渡す入力値で、関数の処理へ外部からデータを受け渡すために使います。",
+        "usageExamples": ["greet(name)のnameは関数へ渡される引数です。"],
+        "sourceReference": {
+          "weekKey": "week6",
+          "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+        },
+        "relatedTermNames": ["return", "アロー関数"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-git-level1-git",
+        "weekUnitId": "week-unit-git-github-level1",
+        "name": "Git",
+        "definition": "ファイルの変更履歴を記録し、過去の状態や変更内容を確認できる分散型バージョン管理ツールです。",
+        "usageExamples": [
+          "Gitでソースコードの変更をコミットとして記録します。"
+        ],
+        "sourceReference": {
+          "weekKey": "git_github_level1",
+          "sectionHeading": "4. Git、GitHub 基礎知識"
+        },
+        "relatedTermNames": ["GitHub", "コミット", "リポジトリ"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-git-level1-github",
+        "weekUnitId": "week-unit-git-github-level1",
+        "name": "GitHub",
+        "definition": "Gitで管理するリポジトリをインターネット上で共有し、レビューや共同開発を支援するWebサービスです。",
+        "usageExamples": [
+          "GitHubでPull Requestを作成して変更をレビューします。"
+        ],
+        "sourceReference": {
+          "weekKey": "git_github_level1",
+          "sectionHeading": "4. Git、GitHub 基礎知識"
+        },
+        "relatedTermNames": ["Git", "リモートリポジトリ", "Pull Request"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-git-level1-repository",
+        "weekUnitId": "week-unit-git-github-level1",
+        "name": "リポジトリ",
+        "definition": "特定のプロジェクトに関するコード、ドキュメント、変更履歴などをまとめて保存し管理する場所です。",
+        "usageExamples": ["git cloneでリモートリポジトリを手元へ複製します。"],
+        "sourceReference": {
+          "weekKey": "git_github_level1",
+          "sectionHeading": "4. Git、GitHub 基礎知識"
+        },
+        "relatedTermNames": ["ローカルリポジトリ", "リモートリポジトリ", "Git"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-git-level1-branch",
+        "weekUnitId": "week-unit-git-github-level1",
+        "name": "ブランチ",
+        "definition": "主要なコードラインから分岐して、ほかの作業へ直接影響させずに特定の変更を進めるための作業空間です。",
+        "usageExamples": [
+          "featureブランチへ切り替えてプロフィールを編集します。"
+        ],
+        "sourceReference": {
+          "weekKey": "git_github_level1",
+          "sectionHeading": "4. Git、GitHub 基礎知識"
+        },
+        "relatedTermNames": ["git checkout", "main", "Pull Request"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-git-level1-pull-request",
+        "weekUnitId": "week-unit-git-github-level1",
+        "name": "Pull Request",
+        "definition": "作業ブランチの変更を別のブランチへ取り込む前に、差分の確認やレビューを依頼するGitHubの機能です。",
+        "usageExamples": ["featureからmainへのPull Requestを作成します。"],
+        "sourceReference": {
+          "weekKey": "git_github_level1",
+          "sectionHeading": "6. GitHub で Pull Request (PR) を使ってコードを反映してみよう"
+        },
+        "relatedTermNames": ["ブランチ", "マージ", "GitHub"],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week2-padding",
+        "weekUnitId": "week-unit-week2",
+        "name": "padding",
+        "definition": "要素の内側に設ける余白です。背景の端と文章の間隔を空けるときに使います。",
+        "usageExamples": ["p-5でカード本文の内側に余白を付けます。"],
+        "sourceReference": {
+          "weekKey": "week2",
+          "sectionHeading": "2. 余白：内側と外側を分けて考える"
+        },
+        "relatedTermNames": [],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week2-margin",
+        "weekUnitId": "week-unit-week2",
+        "name": "margin",
+        "definition": "要素の外側に設ける余白です。他の要素との間隔を調整するときに使います。",
+        "usageExamples": ["m-4でカードの外側に余白を付けます。"],
+        "sourceReference": {
+          "weekKey": "week2",
+          "sectionHeading": "2. 余白：内側と外側を分けて考える"
+        },
+        "relatedTermNames": [],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week2-mx-auto",
+        "weekUnitId": "week-unit-week2",
+        "name": "mx-auto",
+        "definition": "幅が決まったブロック要素の左右の余白を自動調整し、中央に配置するクラスです。",
+        "usageExamples": ["w-80 mx-autoで幅の決まったカードを中央へ置きます。"],
+        "sourceReference": {
+          "weekKey": "week2",
+          "sectionHeading": "3. 幅と中央寄せ"
+        },
+        "relatedTermNames": [],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week2-text-center",
+        "weekUnitId": "week-unit-week2",
+        "name": "text-center",
+        "definition": "要素の中の文字などを中央に揃えるクラスです。箱そのものの中央配置とは異なります。",
+        "usageExamples": ["pにtext-centerを付けて説明文を中央に揃えます。"],
+        "sourceReference": {
+          "weekKey": "week2",
+          "sectionHeading": "3. 幅と中央寄せ"
+        },
+        "relatedTermNames": [],
+        "published": true,
+        "deleted": false
+      },
+      {
+        "id": "term-week2-hover",
+        "weekUnitId": "week-unit-week2",
+        "name": "hover",
+        "definition": "マウスなどのポインターが要素に乗っている状態です。その間だけ見た目を変えられます。",
+        "usageExamples": [
+          "hover:text-gray-900で乗せた間だけ文字色を変えます。"
+        ],
+        "sourceReference": {
+          "weekKey": "week2",
+          "sectionHeading": "6. hover：マウスを乗せた時の変化"
+        },
+        "relatedTermNames": [],
+        "published": true,
+        "deleted": false
+      }
+    ],
+    "activities": [
+      {
+        "id": "activity-git-github-level1-terminal",
+        "type": "terminalToken",
+        "title": "Git/GitHub Level 1｜操作ミッション",
+        "root": {
+          "name": "workspace",
+          "type": "dir",
+          "children": [
+            {
+              "name": "sample-ph1-github",
+              "type": "dir",
+              "children": [
+                {
+                  "name": "index.html",
+                  "type": "file",
+                  "content": "<main>自己紹介</main>"
+                },
+                {
+                  "name": "assets",
+                  "type": "dir",
+                  "children": [
+                    {
+                      "name": "img",
+                      "type": "dir",
+                      "children": [
+                        {
+                          "name": "me.png",
+                          "type": "file",
+                          "content": "(profile image)"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "stages": [
+          {
+            "id": "git-level1-stage-001-pwd",
+            "mission": "いま作業しているディレクトリのフルパスを確認しよう。",
+            "hint": "現在地を表示する3文字のコマンドを選びます。",
+            "inputMode": "terminal",
+            "startCwd": ["sample-ph1-github"],
+            "tokens": [
+              {
+                "id": "git-level1-stage-001-pwd-token-01",
+                "label": "pwd",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-001-pwd-token-02",
+                "label": "cd",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-001-pwd-token-03",
+                "label": "ls",
+                "kind": "value"
+              }
+            ],
+            "commands": [
+              {
+                "argv": ["pwd"],
+                "output": ["/workspace/sample-ph1-github"]
+              }
+            ],
+            "goal": {
+              "commandSequence": [["pwd"]]
+            },
+            "successMessage": "pwdで作業中の場所を確認できました。"
+          },
+          {
+            "id": "git-level1-stage-002-cd",
+            "mission": "sample-ph1-githubにあるassetsディレクトリへ移動しよう。",
+            "hint": "change directoryの略と、移動先の名前を順に選びます。",
+            "inputMode": "terminal",
+            "startCwd": ["sample-ph1-github"],
+            "tokens": [
+              {
+                "id": "git-level1-stage-002-cd-token-01",
+                "label": "cd",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-002-cd-token-02",
+                "label": "assets",
+                "kind": "value"
+              },
+              {
+                "id": "git-level1-stage-002-cd-token-03",
+                "label": "pwd",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-002-cd-token-04",
+                "label": "ls",
+                "kind": "value"
+              }
+            ],
+            "commands": [
+              {
+                "argv": ["cd", "assets"],
+                "output": [],
+                "nextCwd": ["sample-ph1-github", "assets"]
+              }
+            ],
+            "goal": {
+              "commandSequence": [["cd", "assets"]]
+            },
+            "successMessage": "cd assetsで作業ディレクトリを移動できました。"
+          },
+          {
+            "id": "git-level1-stage-003-clone",
+            "mission": "GitHubの練習用リポジトリをworkspaceへ複製しよう。",
+            "hint": "git、複製する操作、リポジトリURLの順です。",
+            "inputMode": "terminal",
+            "startCwd": [],
+            "tokens": [
+              {
+                "id": "git-level1-stage-003-clone-token-01",
+                "label": "git",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-003-clone-token-02",
+                "label": "clone",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-003-clone-token-03",
+                "label": "https://github.com/posse-ap/sample-ph1-github.git",
+                "kind": "path"
+              },
+              {
+                "id": "git-level1-stage-003-clone-token-04",
+                "label": "pull",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-003-clone-token-05",
+                "label": "add",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-003-clone-token-06",
+                "label": "checkout",
+                "kind": "argument"
+              }
+            ],
+            "commands": [
+              {
+                "argv": [
+                  "git",
+                  "clone",
+                  "https://github.com/posse-ap/sample-ph1-github.git"
+                ],
+                "output": [
+                  "Cloning into 'sample-ph1-github'...",
+                  "clone completed"
+                ]
+              }
+            ],
+            "goal": {
+              "commandSequence": [
+                [
+                  "git",
+                  "clone",
+                  "https://github.com/posse-ap/sample-ph1-github.git"
+                ]
+              ]
+            },
+            "successMessage": "git cloneでリモートリポジトリを複製できました。"
+          },
+          {
+            "id": "git-level1-stage-004-fetch",
+            "mission": "GitHubで作成した新しいブランチ情報を取得しよう。",
+            "hint": "作業ファイルを変えず、リモートの最新情報だけを取得する操作です。",
+            "inputMode": "terminal",
+            "startCwd": ["sample-ph1-github"],
+            "tokens": [
+              {
+                "id": "git-level1-stage-004-fetch-token-01",
+                "label": "git",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-004-fetch-token-02",
+                "label": "fetch",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-004-fetch-token-03",
+                "label": "pull",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-004-fetch-token-04",
+                "label": "push",
+                "kind": "argument"
+              }
+            ],
+            "commands": [
+              {
+                "argv": ["git", "fetch"],
+                "output": [
+                  "From github.com:posse-ap/sample-ph1-github",
+                  " * [new branch] feature_0.0_name -> origin/feature_0.0_name"
+                ]
+              }
+            ],
+            "goal": {
+              "commandSequence": [["git", "fetch"]]
+            },
+            "successMessage": "git fetchでリモートの最新情報を取得できました。"
+          },
+          {
+            "id": "git-level1-stage-005-checkout",
+            "mission": "編集を始める前にfeature_0.0_nameへ切り替えよう。",
+            "hint": "git、ブランチを切り替える操作、作業ブランチ名の順です。",
+            "inputMode": "terminal",
+            "startCwd": ["sample-ph1-github"],
+            "tokens": [
+              {
+                "id": "git-level1-stage-005-checkout-token-01",
+                "label": "git",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-005-checkout-token-02",
+                "label": "checkout",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-005-checkout-token-03",
+                "label": "feature_0.0_name",
+                "kind": "value"
+              },
+              {
+                "id": "git-level1-stage-005-checkout-token-04",
+                "label": "main_0.0_name",
+                "kind": "value"
+              },
+              {
+                "id": "git-level1-stage-005-checkout-token-05",
+                "label": "clone",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-005-checkout-token-06",
+                "label": "add",
+                "kind": "argument"
+              }
+            ],
+            "commands": [
+              {
+                "argv": ["git", "checkout", "feature_0.0_name"],
+                "output": ["Switched to branch 'feature_0.0_name'"]
+              }
+            ],
+            "goal": {
+              "commandSequence": [["git", "checkout", "feature_0.0_name"]]
+            },
+            "successMessage": "作業用のfeatureブランチへ切り替えられました。"
+          },
+          {
+            "id": "git-level1-stage-006-add-files",
+            "mission": "変更した2ファイルを、index.html → assets/img/me.pngの順に1ファイルずつコミット対象へ追加しよう。",
+            "hint": "まずindex.html、次にassets/img/me.pngをgit addします。1回ずつ実行できます。",
+            "inputMode": "terminal",
+            "startCwd": ["sample-ph1-github"],
+            "tokens": [
+              {
+                "id": "git-level1-stage-006-add-files-token-01",
+                "label": "git",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-006-add-files-token-02",
+                "label": "add",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-006-add-files-token-03",
+                "label": "index.html",
+                "kind": "path"
+              },
+              {
+                "id": "git-level1-stage-006-add-files-token-04",
+                "label": "assets/img/me.png",
+                "kind": "path"
+              },
+              {
+                "id": "git-level1-stage-006-add-files-token-05",
+                "label": ".",
+                "kind": "value"
+              },
+              {
+                "id": "git-level1-stage-006-add-files-token-06",
+                "label": "commit",
+                "kind": "argument"
+              }
+            ],
+            "commands": [
+              {
+                "argv": ["git", "add", "index.html"],
+                "output": ["staged: index.html"]
+              },
+              {
+                "argv": ["git", "add", "assets/img/me.png"],
+                "output": ["staged: assets/img/me.png"]
+              }
+            ],
+            "goal": {
+              "commandSequence": [
+                ["git", "add", "index.html"],
+                ["git", "add", "assets/img/me.png"]
+              ]
+            },
+            "successMessage": "2つの変更をコミット対象へ追加できました。"
+          },
+          {
+            "id": "git-level1-stage-007-commit",
+            "mission": "ステージング済みの変更を「自己紹介を更新」というメッセージで記録しよう。",
+            "hint": "git commitに-mを付け、その後ろに引用符付きのメッセージを置きます。",
+            "inputMode": "terminal",
+            "startCwd": ["sample-ph1-github"],
+            "tokens": [
+              {
+                "id": "git-level1-stage-007-commit-token-01",
+                "label": "git",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-007-commit-token-02",
+                "label": "commit",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-007-commit-token-03",
+                "label": "-m",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-007-commit-token-04",
+                "label": "\"自己紹介を更新\"",
+                "kind": "value"
+              },
+              {
+                "id": "git-level1-stage-007-commit-token-05",
+                "label": "add",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-007-commit-token-06",
+                "label": "push",
+                "kind": "argument"
+              }
+            ],
+            "commands": [
+              {
+                "argv": ["git", "commit", "-m", "\"自己紹介を更新\""],
+                "output": [
+                  "[feature_0.0_name a1b2c3d] 自己紹介を更新",
+                  " 2 files changed"
+                ]
+              }
+            ],
+            "goal": {
+              "commandSequence": [["git", "commit", "-m", "\"自己紹介を更新\""]]
+            },
+            "successMessage": "変更をローカルリポジトリの履歴へ記録できました。"
+          },
+          {
+            "id": "git-level1-stage-008-push",
+            "mission": "作成したコミットをoriginのfeature_0.0_nameへ送ろう。",
+            "hint": "git、送信する操作、リモート名、ブランチ名の順です。",
+            "inputMode": "terminal",
+            "startCwd": ["sample-ph1-github"],
+            "tokens": [
+              {
+                "id": "git-level1-stage-008-push-token-01",
+                "label": "git",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-008-push-token-02",
+                "label": "push",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-008-push-token-03",
+                "label": "origin",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-008-push-token-04",
+                "label": "feature_0.0_name",
+                "kind": "value"
+              },
+              {
+                "id": "git-level1-stage-008-push-token-05",
+                "label": "pull",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-008-push-token-06",
+                "label": "main_0.0_name",
+                "kind": "value"
+              }
+            ],
+            "commands": [
+              {
+                "argv": ["git", "push", "origin", "feature_0.0_name"],
+                "output": [
+                  "feature_0.0_name -> feature_0.0_name",
+                  "push completed"
+                ]
+              }
+            ],
+            "goal": {
+              "commandSequence": [["git", "push", "origin", "feature_0.0_name"]]
+            },
+            "successMessage": "featureブランチのコミットをGitHubへ送信できました。"
+          },
+          {
+            "id": "git-level1-stage-009-pr",
+            "mission": "Pull Requestでfeature_0.0_nameの変更をmain_0.0_nameへ反映する向きを設定しよう。",
+            "hint": "baseは反映先、compareは変更を持っている作業ブランチです。",
+            "inputMode": "pullRequest",
+            "startCwd": ["sample-ph1-github"],
+            "tokens": [
+              {
+                "id": "git-level1-stage-009-pr-token-01",
+                "label": "base:",
+                "kind": "control"
+              },
+              {
+                "id": "git-level1-stage-009-pr-token-02",
+                "label": "main_0.0_name",
+                "kind": "value"
+              },
+              {
+                "id": "git-level1-stage-009-pr-token-03",
+                "label": "compare:",
+                "kind": "control"
+              },
+              {
+                "id": "git-level1-stage-009-pr-token-04",
+                "label": "feature_0.0_name",
+                "kind": "value"
+              }
+            ],
+            "commands": [
+              {
+                "argv": [
+                  "base:",
+                  "main_0.0_name",
+                  "compare:",
+                  "feature_0.0_name"
+                ],
+                "output": [
+                  "base: main_0.0_name",
+                  "compare: feature_0.0_name",
+                  "Ready to create pull request"
+                ]
+              }
+            ],
+            "goal": {
+              "commandSequence": [
+                ["base:", "main_0.0_name", "compare:", "feature_0.0_name"]
+              ]
+            },
+            "successMessage": "baseとcompareを正しい向きで設定できました。"
+          },
+          {
+            "id": "git-level1-stage-010-pull",
+            "mission": "Mergedされた変更を手元のmain_0.0_nameへ取り込もう。",
+            "hint": "先に反映先ブランチへ切り替え、その後にoriginから同じブランチをpullします。",
+            "inputMode": "terminal",
+            "startCwd": ["sample-ph1-github"],
+            "tokens": [
+              {
+                "id": "git-level1-stage-010-pull-token-01",
+                "label": "git",
+                "kind": "command"
+              },
+              {
+                "id": "git-level1-stage-010-pull-token-02",
+                "label": "checkout",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-010-pull-token-03",
+                "label": "main_0.0_name",
+                "kind": "value"
+              },
+              {
+                "id": "git-level1-stage-010-pull-token-04",
+                "label": "pull",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-010-pull-token-05",
+                "label": "origin",
+                "kind": "argument"
+              },
+              {
+                "id": "git-level1-stage-010-pull-token-06",
+                "label": "feature_0.0_name",
+                "kind": "value"
+              }
+            ],
+            "commands": [
+              {
+                "argv": ["git", "checkout", "main_0.0_name"],
+                "output": ["Switched to branch 'main_0.0_name'"]
+              },
+              {
+                "argv": ["git", "pull", "origin", "main_0.0_name"],
+                "output": [
+                  "From github.com:posse-ap/sample-ph1-github",
+                  "Updating main_0.0_name",
+                  "Fast-forward"
+                ]
+              }
+            ],
+            "goal": {
+              "commandSequence": [
+                ["git", "checkout", "main_0.0_name"],
+                ["git", "pull", "origin", "main_0.0_name"]
+              ]
+            },
+            "successMessage": "正しいブランチへ切り替えてからマージ結果を取り込めました。"
+          }
+        ],
+        "published": true,
+        "deleted": false
+      }
+    ]
+  }
+}

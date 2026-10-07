@@ -1,0 +1,757 @@
+[
+  {
+    "question": {
+      "id": "question-week3-flex-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "カード3枚を横に並べたい。「親要素」は、この例ではどの範囲の要素？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "カード3枚を直接包む要素"
+          },
+          {
+            "id": "c",
+            "text": "ページ内のどのbodyでもよい"
+          },
+          {
+            "id": "d",
+            "text": "画像要素"
+          },
+          {
+            "id": "a",
+            "text": "各カードの中の見出し"
+          }
+        ],
+        "correctOptionId": "b",
+        "incorrectReasons": {
+          "a": "見出しはカードの中身です。カード同士を並べる親ではありません。",
+          "c": "bodyが対象カードの直接の親とは限りません。",
+          "d": "画像はカード同士を包む要素ではありません。"
+        }
+      },
+      "explanation": "Flexboxでは、並べたい要素を直接包む親にflexを指定します。この例では3枚のカードを包む要素です。親と直接の子の関係を見つけると、どこにflexを付けるか判断できます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "2. Flexboxの基本：「親」に `flex` をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：カード3枚を横に並べたい。「親要素」は、この例ではどの範囲の要素？",
+      "conceptId": "week3-section-2",
+      "variantGroup": "week3-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "2. Flexboxの基本：「親」に `flex` をつける",
+        "line": 42,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「Flexboxの基本：「親」に `flex` をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：カード3枚を直接包む要素",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-flex-002",
+      "weekUnitId": "week-unit-week3",
+      "format": "trueFalse",
+      "prompt": "`display: flex` を親要素に指定すると、子要素はデフォルトで横方向に並ぶ。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "flex-directionのデフォルト値はrowのため、子要素は横方向（左から右）に並びます。"
+        }
+      },
+      "explanation": "`display: flex` を指定すると、子要素はデフォルトで主軸方向（flex-directionがrowの場合は横方向）に並びます。縦並びにするには `flex-direction: column` または Tailwindの `flex-col` を使います。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "2. Flexboxの基本：「親」に `flex` をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：`display: flex` を親要素に指定すると、子要素はデフォルトで横方向に並ぶ。",
+      "conceptId": "week3-section-2",
+      "variantGroup": "week3-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "2. Flexboxの基本：「親」に `flex` をつける",
+        "line": 42,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「Flexboxの基本：「親」に `flex` をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：正しい",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-justify-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "flex-direction: rowの親で、子要素を左右に配置するプロパティはどれ？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "align-self"
+          },
+          {
+            "id": "a",
+            "text": "justify-content"
+          },
+          {
+            "id": "b",
+            "text": "align-items"
+          },
+          {
+            "id": "c",
+            "text": "flex-direction"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "align-itemsは交差軸（縦方向）の揃え方を制御します。",
+          "c": "flex-directionは主軸の向きを設定します。",
+          "d": "align-selfは個別の子要素の交差軸方向の揃え方を上書きします。"
+        }
+      },
+      "explanation": "justify-contentはFlexコンテナの主軸方向における子要素の配置を制御します。flex-start（左寄せ）、center（中央）、flex-end（右寄せ）、space-between（両端+均等）などを指定できます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "3. justify-content：横方向の並び方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：flex-direction: rowの親で、子要素を左右に配置するプロパティはどれ？",
+      "conceptId": "week3-section-3",
+      "variantGroup": "week3-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "3. justify-content：横方向の並び方を決める",
+        "line": 76,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「justify-content：横方向の並び方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：justify-content",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-justify-002",
+      "weekUnitId": "week-unit-week3",
+      "format": "fillBlank",
+      "prompt": "ヘッダーのロゴと右側のナビゲーションを左右両端に配置したい。Tailwindのクラスを選んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<header class=\"flex __BLANK__ items-center\">...</header>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "justify-start"
+          },
+          {
+            "id": "d",
+            "text": "justify-end"
+          },
+          {
+            "id": "a",
+            "text": "justify-between"
+          },
+          {
+            "id": "b",
+            "text": "justify-center"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "justify-centerは要素を中央に集めます。左右両端への配置にはjustify-betweenを使います。",
+          "c": "justify-startは左寄せです。左右両端への配置にはjustify-betweenを使います。",
+          "d": "justify-endは右寄せです。左右両端への配置にはjustify-betweenを使います。"
+        }
+      },
+      "explanation": "justify-between（justify-content: space-between）を使うと、最初の要素を左端に、最後の要素を右端に配置し、残りのスペースを均等に分配します。ヘッダーのロゴとナビゲーションの配置によく使われます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "3. justify-content：横方向の並び方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：ヘッダーのロゴと右側のナビゲーションを左右両端に配置したい。Tailwindのクラスを選んでください。",
+      "conceptId": "week3-section-3",
+      "variantGroup": "week3-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "3. justify-content：横方向の並び方を決める",
+        "line": 76,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「justify-content：横方向の並び方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：justify-between",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-align-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "flex-direction: rowのヘッダーで、高さの違うロゴと文字を上下中央に揃えます。親に付けるクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "justify-center"
+          },
+          {
+            "id": "c",
+            "text": "items-start"
+          },
+          {
+            "id": "d",
+            "text": "self-center"
+          },
+          {
+            "id": "a",
+            "text": "items-center"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "justify-centerは主軸（横）方向の中央揃えです。縦の中央揃えにはitems-centerを使います。",
+          "c": "items-startは上端揃えです。上下中央にはitems-centerを使います。",
+          "d": "self-centerは個々の子要素に指定するもので、親要素の全子要素には効きません。"
+        }
+      },
+      "explanation": "align-itemsは交差軸（flex-directionがrowの場合は縦方向）の揃え方を制御します。items-centerを親要素に指定すると、高さの異なる子要素を上下中央に揃えられます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "4. align-items：縦方向の揃え方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：flex-direction: rowのヘッダーで、高さの違うロゴと文字を上下中央に揃えます。親に付けるクラスは？",
+      "conceptId": "week3-section-4",
+      "variantGroup": "week3-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "4. align-items：縦方向の揃え方を決める",
+        "line": 102,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「align-items：縦方向の揃え方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：items-center",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-align-002",
+      "weekUnitId": "week-unit-week3",
+      "format": "trueFalse",
+      "prompt": "flex-direction: rowの親では、justify-contentは上下方向の揃え方を変える。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "justify-contentは主軸方向（flex-directionがrowなら横方向）を制御します。交差軸の制御はalign-itemsです。"
+        }
+      },
+      "explanation": "justify-contentは主軸方向の配置を制御し、align-itemsは交差軸方向の揃え方を制御します。flex-directionがrow（デフォルト）の場合、主軸は横方向で交差軸は縦方向です。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "4. align-items：縦方向の揃え方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：flex-direction: rowの親では、justify-contentは上下方向の揃え方を変える。",
+      "conceptId": "week3-section-4",
+      "variantGroup": "week3-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "4. align-items：縦方向の揃え方を決める",
+        "line": 102,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「align-items：縦方向の揃え方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：誤り",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-gap-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "横並びのカード間だけに一定の16pxの間隔を付けたい。親に使う方法は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "justify-content: space-between を使う"
+          },
+          {
+            "id": "a",
+            "text": "gap: 16pxを指定する（Tailwindならgap-4）"
+          },
+          {
+            "id": "b",
+            "text": "各子要素に margin-right を指定する"
+          },
+          {
+            "id": "c",
+            "text": "各子要素に padding を指定する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "margin-rightを使うと最後の要素にも余白ができてしまいます。gapの方がシンプルです。",
+          "c": "paddingは要素の内側の余白で、要素間の間隔には向きません。",
+          "d": "space-betweenは要素間のスペースを均等にしますが、間隔のサイズを直接指定できません。"
+        }
+      },
+      "explanation": "gapプロパティはFlexコンテナの子要素の間隔を均等に設定します。各子要素にmarginを個別指定するよりシンプルで、最初・最後の要素に不要な余白が生まれません。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "5. gap：要素と要素の間隔を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：横並びのカード間だけに一定の16pxの間隔を付けたい。親に使う方法は？",
+      "conceptId": "week3-section-5",
+      "variantGroup": "week3-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "5. gap：要素と要素の間隔を決める",
+        "line": 156,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「gap：要素と要素の間隔を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：gap: 16pxを指定する（Tailwindならgap-4）",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-flex-col-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "Tailwindで要素を縦並びにし、かつ各要素間に16px（gap-4）の間隔を入れたい。正しいクラスの組み合わせはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "flex-col gap-4"
+          },
+          {
+            "id": "d",
+            "text": "block gap-4"
+          },
+          {
+            "id": "a",
+            "text": "flex flex-col gap-4"
+          },
+          {
+            "id": "b",
+            "text": "flex gap-4"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "flexだけではデフォルトで横並びになります。縦並びにはflex-colを追加します。",
+          "c": "この要素ではflexによる配置が有効になっていません。flexも必要です。",
+          "d": "blockレイアウトではgapは機能しません。flexと組み合わせる必要があります。"
+        }
+      },
+      "explanation": "flexで子を並べる仕組みを有効にし、flex-colで縦方向、gap-4で16pxの間隔を指定します。この組み合わせで、方向と間隔を別々に指定できます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "6. flex-col：縦方向に並べる"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindで要素を縦並びにし、かつ各要素間に16px（gap-4）の間隔を入れたい。正しいクラスの組み合わせはどれですか？",
+      "conceptId": "week3-section-6",
+      "variantGroup": "week3-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "6. flex-col：縦方向に並べる",
+        "line": 179,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「flex-col：縦方向に並べる」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：flex flex-col gap-4",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-flex-wrap-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "trueFalse",
+      "prompt": "Flexboxのデフォルト動作では、子要素がコンテナの幅を超えても自動的に折り返す。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "デフォルトのflex-wrap: nowrapでは折り返しません。折り返すにはflex-wrapまたはTailwindのflex-wrapクラスを指定します。"
+        }
+      },
+      "explanation": "デフォルトのnowrapでは自動的に折り返しません。子要素が縮む場合もありますが、折り返す指定とは別です。折り返しにはflex-wrapを使います。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "7. flex-wrap：はみ出した時に折り返す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：Flexboxのデフォルト動作では、子要素がコンテナの幅を超えても自動的に折り返す。",
+      "conceptId": "week3-section-7",
+      "variantGroup": "week3-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "7. flex-wrap：はみ出した時に折り返す",
+        "line": 196,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「flex-wrap：はみ出した時に折り返す」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：誤り",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-responsive-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "375px幅では縦並び、768px以上では横並びにするTailwindの書き方として正しいのはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "flex flex-col md:flex-row"
+          },
+          {
+            "id": "b",
+            "text": "md:flex md:flex-col flex-row"
+          },
+          {
+            "id": "c",
+            "text": "flex flex-row md:flex-col"
+          },
+          {
+            "id": "d",
+            "text": "sm:flex-col md:flex-row"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "Tailwindはモバイルファーストです。小さい画面のスタイルが基本で、大きい画面で上書きします。",
+          "c": "flex-rowが基本になりスマホでも横並びになります。スマホ用のflex-colを基本にしてください。",
+          "d": "flexを指定せずにflex-colだけではdisplay: flexが有効になりません。"
+        }
+      },
+      "explanation": "Tailwindはモバイルファーストです。まずスマホ用のスタイル（flex flex-col）を書き、mdブレイクポイント以上で上書き（md:flex-row）します。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "8. スマホ幅で縦並びにする（レスポンシブ対応）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：375px幅では縦並び、768px以上では横並びにするTailwindの書き方として正しいのはどれですか？",
+      "conceptId": "week3-section-8",
+      "variantGroup": "week3-section-8",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "8. スマホ幅で縦並びにする（レスポンシブ対応）",
+        "line": 213,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「スマホ幅で縦並びにする（レスポンシブ対応）」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：flex flex-col md:flex-row",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-mistake-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "bugDiagnosis",
+      "prompt": "カードを横並びにしたいのに、縦並びのままになっています。バグの原因はどれですか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<div>\n  <div class=\"flex\">\n    カード1\n  </div>\n  <div class=\"flex\">\n    カード2\n  </div>\n  <div class=\"flex\">\n    カード3\n  </div>\n</div>",
+        "options": [
+          {
+            "id": "d",
+            "text": "items-centerを追加する必要がある"
+          },
+          {
+            "id": "a",
+            "text": "flexを子要素に指定しているため、親要素にflexを指定する必要がある"
+          },
+          {
+            "id": "b",
+            "text": "flexの代わりにflex-rowを使う必要がある"
+          },
+          {
+            "id": "c",
+            "text": "gap-4を追加する必要がある"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "flex-rowはflexの設定に加えて方向を指定しますが、まず親要素にflexを指定することが先決です。",
+          "c": "gapは間隔の設定で、横並びにはなりません。",
+          "d": "items-centerは縦方向の揃えで、横並びには関係ありません。"
+        }
+      },
+      "explanation": "flexをつけるのは「子要素を横並びにしたい親要素」です。このコードでは各カード（子要素）にflexを指定していますが、横並びにしたいのはカード同士なので、カードを囲む外側のdivにflexを指定する必要があります。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "2. Flexboxの基本：「親」に `flex` をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：カードを横並びにしたいのに、縦並びのままになっています。バグの原因はどれですか？",
+      "conceptId": "week3-section-2",
+      "variantGroup": "week3-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "2. Flexboxの基本：「親」に `flex` をつける",
+        "line": 42,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「Flexboxの基本：「親」に `flex` をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：flexを子要素に指定しているため、親要素にflexを指定する必要がある",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week3-mistake-002",
+      "weekUnitId": "week-unit-week3",
+      "format": "bugDiagnosis",
+      "prompt": "ヘッダーのロゴとナビゲーションを左右に配置したいのに、両方が左寄せになっています。どこが間違っていますか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<header class=\"flex items-center\">\n  <span class=\"text-xl font-bold\">LOGO</span>\n  <nav>\n    <ul class=\"flex gap-4\">\n      <li><a href=\"#\">About</a></li>\n      <li><a href=\"#\">Works</a></li>\n    </ul>\n  </nav>\n</header>",
+        "options": [
+          {
+            "id": "c",
+            "text": "items-centerを削除して代わりにjustify-centerを使う"
+          },
+          {
+            "id": "d",
+            "text": "headerにposition: relativeを追加する"
+          },
+          {
+            "id": "a",
+            "text": "headerにjustify-betweenが指定されていない"
+          },
+          {
+            "id": "b",
+            "text": "ulにflex gap-4ではなくflex justify-betweenを使うべき"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ul内のナビゲーション項目の配置の問題ではなく、ヘッダー内のロゴとナビゲーション自体の配置が問題です。",
+          "c": "justify-centerにすると中央寄せになります。左右両端への配置にはjustify-betweenが必要です。",
+          "d": "positionは位置取りで、flexboxのレイアウトとは別の概念です。"
+        }
+      },
+      "explanation": "ヘッダー内のロゴとナビゲーションを左右に配置するには、親要素（header）にjustify-betweenを追加します。justify-content: space-betweenが、最初の要素（ロゴ）を左端に、最後の要素（ナビ）を右端に配置します。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "3. justify-content：横方向の並び方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：ヘッダーのロゴとナビゲーションを左右に配置したいのに、両方が左寄せになっています。どこが間違っていますか？",
+      "conceptId": "week3-section-3",
+      "variantGroup": "week3-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "3. justify-content：横方向の並び方を決める",
+        "line": 76,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「justify-content：横方向の並び方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：headerにjustify-betweenが指定されていない",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  }
+]

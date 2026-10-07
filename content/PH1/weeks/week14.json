@@ -1,0 +1,848 @@
+[
+  {
+    "question": {
+      "id": "question-week14-component-001",
+      "weekUnitId": "week-unit-week14",
+      "format": "singleChoice",
+      "prompt": "この教材の関数コンポーネントは、何をするものですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "HTMLのタグ名を小文字で増やすだけの操作"
+          },
+          {
+            "id": "a",
+            "text": "UIを表すJSXを返し、再利用できる関数"
+          },
+          {
+            "id": "b",
+            "text": "CSSの色だけを保存するファイル"
+          },
+          {
+            "id": "c",
+            "text": "APIの応答を必ず一つ返す通信専用関数"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "関数コンポーネントはUIを返す部品であり、CSSファイルとは違います。",
+          "c": "UI部品の役割と、通信の関数は別です。",
+          "d": "自分のコンポーネントは大文字始まりで使います。"
+        }
+      },
+      "explanation": "カード1人分のUIを関数として作り、複数回利用できます。共通の見た目を直す場所を一つにできるのが、この教材での目的です。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "同じカードを、一度作れば何度でも"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "コンポーネントを再利用するUIの関数として説明する",
+      "conceptId": "ph1-week14-component",
+      "variantGroup": "ph1-week14-component",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "同じカードを、一度作れば何度でも",
+        "line": 195,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-1/README.md：コンポーネントを再利用するUIの関数として説明する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "部品を作る関数が、どんな内容をreturnするか見ましょう。",
+      "success": "コンポーネントを再利用するUIの関数として説明する。条件に合う候補：UIを表すJSXを返し、再利用できる関数",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-props-002",
+      "weekUnitId": "week-unit-week14",
+      "format": "singleChoice",
+      "prompt": "propsは、このカードでは何ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "親からカードへ渡す、名前・役割などの入力値"
+          },
+          {
+            "id": "b",
+            "text": "カードの中で自由に書き換える親の変数そのもの"
+          },
+          {
+            "id": "c",
+            "text": "mapの最後に必ず追加する空のli"
+          },
+          {
+            "id": "d",
+            "text": "CSSを読み込むimportの別名"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "propsは読み取る入力です。子が親の値を直接変更する手段ではありません。",
+          "c": "propsはHTMLの要素ではなく、渡された値です。",
+          "d": "ファイルの読み込みと、部品へ値を渡すことは別です。"
+        }
+      },
+      "explanation": "同じMemberCardへ違うnameやroleを渡すと、同じ形で異なる中身を表示できます。渡す側と受け取る側の名前を対応させます。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "型は同じ、中身だけ変えたい"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "propsを親から受け取る部品の入力として説明する",
+      "conceptId": "ph1-week14-props",
+      "variantGroup": "ph1-week14-props",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "型は同じ、中身だけ変えたい",
+        "line": 258,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-1/README.md：propsを親から受け取る部品の入力として説明する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "共通の型と、毎回変わる中身を分けましょう。",
+      "success": "propsを親から受け取る部品の入力として説明する。条件に合う候補：親からカードへ渡す、名前・役割などの入力値",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-jsx-expression-003",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "titleの値「本棚」をJSXに表示します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "title"
+          },
+          {
+            "id": "c",
+            "text": "\"title\""
+          },
+          {
+            "id": "d",
+            "text": "title()"
+          },
+          {
+            "id": "a",
+            "text": "{title}"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "波括弧がないので、titleという文字がそのまま表示されます。",
+          "c": "変数参照ではなく、引用符を含む文字として扱われます。",
+          "d": "JSXのテキスト部分に書くだけでは式の実行にならず、titleも関数ではありません。"
+        },
+        "content": "const title = \"本棚\";\nconst heading = <h1>___</h1>;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "JSXにJavaScriptの値を埋め込むには波括弧を使います。{title}は変数の値を参照し、titleだけなら文字そのものです。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "見た目はHTML、書いているのはJavaScript"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "JSXの波括弧と式の評価を対応させる",
+      "conceptId": "ph1-week14-jsx-expression",
+      "variantGroup": "ph1-week14-jsx-expression",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "見た目はHTML、書いているのはJavaScript",
+        "line": 87,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-1/README.md：JSXの波括弧と式の評価を対応させる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "文字の表示と、変数の値の表示を分けましょう。",
+      "success": "JSXの波括弧と式の評価を対応させる。条件に合う候補：{title}",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const title = \"本棚\";\nconst heading = <h1>___</h1>;",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-class-name-004",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "ReactのJSXでcardクラスを付けます。属性名の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "classname"
+          },
+          {
+            "id": "d",
+            "text": "name"
+          },
+          {
+            "id": "a",
+            "text": "className"
+          },
+          {
+            "id": "b",
+            "text": "classList"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "classListはDOMのクラス操作で、JSXのクラス属性名ではありません。",
+          "c": "JSXで使う名前はclassNameで、大文字小文字が違います。",
+          "d": "nameはCSSクラスを指定する属性ではありません。"
+        },
+        "content": "const card = <div ___=\"card\">メンバー</div>;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "JSXではCSSクラスをclassNameで指定します。HTMLでのclassと、JSXでの書き方を切り替えます。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "見た目はHTML、書いているのはJavaScript"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "HTMLからJSXへクラスの書き方を切り替える",
+      "conceptId": "ph1-week14-class-name",
+      "variantGroup": "ph1-week14-class-name",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "見た目はHTML、書いているのはJavaScript",
+        "line": 87,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-1/README.md：HTMLからJSXへクラスの書き方を切り替える。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "属性名の大文字小文字にも注目しましょう。",
+      "success": "HTMLからJSXへクラスの書き方を切り替える。条件に合う候補：className",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const card = <div ___=\"card\">メンバー</div>;",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-map-ui-005",
+      "weekUnitId": "week-unit-week14",
+      "format": "singleChoice",
+      "prompt": "配列membersの各データからMemberCardのJSXを作り、一覧へ渡したい。教材の方法は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "1人目のデータだけ表示する"
+          },
+          {
+            "id": "a",
+            "text": "members.mapで各データをJSXへ変換する"
+          },
+          {
+            "id": "b",
+            "text": "members.popで末尾を削除する"
+          },
+          {
+            "id": "c",
+            "text": "forEachの戻り値をそのままJSXの一覧にする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "全件をUIへ変換する処理ではありません。",
+          "c": "forEachの戻り値は、新しいJSXの配列ではありません。",
+          "d": "メンバー全件の一覧になりません。"
+        }
+      },
+      "explanation": "mapは各データからJSXを作った新しい配列を返せます。forEachでDOMを追加していた方法から、JSXの配列を返す方法へ切り替えます。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "本が10冊に増えたら"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "一覧のデータからJSX配列を作る方法にmapを選ぶ",
+      "conceptId": "ph1-week14-map-ui",
+      "variantGroup": "ph1-week14-map-ui",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "本が10冊に増えたら",
+        "line": 319,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-3/README.md：一覧のデータからJSX配列を作る方法にmapを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "処理をするだけでなく、JSXを集めた戻り値が必要です。",
+      "success": "一覧のデータからJSX配列を作る方法にmapを選ぶ。条件に合う候補：members.mapで各データをJSXへ変換する",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-component-import-006",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "src/components/MemberCard.jsxでexport default済みです。src/App.jsxから読むパスの空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "./components/MemberCard.jsx"
+          },
+          {
+            "id": "b",
+            "text": "./MemberCard.jsx"
+          },
+          {
+            "id": "c",
+            "text": "../components/MemberCard.jsx"
+          },
+          {
+            "id": "d",
+            "text": "./components/MemberCards.jsx"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "App.jsxと同じフォルダには、提示されたMemberCard.jsxはありません。",
+          "c": "srcの外へ一つ戻るため、提示された配置と違います。",
+          "d": "MemberCardsではなくMemberCardというファイル名です。"
+        },
+        "content": "import MemberCard from \"___\";",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "App.jsxから見てcomponentsフォルダの中にあるため、./components/MemberCard.jsxを指定します。部品のexportと使用側のimportをつなぎます。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "部品を、別ファイルに引っ越す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "部品の配置に合う相対importパスを選ぶ",
+      "conceptId": "ph1-week14-component-import",
+      "variantGroup": "ph1-week14-component-import",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "部品を、別ファイルに引っ越す",
+        "line": 402,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-1/README.md：部品の配置に合う相対importパスを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "importを書くファイルから見た位置をたどりましょう。",
+      "success": "部品の配置に合う相対importパスを選ぶ。条件に合う候補：./components/MemberCard.jsx",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "import MemberCard from \"___\";",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-props-value-007",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "親は<MemberCard name=\"田中\" role=\"エンジニア\" />を表示します。子で役割を表示する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "name"
+          },
+          {
+            "id": "c",
+            "text": "\"role\""
+          },
+          {
+            "id": "d",
+            "text": "member.role"
+          },
+          {
+            "id": "a",
+            "text": "role"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "名前の田中を表示しており、役割ではありません。",
+          "c": "roleという文字を表示するだけで、渡された値を使っていません。",
+          "d": "この関数にはmemberという変数を渡していません。"
+        },
+        "content": "function MemberCard({ name, role }) {\n  return <p>{___}</p>;\n}",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "親からroleという名前で渡した値を、子もroleとして受け取りJSXへ埋め込みます。属性名・引数・表示する値を対応させます。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "型は同じ、中身だけ変えたい"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "親のprops・子の受け取り・JSX表示をつなぐ",
+      "conceptId": "ph1-week14-props-value",
+      "variantGroup": "ph1-week14-props-value",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "型は同じ、中身だけ変えたい",
+        "line": 258,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-1/README.md：親のprops・子の受け取り・JSX表示をつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "親が渡した名前が、子のどの引数とつながるか見ましょう。",
+      "success": "親のprops・子の受け取り・JSX表示をつなぐ。条件に合う候補：role",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "function MemberCard({ name, role }) {\n  return <p>{___}</p>;\n}",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-key-008",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "各fruit.idは重複しない固定IDです。nameやpriceは重複する場合があります。並べ替える一覧のkeyの空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "\"fruit\""
+          },
+          {
+            "id": "d",
+            "text": "fruit.price"
+          },
+          {
+            "id": "a",
+            "text": "fruit.id"
+          },
+          {
+            "id": "b",
+            "text": "index"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "並べ替えで位置が変わるので、データ固有のIDを使う目的と違います。",
+          "c": "全件に同じkeyを渡し、区別できません。",
+          "d": "金額は同じ商品があり得るため、重複しないIDの代わりにはしません。"
+        },
+        "content": "{fruits.map((fruit, index) => (\n  <li key={___}>{fruit.name} - {fruit.price}円</li>\n))}",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "keyは同じ一覧の中で要素を識別する目印です。並び位置ではなく、データに付いた安定したIDを使うと、並べ替えても対応を保てます。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "本が10冊に増えたら"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "map・データ固有のID・JSXのkeyをつなぐ",
+      "conceptId": "ph1-week14-key",
+      "variantGroup": "ph1-week14-key",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "本が10冊に増えたら",
+        "line": 319,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-3/README.md：map・データ固有のID・JSXのkeyをつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "同じデータが動いても変わらない目印はどれでしょうか。",
+      "success": "map・データ固有のID・JSXのkeyをつなぐ。条件に合う候補：fruit.id",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "{fruits.map((fruit, index) => (\n  <li key={___}>{fruit.name} - {fruit.price}円</li>\n))}",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-data-ui-flow-009",
+      "weekUnitId": "week-unit-week14",
+      "format": "singleChoice",
+      "prompt": "メンバー配列を再利用するカードで一覧表示する流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "props → 配列を全部消す → CSSだけ追加"
+          },
+          {
+            "id": "a",
+            "text": "配列 → mapで1件を取り出す → propsを渡す → カードのJSXを返す"
+          },
+          {
+            "id": "b",
+            "text": "配列 → DOMを直接追加 → その戻り値をpropsにする"
+          },
+          {
+            "id": "c",
+            "text": "配列 → 毎回すべての名前を一つの固定カードへ書く"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "教材のReact一覧の流れではなく、JSXへの変換がつながっていません。",
+          "c": "1件ごとのカードを作る目的に合いません。",
+          "d": "表示するデータをUIへ渡していません。"
+        }
+      },
+      "explanation": "mapで1件ずつ受け取り、必要な値をpropsとして共通の部品へ渡します。部品が返したJSXを集めると、データ件数に応じた一覧になります。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "本が10冊に増えたら"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "配列・map・props・部品の返すUIを組み合わせる",
+      "conceptId": "ph1-week14-data-ui-flow",
+      "variantGroup": "ph1-week14-data-ui-flow",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "本が10冊に増えたら",
+        "line": 319,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-3/README.md：配列・map・props・部品の返すUIを組み合わせる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "データ1件と、カード1枚の対応を追いましょう。",
+      "success": "配列・map・props・部品の返すUIを組み合わせる。条件に合う候補：配列 → mapで1件を取り出す → propsを渡す → カードのJSXを返す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-missing-key-010",
+      "weekUnitId": "week-unit-week14",
+      "format": "bugDiagnosis",
+      "prompt": "タイトルは出ますが、unique \"key\" propの警告が出ました。各book.idは重複しないIDです。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "mapが直接返すliへkey={book.id}を付ける"
+          },
+          {
+            "id": "b",
+            "text": "ulにkey=\"books\"だけ付ける"
+          },
+          {
+            "id": "c",
+            "text": "すべてのliにkey=\"book\"を付ける"
+          },
+          {
+            "id": "d",
+            "text": "titleを小文字へ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "リスト内の各liを識別するkeyの不足は直りません。",
+          "c": "同じ一覧の中でkeyが重複してしまいます。",
+          "d": "表示文字の変更はkeyの警告を直しません。"
+        },
+        "code": "{books.map((book) => (\n  <li>{book.title}</li>\n))}"
+      },
+      "explanation": "keyを付けるのは、mapが返す各要素です。表示されたことだけで完了とせず、Consoleの警告とコードの目印を照合します。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "本が10冊に増えたら"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "Consoleのkey警告から修正する要素を絞る",
+      "conceptId": "ph1-week14-missing-key",
+      "variantGroup": "ph1-week14-missing-key",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "本が10冊に増えたら",
+        "line": 319,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-2/README.md：Consoleのkey警告から修正する要素を絞る。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "一覧の親ではなく、1件ごとの要素を見る必要があります。",
+      "success": "Consoleのkey警告から修正する要素を絞る。条件に合う候補：mapが直接返すliへkey={book.id}を付ける",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "{books.map((book) => (\n  <li>{book.title}</li>\n))}",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-component-case-011",
+      "weekUnitId": "week-unit-week14",
+      "format": "bugDiagnosis",
+      "prompt": "MemberCard関数を定義したのに、カードの中身が出ません。呼び出しを直す候補は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "関数名だけをmemberCardへ変える"
+          },
+          {
+            "id": "c",
+            "text": "pの文字を英語へ変える"
+          },
+          {
+            "id": "d",
+            "text": "MemberCardのreturnを消す"
+          },
+          {
+            "id": "a",
+            "text": "<MemberCard />と大文字始まりにする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "小文字始まりのタグは、Reactで自作の関数コンポーネントとして扱われません。",
+          "c": "関数が呼ばれない原因であるタグ名を直していません。",
+          "d": "UIを返す処理をなくしてしまいます。"
+        },
+        "code": "function MemberCard() { return <p>田中</p>; }\nfunction App() { return <memberCard />; }"
+      },
+      "explanation": "JSXで小文字始まりのタグはHTML側の要素として扱われます。自分で定義した部品はMemberCardのように大文字始まりで呼び出します。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "同じカードを、一度作れば何度でも"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "部品の未表示を呼び出し名の違いへ絞る",
+      "conceptId": "ph1-week14-component-case",
+      "variantGroup": "ph1-week14-component-case",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "同じカードを、一度作れば何度でも",
+        "line": 195,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-1/README.md：部品の未表示を呼び出し名の違いへ絞る。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "定義した関数名と、JSX側の大文字小文字を照合しましょう。",
+      "success": "部品の未表示を呼び出し名の違いへ絞る。条件に合う候補：<MemberCard />と大文字始まりにする",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "function MemberCard() { return <p>田中</p>; }\nfunction App() { return <memberCard />; }",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-root-012",
+      "weekUnitId": "week-unit-week14",
+      "format": "bugDiagnosis",
+      "prompt": "見出しと本文の両方を残したいのに、JSXの構文エラーが出ます。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "h1の文字だけ変える"
+          },
+          {
+            "id": "d",
+            "text": "classNameを全部classに変える"
+          },
+          {
+            "id": "a",
+            "text": "2つの要素を<>...</>または一つのdivで包む"
+          },
+          {
+            "id": "b",
+            "text": "pを削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "エラーが消えても、両方残すという条件を満たしません。",
+          "c": "隣り合うルート要素の構文は変わりません。",
+          "d": "複数の要素をまとめる問題とは別で、JSXの書き方も外れます。"
+        },
+        "code": "function App() {\n  return (\n    <h1>紹介</h1>\n    <p>メンバー一覧です</p>\n  );\n}"
+      },
+      "explanation": "このreturnでは、隣り合う要素を一つのJSXとしてまとめます。フラグメントなら余分なdivを増やさず、両方を残して返せます。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "見た目はHTML、書いているのはJavaScript"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "JSXの隣接要素の構文エラーを修正する",
+      "conceptId": "ph1-week14-root",
+      "variantGroup": "ph1-week14-root",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "heading": "見た目はHTML、書いているのはJavaScript",
+        "line": 87,
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "drillConnection": "drill-ph1/week14-1/README.md：JSXの隣接要素の構文エラーを修正する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "消すのではなく、返す内容を一つにまとめましょう。",
+      "success": "JSXの隣接要素の構文エラーを修正する。条件に合う候補：2つの要素を<>...</>または一つのdivで包む",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "function App() {\n  return (\n    <h1>紹介</h1>\n    <p>メンバー一覧です</p>\n  );\n}",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

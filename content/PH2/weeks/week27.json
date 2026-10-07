@@ -1,0 +1,1166 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week27-validation-001",
+      "weekUnitId": "week-unit-week27",
+      "format": "singleChoice",
+      "prompt": "バリデーションで確かめることは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "受け取った値が決めた形式や内容の条件を満たすか"
+          },
+          {
+            "id": "b",
+            "text": "CSSの色が同じかだけ"
+          },
+          {
+            "id": "c",
+            "text": "通信したので必ず正しいか"
+          },
+          {
+            "id": "d",
+            "text": "関数名が短いか"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "入力の内容の検証ではありません。",
+          "c": "送信できることと入力の正しさは別です。",
+          "d": "値の条件を確認していません。"
+        }
+      },
+      "explanation": "必須、長さ、メール形式などを仕様へ対応させます。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "1. バリデーション"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "入力検証の役割を説明する",
+      "conceptId": "ph2-week27-validation",
+      "variantGroup": "ph2-week27-validation",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "1. バリデーション",
+        "line": 7,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-1/README.md",
+          "heading": "27週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "865970630e72f93d52907526655a2bc314bb7b27ba79c250e421fb1e79d2f43d"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-1/index.php",
+          "line": 1,
+          "sha256": "7c26e13ce149e275d8b4ea198ec0d8ed937d5b0071b0712e803f1d43f802de8c",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-1/README.md：入力検証の役割を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "受け付ける条件を考えましょう。",
+      "success": "入力検証の役割を説明する。条件に合う候補：受け取った値が決めた形式や内容の条件を満たすか",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-server-validation-002",
+      "weekUnitId": "week-unit-week27",
+      "format": "singleChoice",
+      "prompt": "ブラウザでrequiredを付けていてもサーバーで検証する理由は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "requiredが必ずDBを作るから"
+          },
+          {
+            "id": "c",
+            "text": "PHPがHTMLを全く読めないから"
+          },
+          {
+            "id": "d",
+            "text": "CSSだけで値を完全に保護できるから"
+          },
+          {
+            "id": "a",
+            "text": "ブラウザ側の制約を経由しない入力も届き得る"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "HTMLの属性はDBを作りません。",
+          "c": "理由は入力の確認をサーバーでも行うためです。",
+          "d": "見た目では入力を保証できません。"
+        }
+      },
+      "explanation": "早い案内はブラウザ、受け付けてよいかの確認はサーバーにも置きます。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "サーバーサイドのバリデーション"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "検証する場所の役割を区別する",
+      "conceptId": "ph2-week27-server-validation",
+      "variantGroup": "ph2-week27-server-validation",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "サーバーサイドのバリデーション",
+        "line": 27,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-2/README.md",
+          "heading": "27週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "667ff37e1230043f44407c2c9a18ca7a02cf68ab3c6f05192c18a1236d9f5551"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-2/index.php",
+          "line": 1,
+          "sha256": "406f8203bfa1bfd63ea902d2013686c20d96f430064d1f148b6005f3a93475e3",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-2/README.md：検証する場所の役割を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "届いた値を受け付ける責任を考えましょう。",
+      "success": "検証する場所の役割を区別する。条件に合う候補：ブラウザ側の制約を経由しない入力も届き得る",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-hash-003",
+      "weekUnitId": "week-unit-week27",
+      "format": "singleChoice",
+      "prompt": "パスワードのハッシュは、認証でどのように使いますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "CSSで見えなくした文字だけ保存"
+          },
+          {
+            "id": "d",
+            "text": "ハッシュなら弱いパスワードも絶対安全"
+          },
+          {
+            "id": "a",
+            "text": "ハッシュを保存し、入力したパスワードが対応するかを検証する"
+          },
+          {
+            "id": "b",
+            "text": "必ず元の文字を復元して表示"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "復号して使う仕組みではありません。",
+          "c": "表示を隠すだけではハッシュ化ではありません。",
+          "d": "推測へのリスクがなくなるわけではありません。"
+        }
+      },
+      "explanation": "平文をそのまま保存せず、専用の照合関数で確認します。ハッシュ化だけであらゆる問題を解消すると考えません。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "ハッシュ化とは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "ハッシュの保存と照合を説明する",
+      "conceptId": "ph2-week27-hash",
+      "variantGroup": "ph2-week27-hash",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "ハッシュ化とは",
+        "line": 125,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-3/README.md",
+          "heading": "27週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "8cb7694472cea78b08a195650c62fedcf947ff684accd3d068d0681c4d00ebcb"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-3/index.php",
+          "line": 1,
+          "sha256": "85a626bbfb694f121a6797f39f647b3cb6e9d9965276ace263f4d9c5e760b2b1",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-3/README.md：ハッシュの保存と照合を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "保存と照合の方法を分けましょう。",
+      "success": "ハッシュの保存と照合を説明する。条件に合う候補：ハッシュを保存し、入力したパスワードが対応するかを検証する",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-email-format-004",
+      "weekUnitId": "week-unit-week27",
+      "format": "fillBlank",
+      "prompt": "emailが形式不正のときだけエラーへ進む空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "strlen($email) > 0"
+          },
+          {
+            "id": "a",
+            "text": "!filter_var($email, FILTER_VALIDATE_EMAIL)"
+          },
+          {
+            "id": "b",
+            "text": "filter_var($email, FILTER_VALIDATE_EMAIL)"
+          },
+          {
+            "id": "c",
+            "text": "is_numeric($email)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "正常な形式のときエラーになります。",
+          "c": "数値かの判定でメール形式ではありません。",
+          "d": "文字があることだけでは形式は分かりません。"
+        },
+        "content": "if (___) { echo \"メール形式エラー\"; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "メール用のフィルタと否定で、形式不正を条件にします。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "データ型を確認"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "メール形式の検証方法を選ぶ",
+      "conceptId": "ph2-week27-email-format",
+      "variantGroup": "ph2-week27-email-format",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "データ型を確認",
+        "line": 76,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-1/README.md",
+          "heading": "27週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "865970630e72f93d52907526655a2bc314bb7b27ba79c250e421fb1e79d2f43d"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-1/index.php",
+          "line": 1,
+          "sha256": "7c26e13ce149e275d8b4ea198ec0d8ed937d5b0071b0712e803f1d43f802de8c",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-1/README.md：メール形式の検証方法を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "エラーにしたいのは正常か不正か考えましょう。",
+      "success": "メール形式の検証方法を選ぶ。条件に合う候補：!filter_var($email, FILTER_VALIDATE_EMAIL)",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "if (___) { echo \"メール形式エラー\"; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-empty-005",
+      "weekUnitId": "week-unit-week27",
+      "format": "fillBlank",
+      "prompt": "この問題では空文字だけが未入力で、0という文字の入力は想定しません。未入力を調べる教材の関数は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "empty"
+          },
+          {
+            "id": "b",
+            "text": "strlen"
+          },
+          {
+            "id": "c",
+            "text": "is_numeric"
+          },
+          {
+            "id": "d",
+            "text": "password_hash"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "文字数を返すため、このままでは入力時にtrueになります。",
+          "c": "メールの未入力チェックではありません。",
+          "d": "入力の有無を調べる関数ではありません。"
+        },
+        "content": "if (___($email)) { echo \"必須\"; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "emptyは空文字などを調べます。\"0\"なども空扱いするため、仕様によって条件を選びます。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "必須データのチェック"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "必須入力の判定を選ぶ",
+      "conceptId": "ph2-week27-empty",
+      "variantGroup": "ph2-week27-empty",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "必須データのチェック",
+        "line": 44,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-2/README.md",
+          "heading": "27週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "667ff37e1230043f44407c2c9a18ca7a02cf68ab3c6f05192c18a1236d9f5551"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-2/index.php",
+          "line": 1,
+          "sha256": "406f8203bfa1bfd63ea902d2013686c20d96f430064d1f148b6005f3a93475e3",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-2/README.md：必須入力の判定を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "空文字かどうかという目的です。",
+      "success": "必須入力の判定を選ぶ。条件に合う候補：empty",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "if (___($email)) { echo \"必須\"; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-password-verify-006",
+      "weekUnitId": "week-unit-week27",
+      "format": "fillBlank",
+      "prompt": "$storedHashは登録時のハッシュです。入力パスワードの照合の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "password_hash"
+          },
+          {
+            "id": "c",
+            "text": "strlen"
+          },
+          {
+            "id": "d",
+            "text": "implode"
+          },
+          {
+            "id": "a",
+            "text": "password_verify"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ハッシュを作る関数で、第2引数は保存済みハッシュではありません。",
+          "c": "長さだけでは一致を確認できません。",
+          "d": "配列の連結の関数です。"
+        },
+        "content": "if (___($password, $storedHash)) { echo \"一致\"; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "入力したパスワードと保存済みハッシュをverifyへ渡します。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "パスワードの認証"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "ハッシュとの照合方法を選ぶ",
+      "conceptId": "ph2-week27-password-verify",
+      "variantGroup": "ph2-week27-password-verify",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "パスワードの認証",
+        "line": 151,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-3/README.md",
+          "heading": "27週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "8cb7694472cea78b08a195650c62fedcf947ff684accd3d068d0681c4d00ebcb"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-3/index.php",
+          "line": 1,
+          "sha256": "85a626bbfb694f121a6797f39f647b3cb6e9d9965276ace263f4d9c5e760b2b1",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-3/README.md：ハッシュとの照合方法を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "作る関数と確かめる関数を分けましょう。",
+      "success": "ハッシュとの照合方法を選ぶ。条件に合う候補：password_verify",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "if (___($password, $storedHash)) { echo \"一致\"; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-validation-sequence-007",
+      "weekUnitId": "week-unit-week27",
+      "format": "singleChoice",
+      "prompt": "メールとパスワードを登録する安全な基本の流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "ハッシュを画面へ表示して終わる"
+          },
+          {
+            "id": "d",
+            "text": "requiredだけでサーバーの検証を省く"
+          },
+          {
+            "id": "a",
+            "text": "サーバーで入力を検証 → パスワードをハッシュ化 → DBへ保存"
+          },
+          {
+            "id": "b",
+            "text": "まず保存 → 不正でも残す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "受け付ける前の検証がありません。",
+          "c": "ユーザー登録をしていません。",
+          "d": "ブラウザの制約を経由しない入力を確認できません。"
+        }
+      },
+      "explanation": "不正な値は登録処理へ進めず、必要な形へ変換して保存します。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "サーバーサイドのバリデーション"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "検証・変換・保存を組む",
+      "conceptId": "ph2-week27-validation-sequence",
+      "variantGroup": "ph2-week27-validation-sequence",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "サーバーサイドのバリデーション",
+        "line": 27,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-1/README.md",
+          "heading": "27週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "865970630e72f93d52907526655a2bc314bb7b27ba79c250e421fb1e79d2f43d"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-1/index.php",
+          "line": 1,
+          "sha256": "7c26e13ce149e275d8b4ea198ec0d8ed937d5b0071b0712e803f1d43f802de8c",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-1/README.md：検証・変換・保存を組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "確認を保存より先に置きましょう。",
+      "success": "検証・変換・保存を組む。条件に合う候補：サーバーで入力を検証 → パスワードをハッシュ化 → DBへ保存",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-minimum-length-008",
+      "weekUnitId": "week-unit-week27",
+      "format": "fillBlank",
+      "prompt": "入力はASCII文字です。4文字未満を拒み、4文字は受け付けます。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "empty($password)"
+          },
+          {
+            "id": "a",
+            "text": "strlen($password) < 4"
+          },
+          {
+            "id": "b",
+            "text": "strlen($password) <= 4"
+          },
+          {
+            "id": "c",
+            "text": "strlen($password) > 4"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "4文字まで拒んでしまいます。",
+          "c": "長いパスワードを拒む逆の条件です。",
+          "d": "1〜3文字を拒めません。"
+        },
+        "content": "if (___) { echo \"4文字以上にしてください\"; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "ASCIIの入力ではstrlenで長さを調べ、境界を<4で判定します。日本語の文字数とは区別します。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "文字列の長さをチェック"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "入力の長さと境界条件をつなぐ",
+      "conceptId": "ph2-week27-minimum-length",
+      "variantGroup": "ph2-week27-minimum-length",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "文字列の長さをチェック",
+        "line": 65,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-3/README.md",
+          "heading": "27週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "8cb7694472cea78b08a195650c62fedcf947ff684accd3d068d0681c4d00ebcb"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-3/index.php",
+          "line": 1,
+          "sha256": "85a626bbfb694f121a6797f39f647b3cb6e9d9965276ace263f4d9c5e760b2b1",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-3/README.md：入力の長さと境界条件をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "3と4を代入して考えましょう。",
+      "success": "入力の長さと境界条件をつなぐ。条件に合う候補：strlen($password) < 4",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "if (___) { echo \"4文字以上にしてください\"; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-store-hash-009",
+      "weekUnitId": "week-unit-week27",
+      "format": "fillBlank",
+      "prompt": "DBに保存する$passwordHashを作ります。第2引数は教材のアルゴリズム指定です。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "password_hash"
+          },
+          {
+            "id": "b",
+            "text": "password_verify"
+          },
+          {
+            "id": "c",
+            "text": "strtoupper"
+          },
+          {
+            "id": "d",
+            "text": "strlen"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "入力とハッシュの照合であり作成ではありません。",
+          "c": "大文字にするだけで専用のハッシュではありません。",
+          "d": "長さを返すだけです。"
+        },
+        "content": "$passwordHash = ___($password, PASSWORD_DEFAULT);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "専用関数で作成した値を保存へ渡します。ログインでは同じ関数を呼び直して文字列比較するのではなくverifyを使います。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "ハッシュ化する方法"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ハッシュの作成と保存をつなぐ",
+      "conceptId": "ph2-week27-store-hash",
+      "variantGroup": "ph2-week27-store-hash",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "ハッシュ化する方法",
+        "line": 139,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-3/README.md",
+          "heading": "27週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "8cb7694472cea78b08a195650c62fedcf947ff684accd3d068d0681c4d00ebcb"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-3/index.php",
+          "line": 1,
+          "sha256": "85a626bbfb694f121a6797f39f647b3cb6e9d9965276ace263f4d9c5e760b2b1",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-3/README.md：ハッシュの作成と保存をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "登録時とログイン時を分けましょう。",
+      "success": "ハッシュの作成と保存をつなぐ。条件に合う候補：password_hash",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "$passwordHash = ___($password, PASSWORD_DEFAULT);",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-boundary-bug-010",
+      "weekUnitId": "week-unit-week27",
+      "format": "bugDiagnosis",
+      "prompt": "ASCIIの4文字入力もエラーになります。4文字以上を許可する修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "4を0へ変える"
+          },
+          {
+            "id": "c",
+            "text": "echoを2回書く"
+          },
+          {
+            "id": "d",
+            "text": "長さの判定を消す"
+          },
+          {
+            "id": "a",
+            "text": "<=を<へ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "1〜3文字まで許可してしまいます。",
+          "c": "条件は変わりません。",
+          "d": "短い入力を拒めません。"
+        },
+        "code": "if (strlen($password) <= 4) { echo \"短すぎます\"; }"
+      },
+      "explanation": "合格になる境界4をエラーの側に含めないようにします。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "文字列の長さをチェック"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "最小文字数の境界を修正する",
+      "conceptId": "ph2-week27-boundary-bug",
+      "variantGroup": "ph2-week27-boundary-bug",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "文字列の長さをチェック",
+        "line": 65,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-3/README.md",
+          "heading": "27週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "8cb7694472cea78b08a195650c62fedcf947ff684accd3d068d0681c4d00ebcb"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-3/index.php",
+          "line": 1,
+          "sha256": "85a626bbfb694f121a6797f39f647b3cb6e9d9965276ace263f4d9c5e760b2b1",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-3/README.md：最小文字数の境界を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "最短の正常入力を試しましょう。",
+      "success": "最小文字数の境界を修正する。条件に合う候補：<=を<へ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "if (strlen($password) <= 4) { echo \"短すぎます\"; }",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-plain-compare-011",
+      "weekUnitId": "week-unit-week27",
+      "format": "bugDiagnosis",
+      "prompt": "保存値はpassword_hashで作成済みです。正しい入力でも一致しません。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "入力文字を短くする"
+          },
+          {
+            "id": "d",
+            "text": "毎回hashを作って文字列比較する"
+          },
+          {
+            "id": "a",
+            "text": "password_verify($password, $storedHash)で判定する"
+          },
+          {
+            "id": "b",
+            "text": "平文をハッシュの代わりに保存する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "保存方法を平文へ戻す解決にはしません。",
+          "c": "照合方法の不一致が残ります。",
+          "d": "毎回のソルトなどで文字列が同じになるとは限りません。"
+        },
+        "code": "if ($password === $storedHash) { echo \"一致\"; }"
+      },
+      "explanation": "平文とハッシュは同じ文字列ではありません。専用の検証関数へ渡します。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "パスワードの認証"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "ハッシュ照合の方法の不一致を修正する",
+      "conceptId": "ph2-week27-plain-compare",
+      "variantGroup": "ph2-week27-plain-compare",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "パスワードの認証",
+        "line": 151,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-3/README.md",
+          "heading": "27週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "8cb7694472cea78b08a195650c62fedcf947ff684accd3d068d0681c4d00ebcb"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-3/index.php",
+          "line": 1,
+          "sha256": "85a626bbfb694f121a6797f39f647b3cb6e9d9965276ace263f4d9c5e760b2b1",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-3/README.md：ハッシュ照合の方法の不一致を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "比較している2つの値の種類を見ましょう。",
+      "success": "ハッシュ照合の方法の不一致を修正する。条件に合う候補：password_verify($password, $storedHash)で判定する",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "if ($password === $storedHash) { echo \"一致\"; }",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week27-validation-tests-012",
+      "weekUnitId": "week-unit-week27",
+      "format": "singleChoice",
+      "prompt": "メール検証を確認する入力の組み合わせは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "入力を見ずAIの説明だけで完了"
+          },
+          {
+            "id": "a",
+            "text": "空欄・形式不正・正常形式を試し、期待する分岐と比べる"
+          },
+          {
+            "id": "b",
+            "text": "正常な1件だけ"
+          },
+          {
+            "id": "c",
+            "text": "フォームの背景だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "エラー時の分岐を確認していません。",
+          "c": "入力の条件と結果を見ていません。",
+          "d": "実際の分岐は未確認です。"
+        }
+      },
+      "explanation": "エラー種類と正常ケースを小さく分けて照合します。",
+      "sourceReference": {
+        "weekKey": "week27",
+        "sectionHeading": "1. バリデーション"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "検証の条件と結果を確認する",
+      "conceptId": "ph2-week27-validation-tests",
+      "variantGroup": "ph2-week27-validation-tests",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week27.md",
+        "heading": "1. バリデーション",
+        "line": 7,
+        "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week27-1/README.md",
+          "heading": "27週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "865970630e72f93d52907526655a2bc314bb7b27ba79c250e421fb1e79d2f43d"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 27",
+          "line": 965,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week27.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9a2ddab25b64491d1a05bf34358621ec2779d036b1c9c514199eee4c5fddd9bc"
+        },
+        {
+          "path": "drill-ph2/src/week27-1/index.php",
+          "line": 1,
+          "sha256": "7c26e13ce149e275d8b4ea198ec0d8ed937d5b0071b0712e803f1d43f802de8c",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week27-1/README.md：検証の条件と結果を確認する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜27の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "受け付ける例と拒む例を作りましょう。",
+      "success": "検証の条件と結果を確認する。条件に合う候補：空欄・形式不正・正常形式を試し、期待する分岐と比べる",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

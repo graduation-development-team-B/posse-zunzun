@@ -1,0 +1,834 @@
+[
+  {
+    "question": {
+      "id": "question-week12-transition-001",
+      "weekUnitId": "week-unit-week12",
+      "format": "singleChoice",
+      "prompt": "この教材のtransitionは、どんな役割ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "ライブラリのJSをインストールする"
+          },
+          {
+            "id": "c",
+            "text": "要素をJavaScriptの配列へ入れる"
+          },
+          {
+            "id": "d",
+            "text": "指定した文章をHTMLへ追加する"
+          },
+          {
+            "id": "a",
+            "text": "状態の変化を指定した時間でなめらかにつなぐ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "CSSの状態変化と、ライブラリの導入は別です。",
+          "c": "transitionはCSSの指定であり、データの格納ではありません。",
+          "d": "文章の追加はDOM操作などで行います。"
+        }
+      },
+      "explanation": "色や位置などの変化そのものはhoverやtransformで指定し、変化をなめらかにつなぐ時間などをtransitionで指定します。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "パッと変わると、安っぽい"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "transitionを変化の時間的なつなぎとして説明する",
+      "conceptId": "ph1-week12-transition",
+      "variantGroup": "ph1-week12-transition",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "パッと変わると、安っぽい",
+        "line": 24,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-1/README.md：transitionを変化の時間的なつなぎとして説明する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "変化する内容と、変化の仕方を分けましょう。",
+      "success": "transitionを変化の時間的なつなぎとして説明する。条件に合う候補：状態の変化を指定した時間でなめらかにつなぐ",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-transform-002",
+      "weekUnitId": "week-unit-week12",
+      "format": "singleChoice",
+      "prompt": "カードをtransformで少し上へ動かすとき、通常のレイアウト上の場所はどう扱われますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "周りのカードを並べ直すために配列をソートする"
+          },
+          {
+            "id": "d",
+            "text": "カードの文字を自動で書き換える"
+          },
+          {
+            "id": "a",
+            "text": "元の配置を保ったまま、見た目の位置を変える"
+          },
+          {
+            "id": "b",
+            "text": "DOMからカード自体を削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "transformは要素をDOMから消す操作ではありません。",
+          "c": "データの並び替えと、CSSによる見た目の変形は別です。",
+          "d": "変形は文字の内容を書き換えません。"
+        }
+      },
+      "explanation": "この教材では、周囲を押しのけずに見た目を動かすためにtransformを使います。translateやscaleの変形と、幅や余白による配置変更を分けます。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "周りを押しのけずに、動かす"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "transformの変形と通常の配置を区別する",
+      "conceptId": "ph1-week12-transform",
+      "variantGroup": "ph1-week12-transform",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "周りを押しのけずに、動かす",
+        "line": 80,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-1/README.md：transformの変形と通常の配置を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "要素の配置用の場所と、見えている姿は同じとは限りません。",
+      "success": "transformの変形と通常の配置を区別する。条件に合う候補：元の配置を保ったまま、見た目の位置を変える",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-opacity-003",
+      "weekUnitId": "week-unit-week12",
+      "format": "trueFalse",
+      "prompt": "他にクリックを止める設定がない場合、opacity: 0だけで要素へのクリックも無効になる。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "opacity: 0は透明にする指定です。要素は残り、クリックを止める指定が別にない場合、操作を受け取ることがあります。hiddenやinvisibleとの役割の違いを確かめます。"
+        }
+      },
+      "explanation": "opacity: 0は透明にする指定です。要素は残り、クリックを止める指定が別にない場合、操作を受け取ることがあります。hiddenやinvisibleとの役割の違いを確かめます。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "消したいのに、消すと動かせない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "透明な要素と操作不可の状態を区別する",
+      "conceptId": "ph1-week12-opacity",
+      "variantGroup": "ph1-week12-opacity",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "消したいのに、消すと動かせない",
+        "line": 131,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-3/README.md：透明な要素と操作不可の状態を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "見えないことと、そこに要素がないことを分けましょう。",
+      "success": "透明な要素と操作不可の状態を区別する。条件に合う候補：誤り",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "○×の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-duration-004",
+      "weekUnitId": "week-unit-week12",
+      "format": "fillBlank",
+      "prompt": "Tailwindで300msかけて変化させたい。時間を指定する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "duration-300"
+          },
+          {
+            "id": "b",
+            "text": "delay-300"
+          },
+          {
+            "id": "c",
+            "text": "duration-500"
+          },
+          {
+            "id": "d",
+            "text": "hover:shadow-lg"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "開始までの待ち時間であり、変化にかける時間ではありません。",
+          "c": "500msの指定で、求める300msではありません。",
+          "d": "影の変化の指定であり、所要時間の指定ではありません。"
+        },
+        "content": "<div class=\"transition-all ___ hover:shadow-lg\">カード</div>",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "durationは変化にかける時間です。変化の内容を指定するhoverや、開始を遅らせるdelayとは役割が違います。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "パッと変わると、安っぽい"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "変化の所要時間にduration-300を選ぶ",
+      "conceptId": "ph1-week12-duration",
+      "variantGroup": "ph1-week12-duration",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "パッと変わると、安っぽい",
+        "line": 24,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-1/README.md：変化の所要時間にduration-300を選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "所要時間と、開始を待つ時間を区別しましょう。",
+      "success": "変化の所要時間にduration-300を選ぶ。条件に合う候補：duration-300",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "<div class=\"transition-all ___ hover:shadow-lg\">カード</div>",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-scale-005",
+      "weekUnitId": "week-unit-week12",
+      "format": "singleChoice",
+      "prompt": "ホバー時だけ、元の1.05倍の大きさに見せたい。教材のクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "hover:scale-110"
+          },
+          {
+            "id": "c",
+            "text": "hover:-translate-y-1"
+          },
+          {
+            "id": "d",
+            "text": "hover:rotate-3"
+          },
+          {
+            "id": "a",
+            "text": "hover:scale-105"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "1.1倍であり、指定した1.05倍ではありません。",
+          "c": "上へ移動する指定で、拡大ではありません。",
+          "d": "回転する指定で、拡大ではありません。"
+        }
+      },
+      "explanation": "scaleは拡大縮小です。105は1.05倍の指定なので、ホバー時の拡大にhover:scale-105を選びます。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "周りを押しのけずに、動かす"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "変形の種類と倍率からscaleクラスを選ぶ",
+      "conceptId": "ph1-week12-scale",
+      "variantGroup": "ph1-week12-scale",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "周りを押しのけずに、動かす",
+        "line": 80,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-1/README.md：変形の種類と倍率からscaleクラスを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "移動・回転・拡大縮小のどれが目的でしょうか。",
+      "success": "変形の種類と倍率からscaleクラスを選ぶ。条件に合う候補：hover:scale-105",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-fade-006",
+      "weekUnitId": "week-unit-week12",
+      "format": "fillBlank",
+      "prompt": "親へのホバーでオーバーレイを徐々に表示します。普段の透明度を指定する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "opacity-100"
+          },
+          {
+            "id": "d",
+            "text": "duration-300"
+          },
+          {
+            "id": "a",
+            "text": "opacity-0"
+          },
+          {
+            "id": "b",
+            "text": "hidden"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "このtransition-opacityの設定だけでは、display:noneからのフェードにはなりません。",
+          "c": "普段から不透明になるため、ホバーで初めて表示する条件と違います。",
+          "d": "時間の指定だけで、普段の透明度を設定していません。"
+        },
+        "content": "<div class=\"relative group\">\n  <div class=\"___ group-hover:opacity-100 transition-opacity duration-300\">詳細</div>\n</div>",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "普段はopacity-0、親へのホバー時はopacity-100にします。透明度の変化をtransition-opacityでなめらかにつなぎます。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "消したいのに、消すと動かせない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "フェードの初期状態にopacity-0を選ぶ",
+      "conceptId": "ph1-week12-fade",
+      "variantGroup": "ph1-week12-fade",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "消したいのに、消すと動かせない",
+        "line": 131,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-3/README.md：フェードの初期状態にopacity-0を選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "普段とホバー時の、2つの透明度を分けましょう。",
+      "success": "フェードの初期状態にopacity-0を選ぶ。条件に合う候補：opacity-0",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "<div class=\"relative group\">\n  <div class=\"___ group-hover:opacity-100 transition-opacity duration-300\">詳細</div>\n</div>",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-hover-css-007",
+      "weekUnitId": "week-unit-week12",
+      "format": "fillBlank",
+      "prompt": "素のCSSで、0.3秒かけて上へ4px動かします。ホバー時の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "transition-duration: 4px"
+          },
+          {
+            "id": "a",
+            "text": "transform: translateY(-4px)"
+          },
+          {
+            "id": "b",
+            "text": "transform: translateY(4px)"
+          },
+          {
+            "id": "c",
+            "text": "transform: scale(4)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "正のY方向は下なので、上へ動く条件と逆です。",
+          "c": "拡大する指定で、上への移動ではありません。",
+          "d": "durationの単位は時間です。位置も変化しません。"
+        },
+        "content": ".card { transition: transform 300ms ease; }\n.card:hover { ___; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "hoverで変えるtransformと、普段から指定するtransitionを組み合わせます。Y方向の負の移動が上方向です。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "周りを押しのけずに、動かす"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "transitionとホバー時のtransformを組み合わせる",
+      "conceptId": "ph1-week12-hover-css",
+      "variantGroup": "ph1-week12-hover-css",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "周りを押しのけずに、動かす",
+        "line": 80,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-1/README.md：transitionとホバー時のtransformを組み合わせる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "動かす指定と、なめらかさの指定を別々に見ましょう。",
+      "success": "transitionとホバー時のtransformを組み合わせる。条件に合う候補：transform: translateY(-4px)",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": ".card { transition: transform 300ms ease; }\n.card:hover { ___; }",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-splide-list-008",
+      "weekUnitId": "week-unit-week12",
+      "format": "fillBlank",
+      "prompt": "Splideの構造を完成させます。ulに指定するクラス名は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "splide__list"
+          },
+          {
+            "id": "b",
+            "text": "splide-list"
+          },
+          {
+            "id": "c",
+            "text": "splide__slide"
+          },
+          {
+            "id": "d",
+            "text": "splide__track"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "区切りはハイフンではなく、アンダースコア2つです。",
+          "c": "個別スライドのクラスで、ulのリスト全体とは役割が違います。",
+          "d": "trackはリストを包むdivに付けています。"
+        },
+        "content": "<section class=\"splide\">\n  <div class=\"splide__track\">\n    <ul class=\"___\"><li class=\"splide__slide\">作品</li></ul>\n  </div>\n</section>",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "Splideは決まったクラスと構造を使います。trackの中にlist、その中にslideを置き、名前の区切りは__です。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "決められた名前じゃないと、動かない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ライブラリの指定構造とクラス名を対応させる",
+      "conceptId": "ph1-week12-splide-list",
+      "variantGroup": "ph1-week12-splide-list",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "決められた名前じゃないと、動かない",
+        "line": 187,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-2/README.md：ライブラリの指定構造とクラス名を対応させる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "親・リスト・1枚のスライド、それぞれの役割を見ましょう。",
+      "success": "ライブラリの指定構造とクラス名を対応させる。条件に合う候補：splide__list",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "<section class=\"splide\">\n  <div class=\"splide__track\">\n    <ul class=\"___\"><li class=\"splide__slide\">作品</li></ul>\n  </div>\n</section>",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-library-order-009",
+      "weekUnitId": "week-unit-week12",
+      "format": "singleChoice",
+      "prompt": "main.jsでnew Splide(\".splide\").mount()を呼びます。対象HTMLは先に読み込まれています。scriptの順序は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "自分のmain.js → Splide本体のJS"
+          },
+          {
+            "id": "c",
+            "text": "SplideのCSSだけ読み込み、JSは不要"
+          },
+          {
+            "id": "d",
+            "text": "main.jsを同じページで何度も読み込む"
+          },
+          {
+            "id": "a",
+            "text": "Splide本体のJS → 自分のmain.js"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "自分の初期化処理が、まだないSplideを使う可能性があります。",
+          "c": "CSSだけではJSの初期化処理を実行できません。",
+          "d": "必要な本体の読み込み順序を解決していません。"
+        }
+      },
+      "explanation": "自分のコードで使うライブラリを先に用意します。HTMLの目印・ライブラリ本体・自分の初期化の関係をそろえます。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "決められた名前じゃないと、動かない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ライブラリの読み込みと初期化を順序立てる",
+      "conceptId": "ph1-week12-library-order",
+      "variantGroup": "ph1-week12-library-order",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "決められた名前じゃないと、動かない",
+        "line": 187,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-2/README.md：ライブラリの読み込みと初期化を順序立てる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "使うものが、その処理の前に準備できているかを見ましょう。",
+      "success": "ライブラリの読み込みと初期化を順序立てる。条件に合う候補：Splide本体のJS → 自分のmain.js",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-splide-typo-010",
+      "weekUnitId": "week-unit-week12",
+      "format": "bugDiagnosis",
+      "prompt": "他の構造と読み込みは正しいのに、スライダーになりません。リストのクラス名を直す候補は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "ulを全部削除する"
+          },
+          {
+            "id": "d",
+            "text": "作品の文字を短くする"
+          },
+          {
+            "id": "a",
+            "text": "splide-listをsplide__listにする"
+          },
+          {
+            "id": "b",
+            "text": "splide__trackをsplide-trackにする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "正しいtrackの目印まで、ハイフンの誤った名前へ変えてしまいます。",
+          "c": "ライブラリが使うリスト構造を壊してしまいます。",
+          "d": "リストを認識するクラス名の不一致は直りません。"
+        },
+        "code": "<section class=\"splide\">\n  <div class=\"splide__track\">\n    <ul class=\"splide-list\">\n      <li class=\"splide__slide\">作品</li>\n    </ul>\n  </div>\n</section>"
+      },
+      "explanation": "ライブラリが探すsplide__listと、提示コードのsplide-listを照合します。見た目の文字より、指定された目印の違いが原因です。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "決められた名前じゃないと、動かない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "表示不良からライブラリのクラス名不一致を見つける",
+      "conceptId": "ph1-week12-splide-typo",
+      "variantGroup": "ph1-week12-splide-typo",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "決められた名前じゃないと、動かない",
+        "line": 187,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-2/README.md：表示不良からライブラリのクラス名不一致を見つける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "区切りの記号を、1文字ずつ見比べましょう。",
+      "success": "表示不良からライブラリのクラス名不一致を見つける。条件に合う候補：splide-listをsplide__listにする",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "<section class=\"splide\">\n  <div class=\"splide__track\">\n    <ul class=\"splide-list\">\n      <li class=\"splide__slide\">作品</li>\n    </ul>\n  </div>\n</section>",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-missing-group-011",
+      "weekUnitId": "week-unit-week12",
+      "format": "bugDiagnosis",
+      "prompt": "親にマウスを乗せても詳細が見えません。group-hoverを使うため、親へ足すクラスは？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "duration-500"
+          },
+          {
+            "id": "a",
+            "text": "group"
+          },
+          {
+            "id": "b",
+            "text": "hidden"
+          },
+          {
+            "id": "c",
+            "text": "opacity-0"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "親を非表示にしてしまい、ホバーで表示する条件を作れません。",
+          "c": "親まで透明にするだけで、group-hoverの目印にはなりません。",
+          "d": "時間を変えるだけで、親のgroupの不足は解消しません。"
+        },
+        "code": "<div class=\"relative\">\n  <div class=\"opacity-0 group-hover:opacity-100 transition-opacity duration-300\">詳細</div>\n</div>"
+      },
+      "explanation": "group-hoverはgroupの付いた親へのホバーを条件にします。子のopacity指定だけでなく、親に目印があるかを確認します。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "消したいのに、消すと動かせない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "親と子のホバー指定の不足を見つける",
+      "conceptId": "ph1-week12-missing-group",
+      "variantGroup": "ph1-week12-missing-group",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "消したいのに、消すと動かせない",
+        "line": 131,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-3/README.md：親と子のホバー指定の不足を見つける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "反応させたいホバーは、子ではなく親で起きます。",
+      "success": "親と子のホバー指定の不足を見つける。条件に合う候補：group",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "<div class=\"relative\">\n  <div class=\"opacity-0 group-hover:opacity-100 transition-opacity duration-300\">詳細</div>\n</div>",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-animation-check-012",
+      "weekUnitId": "week-unit-week12",
+      "format": "singleChoice",
+      "prompt": "3枚のホバーカードを完成させました。動きを確認する方法は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "3枚それぞれで、ホバー前・ホバー中・外した後の変化を実際に見る"
+          },
+          {
+            "id": "b",
+            "text": "ホバー前のスクリーンショットだけ見る"
+          },
+          {
+            "id": "c",
+            "text": "先頭のカードのHTMLの文字だけ見る"
+          },
+          {
+            "id": "d",
+            "text": "ページのタイトルだけ確認する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "時間をかけた変化や、マウスを外した後の状態は確認できません。",
+          "c": "他のカードの動作や、変化にかかる時間が分かりません。",
+          "d": "ホバー時の変化を確認していません。"
+        }
+      },
+      "explanation": "動きは静止画像だけでは確認できません。全カードに同じ指定があるかと、ホバーを外して戻るかも含め、操作して確かめます。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "パッと変わると、安っぽい"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "静止画と操作によるアニメーション確認を区別する",
+      "conceptId": "ph1-week12-animation-check",
+      "variantGroup": "ph1-week12-animation-check",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "heading": "パッと変わると、安っぽい",
+        "line": 24,
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "drillConnection": "drill-ph1/week12-1/README.md：静止画と操作によるアニメーション確認を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "確認したいものは、普段の見た目だけでしょうか。",
+      "success": "静止画と操作によるアニメーション確認を区別する。条件に合う候補：3枚それぞれで、ホバー前・ホバー中・外した後の変化を実際に見る",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

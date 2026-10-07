@@ -1,0 +1,848 @@
+[
+  {
+    "question": {
+      "id": "question-week6-html-css-js-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "HTML・CSS・JavaScriptの役割として正しい組み合わせはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "HTML=動き、CSS=構造、JavaScript=見た目"
+          },
+          {
+            "id": "d",
+            "text": "HTML=構造、CSS=動き、JavaScript=見た目"
+          },
+          {
+            "id": "a",
+            "text": "HTML=構造、CSS=見た目、JavaScript=動き"
+          },
+          {
+            "id": "b",
+            "text": "HTML=見た目、CSS=構造、JavaScript=動き"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "HTMLは文書の構造・内容を定義し、CSSが見た目を制御します。",
+          "c": "JavaScriptが動的な動きを担当し、HTMLが構造を定義します。",
+          "d": "CSSが見た目を制御し、JavaScriptが動きを実装します。"
+        }
+      },
+      "explanation": "Webの3本柱: HTMLが文書の構造（骨格）、CSSが見た目（スタイル）、JavaScriptが動き（インタラクション）を担当します。それぞれの役割を分離することで保守性が高まります。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "1. HTML・CSS・JavaScriptの役割分担"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：HTML・CSS・JavaScriptの役割として正しい組み合わせはどれですか？",
+      "conceptId": "week6-section-1",
+      "variantGroup": "week6-section-1",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "1. HTML・CSS・JavaScriptの役割分担",
+        "line": 22,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「HTML・CSS・JavaScriptの役割分担」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：HTML=構造、CSS=見た目、JavaScript=動き",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-variables-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "JavaScriptで再代入できない変数を宣言するキーワードはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "let"
+          },
+          {
+            "id": "c",
+            "text": "var"
+          },
+          {
+            "id": "d",
+            "text": "final"
+          },
+          {
+            "id": "a",
+            "text": "const"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "letは再代入可能な変数の宣言に使います。",
+          "c": "varは古い宣言方法で、再代入可能です。現代のJavaScriptではconstとletを推奨します。",
+          "d": "finalはJavaやKotlinのキーワードで、JavaScriptには存在しません。"
+        }
+      },
+      "explanation": "constで宣言した変数は再代入できません。一方letは再代入可能です。基本的にはconstを使い、後で変更が必要な場合だけletを使うのがベストプラクティスです。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "3. 変数：値に名前をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：JavaScriptで再代入できない変数を宣言するキーワードはどれですか？",
+      "conceptId": "week6-section-3",
+      "variantGroup": "week6-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "3. 変数：値に名前をつける",
+        "line": 79,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「変数：値に名前をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：const",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-types-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "typeofは値の種類を文字列で返す操作です。typeof '42' の結果はどれ？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "\"string\""
+          },
+          {
+            "id": "b",
+            "text": "\"number\""
+          },
+          {
+            "id": "c",
+            "text": "\"integer\""
+          },
+          {
+            "id": "d",
+            "text": "42"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "numberは数値型です。'42'はクォートで囲まれているので文字列型です。",
+          "c": "typeofは整数に対しても\"number\"を返します。この値は引用符付きなので\"string\"です。",
+          "d": "typeofは型名の文字列を返します。値そのものは返しません。"
+        }
+      },
+      "explanation": "引用符で囲んだ42は文字列なので、typeofは\"string\"を返します。見た目が数字でも、数値42と文字列\"42\"は異なる種類の値です。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "4. データ型：値の種類"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "引用符付きの数字を、数値ではなく文字列として区別する",
+      "conceptId": "week6-section-4",
+      "variantGroup": "week6-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "4. データ型：値の種類",
+        "line": 111,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week06の文字列と数値。typeofの役割は問題文で説明する",
+      "hint": "「データ型：値の種類」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：\"string\"",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-conditionals-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "`if (age >= 20)` の条件が真になるのはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "age が 20 の場合のみ"
+          },
+          {
+            "id": "a",
+            "text": "age が 20 以上の場合"
+          },
+          {
+            "id": "b",
+            "text": "age が 20 より大きい場合（20は含まない）"
+          },
+          {
+            "id": "c",
+            "text": "age が 20 以下の場合"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "> は「より大きい」ですが、>=は「以上（等しい場合を含む）」です。age=20でもtrueになります。",
+          "c": "<=は「以下」です。>=は「以上」で逆の条件です。",
+          "d": "=== は「等しい」です。>=は20以上のすべての値でtrueになります。"
+        }
+      },
+      "explanation": "比較演算子: >= は「以上（greater than or equal to）」で、左辺が右辺以上のときtrueになります。age=20でもtrueです。> は等号なし、<= は「以下」です。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "5. 条件分岐：if / else"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：`if (age >= 20)` の条件が真になるのはどれですか？",
+      "conceptId": "week6-section-5",
+      "variantGroup": "week6-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "5. 条件分岐：if / else",
+        "line": 135,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「条件分岐：if / else」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：age が 20 以上の場合",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-function-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "計算したBMIを呼び出し元へ返したい。空欄に入るキーワードは？（heightはメートル単位の数値です）",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const bmi = (weight, height) => { __BLANK__ weight / (height * height); }",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "print"
+          },
+          {
+            "id": "d",
+            "text": "yield"
+          },
+          {
+            "id": "a",
+            "text": "return"
+          },
+          {
+            "id": "b",
+            "text": "output"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "outputはJavaScriptのキーワードではありません。",
+          "c": "printはJavaScriptの予約語ではありません（console.logで出力します）。",
+          "d": "yieldはgenerator関数で使う特殊なキーワードで、通常の関数の戻り値にはreturnを使います。"
+        }
+      },
+      "explanation": "関数から値を返すにはreturnキーワードを使います。returnの後の式が関数の戻り値になります。returnがない関数はundefinedを返します。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：計算したBMIを呼び出し元へ返したい。空欄に入るキーワードは？（heightはメートル単位の数値です）",
+      "conceptId": "week6-section-6",
+      "variantGroup": "week6-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "6. 関数：処理をまとめて名前をつける",
+        "line": 169,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「関数：処理をまとめて名前をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：return",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-common-mistakes-004",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "入力欄から受け取った値は文字列です。文字列\"300\"を数値300へ変換する式は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "Number(\"300\")"
+          },
+          {
+            "id": "b",
+            "text": "\"300\" + \"0\""
+          },
+          {
+            "id": "c",
+            "text": "\"300\""
+          },
+          {
+            "id": "d",
+            "text": "console.log(\"300\")"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "文字列を連結して3000にします。数値変換ではありません。",
+          "c": "引用符付きのままなので文字列です。",
+          "d": "表示する操作で、数値へ変換しません。"
+        }
+      },
+      "explanation": "Numberは文字列などを数値へ変換します。Number(\"300\")なら数値300です。入力から得た文字列で計算するときは、先に数値にする判断が必要です。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "4. データ型：値の種類"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：入力欄から受け取った値は文字列です。文字列\"300\"を数値300へ変換する式は？",
+      "conceptId": "week6-section-4",
+      "variantGroup": "week6-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "4. データ型：値の種類",
+        "line": 111,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「データ型：値の種類」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：Number(\"300\")",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-common-mistakes-007",
+      "weekUnitId": "week-unit-week6",
+      "format": "bugDiagnosis",
+      "prompt": "金額300円と追加料金50円の合計を350と表示したいのに「30050」になります。原因は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "const price = \"300\";\nconst fee = \"50\";\nconsole.log(price + fee);",
+        "options": [
+          {
+            "id": "d",
+            "text": "console.logを先に呼ぶ必要がある"
+          },
+          {
+            "id": "a",
+            "text": "文字列をNumberで数値に変換せず、+でつないでいる"
+          },
+          {
+            "id": "b",
+            "text": "constをletへ変更する必要がある"
+          },
+          {
+            "id": "c",
+            "text": "変数名に大文字を使う必要がある"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "再代入しない値ならconstのままで問題ありません。",
+          "c": "変数名の大文字小文字は文字列連結の原因ではありません。",
+          "d": "console.logの順番は計算時の型変換に影響しません。"
+        }
+      },
+      "explanation": "引用符で囲んだ300と50は文字列なので、+は連結になります。Number(price) + Number(fee)へ直し、Consoleが350になるか確認します。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "9. よくある間違いと確認ポイント"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：金額300円と追加料金50円の合計を350と表示したいのに「30050」になります。原因は？",
+      "conceptId": "week6-section-9",
+      "variantGroup": "week6-section-9",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "9. よくある間違いと確認ポイント",
+        "line": 314,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「よくある間違いと確認ポイント」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：文字列をNumberで数値に変換せず、+でつないでいる",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-common-mistakes-008",
+      "weekUnitId": "week-unit-week6",
+      "format": "bugDiagnosis",
+      "prompt": "関数を呼び出しても計算結果を受け取れません。原因はどれですか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "function double(value) {\n  value * 2;\n}\nconst result = double(4);",
+        "options": [
+          {
+            "id": "c",
+            "text": "引数を文字列にする必要がある"
+          },
+          {
+            "id": "d",
+            "text": "valueを大文字にする必要がある"
+          },
+          {
+            "id": "a",
+            "text": "計算式の前にreturnがなく、値を返していない"
+          },
+          {
+            "id": "b",
+            "text": "関数名をconstで宣言する必要がある"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "function宣言でも値を返せます。constへ変更することは原因ではありません。",
+          "c": "数値の2倍を計算するため、引数を文字列にする必要はありません。",
+          "d": "変数名の大文字小文字は戻り値の有無に影響しません。"
+        }
+      },
+      "explanation": "関数内で式を評価するだけでは呼び出し元へ値は返りません。return value * 2のようにreturnを付けることで、double(4)の結果をresultへ代入できるようになります。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：関数を呼び出しても計算結果を受け取れません。原因はどれですか？",
+      "conceptId": "week6-section-6",
+      "variantGroup": "week6-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "6. 関数：処理をまとめて名前をつける",
+        "line": 169,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「関数：処理をまとめて名前をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：計算式の前にreturnがなく、値を返していない",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-console-convert",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "文字列の金額と追加料金を数値にして足します。空欄を埋め、350と表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "Number(price) - Number(fee)"
+          },
+          {
+            "id": "a",
+            "text": "Number(price) + Number(fee)"
+          },
+          {
+            "id": "b",
+            "text": "price + fee"
+          },
+          {
+            "id": "c",
+            "text": "Number(price + fee)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "文字列のままなので30050になります。",
+          "c": "先に連結した30050を数値へ変換してしまいます。",
+          "d": "数値ですが足し算ではなく250になります。"
+        },
+        "content": "const price = \"300\";\nconst fee = \"50\";\nconsole.log(__BLANK__);",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "先にそれぞれをNumberで数値にしてから足します。文字列同士を先に+でつないでしまうと、後でNumberを使っても350にはなりません。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "9. よくある間違いと確認ポイント"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "week6-console-convert",
+        "title": "数値にしてから足す",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "「変換してから足す」と「つないでから変換する」の順序を比べましょう。",
+        "goalCode": "const price = \"300\";\nconst fee = \"50\";\nconsole.log(Number(price) + Number(fee));",
+        "expectedOutput": [
+          "350"
+        ]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：文字列の金額と追加料金を数値にして足します。空欄を埋め、350と表示してください。",
+      "conceptId": "week6-section-4",
+      "variantGroup": "week6-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "9. よくある間違いと確認ポイント",
+        "line": 314,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「変換してから足す」と「つないでから変換する」の順序を比べましょう。",
+      "success": "問題文の条件に合う回答：Number(price) + Number(fee)",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-console-boundary",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "人数が0以下なら「入力を確認」、正なら「計算できます」と表示します。0と3で実行して両方確認してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "people > 0"
+          },
+          {
+            "id": "d",
+            "text": "people === 3"
+          },
+          {
+            "id": "a",
+            "text": "people <= 0"
+          },
+          {
+            "id": "b",
+            "text": "people < 0"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "0が不正な場合から漏れてしまいます。",
+          "c": "正の人数でエラーとなり、条件が逆です。",
+          "d": "人数0を止められず、正しい3を止めてしまいます。"
+        },
+        "content": "function check(people) {\n  if (__BLANK__) return \"入力を確認\";\n  return \"計算できます\";\n}\nconsole.log(check(0));\nconsole.log(check(3));",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "0以下は<= 0で表します。0だけでなく正の3でも動かすことで、不正入力を止め、正しい入力を通せることを確認できます。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "5. 条件分岐：if / else"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "week6-console-boundary",
+        "title": "0人のときに計算を止める",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "境界の0を含めるかに注目しましょう。",
+        "goalCode": "function check(people) {\n  if (people <= 0) return \"入力を確認\";\n  return \"計算できます\";\n}\nconsole.log(check(0));\nconsole.log(check(3));",
+        "expectedOutput": [
+          "入力を確認",
+          "計算できます"
+        ]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：人数が0以下なら「入力を確認」、正なら「計算できます」と表示します。0と3で実行して両方確認してください。",
+      "conceptId": "week6-section-5",
+      "variantGroup": "week6-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "5. 条件分岐：if / else",
+        "line": 135,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "境界の0を含めるかに注目しましょう。",
+      "success": "問題文の条件に合う回答：people <= 0",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-console-return",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "小計を関数から受け取ります。空欄に1行入れ、単価120・個数3で360を表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "price * count;"
+          },
+          {
+            "id": "c",
+            "text": "return price + count;"
+          },
+          {
+            "id": "d",
+            "text": "return count;"
+          },
+          {
+            "id": "a",
+            "text": "return price * count;"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "計算するだけでは呼び出し元へ値を返しません。",
+          "c": "足し算になり123を返します。",
+          "d": "個数3だけを返してしまいます。"
+        },
+        "content": "function subtotal(price, count) {\n  __BLANK__\n}\nconsole.log(subtotal(120, 3));",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "引数priceとcountを掛け、returnで計算結果を呼び出し元へ返します。console.logは受け取った値を表示する別の処理です。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "week6-console-return",
+        "title": "計算結果を受け渡す",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "計算することと、計算結果を外へ渡すことは別です。",
+        "goalCode": "function subtotal(price, count) {\n  return price * count;\n}\nconsole.log(subtotal(120, 3));",
+        "expectedOutput": [
+          "360"
+        ]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：小計を関数から受け取ります。空欄に1行入れ、単価120・個数3で360を表示してください。",
+      "conceptId": "week6-section-6",
+      "variantGroup": "week6-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "6. 関数：処理をまとめて名前をつける",
+        "line": 169,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "計算することと、計算結果を外へ渡すことは別です。",
+      "success": "問題文の条件に合う回答：return price * count;",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week6-console-split",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "5000円を3人で割り、端数を切り上げて1667と表示します。Math.ceil(x)はx以上の最小の整数を返す関数です。空欄の計算は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "total / people"
+          },
+          {
+            "id": "b",
+            "text": "total + people"
+          },
+          {
+            "id": "c",
+            "text": "people / total"
+          },
+          {
+            "id": "d",
+            "text": "total * people"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "割り算ではなく5003になります。",
+          "c": "割る数と割られる数が逆です。",
+          "d": "掛け算なので15000になります。"
+        },
+        "content": "const total = 5000;\nconst people = 3;\nconsole.log(Math.ceil(__BLANK__));",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "合計金額を人数で割り、その結果をMath.ceilへ渡します。Math.ceilは問題文で説明した切り上げです。3人で割り切れない端数まで確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "week6-console-split",
+        "title": "割り勘の一人分を求める",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "一人分は合計を人数で割り、その結果を切り上げます。",
+        "goalCode": "const total = 5000;\nconst people = 3;\nconsole.log(Math.ceil(total / people));",
+        "expectedOutput": [
+          "1667"
+        ]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：5000円を3人で割り、端数を切り上げて1667と表示します。Math.ceil(x)はx以上の最小の整数を返す関数です。空欄の計算は？",
+      "conceptId": "week6-section-6",
+      "variantGroup": "week6-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "6. 関数：処理をまとめて名前をつける",
+        "line": 169,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "一人分は合計を人数で割り、その結果を切り上げます。",
+      "success": "問題文の条件に合う回答：total / people",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  }
+]

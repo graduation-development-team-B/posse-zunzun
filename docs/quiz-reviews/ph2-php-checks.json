@@ -1,0 +1,260 @@
+{
+  "environment": "PHP 8.4.13 (cli) (built: Sep 23 2025 14:14:32) (NTS)",
+  "questions": 23,
+  "candidateExecutions": 124,
+  "results": [
+    {
+      "id": "question-ph2-week18-variable-002",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week18-dump-004",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "c": false,
+        "d": false,
+        "a": true,
+        "b": false
+      }
+    },
+    {
+      "id": "question-ph2-week18-if-boundary-005",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 3,
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week18-concat-006",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week18-foreach-value-007",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "b": false,
+        "c": false,
+        "d": false,
+        "a": true
+      }
+    },
+    {
+      "id": "question-ph2-week18-sum-008",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "c": false,
+        "d": false,
+        "a": true,
+        "b": false
+      }
+    },
+    {
+      "id": "question-ph2-week18-for-range-009",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week23-implode-004",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week23-substring-length-005",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week23-round-006",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "b": false,
+        "c": false,
+        "d": false,
+        "a": true
+      }
+    },
+    {
+      "id": "question-ph2-week23-callback-007",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "c": false,
+        "d": false,
+        "a": true,
+        "b": false
+      }
+    },
+    {
+      "id": "question-ph2-week23-return-009",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week24-get-004",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week24-post-005",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "b": false,
+        "c": false,
+        "d": false,
+        "a": true
+      }
+    },
+    {
+      "id": "question-ph2-week24-get-loop-009",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "b": false,
+        "c": false,
+        "d": false,
+        "a": true
+      }
+    },
+    {
+      "id": "question-ph2-week26-store-id-005",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week27-email-format-004",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 3,
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week27-empty-005",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 2,
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week27-password-verify-006",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 2,
+      "candidateOutcomes": {
+        "b": false,
+        "c": false,
+        "d": false,
+        "a": true
+      }
+    },
+    {
+      "id": "question-ph2-week27-minimum-length-008",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 3,
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week27-store-hash-009",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week31-map-array-004",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week31-pair-005",
+      "environment": "local PHP CLI; isolated input; no database/network",
+      "cases": 1,
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,823 @@
+[
+  {
+    "question": {
+      "id": "question-week11-verification-001",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "AIの提案が正しいか、自分ではまだ判断できません。教材の4分類ではどれに入れますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "要確認"
+          },
+          {
+            "id": "b",
+            "text": "採用する"
+          },
+          {
+            "id": "c",
+            "text": "保留する"
+          },
+          {
+            "id": "d",
+            "text": "採用しない"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "目的に合うか、正しいかを確認していない段階です。",
+          "c": "この教材の保留は、良さそうだが今の課題の範囲を超える場合です。",
+          "d": "間違いだと判断できたわけではありません。まず正しさを調べます。"
+        }
+      },
+      "explanation": "要確認は、正しさをまだ判断できず、自分で調べる必要がある出力です。範囲外の保留と、誤りなどによる不採用を区別します。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "全部は、受け取らない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "AI出力の要確認・保留・不採用を区別する",
+      "conceptId": "ph1-week11-verification",
+      "variantGroup": "ph1-week11-verification",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "全部は、受け取らない",
+        "line": 128,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題2（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "正しさが不明なのか、範囲が合わないのかを分けましょう。",
+      "success": "AI出力の要確認・保留・不採用を区別する。条件に合う候補：要確認",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-confidence-002",
+      "weekUnitId": "week-unit-week11",
+      "format": "trueFalse",
+      "prompt": "AIが自信ありげに詳しく説明したので、その内容は正しいと確認できた。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "説明の詳しさや自信のある口調は、正しさの証拠ではありません。教材や公式資料、実際の動作などで、内容を確かめます。"
+        }
+      },
+      "explanation": "説明の詳しさや自信のある口調は、正しさの証拠ではありません。教材や公式資料、実際の動作などで、内容を確かめます。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "今日のまとめ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "流暢な説明と検証済みの根拠を区別する",
+      "conceptId": "ph1-week11-confidence",
+      "variantGroup": "ph1-week11-confidence",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "今日のまとめ",
+        "line": 180,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題1（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "話し方と、確認できた根拠は別です。",
+      "success": "流暢な説明と検証済みの根拠を区別する。条件に合う候補：誤り",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "○×の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-constraint-003",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "依頼文の「レイアウトは変えず、入力チェックだけ直して」は、何を伝えていますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "使用しているAPIキー"
+          },
+          {
+            "id": "d",
+            "text": "ブラウザのバージョン番号"
+          },
+          {
+            "id": "a",
+            "text": "変更してよい範囲と、守る制約"
+          },
+          {
+            "id": "b",
+            "text": "完成したコードの正しさの証明"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "依頼の条件を伝えているだけで、完成物の確認はまだです。",
+          "c": "認証情報の値を伝える文ではありません。",
+          "d": "環境のバージョンではなく、変更範囲を指定しています。"
+        }
+      },
+      "explanation": "AIに目的だけでなく範囲を渡すと、何を直し、何を維持するかを伝えられます。制約は返ってきた変更を判断する基準にもなります。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "「いい感じにして」では、いい感じにならない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "変更範囲を制約として読み取る",
+      "conceptId": "ph1-week11-constraint",
+      "variantGroup": "ph1-week11-constraint",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "「いい感じにして」では、いい感じにならない",
+        "line": 45,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題2（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "「変えないもの」と「直してよいもの」に注目しましょう。",
+      "success": "変更範囲を制約として読み取る。条件に合う候補：変更してよい範囲と、守る制約",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-specific-prompt-004",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "HTML/CSS/JSのフォームで未入力だけを直したい。既存の見た目を保つ依頼として具体的なのは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "未確認の全コードをそのまま採用すると先に決める"
+          },
+          {
+            "id": "a",
+            "text": "対象の送信処理を示し、未入力判定だけの改善案・理由・確認方法を求める"
+          },
+          {
+            "id": "b",
+            "text": "いい感じのフォームに全部作り直して"
+          },
+          {
+            "id": "c",
+            "text": "技術やコードを伝えず、エラーだけ直してと言う"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "範囲が広く、今回保ちたい見た目まで変わる可能性があります。",
+          "c": "どの環境のどの箇所か、判断に必要な前提がありません。",
+          "d": "改善内容を判断する段階を飛ばしています。"
+        }
+      },
+      "explanation": "目的・対象コード・前提・制約・出力形式を伝えます。今回なら入力チェックに範囲を絞り、確認方法も求めると判断しやすくなります。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "「いい感じにして」では、いい感じにならない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "課題の目的と範囲に合う依頼方法を選ぶ",
+      "conceptId": "ph1-week11-specific-prompt",
+      "variantGroup": "ph1-week11-specific-prompt",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "「いい感じにして」では、いい感じにならない",
+        "line": 45,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題2（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "欲しい変更と、維持する部分を両方渡しましょう。",
+      "success": "課題の目的と範囲に合う依頼方法を選ぶ。条件に合う候補：対象の送信処理を示し、未入力判定だけの改善案・理由・確認方法を求める",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-redact-005",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "APIキーを使うコードについて相談します。教材の方針に沿った渡し方は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "実際のキーを消し、API_KEY=\"YOUR_KEY\"などの架空の値へ置き換える"
+          },
+          {
+            "id": "b",
+            "text": "本物のキーを全文貼って、後で消す"
+          },
+          {
+            "id": "c",
+            "text": "キーの名前だけをTOKENに変え、値は本物のまま貼る"
+          },
+          {
+            "id": "d",
+            "text": "自分以外の人のキーなら、そのまま貼る"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "送った後の削除を前提にせず、送る前に本物の値を除きます。",
+          "c": "変数名を変えても、秘密の値は送られてしまいます。",
+          "d": "他人の情報や鍵も、そのまま渡す対象にはしません。"
+        }
+      },
+      "explanation": "学習用の相談には、実際の鍵の値は不要です。必要なコードの構造は残し、機密の値を架空の値に置き換えます。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "これだけは、絶対に渡さない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "コード相談前に機密値を除いた例を選ぶ",
+      "conceptId": "ph1-week11-redact",
+      "variantGroup": "ph1-week11-redact",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "これだけは、絶対に渡さない",
+        "line": 81,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題2（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "説明に必要な構造と、渡す必要のない本物の値を分けましょう。",
+      "success": "コード相談前に機密値を除いた例を選ぶ。条件に合う候補：実際のキーを消し、API_KEY=\"YOUR_KEY\"などの架空の値へ置き換える",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-ask-why-006",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "コードは動きましたが、その1行を説明できません。自分の理解を補う依頼は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "理由を聞かず、完成コードをもう一度もらう"
+          },
+          {
+            "id": "c",
+            "text": "見た目だけをもっと整えてもらう"
+          },
+          {
+            "id": "d",
+            "text": "難しい用語だけで答えるよう頼む"
+          },
+          {
+            "id": "a",
+            "text": "その行の役割と、この書き方を選んだ理由を聞く"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "理解できない行が、説明できる状態へ変わっていません。",
+          "c": "分からない処理の理由を確認していません。",
+          "d": "初学者として理解したい目的と合っていません。"
+        }
+      },
+      "explanation": "完成品だけを増やすのではなく、なぜそう書くかを確認します。説明を読んだ後、自分の言葉で言い直してみることが理解の確認になります。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "完成品より、\"なぜ\"をもらう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "分からない処理の理由を得る依頼を選ぶ",
+      "conceptId": "ph1-week11-ask-why",
+      "variantGroup": "ph1-week11-ask-why",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "完成品より、\"なぜ\"をもらう",
+        "line": 106,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題1（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "今回はコードの量ではなく、分からない行の意味が課題です。",
+      "success": "分からない処理の理由を得る依頼を選ぶ。条件に合う候補：その行の役割と、この書き方を選んだ理由を聞く",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-prompt-fields-007",
+      "weekUnitId": "week-unit-week11",
+      "format": "fillBlank",
+      "prompt": "目的・前提・観点・制約・出力形式をそろえます。目的に合う空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "本物のAPIキーを見てほしい"
+          },
+          {
+            "id": "d",
+            "text": "とにかくかっこよくしてほしい"
+          },
+          {
+            "id": "a",
+            "text": "未入力で受け付けてしまう原因を見つけたい"
+          },
+          {
+            "id": "b",
+            "text": "Reactでページ全体を新しく作りたい"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "前提や制約と合わず、入力の不具合の相談から外れています。",
+          "c": "今回の目的に不要な機密値の共有です。",
+          "d": "どの問題を解決するかが曖昧で、観点とつながりません。"
+        },
+        "content": "目的: ___\n前提: HTML/CSS/JSのフォーム\n観点: 未入力の扱い\n制約: 見た目は保つ\n出力形式: 指摘・理由・確認方法",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "目的は、前提・観点・制約と一貫するように書きます。未入力の不具合を直したいことを明示すると、対象や確認方法を組み合わせて判断できます。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "「いい感じにして」では、いい感じにならない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "依頼の目的・前提・観点・制約を一貫させる",
+      "conceptId": "ph1-week11-prompt-fields",
+      "variantGroup": "ph1-week11-prompt-fields",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "「いい感じにして」では、いい感じにならない",
+        "line": 45,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題2（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "他の欄と同じ課題を指しているか確かめましょう。",
+      "success": "依頼の目的・前提・観点・制約を一貫させる。条件に合う候補：未入力で受け付けてしまう原因を見つけたい",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "目的: ___\n前提: HTML/CSS/JSのフォーム\n観点: 未入力の扱い\n制約: 見た目は保つ\n出力形式: 指摘・理由・確認方法",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-learn-sequence-008",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "AIが直した処理を自分のものにする確認の流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "分からない行を増やす → 質問せず採用する"
+          },
+          {
+            "id": "a",
+            "text": "理由を聞く → AIを閉じて自分で説明 → 条件を少し変えて自分で直す"
+          },
+          {
+            "id": "b",
+            "text": "全コードを貼る → AIの説明を作品の説明として丸写しする"
+          },
+          {
+            "id": "c",
+            "text": "画面を一度見る → 内容は読まず提出する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "自分で説明・変更できるかを確かめていません。",
+          "c": "動作の一部を見ただけで、処理の理解は確認できません。",
+          "d": "理解できない部分を残したままになっています。"
+        }
+      },
+      "explanation": "教材の確認は「説明できる」と「少し変えて直せる」の両方です。説明を受け取ったら、自分で試して理解の穴を見つけます。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "直った。でも、なぜ直ったかは言えますか"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "説明と小さな変更を組み合わせて理解を確かめる",
+      "conceptId": "ph1-week11-learn-sequence",
+      "variantGroup": "ph1-week11-learn-sequence",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "直った。でも、なぜ直ったかは言えますか",
+        "line": 26,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題1（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "説明を読めたことと、自分で説明・変更できることを分けましょう。",
+      "success": "説明と小さな変更を組み合わせて理解を確かめる。条件に合う候補：理由を聞く → AIを閉じて自分で説明 → 条件を少し変えて自分で直す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-adoption-evidence-009",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "目的は未入力の受付を止めること、制約は見た目を保つことです。採用の根拠がそろっているのは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "未入力で受付されず、正常入力は受付され、見た目も保たれることを自分で確認した"
+          },
+          {
+            "id": "b",
+            "text": "AIが「これで完璧」と言った"
+          },
+          {
+            "id": "c",
+            "text": "見た目がよくなったが、入力の検証はまだ試していない"
+          },
+          {
+            "id": "d",
+            "text": "今回不要な新機能が増えたので、動作を見ずに採用した"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "自分の目的・制約に沿うかを確かめた根拠ではありません。",
+          "c": "目的である未入力の扱いを確認できていません。",
+          "d": "課題の範囲と動作確認の両方が不足しています。"
+        }
+      },
+      "explanation": "目的・通常動作・制約をそれぞれ確認して、提案を採用するか判断します。提案者の自信や追加機能の多さだけでは判断できません。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "全部は、受け取らない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "目的・制約・動作の確認結果から採用を判断する",
+      "conceptId": "ph1-week11-adoption-evidence",
+      "variantGroup": "ph1-week11-adoption-evidence",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "全部は、受け取らない",
+        "line": 128,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題2（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "目的と制約を、実際に観察できる確認に置き換えましょう。",
+      "success": "目的・制約・動作の確認結果から採用を判断する。条件に合う候補：未入力で受付されず、正常入力は受付され、見た目も保たれることを自分で確認した",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-understanding-gap-010",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "AIを閉じて説明すると、条件分岐の行で止まりました。次に理解を確かめる行動は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "読めない行はそのままにし、動くので全部理解したとする"
+          },
+          {
+            "id": "c",
+            "text": "教材には戻らず、同じ完成コードをもう一度貼る"
+          },
+          {
+            "id": "d",
+            "text": "自分はプログラミングに向かないと決める"
+          },
+          {
+            "id": "a",
+            "text": "その条件が何を区別するか聞き、入力を変えて結果を自分で予測・確認する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "説明が止まった箇所の理解を補っていません。",
+          "c": "同じ箇所で止まる原因を確かめていません。",
+          "d": "今分からない条件があることから、適性までは判断できません。"
+        }
+      },
+      "explanation": "止まった行は、理解を補う場所の手がかりです。条件の意味を聞き、違う入力で予測が合うかを確かめると、小さく確認できます。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "直った。でも、なぜ直ったかは言えますか"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "説明できない行を特定して理解を補う方法を選ぶ",
+      "conceptId": "ph1-week11-understanding-gap",
+      "variantGroup": "ph1-week11-understanding-gap",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "直った。でも、なぜ直ったかは言えますか",
+        "line": 26,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題1（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "止まった場所を、具体的な質問と試す入力へ変えましょう。",
+      "success": "説明できない行を特定して理解を補う方法を選ぶ。条件に合う候補：その条件が何を区別するか聞き、入力を変えて結果を自分で予測・確認する",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-unknown-function-011",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "AIが見慣れない関数を提案しました。説明は丁寧ですが、存在や使い方は確認できません。確かめ方は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "名前が短いので使いやすいと決める"
+          },
+          {
+            "id": "d",
+            "text": "意味は調べず、全部の処理をその関数に置き換える"
+          },
+          {
+            "id": "a",
+            "text": "その技術の公式資料で関数と使い方を調べ、小さい例で試す"
+          },
+          {
+            "id": "b",
+            "text": "AIが言った関数名なので、存在する前提で進める"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "流暢さは存在や正しさの確認ではありません。",
+          "c": "関数の存在や役割の根拠になっていません。",
+          "d": "未確認の提案へ変更範囲を広げています。"
+        }
+      },
+      "explanation": "知らない提案は、要確認として調べます。技術の資料と小さい実例で確かめ、目的に合うかを判断してから使います。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "今日のまとめ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "未知のAI提案を資料と小さい例で検証する",
+      "conceptId": "ph1-week11-unknown-function",
+      "variantGroup": "ph1-week11-unknown-function",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "今日のまとめ",
+        "line": 180,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題1（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "説明のもっともらしさではなく、確認できる根拠を探しましょう。",
+      "success": "未知のAI提案を資料と小さい例で検証する。条件に合う候補：その技術の公式資料で関数と使い方を調べ、小さい例で試す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-scope-review-012",
+      "weekUnitId": "week-unit-week11",
+      "format": "singleChoice",
+      "prompt": "AIが提案した通知機能は有用そうですが、今回はフォームの未入力修正だけが課題です。教材の分類は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "要確認とし、入力チェックより先に実装する"
+          },
+          {
+            "id": "a",
+            "text": "保留する"
+          },
+          {
+            "id": "b",
+            "text": "採用する"
+          },
+          {
+            "id": "c",
+            "text": "採用しないと決め、必ず誤りだと説明する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "今回の課題の範囲を超えているので、今すぐ取り込む根拠はありません。",
+          "c": "範囲外であることは、機能そのものが誤っている根拠ではありません。",
+          "d": "今回解決する対象を後回しにし、範囲を広げています。"
+        }
+      },
+      "explanation": "良さそうでも、今の課題を超える案は保留できます。正しさが不明な要確認と、目的に合わない・誤っている案の不採用を分けます。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "全部は、受け取らない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "範囲外の有用な案を保留と判断する",
+      "conceptId": "ph1-week11-scope-review",
+      "variantGroup": "ph1-week11-scope-review",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "heading": "全部は、受け取らない",
+        "line": 128,
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "drillConnection": "curriculum/PH1/Week11.md：深掘り問題2（借り物の確認／プロンプト改善）へ進む判断。",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "役立つかもしれないことと、今取り込むことは別です。",
+      "success": "範囲外の有用な案を保留と判断する。条件に合う候補：保留する",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

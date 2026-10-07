@@ -1,0 +1,837 @@
+[
+  {
+    "question": {
+      "id": "question-week7-dom-001",
+      "weekUnitId": "week-unit-week7",
+      "format": "singleChoice",
+      "prompt": "DOMは、この学習では何を指しますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "ブラウザがHTMLから作る、ページの要素の構造"
+          },
+          {
+            "id": "b",
+            "text": "HTMLに付ける見た目のクラス名"
+          },
+          {
+            "id": "c",
+            "text": "JavaScriptの数値だけを保存する配列"
+          },
+          {
+            "id": "d",
+            "text": "クリックするたびに作る新しいHTMLファイル"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "見た目のクラス名はCSSで使う指定です。DOMは要素の構造です。",
+          "c": "DOMには見出しや入力欄などの要素が含まれます。",
+          "d": "DOM操作は表示中のページを扱い、新しいファイルを作る処理ではありません。"
+        }
+      },
+      "explanation": "DOMはページを要素のツリーとして扱う仕組みです。JavaScriptでこの構造の要素を取得すると、文字やクラスなどを変更できます。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "1. DOMとは何か"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "DOMを画面の要素の構造として説明する",
+      "conceptId": "ph1-week07-dom",
+      "variantGroup": "ph1-week07-dom",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "1. DOMとは何か",
+        "line": 22,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-1/README.md：DOMを画面の要素の構造として説明する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "見出し・ボタン・入力欄が、どの親の中にあるかを思い浮かべましょう。",
+      "success": "DOMを画面の要素の構造として説明する。条件に合う候補：ブラウザがHTMLから作る、ページの要素の構造",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-selector-002",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "id=\"count\" の要素を取得します。セレクターの空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": ".count"
+          },
+          {
+            "id": "c",
+            "text": "count"
+          },
+          {
+            "id": "d",
+            "text": "#countEl"
+          },
+          {
+            "id": "a",
+            "text": "#count"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": ".はクラス名を指定します。今回はidです。",
+          "c": "目印なしのcountはタグ名として探します。",
+          "d": "countElは変数名です。HTMLのidとは違います。"
+        },
+        "content": "const countEl = document.querySelector(\"___\");",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "IDを指定するセレクターは#から始まります。HTMLのidと一致する#countを指定し、取得した要素をcountElに保存します。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "2. querySelector：要素を取得する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "ID・クラス・変数名を区別して要素を取得する",
+      "conceptId": "ph1-week07-selector",
+      "variantGroup": "ph1-week07-selector",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "2. querySelector：要素を取得する",
+        "line": 42,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-2/README.md：ID・クラス・変数名を区別して要素を取得する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "変数名とHTMLのid名を分けて見ましょう。",
+      "success": "ID・クラス・変数名を区別して要素を取得する。条件に合う候補：#count",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const countEl = document.querySelector(\"___\");",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-text-content-003",
+      "weekUnitId": "week-unit-week7",
+      "format": "trueFalse",
+      "prompt": "message.textContent = \"完了\" は、取得済みのmessage要素に表示する文字を「完了」に変える。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "取得した要素のtextContentに文字列を代入すると、その要素のテキストが変わります。要素を探す操作自体はquerySelectorなどで別に行います。"
+        }
+      },
+      "explanation": "取得した要素のtextContentに文字列を代入すると、その要素のテキストが変わります。要素を探す操作自体はquerySelectorなどで別に行います。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "3. textContent：文字を書き換える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "textContentの代入と表示文字を対応させる",
+      "conceptId": "ph1-week07-text-content",
+      "variantGroup": "ph1-week07-text-content",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "3. textContent：文字を書き換える",
+        "line": 69,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-1/README.md：textContentの代入と表示文字を対応させる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "要素の取得と、取得後の文字の変更は別の操作です。",
+      "success": "textContentの代入と表示文字を対応させる。条件に合う候補：正しい",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "○×の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-input-event-004",
+      "weekUnitId": "week-unit-week7",
+      "format": "singleChoice",
+      "prompt": "金額の入力欄を書き換えるたびに再計算したい。入力欄に登録するイベントは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "load"
+          },
+          {
+            "id": "a",
+            "text": "input"
+          },
+          {
+            "id": "b",
+            "text": "click"
+          },
+          {
+            "id": "c",
+            "text": "submit"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "クリックだけでは、キー入力による値の変更を拾えません。",
+          "c": "submitはフォームの送信です。入力のたびとは違います。",
+          "d": "ページ読み込みと、入力欄の値の変更は別です。"
+        }
+      },
+      "explanation": "inputイベントは入力欄の値が変化したときに発生します。クリック後に一度だけ計算するのか、入力のたびに計算するのかでイベントを選びます。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "4. addEventListener：イベントを登録する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "即時再計算の要求をinputイベントに結びつける",
+      "conceptId": "ph1-week07-input-event",
+      "variantGroup": "ph1-week07-input-event",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "4. addEventListener：イベントを登録する",
+        "line": 88,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-3/README.md：即時再計算の要求をinputイベントに結びつける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "「入力のたび」という条件に注目しましょう。",
+      "success": "即時再計算の要求をinputイベントに結びつける。条件に合う候補：input",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-input-number-005",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "priceInputには金額\"980\"が入力されています。数値980として取得する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "Number(priceInput.value)"
+          },
+          {
+            "id": "b",
+            "text": "priceInput.textContent"
+          },
+          {
+            "id": "c",
+            "text": "priceInput"
+          },
+          {
+            "id": "d",
+            "text": "priceInput.value + 1"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "入力欄に打った値はvalueです。textContentは入力値ではありません。",
+          "c": "これは入力要素そのもので、金額の数値ではありません。",
+          "d": "valueは文字列なので、+1で数値変換はできません。"
+        },
+        "content": "const price = ___;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "input.valueで入力文字列を取り出し、Numberで数値にします。要素の取得→入力値の取得→型の変換を分けて考えます。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "5. input.value：入力値を取得する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "入力要素から数値計算に使う値を取り出す",
+      "conceptId": "ph1-week07-input-number",
+      "variantGroup": "ph1-week07-input-number",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "5. input.value：入力値を取得する",
+        "line": 119,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-3/README.md：入力要素から数値計算に使う値を取り出す。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "要素・入力された文字・計算に使う数値の3つを区別しましょう。",
+      "success": "入力要素から数値計算に使う値を取り出す。条件に合う候補：Number(priceInput.value)",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const price = ___;",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-class-toggle-006",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "クリックのたびに打ち消し線を付けたり外したりします。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "add"
+          },
+          {
+            "id": "c",
+            "text": "remove"
+          },
+          {
+            "id": "d",
+            "text": "textContent"
+          },
+          {
+            "id": "a",
+            "text": "toggle"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "addは付ける操作です。付いているクラスを外しません。",
+          "c": "removeは外す操作です。付いていないクラスを追加しません。",
+          "d": "textContentは文字の変更であり、classListの切り替えメソッドではありません。"
+        },
+        "content": "taskText.classList.___(\"line-through\");",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "toggleは指定したクラスがあれば削除し、なければ追加します。同じ操作で完了表示のON/OFFを切り替えられます。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "6. classList：クラスを操作する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "表示の切り替えにclassList.toggleを選ぶ",
+      "conceptId": "ph1-week07-class-toggle",
+      "variantGroup": "ph1-week07-class-toggle",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "6. classList：クラスを操作する",
+        "line": 144,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-1/README.md：表示の切り替えにclassList.toggleを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "同じボタンでONとOFFの両方を行う条件です。",
+      "success": "表示の切り替えにclassList.toggleを選ぶ。条件に合う候補：toggle",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "taskText.classList.___(\"line-through\");",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-counter-limit-007",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "countは0〜10、MAXは10です。上限未満のときだけ1増やし、refresh()で表示します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "count > MAX"
+          },
+          {
+            "id": "d",
+            "text": "count === 0"
+          },
+          {
+            "id": "a",
+            "text": "count < MAX"
+          },
+          {
+            "id": "b",
+            "text": "count <= MAX"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "countが10のときにも増やして11になります。",
+          "c": "上限を超えた後しか増えず、0〜10では増やせません。",
+          "d": "0から1にした後、それ以上増やせなくなります。"
+        },
+        "content": "plusBtn.addEventListener(\"click\", () => {\n  if (___) {\n    count += 1;\n    refresh();\n  }\n});",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "イベントの中で、現在値と上限を比較してから値と表示を更新します。10のときは増やさないので、条件はcount < MAXです。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "4. addEventListener：イベントを登録する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "上限判定・値の更新・画面更新をつなぐ",
+      "conceptId": "ph1-week07-counter-limit",
+      "variantGroup": "ph1-week07-counter-limit",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "4. addEventListener：イベントを登録する",
+        "line": 88,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-1/README.md：上限判定・値の更新・画面更新をつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "10のときに条件がtrueにならないか確かめましょう。",
+      "success": "上限判定・値の更新・画面更新をつなぐ。条件に合う候補：count < MAX",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "plusBtn.addEventListener(\"click\", () => {\n  if (___) {\n    count += 1;\n    refresh();\n  }\n});",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-append-008",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "todoListは取得済みのulです。文字を設定した新しいliを画面に追加する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "todoList.textContent = item"
+          },
+          {
+            "id": "a",
+            "text": "todoList.appendChild(item)"
+          },
+          {
+            "id": "b",
+            "text": "item.appendChild(todoList)"
+          },
+          {
+            "id": "c",
+            "text": "document.createElement(\"li\")"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "親と子が逆です。liをulの中に追加します。",
+          "c": "もう一つliを作るだけでは、画面に追加されません。",
+          "d": "要素を子に追加する処理ではなく、文字の代入になっています。"
+        },
+        "content": "const item = document.createElement(\"li\");\nitem.textContent = \"復習する\";\n___;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "createElementで作った要素は、それだけではページに出ません。中身を設定し、表示先の親要素のappendChildに渡します。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "7. createElement と appendChild：新しい要素を作って追加する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "要素の作成・中身の設定・親への追加を組み合わせる",
+      "conceptId": "ph1-week07-append",
+      "variantGroup": "ph1-week07-append",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "7. createElement と appendChild：新しい要素を作って追加する",
+        "line": 171,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-1/README.md：要素の作成・中身の設定・親への追加を組み合わせる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "「作った要素」と「追加先の親」を分けましょう。",
+      "success": "要素の作成・中身の設定・親への追加を組み合わせる。条件に合う候補：todoList.appendChild(item)",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const item = document.createElement(\"li\");\nitem.textContent = \"復習する\";\n___;",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-refresh-009",
+      "weekUnitId": "week-unit-week7",
+      "format": "singleChoice",
+      "prompt": "数量と合計をrefresh()で表示するカウンターです。クリック後、値と画面をそろえる順序は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "クリックを受け取る → countを更新 → refresh()を呼ぶ"
+          },
+          {
+            "id": "b",
+            "text": "refresh()を呼ぶ → countを更新 → 何もしない"
+          },
+          {
+            "id": "c",
+            "text": "countを更新 → ボタン要素を消す"
+          },
+          {
+            "id": "d",
+            "text": "ページ読み込みでrefresh()を一度呼ぶだけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "表示した後に値だけ変えると、画面は更新前の数のままです。",
+          "c": "表示更新はボタンを消すことではありません。",
+          "d": "操作の後に値が変わったことを画面へ反映できません。"
+        }
+      },
+      "explanation": "変数の値と表示は別です。値を変えてから、その最新の値を使って画面を更新する関数を呼びます。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "4. addEventListener：イベントを登録する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "イベント・値・DOM表示の更新順序を選ぶ",
+      "conceptId": "ph1-week07-refresh",
+      "variantGroup": "ph1-week07-refresh",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "4. addEventListener：イベントを登録する",
+        "line": 88,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-1/README.md：イベント・値・DOM表示の更新順序を選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "表示関数が、いつのcountを読むか考えましょう。",
+      "success": "イベント・値・DOM表示の更新順序を選ぶ。条件に合う候補：クリックを受け取る → countを更新 → refresh()を呼ぶ",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-selector-bug-010",
+      "weekUnitId": "week-unit-week7",
+      "format": "bugDiagnosis",
+      "prompt": "HTMLにはbutton id=\"swapBtn\"だけがあります。nullで止まる原因を直す候補は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "イベント名を\"input\"にする"
+          },
+          {
+            "id": "c",
+            "text": "btnという変数名をbuttonにする"
+          },
+          {
+            "id": "d",
+            "text": "textContentの文字を短くする"
+          },
+          {
+            "id": "a",
+            "text": "セレクターを\"#swapBtn\"にする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "要素がnullのままなので、イベント名を変えても取得の失敗は直りません。",
+          "c": "変数名は、querySelectorが探すHTMLの目印を変えません。",
+          "d": "文字の代入より前に要素取得で問題が起きています。"
+        },
+        "code": "const btn = document.querySelector(\"swapBtn\");\nbtn.addEventListener(\"click\", () => {\n  btn.textContent = \"変更した\";\n});"
+      },
+      "explanation": "目印なしのswapBtnはタグ名として探されます。id=\"swapBtn\"のボタンを探すには#swapBtnが必要です。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "9. よくある間違いと確認ポイント"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "nullの原因をIDセレクターの不一致へ絞る",
+      "conceptId": "ph1-week07-selector-bug",
+      "variantGroup": "ph1-week07-selector-bug",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "9. よくある間違いと確認ポイント",
+        "line": 264,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-2/README.md：nullの原因をIDセレクターの不一致へ絞る。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "エラーの起きる行より前に、btnの値を確かめましょう。",
+      "success": "nullの原因をIDセレクターの不一致へ絞る。条件に合う候補：セレクターを\"#swapBtn\"にする",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const btn = document.querySelector(\"swapBtn\");\nbtn.addEventListener(\"click\", () => {\n  btn.textContent = \"変更した\";\n});",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-fresh-input-011",
+      "weekUnitId": "week-unit-week7",
+      "format": "bugDiagnosis",
+      "prompt": "最初は空欄です。名前を入力してからボタンを押しても空のまま表示されます。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "入力前にshowBtnを押しておく"
+          },
+          {
+            "id": "d",
+            "text": "nameInputの文字色を変える"
+          },
+          {
+            "id": "a",
+            "text": "nameInput.valueの取得をclickの処理の中へ移す"
+          },
+          {
+            "id": "b",
+            "text": "output.textContentをclassListに変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "クラスの操作では入力文字を表示できません。",
+          "c": "取得済みのnameに、後から入力した文字は自動で入りません。",
+          "d": "取得するタイミングの問題は、見た目では直りません。"
+        },
+        "code": "const name = nameInput.value;\nshowBtn.addEventListener(\"click\", () => {\n  output.textContent = name;\n});"
+      },
+      "explanation": "イベント登録前に読むと、その時点の空文字が保存されます。最新の入力を使うには、クリックしたときにvalueを読みます。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "5. input.value：入力値を取得する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "入力値の取得時点と症状を対応させて修正する",
+      "conceptId": "ph1-week07-fresh-input",
+      "variantGroup": "ph1-week07-fresh-input",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "5. input.value：入力値を取得する",
+        "line": 119,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-3/README.md：入力値の取得時点と症状を対応させて修正する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "入力値を読む時点が、入力する前か後かを見ましょう。",
+      "success": "入力値の取得時点と症状を対応させて修正する。条件に合う候補：nameInput.valueの取得をclickの処理の中へ移す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const name = nameInput.value;\nshowBtn.addEventListener(\"click\", () => {\n  output.textContent = name;\n});",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-boundary-check-012",
+      "weekUnitId": "week-unit-week7",
+      "format": "singleChoice",
+      "prompt": "数量は0〜10です。増減ボタンの上限・下限の不具合を見つける確認は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "ボタンの文字色だけ確認する"
+          },
+          {
+            "id": "a",
+            "text": "0で減らす・10で増やす・途中の値で両方押す"
+          },
+          {
+            "id": "b",
+            "text": "初期値1の見た目だけ確認する"
+          },
+          {
+            "id": "c",
+            "text": "10で減らす操作だけ確認する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "上限・下限で押した結果が分かりません。",
+          "c": "上限で増やさない条件と、0で減らさない条件を確認できません。",
+          "d": "値が範囲を超えるかを調べる確認ではありません。"
+        }
+      },
+      "explanation": "制限の境目と通常の操作を分けて確認します。0で負になる、10で11になる、といった条件の取り違えを見つけやすくなります。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "4. addEventListener：イベントを登録する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "境界値と通常操作を組み合わせてカウンターを確認する",
+      "conceptId": "ph1-week07-boundary-check",
+      "variantGroup": "ph1-week07-boundary-check",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "heading": "4. addEventListener：イベントを登録する",
+        "line": 88,
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "drillConnection": "drill-ph1/week07-1/README.md：境界値と通常操作を組み合わせてカウンターを確認する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "許可されない操作は、どの数のときに起きるでしょうか。",
+      "success": "境界値と通常操作を組み合わせてカウンターを確認する。条件に合う候補：0で減らす・10で増やす・途中の値で両方押す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

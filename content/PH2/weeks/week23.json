@@ -1,0 +1,1166 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week23-function-001",
+      "weekUnitId": "week-unit-week23",
+      "format": "singleChoice",
+      "prompt": "関数の引数と戻り値の対応として合っているのは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "引数で値を渡し、returnで処理した値を呼び出し元へ返す"
+          },
+          {
+            "id": "b",
+            "text": "引数は必ずDB名"
+          },
+          {
+            "id": "c",
+            "text": "returnは画面の色を変える操作"
+          },
+          {
+            "id": "d",
+            "text": "関数は呼ばなくても必ず全行を処理"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "関数ごとに必要な入力が違います。",
+          "c": "値を返す構文です。",
+          "d": "通常は呼び出し時に実行します。"
+        }
+      },
+      "explanation": "入力を受け取り、結果を返すまとまりとして読みます。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "はじめに"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "引数と戻り値を区別する",
+      "conceptId": "ph2-week23-function",
+      "variantGroup": "ph2-week23-function",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "はじめに",
+        "line": 3,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-3/README.md",
+          "heading": "24週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "d976b7b3d12b1c7f066c0f6a25e759b0e07c011fa960475c15b82697112bac5c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-3/index.php",
+          "line": 1,
+          "sha256": "218cd218bfee1e959acf7bb1c27ce0210fe32da4b9b1d221787023f651ab5a45",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-3/README.md：引数と戻り値を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "呼ぶ側と関数の中の受け渡しを考えましょう。",
+      "success": "引数と戻り値を区別する。条件に合う候補：引数で値を渡し、returnで処理した値を呼び出し元へ返す",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-mb-substr-002",
+      "weekUnitId": "week-unit-week23",
+      "format": "singleChoice",
+      "prompt": "mb_substr($text, 6, 5, \"UTF-8\")の5は何を指定しますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "開始位置"
+          },
+          {
+            "id": "c",
+            "text": "同じ文字列の繰り返し回数"
+          },
+          {
+            "id": "d",
+            "text": "必ず5バイトだけ取る指定"
+          },
+          {
+            "id": "a",
+            "text": "取り出す最大文字数"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "開始位置は6です。",
+          "c": "切り出す長さの指定です。",
+          "d": "この関数では文字数で指定します。"
+        }
+      },
+      "explanation": "開始位置と長さを分けます。UTF-8の日本語も文字単位で切り出せます。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "切り出し関数の引数を読める",
+      "conceptId": "ph2-week23-mb-substr",
+      "variantGroup": "ph2-week23-mb-substr",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-1/README.md",
+          "heading": "23週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "0d1b22a137f4c0958509bdf500acbe115bb76fa55f0687c417ce25106acecfdf"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-1/index.php",
+          "line": 1,
+          "sha256": "f1d7c3ad48febdcd942198e8ea26632acad2f7ca800ad2dc5585ec0cf87d0930",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-1/README.md：切り出し関数の引数を読める。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "第2引数と第3引数を区別しましょう。",
+      "success": "切り出し関数の引数を読める。条件に合う候補：取り出す最大文字数",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-array-map-003",
+      "weekUnitId": "week-unit-week23",
+      "format": "singleChoice",
+      "prompt": "array_mapで各数値を四捨五入するとき、コールバックは何を返しますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "CSSのクラス名だけ"
+          },
+          {
+            "id": "d",
+            "text": "何も返さなくてよい"
+          },
+          {
+            "id": "a",
+            "text": "その1件を四捨五入した値"
+          },
+          {
+            "id": "b",
+            "text": "配列の全件数だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "1件ずつ変換する値が必要です。",
+          "c": "数値変換の目的と違います。",
+          "d": "新しい配列に入れる値が必要です。"
+        }
+      },
+      "explanation": "1件の変換を関数にし、array_mapで全件へ適用します。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "変換関数の戻り値を説明する",
+      "conceptId": "ph2-week23-array-map",
+      "variantGroup": "ph2-week23-array-map",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-3/README.md",
+          "heading": "24週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "d976b7b3d12b1c7f066c0f6a25e759b0e07c011fa960475c15b82697112bac5c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-3/index.php",
+          "line": 1,
+          "sha256": "218cd218bfee1e959acf7bb1c27ce0210fe32da4b9b1d221787023f651ab5a45",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-3/README.md：変換関数の戻り値を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "配列全体と各1件を分けましょう。",
+      "success": "変換関数の戻り値を説明する。条件に合う候補：その1件を四捨五入した値",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-implode-004",
+      "weekUnitId": "week-unit-week23",
+      "format": "fillBlank",
+      "prompt": "配列を1-2-3とつなぐ空欄は？ PHP 8の書き方を使います。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "3"
+          },
+          {
+            "id": "a",
+            "text": "\"-\""
+          },
+          {
+            "id": "b",
+            "text": "\"\""
+          },
+          {
+            "id": "c",
+            "text": "\" \""
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "区切りなしの123になります。",
+          "c": "空白区切りになります。",
+          "d": "区切り文字として3になり、目的と違います。"
+        },
+        "content": "echo implode(___, [1, 2, 3]);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "第1引数に区切り、第2引数に配列を渡します。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "連結の目的から区切り文字を選ぶ",
+      "conceptId": "ph2-week23-implode",
+      "variantGroup": "ph2-week23-implode",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-2/README.md",
+          "heading": "23週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "aff3bd69f5f092f549b272c6b537313cd71fd4429dc61fb5a4bb3dabe2a697d7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-2/index.php",
+          "line": 1,
+          "sha256": "0f3d9908c3178ab591ae629ac36009d9c79b0cec5bda6acc8fb9ff40a1fd6db2",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-2/README.md：連結の目的から区切り文字を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "要素と要素の間に何を置くか考えましょう。",
+      "success": "連結の目的から区切り文字を選ぶ。条件に合う候補：\"-\"",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "echo implode(___, [1, 2, 3]);",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-substring-length-005",
+      "weekUnitId": "week-unit-week23",
+      "format": "fillBlank",
+      "prompt": "UTF-8の「パーフェクトサントリービール」からサントリーだけ取ります。位置6は「サ」です。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "5"
+          },
+          {
+            "id": "b",
+            "text": "4"
+          },
+          {
+            "id": "c",
+            "text": "6"
+          },
+          {
+            "id": "d",
+            "text": "0"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "最後の長音符ーが漏れます。",
+          "c": "後続のビまで含めます。",
+          "d": "空の文字列になります。"
+        },
+        "content": "echo mb_substr(\"パーフェクトサントリービール\", 6, ___, \"UTF-8\");",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "サ・ン・ト・リ・ーの5文字です。文字数を数えて指定します。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "開始位置と切り出す長さを選ぶ",
+      "conceptId": "ph2-week23-substring-length",
+      "variantGroup": "ph2-week23-substring-length",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-1/README.md",
+          "heading": "23週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "0d1b22a137f4c0958509bdf500acbe115bb76fa55f0687c417ce25106acecfdf"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-1/index.php",
+          "line": 1,
+          "sha256": "f1d7c3ad48febdcd942198e8ea26632acad2f7ca800ad2dc5585ec0cf87d0930",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-1/README.md：開始位置と切り出す長さを選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "取りたい文字を一つずつ数えましょう。",
+      "success": "開始位置と切り出す長さを選ぶ。条件に合う候補：5",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "echo mb_substr(\"パーフェクトサントリービール\", 6, ___, \"UTF-8\");",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-round-006",
+      "weekUnitId": "week-unit-week23",
+      "format": "fillBlank",
+      "prompt": "3.56を四捨五入して4にする関数の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "floor"
+          },
+          {
+            "id": "c",
+            "text": "intval"
+          },
+          {
+            "id": "d",
+            "text": "implode"
+          },
+          {
+            "id": "a",
+            "text": "round"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "切り捨てで3になります。",
+          "c": "小数部分を落とし、3になります。四捨五入ではありません。",
+          "d": "配列を文字列につなぐ関数です。"
+        },
+        "content": "echo ___(3.56);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "欲しい処理から関数を選び、引数と結果を小さい数値で確かめます。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "期待する数値処理の関数を選ぶ",
+      "conceptId": "ph2-week23-round",
+      "variantGroup": "ph2-week23-round",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-3/README.md",
+          "heading": "24週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "d976b7b3d12b1c7f066c0f6a25e759b0e07c011fa960475c15b82697112bac5c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-3/index.php",
+          "line": 1,
+          "sha256": "218cd218bfee1e959acf7bb1c27ce0210fe32da4b9b1d221787023f651ab5a45",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-3/README.md：期待する数値処理の関数を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "切り捨てと四捨五入を分けましょう。",
+      "success": "期待する数値処理の関数を選ぶ。条件に合う候補：round",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "echo ___(3.56);",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-callback-007",
+      "weekUnitId": "week-unit-week23",
+      "format": "fillBlank",
+      "prompt": "round_numberは1件を四捨五入して返す関数です。全数値へ適用する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "round_number($numbers)"
+          },
+          {
+            "id": "d",
+            "text": "\"result\""
+          },
+          {
+            "id": "a",
+            "text": "\"round_number\""
+          },
+          {
+            "id": "b",
+            "text": "$numbers"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "第1引数には処理する関数を渡します。",
+          "c": "配列全体で先に呼ぶ形になっています。",
+          "d": "定義した変換関数ではありません。"
+        },
+        "content": "function round_number($n) { return round($n); }\n$numbers = [1.24, 3.56];\n$result = array_map(___, $numbers);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "関数の名前をコールバックとして渡し、array_mapが各要素で呼びます。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "変換する関数と対象配列をつなぐ",
+      "conceptId": "ph2-week23-callback",
+      "variantGroup": "ph2-week23-callback",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-3/README.md",
+          "heading": "24週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "d976b7b3d12b1c7f066c0f6a25e759b0e07c011fa960475c15b82697112bac5c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-3/index.php",
+          "line": 1,
+          "sha256": "218cd218bfee1e959acf7bb1c27ce0210fe32da4b9b1d221787023f651ab5a45",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-3/README.md：変換する関数と対象配列をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "関数を渡すことと、今呼ぶことを区別しましょう。",
+      "success": "変換する関数と対象配列をつなぐ。条件に合う候補：\"round_number\"",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "function round_number($n) { return round($n); }\n$numbers = [1.24, 3.56];\n$result = array_map(___, $numbers);",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-map-results-008",
+      "weekUnitId": "week-unit-week23",
+      "format": "singleChoice",
+      "prompt": "round_numberを[1.24, 3.56]へarray_mapしました。新しい配列の値は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "[1.24, 3.56]"
+          },
+          {
+            "id": "a",
+            "text": "[1, 4]"
+          },
+          {
+            "id": "b",
+            "text": "[1, 3]"
+          },
+          {
+            "id": "c",
+            "text": "[2, 4]"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "3.56を切り捨てています。",
+          "c": "1.24も切り上げています。",
+          "d": "変換していません。"
+        }
+      },
+      "explanation": "各要素へ同じ変換を適用し、戻り値を並べます。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "各要素の戻り値を配列へ組む",
+      "conceptId": "ph2-week23-map-results",
+      "variantGroup": "ph2-week23-map-results",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-3/README.md",
+          "heading": "24週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "d976b7b3d12b1c7f066c0f6a25e759b0e07c011fa960475c15b82697112bac5c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-3/index.php",
+          "line": 1,
+          "sha256": "218cd218bfee1e959acf7bb1c27ce0210fe32da4b9b1d221787023f651ab5a45",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-3/README.md：各要素の戻り値を配列へ組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "1件ずつ結果を予測しましょう。",
+      "success": "各要素の戻り値を配列へ組む。条件に合う候補：[1, 4]",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-return-009",
+      "weekUnitId": "week-unit-week23",
+      "format": "fillBlank",
+      "prompt": "自作関数の計算結果をarray_mapへ返す空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "return"
+          },
+          {
+            "id": "b",
+            "text": "echo"
+          },
+          {
+            "id": "c",
+            "text": "break"
+          },
+          {
+            "id": "d",
+            "text": "global"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "画面へ出力しますが、結果の値を返しません。",
+          "c": "この関数の値を返す構文ではありません。",
+          "d": "戻り値の指定になりません。"
+        },
+        "content": "function double_number($n) { ___ $n * 2; }\n$result = array_map(\"double_number\", [1, 2]);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "返す値と画面へ出す文字を区別します。array_mapの要素へ入れるにはreturnが必要です。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "関数の計算と戻り値をつなぐ",
+      "conceptId": "ph2-week23-return",
+      "variantGroup": "ph2-week23-return",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-3/README.md",
+          "heading": "24週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "d976b7b3d12b1c7f066c0f6a25e759b0e07c011fa960475c15b82697112bac5c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-3/index.php",
+          "line": 1,
+          "sha256": "218cd218bfee1e959acf7bb1c27ce0210fe32da4b9b1d221787023f651ab5a45",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-3/README.md：関数の計算と戻り値をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "呼び出し元へ値を戻す目的です。",
+      "success": "関数の計算と戻り値をつなぐ。条件に合う候補：return",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "function double_number($n) { ___ $n * 2; }\n$result = array_map(\"double_number\", [1, 2]);",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-implode-order-010",
+      "weekUnitId": "week-unit-week23",
+      "format": "bugDiagnosis",
+      "prompt": "PHP 8で引数のエラーになります。1-2-3と表示する修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "配列を全部消す"
+          },
+          {
+            "id": "c",
+            "text": "echoを2回書く"
+          },
+          {
+            "id": "d",
+            "text": "区切りを空白へ変えるだけ"
+          },
+          {
+            "id": "a",
+            "text": "区切り\"-\"を先、配列を後へ入れ替える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "必要な要素がなくなります。",
+          "c": "引数の順序は直りません。",
+          "d": "順序の問題が残ります。"
+        },
+        "code": "echo implode([1, 2, 3], \"-\");"
+      },
+      "explanation": "古い順序を使わず、現行の区切り・配列の順へ合わせます。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "関数の引数の順序を修正する",
+      "conceptId": "ph2-week23-implode-order",
+      "variantGroup": "ph2-week23-implode-order",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-2/README.md",
+          "heading": "23週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "aff3bd69f5f092f549b272c6b537313cd71fd4429dc61fb5a4bb3dabe2a697d7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-2/index.php",
+          "line": 1,
+          "sha256": "0f3d9908c3178ab591ae629ac36009d9c79b0cec5bda6acc8fb9ff40a1fd6db2",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-2/README.md：関数の引数の順序を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "公式の引数の順序と照合しましょう。",
+      "success": "関数の引数の順序を修正する。条件に合う候補：区切り\"-\"を先、配列を後へ入れ替える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "echo implode([1, 2, 3], \"-\");",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-missing-return-011",
+      "weekUnitId": "week-unit-week23",
+      "format": "bugDiagnosis",
+      "prompt": "配列の各値がnullになりました。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "入力を3個へ増やす"
+          },
+          {
+            "id": "d",
+            "text": "結果の配列名だけ変える"
+          },
+          {
+            "id": "a",
+            "text": "式の前にreturnを付ける"
+          },
+          {
+            "id": "b",
+            "text": "関数名だけ短くする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "戻り値の不足は直りません。",
+          "c": "nullが増えるだけです。",
+          "d": "計算結果は返りません。"
+        },
+        "code": "function twice($n) { $n * 2; }\n$result = array_map(\"twice\", [1, 2]);"
+      },
+      "explanation": "式を評価するだけでは呼び出し元へ値が返りません。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "変換の戻り値不足を直す",
+      "conceptId": "ph2-week23-missing-return",
+      "variantGroup": "ph2-week23-missing-return",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-3/README.md",
+          "heading": "24週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "d976b7b3d12b1c7f066c0f6a25e759b0e07c011fa960475c15b82697112bac5c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-3/index.php",
+          "line": 1,
+          "sha256": "218cd218bfee1e959acf7bb1c27ce0210fe32da4b9b1d221787023f651ab5a45",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-3/README.md：変換の戻り値不足を直す。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "関数が何を返しているか見ましょう。",
+      "success": "変換の戻り値不足を直す。条件に合う候補：式の前にreturnを付ける",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "function twice($n) { $n * 2; }\n$result = array_map(\"twice\", [1, 2]);",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week23-read-docs-012",
+      "weekUnitId": "week-unit-week23",
+      "format": "singleChoice",
+      "prompt": "未経験の関数を使う前に公式資料で確認することは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "引数をランダムに増やす"
+          },
+          {
+            "id": "a",
+            "text": "引数の順序・型、戻り値、対象バージョン"
+          },
+          {
+            "id": "b",
+            "text": "関数名の短さだけ"
+          },
+          {
+            "id": "c",
+            "text": "画面の色だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "入力や結果の条件が分かりません。",
+          "c": "関数の動作を確認できません。",
+          "d": "使い方の根拠になりません。"
+        }
+      },
+      "explanation": "小さい入力で期待結果を確認してから、ドリルへ適用します。",
+      "sourceReference": {
+        "weekKey": "week23",
+        "sectionHeading": "1. Web教材"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "資料から関数を選び検証する",
+      "conceptId": "ph2-week23-read-docs",
+      "variantGroup": "ph2-week23-read-docs",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week23.md",
+        "heading": "1. Web教材",
+        "line": 8,
+        "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week23-1/README.md",
+          "heading": "23週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "0d1b22a137f4c0958509bdf500acbe115bb76fa55f0687c417ce25106acecfdf"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 23",
+          "line": 616,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week23.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "28d82e52d18e91b2b072d62b78ab7c16ec1129e34c7c3782a5235b67e763ab0a"
+        },
+        {
+          "path": "drill-ph2/src/week23-1/index.php",
+          "line": 1,
+          "sha256": "f1d7c3ad48febdcd942198e8ea26632acad2f7ca800ad2dc5585ec0cf87d0930",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week23-1/README.md：資料から関数を選び検証する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜23の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "何を渡すと何が返るか確認しましょう。",
+      "success": "資料から関数を選び検証する。条件に合う候補：引数の順序・型、戻り値、対象バージョン",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

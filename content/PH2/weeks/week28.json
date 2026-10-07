@@ -1,0 +1,1156 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week28-composer-001",
+      "weekUnitId": "week-unit-week28",
+      "format": "singleChoice",
+      "prompt": "Composerは何を管理する道具ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "DBの全ユーザーだけ"
+          },
+          {
+            "id": "c",
+            "text": "ブラウザのCSSクラスだけ"
+          },
+          {
+            "id": "d",
+            "text": "PHPの全変数の値だけ"
+          },
+          {
+            "id": "a",
+            "text": "PHPライブラリの依存関係"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "PHPパッケージ管理の道具です。",
+          "c": "ライブラリの依存とは別です。",
+          "d": "実行中の変数の管理ではありません。"
+        }
+      },
+      "explanation": "必要なライブラリとその依存をそろえるために使います。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "1. Composer とは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "Composerの役割を説明する",
+      "conceptId": "ph2-week28-composer",
+      "variantGroup": "ph2-week28-composer",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week28.md",
+        "heading": "1. Composer とは？",
+        "line": 7,
+        "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：Composerの役割を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "自分のコードに必要な道具をそろえます。",
+      "success": "Composerの役割を説明する。条件に合う候補：PHPライブラリの依存関係",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-json-002",
+      "weekUnitId": "week-unit-week28",
+      "format": "singleChoice",
+      "prompt": "composer.jsonのrequireは何を記録しますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "全ライブラリの実体コード"
+          },
+          {
+            "id": "d",
+            "text": "SQLの取得結果だけ"
+          },
+          {
+            "id": "a",
+            "text": "必要なパッケージとバージョン条件"
+          },
+          {
+            "id": "b",
+            "text": "現在のログインIDだけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "依存パッケージの設定です。",
+          "c": "実体のファイルとは別の設定です。",
+          "d": "実行結果のデータではありません。"
+        }
+      },
+      "explanation": "どのパッケージが必要かを条件とともに宣言します。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "2. composer.json とは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "依存の宣言を説明する",
+      "conceptId": "ph2-week28-json",
+      "variantGroup": "ph2-week28-json",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week28.md",
+        "heading": "2. composer.json とは？",
+        "line": 15,
+        "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：依存の宣言を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "必要条件の設定と実体を区別しましょう。",
+      "success": "依存の宣言を説明する。条件に合う候補：必要なパッケージとバージョン条件",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-lock-003",
+      "weekUnitId": "week-unit-week28",
+      "format": "singleChoice",
+      "prompt": "composer.lockで固定する主な情報は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "全利用者のDB行"
+          },
+          {
+            "id": "a",
+            "text": "解決したパッケージの具体的なバージョン"
+          },
+          {
+            "id": "b",
+            "text": "画面の文字色"
+          },
+          {
+            "id": "c",
+            "text": "毎回ランダムなパスワード"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "依存のバージョンを記録します。",
+          "c": "認証情報ではありません。",
+          "d": "依存管理とDBデータは別です。"
+        }
+      },
+      "explanation": "ロック情報を使うと、チームで同じ依存バージョンをそろえやすくなります。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "3. composer.lock とは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "宣言とロック情報を区別する",
+      "conceptId": "ph2-week28-lock",
+      "variantGroup": "ph2-week28-lock",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week28.md",
+        "heading": "3. composer.lock とは？",
+        "line": 33,
+        "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：宣言とロック情報を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "許す範囲と採用した具体値を分けましょう。",
+      "success": "宣言とロック情報を区別する。条件に合う候補：解決したパッケージの具体的なバージョン",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-install-004",
+      "weekUnitId": "week-unit-week28",
+      "format": "fillBlank",
+      "prompt": "composer.jsonとlockは一致しています。lockに固定された依存をそろえる空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "install"
+          },
+          {
+            "id": "b",
+            "text": "update"
+          },
+          {
+            "id": "c",
+            "text": "remove"
+          },
+          {
+            "id": "d",
+            "text": "show"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "条件内で依存を解き直し、lockを更新する操作です。",
+          "c": "パッケージの削除です。",
+          "d": "情報を見る操作でインストールしません。"
+        },
+        "content": "composer ___",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "既存のlockに合わせるinstallと、依存を解き直すupdateを目的から選びます。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "3. composer.lock とは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "固定された依存をそろえる操作を選ぶ",
+      "conceptId": "ph2-week28-install",
+      "variantGroup": "ph2-week28-install",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week28.md",
+        "heading": "3. composer.lock とは？",
+        "line": 33,
+        "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：固定された依存をそろえる操作を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "同じバージョンを再現する目的です。",
+      "success": "固定された依存をそろえる操作を選ぶ。条件に合う候補：install",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "composer ___",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "text"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-require-005",
+      "weekUnitId": "week-unit-week28",
+      "format": "fillBlank",
+      "prompt": "教材の画像アップロード用パッケージを追加します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "show"
+          },
+          {
+            "id": "c",
+            "text": "dump-autoload"
+          },
+          {
+            "id": "d",
+            "text": "remove"
+          },
+          {
+            "id": "a",
+            "text": "require"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "情報を表示するだけです。",
+          "c": "新しいパッケージを要求に追加する操作ではありません。",
+          "d": "削除する操作です。"
+        },
+        "content": "composer ___ verot/class.upload.php",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "requireでパッケージを追加し、その要求も設定へ反映します。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "2. composer.json とは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "依存を追加する操作を選ぶ",
+      "conceptId": "ph2-week28-require",
+      "variantGroup": "ph2-week28-require",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week28.md",
+        "heading": "2. composer.json とは？",
+        "line": 15,
+        "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：依存を追加する操作を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "追加する目的をコマンドへ対応させましょう。",
+      "success": "依存を追加する操作を選ぶ。条件に合う候補：require",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "composer ___ verot/class.upload.php",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "text"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-autoload-006",
+      "weekUnitId": "week-unit-week28",
+      "format": "fillBlank",
+      "prompt": "プロジェクト直下にvendorがあり、ファイルはsrc/week28/index.phpです。開始コードの読み込みパスの空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "../vendor/autoload.php"
+          },
+          {
+            "id": "d",
+            "text": "../../composer.lock"
+          },
+          {
+            "id": "a",
+            "text": "../../vendor/autoload.php"
+          },
+          {
+            "id": "b",
+            "text": "./vendor/autoload.php"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "src/week28の下にvendorはありません。",
+          "c": "srcの下までしか戻れません。",
+          "d": "lockはPHPの読み込みコードではありません。"
+        },
+        "content": "require \"___\";\nuse Carbon\\Carbon;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "相対パスで2階層戻り、自動読み込みのファイルを使います。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "ライブラリの読み込み先を選ぶ",
+      "conceptId": "ph2-week28-autoload",
+      "variantGroup": "ph2-week28-autoload",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week28/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：ライブラリの読み込み先を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "現在のファイルの位置からたどりましょう。",
+      "success": "ライブラリの読み込み先を選ぶ。条件に合う候補：../../vendor/autoload.php",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "require \"___\";\nuse Carbon\\Carbon;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-install-use-flow-007",
+      "weekUnitId": "week-unit-week28",
+      "format": "singleChoice",
+      "prompt": "Carbonを使う基本の流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "ファイルを置かずクラス名だけ変更"
+          },
+          {
+            "id": "a",
+            "text": "PHPコンテナの対象プロジェクトでinstall → autoloadを読む → ライブラリを使う"
+          },
+          {
+            "id": "b",
+            "text": "use文だけで必ずインストールされる"
+          },
+          {
+            "id": "c",
+            "text": "SQLの表名へCarbonを追加"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "名前を使う指定と導入は別です。",
+          "c": "PHPの依存管理ではありません。",
+          "d": "導入と読み込みがありません。"
+        }
+      },
+      "explanation": "環境へ用意してから、自分のコードで読み込みます。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "依存の準備と利用をつなぐ",
+      "conceptId": "ph2-week28-install-use-flow",
+      "variantGroup": "ph2-week28-install-use-flow",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week28/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：依存の準備と利用をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "導入と読み込みを別の段階で確認しましょう。",
+      "success": "依存の準備と利用をつなぐ。条件に合う候補：PHPコンテナの対象プロジェクトでinstall → autoloadを読む → ライブラリを使う",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-carbon-now-008",
+      "weekUnitId": "week-unit-week28",
+      "format": "singleChoice",
+      "prompt": "Carbonは導入・読み込み済みです。Carbon::now()は現在時刻を返す提供済みのメソッドです。画面へ出す組み合わせは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "echo Carbon::now();"
+          },
+          {
+            "id": "b",
+            "text": "use Carbon\\Carbon;だけで完了"
+          },
+          {
+            "id": "c",
+            "text": "echo \"Carbon::now()\";"
+          },
+          {
+            "id": "d",
+            "text": "echo composer.lock;"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "名前を読み込む宣言だけで時刻を出していません。",
+          "c": "関数呼び出しの文字そのものです。",
+          "d": "ロック情報は時刻ではありません。"
+        }
+      },
+      "explanation": "提供済みの呼び出し結果を出力します。クラスの仕組み全体をこの問題で新たに要求しません。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ライブラリの戻り値と出力をつなぐ",
+      "conceptId": "ph2-week28-carbon-now",
+      "variantGroup": "ph2-week28-carbon-now",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week28/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：ライブラリの戻り値と出力をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "文字として書くことと呼び出すことを分けましょう。",
+      "success": "ライブラリの戻り値と出力をつなぐ。条件に合う候補：echo Carbon::now();",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-reproduce-009",
+      "weekUnitId": "week-unit-week28",
+      "format": "singleChoice",
+      "prompt": "同じライブラリ構成を他の人が再現するための基本は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "lockを毎回手でランダムに書き換える"
+          },
+          {
+            "id": "c",
+            "text": "use文だけ共有し依存設定は不要"
+          },
+          {
+            "id": "d",
+            "text": "依存を知らずupdateだけ毎回行う"
+          },
+          {
+            "id": "a",
+            "text": "jsonとlockを共有し、相手の環境でinstallする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "固定したバージョンの再現ができません。",
+          "c": "導入するパッケージやバージョンが分かりません。",
+          "d": "解決結果が変わる可能性があります。"
+        }
+      },
+      "explanation": "必要な設定とロックを記録し、実体は各環境で準備します。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "3. composer.lock とは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "依存設定を環境の再現へつなぐ",
+      "conceptId": "ph2-week28-reproduce",
+      "variantGroup": "ph2-week28-reproduce",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week28.md",
+        "heading": "3. composer.lock とは？",
+        "line": 33,
+        "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：依存設定を環境の再現へつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "設定・固定情報・実体を区別しましょう。",
+      "success": "依存設定を環境の再現へつなぐ。条件に合う候補：jsonとlockを共有し、相手の環境でinstallする",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-missing-autoload-010",
+      "weekUnitId": "week-unit-week28",
+      "format": "bugDiagnosis",
+      "prompt": "パッケージは導入済みですがClass Carbon\\Carbon not foundです。このファイルの不足は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "nowを文字列へ変える"
+          },
+          {
+            "id": "d",
+            "text": "DBのテーブルを増やす"
+          },
+          {
+            "id": "a",
+            "text": "正しいvendor/autoload.phpをrequireする"
+          },
+          {
+            "id": "b",
+            "text": "CarbonをCSSの色にする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "クラスの読み込みを直していません。",
+          "c": "時刻を取得する目的を失います。",
+          "d": "PHPライブラリの読み込みと別です。"
+        },
+        "code": "<?php\nuse Carbon\\Carbon;\necho Carbon::now();"
+      },
+      "explanation": "useは名前の指定です。実体を読み込むautoloadも必要です。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "クラスの読み込み不足を修正する",
+      "conceptId": "ph2-week28-missing-autoload",
+      "variantGroup": "ph2-week28-missing-autoload",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week28/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：クラスの読み込み不足を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "導入済みでも読み込み済みとは限りません。",
+      "success": "クラスの読み込み不足を修正する。条件に合う候補：正しいvendor/autoload.phpをrequireする",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "<?php\nuse Carbon\\Carbon;\necho Carbon::now();",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-lock-edit-011",
+      "weekUnitId": "week-unit-week28",
+      "format": "singleChoice",
+      "prompt": "追加したい依存がjsonにあってlockと一致しません。適切な対応は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "CSSの色を変更する"
+          },
+          {
+            "id": "a",
+            "text": "差分を確認し、requireや対象パッケージのupdateでlockを整える"
+          },
+          {
+            "id": "b",
+            "text": "lockを手で適当に書き換える"
+          },
+          {
+            "id": "c",
+            "text": "不一致を無視して必ずinstallできると考える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "解決された依存関係を壊す可能性があります。",
+          "c": "不一致は警告や失敗になり得ます。",
+          "d": "依存の整合性は変わりません。"
+        }
+      },
+      "explanation": "lockは管理ツールに生成させ、更新範囲と結果を確認します。教材の「jsonを参照しない」を無条件の一般則にはしません。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "3. composer.lock とは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "依存宣言とlockの不一致を解消する",
+      "conceptId": "ph2-week28-lock-edit",
+      "variantGroup": "ph2-week28-lock-edit",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week28.md",
+        "heading": "3. composer.lock とは？",
+        "line": 33,
+        "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：依存宣言とlockの不一致を解消する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "宣言と固定情報の整合を確認しましょう。",
+      "success": "依存宣言とlockの不一致を解消する。条件に合う候補：差分を確認し、requireや対象パッケージのupdateでlockを整える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-test-library-012",
+      "weekUnitId": "week-unit-week28",
+      "format": "singleChoice",
+      "prompt": "ライブラリを導入した後、使えることを確認する方法は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "対象環境で小さい呼び出しを実行し、期待する型・値を確認する"
+          },
+          {
+            "id": "b",
+            "text": "installの文字を入力しただけで完了"
+          },
+          {
+            "id": "c",
+            "text": "別の言語のコードを実行するだけ"
+          },
+          {
+            "id": "d",
+            "text": "エラーを隠すだけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "導入と利用の成功を確かめていません。",
+          "c": "対象のPHPライブラリを確認していません。",
+          "d": "成功したか分かりません。"
+        }
+      },
+      "explanation": "導入の成否と、呼び出しの成否をそれぞれ確認します。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "導入と使用の結果を確認する",
+      "conceptId": "ph2-week28-test-library",
+      "variantGroup": "ph2-week28-test-library",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week28/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "heading": "28週目ミニドリル",
+          "line": 1,
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 28",
+          "line": 1032,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week28/README.md：導入と使用の結果を確認する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "まず小さい1回の呼び出しから試しましょう。",
+      "success": "導入と使用の結果を確認する。条件に合う候補：対象環境で小さい呼び出しを実行し、期待する型・値を確認する",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

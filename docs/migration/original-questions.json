@@ -1,0 +1,5113 @@
+[
+  {
+    "question": {
+      "id": "question-week1-web-response",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "URLを開くとブラウザにカードが表示されました。ブラウザとサーバーの関係として適切なのは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "サーバーが画面をクリックしてブラウザへ送る"
+          },
+          {
+            "id": "c",
+            "text": "HTMLを保存すると自動で全員のブラウザへ届く"
+          },
+          {
+            "id": "d",
+            "text": "ブラウザはHTMLを読むことができない"
+          },
+          {
+            "id": "a",
+            "text": "ブラウザが要求し、サーバーが返したHTMLなどをブラウザが表示する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "クリックは利用者の操作です。サーバーは要求に応じてデータを返します。",
+          "c": "共有にはサーバーなどで公開する工程が必要です。",
+          "d": "ブラウザはHTMLを解釈して画面を表示します。"
+        }
+      },
+      "explanation": "ブラウザはURLの先へデータを要求し、受け取ったHTMLなどを解釈して表示します。保存しただけでは他の人へ公開されません。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "1. Webページが表示されるまでの仕組み"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：URLを開くとブラウザにカードが表示されました。ブラウザとサーバーの関係として適切なのは？",
+      "conceptId": "week1-section-1",
+      "variantGroup": "week1-section-1",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "1. Webページが表示されるまでの仕組み",
+        "line": 38,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "要求する側と、データを返す側に分けて考えましょう。",
+      "success": "問題文の条件に合う回答：ブラウザが要求し、サーバーが返したHTMLなどをブラウザが表示する",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-element-meaning",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "<p>映画の紹介</p> について、「要素」に当たるまとまりはどれ？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "<p>映画の紹介</p> 全体"
+          },
+          {
+            "id": "b",
+            "text": "<p> の記号だけ"
+          },
+          {
+            "id": "c",
+            "text": "映画の紹介という文字だけ"
+          },
+          {
+            "id": "d",
+            "text": "</p> だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "これは開始タグです。通常、要素は内容と終了タグも含むまとまりです。",
+          "c": "これは要素の内容です。",
+          "d": "これは終了タグです。"
+        }
+      },
+      "explanation": "p要素は開始タグ・内容・終了タグを含むまとまりです。タグの名前だけでなく、どこからどこまでが一つの要素か確かめましょう。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "2. HTMLはページの構造を書く言語"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：<p>映画の紹介</p> について、「要素」に当たるまとまりはどれ？",
+      "conceptId": "week1-section-2",
+      "variantGroup": "week1-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "2. HTMLはページの構造を書く言語",
+        "line": 56,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "始まり・内容・終わりを合わせた範囲を探しましょう。",
+      "success": "問題文の条件に合う回答：<p>映画の紹介</p> 全体",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-attribute-meaning",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "<a href=\"./detail.html\">詳細</a> の href は何を指定する属性？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "画像ファイルの場所"
+          },
+          {
+            "id": "a",
+            "text": "リンクを押したときの移動先"
+          },
+          {
+            "id": "b",
+            "text": "画面に表示する文字"
+          },
+          {
+            "id": "c",
+            "text": "文字の太さ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "表示する文字は開始タグと終了タグの間に書きます。",
+          "c": "文字の太さはCSSやTailwindで指定します。",
+          "d": "img要素の画像にはsrc属性を使います。"
+        }
+      },
+      "explanation": "属性は要素へ情報を追加するものです。aのhrefは移動先を指定します。リンクの表示文字はタグの間に書きます。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "4. 属性"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：<a href=\"./detail.html\">詳細</a> の href は何を指定する属性？",
+      "conceptId": "week1-section-4",
+      "variantGroup": "week1-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "4. 属性",
+        "line": 205,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "「何を表示するか」と「どこへ移動するか」を分けましょう。",
+      "success": "問題文の条件に合う回答：リンクを押したときの移動先",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-choose-heading",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "映画カードのタイトルを見出しとして表したい。使う要素は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "img"
+          },
+          {
+            "id": "d",
+            "text": "a"
+          },
+          {
+            "id": "a",
+            "text": "h1"
+          },
+          {
+            "id": "b",
+            "text": "p"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "pは段落を表します。見出しとしての意味にはh1などを使います。",
+          "c": "imgは画像を表示する要素です。",
+          "d": "aはリンクを表します。"
+        }
+      },
+      "explanation": "見出しはh1などの見出し要素で表します。見た目が大きいかだけでなく、内容がタイトルか段落かで要素を選びます。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "3. よく使うHTMLタグ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：映画カードのタイトルを見出しとして表したい。使う要素は？",
+      "conceptId": "week1-section-3",
+      "variantGroup": "week1-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "3. よく使うHTMLタグ",
+        "line": 110,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "文章の役割に合うタグを探しましょう。",
+      "success": "問題文の条件に合う回答：h1",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-choose-image",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "./images/poster.jpg を画像として表示するコードは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "<img href=\"./images/poster.jpg\">"
+          },
+          {
+            "id": "c",
+            "text": "<a href=\"./images/poster.jpg\">ポスター</a>"
+          },
+          {
+            "id": "d",
+            "text": "<p>./images/poster.jpg</p>"
+          },
+          {
+            "id": "a",
+            "text": "<img src=\"./images/poster.jpg\" alt=\"映画のポスター\">"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "画像の場所にはhrefではなくsrcを使います。",
+          "c": "これは画像へのリンクです。画像自体をページに表示しません。",
+          "d": "これはファイル名を文字として表示します。"
+        }
+      },
+      "explanation": "imgのsrcに画像の場所を指定します。altには画像の内容を表す代替テキストを書きます。リンク用のhrefと使い分けましょう。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "4. 属性"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：./images/poster.jpg を画像として表示するコードは？",
+      "conceptId": "week1-section-4",
+      "variantGroup": "week1-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "4. 属性",
+        "line": 205,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "画像の読み込み先を指定する属性を確認しましょう。",
+      "success": "問題文の条件に合う回答：<img src=\"./images/poster.jpg\" alt=\"映画のポスター\">",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-choose-style",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "文字は合っているが太さを変えたい。Tailwindを読み込み済みのとき、どこに指定する？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "対象要素のclass属性にfont-boldを加える"
+          },
+          {
+            "id": "b",
+            "text": "対象要素のhrefをfont-boldにする"
+          },
+          {
+            "id": "c",
+            "text": "文字をすべてimg要素へ入れる"
+          },
+          {
+            "id": "d",
+            "text": "終了タグをすべて削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "hrefはリンク先です。見た目を指定しません。",
+          "c": "画像要素に替えても文字の太さは指定できません。",
+          "d": "構造を壊す操作で、見た目の指定にはなりません。"
+        }
+      },
+      "explanation": "HTMLで文章の役割を示し、class属性へTailwindのクラスを付けて見た目を調整します。font-boldは文字を太くする指定です。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "5. Tailwind CDN で見た目をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：文字は合っているが太さを変えたい。Tailwindを読み込み済みのとき、どこに指定する？",
+      "conceptId": "week1-section-5",
+      "variantGroup": "week1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "5. Tailwind CDN で見た目をつける",
+        "line": 225,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "役割を示すHTMLと、見た目を示すクラスを分けましょう。",
+      "success": "問題文の条件に合う回答：対象要素のclass属性にfont-boldを加える",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-list-parent",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "アーティストのメンバー一覧を作ります。li要素をulの中に入れた構造は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "<p><li>田中</li><li>佐藤</li></p>"
+          },
+          {
+            "id": "a",
+            "text": "<ul><li>田中</li><li>佐藤</li></ul>"
+          },
+          {
+            "id": "b",
+            "text": "<ul></ul><li>田中</li><li>佐藤</li>"
+          },
+          {
+            "id": "c",
+            "text": "<li><ul>田中</ul><ul>佐藤</ul></li>"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "liがulの外側です。",
+          "c": "一覧を表すulと、各項目を表すliの関係が逆です。",
+          "d": "pは一覧をまとめる要素ではありません。"
+        }
+      },
+      "explanation": "ulで一覧全体を囲み、各項目をliにします。見た目の前に、一覧の親と項目の子という関係を作ります。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "3. よく使うHTMLタグ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：アーティストのメンバー一覧を作ります。li要素をulの中に入れた構造は？",
+      "conceptId": "week1-section-3",
+      "variantGroup": "week1-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "3. よく使うHTMLタグ",
+        "line": 110,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "全体の箱と、箱の中の各項目に分けましょう。",
+      "success": "問題文の条件に合う回答：<ul><li>田中</li><li>佐藤</li></ul>",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-fix-src",
+      "weekUnitId": "week-unit-week1",
+      "format": "bugDiagnosis",
+      "prompt": "画像が表示されません。画像ファイルは ./images/poster.jpg にあります。属性の修正として正しいのは？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "imgをpへ変える"
+          },
+          {
+            "id": "d",
+            "text": "画像ファイル名を表示文字にする"
+          },
+          {
+            "id": "a",
+            "text": "hrefをsrcに直す"
+          },
+          {
+            "id": "b",
+            "text": "altをhrefに直す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "altは画像の説明です。読み込み先の指定を直します。",
+          "c": "pは画像を読み込みません。",
+          "d": "ファイル名を表示しても画像は読み込まれません。"
+        },
+        "code": "<img href=\"./images/poster.jpg\" alt=\"映画のポスター\">"
+      },
+      "explanation": "画像の読み込み先はsrcに指定します。hrefをsrcへ直した後、ブラウザでポスターが表示されるか確認します。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "4. 属性"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：画像が表示されません。画像ファイルは ./images/poster.jpg にあります。属性の修正として正しいのは？",
+      "conceptId": "week1-section-4",
+      "variantGroup": "week1-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "4. 属性",
+        "line": 205,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "リンク先用と画像用の属性を比べましょう。",
+      "success": "問題文の条件に合う回答：hrefをsrcに直す",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-fix-nesting",
+      "weekUnitId": "week-unit-week1",
+      "format": "bugDiagnosis",
+      "prompt": "HTMLの親子関係を整えたい。pを閉じる前にdivを閉じています。タグの入れ子を直す選択肢は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "<div><p>紹介</div></p>"
+          },
+          {
+            "id": "c",
+            "text": "<p><div>紹介</p></div>"
+          },
+          {
+            "id": "d",
+            "text": "<div><p>紹介</p><div>"
+          },
+          {
+            "id": "a",
+            "text": "<div><p>紹介</p></div>"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "内側のpを閉じる前に外側のdivが閉じています。",
+          "c": "pの中にdivを置き、さらに閉じる順序も交差しています。",
+          "d": "最後がdivの開始タグで、外側のdivが閉じていません。"
+        },
+        "code": "<div><p>紹介</div></p>"
+      },
+      "explanation": "内側で開いたpを先に閉じ、その後に外側のdivを閉じます。修正後はコードの開始・終了タグをたどって親子関係を確認します。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "2. HTMLはページの構造を書く言語"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：HTMLの親子関係を整えたい。pを閉じる前にdivを閉じています。タグの入れ子を直す選択肢は？",
+      "conceptId": "week1-section-2",
+      "variantGroup": "week1-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "2. HTMLはページの構造を書く言語",
+        "line": 56,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "入れた箱を、内側から順に閉じるイメージです。",
+      "success": "問題文の条件に合う回答：<div><p>紹介</p></div>",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-classes-blank",
+      "weekUnitId": "week-unit-week1",
+      "format": "fillBlank",
+      "prompt": "タイトルを大きく、太くしたい。指定はtext-xlとfont-boldです。classの空欄に入れる書き方は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "text-xl font-bold"
+          },
+          {
+            "id": "b",
+            "text": "text-xl,font-bold"
+          },
+          {
+            "id": "c",
+            "text": "text-xlfont-bold"
+          },
+          {
+            "id": "d",
+            "text": "text-xl.font-bold"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "classではクラス名をカンマで区切りません。",
+          "c": "別のクラス名として認識されるよう半角スペースで区切ります。",
+          "d": "ピリオドでは区切りません。"
+        },
+        "content": "<h1 class=\"__BLANK__\">映画の紹介</h1>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "class属性には複数のクラスを半角スペースで区切って並べます。大きさと太さを同じ要素に組み合わせられます。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "5. Tailwind CDN で見た目をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：タイトルを大きく、太くしたい。指定はtext-xlとfont-boldです。classの空欄に入れる書き方は？",
+      "conceptId": "week1-section-5",
+      "variantGroup": "week1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "5. Tailwind CDN で見た目をつける",
+        "line": 225,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "二つのクラス名の境目をどう示すか考えましょう。",
+      "success": "問題文の条件に合う回答：text-xl font-bold",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-preview-heading",
+      "weekUnitId": "week-unit-week1",
+      "format": "fillBlank",
+      "prompt": "空欄に「イベント」のh1要素を組み立てて、本文の前に見出しを表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "</h1>イベント<h1>"
+          },
+          {
+            "id": "a",
+            "text": "<h1>イベント</h1>"
+          },
+          {
+            "id": "b",
+            "text": "<p>イベント</p>"
+          },
+          {
+            "id": "c",
+            "text": "<h1></h1>イベント"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "段落ではなく見出しh1を使う問題です。",
+          "c": "文字がh1の外に出ています。",
+          "d": "開始タグと終了タグが逆です。"
+        },
+        "content": "<main class=\"p-4 bg-white\">\n__BLANK__\n<p>土曜日に開催します</p>\n</main>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "h1の開始タグ、見出しの文字、終了タグの順に組み立てます。表示だけでなく、文字がh1要素の中に入っていることも確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "3. よく使うHTMLタグ"
+      },
+      "published": true,
+      "deleted": false,
+      "preview": {
+        "drillId": "week1-preview-heading",
+        "title": "見出しを組み立てる",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "表示したい文字を、同じ名前の開始タグと終了タグで囲みます。",
+        "goalCode": "<main class=\"p-4 bg-white\">\n<h1>イベント</h1>\n<p>土曜日に開催します</p>\n</main>",
+        "starterCode": "<main class=\"p-4 bg-white\">\n\n<p>土曜日に開催します</p>\n</main>",
+        "inputMode": "code"
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：空欄に「イベント」のh1要素を組み立てて、本文の前に見出しを表示してください。",
+      "conceptId": "week1-section-3",
+      "variantGroup": "week1-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "3. よく使うHTMLタグ",
+        "line": 110,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "表示したい文字を、同じ名前の開始タグと終了タグで囲みます。",
+      "success": "問題文の条件に合う回答：<h1>イベント</h1>",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week1-preview-title-style",
+      "weekUnitId": "week-unit-week1",
+      "format": "fillBlank",
+      "prompt": "見出しのclassにtext-xlとfont-boldを加えてください。ほかのクラスは加えません。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "text-xl"
+          },
+          {
+            "id": "d",
+            "text": "text-sm"
+          },
+          {
+            "id": "a",
+            "text": "text-xl font-bold"
+          },
+          {
+            "id": "b",
+            "text": "text-sm font-bold"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "太さは合っていますが、大きさがtext-smです。",
+          "c": "大きさだけが指定され、太さの指定が足りません。",
+          "d": "大きさと太さが条件を満たしません。"
+        },
+        "content": "<main class=\"p-4 bg-white\"><h1 class=\"__BLANK__\">イベント</h1><p>土曜日に開催します</p></main>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "text-xlで大きさ、font-boldで太さを指定します。二つを組み合わせてから実行し、変更前と比べて確認できます。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "5. Tailwind CDN で見た目をつける"
+      },
+      "published": true,
+      "deleted": false,
+      "preview": {
+        "drillId": "week1-preview-title-style",
+        "title": "タイトルを整える",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "大きさと太さを、それぞれ一つのクラスで指定します。",
+        "goalCode": "<main class=\"p-4 bg-white\"><h1 class=\"text-xl font-bold\">イベント</h1><p>土曜日に開催します</p></main>",
+        "starterCode": "<main class=\"p-4 bg-white\"><h1 class=\"\">イベント</h1><p>土曜日に開催します</p></main>",
+        "inputMode": "classes"
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：見出しのclassにtext-xlとfont-boldを加えてください。ほかのクラスは加えません。",
+      "conceptId": "week1-section-5",
+      "variantGroup": "week1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "5. Tailwind CDN で見た目をつける",
+        "line": 225,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "大きさと太さを、それぞれ一つのクラスで指定します。",
+      "success": "問題文の条件に合う回答：text-xl font-bold",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-padding-meaning",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "カードの「内側の余白」とは、どの間隔？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "カードと次のカードの間隔"
+          },
+          {
+            "id": "c",
+            "text": "文章の文字そのものの大きさ"
+          },
+          {
+            "id": "d",
+            "text": "画像ファイルの容量"
+          },
+          {
+            "id": "a",
+            "text": "カードの枠と中の文章との間隔"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "要素の外側の余白はmarginです。",
+          "c": "文字の大きさはfont-sizeです。",
+          "d": "余白は画面の間隔で、ファイル容量ではありません。"
+        }
+      },
+      "explanation": "paddingは要素の内側の余白です。カードと中身の間隔を広げたいとき、カードのpaddingを調整します。外側の間隔とは分けます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：カードの「内側の余白」とは、どの間隔？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "カードの背景色が続いている内側の間隔を考えましょう。",
+      "success": "問題文の条件に合う回答：カードの枠と中の文章との間隔",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-margin-meaning",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "本のカード同士の外側に余白を付けたい。marginは何を変える？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "要素の外側の余白"
+          },
+          {
+            "id": "b",
+            "text": "要素の中身と枠の間隔"
+          },
+          {
+            "id": "c",
+            "text": "文字の太さ"
+          },
+          {
+            "id": "d",
+            "text": "背景色"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "それはpaddingです。",
+          "c": "それはfont-weightです。",
+          "d": "それはbackground-colorです。"
+        }
+      },
+      "explanation": "marginは要素の外側の余白です。中身との間隔はpadding、他の要素との間隔はmarginとして、何を離したいかで選びます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：本のカード同士の外側に余白を付けたい。marginは何を変える？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "間隔を空けたい場所がカードの内か外かを確認しましょう。",
+      "success": "問題文の条件に合う回答：要素の外側の余白",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-choose-padding",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "本のカードの本文と枠の間に1.25remの余白を付けます。教材のp-5を使う指定は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "本文を包む要素にw-80"
+          },
+          {
+            "id": "a",
+            "text": "本文を包む要素にp-5"
+          },
+          {
+            "id": "b",
+            "text": "本文を包む要素にm-5"
+          },
+          {
+            "id": "c",
+            "text": "本文を包む要素にtext-xl"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "m-5は要素の外側に余白を付けます。",
+          "c": "文字の大きさを変える指定です。",
+          "d": "幅を変える指定です。"
+        }
+      },
+      "explanation": "本文を包む要素のp-5が、内側に1.25remの余白を作ります。仕様表の「本文パディング」を、対象要素とクラスへ結びつけましょう。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：本のカードの本文と枠の間に1.25remの余白を付けます。教材のp-5を使う指定は？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "pとmがそれぞれどちら側の余白か考えましょう。",
+      "success": "問題文の条件に合う回答：本文を包む要素にp-5",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-choose-center",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "親の幅が十分にあり、幅w-80のブロック要素を左右中央に置きたい。追加するクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "font-bold"
+          },
+          {
+            "id": "d",
+            "text": "py-4"
+          },
+          {
+            "id": "a",
+            "text": "mx-auto"
+          },
+          {
+            "id": "b",
+            "text": "text-center"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "中の文字は中央に寄りますが、要素自体を中央には置きません。",
+          "c": "太さの指定です。",
+          "d": "上下の内側余白です。"
+        }
+      },
+      "explanation": "幅の決まったブロック要素にmx-autoを付けると、左右の外側余白が自動調整されて中央に置けます。文字の中央寄せとは別です。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "3. 幅と中央寄せ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：親の幅が十分にあり、幅w-80のブロック要素を左右中央に置きたい。追加するクラスは？",
+      "conceptId": "week2-section-3",
+      "variantGroup": "week2-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "3. 幅と中央寄せ",
+        "line": 99,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "箱自体を動かすのか、中の文字を揃えるのかを分けましょう。",
+      "success": "問題文の条件に合う回答：mx-auto",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-choose-color",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "カードの背景は白いまま、タイトルの文字をgray-900にしたい。使うクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "bg-gray-900"
+          },
+          {
+            "id": "c",
+            "text": "font-gray-900"
+          },
+          {
+            "id": "d",
+            "text": "text-xl"
+          },
+          {
+            "id": "a",
+            "text": "text-gray-900"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "bgは背景を変えるので条件と異なります。",
+          "c": "文字色のクラス名はtext-で始まります。",
+          "d": "文字の大きさを指定します。"
+        }
+      },
+      "explanation": "text-gray-900は文字色の指定です。bg-gray-900は背景色です。同じ色名でも、変えたい対象に応じて接頭部分を選びます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "4. 文字の大きさ・太さ・色"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：カードの背景は白いまま、タイトルの文字をgray-900にしたい。使うクラスは？",
+      "conceptId": "week2-section-4",
+      "variantGroup": "week2-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "4. 文字の大きさ・太さ・色",
+        "line": 151,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "色名の前にあるtextとbgの役割を比べましょう。",
+      "success": "問題文の条件に合う回答：text-gray-900",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-choose-hover",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "リンクは通常gray-600、マウスを乗せたときだけgray-900にしたい。追加するクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "hover:text-gray-900"
+          },
+          {
+            "id": "b",
+            "text": "text-gray-900"
+          },
+          {
+            "id": "c",
+            "text": "hover:bg-gray-900"
+          },
+          {
+            "id": "d",
+            "text": "hover: text-gray-900"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "通常時の文字色も変わります。",
+          "c": "文字ではなく背景が変わります。",
+          "d": "スペースを入れると二つのクラスに分かれます。"
+        }
+      },
+      "explanation": "hover:の直後にクラス名を続けると、マウスを乗せている間だけ適用されます。文字色なのでtext-を選びます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "6. hover：マウスを乗せた時の変化"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：リンクは通常gray-600、マウスを乗せたときだけgray-900にしたい。追加するクラスは？",
+      "conceptId": "week2-section-6",
+      "variantGroup": "week2-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "6. hover：マウスを乗せた時の変化",
+        "line": 228,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "変えるタイミングと変える対象の両方が必要です。",
+      "success": "問題文の条件に合う回答：hover:text-gray-900",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-badge-combine",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "カテゴリバッジの左右は0.5rem、上下は0.25remの内側余白にします。教材の対応表に合う組み合わせは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "p-2"
+          },
+          {
+            "id": "a",
+            "text": "px-2 py-1"
+          },
+          {
+            "id": "b",
+            "text": "px-1 py-2"
+          },
+          {
+            "id": "c",
+            "text": "mx-2 my-1"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "左右と上下の値が逆です。",
+          "c": "内側ではなく外側の余白です。",
+          "d": "四方向すべて0.5remとなり、上下の指定が異なります。"
+        }
+      },
+      "explanation": "pxは左右、pyは上下のpaddingです。px-2とpy-1を組み合わせると、方向ごとに違う余白を付けられます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：カテゴリバッジの左右は0.5rem、上下は0.25remの内側余白にします。教材の対応表に合う組み合わせは？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "xは左右、yは上下です。それぞれ必要な数値を合わせましょう。",
+      "success": "問題文の条件に合う回答：px-2 py-1",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-card-combine",
+      "weekUnitId": "week-unit-week2",
+      "format": "fillBlank",
+      "prompt": "白いカードの角を丸くし、影を付けたい。仕様はbg-white・rounded-xl・shadow-lgです。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "shadow-lg font-bold"
+          },
+          {
+            "id": "d",
+            "text": "bg-white"
+          },
+          {
+            "id": "a",
+            "text": "rounded-xl shadow-lg"
+          },
+          {
+            "id": "b",
+            "text": "rounded-xl text-lg"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "角丸はありますが影の指定がありません。",
+          "c": "影はありますが角丸の指定がありません。",
+          "d": "背景は指定済みで、角丸と影が不足します。"
+        },
+        "content": "<article class=\"bg-white __BLANK__\">本の紹介</article>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "背景・角丸・影はそれぞれ別のクラスで指定します。既にある背景色を残し、rounded-xlとshadow-lgで残りの条件を満たします。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "5. 背景色とカード"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：白いカードの角を丸くし、影を付けたい。仕様はbg-white・rounded-xl・shadow-lgです。空欄は？",
+      "conceptId": "week2-section-5",
+      "variantGroup": "week2-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "5. 背景色とカード",
+        "line": 201,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "既に指定されている条件と、足りない条件を分けましょう。",
+      "success": "問題文の条件に合う回答：rounded-xl shadow-lg",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-fix-padding",
+      "weekUnitId": "week-unit-week2",
+      "format": "bugDiagnosis",
+      "prompt": "文章とカードの枠がくっついたままです。内側に1.25remの余白を付ける修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "m-5をm-4に変える"
+          },
+          {
+            "id": "c",
+            "text": "bg-whiteをtext-whiteに変える"
+          },
+          {
+            "id": "d",
+            "text": "p要素の文章を消す"
+          },
+          {
+            "id": "a",
+            "text": "m-5をp-5に変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "外側の値を変えても内側には余白ができません。",
+          "c": "文字色の指定になり、余白はできません。",
+          "d": "内容を消す操作は余白の解決ではありません。"
+        },
+        "code": "<article class=\"bg-white m-5\"><p>本の紹介</p></article>"
+      },
+      "explanation": "m-5は外側の余白です。p-5へ変えると背景と文章の間に内側の余白ができます。修正後は文章が枠から離れたか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：文章とカードの枠がくっついたままです。内側に1.25remの余白を付ける修正は？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "余白を付ける場所が内か外かを見直しましょう。",
+      "success": "問題文の条件に合う回答：m-5をp-5に変える",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-fix-text-center",
+      "weekUnitId": "week-unit-week2",
+      "format": "bugDiagnosis",
+      "prompt": "親の幅が十分にあるのに、カード自体は左に寄っています。幅w-80のカードを左右中央へ置く追加指定は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "articleにmx-autoを加える"
+          },
+          {
+            "id": "b",
+            "text": "articleにfont-boldを加える"
+          },
+          {
+            "id": "c",
+            "text": "pにtext-centerをもう一度加える"
+          },
+          {
+            "id": "d",
+            "text": "articleのw-80を削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "文字の太さは箱の位置を変えません。",
+          "c": "文字は揃ってもカード自体の位置は変わりません。",
+          "d": "幅を維持して中央に置く条件に合いません。"
+        },
+        "code": "<article class=\"w-80 text-center\"><p>本の紹介</p></article>"
+      },
+      "explanation": "text-centerは要素の中の文字を中央へ揃えます。カードの箱を中央へ置くにはmx-autoを追加します。文字と箱の両方の位置を確かめましょう。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "3. 幅と中央寄せ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：親の幅が十分にあるのに、カード自体は左に寄っています。幅w-80のカードを左右中央へ置く追加指定は？",
+      "conceptId": "week2-section-3",
+      "variantGroup": "week2-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "3. 幅と中央寄せ",
+        "line": 99,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "今中央に寄っているのは文字か、カードの箱かを確認しましょう。",
+      "success": "問題文の条件に合う回答：articleにmx-autoを加える",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-preview-padding",
+      "weekUnitId": "week-unit-week2",
+      "format": "fillBlank",
+      "prompt": "白い本文エリアの内側四方向にp-5の余白を付けてください。ほかの余白クラスは加えません。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "py-1"
+          },
+          {
+            "id": "a",
+            "text": "p-5"
+          },
+          {
+            "id": "b",
+            "text": "m-5"
+          },
+          {
+            "id": "c",
+            "text": "p-2"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "外側の余白です。",
+          "c": "内側ですが指定の1.25remではありません。",
+          "d": "上下だけに0.25remの余白を付けます。"
+        },
+        "content": "<main class=\"p-4 bg-gray-100\"><section class=\"bg-white __BLANK__\"><h1>本の紹介</h1><p>小さく作って試そう</p></section></main>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "p-5は四方向の内側余白です。実行すると、白い背景の端と本文が離れます。m-5との表示の違いも確認できます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false,
+      "preview": {
+        "drillId": "week2-preview-padding",
+        "title": "内側の余白を確かめる",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "白い背景の内側で文章を枠から離します。",
+        "goalCode": "<main class=\"p-4 bg-gray-100\"><section class=\"bg-white p-5\"><h1>本の紹介</h1><p>小さく作って試そう</p></section></main>",
+        "starterCode": "<main class=\"p-4 bg-gray-100\"><section class=\"bg-white \"><h1>本の紹介</h1><p>小さく作って試そう</p></section></main>",
+        "inputMode": "classes"
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：白い本文エリアの内側四方向にp-5の余白を付けてください。ほかの余白クラスは加えません。",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "白い背景の内側で文章を枠から離します。",
+      "success": "問題文の条件に合う回答：p-5",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week2-preview-type",
+      "weekUnitId": "week-unit-week2",
+      "format": "fillBlank",
+      "prompt": "タイトルをtext-xl・font-bold・text-gray-900にします。3つのクラスを組み合わせてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "text-xl text-gray-900"
+          },
+          {
+            "id": "d",
+            "text": "text-xl font-bold bg-gray-900"
+          },
+          {
+            "id": "a",
+            "text": "text-xl font-bold text-gray-900"
+          },
+          {
+            "id": "b",
+            "text": "text-sm font-bold text-gray-900"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "大きさがtext-smです。",
+          "c": "太さの指定が不足しています。",
+          "d": "文字色ではなく背景色が変わります。"
+        },
+        "content": "<main class=\"p-4 bg-white\"><h1 class=\"__BLANK__\">本の紹介</h1><p>著者：田中</p></main>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "文字の大きさ・太さ・色を別々のクラスで組み合わせます。背景色を変えるbg-と文字色を変えるtext-を区別しましょう。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "4. 文字の大きさ・太さ・色"
+      },
+      "published": true,
+      "deleted": false,
+      "preview": {
+        "drillId": "week2-preview-type",
+        "title": "タイトルの指定を組み合わせる",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "仕様を、大きさ・太さ・色の三つに分けましょう。",
+        "goalCode": "<main class=\"p-4 bg-white\"><h1 class=\"text-xl font-bold text-gray-900\">本の紹介</h1><p>著者：田中</p></main>",
+        "starterCode": "<main class=\"p-4 bg-white\"><h1 class=\"\">本の紹介</h1><p>著者：田中</p></main>",
+        "inputMode": "classes"
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：タイトルをtext-xl・font-bold・text-gray-900にします。3つのクラスを組み合わせてください。",
+      "conceptId": "week2-section-4",
+      "variantGroup": "week2-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "4. 文字の大きさ・太さ・色",
+        "line": 151,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "仕様を、大きさ・太さ・色の三つに分けましょう。",
+      "success": "問題文の条件に合う回答：text-xl font-bold text-gray-900",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-flex-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "カード3枚を横に並べたい。「親要素」は、この例ではどの範囲の要素？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "カード3枚を直接包む要素"
+          },
+          {
+            "id": "c",
+            "text": "ページ内のどのbodyでもよい"
+          },
+          {
+            "id": "d",
+            "text": "画像要素"
+          },
+          {
+            "id": "a",
+            "text": "各カードの中の見出し"
+          }
+        ],
+        "correctOptionId": "b",
+        "incorrectReasons": {
+          "a": "見出しはカードの中身です。カード同士を並べる親ではありません。",
+          "c": "bodyが対象カードの直接の親とは限りません。",
+          "d": "画像はカード同士を包む要素ではありません。"
+        }
+      },
+      "explanation": "Flexboxでは、並べたい要素を直接包む親にflexを指定します。この例では3枚のカードを包む要素です。親と直接の子の関係を見つけると、どこにflexを付けるか判断できます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "2. Flexboxの基本：「親」に `flex` をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：カード3枚を横に並べたい。「親要素」は、この例ではどの範囲の要素？",
+      "conceptId": "week3-section-2",
+      "variantGroup": "week3-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "2. Flexboxの基本：「親」に `flex` をつける",
+        "line": 42,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「Flexboxの基本：「親」に `flex` をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：カード3枚を直接包む要素",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-flex-002",
+      "weekUnitId": "week-unit-week3",
+      "format": "trueFalse",
+      "prompt": "`display: flex` を親要素に指定すると、子要素はデフォルトで横方向に並ぶ。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "flex-directionのデフォルト値はrowのため、子要素は横方向（左から右）に並びます。"
+        }
+      },
+      "explanation": "`display: flex` を指定すると、子要素はデフォルトで主軸方向（flex-directionがrowの場合は横方向）に並びます。縦並びにするには `flex-direction: column` または Tailwindの `flex-col` を使います。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "2. Flexboxの基本：「親」に `flex` をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：`display: flex` を親要素に指定すると、子要素はデフォルトで横方向に並ぶ。",
+      "conceptId": "week3-section-2",
+      "variantGroup": "week3-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "2. Flexboxの基本：「親」に `flex` をつける",
+        "line": 42,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「Flexboxの基本：「親」に `flex` をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：正しい",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-justify-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "flex-direction: rowの親で、子要素を左右に配置するプロパティはどれ？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "align-self"
+          },
+          {
+            "id": "a",
+            "text": "justify-content"
+          },
+          {
+            "id": "b",
+            "text": "align-items"
+          },
+          {
+            "id": "c",
+            "text": "flex-direction"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "align-itemsは交差軸（縦方向）の揃え方を制御します。",
+          "c": "flex-directionは主軸の向きを設定します。",
+          "d": "align-selfは個別の子要素の交差軸方向の揃え方を上書きします。"
+        }
+      },
+      "explanation": "justify-contentはFlexコンテナの主軸方向における子要素の配置を制御します。flex-start（左寄せ）、center（中央）、flex-end（右寄せ）、space-between（両端+均等）などを指定できます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "3. justify-content：横方向の並び方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：flex-direction: rowの親で、子要素を左右に配置するプロパティはどれ？",
+      "conceptId": "week3-section-3",
+      "variantGroup": "week3-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "3. justify-content：横方向の並び方を決める",
+        "line": 76,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「justify-content：横方向の並び方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：justify-content",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-justify-002",
+      "weekUnitId": "week-unit-week3",
+      "format": "fillBlank",
+      "prompt": "ヘッダーのロゴと右側のナビゲーションを左右両端に配置したい。Tailwindのクラスを選んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<header class=\"flex __BLANK__ items-center\">...</header>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "justify-start"
+          },
+          {
+            "id": "d",
+            "text": "justify-end"
+          },
+          {
+            "id": "a",
+            "text": "justify-between"
+          },
+          {
+            "id": "b",
+            "text": "justify-center"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "justify-centerは要素を中央に集めます。左右両端への配置にはjustify-betweenを使います。",
+          "c": "justify-startは左寄せです。左右両端への配置にはjustify-betweenを使います。",
+          "d": "justify-endは右寄せです。左右両端への配置にはjustify-betweenを使います。"
+        }
+      },
+      "explanation": "justify-between（justify-content: space-between）を使うと、最初の要素を左端に、最後の要素を右端に配置し、残りのスペースを均等に分配します。ヘッダーのロゴとナビゲーションの配置によく使われます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "3. justify-content：横方向の並び方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：ヘッダーのロゴと右側のナビゲーションを左右両端に配置したい。Tailwindのクラスを選んでください。",
+      "conceptId": "week3-section-3",
+      "variantGroup": "week3-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "3. justify-content：横方向の並び方を決める",
+        "line": 76,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「justify-content：横方向の並び方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：justify-between",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-align-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "flex-direction: rowのヘッダーで、高さの違うロゴと文字を上下中央に揃えます。親に付けるクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "justify-center"
+          },
+          {
+            "id": "c",
+            "text": "items-start"
+          },
+          {
+            "id": "d",
+            "text": "self-center"
+          },
+          {
+            "id": "a",
+            "text": "items-center"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "justify-centerは主軸（横）方向の中央揃えです。縦の中央揃えにはitems-centerを使います。",
+          "c": "items-startは上端揃えです。上下中央にはitems-centerを使います。",
+          "d": "self-centerは個々の子要素に指定するもので、親要素の全子要素には効きません。"
+        }
+      },
+      "explanation": "align-itemsは交差軸（flex-directionがrowの場合は縦方向）の揃え方を制御します。items-centerを親要素に指定すると、高さの異なる子要素を上下中央に揃えられます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "4. align-items：縦方向の揃え方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：flex-direction: rowのヘッダーで、高さの違うロゴと文字を上下中央に揃えます。親に付けるクラスは？",
+      "conceptId": "week3-section-4",
+      "variantGroup": "week3-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "4. align-items：縦方向の揃え方を決める",
+        "line": 102,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「align-items：縦方向の揃え方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：items-center",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-align-002",
+      "weekUnitId": "week-unit-week3",
+      "format": "trueFalse",
+      "prompt": "flex-direction: rowの親では、justify-contentは上下方向の揃え方を変える。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "justify-contentは主軸方向（flex-directionがrowなら横方向）を制御します。交差軸の制御はalign-itemsです。"
+        }
+      },
+      "explanation": "justify-contentは主軸方向の配置を制御し、align-itemsは交差軸方向の揃え方を制御します。flex-directionがrow（デフォルト）の場合、主軸は横方向で交差軸は縦方向です。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "4. align-items：縦方向の揃え方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：flex-direction: rowの親では、justify-contentは上下方向の揃え方を変える。",
+      "conceptId": "week3-section-4",
+      "variantGroup": "week3-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "4. align-items：縦方向の揃え方を決める",
+        "line": 102,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「align-items：縦方向の揃え方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：誤り",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-gap-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "横並びのカード間だけに一定の16pxの間隔を付けたい。親に使う方法は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "justify-content: space-between を使う"
+          },
+          {
+            "id": "a",
+            "text": "gap: 16pxを指定する（Tailwindならgap-4）"
+          },
+          {
+            "id": "b",
+            "text": "各子要素に margin-right を指定する"
+          },
+          {
+            "id": "c",
+            "text": "各子要素に padding を指定する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "margin-rightを使うと最後の要素にも余白ができてしまいます。gapの方がシンプルです。",
+          "c": "paddingは要素の内側の余白で、要素間の間隔には向きません。",
+          "d": "space-betweenは要素間のスペースを均等にしますが、間隔のサイズを直接指定できません。"
+        }
+      },
+      "explanation": "gapプロパティはFlexコンテナの子要素の間隔を均等に設定します。各子要素にmarginを個別指定するよりシンプルで、最初・最後の要素に不要な余白が生まれません。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "5. gap：要素と要素の間隔を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：横並びのカード間だけに一定の16pxの間隔を付けたい。親に使う方法は？",
+      "conceptId": "week3-section-5",
+      "variantGroup": "week3-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "5. gap：要素と要素の間隔を決める",
+        "line": 156,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「gap：要素と要素の間隔を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：gap: 16pxを指定する（Tailwindならgap-4）",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-flex-col-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "Tailwindで要素を縦並びにし、かつ各要素間に16px（gap-4）の間隔を入れたい。正しいクラスの組み合わせはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "flex-col gap-4"
+          },
+          {
+            "id": "d",
+            "text": "block gap-4"
+          },
+          {
+            "id": "a",
+            "text": "flex flex-col gap-4"
+          },
+          {
+            "id": "b",
+            "text": "flex gap-4"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "flexだけではデフォルトで横並びになります。縦並びにはflex-colを追加します。",
+          "c": "この要素ではflexによる配置が有効になっていません。flexも必要です。",
+          "d": "blockレイアウトではgapは機能しません。flexと組み合わせる必要があります。"
+        }
+      },
+      "explanation": "flexで子を並べる仕組みを有効にし、flex-colで縦方向、gap-4で16pxの間隔を指定します。この組み合わせで、方向と間隔を別々に指定できます。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "6. flex-col：縦方向に並べる"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindで要素を縦並びにし、かつ各要素間に16px（gap-4）の間隔を入れたい。正しいクラスの組み合わせはどれですか？",
+      "conceptId": "week3-section-6",
+      "variantGroup": "week3-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "6. flex-col：縦方向に並べる",
+        "line": 179,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「flex-col：縦方向に並べる」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：flex flex-col gap-4",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-flex-wrap-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "trueFalse",
+      "prompt": "Flexboxのデフォルト動作では、子要素がコンテナの幅を超えても自動的に折り返す。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "デフォルトのflex-wrap: nowrapでは折り返しません。折り返すにはflex-wrapまたはTailwindのflex-wrapクラスを指定します。"
+        }
+      },
+      "explanation": "デフォルトのnowrapでは自動的に折り返しません。子要素が縮む場合もありますが、折り返す指定とは別です。折り返しにはflex-wrapを使います。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "7. flex-wrap：はみ出した時に折り返す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：Flexboxのデフォルト動作では、子要素がコンテナの幅を超えても自動的に折り返す。",
+      "conceptId": "week3-section-7",
+      "variantGroup": "week3-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "7. flex-wrap：はみ出した時に折り返す",
+        "line": 196,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「flex-wrap：はみ出した時に折り返す」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：誤り",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-responsive-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "singleChoice",
+      "prompt": "375px幅では縦並び、768px以上では横並びにするTailwindの書き方として正しいのはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "flex flex-col md:flex-row"
+          },
+          {
+            "id": "b",
+            "text": "md:flex md:flex-col flex-row"
+          },
+          {
+            "id": "c",
+            "text": "flex flex-row md:flex-col"
+          },
+          {
+            "id": "d",
+            "text": "sm:flex-col md:flex-row"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "Tailwindはモバイルファーストです。小さい画面のスタイルが基本で、大きい画面で上書きします。",
+          "c": "flex-rowが基本になりスマホでも横並びになります。スマホ用のflex-colを基本にしてください。",
+          "d": "flexを指定せずにflex-colだけではdisplay: flexが有効になりません。"
+        }
+      },
+      "explanation": "Tailwindはモバイルファーストです。まずスマホ用のスタイル（flex flex-col）を書き、mdブレイクポイント以上で上書き（md:flex-row）します。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "8. スマホ幅で縦並びにする（レスポンシブ対応）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：375px幅では縦並び、768px以上では横並びにするTailwindの書き方として正しいのはどれですか？",
+      "conceptId": "week3-section-8",
+      "variantGroup": "week3-section-8",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "8. スマホ幅で縦並びにする（レスポンシブ対応）",
+        "line": 213,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「スマホ幅で縦並びにする（レスポンシブ対応）」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：flex flex-col md:flex-row",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-mistake-001",
+      "weekUnitId": "week-unit-week3",
+      "format": "bugDiagnosis",
+      "prompt": "カードを横並びにしたいのに、縦並びのままになっています。バグの原因はどれですか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<div>\n  <div class=\"flex\">\n    カード1\n  </div>\n  <div class=\"flex\">\n    カード2\n  </div>\n  <div class=\"flex\">\n    カード3\n  </div>\n</div>",
+        "options": [
+          {
+            "id": "d",
+            "text": "items-centerを追加する必要がある"
+          },
+          {
+            "id": "a",
+            "text": "flexを子要素に指定しているため、親要素にflexを指定する必要がある"
+          },
+          {
+            "id": "b",
+            "text": "flexの代わりにflex-rowを使う必要がある"
+          },
+          {
+            "id": "c",
+            "text": "gap-4を追加する必要がある"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "flex-rowはflexの設定に加えて方向を指定しますが、まず親要素にflexを指定することが先決です。",
+          "c": "gapは間隔の設定で、横並びにはなりません。",
+          "d": "items-centerは縦方向の揃えで、横並びには関係ありません。"
+        }
+      },
+      "explanation": "flexをつけるのは「子要素を横並びにしたい親要素」です。このコードでは各カード（子要素）にflexを指定していますが、横並びにしたいのはカード同士なので、カードを囲む外側のdivにflexを指定する必要があります。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "2. Flexboxの基本：「親」に `flex` をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：カードを横並びにしたいのに、縦並びのままになっています。バグの原因はどれですか？",
+      "conceptId": "week3-section-2",
+      "variantGroup": "week3-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "2. Flexboxの基本：「親」に `flex` をつける",
+        "line": 42,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「Flexboxの基本：「親」に `flex` をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：flexを子要素に指定しているため、親要素にflexを指定する必要がある",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week3-mistake-002",
+      "weekUnitId": "week-unit-week3",
+      "format": "bugDiagnosis",
+      "prompt": "ヘッダーのロゴとナビゲーションを左右に配置したいのに、両方が左寄せになっています。どこが間違っていますか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<header class=\"flex items-center\">\n  <span class=\"text-xl font-bold\">LOGO</span>\n  <nav>\n    <ul class=\"flex gap-4\">\n      <li><a href=\"#\">About</a></li>\n      <li><a href=\"#\">Works</a></li>\n    </ul>\n  </nav>\n</header>",
+        "options": [
+          {
+            "id": "c",
+            "text": "items-centerを削除して代わりにjustify-centerを使う"
+          },
+          {
+            "id": "d",
+            "text": "headerにposition: relativeを追加する"
+          },
+          {
+            "id": "a",
+            "text": "headerにjustify-betweenが指定されていない"
+          },
+          {
+            "id": "b",
+            "text": "ulにflex gap-4ではなくflex justify-betweenを使うべき"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ul内のナビゲーション項目の配置の問題ではなく、ヘッダー内のロゴとナビゲーション自体の配置が問題です。",
+          "c": "justify-centerにすると中央寄せになります。左右両端への配置にはjustify-betweenが必要です。",
+          "d": "positionは位置取りで、flexboxのレイアウトとは別の概念です。"
+        }
+      },
+      "explanation": "ヘッダー内のロゴとナビゲーションを左右に配置するには、親要素（header）にjustify-betweenを追加します。justify-content: space-betweenが、最初の要素（ロゴ）を左端に、最後の要素（ナビ）を右端に配置します。",
+      "sourceReference": {
+        "weekKey": "week3",
+        "sectionHeading": "3. justify-content：横方向の並び方を決める"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：ヘッダーのロゴとナビゲーションを左右に配置したいのに、両方が左寄せになっています。どこが間違っていますか？",
+      "conceptId": "week3-section-3",
+      "variantGroup": "week3-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week03.md",
+        "heading": "3. justify-content：横方向の並び方を決める",
+        "line": 76,
+        "sha256": "fefdbe861cdf82ff1c653f3e12dd88591b61dee0bdef2aa13da49976b709a8fa"
+      },
+      "drillConnection": "Week03 問題1のカード一覧、問題2のヘッダー診断、問題3の料金プラン：親・方向・間隔を指定。drill-ph1/week03-2/README.md（問題3）",
+      "priorKnowledge": "Week01〜03のインプット",
+      "hint": "「justify-content：横方向の並び方を決める」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：headerにjustify-betweenが指定されていない",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-grid-001",
+      "weekUnitId": "week-unit-week4",
+      "format": "singleChoice",
+      "prompt": "Tailwindで3列のグリッドレイアウトを作るクラスはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "flex flex-cols-3"
+          },
+          {
+            "id": "c",
+            "text": "grid columns-3"
+          },
+          {
+            "id": "d",
+            "text": "display-grid cols-3"
+          },
+          {
+            "id": "a",
+            "text": "grid grid-cols-3"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "flexboxにはflex-colsはありません。グリッドにはgrid grid-cols-3を使います。",
+          "c": "columnsはMulti-column Layoutの書き方です。CSS Gridではgrid-colsを使います。",
+          "d": "display-gridはTailwindのクラスではありません。正しくはgridです。"
+        }
+      },
+      "explanation": "CSS Gridを使うにはまず親要素に `display: grid` を設定し（Tailwindでは `grid`）、列数を `grid-template-columns` で指定します（Tailwindでは `grid-cols-{n}`）。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "2. Gridの基本クラス"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindで3列のグリッドレイアウトを作るクラスはどれですか？",
+      "conceptId": "week4-section-2",
+      "variantGroup": "week4-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "2. Gridの基本クラス",
+        "line": 58,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「Gridの基本クラス」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：grid grid-cols-3",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-grid-002",
+      "weekUnitId": "week-unit-week4",
+      "format": "trueFalse",
+      "prompt": "CSS GridとFlexboxは、どちらか一方しか使えず組み合わせることはできない。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "GridとFlexboxは組み合わせて使えます。外側のレイアウトにGrid、内側の要素配置にFlexboxを使うのは一般的な手法です。"
+        }
+      },
+      "explanation": "GridとFlexboxはそれぞれ得意な用途が異なり、組み合わせて使えます。Gridはページ全体の2次元レイアウトに、Flexboxは行内の要素配置に向いています。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "1. GridとFlexの役割の違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：CSS GridとFlexboxは、どちらか一方しか使えず組み合わせることはできない。",
+      "conceptId": "week4-section-1",
+      "variantGroup": "week4-section-1",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "1. GridとFlexの役割の違い",
+        "line": 22,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「GridとFlexの役割の違い」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：誤り",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-col-span-001",
+      "weekUnitId": "week-unit-week4",
+      "format": "fillBlank",
+      "prompt": "3列グリッドで、特定の要素を2列分の幅で表示したい。Tailwindのクラスを選んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<div class=\"grid grid-cols-3 gap-4\">\n  <div class=\"__BLANK__\">広い要素</div>\n  <div>通常</div>\n</div>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "span-2"
+          },
+          {
+            "id": "a",
+            "text": "col-span-2"
+          },
+          {
+            "id": "b",
+            "text": "grid-cols-2"
+          },
+          {
+            "id": "c",
+            "text": "col-start-2"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "grid-cols-2は親要素の列数を変更するもので、子要素の幅には使いません。",
+          "c": "col-startは開始列を指定しますが、幅は変わりません。",
+          "d": "span-2はTailwindのGridクラスではありません。col-span-2が正しいです。"
+        }
+      },
+      "explanation": "col-span-{n}を使うと、グリッドアイテムがn列分の幅を占めるようになります。col-span-2は2列分の幅になります。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "3. col-span で幅を変える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：3列グリッドで、特定の要素を2列分の幅で表示したい。Tailwindのクラスを選んでください。",
+      "conceptId": "week4-section-3",
+      "variantGroup": "week4-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "3. col-span で幅を変える",
+        "line": 88,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「col-span で幅を変える」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：col-span-2",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-responsive-grid-001",
+      "weekUnitId": "week-unit-week4",
+      "format": "singleChoice",
+      "prompt": "375px幅で1列、768px以上（md）で2列、1024px以上（lg）で4列にするTailwindのクラスはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          },
+          {
+            "id": "d",
+            "text": "grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          },
+          {
+            "id": "a",
+            "text": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          },
+          {
+            "id": "b",
+            "text": "grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "クラスの順序は動作に影響しませんが、gridクラスが必要で選択肢bは正しく動作します。ただし一般的な書き方はaです。",
+          "c": "gridクラスなしではdisplay: gridが設定されません。",
+          "d": "sm:grid-cols-1は640px以上で1列になりますが、640px未満では指定がないため動作が不安定です。"
+        }
+      },
+      "explanation": "Tailwindはモバイルファーストで、基本のgrid-cols-1がスマホ用、md:grid-cols-2がタブレット用、lg:grid-cols-4がPC用に上書きします。gridクラスを忘れずに指定してください。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "4. レスポンシブGridの書き方"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：375px幅で1列、768px以上（md）で2列、1024px以上（lg）で4列にするTailwindのクラスはどれですか？",
+      "conceptId": "week4-section-4",
+      "variantGroup": "week4-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "4. レスポンシブGridの書き方",
+        "line": 106,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「レスポンシブGridの書き方」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-hover-001",
+      "weekUnitId": "week-unit-week4",
+      "format": "singleChoice",
+      "prompt": "Tailwindでホバー時に背景色を青（bg-blue-500）に変えるクラスはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "bg-blue-500:hover"
+          },
+          {
+            "id": "c",
+            "text": ":hover-bg-blue-500"
+          },
+          {
+            "id": "d",
+            "text": "on-hover:bg-blue-500"
+          },
+          {
+            "id": "a",
+            "text": "hover:bg-blue-500"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "Tailwindの書き方は「状態:プロパティ」の順です。bg-blue-500:hoverは間違いです。",
+          "c": "コロンはプレフィックスの後ではなく、プレフィックスと値の間にきます。",
+          "d": "on-hoverはTailwindのプレフィックスではありません。正しくはhover:です。"
+        }
+      },
+      "explanation": "Tailwindでは `hover:` プレフィックスを使ってホバー時のスタイルを指定します。`hover:bg-blue-500` はホバー時に背景色をblue-500に変えます。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "5. hover: で状態に応じたスタイル"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindでホバー時に背景色を青（bg-blue-500）に変えるクラスはどれですか？",
+      "conceptId": "week4-section-5",
+      "variantGroup": "week4-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "5. hover: で状態に応じたスタイル",
+        "line": 130,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「hover: で状態に応じたスタイル」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：hover:bg-blue-500",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-odd-even-001",
+      "weekUnitId": "week-unit-week4",
+      "format": "trueFalse",
+      "prompt": "Tailwindの `odd:` は奇数番目の要素、`even:` は偶数番目の要素にスタイルを適用する。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "odd:は奇数番目（1, 3, 5...）、even:は偶数番目（2, 4, 6...）の要素にスタイルを適用します。テーブルの行に色をつけるのによく使います。"
+        }
+      },
+      "explanation": "odd:とeven:はCSSの:nth-child(odd)と:nth-child(even)に対応するTailwindのプレフィックスです。テーブルやリストの交互の行に色をつけるストライプパターンによく使われます。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "6. odd: / even: で行ごとに色を変える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindの `odd:` は奇数番目の要素、`even:` は偶数番目の要素にスタイルを適用する。",
+      "conceptId": "week4-section-6",
+      "variantGroup": "week4-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "6. odd: / even: で行ごとに色を変える",
+        "line": 158,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「odd: / even: で行ごとに色を変える」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：正しい",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-common-mistakes-001",
+      "weekUnitId": "week-unit-week4",
+      "format": "bugDiagnosis",
+      "prompt": "ホバー時に背景色が変わらないバグがあります。どこが問題ですか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<button class=\"bg-gray-200 text-gray-700\n  transition-colors duration-200\"\n>\n  ボタン\n</button>",
+        "options": [
+          {
+            "id": "d",
+            "text": "buttonタグにはhoverスタイルが適用できない"
+          },
+          {
+            "id": "a",
+            "text": "hover:bg-blue-500 が指定されていない"
+          },
+          {
+            "id": "b",
+            "text": "transition-colorsをtransition-allに変える必要がある"
+          },
+          {
+            "id": "c",
+            "text": "duration-200をduration-300に変える必要がある"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "transition-allでも動作しますが、根本的な問題はhover:bg-blue-500がないことです。",
+          "c": "durationの値は視覚的な調整で、バグの原因ではありません。",
+          "d": "buttonタグにもhoverスタイルは適用できます。"
+        }
+      },
+      "explanation": "ホバー時のスタイルは `hover:` プレフィックスで指定します。transitionとdurationは変化のアニメーションを制御しますが、ホバー時に変化させる色の指定（hover:bg-blue-500など）がなければ何も変わりません。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "8. よくある間違いと確認ポイント"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：ホバー時に背景色が変わらないバグがあります。どこが問題ですか？",
+      "conceptId": "week4-section-8",
+      "variantGroup": "week4-section-8",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "8. よくある間違いと確認ポイント",
+        "line": 220,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「よくある間違いと確認ポイント」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：hover:bg-blue-500 が指定されていない",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-common-mistakes-002",
+      "weekUnitId": "week-unit-week4",
+      "format": "bugDiagnosis",
+      "prompt": "縦一列のリストで1番目・3番目だけ灰色にしたいのに、全項目が灰色です。各liのクラスをどう直しますか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<ul>\n  <li class=\"bg-gray-100\">商品A</li>\n  <li class=\"bg-gray-100\">商品B</li>\n  <li class=\"bg-gray-100\">商品C</li>\n</ul>",
+        "options": [
+          {
+            "id": "a",
+            "text": "各liをodd:bg-gray-100に変える"
+          },
+          {
+            "id": "b",
+            "text": "ulだけにodd:bg-gray-100を付け、liはそのまま"
+          },
+          {
+            "id": "c",
+            "text": "各liをeven:bg-gray-100に変える"
+          },
+          {
+            "id": "d",
+            "text": "各liをbg-gray-100:oddに変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "各liの通常背景が残るため全項目が灰色のままです。",
+          "c": "2番目など偶数番目が灰色になります。",
+          "d": "状態の接頭辞はクラス名の前に付けます。"
+        }
+      },
+      "explanation": "各liにodd:bg-gray-100を付けると、同じ親の中で1番目・3番目の項目だけに背景が付きます。修正後は2番目に背景が付かないことも確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "8. よくある間違いと確認ポイント"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：縦一列のリストで1番目・3番目だけ灰色にしたいのに、全項目が灰色です。各liのクラスをどう直しますか？",
+      "conceptId": "week4-section-8",
+      "variantGroup": "week4-section-8",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "8. よくある間違いと確認ポイント",
+        "line": 220,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「よくある間違いと確認ポイント」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：各liをodd:bg-gray-100に変える",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-why-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "レスポンシブデザインが必要な主な理由はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "JavaScriptのコード量を減らすため"
+          },
+          {
+            "id": "c",
+            "text": "画像の読み込みを速くするため"
+          },
+          {
+            "id": "d",
+            "text": "SEO対策のため"
+          },
+          {
+            "id": "a",
+            "text": "スマートフォンやタブレットなど様々な画面サイズでも読みやすく使いやすいUIを提供するため"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "レスポンシブデザインはCSSの設計で、JavaScriptのコード量とは直接関係ありません。",
+          "c": "画像最適化はレスポンシブデザインの一部ですが、主な理由ではありません。",
+          "d": "SEO向上はレスポンシブデザインの副次的な効果ですが、主な理由はUXの向上です。"
+        }
+      },
+      "explanation": "現代のWebアクセスはスマートフォンからが多く、様々な画面サイズに対応することでユーザーエクスペリエンスが向上します。レスポンシブデザインにより1つのHTMLで複数デバイスに対応できます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "1. なぜレスポンシブデザインが必要か"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：レスポンシブデザインが必要な主な理由はどれですか？",
+      "conceptId": "week5-section-1",
+      "variantGroup": "week5-section-1",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "1. なぜレスポンシブデザインが必要か",
+        "line": 26,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「なぜレスポンシブデザインが必要か」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：スマートフォンやタブレットなど様々な画面サイズでも読みやすく使いやすいUIを提供するため",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-mobile-first-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "trueFalse",
+      "prompt": "Tailwindはモバイルファーストで設計されており、ブレイクポイント接頭辞なしのクラスはすべての画面サイズに適用される。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "Tailwindはモバイルファーストです。md:などのプレフィックスは最小幅のメディアクエリで、指定幅以上に適用されます。プレフィックスなしのクラスは全画面サイズに適用されます。"
+        }
+      },
+      "explanation": "Tailwindのブレイクポイントはmin-width（最小幅）で定義されています。`md:text-lg` は「768px以上でtext-lgを適用」を意味します。プレフィックスなしは最小から最大まですべてに適用されます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "2. Tailwindはモバイルファースト"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindはモバイルファーストで設計されており、ブレイクポイント接頭辞なしのクラスはすべての画面サイズに適用される。",
+      "conceptId": "week5-section-2",
+      "variantGroup": "week5-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "2. Tailwindはモバイルファースト",
+        "line": 36,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「Tailwindはモバイルファースト」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：正しい",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-breakpoints-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "Tailwindのブレイクポイント `md:` が適用される画面幅はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "1024px以上"
+          },
+          {
+            "id": "a",
+            "text": "768px以上"
+          },
+          {
+            "id": "b",
+            "text": "768px以下"
+          },
+          {
+            "id": "c",
+            "text": "640px以上"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "Tailwindのブレイクポイントはmin-width（最小幅）で、768px以上に適用されます。",
+          "c": "sm:が640px以上です。md:は768px以上に対応します。",
+          "d": "lg:が1024px以上です。md:は768px以上に対応します。"
+        }
+      },
+      "explanation": "Tailwindのブレイクポイント: sm=640px、md=768px、lg=1024px、xl=1280px、2xl=1536px。`md:` プレフィックスは768px以上の画面に適用されます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "3. ブレイクポイント接頭辞"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindのブレイクポイント `md:` が適用される画面幅はどれですか？",
+      "conceptId": "week5-section-3",
+      "variantGroup": "week5-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "3. ブレイクポイント接頭辞",
+        "line": 55,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「ブレイクポイント接頭辞」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：768px以上",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-breakpoints-002",
+      "weekUnitId": "week-unit-week5",
+      "format": "fillBlank",
+      "prompt": "375px幅で非表示、768px以上で表示したい要素に使うTailwindクラスを選んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<div class=\"__BLANK__\">PC専用コンテンツ</div>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "sm:hidden md:block"
+          },
+          {
+            "id": "d",
+            "text": "invisible md:visible"
+          },
+          {
+            "id": "a",
+            "text": "hidden md:block"
+          },
+          {
+            "id": "b",
+            "text": "block md:hidden"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "block md:hiddenはスマホで表示、PCで非表示になります。逆の動作です。",
+          "c": "sm:hiddenは640px以上で非表示になりますが、640px未満では表示されてしまいます。",
+          "d": "invisibleはdisplay: noneではなくvisibility: hiddenです。スペースは確保されます。"
+        }
+      },
+      "explanation": "hiddenはdisplay: noneでデフォルト非表示、md:blockで768px以上にblock表示します。モバイルファーストの書き方で、スマホ非表示PCのみ表示が実現できます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "3. ブレイクポイント接頭辞"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：375px幅で非表示、768px以上で表示したい要素に使うTailwindクラスを選んでください。",
+      "conceptId": "week5-section-3",
+      "variantGroup": "week5-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "3. ブレイクポイント接頭辞",
+        "line": 55,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「ブレイクポイント接頭辞」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：hidden md:block",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-patterns-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "説明とチェックリストをGridで並べます。375pxで1列、768px以上で2列にする親のクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "grid grid-cols-2 md:grid-cols-1"
+          },
+          {
+            "id": "b",
+            "text": "grid grid-cols-1 md:grid-cols-3"
+          },
+          {
+            "id": "c",
+            "text": "grid grid-cols-1 md:grid-cols-2"
+          },
+          {
+            "id": "d",
+            "text": "grid-cols-1 md:grid-cols-2"
+          }
+        ],
+        "correctOptionId": "c",
+        "incorrectReasons": {
+          "a": "小さい画面が2列、大きい画面が1列で逆です。",
+          "b": "768px以上で3列になってしまいます。",
+          "d": "Gridを有効にするgridがありません。"
+        }
+      },
+      "explanation": "親にgridで配置を有効にし、接頭辞なしで1列を基本にします。md:grid-cols-2で768px以上だけ2列へ切り替えます。375pxと768pxの両方で確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：説明とチェックリストをGridで並べます。375pxで1列、768px以上で2列にする親のクラスは？",
+      "conceptId": "week5-section-4",
+      "variantGroup": "week5-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "4. よく使うレスポンシブパターン",
+        "line": 71,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「よく使うレスポンシブパターン」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：grid grid-cols-1 md:grid-cols-2",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "bugDiagnosis",
+      "prompt": "375pxでは1列、768px以上では2列にしたいのに、幅による切り替えができません。接頭辞の書き方をどう直しますか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<div class=\"flex flex-col\">\n  <div>サイドバー</div>\n  <div class=\"md: flex-row\">メイン</div>\n</div>",
+        "options": [
+          {
+            "id": "a",
+            "text": "md:とflex-rowの間にスペースがあるため、有効なクラスとして認識されていない"
+          },
+          {
+            "id": "b",
+            "text": "md:flex-rowを子要素ではなく親要素に指定する必要がある"
+          },
+          {
+            "id": "c",
+            "text": "flex-colを削除する必要がある"
+          },
+          {
+            "id": "d",
+            "text": "AとBの両方が問題"
+          }
+        ],
+        "correctOptionId": "d",
+        "incorrectReasons": {
+          "a": "スペースの問題は正しいですが、それだけでなく親要素に指定する問題もあります。",
+          "b": "親要素への指定の問題は正しいですが、スペースの問題もあります。",
+          "c": "flex-colは正しい指定です。削除すると基本スタイルが失われます。"
+        }
+      },
+      "explanation": "md:grid-cols-2は空白を入れず一つのクラスとして書きます。md: grid-cols-2では後半が接頭辞なしの指定になり、小さい幅にも効き得ます。修正後は375pxで1列、768pxで2列か確認します。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "7. レスポンシブデザインでよくある間違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：375pxでは1列、768px以上では2列にしたいのに、幅による切り替えができません。接頭辞の書き方をどう直しますか？",
+      "conceptId": "week5-section-7",
+      "variantGroup": "week5-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "7. レスポンシブデザインでよくある間違い",
+        "line": 216,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「レスポンシブデザインでよくある間違い」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：AとBの両方が問題",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-002",
+      "weekUnitId": "week-unit-week5",
+      "format": "trueFalse",
+      "prompt": "Tailwindでは `sm:hidden md:block` と書くと、640px〜767pxの画面では表示されない。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "sm:hidden（640px以上で非表示）+ md:block（768px以上でblock）なので、640px〜767pxではhiddenが適用されblock がまだ上書きされないため、非表示になります。"
+        }
+      },
+      "explanation": "Tailwindのブレイクポイントは下位から上位へのカスケードです。sm:hidden（640px以上で非表示）が先に適用され、md:block（768px以上でblock表示）で上書きされます。640〜767pxではhiddenのみ適用されます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "7. レスポンシブデザインでよくある間違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindでは `sm:hidden md:block` と書くと、640px〜767pxの画面では表示されない。",
+      "conceptId": "week5-section-7",
+      "variantGroup": "week5-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "7. レスポンシブデザインでよくある間違い",
+        "line": 216,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「レスポンシブデザインでよくある間違い」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：正しい",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-html-css-js-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "HTML・CSS・JavaScriptの役割として正しい組み合わせはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "HTML=動き、CSS=構造、JavaScript=見た目"
+          },
+          {
+            "id": "d",
+            "text": "HTML=構造、CSS=動き、JavaScript=見た目"
+          },
+          {
+            "id": "a",
+            "text": "HTML=構造、CSS=見た目、JavaScript=動き"
+          },
+          {
+            "id": "b",
+            "text": "HTML=見た目、CSS=構造、JavaScript=動き"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "HTMLは文書の構造・内容を定義し、CSSが見た目を制御します。",
+          "c": "JavaScriptが動的な動きを担当し、HTMLが構造を定義します。",
+          "d": "CSSが見た目を制御し、JavaScriptが動きを実装します。"
+        }
+      },
+      "explanation": "Webの3本柱: HTMLが文書の構造（骨格）、CSSが見た目（スタイル）、JavaScriptが動き（インタラクション）を担当します。それぞれの役割を分離することで保守性が高まります。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "1. HTML・CSS・JavaScriptの役割分担"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：HTML・CSS・JavaScriptの役割として正しい組み合わせはどれですか？",
+      "conceptId": "week6-section-1",
+      "variantGroup": "week6-section-1",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "1. HTML・CSS・JavaScriptの役割分担",
+        "line": 22,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「HTML・CSS・JavaScriptの役割分担」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：HTML=構造、CSS=見た目、JavaScript=動き",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-variables-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "JavaScriptで再代入できない変数を宣言するキーワードはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "let"
+          },
+          {
+            "id": "c",
+            "text": "var"
+          },
+          {
+            "id": "d",
+            "text": "final"
+          },
+          {
+            "id": "a",
+            "text": "const"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "letは再代入可能な変数の宣言に使います。",
+          "c": "varは古い宣言方法で、再代入可能です。現代のJavaScriptではconstとletを推奨します。",
+          "d": "finalはJavaやKotlinのキーワードで、JavaScriptには存在しません。"
+        }
+      },
+      "explanation": "constで宣言した変数は再代入できません。一方letは再代入可能です。基本的にはconstを使い、後で変更が必要な場合だけletを使うのがベストプラクティスです。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "3. 変数：値に名前をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：JavaScriptで再代入できない変数を宣言するキーワードはどれですか？",
+      "conceptId": "week6-section-3",
+      "variantGroup": "week6-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "3. 変数：値に名前をつける",
+        "line": 79,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「変数：値に名前をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：const",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-types-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "typeofは値の種類を文字列で返す操作です。typeof '42' の結果はどれ？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "\"string\""
+          },
+          {
+            "id": "b",
+            "text": "\"number\""
+          },
+          {
+            "id": "c",
+            "text": "\"integer\""
+          },
+          {
+            "id": "d",
+            "text": "42"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "numberは数値型です。'42'はクォートで囲まれているので文字列型です。",
+          "c": "typeofは整数に対しても\"number\"を返します。この値は引用符付きなので\"string\"です。",
+          "d": "typeofは型名の文字列を返します。値そのものは返しません。"
+        }
+      },
+      "explanation": "引用符で囲んだ42は文字列なので、typeofは\"string\"を返します。見た目が数字でも、数値42と文字列\"42\"は異なる種類の値です。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "4. データ型：値の種類"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "引用符付きの数字を、数値ではなく文字列として区別する",
+      "conceptId": "week6-section-4",
+      "variantGroup": "week6-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "4. データ型：値の種類",
+        "line": 111,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week06の文字列と数値。typeofの役割は問題文で説明する",
+      "hint": "「データ型：値の種類」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：\"string\"",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-conditionals-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "`if (age >= 20)` の条件が真になるのはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "age が 20 の場合のみ"
+          },
+          {
+            "id": "a",
+            "text": "age が 20 以上の場合"
+          },
+          {
+            "id": "b",
+            "text": "age が 20 より大きい場合（20は含まない）"
+          },
+          {
+            "id": "c",
+            "text": "age が 20 以下の場合"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "> は「より大きい」ですが、>=は「以上（等しい場合を含む）」です。age=20でもtrueになります。",
+          "c": "<=は「以下」です。>=は「以上」で逆の条件です。",
+          "d": "=== は「等しい」です。>=は20以上のすべての値でtrueになります。"
+        }
+      },
+      "explanation": "比較演算子: >= は「以上（greater than or equal to）」で、左辺が右辺以上のときtrueになります。age=20でもtrueです。> は等号なし、<= は「以下」です。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "5. 条件分岐：if / else"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：`if (age >= 20)` の条件が真になるのはどれですか？",
+      "conceptId": "week6-section-5",
+      "variantGroup": "week6-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "5. 条件分岐：if / else",
+        "line": 135,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「条件分岐：if / else」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：age が 20 以上の場合",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-function-001",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "計算したBMIを呼び出し元へ返したい。空欄に入るキーワードは？（heightはメートル単位の数値です）",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const bmi = (weight, height) => { __BLANK__ weight / (height * height); }",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "print"
+          },
+          {
+            "id": "d",
+            "text": "yield"
+          },
+          {
+            "id": "a",
+            "text": "return"
+          },
+          {
+            "id": "b",
+            "text": "output"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "outputはJavaScriptのキーワードではありません。",
+          "c": "printはJavaScriptの予約語ではありません（console.logで出力します）。",
+          "d": "yieldはgenerator関数で使う特殊なキーワードで、通常の関数の戻り値にはreturnを使います。"
+        }
+      },
+      "explanation": "関数から値を返すにはreturnキーワードを使います。returnの後の式が関数の戻り値になります。returnがない関数はundefinedを返します。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：計算したBMIを呼び出し元へ返したい。空欄に入るキーワードは？（heightはメートル単位の数値です）",
+      "conceptId": "week6-section-6",
+      "variantGroup": "week6-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "6. 関数：処理をまとめて名前をつける",
+        "line": 169,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「関数：処理をまとめて名前をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：return",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-common-mistakes-004",
+      "weekUnitId": "week-unit-week4",
+      "format": "trueFalse",
+      "prompt": "親でGridを有効にしているとき、gap-4はカード間の間隔を指定し、カード内側の余白は指定しない。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "gapはカード同士の間隔です。カード内部を空けるにはp-*を使います。"
+        }
+      },
+      "explanation": "gapは並べた要素の間隔です。カードの背景と文章の間を空けるpaddingとは異なります。カード間とカード内のどちらを変えたいかで選びます。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "2. Gridの基本クラス"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：親でGridを有効にしているとき、gap-4はカード間の間隔を指定し、カード内側の余白は指定しない。",
+      "conceptId": "week4-section-2",
+      "variantGroup": "week4-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "2. Gridの基本クラス",
+        "line": 58,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「Gridの基本クラス」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：正しい",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-common-mistakes-006",
+      "weekUnitId": "week-unit-week4",
+      "format": "singleChoice",
+      "prompt": "幅375pxで1列、640pxで2列、1024pxで4列にするGrid指定はどれ？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+          },
+          {
+            "id": "b",
+            "text": "grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          },
+          {
+            "id": "c",
+            "text": "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+          },
+          {
+            "id": "d",
+            "text": "grid grid-cols-4 sm:grid-cols-2"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "640pxではsm:grid-cols-1により1列なので、この問題の2列という条件と違います。",
+          "c": "Gridを有効にするgridクラスが必要です。",
+          "d": "基本が4列なのでスマホでも4列になり、意図したモバイルファーストになりません。"
+        }
+      },
+      "explanation": "接頭辞なしのgrid-cols-1をスマホの基本値にし、sm:grid-cols-2、lg:grid-cols-4で幅が広がったときの列数を上書きします。Gridの親にはgridクラスも必要です。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "4. レスポンシブGridの書き方"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：幅375pxで1列、640pxで2列、1024pxで4列にするGrid指定はどれ？",
+      "conceptId": "week4-section-4",
+      "variantGroup": "week4-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "4. レスポンシブGridの書き方",
+        "line": 106,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「レスポンシブGridの書き方」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-common-mistakes-007",
+      "weekUnitId": "week-unit-week4",
+      "format": "bugDiagnosis",
+      "prompt": "カードへホバーしても影が変わりません。バグの原因はどれですか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<article class=\"bg-white shadow\">\n  商品カード\n</article>",
+        "options": [
+          {
+            "id": "d",
+            "text": "shadowを親Gridへ移す必要がある"
+          },
+          {
+            "id": "a",
+            "text": "hover:shadow-lg が指定されていない"
+          },
+          {
+            "id": "b",
+            "text": "カードをGridの子にしている"
+          },
+          {
+            "id": "c",
+            "text": "bg-whiteを削除する必要がある"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "Gridの子要素であることはホバー指定の妨げになりません。",
+          "c": "背景色はホバー影の変化と無関係です。",
+          "d": "影を変えたいカード自身へhover:shadow-lgを指定します。"
+        }
+      },
+      "explanation": "ホバー時の影を変えるには、対象カード自身へhover:shadow-lgのような状態指定を付けます。通常のshadowだけでは常時同じ影が表示され、マウス状態による変化は起きません。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "8. よくある間違いと確認ポイント"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：カードへホバーしても影が変わりません。バグの原因はどれですか？",
+      "conceptId": "week4-section-8",
+      "variantGroup": "week4-section-8",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "8. よくある間違いと確認ポイント",
+        "line": 220,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「よくある間違いと確認ポイント」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：hover:shadow-lg が指定されていない",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week4-common-mistakes-009",
+      "weekUnitId": "week-unit-week4",
+      "format": "bugDiagnosis",
+      "prompt": "2列のカード一覧を作りたい。grid-cols-2を子に付けたため並びが変わりません。親子の指定をどう直しますか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<div>\n  <div class=\"grid-cols-2\">商品A</div>\n  <div>商品B</div>\n</div>",
+        "options": [
+          {
+            "id": "c",
+            "text": "子要素へflexを追加する必要がある"
+          },
+          {
+            "id": "d",
+            "text": "gap-4があるため列数が無効になる"
+          },
+          {
+            "id": "a",
+            "text": "gridと列数はカードを並べる親へ指定する必要がある"
+          },
+          {
+            "id": "b",
+            "text": "grid-cols-2をgrid-cols-4へ変更するだけでよい"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "列数の値だけでなく、並べる親をGridコンテナにするgridクラスも必要です。",
+          "c": "カード一覧の配置は親Gridで決まり、各子へのFlex指定は原因ではありません。",
+          "d": "gapは列間の余白であり、Gridの列数を無効にしません。"
+        }
+      },
+      "explanation": "gridとgrid-cols-*は子要素を並べる親に指定します。カード自身へgrid-cols-2だけを付けても、そのカードの子配置を指定するだけで、兄弟カードの列数は変わりません。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "8. よくある間違いと確認ポイント"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：2列のカード一覧を作りたい。grid-cols-2を子に付けたため並びが変わりません。親子の指定をどう直しますか？",
+      "conceptId": "week4-section-8",
+      "variantGroup": "week4-section-8",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "heading": "8. よくある間違いと確認ポイント",
+        "line": 220,
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "drillConnection": "Week04 問題1のGrid親子、問題2のhover診断、問題3のFlexとGrid統合。drill-ph1/week04-1〜3/README.md",
+      "priorKnowledge": "Week01〜04のインプット",
+      "hint": "「よくある間違いと確認ポイント」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：gridと列数はカードを並べる親へ指定する必要がある",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-003",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "375px幅1列、768px以上で3列のカード一覧に必要な基本クラスはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "grid md:grid-cols-1 grid-cols-3"
+          },
+          {
+            "id": "c",
+            "text": "flex flex-cols-1 md:flex-cols-3"
+          },
+          {
+            "id": "d",
+            "text": "grid-cols-1 md:grid-cols-3"
+          },
+          {
+            "id": "a",
+            "text": "grid grid-cols-1 md:grid-cols-3"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "基本が3列になり、スマホで1列というモバイルファーストの指定になっていません。",
+          "c": "Flexboxにはflex-cols-*というクラスはありません。",
+          "d": "列数の指定だけではGrid配置は有効になりません。親へgridも付けます。"
+        }
+      },
+      "explanation": "接頭辞なしのgrid-cols-1を小さい画面の基本値にし、md:grid-cols-3で768px以上の画面だけ3列へ切り替えます。並べる親にはレイアウトを有効にするgridも必要です。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：375px幅1列、768px以上で3列のカード一覧に必要な基本クラスはどれですか？",
+      "conceptId": "week5-section-4",
+      "variantGroup": "week5-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "4. よく使うレスポンシブパターン",
+        "line": 71,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「よく使うレスポンシブパターン」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：grid grid-cols-1 md:grid-cols-3",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-006",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "画像を375px幅では親の全幅、768px以上では親の半分の幅にするクラスはどれ？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "w-full md:w-1/2"
+          },
+          {
+            "id": "b",
+            "text": "w-1/2 md:w-full"
+          },
+          {
+            "id": "c",
+            "text": "width-full lg:width-half"
+          },
+          {
+            "id": "d",
+            "text": "w-full sm:w-2/2"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "基本が半幅でPCだけ全幅になるため、指定したスマホ・PCの意図と逆です。",
+          "c": "width-fullやwidth-halfはTailwindの標準クラスではありません。",
+          "d": "この指定はmd以上で半分にする条件を満たしません。半分はw-1/2です。"
+        }
+      },
+      "explanation": "w-fullを基本にすると小画面で画像が親幅いっぱいになり、md:w-1/2で768px以上だけ半幅へ切り替えられます。画像と本文を並べるときによく使う書き方です。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：画像を375px幅では親の全幅、768px以上では親の半分の幅にするクラスはどれ？",
+      "conceptId": "week5-section-4",
+      "variantGroup": "week5-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "4. よく使うレスポンシブパターン",
+        "line": 71,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「よく使うレスポンシブパターン」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：w-full md:w-1/2",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-007",
+      "weekUnitId": "week-unit-week5",
+      "format": "bugDiagnosis",
+      "prompt": "768px幅でもサイドバーが本文の下に残ります。修正点はどれですか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<div class=\"flex flex-col gap-6\">\n  <main>本文</main>\n  <aside>サイドバー</aside>\n</div>",
+        "options": [
+          {
+            "id": "d",
+            "text": "gap-6を削除する"
+          },
+          {
+            "id": "a",
+            "text": "親へ md:flex-row を追加する"
+          },
+          {
+            "id": "b",
+            "text": "mainへ md:flex-row を追加する"
+          },
+          {
+            "id": "c",
+            "text": "asideへ flex-col を追加する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "本文の内部ではなく、本文とサイドバーを並べる親の方向を変更します。",
+          "c": "子のflex-colは親同士の並び方向を変更しません。",
+          "d": "gapは間隔であり、縦横方向の切り替えとは無関係です。"
+        }
+      },
+      "explanation": "本文とサイドバーを直接の子として持つ親にflex flex-col md:flex-rowを指定します。基本はスマホの縦並び、md以上では同じ親の主軸を横向きへ切り替える構成です。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "7. レスポンシブデザインでよくある間違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：768px幅でもサイドバーが本文の下に残ります。修正点はどれですか？",
+      "conceptId": "week5-section-7",
+      "variantGroup": "week5-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "7. レスポンシブデザインでよくある間違い",
+        "line": 216,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「レスポンシブデザインでよくある間違い」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：親へ md:flex-row を追加する",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-008",
+      "weekUnitId": "week-unit-week5",
+      "format": "bugDiagnosis",
+      "prompt": "375pxでは1列、768px以上では2列にしたいのに、幅による切り替えができません。接頭辞の書き方をどう直しますか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<div class=\"grid grid-cols-1 md: grid-cols-2\">\n  <div>説明</div>\n  <div>一覧</div>\n</div>",
+        "options": [
+          {
+            "id": "c",
+            "text": "md:をlg:へ変更する"
+          },
+          {
+            "id": "d",
+            "text": "親をflexへ変更する"
+          },
+          {
+            "id": "a",
+            "text": "md: と grid-cols-2 の間の空白を削除する"
+          },
+          {
+            "id": "b",
+            "text": "grid-cols-1を削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "grid-cols-1はスマホ用の基本指定なので残します。",
+          "c": "lg:へ変えると切替幅が1024pxになり、768px以上という要件から外れます。",
+          "d": "2列Gridにはgridとgrid-cols-*を使い、flexへ変更する必要はありません。"
+        }
+      },
+      "explanation": "md:grid-cols-2は空白を入れず一つのクラスとして書きます。md: grid-cols-2では後半が接頭辞なしの指定になり、小さい幅にも効き得ます。修正後は375pxで1列、768pxで2列か確認します。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "7. レスポンシブデザインでよくある間違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：375pxでは1列、768px以上では2列にしたいのに、幅による切り替えができません。接頭辞の書き方をどう直しますか？",
+      "conceptId": "week5-section-7",
+      "variantGroup": "week5-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "7. レスポンシブデザインでよくある間違い",
+        "line": 216,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「レスポンシブデザインでよくある間違い」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：md: と grid-cols-2 の間の空白を削除する",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-010",
+      "weekUnitId": "week-unit-week5",
+      "format": "fillBlank",
+      "prompt": "レスポンシブなナビを375px幅縦、768px以上で横にするクラスを完成させてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<nav class=\"flex __BLANK__ md:flex-row\">リンク</nav>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "flex-row"
+          },
+          {
+            "id": "c",
+            "text": "grid-cols-1"
+          },
+          {
+            "id": "d",
+            "text": "items-column"
+          },
+          {
+            "id": "a",
+            "text": "flex-col"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "flex-rowを基本にするとスマホでも横並びになります。スマホの基本はflex-colです。",
+          "c": "grid-cols-1はGridの列指定で、Flexの方向指定ではありません。",
+          "d": "items-columnはTailwindのFlex方向クラスではありません。"
+        }
+      },
+      "explanation": "接頭辞なしのflex-colでスマホの縦並びを作り、md:flex-rowで768px以上の画面だけ横並びへ変更します。小さい画面から設計するモバイルファーストの基本パターンです。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：レスポンシブなナビを375px幅縦、768px以上で横にするクラスを完成させてください。",
+      "conceptId": "week5-section-4",
+      "variantGroup": "week5-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "4. よく使うレスポンシブパターン",
+        "line": 71,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「よく使うレスポンシブパターン」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：flex-col",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-common-mistakes-004",
+      "weekUnitId": "week-unit-week6",
+      "format": "singleChoice",
+      "prompt": "入力欄から受け取った値は文字列です。文字列\"300\"を数値300へ変換する式は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "Number(\"300\")"
+          },
+          {
+            "id": "b",
+            "text": "\"300\" + \"0\""
+          },
+          {
+            "id": "c",
+            "text": "\"300\""
+          },
+          {
+            "id": "d",
+            "text": "console.log(\"300\")"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "文字列を連結して3000にします。数値変換ではありません。",
+          "c": "引用符付きのままなので文字列です。",
+          "d": "表示する操作で、数値へ変換しません。"
+        }
+      },
+      "explanation": "Numberは文字列などを数値へ変換します。Number(\"300\")なら数値300です。入力から得た文字列で計算するときは、先に数値にする判断が必要です。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "4. データ型：値の種類"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：入力欄から受け取った値は文字列です。文字列\"300\"を数値300へ変換する式は？",
+      "conceptId": "week6-section-4",
+      "variantGroup": "week6-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "4. データ型：値の種類",
+        "line": 111,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「データ型：値の種類」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：Number(\"300\")",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-common-mistakes-007",
+      "weekUnitId": "week-unit-week6",
+      "format": "bugDiagnosis",
+      "prompt": "金額300円と追加料金50円の合計を350と表示したいのに「30050」になります。原因は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "const price = \"300\";\nconst fee = \"50\";\nconsole.log(price + fee);",
+        "options": [
+          {
+            "id": "d",
+            "text": "console.logを先に呼ぶ必要がある"
+          },
+          {
+            "id": "a",
+            "text": "文字列をNumberで数値に変換せず、+でつないでいる"
+          },
+          {
+            "id": "b",
+            "text": "constをletへ変更する必要がある"
+          },
+          {
+            "id": "c",
+            "text": "変数名に大文字を使う必要がある"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "再代入しない値ならconstのままで問題ありません。",
+          "c": "変数名の大文字小文字は文字列連結の原因ではありません。",
+          "d": "console.logの順番は計算時の型変換に影響しません。"
+        }
+      },
+      "explanation": "引用符で囲んだ300と50は文字列なので、+は連結になります。Number(price) + Number(fee)へ直し、Consoleが350になるか確認します。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "9. よくある間違いと確認ポイント"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：金額300円と追加料金50円の合計を350と表示したいのに「30050」になります。原因は？",
+      "conceptId": "week6-section-9",
+      "variantGroup": "week6-section-9",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "9. よくある間違いと確認ポイント",
+        "line": 314,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「よくある間違いと確認ポイント」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：文字列をNumberで数値に変換せず、+でつないでいる",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-common-mistakes-008",
+      "weekUnitId": "week-unit-week6",
+      "format": "bugDiagnosis",
+      "prompt": "関数を呼び出しても計算結果を受け取れません。原因はどれですか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "function double(value) {\n  value * 2;\n}\nconst result = double(4);",
+        "options": [
+          {
+            "id": "c",
+            "text": "引数を文字列にする必要がある"
+          },
+          {
+            "id": "d",
+            "text": "valueを大文字にする必要がある"
+          },
+          {
+            "id": "a",
+            "text": "計算式の前にreturnがなく、値を返していない"
+          },
+          {
+            "id": "b",
+            "text": "関数名をconstで宣言する必要がある"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "function宣言でも値を返せます。constへ変更することは原因ではありません。",
+          "c": "数値の2倍を計算するため、引数を文字列にする必要はありません。",
+          "d": "変数名の大文字小文字は戻り値の有無に影響しません。"
+        }
+      },
+      "explanation": "関数内で式を評価するだけでは呼び出し元へ値は返りません。return value * 2のようにreturnを付けることで、double(4)の結果をresultへ代入できるようになります。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：関数を呼び出しても計算結果を受け取れません。原因はどれですか？",
+      "conceptId": "week6-section-6",
+      "variantGroup": "week6-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "6. 関数：処理をまとめて名前をつける",
+        "line": 169,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「関数：処理をまとめて名前をつける」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：計算式の前にreturnがなく、値を返していない",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-001-pwd",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "いま作業しているディレクトリのフルパスを確認しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-001-pwd"
+      },
+      "explanation": "pwdは現在作業しているディレクトリのフルパスを表示します。操作前に現在地を確認すると、別の場所でGitコマンドを実行するミスを防げます。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "2. ターミナルの基本"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "模擬環境で問題に指定された操作を実行する：いま作業しているディレクトリのフルパスを確認しよう。",
+      "conceptId": "git_github_level1-section-2",
+      "variantGroup": "git_github_level1-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "2. ターミナルの基本",
+        "line": 15,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "現在地を表示する3文字のコマンドを選びます。",
+      "success": "pwdで作業中の場所を確認できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-002-cd",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "sample-ph1-githubにあるassetsディレクトリへ移動しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-002-cd"
+      },
+      "explanation": "cdはchange directoryの略で、後ろに指定したディレクトリへ移動します。lsで移動先の名前を確認してからcd assetsを実行すると安全です。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "2. ターミナルの基本"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "模擬環境で問題に指定された操作を実行する：sample-ph1-githubにあるassetsディレクトリへ移動しよう。",
+      "conceptId": "git_github_level1-section-2",
+      "variantGroup": "git_github_level1-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "2. ターミナルの基本",
+        "line": 15,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "change directoryの略と、移動先の名前を順に選びます。",
+      "success": "cd assetsで作業ディレクトリを移動できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-003-clone",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "GitHubの練習用リポジトリをworkspaceへ複製しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-003-clone"
+      },
+      "explanation": "git clone URLを実行すると、リモートリポジトリの内容がカレントディレクトリへ複製されます。実行前にpwdで保存先を確認しておくと安心です。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "模擬環境で問題に指定された操作を実行する：GitHubの練習用リポジトリをworkspaceへ複製しよう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "git、複製する操作、リポジトリURLの順です。",
+      "success": "git cloneでリモートリポジトリを複製できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-004-fetch",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "GitHubで作成した新しいブランチ情報を取得しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-004-fetch"
+      },
+      "explanation": "この説明は正しいです。GitHubで新しいブランチを作った後はgit fetchで情報を取得できますが、作業中のファイル自体はその操作だけでは更新されません。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "4. Git、GitHub 基礎知識"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "模擬環境で問題に指定された操作を実行する：GitHubで作成した新しいブランチ情報を取得しよう。",
+      "conceptId": "git_github_level1-section-4",
+      "variantGroup": "git_github_level1-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "4. Git、GitHub 基礎知識",
+        "line": 17,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "作業ファイルを変えず、リモートの最新情報だけを取得する操作です。",
+      "success": "git fetchでリモートの最新情報を取得できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-005-checkout",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "編集を始める前にfeature_0.0_nameへ切り替えよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-005-checkout"
+      },
+      "explanation": "git checkout ブランチ名で作業ブランチを切り替えます。編集前に目的のfeatureブランチへ移動できているか、git statusでも確認しましょう。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "模擬環境で問題に指定された操作を実行する：編集を始める前にfeature_0.0_nameへ切り替えよう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "git、ブランチを切り替える操作、作業ブランチ名の順です。",
+      "success": "作業用のfeatureブランチへ切り替えられました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-006-add-files",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "変更した2ファイルを、index.html → assets/img/me.pngの順に1ファイルずつコミット対象へ追加しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-006-add-files"
+      },
+      "explanation": "git commitに含まれるのはgit addでステージングした変更です。画像も含めるには、コミット前にgit add assets/img/me.pngを実行する必要があります。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "模擬環境で問題に指定された操作を実行する：変更した2ファイルを、index.html → assets/img/me.pngの順に1ファイルずつコミット対象へ追加しよう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "まずindex.html、次にassets/img/me.pngをgit addします。1回ずつ実行できます。",
+      "success": "2つの変更をコミット対象へ追加できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-007-commit",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "ステージング済みの変更を「自己紹介を更新」というメッセージで記録しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-007-commit"
+      },
+      "explanation": "git commit -m \"メッセージ\"で、git addした変更をローカルリポジトリの履歴として記録します。何を変更したか分かる短いメッセージを付けましょう。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "模擬環境で問題に指定された操作を実行する：ステージング済みの変更を「自己紹介を更新」というメッセージで記録しよう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "git commitに-mを付け、その後ろに引用符付きのメッセージを置きます。",
+      "success": "変更をローカルリポジトリの履歴へ記録できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-008-push",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "作成したコミットをoriginのfeature_0.0_nameへ送ろう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-008-push"
+      },
+      "explanation": "git push origin ブランチ名で、ローカルのコミットをorigin上の指定ブランチへアップロードします。push後にGitHubで変更を確認できます。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "模擬環境で問題に指定された操作を実行する：作成したコミットをoriginのfeature_0.0_nameへ送ろう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "git、送信する操作、リモート名、ブランチ名の順です。",
+      "success": "featureブランチのコミットをGitHubへ送信できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-009-pr",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "Pull Requestでfeature_0.0_nameの変更をmain_0.0_nameへ反映する向きを設定しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-009-pr"
+      },
+      "explanation": "Pull Requestではbaseが変更の反映先、compareが変更を持つ作業ブランチです。マージ前にbaseとcompareの向きを必ず確認しましょう。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "6. GitHub で Pull Request (PR) を使ってコードを反映してみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "模擬環境で問題に指定された操作を実行する：Pull Requestでfeature_0.0_nameの変更をmain_0.0_nameへ反映する向きを設定しよう。",
+      "conceptId": "git_github_level1-section-6",
+      "variantGroup": "git_github_level1-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "6. GitHub で Pull Request (PR) を使ってコードを反映してみよう",
+        "line": 19,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "baseは反映先、compareは変更を持っている作業ブランチです。",
+      "success": "baseとcompareを正しい向きで設定できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-git-level1-010-pull",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "Mergedされた変更を手元のmain_0.0_nameへ取り込もう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-010-pull"
+      },
+      "explanation": "まずgit checkout main_0.0_nameで反映先ブランチへ移動し、次にgit pull origin main_0.0_nameを実行します。切り替えと取り込みの順番が重要です。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "7. 反映されたか確認してみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "模擬環境で問題に指定された操作を実行する：Mergedされた変更を手元のmain_0.0_nameへ取り込もう。",
+      "conceptId": "git_github_level1-section-7",
+      "variantGroup": "git_github_level1-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "7. 反映されたか確認してみよう",
+        "line": 20,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "先に反映先ブランチへ切り替え、その後にoriginから同じブランチをpullします。",
+      "success": "正しいブランチへ切り替えてからマージ結果を取り込めました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-console-convert",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "文字列の金額と追加料金を数値にして足します。空欄を埋め、350と表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "Number(price) - Number(fee)"
+          },
+          {
+            "id": "a",
+            "text": "Number(price) + Number(fee)"
+          },
+          {
+            "id": "b",
+            "text": "price + fee"
+          },
+          {
+            "id": "c",
+            "text": "Number(price + fee)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "文字列のままなので30050になります。",
+          "c": "先に連結した30050を数値へ変換してしまいます。",
+          "d": "数値ですが足し算ではなく250になります。"
+        },
+        "content": "const price = \"300\";\nconst fee = \"50\";\nconsole.log(__BLANK__);",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "先にそれぞれをNumberで数値にしてから足します。文字列同士を先に+でつないでしまうと、後でNumberを使っても350にはなりません。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "9. よくある間違いと確認ポイント"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "week6-console-convert",
+        "title": "数値にしてから足す",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "「変換してから足す」と「つないでから変換する」の順序を比べましょう。",
+        "goalCode": "const price = \"300\";\nconst fee = \"50\";\nconsole.log(Number(price) + Number(fee));",
+        "expectedOutput": [
+          "350"
+        ]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：文字列の金額と追加料金を数値にして足します。空欄を埋め、350と表示してください。",
+      "conceptId": "week6-section-4",
+      "variantGroup": "week6-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "9. よくある間違いと確認ポイント",
+        "line": 314,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "「変換してから足す」と「つないでから変換する」の順序を比べましょう。",
+      "success": "問題文の条件に合う回答：Number(price) + Number(fee)",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-console-boundary",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "人数が0以下なら「入力を確認」、正なら「計算できます」と表示します。0と3で実行して両方確認してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "people > 0"
+          },
+          {
+            "id": "d",
+            "text": "people === 3"
+          },
+          {
+            "id": "a",
+            "text": "people <= 0"
+          },
+          {
+            "id": "b",
+            "text": "people < 0"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "0が不正な場合から漏れてしまいます。",
+          "c": "正の人数でエラーとなり、条件が逆です。",
+          "d": "人数0を止められず、正しい3を止めてしまいます。"
+        },
+        "content": "function check(people) {\n  if (__BLANK__) return \"入力を確認\";\n  return \"計算できます\";\n}\nconsole.log(check(0));\nconsole.log(check(3));",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "0以下は<= 0で表します。0だけでなく正の3でも動かすことで、不正入力を止め、正しい入力を通せることを確認できます。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "5. 条件分岐：if / else"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "week6-console-boundary",
+        "title": "0人のときに計算を止める",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "境界の0を含めるかに注目しましょう。",
+        "goalCode": "function check(people) {\n  if (people <= 0) return \"入力を確認\";\n  return \"計算できます\";\n}\nconsole.log(check(0));\nconsole.log(check(3));",
+        "expectedOutput": [
+          "入力を確認",
+          "計算できます"
+        ]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：人数が0以下なら「入力を確認」、正なら「計算できます」と表示します。0と3で実行して両方確認してください。",
+      "conceptId": "week6-section-5",
+      "variantGroup": "week6-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "5. 条件分岐：if / else",
+        "line": 135,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "境界の0を含めるかに注目しましょう。",
+      "success": "問題文の条件に合う回答：people <= 0",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-console-return",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "小計を関数から受け取ります。空欄に1行入れ、単価120・個数3で360を表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "price * count;"
+          },
+          {
+            "id": "c",
+            "text": "return price + count;"
+          },
+          {
+            "id": "d",
+            "text": "return count;"
+          },
+          {
+            "id": "a",
+            "text": "return price * count;"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "計算するだけでは呼び出し元へ値を返しません。",
+          "c": "足し算になり123を返します。",
+          "d": "個数3だけを返してしまいます。"
+        },
+        "content": "function subtotal(price, count) {\n  __BLANK__\n}\nconsole.log(subtotal(120, 3));",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "引数priceとcountを掛け、returnで計算結果を呼び出し元へ返します。console.logは受け取った値を表示する別の処理です。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "week6-console-return",
+        "title": "計算結果を受け渡す",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "計算することと、計算結果を外へ渡すことは別です。",
+        "goalCode": "function subtotal(price, count) {\n  return price * count;\n}\nconsole.log(subtotal(120, 3));",
+        "expectedOutput": [
+          "360"
+        ]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：小計を関数から受け取ります。空欄に1行入れ、単価120・個数3で360を表示してください。",
+      "conceptId": "week6-section-6",
+      "variantGroup": "week6-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "6. 関数：処理をまとめて名前をつける",
+        "line": 169,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "計算することと、計算結果を外へ渡すことは別です。",
+      "success": "問題文の条件に合う回答：return price * count;",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  },
+  {
+    "question": {
+      "id": "question-week6-console-split",
+      "weekUnitId": "week-unit-week6",
+      "format": "fillBlank",
+      "prompt": "5000円を3人で割り、端数を切り上げて1667と表示します。Math.ceil(x)はx以上の最小の整数を返す関数です。空欄の計算は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "total / people"
+          },
+          {
+            "id": "b",
+            "text": "total + people"
+          },
+          {
+            "id": "c",
+            "text": "people / total"
+          },
+          {
+            "id": "d",
+            "text": "total * people"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "割り算ではなく5003になります。",
+          "c": "割る数と割られる数が逆です。",
+          "d": "掛け算なので15000になります。"
+        },
+        "content": "const total = 5000;\nconst people = 3;\nconsole.log(Math.ceil(__BLANK__));",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "合計金額を人数で割り、その結果をMath.ceilへ渡します。Math.ceilは問題文で説明した切り上げです。3人で割り切れない端数まで確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week6",
+        "sectionHeading": "6. 関数：処理をまとめて名前をつける"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "week6-console-split",
+        "title": "割り勘の一人分を求める",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "一人分は合計を人数で割り、その結果を切り上げます。",
+        "goalCode": "const total = 5000;\nconst people = 3;\nconsole.log(Math.ceil(total / people));",
+        "expectedOutput": [
+          "1667"
+        ]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：5000円を3人で割り、端数を切り上げて1667と表示します。Math.ceil(x)はx以上の最小の整数を返す関数です。空欄の計算は？",
+      "conceptId": "week6-section-6",
+      "variantGroup": "week6-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week06.md",
+        "heading": "6. 関数：処理をまとめて名前をつける",
+        "line": 169,
+        "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+      },
+      "drillConnection": "Week06 問題1の数値変換・不正入力の判断、問題2の型変換、問題3の小計関数。drill-ph1/week06-1〜3/README.md",
+      "priorKnowledge": "Week01〜06のインプット",
+      "hint": "一人分は合計を人数で割り、その結果を切り上げます。",
+      "success": "問題文の条件に合う回答：total / people",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    }
+  }
+]

@@ -1,0 +1,1238 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week32-async-001",
+      "weekUnitId": "week-unit-week32",
+      "format": "singleChoice",
+      "prompt": "この非同期削除で、ブラウザ側の見た目を更新するのは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "PHPがブラウザのDOMを直接removeする"
+          },
+          {
+            "id": "c",
+            "text": "SQLがCSSを書き換える"
+          },
+          {
+            "id": "d",
+            "text": "DB行が消えれば全画面が必ず自動更新"
+          },
+          {
+            "id": "a",
+            "text": "サーバーの結果を受け取ったJavaScript"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "サーバー処理とブラウザのDOM操作は別です。",
+          "c": "SQLはDBを操作します。",
+          "d": "画面を更新する処理が必要です。"
+        }
+      },
+      "explanation": "DBの処理とブラウザの表示更新を分け、応答を受け取ってつなぎます。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "2. 非同期処理の仕組み"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "サーバーとブラウザの役割を区別する",
+      "conceptId": "ph2-week32-async",
+      "variantGroup": "ph2-week32-async",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week32.md",
+        "heading": "2. 非同期処理の仕組み",
+        "line": 25,
+        "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：サーバーとブラウザの役割を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "どの環境が画面を操作するか考えましょう。",
+      "success": "サーバーとブラウザの役割を区別する。条件に合う候補：サーバーの結果を受け取ったJavaScript",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-json-002",
+      "weekUnitId": "week-unit-week32",
+      "format": "singleChoice",
+      "prompt": "JSONはこのアプリで、何に使う形式ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "SQLの行を必ず自動削除する"
+          },
+          {
+            "id": "d",
+            "text": "CSSクラスの見た目だけを固定する"
+          },
+          {
+            "id": "a",
+            "text": "PHPとJavaScriptの間で構造のあるデータを渡す"
+          },
+          {
+            "id": "b",
+            "text": "PHPのパスワードを必ず暗号化する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "データの表現形式で暗号化ではありません。",
+          "c": "DB操作の命令ではありません。",
+          "d": "通信で渡すデータの形式です。"
+        }
+      },
+      "explanation": "配列などをjson_encodeで表し、JS側でJSONとして読みます。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "Week 32"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "JSONを値の受け渡しへ対応させる",
+      "conceptId": "ph2-week32-json",
+      "variantGroup": "ph2-week32-json",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "heading": "Week 32",
+        "line": 1383,
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：JSONを値の受け渡しへ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "送る値の構造を保つ目的です。",
+      "success": "JSONを値の受け渡しへ対応させる。条件に合う候補：PHPとJavaScriptの間で構造のあるデータを渡す",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-chart-type-003",
+      "weekUnitId": "week-unit-week32",
+      "format": "singleChoice",
+      "prompt": "チャートのデータ行は[\"2022-06-14\", 3]です。日付列をstringとした場合、時間列の型は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "date"
+          },
+          {
+            "id": "a",
+            "text": "number"
+          },
+          {
+            "id": "b",
+            "text": "string"
+          },
+          {
+            "id": "c",
+            "text": "boolean"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "提示値は数値3で、数値軸へ使います。",
+          "c": "trueやfalseの状態ではありません。",
+          "d": "時間の合計で、日付ではありません。"
+        }
+      },
+      "explanation": "チャートの列の型と渡す値をそろえます。このドリルの日付列は文字列として扱います。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "チャートの列の型をデータへ対応させる",
+      "conceptId": "ph2-week32-chart-type",
+      "variantGroup": "ph2-week32-chart-type",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week32/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：チャートの列の型をデータへ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "文字列と数値の2列を対応させましょう。",
+      "success": "チャートの列の型をデータへ対応させる。条件に合う候補：number",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-await-response-004",
+      "weekUnitId": "week-unit-week32",
+      "format": "fillBlank",
+      "prompt": "fetchの完了後のResponseを受け取ります。async関数内の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "await"
+          },
+          {
+            "id": "b",
+            "text": "return"
+          },
+          {
+            "id": "c",
+            "text": "async"
+          },
+          {
+            "id": "d",
+            "text": "new"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "この変数宣言の中で結果を待つ指定ではありません。",
+          "c": "関数の宣言へ使い、この位置ではありません。",
+          "d": "Promiseの結果を待つ操作ではありません。"
+        },
+        "content": "const response = ___ fetch(url, { method: \"POST\" });",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "fetchの戻り値をawaitし、Responseを受け取ってから状態を見ます。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "3. 非同期処理の実装"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "非同期結果を受け取る手段を選ぶ",
+      "conceptId": "ph2-week32-await-response",
+      "variantGroup": "ph2-week32-await-response",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week32.md",
+        "heading": "3. 非同期処理の実装",
+        "line": 49,
+        "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：非同期結果を受け取る手段を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "Promiseと受け取った応答を分けましょう。",
+      "success": "非同期結果を受け取る手段を選ぶ。条件に合う候補：await",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "const response = ___ fetch(url, { method: \"POST\" });",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-form-body-005",
+      "weekUnitId": "week-unit-week32",
+      "format": "fillBlank",
+      "prompt": "PHPは$_POST[\"delete-id\"]を読む想定です。送信ヘッダーはフォーム形式です。数字idを送るbodyの空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "`id=${id}`"
+          },
+          {
+            "id": "c",
+            "text": "JSON.stringify({ id })"
+          },
+          {
+            "id": "d",
+            "text": "\"delete-id=id\""
+          },
+          {
+            "id": "a",
+            "text": "`delete-id=${id}`"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "サーバー側のキーdelete-idと違います。",
+          "c": "提示したフォーム形式と受信キーに合いません。",
+          "d": "変数の値でなくidという文字を送ります。"
+        },
+        "content": "fetch(url, { method: \"POST\",\n  headers: { \"Content-Type\": \"application/x-www-form-urlencoded\" },\n  body: ___\n});",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "送信形式、送信キー、PHPの受信キーをそろえます。idはこの問題では数字に限定します。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "4. 非同期処理の実装（具体例）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "通信の形式とキーを選ぶ",
+      "conceptId": "ph2-week32-form-body",
+      "variantGroup": "ph2-week32-form-body",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week32.md",
+        "heading": "4. 非同期処理の実装（具体例）",
+        "line": 65,
+        "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：通信の形式とキーを選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "送る名前と受け取る名前を照合しましょう。",
+      "success": "通信の形式とキーを選ぶ。条件に合う候補：`delete-id=${id}`",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "fetch(url, { method: \"POST\",\n  headers: { \"Content-Type\": \"application/x-www-form-urlencoded\" },\n  body: ___\n});",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-chart-column-006",
+      "weekUnitId": "week-unit-week32",
+      "format": "fillBlank",
+      "prompt": "データは[日付の文字列, 時間の数値]です。先頭列を定義する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "boolean"
+          },
+          {
+            "id": "d",
+            "text": "date"
+          },
+          {
+            "id": "a",
+            "text": "string"
+          },
+          {
+            "id": "b",
+            "text": "number"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "先頭の値は日付の文字列です。",
+          "c": "ON/OFFの値ではありません。",
+          "d": "この問題ではJSのDateオブジェクトでなく文字列を渡します。"
+        },
+        "content": "data.addColumn(\"___\", \"日付\");\ndata.addColumn(\"number\", \"時間\");",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "指定する型は実際に渡す値に合わせます。日付を表す文字とDateオブジェクトを区別します。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "日付列の型を渡す値へ対応させる",
+      "conceptId": "ph2-week32-chart-column",
+      "variantGroup": "ph2-week32-chart-column",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week32/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：日付列の型を渡す値へ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "見た目の日付とデータ型を分けましょう。",
+      "success": "日付列の型を渡す値へ対応させる。条件に合う候補：string",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "data.addColumn(\"___\", \"日付\");\ndata.addColumn(\"number\", \"時間\");",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-delete-flow-007",
+      "weekUnitId": "week-unit-week32",
+      "format": "singleChoice",
+      "prompt": "この課題の基本的な非同期削除の流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "失敗応答でも成功扱いで全行を消す"
+          },
+          {
+            "id": "a",
+            "text": "POST → PHPでDB削除 → 成功応答を確認 → 対象liをremove"
+          },
+          {
+            "id": "b",
+            "text": "画面を消すだけでDBはそのまま"
+          },
+          {
+            "id": "c",
+            "text": "SQLをJSのDOMへ追加する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "再取得するとデータが戻ります。",
+          "c": "サーバーと表示の操作を混同しています。",
+          "d": "結果と対象の条件に反します。"
+        }
+      },
+      "explanation": "保存先の操作が成功したことを確認してから、対象の表示を変えます。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "4. 非同期処理の実装（具体例）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "DB操作と表示更新の順序を組む",
+      "conceptId": "ph2-week32-delete-flow",
+      "variantGroup": "ph2-week32-delete-flow",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week32.md",
+        "heading": "4. 非同期処理の実装（具体例）",
+        "line": 65,
+        "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：DB操作と表示更新の順序を組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "通信結果と表示更新をつなぐ条件を見ましょう。",
+      "success": "DB操作と表示更新の順序を組む。条件に合う候補：POST → PHPでDB削除 → 成功応答を確認 → 対象liをremove",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-read-json-008",
+      "weekUnitId": "week-unit-week32",
+      "format": "fillBlank",
+      "prompt": "PHPは新しいTo-DoのidをJSONで返します。async関数内で値を読む空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "await response.json()"
+          },
+          {
+            "id": "b",
+            "text": "response"
+          },
+          {
+            "id": "c",
+            "text": "response.json"
+          },
+          {
+            "id": "d",
+            "text": "response.json()"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "応答オブジェクトで、本文のidを読んでいません。",
+          "c": "メソッドを呼んでいません。",
+          "d": "Promiseの完了を待たずdata.idを使います。"
+        },
+        "content": "const response = await fetch(url, options);\nconst data = ___;\naddTodoElement(text, data.id);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "通信の応答と本文の読み取りを順に待ち、受け取ったIDを表示へ渡します。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "Week 32"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "応答本文の読み取りと表示をつなぐ",
+      "conceptId": "ph2-week32-read-json",
+      "variantGroup": "ph2-week32-read-json",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "heading": "Week 32",
+        "line": 1383,
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：応答本文の読み取りと表示をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "本文を読み終えた後にidを使います。",
+      "success": "応答本文の読み取りと表示をつなぐ。条件に合う候補：await response.json()",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "const response = await fetch(url, options);\nconst data = ___;\naddTodoElement(text, data.id);",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-chart-rows-009",
+      "weekUnitId": "week-unit-week32",
+      "format": "fillBlank",
+      "prompt": "PHPで$chart_dataへJSONを生成済みです。JSのaddRowsへ配列として渡す空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "\"<?= $chart_data ?>\""
+          },
+          {
+            "id": "c",
+            "text": "\"$chart_data\""
+          },
+          {
+            "id": "d",
+            "text": "<?= \"chart_data\" ?>"
+          },
+          {
+            "id": "a",
+            "text": "<?= $chart_data ?>"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "JSONを文字列で囲み、配列の値として渡していません。",
+          "c": "PHPの変数名の文字だけです。",
+          "d": "データでなく固定の文字です。"
+        },
+        "content": "data.addRows(___);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "生成済みJSONをJSの配列の値として埋め込みます。この固定の学習データを扱うコードの対応を問います。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "PHPのJSONをチャートの行へ渡す",
+      "conceptId": "ph2-week32-chart-rows",
+      "variantGroup": "ph2-week32-chart-rows",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week32/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：PHPのJSONをチャートの行へ渡す。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "引用符でさらに囲むかで型が変わります。",
+      "success": "PHPのJSONをチャートの行へ渡す。条件に合う候補：<?= $chart_data ?>",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "data.addRows(___);",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-wrong-element-010",
+      "weekUnitId": "week-unit-week32",
+      "format": "bugDiagnosis",
+      "prompt": "buttonはliの中にあります。削除成功後、ボタンだけ消えて文字が残ります。liを消す修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "全ページを必ず削除する"
+          },
+          {
+            "id": "d",
+            "text": "SQLの時間を増やす"
+          },
+          {
+            "id": "a",
+            "text": "対象liを取得し、そのliにremoveを呼ぶ"
+          },
+          {
+            "id": "b",
+            "text": "buttonの色を透明にする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "文字を含むliは残ります。",
+          "c": "対象外まで消します。",
+          "d": "DOMの対象を直していません。"
+        },
+        "code": "button.remove();"
+      },
+      "explanation": "操作ボタンと削除する1件全体を区別します。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "4. 非同期処理の実装（具体例）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "表示更新の対象を修正する",
+      "conceptId": "ph2-week32-wrong-element",
+      "variantGroup": "ph2-week32-wrong-element",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week32.md",
+        "heading": "4. 非同期処理の実装（具体例）",
+        "line": 65,
+        "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：表示更新の対象を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "どの親がタスク1件の表示か見ましょう。",
+      "success": "表示更新の対象を修正する。条件に合う候補：対象liを取得し、そのliにremoveを呼ぶ",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "button.remove();",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-failure-removal-011",
+      "weekUnitId": "week-unit-week32",
+      "format": "bugDiagnosis",
+      "prompt": "HTTP 500でもTo-Doが画面から消えます。応答状態を扱う修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "全エラーを成功と表示"
+          },
+          {
+            "id": "a",
+            "text": "response.okがfalseならエラーへ進め、成功時だけremoveする"
+          },
+          {
+            "id": "b",
+            "text": "fetchをawaitしない"
+          },
+          {
+            "id": "c",
+            "text": "同じremoveを2回呼ぶ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "結果を受け取る前に処理してしまいます。",
+          "c": "失敗を確認していません。",
+          "d": "DBとのずれを見逃します。"
+        },
+        "code": "const response = await fetch(url, options);\nelement.remove();"
+      },
+      "explanation": "fetchはHTTP失敗でもResponseを返し得ます。状態を確認して表示の更新を決めます。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "4. 非同期処理の実装（具体例）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "HTTP失敗時の表示のずれを修正する",
+      "conceptId": "ph2-week32-failure-removal",
+      "variantGroup": "ph2-week32-failure-removal",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week32.md",
+        "heading": "4. 非同期処理の実装（具体例）",
+        "line": 65,
+        "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：HTTP失敗時の表示のずれを修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "通信が返ったことと成功したことは別です。",
+      "success": "HTTP失敗時の表示のずれを修正する。条件に合う候補：response.okがfalseならエラーへ進め、成功時だけremoveする",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "const response = await fetch(url, options);\nelement.remove();",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week32-async-tests-012",
+      "weekUnitId": "week-unit-week32",
+      "format": "singleChoice",
+      "prompt": "非同期の追加・削除を確認するテストは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "成功と失敗で画面の変化を比べ、再取得後のDB結果とも照合する"
+          },
+          {
+            "id": "b",
+            "text": "見た目が消えたのでDBも必ず成功"
+          },
+          {
+            "id": "c",
+            "text": "成功時しか試さない"
+          },
+          {
+            "id": "d",
+            "text": "チャートのタイトルだけ確認"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "DOMだけ変わった可能性があります。",
+          "c": "失敗しても画面だけ変わる不具合を見逃します。",
+          "d": "通信と保存の状態は分かりません。"
+        }
+      },
+      "explanation": "通信、DB、画面の3つが条件通り対応するかを確かめます。",
+      "sourceReference": {
+        "weekKey": "week32",
+        "sectionHeading": "4. 非同期処理の実装（具体例）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "非同期処理の保存と表示を照合する",
+      "conceptId": "ph2-week32-async-tests",
+      "variantGroup": "ph2-week32-async-tests",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week32.md",
+        "heading": "4. 非同期処理の実装（具体例）",
+        "line": 65,
+        "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week32/README.md",
+          "heading": "32週目ミニドリル",
+          "line": 1,
+          "sha256": "295aaf59dd4d15a98a4e7786496ac43be5d57e0324e881a0ecc30bfd5faaf250"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 32",
+          "line": 1383,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week32.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9dcb10ca980a2ab77b1418fd36385c1d9a4c981d43fbe4a62d94071b6c1d3619"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week32/index.php",
+          "line": 1,
+          "sha256": "42d195ebc1e62f2857136bda85210a83c13083439fc3fe08ef931cad997e900d",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week32/README.md：非同期処理の保存と表示を照合する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "再取得しても結果が同じか見ましょう。",
+      "success": "非同期処理の保存と表示を照合する。条件に合う候補：成功と失敗で画面の変化を比べ、再取得後のDB結果とも照合する",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

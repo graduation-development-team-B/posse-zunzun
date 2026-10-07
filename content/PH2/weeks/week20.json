@@ -1,0 +1,1162 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week20-init-001",
+      "weekUnitId": "week-unit-week20",
+      "format": "singleChoice",
+      "prompt": "init.sqlは、この教材で何を準備するファイルですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "PHPの画面の色だけ"
+          },
+          {
+            "id": "c",
+            "text": "ブラウザの入力履歴だけ"
+          },
+          {
+            "id": "d",
+            "text": "ログイン中の人のCookieだけ"
+          },
+          {
+            "id": "a",
+            "text": "DB・テーブル・初期データを用意するSQL"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "SQLの初期設定ではありません。",
+          "c": "DBの準備とは別です。",
+          "d": "Cookieの情報ではありません。"
+        }
+      },
+      "explanation": "初期環境のSQLをまとめるファイルです。書くだけで現在のDBが変わるとは限りません。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "1-1. init.sql"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "初期SQLファイルの役割を説明する",
+      "conceptId": "ph2-week20-init",
+      "variantGroup": "ph2-week20-init",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week20.md",
+        "heading": "1-1. init.sql",
+        "line": 12,
+        "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-1/README.md",
+          "heading": "20週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "e715084b532722e803f4232bb44b6e6eb59971f49314e3c99dee48c43cdb9e5f"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-1/README.md：初期SQLファイルの役割を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "ファイルと実行結果を分けましょう。",
+      "success": "初期SQLファイルの役割を説明する。条件に合う候補：DB・テーブル・初期データを用意するSQL",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-database-box-002",
+      "weekUnitId": "week-unit-week20",
+      "format": "singleChoice",
+      "prompt": "MySQL内のposseというデータベースは、ここでは何をまとめる箱ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "PHPの関数だけ"
+          },
+          {
+            "id": "d",
+            "text": "HTMLの見出しだけ"
+          },
+          {
+            "id": "a",
+            "text": "テーブルなどのDBオブジェクト"
+          },
+          {
+            "id": "b",
+            "text": "Composeの全コンテナ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "実行サービスのまとまりではありません。",
+          "c": "DB内のテーブルなどをまとめます。",
+          "d": "画面の構造とは別です。"
+        }
+      },
+      "explanation": "DBシステムと、その中のデータベース、さらにテーブルを区別します。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "2. データベースとは？ MySQLでの理解"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "DBシステムとデータベースを区別する",
+      "conceptId": "ph2-week20-database-box",
+      "variantGroup": "ph2-week20-database-box",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week20.md",
+        "heading": "2. データベースとは？ MySQLでの理解",
+        "line": 22,
+        "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-1/README.md",
+          "heading": "20週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "e715084b532722e803f4232bb44b6e6eb59971f49314e3c99dee48c43cdb9e5f"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-1/README.md：DBシステムとデータベースを区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "箱の中にどの情報が入るか考えましょう。",
+      "success": "DBシステムとデータベースを区別する。条件に合う候補：テーブルなどのDBオブジェクト",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-group-003",
+      "weekUnitId": "week-unit-week20",
+      "format": "singleChoice",
+      "prompt": "GROUP BY order_idは何を同じグループにしますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "同じPHPファイルの行"
+          },
+          {
+            "id": "a",
+            "text": "同じ注文IDの明細"
+          },
+          {
+            "id": "b",
+            "text": "同じ単価の明細"
+          },
+          {
+            "id": "c",
+            "text": "全注文を必ず1組にする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "指定したキーは単価ではありません。",
+          "c": "注文IDごとに分けています。",
+          "d": "SQLのデータを対象にします。"
+        }
+      },
+      "explanation": "集計の単位をGROUP BYで指定します。注文ごとならorder_idです。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "目的"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "グループのキーを集計単位へ対応させる",
+      "conceptId": "ph2-week20-group",
+      "variantGroup": "ph2-week20-group",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week20-2/README.md",
+        "heading": "目的",
+        "line": 3,
+        "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-2/README.md",
+          "heading": "20週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-2/README.md：グループのキーを集計単位へ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "「何ごとに」をキーへ対応させましょう。",
+      "success": "グループのキーを集計単位へ対応させる。条件に合う候補：同じ注文IDの明細",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-count-004",
+      "weekUnitId": "week-unit-week20",
+      "format": "fillBlank",
+      "prompt": "1行が1種類で、同じ注文内の商品名は重複しません。明細の行数を数える空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "COUNT(*)"
+          },
+          {
+            "id": "b",
+            "text": "SUM(quantity)"
+          },
+          {
+            "id": "c",
+            "text": "SUM(price)"
+          },
+          {
+            "id": "d",
+            "text": "MAX(order_id)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "購入個数の合計です。",
+          "c": "単価の合計です。",
+          "d": "注文IDの最大値です。"
+        },
+        "content": "SELECT order_id, ___ AS kinds\nFROM order_details GROUP BY order_id;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "この前提では明細の件数が商品種類数です。商品名が重複する別の設計へ一般化しません。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "明細の件数を数える集計を選ぶ",
+      "conceptId": "ph2-week20-count",
+      "variantGroup": "ph2-week20-count",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week20-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "e715084b532722e803f4232bb44b6e6eb59971f49314e3c99dee48c43cdb9e5f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-1/README.md",
+          "heading": "20週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "e715084b532722e803f4232bb44b6e6eb59971f49314e3c99dee48c43cdb9e5f"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-1/README.md：明細の件数を数える集計を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "行数と商品の個数を分けましょう。",
+      "success": "明細の件数を数える集計を選ぶ。条件に合う候補：COUNT(*)",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT order_id, ___ AS kinds\nFROM order_details GROUP BY order_id;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-quantity-005",
+      "weekUnitId": "week-unit-week20",
+      "format": "fillBlank",
+      "prompt": "quantityには購入個数が入っています。注文ごとの個数合計の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "COUNT(*)"
+          },
+          {
+            "id": "c",
+            "text": "SUM(price)"
+          },
+          {
+            "id": "d",
+            "text": "AVG(quantity)"
+          },
+          {
+            "id": "a",
+            "text": "SUM(quantity)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "明細行数であり、購入個数ではありません。",
+          "c": "金額の列で、個数ではありません。",
+          "d": "平均であり、合計ではありません。"
+        },
+        "content": "SELECT order_id, ___ AS amount\nFROM order_details GROUP BY order_id;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "個数を持つ列をSUMで足し、order_idで注文ごとに分けます。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "個数合計に合う列と関数を選ぶ",
+      "conceptId": "ph2-week20-quantity",
+      "variantGroup": "ph2-week20-quantity",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week20-2/README.md",
+        "heading": "問題",
+        "line": 11,
+        "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-2/README.md",
+          "heading": "20週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-2/README.md：個数合計に合う列と関数を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "何を足すのかを先に決めましょう。",
+      "success": "個数合計に合う列と関数を選ぶ。条件に合う候補：SUM(quantity)",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT order_id, ___ AS amount\nFROM order_details GROUP BY order_id;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-price-times-006",
+      "weekUnitId": "week-unit-week20",
+      "format": "fillBlank",
+      "prompt": "priceは単価、quantityは個数です。明細の金額を足す空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "SUM(quantity)"
+          },
+          {
+            "id": "d",
+            "text": "COUNT(*)"
+          },
+          {
+            "id": "a",
+            "text": "SUM(price * quantity)"
+          },
+          {
+            "id": "b",
+            "text": "SUM(price)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "個数を掛けず、単価だけを足します。",
+          "c": "個数だけで金額になりません。",
+          "d": "行数であり、金額ではありません。"
+        },
+        "content": "SELECT order_id, ___ AS total\nFROM order_details GROUP BY order_id;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "1行の単価×個数を求め、その金額を合計します。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "代金の要求から集計式を選ぶ",
+      "conceptId": "ph2-week20-price-times",
+      "variantGroup": "ph2-week20-price-times",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week20-3/README.md",
+        "heading": "問題",
+        "line": 9,
+        "sha256": "de2ed4577143d6a3b57e2b3098cad4d6d4933c076a8d60d6753f3471ae524849"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-3/README.md",
+          "heading": "20週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "de2ed4577143d6a3b57e2b3098cad4d6d4933c076a8d60d6753f3471ae524849"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-3/README.md：代金の要求から集計式を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "1行の代金を先に式にしましょう。",
+      "success": "代金の要求から集計式を選ぶ。条件に合う候補：SUM(price * quantity)",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT order_id, ___ AS total\nFROM order_details GROUP BY order_id;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-total-example-007",
+      "weekUnitId": "week-unit-week20",
+      "format": "singleChoice",
+      "prompt": "注文1の明細は単価100円×2個と単価300円×1個です。代金合計は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "700円"
+          },
+          {
+            "id": "a",
+            "text": "500円"
+          },
+          {
+            "id": "b",
+            "text": "400円"
+          },
+          {
+            "id": "c",
+            "text": "3円"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "単価だけを足して個数を無視しています。",
+          "c": "購入個数の合計です。",
+          "d": "2行目の個数まで2にしてしまいます。"
+        }
+      },
+      "explanation": "各行の代金200円と300円を足します。自分で照合できる小さい入力に分解します。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "明細の計算と全体の合計をつなぐ",
+      "conceptId": "ph2-week20-total-example",
+      "variantGroup": "ph2-week20-total-example",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week20-3/README.md",
+        "heading": "問題",
+        "line": 9,
+        "sha256": "de2ed4577143d6a3b57e2b3098cad4d6d4933c076a8d60d6753f3471ae524849"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-3/README.md",
+          "heading": "20週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "de2ed4577143d6a3b57e2b3098cad4d6d4933c076a8d60d6753f3471ae524849"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-3/README.md：明細の計算と全体の合計をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "明細ごとに計算してから足しましょう。",
+      "success": "明細の計算と全体の合計をつなぐ。条件に合う候補：500円",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-group-key-008",
+      "weekUnitId": "week-unit-week20",
+      "format": "fillBlank",
+      "prompt": "複数注文を注文ごとに合計します。空欄のキーは？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "order_id"
+          },
+          {
+            "id": "b",
+            "text": "quantity"
+          },
+          {
+            "id": "c",
+            "text": "price"
+          },
+          {
+            "id": "d",
+            "text": "id"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "同じ購入個数ごとの集計になります。",
+          "c": "同じ単価ごとの集計になります。",
+          "d": "明細ごとに分かれて注文合計になりません。"
+        },
+        "content": "SELECT order_id, SUM(quantity) AS amount\nFROM order_details GROUP BY ___;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "出したい単位に合うキーをGROUP BYへ渡します。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "目的"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "集計値とグループのキーを組む",
+      "conceptId": "ph2-week20-group-key",
+      "variantGroup": "ph2-week20-group-key",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week20-2/README.md",
+        "heading": "目的",
+        "line": 3,
+        "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-2/README.md",
+          "heading": "20週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-2/README.md：集計値とグループのキーを組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "結果の1行を何のまとまりにするか考えましょう。",
+      "success": "集計値とグループのキーを組む。条件に合う候補：order_id",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT order_id, SUM(quantity) AS amount\nFROM order_details GROUP BY ___;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-sql-flow-009",
+      "weekUnitId": "week-unit-week20",
+      "format": "singleChoice",
+      "prompt": "SQLファイルを修正した後、DBに反映して確かめる流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "保存しただけで必ず現在のDBへ反映"
+          },
+          {
+            "id": "c",
+            "text": "CSSを再読み込みするだけ"
+          },
+          {
+            "id": "d",
+            "text": "PHPの変数名を変えるだけ"
+          },
+          {
+            "id": "a",
+            "text": "対象DBへSQLを実行 → テーブルやSELECT結果を確認"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ファイルの保存とDBでの実行は別です。",
+          "c": "SQLを実行していません。",
+          "d": "DBの状態を変更していません。"
+        }
+      },
+      "explanation": "SQLを対象DBへ実行してから、作成された構造や行を確認します。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "1-2. ターミナル"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "SQLの保存・実行・照合を組む",
+      "conceptId": "ph2-week20-sql-flow",
+      "variantGroup": "ph2-week20-sql-flow",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week20.md",
+        "heading": "1-2. ターミナル",
+        "line": 18,
+        "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-1/README.md",
+          "heading": "20週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "e715084b532722e803f4232bb44b6e6eb59971f49314e3c99dee48c43cdb9e5f"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-1/README.md：SQLの保存・実行・照合を組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "ファイルの内容とDBの状態をつなぐ操作が必要です。",
+      "success": "SQLの保存・実行・照合を組む。条件に合う候補：対象DBへSQLを実行 → テーブルやSELECT結果を確認",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-sum-vs-count-010",
+      "weekUnitId": "week-unit-week20",
+      "format": "bugDiagnosis",
+      "prompt": "個数の合計を出したいのに、明細数になりました。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "amountという名前だけ変える"
+          },
+          {
+            "id": "d",
+            "text": "SELECTをDELETEにする"
+          },
+          {
+            "id": "a",
+            "text": "COUNT(*)をSUM(quantity)へ変える"
+          },
+          {
+            "id": "b",
+            "text": "GROUP BYをpriceにする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "集計する数値が違うままです。",
+          "c": "値の計算は変わりません。",
+          "d": "取得の修正ではありません。"
+        },
+        "code": "SELECT order_id, COUNT(*) AS amount\nFROM order_details GROUP BY order_id;"
+      },
+      "explanation": "COUNTは行数、SUMは列の値の合計です。名前だけでなく計算の中身を照合します。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "目的"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "結果の違いから集計関数を直す",
+      "conceptId": "ph2-week20-sum-vs-count",
+      "variantGroup": "ph2-week20-sum-vs-count",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week20-2/README.md",
+        "heading": "目的",
+        "line": 3,
+        "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-2/README.md",
+          "heading": "20週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-2/README.md：結果の違いから集計関数を直す。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "件数か値の合計かを確認しましょう。",
+      "success": "結果の違いから集計関数を直す。条件に合う候補：COUNT(*)をSUM(quantity)へ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT order_id, COUNT(*) AS amount\nFROM order_details GROUP BY order_id;",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-missing-multiply-011",
+      "weekUnitId": "week-unit-week20",
+      "format": "bugDiagnosis",
+      "prompt": "2個以上買う明細もあります。代金が少なく出る原因の修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "COUNT(*)へ変える"
+          },
+          {
+            "id": "a",
+            "text": "SUM(price * quantity)へ変える"
+          },
+          {
+            "id": "b",
+            "text": "SUM(quantity)へ変える"
+          },
+          {
+            "id": "c",
+            "text": "priceの列名だけ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "金額ではなく個数になります。",
+          "c": "掛け算の不足は残ります。",
+          "d": "金額を計算しません。"
+        },
+        "code": "SELECT order_id, SUM(price) AS total\nFROM order_details GROUP BY order_id;"
+      },
+      "explanation": "単価だけでは数量が反映されません。複数個の入力で不足を見つけます。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "目的"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "明細金額の計算漏れを修正する",
+      "conceptId": "ph2-week20-missing-multiply",
+      "variantGroup": "ph2-week20-missing-multiply",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week20-3/README.md",
+        "heading": "目的",
+        "line": 3,
+        "sha256": "de2ed4577143d6a3b57e2b3098cad4d6d4933c076a8d60d6753f3471ae524849"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-3/README.md",
+          "heading": "20週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "de2ed4577143d6a3b57e2b3098cad4d6d4933c076a8d60d6753f3471ae524849"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-3/README.md：明細金額の計算漏れを修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "単価×個数の両方が必要です。",
+      "success": "明細金額の計算漏れを修正する。条件に合う候補：SUM(price * quantity)へ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT order_id, SUM(price) AS total\nFROM order_details GROUP BY order_id;",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-missing-table-012",
+      "weekUnitId": "week-unit-week20",
+      "format": "singleChoice",
+      "prompt": "Table doesn't existと出ました。最初に確認することは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "選択中のDB、テーブル名、作成SQLの実行結果"
+          },
+          {
+            "id": "b",
+            "text": "ブラウザの文字の大きさ"
+          },
+          {
+            "id": "c",
+            "text": "PHPのechoの色"
+          },
+          {
+            "id": "d",
+            "text": "関係のない全データを削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "DBのテーブル存在とは無関係です。",
+          "c": "SQLの対象は変わりません。",
+          "d": "原因の確認になりません。"
+        }
+      },
+      "explanation": "SQLの対象DBと作成されたテーブルを確認します。エラーから調べる場所を絞ります。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "1-2. ターミナル"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "DBエラーから設定と実行結果を確認する",
+      "conceptId": "ph2-week20-missing-table",
+      "variantGroup": "ph2-week20-missing-table",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week20.md",
+        "heading": "1-2. ターミナル",
+        "line": 18,
+        "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week20-1/README.md",
+          "heading": "20週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "e715084b532722e803f4232bb44b6e6eb59971f49314e3c99dee48c43cdb9e5f"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 20",
+          "line": 307,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week20-1/README.md：DBエラーから設定と実行結果を確認する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "どのDBのどの表を探しているか見ましょう。",
+      "success": "DBエラーから設定と実行結果を確認する。条件に合う候補：選択中のDB、テーブル名、作成SQLの実行結果",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

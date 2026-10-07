@@ -1,0 +1,828 @@
+[
+  {
+    "question": {
+      "id": "question-week16-requirement-001",
+      "weekUnitId": "week-unit-week16",
+      "format": "singleChoice",
+      "prompt": "「追加ボタンでタスクを1件増やせる」は、制作前の整理では何に当たりますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "すでに実装が成功したことの証明"
+          },
+          {
+            "id": "c",
+            "text": "本物のAPIキーの値"
+          },
+          {
+            "id": "d",
+            "text": "Reactのエラーメッセージ"
+          },
+          {
+            "id": "a",
+            "text": "作るものが満たすべき、確認できる機能要件"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "要件は実装前にも書けます。成功は動かして確認します。",
+          "c": "認証情報ではなく、求める動作です。",
+          "d": "望む動作を述べており、不具合の報告ではありません。"
+        }
+      },
+      "explanation": "作る前に、操作すると何が起きてほしいかを分解します。「1件増える」のように観察できる条件なら、後で満たしたか確かめられます。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "「作って」だけでは、作りたいものは出てこない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "機能要件と確認済みの結果を区別する",
+      "conceptId": "ph1-week16-requirement",
+      "variantGroup": "ph1-week16-requirement",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "「作って」だけでは、作りたいものは出てこない",
+        "line": 38,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：機能要件と確認済みの結果を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "コードではなく、期待する操作と結果を表しています。",
+      "success": "機能要件と確認済みの結果を区別する。条件に合う候補：作るものが満たすべき、確認できる機能要件",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-rubber-duck-002",
+      "weekUnitId": "week-unit-week16",
+      "format": "singleChoice",
+      "prompt": "ラバーダック・デバッグは、この教材ではどんな行動を指しますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "AIのコードをすべて正しいとして受け入れる"
+          },
+          {
+            "id": "d",
+            "text": "画面の色だけを変えてエラーを隠す"
+          },
+          {
+            "id": "a",
+            "text": "症状やコードを言葉にして説明し、自分の考えを整理する"
+          },
+          {
+            "id": "b",
+            "text": "コードを見ずに、ランダムに行を削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "原因を整理する行動ではありません。",
+          "c": "説明して考える過程を省いています。",
+          "d": "症状や原因の整理になっていません。"
+        }
+      },
+      "explanation": "エラー・該当コード・試したことを言葉にすると、どこで値や処理がずれるかを整理できます。相手へ説明する前に、自分で気づけることもあります。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "「動かないです」では、AIも困る"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "説明する行動を原因の整理に結びつける",
+      "conceptId": "ph1-week16-rubber-duck",
+      "variantGroup": "ph1-week16-rubber-duck",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "「動かないです」では、AIも困る",
+        "line": 94,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：説明する行動を原因の整理に結びつける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "説明するために、分かっていることを順番に並べます。",
+      "success": "説明する行動を原因の整理に結びつける。条件に合う候補：症状やコードを言葉にして説明し、自分の考えを整理する",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-ownership-003",
+      "weekUnitId": "week-unit-week16",
+      "format": "trueFalse",
+      "prompt": "AIのコードが動いたら、仕組みを説明したり少し変更できたりするかは確認しなくてよい。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "この教材の完了条件には、AIを閉じて説明し、少し変えて直せるかの確認があります。動くことの確認と、自分が扱えることの確認は別です。"
+        }
+      },
+      "explanation": "この教材の完了条件には、AIを閉じて説明し、少し変えて直せるかの確認があります。動くことの確認と、自分が扱えることの確認は別です。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "最後に問われるのは、「これ、何してるの？」"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "動作確認と自分で扱える状態の確認を区別する",
+      "conceptId": "ph1-week16-ownership",
+      "variantGroup": "ph1-week16-ownership",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "最後に問われるのは、「これ、何してるの？」",
+        "line": 120,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：動作確認と自分で扱える状態の確認を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "動作したことと、分からない行が残っていないことを分けましょう。",
+      "success": "動作確認と自分で扱える状態の確認を区別する。条件に合う候補：誤り",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "○×の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-implementation-request-004",
+      "weekUnitId": "week-unit-week16",
+      "format": "singleChoice",
+      "prompt": "Reactのタスクアプリで削除だけを追加したい。既存の配色・レイアウトを保つ依頼は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "現在の構成と削除の要件を示し、見た目は変えず必要箇所だけ修正と伝える"
+          },
+          {
+            "id": "b",
+            "text": "全部いい感じに作り直してと伝える"
+          },
+          {
+            "id": "c",
+            "text": "削除以外の新機能も自由に増やすよう頼む"
+          },
+          {
+            "id": "d",
+            "text": "技術やコードは示さず、必ず正解してとだけ頼む"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "変更範囲を限定せず、保ちたい見た目を伝えていません。",
+          "c": "対象の機能が広がり、今回の条件と合いません。",
+          "d": "対象を特定する前提と、確認できる要件がありません。"
+        }
+      },
+      "explanation": "技術・現在の状態・欲しい変更・守る条件を伝えます。見た目を保つ条件も要件の一部として、返った変更を確認します。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "「作って」だけでは、作りたいものは出てこない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "実装依頼に目的・前提・変更範囲をそろえる",
+      "conceptId": "ph1-week16-implementation-request",
+      "variantGroup": "ph1-week16-implementation-request",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "「作って」だけでは、作りたいものは出てこない",
+        "line": 38,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：実装依頼に目的・前提・変更範囲をそろえる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "追加したい機能と、変更しない条件を同時に渡しましょう。",
+      "success": "実装依頼に目的・前提・変更範囲をそろえる。条件に合う候補：現在の構成と削除の要件を示し、見た目は変えず必要箇所だけ修正と伝える",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-debug-request-005",
+      "weekUnitId": "week-unit-week16",
+      "format": "singleChoice",
+      "prompt": "不具合の原因を相談するため、個人情報や鍵は除いてあります。次にそろえる内容は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "「動かないです」の一文だけ"
+          },
+          {
+            "id": "c",
+            "text": "動かない部分に関係のない全画像だけ"
+          },
+          {
+            "id": "d",
+            "text": "AIが直す前に全部正しいと宣言する"
+          },
+          {
+            "id": "a",
+            "text": "実際のエラー文・該当コード・試したこと・期待と実際の動き"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "どの場面で何が違うか分かりません。",
+          "c": "エラーやコードの手がかりがありません。",
+          "d": "症状を確認する情報をそろえていません。"
+        }
+      },
+      "explanation": "症状を整理してから相談します。エラー文と該当コード、試したことに加え、期待と実際の差があると、調べる箇所を絞りやすくなります。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "「動かないです」では、AIも困る"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "デバッグに必要な具体的な情報を選ぶ",
+      "conceptId": "ph1-week16-debug-request",
+      "variantGroup": "ph1-week16-debug-request",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "「動かないです」では、AIも困る",
+        "line": 94,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：デバッグに必要な具体的な情報を選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "相談相手が、同じ症状を理解できる情報を選びましょう。",
+      "success": "デバッグに必要な具体的な情報を選ぶ。条件に合う候補：実際のエラー文・該当コード・試したこと・期待と実際の動き",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-dependency-review-006",
+      "weekUnitId": "week-unit-week16",
+      "format": "singleChoice",
+      "prompt": "AIのコードにimport Chart from \"example-chart\"があります。example-chartはこの設問の架空の名前で、導入されているか不明です。貼る前の確認は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "CSSの色だけ確認する"
+          },
+          {
+            "id": "d",
+            "text": "未確認のまま、別の実在しない名前へ変える"
+          },
+          {
+            "id": "a",
+            "text": "自分の依存設定と導入状態を確認し、そのライブラリを使う条件と合うか見る"
+          },
+          {
+            "id": "b",
+            "text": "importにあるので、必ずインストール済みと考える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "コードに名前が書かれていることは、実際の導入状態の確認ではありません。",
+          "c": "依存が利用できるかの確認になっていません。",
+          "d": "読み込みに必要な前提を確認していません。"
+        }
+      },
+      "explanation": "AIの出力と自分の環境を照合します。依存の設定・導入、必要な機能かを確認し、名前だけ見て使えると決めません。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "返ってきたコードは、貼る前に読む"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "AIのimportと自分の依存環境を照合する",
+      "conceptId": "ph1-week16-dependency-review",
+      "variantGroup": "ph1-week16-dependency-review",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "返ってきたコードは、貼る前に読む",
+        "line": 80,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：AIのimportと自分の依存環境を照合する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "提案コードにあるものと、プロジェクトにあるものを比べましょう。",
+      "success": "AIのimportと自分の依存環境を照合する。条件に合う候補：自分の依存設定と導入状態を確認し、そのライブラリを使う条件と合うか見る",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-requirements-flow-007",
+      "weekUnitId": "week-unit-week16",
+      "format": "singleChoice",
+      "prompt": "追加・完了切替・削除を持つアプリをAIと作ります。教材に沿う進め方は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "要件は作り終わった後に初めて考える"
+          },
+          {
+            "id": "a",
+            "text": "要件を分解 → 対象と制約を伝える → 出力を読む → 操作して確認 → 自分で説明する"
+          },
+          {
+            "id": "b",
+            "text": "出力を貼る → 確認をせず提出する"
+          },
+          {
+            "id": "c",
+            "text": "不具合があるたびに全機能を作り直す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "要件の整理・読解・動作確認・説明を省いています。",
+          "c": "対象や変更範囲を絞る判断がありません。",
+          "d": "依頼と確認の基準がないまま制作を進めています。"
+        }
+      },
+      "explanation": "要件は依頼のためだけでなく、出力を読む基準と動作確認の基準にも使います。作る前と作った後をつなげて判断します。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "「作って」だけでは、作りたいものは出てこない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "要件・依頼・読解・確認・説明を一つの流れにする",
+      "conceptId": "ph1-week16-requirements-flow",
+      "variantGroup": "ph1-week16-requirements-flow",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "「作って」だけでは、作りたいものは出てこない",
+        "line": 38,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：要件・依頼・読解・確認・説明を一つの流れにする。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "最初に書いた要件は、最後の確認にも使えます。",
+      "success": "要件・依頼・読解・確認・説明を一つの流れにする。条件に合う候補：要件を分解 → 対象と制約を伝える → 出力を読む → 操作して確認 → 自分で説明する",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-immutable-add-008",
+      "weekUnitId": "week-unit-week16",
+      "format": "fillBlank",
+      "prompt": "tasksには既存のタスクが2件あり、newTaskは作成済みでIDも重複しません。既存の2件を直接変えずに1件追加します。AIの提案を直す空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "setTasks([...tasks, newTask])"
+          },
+          {
+            "id": "b",
+            "text": "tasks.push(newTask); setTasks(tasks)"
+          },
+          {
+            "id": "c",
+            "text": "setTasks([newTask])"
+          },
+          {
+            "id": "d",
+            "text": "setTasks(tasks.push(newTask))"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "元の配列を変更し、同じ参照を渡し直しています。",
+          "c": "既存のタスクを残さず、1件だけにします。",
+          "d": "pushの戻り値は件数であり、タスク配列ではありません。"
+        },
+        "content": "// tasksはReactのstate配列\n// newTaskは作成済み\nconst addTask = () => {\n  ___;\n  setInput(\"\");\n};",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "元配列の直接変更と同じ参照の受け渡しを避け、新配列を作ってsetTasksへ渡します。入力のクリアで偶然表示が変わることを、正しい更新の根拠にしません。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "AIの追加処理を不変なstate更新と入力リセットへ組み立てる",
+      "conceptId": "ph1-week16-immutable-add",
+      "variantGroup": "ph1-week16-immutable-add",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "貼る前の、最後の見直し",
+        "line": 142,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：AIの追加処理を不変なstate更新と入力リセットへ組み立てる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "新しい配列を渡すことと、入力を空にすることは別の更新です。",
+      "success": "AIの追加処理を不変なstate更新と入力リセットへ組み立てる。条件に合う候補：setTasks([...tasks, newTask])",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "// tasksはReactのstate配列\n// newTaskは作成済み\nconst addTask = () => {\n  ___;\n  setInput(\"\");\n};",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-stable-key-009",
+      "weekUnitId": "week-unit-week16",
+      "format": "fillBlank",
+      "prompt": "tasksには重複しない固定IDがあります。各タスクの文字は同じになる場合もあります。削除や並べ替えをする一覧のkeyは？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "index"
+          },
+          {
+            "id": "c",
+            "text": "task.text"
+          },
+          {
+            "id": "d",
+            "text": "\"task\""
+          },
+          {
+            "id": "a",
+            "text": "task.id"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "位置が変わるため、タスク固有の固定IDを使う条件と違います。",
+          "c": "文字が同じ場合にはkeyが重複します。",
+          "d": "全件が同じkeyになるため、タスクを区別できません。"
+        },
+        "content": "{tasks.map((task, index) => (\n  <li key={___}>{task.text}</li>\n))}",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "AIコードでも、データのIDと一覧のkeyを対応させます。表示文字や位置ではなく、同じタスクを追える固定の目印を使います。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "タスクの識別・一覧のkey・増減操作をつなぐ",
+      "conceptId": "ph1-week16-stable-key",
+      "variantGroup": "ph1-week16-stable-key",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "貼る前の、最後の見直し",
+        "line": 142,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：タスクの識別・一覧のkey・増減操作をつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "削除・並べ替えの後も同じタスクを指せる値を選びましょう。",
+      "success": "タスクの識別・一覧のkey・増減操作をつなぐ。条件に合う候補：task.id",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "{tasks.map((task, index) => (\n  <li key={___}>{task.text}</li>\n))}",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-uncontrolled-010",
+      "weekUnitId": "week-unit-week16",
+      "format": "bugDiagnosis",
+      "prompt": "setInput(\"\")の後も入力欄の文字が残ります。AIのコードを直す候補は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "onChangeをonClickへ変える"
+          },
+          {
+            "id": "d",
+            "text": "setInputを削除する"
+          },
+          {
+            "id": "a",
+            "text": "value={input}をinput要素に追加する"
+          },
+          {
+            "id": "b",
+            "text": "placeholder=\"\"だけ指定する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "案内の文字を変えても、現在の入力値をstateへつなげません。",
+          "c": "入力文字をstateへ反映する動作まで変えてしまいます。",
+          "d": "stateの更新自体をなくしており、入力のクリアを実現できません。"
+        },
+        "code": "<input onChange={(event) => setInput(event.target.value)} />"
+      },
+      "explanation": "入力イベントでstateを更新する方向だけでなく、value={input}でstateを表示へ戻す方向も必要です。AIの提案を貼る前に、両方のつながりを読みます。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "生成コードの入力欄とstateの接続漏れを修正する",
+      "conceptId": "ph1-week16-uncontrolled",
+      "variantGroup": "ph1-week16-uncontrolled",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "貼る前の、最後の見直し",
+        "line": 142,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-2/README.md：生成コードの入力欄とstateの接続漏れを修正する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "入力欄の表示は、どの値で決まっているでしょうか。",
+      "success": "生成コードの入力欄とstateの接続漏れを修正する。条件に合う候補：value={input}をinput要素に追加する",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "<input onChange={(event) => setInput(event.target.value)} />",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-mutation-hidden-011",
+      "weekUnitId": "week-unit-week16",
+      "format": "bugDiagnosis",
+      "prompt": "inputに文字がある時だけ、追加が動いたように見えます。それでも直すべき問題は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "入力文字の長さだけが問題なので、tasksは見なくてよい"
+          },
+          {
+            "id": "a",
+            "text": "元のtasksを直接変更して同じ参照を渡しているため、新しい配列で更新する"
+          },
+          {
+            "id": "b",
+            "text": "一度でも表示されたので、配列の更新は必ず正しい"
+          },
+          {
+            "id": "c",
+            "text": "setInputを増やせば、直接pushする方法が正しくなる"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "別のstate更新で再描画され、直接変えた内容が見える場合があります。",
+          "c": "別の状態で再描画を起こしても、元配列を直接変える問題は残ります。",
+          "d": "提示コードにはstate配列の直接変更があり、症状だけで見逃せません。"
+        },
+        "code": "tasks.push(newTask);\nsetTasks(tasks);\nsetInput(\"\");"
+      },
+      "explanation": "setInputで別の状態が変わり、直接変更したtasksが見える場合があります。偶然見えたことと、stateを正しく更新していることは別なので、不変な更新へ直します。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "別stateによる再描画が隠す配列の直接変更を見抜く",
+      "conceptId": "ph1-week16-mutation-hidden",
+      "variantGroup": "ph1-week16-mutation-hidden",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "貼る前の、最後の見直し",
+        "line": 142,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-2/README.md：別stateによる再描画が隠す配列の直接変更を見抜く。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "どのset関数が、本当に違う値を渡しているかを見ましょう。",
+      "success": "別stateによる再描画が隠す配列の直接変更を見抜く。条件に合う候補：元のtasksを直接変更して同じ参照を渡しているため、新しい配列で更新する",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "tasks.push(newTask);\nsetTasks(tasks);\nsetInput(\"\");",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-acceptance-check-012",
+      "weekUnitId": "week-unit-week16",
+      "format": "singleChoice",
+      "prompt": "AIと作ったアプリで「追加は動く」と確認しました。完了切替・削除・追加後の入力リセットも要件です。提出前の確認は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "追加・完了切替・削除・入力リセットを別々に試し、state更新と警告も確認する"
+          },
+          {
+            "id": "b",
+            "text": "追加できたので、他の機能も動くと判断する"
+          },
+          {
+            "id": "c",
+            "text": "画面のスクリーンショットだけ確認する"
+          },
+          {
+            "id": "d",
+            "text": "AIが完成と言ったので、操作の確認を省く"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "要件ごとの操作を確かめていません。",
+          "c": "操作結果やConsoleの警告は分かりません。",
+          "d": "自分の要件を満たしたかの確認になっていません。"
+        }
+      },
+      "explanation": "機能ごとに、操作・期待結果・実際の結果を照合します。見た目だけでなく、配列の更新方法、keyや入力値のつながりも読むと、不具合を絞れます。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "要件ごとの確認を組み合わせて生成コードを検証する",
+      "conceptId": "ph1-week16-acceptance-check",
+      "variantGroup": "ph1-week16-acceptance-check",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "heading": "貼る前の、最後の見直し",
+        "line": 142,
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "drillConnection": "drill-ph1/week16-1/README.md：要件ごとの確認を組み合わせて生成コードを検証する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "一つの成功で、全部の条件を確認済みにしないようにしましょう。",
+      "success": "要件ごとの確認を組み合わせて生成コードを検証する。条件に合う候補：追加・完了切替・削除・入力リセットを別々に試し、state更新と警告も確認する",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

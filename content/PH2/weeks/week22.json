@@ -1,0 +1,1158 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week22-join-001",
+      "weekUnitId": "week-unit-week22",
+      "format": "singleChoice",
+      "prompt": "JOINは、この課題で何を結び付けますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "全注文を必ず削除"
+          },
+          {
+            "id": "a",
+            "text": "注文と、その注文に属する明細の行"
+          },
+          {
+            "id": "b",
+            "text": "PHPとCSSのファイル名"
+          },
+          {
+            "id": "c",
+            "text": "全明細を必ず1行へ圧縮"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "SQLのデータの関係です。",
+          "c": "結合と集計は別です。",
+          "d": "取得の結合です。"
+        }
+      },
+      "explanation": "IDの対応を使って複数表の情報を1つの結果へ取り出します。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "結合を表同士の関係へ対応させる",
+      "conceptId": "ph2-week22-join",
+      "variantGroup": "ph2-week22-join",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-1/README.md",
+          "heading": "22週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-1/README.md：結合を表同士の関係へ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "注文1件とその明細を考えましょう。",
+      "success": "結合を表同士の関係へ対応させる。条件に合う候補：注文と、その注文に属する明細の行",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-having-002",
+      "weekUnitId": "week-unit-week22",
+      "format": "singleChoice",
+      "prompt": "HAVINGは今回、どの値で結果を絞りますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "グループごとに計算した注文代金"
+          },
+          {
+            "id": "b",
+            "text": "各明細を読む前のPHP変数"
+          },
+          {
+            "id": "c",
+            "text": "接続するDB名"
+          },
+          {
+            "id": "d",
+            "text": "ブラウザのURLだけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "SQLで集計した結果を対象にします。",
+          "c": "接続設定ではありません。",
+          "d": "集計した値の条件です。"
+        }
+      },
+      "explanation": "WHEREで行、HAVINGで集計したグループの条件を指定します。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "集計後の条件の役割を説明する",
+      "conceptId": "ph2-week22-having",
+      "variantGroup": "ph2-week22-having",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-2/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "4132bebc001c097c45672645bc8b852a4ad9664e2544972f8bee3ddad908303b"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-2/README.md",
+          "heading": "22週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "4132bebc001c097c45672645bc8b852a4ad9664e2544972f8bee3ddad908303b"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-2/README.md：集計後の条件の役割を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "合計を計算する前か後か考えましょう。",
+      "success": "集計後の条件の役割を説明する。条件に合う候補：グループごとに計算した注文代金",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-not-exists-003",
+      "weekUnitId": "week-unit-week22",
+      "format": "singleChoice",
+      "prompt": "NOT EXISTSの条件は、対応する明細がどんなときにtrueですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "必ず1件あるとき"
+          },
+          {
+            "id": "c",
+            "text": "全注文を足したとき"
+          },
+          {
+            "id": "d",
+            "text": "表名が短いとき"
+          },
+          {
+            "id": "a",
+            "text": "サブクエリの結果に該当行がないとき"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "存在する場合とは逆です。",
+          "c": "集計の操作ではありません。",
+          "d": "名前の長さとは無関係です。"
+        }
+      },
+      "explanation": "対応する明細がない注文を探すため、存在しないという条件を使います。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "副問い合わせの存在条件を説明する",
+      "conceptId": "ph2-week22-not-exists",
+      "variantGroup": "ph2-week22-not-exists",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-3/README.md",
+          "heading": "22週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-3/README.md：副問い合わせの存在条件を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "存在の否定に注目しましょう。",
+      "success": "副問い合わせの存在条件を説明する。条件に合う候補：サブクエリの結果に該当行がないとき",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-join-key-004",
+      "weekUnitId": "week-unit-week22",
+      "format": "fillBlank",
+      "prompt": "明細のorder_idと注文のidで対応させます。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "orders.name = order_details.price"
+          },
+          {
+            "id": "d",
+            "text": "orders.id > 0"
+          },
+          {
+            "id": "a",
+            "text": "orders.id = order_details.order_id"
+          },
+          {
+            "id": "b",
+            "text": "orders.id = order_details.id"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "明細自身のidと注文のidは違います。",
+          "c": "名前と単価を比較しても所属は分かりません。",
+          "d": "明細の所属を対応させていません。"
+        },
+        "content": "SELECT orders.name, order_details.item_name\nFROM orders JOIN order_details ON ___;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "所属を表すorder_idを親のidへ結び付けます。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "関係に合う結合キーを選ぶ",
+      "conceptId": "ph2-week22-join-key",
+      "variantGroup": "ph2-week22-join-key",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-1/README.md",
+          "heading": "22週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-1/README.md：関係に合う結合キーを選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "各idが何を識別するか区別しましょう。",
+      "success": "関係に合う結合キーを選ぶ。条件に合う候補：orders.id = order_details.order_id",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT orders.name, order_details.item_name\nFROM orders JOIN order_details ON ___;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-aggregate-filter-005",
+      "weekUnitId": "week-unit-week22",
+      "format": "fillBlank",
+      "prompt": "注文代金10000円以上を残します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "LIMIT"
+          },
+          {
+            "id": "a",
+            "text": "HAVING"
+          },
+          {
+            "id": "b",
+            "text": "WHERE"
+          },
+          {
+            "id": "c",
+            "text": "ORDER BY"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ここでは集計後の値を条件にします。",
+          "c": "並べ替えで、結果を条件で外しません。",
+          "d": "件数制限で金額条件ではありません。"
+        },
+        "content": "SELECT order_id, SUM(price * quantity) AS total\nFROM order_details GROUP BY order_id\n___ total >= 10000;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "合計を計算してからHAVINGで絞ります。10000ちょうども含めるので>=です。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "集計条件に合う句を選ぶ",
+      "conceptId": "ph2-week22-aggregate-filter",
+      "variantGroup": "ph2-week22-aggregate-filter",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-2/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "4132bebc001c097c45672645bc8b852a4ad9664e2544972f8bee3ddad908303b"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-2/README.md",
+          "heading": "22週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "4132bebc001c097c45672645bc8b852a4ad9664e2544972f8bee3ddad908303b"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-2/README.md：集計条件に合う句を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "合計ができた後に判定します。",
+      "success": "集計条件に合う句を選ぶ。条件に合う候補：HAVING",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT order_id, SUM(price * quantity) AS total\nFROM order_details GROUP BY order_id\n___ total >= 10000;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-missing-child-006",
+      "weekUnitId": "week-unit-week22",
+      "format": "fillBlank",
+      "prompt": "明細が1件もない注文だけ取り出します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "NOT EXISTS"
+          },
+          {
+            "id": "b",
+            "text": "EXISTS"
+          },
+          {
+            "id": "c",
+            "text": "SUM"
+          },
+          {
+            "id": "d",
+            "text": "ORDER BY"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "明細がある注文を選びます。",
+          "c": "存在を調べるこの構文に合いません。",
+          "d": "条件の式にはなりません。"
+        },
+        "content": "SELECT orders.id FROM orders\nWHERE ___ (SELECT 1 FROM order_details WHERE order_details.order_id = orders.id);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "外側の各注文に対応する明細がないかを調べます。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "明細の不在を抽出する条件を選ぶ",
+      "conceptId": "ph2-week22-missing-child",
+      "variantGroup": "ph2-week22-missing-child",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-3/README.md",
+          "heading": "22週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-3/README.md：明細の不在を抽出する条件を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "外側の注文のidへ結び付けて探します。",
+      "success": "明細の不在を抽出する条件を選ぶ。条件に合う候補：NOT EXISTS",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT orders.id FROM orders\nWHERE ___ (SELECT 1 FROM order_details WHERE order_details.order_id = orders.id);",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-group-result-007",
+      "weekUnitId": "week-unit-week22",
+      "format": "singleChoice",
+      "prompt": "注文名と注文別の合計を出します。構造として適切なのは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "全注文名を1個に固定する"
+          },
+          {
+            "id": "c",
+            "text": "明細のidごとに集計する"
+          },
+          {
+            "id": "d",
+            "text": "取得前にPHPの名前を全部変える"
+          },
+          {
+            "id": "a",
+            "text": "注文と明細を結合 → 注文ID・名前でグループ化 → 明細金額を合計"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "注文ごとの対応が失われます。",
+          "c": "注文別の合計になりません。",
+          "d": "SQLでの対応を作っていません。"
+        }
+      },
+      "explanation": "名前は親から、金額は明細から取得します。結合と集計の単位をそろえます。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "結合とグループ集計をつなぐ",
+      "conceptId": "ph2-week22-group-result",
+      "variantGroup": "ph2-week22-group-result",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-1/README.md",
+          "heading": "22週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-1/README.md：結合とグループ集計をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "情報がどの表にあるか確認しましょう。",
+      "success": "結合とグループ集計をつなぐ。条件に合う候補：注文と明細を結合 → 注文ID・名前でグループ化 → 明細金額を合計",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-join-numbers-008",
+      "weekUnitId": "week-unit-week22",
+      "format": "singleChoice",
+      "prompt": "ordersにid=1・2があり、明細のorder_idは1・1・2です。正しい結合で注文1に対応する明細数は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "3件"
+          },
+          {
+            "id": "d",
+            "text": "0件"
+          },
+          {
+            "id": "a",
+            "text": "2件"
+          },
+          {
+            "id": "b",
+            "text": "1件"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "注文1には2明細あります。",
+          "c": "全注文の明細を数えています。",
+          "d": "対応するorder_id=1が存在します。"
+        }
+      },
+      "explanation": "親のidが各明細のorder_idと一致する行を数えます。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "1対多の関係を具体的な件数で確認する",
+      "conceptId": "ph2-week22-join-numbers",
+      "variantGroup": "ph2-week22-join-numbers",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-1/README.md",
+          "heading": "22週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-1/README.md：1対多の関係を具体的な件数で確認する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "同じ注文へ複数の明細がつながります。",
+      "success": "1対多の関係を具体的な件数で確認する。条件に合う候補：2件",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-correlated-flow-009",
+      "weekUnitId": "week-unit-week22",
+      "format": "singleChoice",
+      "prompt": "外側の注文id=4について、サブクエリは何を探しますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "必ずorder_id=1だけ"
+          },
+          {
+            "id": "a",
+            "text": "order_id=4の明細があるか"
+          },
+          {
+            "id": "b",
+            "text": "id=4の学生名だけ"
+          },
+          {
+            "id": "c",
+            "text": "全注文の合計金額だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "調べるのは注文に属する明細です。",
+          "c": "存在の条件と別です。",
+          "d": "外側の現在の注文idへ対応します。"
+        }
+      },
+      "explanation": "外側の行に合わせて対応する明細を調べます。副問い合わせの条件を具体値へ置き換えると読めます。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "外側と内側の条件をつなぐ",
+      "conceptId": "ph2-week22-correlated-flow",
+      "variantGroup": "ph2-week22-correlated-flow",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-3/README.md",
+          "heading": "22週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-3/README.md：外側と内側の条件をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "orders.idに現在の4を入れて読んでみましょう。",
+      "success": "外側と内側の条件をつなぐ。条件に合う候補：order_id=4の明細があるか",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-wrong-join-010",
+      "weekUnitId": "week-unit-week22",
+      "format": "bugDiagnosis",
+      "prompt": "注文に属する明細が正しく出ません。結合条件の修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "order_details.idをorder_details.order_idへ変える"
+          },
+          {
+            "id": "b",
+            "text": "orders.nameを短くする"
+          },
+          {
+            "id": "c",
+            "text": "LIMIT 1を足す"
+          },
+          {
+            "id": "d",
+            "text": "JOINをDELETEへ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "結合するIDの意味は変わりません。",
+          "c": "対応の間違いを隠すだけです。",
+          "d": "取得の修正ではありません。"
+        },
+        "code": "SELECT orders.name, order_details.item_name\nFROM orders JOIN order_details ON orders.id = order_details.id;"
+      },
+      "explanation": "たまたまIDが同じでも、意味が異なる列同士では正しい関係を作れません。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "IDの意味の取り違えを修正する",
+      "conceptId": "ph2-week22-wrong-join",
+      "variantGroup": "ph2-week22-wrong-join",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-1/README.md",
+          "heading": "22週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-1/README.md：IDの意味の取り違えを修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "主キーと所属を表す列を分けましょう。",
+      "success": "IDの意味の取り違えを修正する。条件に合う候補：order_details.idをorder_details.order_idへ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT orders.name, order_details.item_name\nFROM orders JOIN order_details ON orders.id = order_details.id;",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-wrong-threshold-011",
+      "weekUnitId": "week-unit-week22",
+      "format": "bugDiagnosis",
+      "prompt": "合計10000円もちょうど含めたいのに外れます。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "<へ変える"
+          },
+          {
+            "id": "c",
+            "text": "HAVINGを削除"
+          },
+          {
+            "id": "d",
+            "text": "列の別名だけ変える"
+          },
+          {
+            "id": "a",
+            "text": ">を>=へ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "低い金額を選んでしまいます。",
+          "c": "金額条件を失います。",
+          "d": "比較の条件は変わりません。"
+        },
+        "code": "HAVING total > 10000"
+      },
+      "explanation": "教材の文言「以上」に合わせ、境界を含める条件へ修正します。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "集計条件の境界を修正する",
+      "conceptId": "ph2-week22-wrong-threshold",
+      "variantGroup": "ph2-week22-wrong-threshold",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-2/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "4132bebc001c097c45672645bc8b852a4ad9664e2544972f8bee3ddad908303b"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-2/README.md",
+          "heading": "22週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "4132bebc001c097c45672645bc8b852a4ad9664e2544972f8bee3ddad908303b"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-2/README.md：集計条件の境界を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "10000で条件を試しましょう。",
+      "success": "集計条件の境界を修正する。条件に合う候補：>を>=へ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "HAVING total > 10000",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-join-check-012",
+      "weekUnitId": "week-unit-week22",
+      "format": "singleChoice",
+      "prompt": "明細なしの注文を抽出するSQLを確認するテストは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "全注文を削除する"
+          },
+          {
+            "id": "d",
+            "text": "名前の色だけ見る"
+          },
+          {
+            "id": "a",
+            "text": "明細0件・1件・複数件の注文を作り、0件だけ選ぶことを確認"
+          },
+          {
+            "id": "b",
+            "text": "明細ありの注文だけ作る"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "選ばれるべき0件の例がありません。",
+          "c": "条件の確認ができません。",
+          "d": "所属明細の有無を調べていません。"
+        }
+      },
+      "explanation": "存在の条件は、ある例とない例で確かめます。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "副問い合わせの抽出結果を照合する",
+      "conceptId": "ph2-week22-join-check",
+      "variantGroup": "ph2-week22-join-check",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week22-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week22-3/README.md",
+          "heading": "22週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 22",
+          "line": 437,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week22-3/README.md：副問い合わせの抽出結果を照合する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "該当と非該当を両方用意しましょう。",
+      "success": "副問い合わせの抽出結果を照合する。条件に合う候補：明細0件・1件・複数件の注文を作り、0件だけ選ぶことを確認",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

@@ -1,0 +1,1102 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week18-php-side-001",
+      "weekUnitId": "week-unit-week18",
+      "format": "singleChoice",
+      "prompt": "PHPはこの学習でどこで実行され、何を返しますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "DBを使うと必ず静止画像だけになる"
+          },
+          {
+            "id": "a",
+            "text": "サーバーで実行し、生成したHTMLなどをブラウザへ返す"
+          },
+          {
+            "id": "b",
+            "text": "ブラウザがPHPソースをそのまま実行"
+          },
+          {
+            "id": "c",
+            "text": "CSSの色を必ず固定する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "PHPはサーバー側で実行します。",
+          "c": "PHPの目的は色の固定ではありません。",
+          "d": "データから動的な内容を生成できます。"
+        }
+      },
+      "explanation": "ブラウザはPHPの実行結果を受け取ります。PHPをJSと同じ場所で動かすと考えないようにします。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "1. PHPについて学ぶ意義"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "PHPの実行場所と結果を区別する",
+      "conceptId": "ph2-week18-php-side",
+      "variantGroup": "ph2-week18-php-side",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "1. PHPについて学ぶ意義",
+        "line": 7,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-1/README.md",
+          "heading": "18週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "90d0423e4b49dca3839f5dc2b8368a2b822a72c066511cce86be5e1d1f87aa4a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-1/README.md：PHPの実行場所と結果を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "PHPを書く場所とHTMLを見る場所を分けましょう。",
+      "success": "PHPの実行場所と結果を区別する。条件に合う候補：サーバーで実行し、生成したHTMLなどをブラウザへ返す",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-variable-002",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "文字列を保存した変数を出力する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "$name"
+          },
+          {
+            "id": "b",
+            "text": "name"
+          },
+          {
+            "id": "c",
+            "text": "\"$name\" . \"name\""
+          },
+          {
+            "id": "d",
+            "text": "$age"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "PHPの変数には$が必要です。",
+          "c": "余分なnameまで付けてしまいます。",
+          "d": "このコードでは定義されていません。"
+        },
+        "content": "<?php\n$name = \"Posse\";\necho ___;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "PHPの変数名は$から始まります。保存した値を参照するには同じ$nameを使います。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-2. 変数"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "PHPの変数の参照を識別する",
+      "conceptId": "ph2-week18-variable",
+      "variantGroup": "ph2-week18-variable",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-2. 変数",
+        "line": 67,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-1/README.md",
+          "heading": "18週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "90d0423e4b49dca3839f5dc2b8368a2b822a72c066511cce86be5e1d1f87aa4a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-1/README.md：PHPの変数の参照を識別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "定義した変数名と照合しましょう。",
+      "success": "PHPの変数の参照を識別する。条件に合う候補：$name",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "<?php\n$name = \"Posse\";\necho ___;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-assoc-003",
+      "weekUnitId": "week-unit-week18",
+      "format": "singleChoice",
+      "prompt": "[\"name\" => \"Posse\", \"age\" => 38]のnameは何ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "配列全体の件数"
+          },
+          {
+            "id": "c",
+            "text": "必ず0と同じ意味の番号"
+          },
+          {
+            "id": "d",
+            "text": "PHPの関数名"
+          },
+          {
+            "id": "a",
+            "text": "値\"Posse\"を取り出すためのキー"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "要素を識別する名前です。",
+          "c": "文字列のキーで、0ではありません。",
+          "d": "この配列ではキーです。"
+        }
+      },
+      "explanation": "連想配列はキーと値を対応させます。名前で値を取り出せます。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-6. 連想配列"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "連想配列のキーと値を区別する",
+      "conceptId": "ph2-week18-assoc",
+      "variantGroup": "ph2-week18-assoc",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-6. 連想配列",
+        "line": 123,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-1/README.md",
+          "heading": "18週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "90d0423e4b49dca3839f5dc2b8368a2b822a72c066511cce86be5e1d1f87aa4a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-1/README.md：連想配列のキーと値を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "名前と値の組を見ましょう。",
+      "success": "連想配列のキーと値を区別する。条件に合う候補：値\"Posse\"を取り出すためのキー",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-dump-004",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "配列の値だけでなく型も確認したい。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "strlen"
+          },
+          {
+            "id": "d",
+            "text": "count"
+          },
+          {
+            "id": "a",
+            "text": "var_dump"
+          },
+          {
+            "id": "b",
+            "text": "echo"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "配列の中身と型の確認には使いません。",
+          "c": "文字列の長さを調べる関数です。",
+          "d": "件数だけで型と中身を一覧にしません。"
+        },
+        "content": "<?php\n$data = [\"name\" => \"Posse\", \"age\" => 38];\n___($data);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "var_dumpは値と型を出します。echoによるArray to string conversionの回避にも役立ちます。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-4. 配列"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "値と型の確認方法を選ぶ",
+      "conceptId": "ph2-week18-dump",
+      "variantGroup": "ph2-week18-dump",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-4. 配列",
+        "line": 80,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-1/README.md",
+          "heading": "18週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "90d0423e4b49dca3839f5dc2b8368a2b822a72c066511cce86be5e1d1f87aa4a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-1/README.md：値と型の確認方法を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "intやstringの表示が必要です。",
+      "success": "値と型の確認方法を選ぶ。条件に合う候補：var_dump",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "<?php\n$data = [\"name\" => \"Posse\", \"age\" => 38];\n___($data);",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-if-boundary-005",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "$numberは数値です。12未満だけ「小さい」を出します。12自体は対象外です。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "$number === 12"
+          },
+          {
+            "id": "a",
+            "text": "$number < 12"
+          },
+          {
+            "id": "b",
+            "text": "$number <= 12"
+          },
+          {
+            "id": "c",
+            "text": "$number > 12"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "12も含めてしまいます。",
+          "c": "大小が逆です。",
+          "d": "12だけが対象になります。"
+        },
+        "content": "if (___) { echo \"小さい\"; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "未満は<です。境目の12を含めるかを仕様から決めます。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-5. if命令"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "未満と以下を条件式へ対応させる",
+      "conceptId": "ph2-week18-if-boundary",
+      "variantGroup": "ph2-week18-if-boundary",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-5. if命令",
+        "line": 156,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-2/README.md",
+          "heading": "18週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "42031835b8d4e91b8ef156b9806a2f5f26aac4cce0c9c3fed76e8f7ac8e46c0e"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-2/README.md：未満と以下を条件式へ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "12で条件がfalseになるか考えましょう。",
+      "success": "未満と以下を条件式へ対応させる。条件に合う候補：$number < 12",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "if (___) { echo \"小さい\"; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-concat-006",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "文字列同士をつなぐ空欄は？ PHPの連結演算子を使います。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "."
+          },
+          {
+            "id": "b",
+            "text": "+"
+          },
+          {
+            "id": "c",
+            "text": "=>"
+          },
+          {
+            "id": "d",
+            "text": "==="
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "PHPの文字列連結は.です。",
+          "c": "配列のキーと値などを対応させる記法です。",
+          "d": "比較の演算子です。"
+        },
+        "content": "$name = \"apple\";\necho \"商品名: \" ___ $name;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "PHPは.で文字列を連結します。JSの+との切り替えに注意します。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-7. foreach命令"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "文字列をつなぐ手段を選ぶ",
+      "conceptId": "ph2-week18-concat",
+      "variantGroup": "ph2-week18-concat",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-7. foreach命令",
+        "line": 209,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-3/README.md",
+          "heading": "18週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "ac47239e1c78f9cadd4c848944398cf361fab4b236cb3acf86a403787268bb6e"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-3/README.md：文字列をつなぐ手段を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "計算・比較・連結を区別しましょう。",
+      "success": "文字列をつなぐ手段を選ぶ。条件に合う候補：.",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "$name = \"apple\";\necho \"商品名: \" ___ $name;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-foreach-value-007",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "商品の各価格を順に出します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "$prices"
+          },
+          {
+            "id": "c",
+            "text": "$key => $prices"
+          },
+          {
+            "id": "d",
+            "text": "$index"
+          },
+          {
+            "id": "a",
+            "text": "$price"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "配列全体の変数と1件分を混同しています。",
+          "c": "1件分の値が$pricesへ入り、$priceがありません。",
+          "d": "出力している$priceと対応しません。"
+        },
+        "content": "<?php\n$prices = [100, 200, 300];\nforeach ($prices as ___) { echo $price . \" \"; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "foreachで各値を受け取り、その変数を出力へ渡します。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-7. foreach命令"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "配列の各値と出力をつなぐ",
+      "conceptId": "ph2-week18-foreach-value",
+      "variantGroup": "ph2-week18-foreach-value",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-7. foreach命令",
+        "line": 209,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-3/README.md",
+          "heading": "18週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "ac47239e1c78f9cadd4c848944398cf361fab4b236cb3acf86a403787268bb6e"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-3/README.md：配列の各値と出力をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "ループ内で使う変数名を確認しましょう。",
+      "success": "配列の各値と出力をつなぐ。条件に合う候補：$price",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "<?php\n$prices = [100, 200, 300];\nforeach ($prices as ___) { echo $price . \" \"; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-sum-008",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "1・2・3の合計6を出す空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "$sum += 1"
+          },
+          {
+            "id": "d",
+            "text": "$n += $sum"
+          },
+          {
+            "id": "a",
+            "text": "$sum += $n"
+          },
+          {
+            "id": "b",
+            "text": "$sum = $n"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "毎回上書きして最後の3だけになります。",
+          "c": "値ではなく件数を数えています。",
+          "d": "合計を保存する$sumを更新していません。"
+        },
+        "content": "<?php\n$sum = 0;\nforeach ([1, 2, 3] as $n) { ___; }\necho $sum;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "初期値0へ各値を足し続けます。上書きと累積を区別します。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-7. foreach命令"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "初期値・繰り返し・累積を組む",
+      "conceptId": "ph2-week18-sum",
+      "variantGroup": "ph2-week18-sum",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-7. foreach命令",
+        "line": 209,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-3/README.md",
+          "heading": "18週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "ac47239e1c78f9cadd4c848944398cf361fab4b236cb3acf86a403787268bb6e"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-3/README.md：初期値・繰り返し・累積を組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "前の合計を残す操作を探しましょう。",
+      "success": "初期値・繰り返し・累積を組む。条件に合う候補：$sum += $n",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "<?php\n$sum = 0;\nforeach ([1, 2, 3] as $n) { ___; }\necho $sum;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-for-range-009",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "10から15まで1ずつ進めます。初期値と更新は固定です。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "$i <= 10"
+          },
+          {
+            "id": "a",
+            "text": "$i <= 15"
+          },
+          {
+            "id": "b",
+            "text": "$i < 15"
+          },
+          {
+            "id": "c",
+            "text": "$i >= 15"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "最後の15を出せません。",
+          "c": "初期値10でfalseになり始まりません。",
+          "d": "10の1回だけで止まります。"
+        },
+        "content": "for ($i = 10; ___; $i++) { echo $i . \" \"; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "初期値・継続条件・更新をそろえると、指定した範囲を出せます。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-6. for命令"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ループの開始・終了・更新をつなぐ",
+      "conceptId": "ph2-week18-for-range",
+      "variantGroup": "ph2-week18-for-range",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-6. for命令",
+        "line": 186,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-2/README.md",
+          "heading": "18週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "42031835b8d4e91b8ef156b9806a2f5f26aac4cce0c9c3fed76e8f7ac8e46c0e"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-2/README.md：ループの開始・終了・更新をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "最後に含める15へ注目しましょう。",
+      "success": "ループの開始・終了・更新をつなぐ。条件に合う候補：$i <= 15",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "for ($i = 10; ___; $i++) { echo $i . \" \"; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-array-echo-010",
+      "weekUnitId": "week-unit-week18",
+      "format": "bugDiagnosis",
+      "prompt": "Array to string conversionと出ました。中身を確認する修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "echoをvar_dumpへ変える"
+          },
+          {
+            "id": "b",
+            "text": "$dataを別名にする"
+          },
+          {
+            "id": "c",
+            "text": "数字38を39にする"
+          },
+          {
+            "id": "d",
+            "text": "配列のキーを削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "配列を文字列へ出そうとする問題は残ります。",
+          "c": "値を変えても出力方法は同じです。",
+          "d": "配列全体のechoは解決しません。"
+        },
+        "code": "<?php\n$data = [\"name\" => \"Posse\", \"age\" => 38];\necho $data;"
+      },
+      "explanation": "配列の情報はvar_dumpなどで確認します。出力する値の型から方法を選び直します。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-4. 配列"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "配列と出力関数の不一致を直す",
+      "conceptId": "ph2-week18-array-echo",
+      "variantGroup": "ph2-week18-array-echo",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-4. 配列",
+        "line": 80,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-1/README.md",
+          "heading": "18週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "90d0423e4b49dca3839f5dc2b8368a2b822a72c066511cce86be5e1d1f87aa4a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-1/README.md：配列と出力関数の不一致を直す。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "エラーが指す型と出力方法を照合しましょう。",
+      "success": "配列と出力関数の不一致を直す。条件に合う候補：echoをvar_dumpへ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "<?php\n$data = [\"name\" => \"Posse\", \"age\" => 38];\necho $data;",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-wrong-key-011",
+      "weekUnitId": "week-unit-week18",
+      "format": "bugDiagnosis",
+      "prompt": "nameの値を出したいのにageが出ます。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "echoを2回書く"
+          },
+          {
+            "id": "c",
+            "text": "配列を全部消す"
+          },
+          {
+            "id": "d",
+            "text": "PHPファイル名を変える"
+          },
+          {
+            "id": "a",
+            "text": "参照キーを\"name\"へ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ageを繰り返し出すだけです。",
+          "c": "表示したい値もなくなります。",
+          "d": "参照するキーは変わりません。"
+        },
+        "code": "<?php\n$person = [\"name\" => \"Posse\", \"age\" => 38];\necho $person[\"age\"];"
+      },
+      "explanation": "キーは欲しい情報と対応させます。配列があることだけでなく、どの値を読むかを確認します。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-6. 連想配列"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "出力値の違いから参照キーを修正する",
+      "conceptId": "ph2-week18-wrong-key",
+      "variantGroup": "ph2-week18-wrong-key",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-6. 連想配列",
+        "line": 123,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-1/README.md",
+          "heading": "18週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "90d0423e4b49dca3839f5dc2b8368a2b822a72c066511cce86be5e1d1f87aa4a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-1/README.md：出力値の違いから参照キーを修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "欲しい値に付いている名前を見ましょう。",
+      "success": "出力値の違いから参照キーを修正する。条件に合う候補：参照キーを\"name\"へ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "<?php\n$person = [\"name\" => \"Posse\", \"age\" => 38];\necho $person[\"age\"];",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-range-tests-012",
+      "weekUnitId": "week-unit-week18",
+      "format": "singleChoice",
+      "prompt": "「12未満」と「12以上」の分岐を確認する入力は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "文字色だけ変える"
+          },
+          {
+            "id": "d",
+            "text": "100だけ試す"
+          },
+          {
+            "id": "a",
+            "text": "11・12・13をそれぞれ試す"
+          },
+          {
+            "id": "b",
+            "text": "10だけ試す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "境界の12を調べていません。",
+          "c": "分岐の結果が分かりません。",
+          "d": "境界の取り違えを見逃します。"
+        }
+      },
+      "explanation": "境界の直前・境界・直後を確認すると、<と<=の間違いを見つけられます。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-5. if命令"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "境界での結果を照合する",
+      "conceptId": "ph2-week18-range-tests",
+      "variantGroup": "ph2-week18-range-tests",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "heading": "2-5. if命令",
+        "line": 156,
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-2/README.md",
+          "heading": "18週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "42031835b8d4e91b8ef156b9806a2f5f26aac4cce0c9c3fed76e8f7ac8e46c0e"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 18",
+          "line": 105,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week18.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week18-2/README.md：境界での結果を照合する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "条件が切り替わる場所を試しましょう。",
+      "success": "境界での結果を照合する。条件に合う候補：11・12・13をそれぞれ試す",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

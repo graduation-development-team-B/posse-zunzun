@@ -1,0 +1,1162 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week26-session-001",
+      "weekUnitId": "week-unit-week26",
+      "format": "singleChoice",
+      "prompt": "この教材の構成では、ログインユーザーIDなどのセッション情報自体はどこにありますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "Cookieへ全ユーザーのパスワードを保存"
+          },
+          {
+            "id": "a",
+            "text": "サーバー側"
+          },
+          {
+            "id": "b",
+            "text": "ブラウザのCSSだけ"
+          },
+          {
+            "id": "c",
+            "text": "URLのページ名だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "CSSにログイン情報を保存しません。",
+          "c": "この構成の保存場所ではありません。",
+          "d": "CookieにはここではセッションIDを使います。"
+        }
+      },
+      "explanation": "ブラウザのセッションIDと、サーバーに保持する情報を区別します。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "クッキーとセッションの関係"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "セッションIDと保存する情報を区別する",
+      "conceptId": "ph2-week26-session",
+      "variantGroup": "ph2-week26-session",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "クッキーとセッションの関係",
+        "line": 125,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：セッションIDと保存する情報を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "IDとIDで参照される情報を分けましょう。",
+      "success": "セッションIDと保存する情報を区別する。条件に合う候補：サーバー側",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-cookie-002",
+      "weekUnitId": "week-unit-week26",
+      "format": "singleChoice",
+      "prompt": "この構成のCookieに保持するセッションIDは何に使いますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "サーバーが対応するセッションを識別する"
+          },
+          {
+            "id": "b",
+            "text": "SQLの全行を必ず含める"
+          },
+          {
+            "id": "c",
+            "text": "ブラウザでPHPを実行する"
+          },
+          {
+            "id": "d",
+            "text": "メールの正しさを自動で検証"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "IDで対応する情報を参照します。",
+          "c": "実行環境の機能ではありません。",
+          "d": "識別と検証は別です。"
+        }
+      },
+      "explanation": "後の要求でも同じセッションへ対応させるための目印です。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "クッキー"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "CookieのセッションIDの役割を説明する",
+      "conceptId": "ph2-week26-cookie",
+      "variantGroup": "ph2-week26-cookie",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "クッキー",
+        "line": 117,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：CookieのセッションIDの役割を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "複数の要求をどう対応させるか考えましょう。",
+      "success": "CookieのセッションIDの役割を説明する。条件に合う候補：サーバーが対応するセッションを識別する",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-signup-login-003",
+      "weekUnitId": "week-unit-week26",
+      "format": "singleChoice",
+      "prompt": "サインアップとログインの違いは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "どちらも全ユーザー削除だけ"
+          },
+          {
+            "id": "c",
+            "text": "ログインするたびに新規ユーザーを必ず増やす"
+          },
+          {
+            "id": "d",
+            "text": "登録はCSSだけ変える"
+          },
+          {
+            "id": "a",
+            "text": "登録はユーザーを作り、ログインは登録済みの利用者を確認する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "登録や認証ではありません。",
+          "c": "既存の利用者を確認する処理です。",
+          "d": "ユーザー情報を作成します。"
+        }
+      },
+      "explanation": "ユーザーを作る操作と、本人と確認して利用を始める操作を分けます。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "サインアップの流れ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "ユーザー登録と認証を区別する",
+      "conceptId": "ph2-week26-signup-login",
+      "variantGroup": "ph2-week26-signup-login",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "サインアップの流れ",
+        "line": 16,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：ユーザー登録と認証を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "作成と確認の違いを見ましょう。",
+      "success": "ユーザー登録と認証を区別する。条件に合う候補：登録はユーザーを作り、ログインは登録済みの利用者を確認する",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-start-session-004",
+      "weekUnitId": "week-unit-week26",
+      "format": "fillBlank",
+      "prompt": "PHPでセッションを開始・再開する空欄は？ 出力前に呼びます。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "password_hash"
+          },
+          {
+            "id": "d",
+            "text": "echo"
+          },
+          {
+            "id": "a",
+            "text": "session_start"
+          },
+          {
+            "id": "b",
+            "text": "session_destroy"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "セッションを破棄する操作です。",
+          "c": "ハッシュを作る関数です。",
+          "d": "セッションの開始ではありません。"
+        },
+        "content": "<?php\n___();\n// この後でセッションの値を使う",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "セッションを読み書きする前に開始・再開します。ページをまたぐ認証状態の確認につながります。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "ユーザー情報をセッションに格納し、ログインする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "セッションを使う前の処理を選ぶ",
+      "conceptId": "ph2-week26-start-session",
+      "variantGroup": "ph2-week26-start-session",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "ユーザー情報をセッションに格納し、ログインする",
+        "line": 221,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：セッションを使う前の処理を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "管理を開始する関数を探しましょう。",
+      "success": "セッションを使う前の処理を選ぶ。条件に合う候補：session_start",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "<?php\n___();\n// この後でセッションの値を使う",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-store-id-005",
+      "weekUnitId": "week-unit-week26",
+      "format": "fillBlank",
+      "prompt": "ユーザー取得とパスワード確認は成功済みです。id=7をログイン情報に保存する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "7 + 1"
+          },
+          {
+            "id": "a",
+            "text": "$user[\"id\"]"
+          },
+          {
+            "id": "b",
+            "text": "$_POST[\"password\"]"
+          },
+          {
+            "id": "c",
+            "text": "$_POST[\"email\"]"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "パスワードをユーザーIDとして保存しません。",
+          "c": "メールではなく取得したユーザーIDです。",
+          "d": "別のユーザーIDへ変わります。"
+        },
+        "content": "$user = [\"id\" => 7];\n$_SESSION[\"id\"] = ___;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "確認できたユーザーのIDを保存します。入力値を本人確認せずIDとして信頼しません。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "ユーザー情報をセッションに格納し、ログインする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "認証成功後に保存する値を選ぶ",
+      "conceptId": "ph2-week26-store-id",
+      "variantGroup": "ph2-week26-store-id",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "ユーザー情報をセッションに格納し、ログインする",
+        "line": 221,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：認証成功後に保存する値を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "確認済みのユーザーの値を使います。",
+      "success": "認証成功後に保存する値を選ぶ。条件に合う候補：$user[\"id\"]",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "$user = [\"id\" => 7];\n$_SESSION[\"id\"] = ___;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。ローカルPHP CLIで通常・境界ケースと全候補を実行確認。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-guard-006",
+      "weekUnitId": "week-unit-week26",
+      "format": "fillBlank",
+      "prompt": "session_startは済んでいます。未ログインだけ入口で止める空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "!isset($_SESSION[\"id\"])"
+          },
+          {
+            "id": "b",
+            "text": "isset($_SESSION[\"id\"])"
+          },
+          {
+            "id": "c",
+            "text": "$_POST[\"email\"] === \"\""
+          },
+          {
+            "id": "d",
+            "text": "false"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ログイン中の方を止めます。",
+          "c": "ログイン状態を確認していません。",
+          "d": "誰も止められません。"
+        },
+        "content": "if (___) { header(\"Location: login.php\"); exit; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "セッションのIDの有無を、ログイン状態の判断へ使います。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "ユーザー情報をセッションに格納し、ログインする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "ログイン状態の確認条件を選ぶ",
+      "conceptId": "ph2-week26-guard",
+      "variantGroup": "ph2-week26-guard",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "ユーザー情報をセッションに格納し、ログインする",
+        "line": 221,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：ログイン状態の確認条件を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "有無と否定を組み合わせましょう。",
+      "success": "ログイン状態の確認条件を選ぶ。条件に合う候補：!isset($_SESSION[\"id\"])",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "if (___) { header(\"Location: login.php\"); exit; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-login-flow-007",
+      "weekUnitId": "week-unit-week26",
+      "format": "singleChoice",
+      "prompt": "ログインを進める順序は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "メールが入力されたらすぐログイン"
+          },
+          {
+            "id": "c",
+            "text": "入力値のidをそのまま保存して完了"
+          },
+          {
+            "id": "d",
+            "text": "DBを削除 → CSSを変える"
+          },
+          {
+            "id": "a",
+            "text": "送信値を検証 → ユーザーを検索 → パスワードを確認 → 成功時だけセッションへ保存"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "本人確認がありません。",
+          "c": "ユーザー検索や本人確認を省いています。",
+          "d": "ログイン処理ではありません。"
+        }
+      },
+      "explanation": "確認できた利用者だけをログイン状態にします。パスワードの保存と照合方法はWeek27で扱います。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "ログインの流れ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "認証の確認と状態保存を組む",
+      "conceptId": "ph2-week26-login-flow",
+      "variantGroup": "ph2-week26-login-flow",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "ログインの流れ",
+        "line": 139,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：認証の確認と状態保存を組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "成功の確認を保存より先に置きましょう。",
+      "success": "認証の確認と状態保存を組む。条件に合う候補：送信値を検証 → ユーザーを検索 → パスワードを確認 → 成功時だけセッションへ保存",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-logout-flow-008",
+      "weekUnitId": "week-unit-week26",
+      "format": "singleChoice",
+      "prompt": "この教材のログアウトの基本的な流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "ユーザーのDB行を必ず削除する"
+          },
+          {
+            "id": "d",
+            "text": "ログインIDを別の人のIDへ変える"
+          },
+          {
+            "id": "a",
+            "text": "セッション開始 → $_SESSIONを空にする → session_destroy → 遷移してexit"
+          },
+          {
+            "id": "b",
+            "text": "ログアウトボタンの色だけ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ログイン情報が残っています。",
+          "c": "ログアウトは退会・削除ではありません。",
+          "d": "ログアウトではありません。"
+        }
+      },
+      "explanation": "現在のセッション情報を破棄します。ユーザー登録自体は残ります。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "4. ログアウト機能"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ログアウトの処理を順につなぐ",
+      "conceptId": "ph2-week26-logout-flow",
+      "variantGroup": "ph2-week26-logout-flow",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "4. ログアウト機能",
+        "line": 249,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-2/README.md",
+          "heading": "26週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "4b91353926acd3a8053b1a1be8d5ce8e8fe747fdf3630f285b157d597d835328"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-2/index.php",
+          "line": 1,
+          "sha256": "783ceb8cf87e06382c38910bb2c71c2ce14df011d80fa91054c65455dd2a2b8c",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-2/README.md：ログアウトの処理を順につなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "保存済みのユーザーと現在のログイン状態を分けましょう。",
+      "success": "ログアウトの処理を順につなぐ。条件に合う候補：セッション開始 → $_SESSIONを空にする → session_destroy → 遷移してexit",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-redirect-exit-009",
+      "weekUnitId": "week-unit-week26",
+      "format": "fillBlank",
+      "prompt": "未ログインのときに遷移を指示した後、下の処理を実行しない空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "true"
+          },
+          {
+            "id": "a",
+            "text": "exit"
+          },
+          {
+            "id": "b",
+            "text": "echo \"ログイン中\""
+          },
+          {
+            "id": "c",
+            "text": "session_start()"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "処理を終了していません。",
+          "c": "開始しても終了はしません。",
+          "d": "値を評価するだけで終了しません。"
+        },
+        "content": "if (!isset($_SESSION[\"id\"])) {\n  header(\"Location: login.php\");\n  ___;\n}\n// ログイン中だけの処理",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "headerによる遷移指示だけでPHPの下の処理が止まるわけではありません。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "ユーザー情報をセッションに格納し、ログインする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "遷移指示と実行停止をつなぐ",
+      "conceptId": "ph2-week26-redirect-exit",
+      "variantGroup": "ph2-week26-redirect-exit",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "ユーザー情報をセッションに格納し、ログインする",
+        "line": 221,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：遷移指示と実行停止をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "レスポンスの指定と処理の終了は別です。",
+      "success": "遷移指示と実行停止をつなぐ。条件に合う候補：exit",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "if (!isset($_SESSION[\"id\"])) {\n  header(\"Location: login.php\");\n  ___;\n}\n// ログイン中だけの処理",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-destroy-only-010",
+      "weekUnitId": "week-unit-week26",
+      "format": "bugDiagnosis",
+      "prompt": "同じ処理内でIDが残り、ログイン状態と表示されます。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "$_SESSIONも空の配列にする"
+          },
+          {
+            "id": "b",
+            "text": "DBの全ユーザーを消す"
+          },
+          {
+            "id": "c",
+            "text": "ボタンの名前だけ変える"
+          },
+          {
+            "id": "d",
+            "text": "同じIDを保存し直す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "セッション表示の問題とは別です。",
+          "c": "IDは消えていません。",
+          "d": "ログイン状態を残してしまいます。"
+        },
+        "code": "session_start();\nsession_destroy();\n// この後でisset($_SESSION[\"id\"])を読む"
+      },
+      "explanation": "session_destroyは現在の$_SESSION配列を自動で空にしません。表示に使う値も消します。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "4. ログアウト機能"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "ログアウト時に残る値を修正する",
+      "conceptId": "ph2-week26-destroy-only",
+      "variantGroup": "ph2-week26-destroy-only",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "4. ログアウト機能",
+        "line": 249,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-2/README.md",
+          "heading": "26週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "4b91353926acd3a8053b1a1be8d5ce8e8fe747fdf3630f285b157d597d835328"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-2/index.php",
+          "line": 1,
+          "sha256": "783ceb8cf87e06382c38910bb2c71c2ce14df011d80fa91054c65455dd2a2b8c",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-2/README.md：ログアウト時に残る値を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "サーバーのセッションと現在の配列を分けましょう。",
+      "success": "ログアウト時に残る値を修正する。条件に合う候補：$_SESSIONも空の配列にする",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "session_start();\nsession_destroy();\n// この後でisset($_SESSION[\"id\"])を読む",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-no-user-011",
+      "weekUnitId": "week-unit-week26",
+      "format": "bugDiagnosis",
+      "prompt": "fetch()はユーザーなしならfalseです。見つからないメールで配列参照の警告が出ます。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "必ずid=1でログイン"
+          },
+          {
+            "id": "c",
+            "text": "メール欄を隠すだけ"
+          },
+          {
+            "id": "d",
+            "text": "警告を隠して成功と表示"
+          },
+          {
+            "id": "a",
+            "text": "falseでないか確認してからユーザーの値を使う"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "見つからない利用者を別人扱いしています。",
+          "c": "取得結果がfalseの問題は残ります。",
+          "d": "本人確認をせず成功にしています。"
+        },
+        "code": "$user = $stmt->fetch();\necho $user[\"id\"];"
+      },
+      "explanation": "検索結果がない場合を別の分岐にします。通常入力だけでなく、登録のない入力も確認します。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "メールが一致するユーザーをデータベースから探す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "空の検索結果への参照を修正する",
+      "conceptId": "ph2-week26-no-user",
+      "variantGroup": "ph2-week26-no-user",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "メールが一致するユーザーをデータベースから探す",
+        "line": 182,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：空の検索結果への参照を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "ユーザーが存在する前提を点検しましょう。",
+      "success": "空の検索結果への参照を修正する。条件に合う候補：falseでないか確認してからユーザーの値を使う",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "$user = $stmt->fetch();\necho $user[\"id\"];",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-auth-tests-012",
+      "weekUnitId": "week-unit-week26",
+      "format": "singleChoice",
+      "prompt": "ログイン処理で試すべき組み合わせは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "文字色だけ見る"
+          },
+          {
+            "id": "d",
+            "text": "メールが長い例だけ見る"
+          },
+          {
+            "id": "a",
+            "text": "正しい情報・パスワード違い・存在しないメールを試す"
+          },
+          {
+            "id": "b",
+            "text": "正しい情報だけ試す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "不正な情報で成功する不具合を見逃します。",
+          "c": "本人確認の動作が分かりません。",
+          "d": "パスワードや存在確認を調べていません。"
+        }
+      },
+      "explanation": "成功と失敗の両方を確認し、失敗時にセッションIDが保存されないかを見ます。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "ログインの流れ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "認証の成功・失敗を結果と照合する",
+      "conceptId": "ph2-week26-auth-tests",
+      "variantGroup": "ph2-week26-auth-tests",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "heading": "ログインの流れ",
+        "line": 139,
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "heading": "26週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 26",
+          "line": 858,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week26.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week26-1/README.md：認証の成功・失敗を結果と照合する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "受け付ける例と拒む例を用意しましょう。",
+      "success": "認証の成功・失敗を結果と照合する。条件に合う候補：正しい情報・パスワード違い・存在しないメールを試す",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

@@ -1,0 +1,771 @@
+[
+  {
+    "question": {
+      "id": "question-week5-why-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "レスポンシブデザインが必要な主な理由はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "JavaScriptのコード量を減らすため"
+          },
+          {
+            "id": "c",
+            "text": "画像の読み込みを速くするため"
+          },
+          {
+            "id": "d",
+            "text": "SEO対策のため"
+          },
+          {
+            "id": "a",
+            "text": "スマートフォンやタブレットなど様々な画面サイズでも読みやすく使いやすいUIを提供するため"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "レスポンシブデザインはCSSの設計で、JavaScriptのコード量とは直接関係ありません。",
+          "c": "画像最適化はレスポンシブデザインの一部ですが、主な理由ではありません。",
+          "d": "SEO向上はレスポンシブデザインの副次的な効果ですが、主な理由はUXの向上です。"
+        }
+      },
+      "explanation": "現代のWebアクセスはスマートフォンからが多く、様々な画面サイズに対応することでユーザーエクスペリエンスが向上します。レスポンシブデザインにより1つのHTMLで複数デバイスに対応できます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "1. なぜレスポンシブデザインが必要か"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：レスポンシブデザインが必要な主な理由はどれですか？",
+      "conceptId": "week5-section-1",
+      "variantGroup": "week5-section-1",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "1. なぜレスポンシブデザインが必要か",
+        "line": 26,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「なぜレスポンシブデザインが必要か」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：スマートフォンやタブレットなど様々な画面サイズでも読みやすく使いやすいUIを提供するため",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-mobile-first-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "trueFalse",
+      "prompt": "Tailwindはモバイルファーストで設計されており、ブレイクポイント接頭辞なしのクラスはすべての画面サイズに適用される。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "Tailwindはモバイルファーストです。md:などのプレフィックスは最小幅のメディアクエリで、指定幅以上に適用されます。プレフィックスなしのクラスは全画面サイズに適用されます。"
+        }
+      },
+      "explanation": "Tailwindのブレイクポイントはmin-width（最小幅）で定義されています。`md:text-lg` は「768px以上でtext-lgを適用」を意味します。プレフィックスなしは最小から最大まですべてに適用されます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "2. Tailwindはモバイルファースト"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindはモバイルファーストで設計されており、ブレイクポイント接頭辞なしのクラスはすべての画面サイズに適用される。",
+      "conceptId": "week5-section-2",
+      "variantGroup": "week5-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "2. Tailwindはモバイルファースト",
+        "line": 36,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「Tailwindはモバイルファースト」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：正しい",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-breakpoints-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "Tailwindのブレイクポイント `md:` が適用される画面幅はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "1024px以上"
+          },
+          {
+            "id": "a",
+            "text": "768px以上"
+          },
+          {
+            "id": "b",
+            "text": "768px以下"
+          },
+          {
+            "id": "c",
+            "text": "640px以上"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "Tailwindのブレイクポイントはmin-width（最小幅）で、768px以上に適用されます。",
+          "c": "sm:が640px以上です。md:は768px以上に対応します。",
+          "d": "lg:が1024px以上です。md:は768px以上に対応します。"
+        }
+      },
+      "explanation": "Tailwindのブレイクポイント: sm=640px、md=768px、lg=1024px、xl=1280px、2xl=1536px。`md:` プレフィックスは768px以上の画面に適用されます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "3. ブレイクポイント接頭辞"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindのブレイクポイント `md:` が適用される画面幅はどれですか？",
+      "conceptId": "week5-section-3",
+      "variantGroup": "week5-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "3. ブレイクポイント接頭辞",
+        "line": 55,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「ブレイクポイント接頭辞」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：768px以上",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-breakpoints-002",
+      "weekUnitId": "week-unit-week5",
+      "format": "fillBlank",
+      "prompt": "375px幅で非表示、768px以上で表示したい要素に使うTailwindクラスを選んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<div class=\"__BLANK__\">PC専用コンテンツ</div>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "sm:hidden md:block"
+          },
+          {
+            "id": "d",
+            "text": "invisible md:visible"
+          },
+          {
+            "id": "a",
+            "text": "hidden md:block"
+          },
+          {
+            "id": "b",
+            "text": "block md:hidden"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "block md:hiddenはスマホで表示、PCで非表示になります。逆の動作です。",
+          "c": "sm:hiddenは640px以上で非表示になりますが、640px未満では表示されてしまいます。",
+          "d": "invisibleはdisplay: noneではなくvisibility: hiddenです。スペースは確保されます。"
+        }
+      },
+      "explanation": "hiddenはdisplay: noneでデフォルト非表示、md:blockで768px以上にblock表示します。モバイルファーストの書き方で、スマホ非表示PCのみ表示が実現できます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "3. ブレイクポイント接頭辞"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：375px幅で非表示、768px以上で表示したい要素に使うTailwindクラスを選んでください。",
+      "conceptId": "week5-section-3",
+      "variantGroup": "week5-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "3. ブレイクポイント接頭辞",
+        "line": 55,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「ブレイクポイント接頭辞」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：hidden md:block",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-patterns-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "説明とチェックリストをGridで並べます。375pxで1列、768px以上で2列にする親のクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "grid grid-cols-2 md:grid-cols-1"
+          },
+          {
+            "id": "b",
+            "text": "grid grid-cols-1 md:grid-cols-3"
+          },
+          {
+            "id": "c",
+            "text": "grid grid-cols-1 md:grid-cols-2"
+          },
+          {
+            "id": "d",
+            "text": "grid-cols-1 md:grid-cols-2"
+          }
+        ],
+        "correctOptionId": "c",
+        "incorrectReasons": {
+          "a": "小さい画面が2列、大きい画面が1列で逆です。",
+          "b": "768px以上で3列になってしまいます。",
+          "d": "Gridを有効にするgridがありません。"
+        }
+      },
+      "explanation": "親にgridで配置を有効にし、接頭辞なしで1列を基本にします。md:grid-cols-2で768px以上だけ2列へ切り替えます。375pxと768pxの両方で確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：説明とチェックリストをGridで並べます。375pxで1列、768px以上で2列にする親のクラスは？",
+      "conceptId": "week5-section-4",
+      "variantGroup": "week5-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "4. よく使うレスポンシブパターン",
+        "line": 71,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「よく使うレスポンシブパターン」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：grid grid-cols-1 md:grid-cols-2",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-001",
+      "weekUnitId": "week-unit-week5",
+      "format": "bugDiagnosis",
+      "prompt": "375pxでは1列、768px以上では2列にしたいのに、幅による切り替えができません。接頭辞の書き方をどう直しますか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<div class=\"flex flex-col\">\n  <div>サイドバー</div>\n  <div class=\"md: flex-row\">メイン</div>\n</div>",
+        "options": [
+          {
+            "id": "a",
+            "text": "md:とflex-rowの間にスペースがあるため、有効なクラスとして認識されていない"
+          },
+          {
+            "id": "b",
+            "text": "md:flex-rowを子要素ではなく親要素に指定する必要がある"
+          },
+          {
+            "id": "c",
+            "text": "flex-colを削除する必要がある"
+          },
+          {
+            "id": "d",
+            "text": "AとBの両方が問題"
+          }
+        ],
+        "correctOptionId": "d",
+        "incorrectReasons": {
+          "a": "スペースの問題は正しいですが、それだけでなく親要素に指定する問題もあります。",
+          "b": "親要素への指定の問題は正しいですが、スペースの問題もあります。",
+          "c": "flex-colは正しい指定です。削除すると基本スタイルが失われます。"
+        }
+      },
+      "explanation": "md:grid-cols-2は空白を入れず一つのクラスとして書きます。md: grid-cols-2では後半が接頭辞なしの指定になり、小さい幅にも効き得ます。修正後は375pxで1列、768pxで2列か確認します。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "7. レスポンシブデザインでよくある間違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：375pxでは1列、768px以上では2列にしたいのに、幅による切り替えができません。接頭辞の書き方をどう直しますか？",
+      "conceptId": "week5-section-7",
+      "variantGroup": "week5-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "7. レスポンシブデザインでよくある間違い",
+        "line": 216,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「レスポンシブデザインでよくある間違い」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：AとBの両方が問題",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-002",
+      "weekUnitId": "week-unit-week5",
+      "format": "trueFalse",
+      "prompt": "Tailwindでは `sm:hidden md:block` と書くと、640px〜767pxの画面では表示されない。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "sm:hidden（640px以上で非表示）+ md:block（768px以上でblock）なので、640px〜767pxではhiddenが適用されblock がまだ上書きされないため、非表示になります。"
+        }
+      },
+      "explanation": "Tailwindのブレイクポイントは下位から上位へのカスケードです。sm:hidden（640px以上で非表示）が先に適用され、md:block（768px以上でblock表示）で上書きされます。640〜767pxではhiddenのみ適用されます。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "7. レスポンシブデザインでよくある間違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：Tailwindでは `sm:hidden md:block` と書くと、640px〜767pxの画面では表示されない。",
+      "conceptId": "week5-section-7",
+      "variantGroup": "week5-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "7. レスポンシブデザインでよくある間違い",
+        "line": 216,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「レスポンシブデザインでよくある間違い」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：正しい",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-003",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "375px幅1列、768px以上で3列のカード一覧に必要な基本クラスはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "grid md:grid-cols-1 grid-cols-3"
+          },
+          {
+            "id": "c",
+            "text": "flex flex-cols-1 md:flex-cols-3"
+          },
+          {
+            "id": "d",
+            "text": "grid-cols-1 md:grid-cols-3"
+          },
+          {
+            "id": "a",
+            "text": "grid grid-cols-1 md:grid-cols-3"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "基本が3列になり、スマホで1列というモバイルファーストの指定になっていません。",
+          "c": "Flexboxにはflex-cols-*というクラスはありません。",
+          "d": "列数の指定だけではGrid配置は有効になりません。親へgridも付けます。"
+        }
+      },
+      "explanation": "接頭辞なしのgrid-cols-1を小さい画面の基本値にし、md:grid-cols-3で768px以上の画面だけ3列へ切り替えます。並べる親にはレイアウトを有効にするgridも必要です。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：375px幅1列、768px以上で3列のカード一覧に必要な基本クラスはどれですか？",
+      "conceptId": "week5-section-4",
+      "variantGroup": "week5-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "4. よく使うレスポンシブパターン",
+        "line": 71,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「よく使うレスポンシブパターン」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：grid grid-cols-1 md:grid-cols-3",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-006",
+      "weekUnitId": "week-unit-week5",
+      "format": "singleChoice",
+      "prompt": "画像を375px幅では親の全幅、768px以上では親の半分の幅にするクラスはどれ？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "w-full md:w-1/2"
+          },
+          {
+            "id": "b",
+            "text": "w-1/2 md:w-full"
+          },
+          {
+            "id": "c",
+            "text": "width-full lg:width-half"
+          },
+          {
+            "id": "d",
+            "text": "w-full sm:w-2/2"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "基本が半幅でPCだけ全幅になるため、指定したスマホ・PCの意図と逆です。",
+          "c": "width-fullやwidth-halfはTailwindの標準クラスではありません。",
+          "d": "この指定はmd以上で半分にする条件を満たしません。半分はw-1/2です。"
+        }
+      },
+      "explanation": "w-fullを基本にすると小画面で画像が親幅いっぱいになり、md:w-1/2で768px以上だけ半幅へ切り替えられます。画像と本文を並べるときによく使う書き方です。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：画像を375px幅では親の全幅、768px以上では親の半分の幅にするクラスはどれ？",
+      "conceptId": "week5-section-4",
+      "variantGroup": "week5-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "4. よく使うレスポンシブパターン",
+        "line": 71,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「よく使うレスポンシブパターン」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：w-full md:w-1/2",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-007",
+      "weekUnitId": "week-unit-week5",
+      "format": "bugDiagnosis",
+      "prompt": "768px幅でもサイドバーが本文の下に残ります。修正点はどれですか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<div class=\"flex flex-col gap-6\">\n  <main>本文</main>\n  <aside>サイドバー</aside>\n</div>",
+        "options": [
+          {
+            "id": "d",
+            "text": "gap-6を削除する"
+          },
+          {
+            "id": "a",
+            "text": "親へ md:flex-row を追加する"
+          },
+          {
+            "id": "b",
+            "text": "mainへ md:flex-row を追加する"
+          },
+          {
+            "id": "c",
+            "text": "asideへ flex-col を追加する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "本文の内部ではなく、本文とサイドバーを並べる親の方向を変更します。",
+          "c": "子のflex-colは親同士の並び方向を変更しません。",
+          "d": "gapは間隔であり、縦横方向の切り替えとは無関係です。"
+        }
+      },
+      "explanation": "本文とサイドバーを直接の子として持つ親にflex flex-col md:flex-rowを指定します。基本はスマホの縦並び、md以上では同じ親の主軸を横向きへ切り替える構成です。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "7. レスポンシブデザインでよくある間違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：768px幅でもサイドバーが本文の下に残ります。修正点はどれですか？",
+      "conceptId": "week5-section-7",
+      "variantGroup": "week5-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "7. レスポンシブデザインでよくある間違い",
+        "line": 216,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「レスポンシブデザインでよくある間違い」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：親へ md:flex-row を追加する",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-008",
+      "weekUnitId": "week-unit-week5",
+      "format": "bugDiagnosis",
+      "prompt": "375pxでは1列、768px以上では2列にしたいのに、幅による切り替えができません。接頭辞の書き方をどう直しますか？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "code": "<div class=\"grid grid-cols-1 md: grid-cols-2\">\n  <div>説明</div>\n  <div>一覧</div>\n</div>",
+        "options": [
+          {
+            "id": "c",
+            "text": "md:をlg:へ変更する"
+          },
+          {
+            "id": "d",
+            "text": "親をflexへ変更する"
+          },
+          {
+            "id": "a",
+            "text": "md: と grid-cols-2 の間の空白を削除する"
+          },
+          {
+            "id": "b",
+            "text": "grid-cols-1を削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "grid-cols-1はスマホ用の基本指定なので残します。",
+          "c": "lg:へ変えると切替幅が1024pxになり、768px以上という要件から外れます。",
+          "d": "2列Gridにはgridとgrid-cols-*を使い、flexへ変更する必要はありません。"
+        }
+      },
+      "explanation": "md:grid-cols-2は空白を入れず一つのクラスとして書きます。md: grid-cols-2では後半が接頭辞なしの指定になり、小さい幅にも効き得ます。修正後は375pxで1列、768pxで2列か確認します。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "7. レスポンシブデザインでよくある間違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：375pxでは1列、768px以上では2列にしたいのに、幅による切り替えができません。接頭辞の書き方をどう直しますか？",
+      "conceptId": "week5-section-7",
+      "variantGroup": "week5-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "7. レスポンシブデザインでよくある間違い",
+        "line": 216,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「レスポンシブデザインでよくある間違い」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：md: と grid-cols-2 の間の空白を削除する",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-common-mistakes-010",
+      "weekUnitId": "week-unit-week5",
+      "format": "fillBlank",
+      "prompt": "レスポンシブなナビを375px幅縦、768px以上で横にするクラスを完成させてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<nav class=\"flex __BLANK__ md:flex-row\">リンク</nav>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "flex-row"
+          },
+          {
+            "id": "c",
+            "text": "grid-cols-1"
+          },
+          {
+            "id": "d",
+            "text": "items-column"
+          },
+          {
+            "id": "a",
+            "text": "flex-col"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "flex-rowを基本にするとスマホでも横並びになります。スマホの基本はflex-colです。",
+          "c": "grid-cols-1はGridの列指定で、Flexの方向指定ではありません。",
+          "d": "items-columnはTailwindのFlex方向クラスではありません。"
+        }
+      },
+      "explanation": "接頭辞なしのflex-colでスマホの縦並びを作り、md:flex-rowで768px以上の画面だけ横並びへ変更します。小さい画面から設計するモバイルファーストの基本パターンです。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：レスポンシブなナビを375px幅縦、768px以上で横にするクラスを完成させてください。",
+      "conceptId": "week5-section-4",
+      "variantGroup": "week5-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "heading": "4. よく使うレスポンシブパターン",
+        "line": 71,
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "drillConnection": "Week05 問題1・2の375px/768px切り替え、問題3の画像幅・ナビと一覧。drill-ph1/week05-1〜3/README.md",
+      "priorKnowledge": "Week01〜05のインプット",
+      "hint": "「よく使うレスポンシブパターン」で、何を操作すると何が変わるかを確認しましょう。",
+      "success": "問題文の条件に合う回答：flex-col",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  }
+]

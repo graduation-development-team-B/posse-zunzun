@@ -1,0 +1,1162 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week19-database-001",
+      "weekUnitId": "week-unit-week19",
+      "format": "singleChoice",
+      "prompt": "DBを使う主な目的は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "情報を整理して保存し、必要な情報を取り出す"
+          },
+          {
+            "id": "b",
+            "text": "HTMLの色だけ変える"
+          },
+          {
+            "id": "c",
+            "text": "PHPの変数名を自動で短くする"
+          },
+          {
+            "id": "d",
+            "text": "PCを閉じるたびに記録を全部消す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "保存や検索の役割ではありません。",
+          "c": "DBの機能ではありません。",
+          "d": "継続して使う記録を保存する目的と逆です。"
+        }
+      },
+      "explanation": "画面のコードと保存するデータを分け、検索や更新を行えるようにします。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "1. データベースとは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "DBの役割を説明する",
+      "conceptId": "ph2-week19-database",
+      "variantGroup": "ph2-week19-database",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week19.md",
+        "heading": "1. データベースとは",
+        "line": 7,
+        "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-1/README.md",
+          "heading": "19週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "3cb378023eaa9858c4fb808e4c4140a1f9a17df063206b9425413883d0b93d10"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-1/README.md：DBの役割を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "保存と取り出しの両方に注目しましょう。",
+      "success": "DBの役割を説明する。条件に合う候補：情報を整理して保存し、必要な情報を取り出す",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-row-column-002",
+      "weekUnitId": "week-unit-week19",
+      "format": "singleChoice",
+      "prompt": "booksの1冊分のデータは、表の何に当たりますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "列（カラム）"
+          },
+          {
+            "id": "c",
+            "text": "データベース全体"
+          },
+          {
+            "id": "d",
+            "text": "SQLファイル名"
+          },
+          {
+            "id": "a",
+            "text": "行（レコード）"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "列はタイトルなど情報の種類です。",
+          "c": "1冊のデータより大きなまとまりです。",
+          "d": "保存するデータそのものではありません。"
+        }
+      },
+      "explanation": "1件が行、titleやauthorなどの項目が列です。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "目的"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "行と列を実際のデータへ対応させる",
+      "conceptId": "ph2-week19-row-column",
+      "variantGroup": "ph2-week19-row-column",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week19-1/README.md",
+        "heading": "目的",
+        "line": 3,
+        "sha256": "3cb378023eaa9858c4fb808e4c4140a1f9a17df063206b9425413883d0b93d10"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-1/README.md",
+          "heading": "19週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "3cb378023eaa9858c4fb808e4c4140a1f9a17df063206b9425413883d0b93d10"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-1/README.md：行と列を実際のデータへ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "1件と1項目を分けましょう。",
+      "success": "行と列を実際のデータへ対応させる。条件に合う候補：行（レコード）",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-primary-key-003",
+      "weekUnitId": "week-unit-week19",
+      "format": "singleChoice",
+      "prompt": "同じタイトルの本が2冊あっても、別の1件として指定したい。idに必要な性質は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "タイトルと必ず同じ文字列にする"
+          },
+          {
+            "id": "d",
+            "text": "毎回表示するたびに値を変える"
+          },
+          {
+            "id": "a",
+            "text": "各行を一意に識別できる"
+          },
+          {
+            "id": "b",
+            "text": "同じ値を全行に付ける"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "区別できなくなります。",
+          "c": "同名の本を区別できません。",
+          "d": "同じデータを追えなくなります。"
+        }
+      },
+      "explanation": "主キーは行を一意に識別する目印です。表示文字の同じ行でもidで区別します。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "Week 19"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "主キーと表示文字の役割を区別する",
+      "conceptId": "ph2-week19-primary-key",
+      "variantGroup": "ph2-week19-primary-key",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "heading": "Week 19",
+        "line": 216,
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-1/README.md",
+          "heading": "19週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "3cb378023eaa9858c4fb808e4c4140a1f9a17df063206b9425413883d0b93d10"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-1/README.md：主キーと表示文字の役割を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "何を指定したら1件に決まるか考えましょう。",
+      "success": "主キーと表示文字の役割を区別する。条件に合う候補：各行を一意に識別できる",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-create-004",
+      "weekUnitId": "week-unit-week19",
+      "format": "fillBlank",
+      "prompt": "新しいbooksテーブルを作る命令の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "UPDATE"
+          },
+          {
+            "id": "a",
+            "text": "CREATE TABLE"
+          },
+          {
+            "id": "b",
+            "text": "SELECT FROM"
+          },
+          {
+            "id": "c",
+            "text": "DELETE FROM"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "取得と作成は別です。",
+          "c": "行を削除する命令です。",
+          "d": "既存の行を更新する命令です。"
+        },
+        "content": "___ books (id INT PRIMARY KEY, title VARCHAR(100));",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "テーブルの構造はCREATE TABLEで定義します。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "テーブル作成の命令を選ぶ",
+      "conceptId": "ph2-week19-create",
+      "variantGroup": "ph2-week19-create",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week19-1/README.md",
+        "heading": "問題",
+        "line": 16,
+        "sha256": "3cb378023eaa9858c4fb808e4c4140a1f9a17df063206b9425413883d0b93d10"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-1/README.md",
+          "heading": "19週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "3cb378023eaa9858c4fb808e4c4140a1f9a17df063206b9425413883d0b93d10"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-1/README.md：テーブル作成の命令を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "構造を新しく用意する目的です。",
+      "success": "テーブル作成の命令を選ぶ。条件に合う候補：CREATE TABLE",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "___ books (id INT PRIMARY KEY, title VARCHAR(100));",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-date-column-005",
+      "weekUnitId": "week-unit-week19",
+      "format": "fillBlank",
+      "prompt": "出版日で絞ります。created_atはこのシステムへの登録日です。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "published_at"
+          },
+          {
+            "id": "b",
+            "text": "created_at"
+          },
+          {
+            "id": "c",
+            "text": "id"
+          },
+          {
+            "id": "d",
+            "text": "title"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "登録日であり、出版日ではありません。",
+          "c": "本を識別する番号です。",
+          "d": "本の名前であり、日付ではありません。"
+        },
+        "content": "SELECT * FROM books WHERE ___ >= '2005-01-01';",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "要求の「出版」に対応する列を選びます。日付の型だけで列を決めないようにします。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "要求から参照する列を選ぶ",
+      "conceptId": "ph2-week19-date-column",
+      "variantGroup": "ph2-week19-date-column",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week19-2/README.md",
+        "heading": "問題",
+        "line": 14,
+        "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-2/README.md",
+          "heading": "19週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-2/README.md：要求から参照する列を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "似た日付でも何の日かを確認しましょう。",
+      "success": "要求から参照する列を選ぶ。条件に合う候補：published_at",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT * FROM books WHERE ___ >= '2005-01-01';",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-like-006",
+      "weekUnitId": "week-unit-week19",
+      "format": "fillBlank",
+      "prompt": "titleに「プログラミング」を含む本を探します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "="
+          },
+          {
+            "id": "c",
+            "text": ">"
+          },
+          {
+            "id": "d",
+            "text": "IN"
+          },
+          {
+            "id": "a",
+            "text": "LIKE"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "%を含む文字そのものとの等値比較になります。",
+          "c": "部分一致を表す比較ではありません。",
+          "d": "この構文は候補集合を指定する形ではありません。"
+        },
+        "content": "SELECT * FROM books WHERE title ___ '%プログラミング%';",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "LIKEと前後の%で、途中に指定文字を含む値を探します。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "部分一致の手段を選ぶ",
+      "conceptId": "ph2-week19-like",
+      "variantGroup": "ph2-week19-like",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week19-3/README.md",
+        "heading": "問題",
+        "line": 15,
+        "sha256": "85a664d95caea4a130cd9141e9ece89737035d4b90c51641c040e8de1021f2fb"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-3/README.md",
+          "heading": "19週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "85a664d95caea4a130cd9141e9ece89737035d4b90c51641c040e8de1021f2fb"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-3/README.md：部分一致の手段を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "完全一致と途中に含む条件を分けましょう。",
+      "success": "部分一致の手段を選ぶ。条件に合う候補：LIKE",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT * FROM books WHERE title ___ '%プログラミング%';",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-combined-where-007",
+      "weekUnitId": "week-unit-week19",
+      "format": "fillBlank",
+      "prompt": "2005年以降の本で、タイトルにPHPを含むものだけ取ります。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "ORDER BY"
+          },
+          {
+            "id": "d",
+            "text": "SET"
+          },
+          {
+            "id": "a",
+            "text": "AND"
+          },
+          {
+            "id": "b",
+            "text": "OR"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "片方だけ満たす本も含めます。",
+          "c": "条件をつなぐ役割ではありません。",
+          "d": "更新する値を指定する句です。"
+        },
+        "content": "SELECT * FROM books\nWHERE published_at >= '2005-01-01' ___ title LIKE '%PHP%';",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "両方必要ならANDで条件をつなぎます。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "日付とタイトルの条件を組み合わせる",
+      "conceptId": "ph2-week19-combined-where",
+      "variantGroup": "ph2-week19-combined-where",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week19-2/README.md",
+        "heading": "問題",
+        "line": 14,
+        "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-2/README.md",
+          "heading": "19週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-2/README.md：日付とタイトルの条件を組み合わせる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "2つとも満たすことが必要です。",
+      "success": "日付とタイトルの条件を組み合わせる。条件に合う候補：AND",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT * FROM books\nWHERE published_at >= '2005-01-01' ___ title LIKE '%PHP%';",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-table-split-008",
+      "weekUnitId": "week-unit-week19",
+      "format": "singleChoice",
+      "prompt": "1問に複数の選択肢があります。問題と選択肢を別表へ分けたとき、所属をつなぐ情報は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "問題タイトルだけ毎回削除する"
+          },
+          {
+            "id": "a",
+            "text": "選択肢のquestion_idを問題のidに対応させる"
+          },
+          {
+            "id": "b",
+            "text": "選択肢の文字色だけ合わせる"
+          },
+          {
+            "id": "c",
+            "text": "全選択肢のidを同じにする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "データの関係を保存していません。",
+          "c": "選択肢同士を識別できません。",
+          "d": "所属の対応を作りません。"
+        }
+      },
+      "explanation": "共通のIDを使って、どの問題の選択肢かを保存します。PH2課題の表設計につながります。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "Week 19"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "表を分けた後のID関係をつなぐ",
+      "conceptId": "ph2-week19-table-split",
+      "variantGroup": "ph2-week19-table-split",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "heading": "Week 19",
+        "line": 216,
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-1/README.md",
+          "heading": "19週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "3cb378023eaa9858c4fb808e4c4140a1f9a17df063206b9425413883d0b93d10"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-1/README.md：表を分けた後のID関係をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "子のデータがどの親に属するか考えましょう。",
+      "success": "表を分けた後のID関係をつなぐ。条件に合う候補：選択肢のquestion_idを問題のidに対応させる",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-select-result-009",
+      "weekUnitId": "week-unit-week19",
+      "format": "singleChoice",
+      "prompt": "列id・titleを持つbooksから、本のタイトルだけ表示用に取りたい。SQLは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "SELECT title FROM books;"
+          },
+          {
+            "id": "b",
+            "text": "SELECT id FROM books;"
+          },
+          {
+            "id": "c",
+            "text": "DELETE FROM books;"
+          },
+          {
+            "id": "d",
+            "text": "SELECT books FROM title;"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "取り出す列が目的と違います。",
+          "c": "取得でなく削除です。",
+          "d": "表と列が逆です。"
+        }
+      },
+      "explanation": "SELECTで列、FROMで表を指定します。データの場所と欲しい項目を対応させます。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "目的"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "取得する項目と保存先をつなぐ",
+      "conceptId": "ph2-week19-select-result",
+      "variantGroup": "ph2-week19-select-result",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week19-2/README.md",
+        "heading": "目的",
+        "line": 3,
+        "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-2/README.md",
+          "heading": "19週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-2/README.md：取得する項目と保存先をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "表名と列名の位置を確認しましょう。",
+      "success": "取得する項目と保存先をつなぐ。条件に合う候補：SELECT title FROM books;",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-inclusive-date-010",
+      "weekUnitId": "week-unit-week19",
+      "format": "bugDiagnosis",
+      "prompt": "2005年1月1日ちょうどの本も含めたいのに漏れました。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "<へ変える"
+          },
+          {
+            "id": "c",
+            "text": "WHEREを削除"
+          },
+          {
+            "id": "d",
+            "text": "titleを短くする"
+          },
+          {
+            "id": "a",
+            "text": ">を>=へ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "過去の本を選んでしまいます。",
+          "c": "2005年より前も全部含めます。",
+          "d": "日付条件は変わりません。"
+        },
+        "code": "SELECT * FROM books WHERE published_at > '2005-01-01';"
+      },
+      "explanation": "以上には境界を含めます。教材の例より条件を明確にした問題です。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "含める境界から比較演算子を直す",
+      "conceptId": "ph2-week19-inclusive-date",
+      "variantGroup": "ph2-week19-inclusive-date",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week19-2/README.md",
+        "heading": "問題",
+        "line": 14,
+        "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-2/README.md",
+          "heading": "19週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-2/README.md：含める境界から比較演算子を直す。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "境界の日付でtrueになるか確認しましょう。",
+      "success": "含める境界から比較演算子を直す。条件に合う候補：>を>=へ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT * FROM books WHERE published_at > '2005-01-01';",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-pattern-011",
+      "weekUnitId": "week-unit-week19",
+      "format": "bugDiagnosis",
+      "prompt": "ABCを途中に含むタイトルも探したいのに、ABCで始まる本しか出ません。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "LIKEを=へ変える"
+          },
+          {
+            "id": "d",
+            "text": "titleをidへ変える"
+          },
+          {
+            "id": "a",
+            "text": "パターンを'%ABC%'へ変える"
+          },
+          {
+            "id": "b",
+            "text": "'ABC'へ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "完全一致に狭まります。",
+          "c": "部分一致ではなくなります。",
+          "d": "検索対象が違います。"
+        },
+        "code": "SELECT * FROM books WHERE title LIKE 'ABC%';"
+      },
+      "explanation": "前後の%は前後に任意の文字があってよいという条件です。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "検索漏れからパターンを修正する",
+      "conceptId": "ph2-week19-pattern",
+      "variantGroup": "ph2-week19-pattern",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week19-3/README.md",
+        "heading": "問題",
+        "line": 15,
+        "sha256": "85a664d95caea4a130cd9141e9ece89737035d4b90c51641c040e8de1021f2fb"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-3/README.md",
+          "heading": "19週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "85a664d95caea4a130cd9141e9ece89737035d4b90c51641c040e8de1021f2fb"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-3/README.md：検索漏れからパターンを修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "先頭と途中の違いを考えましょう。",
+      "success": "検索漏れからパターンを修正する。条件に合う候補：パターンを'%ABC%'へ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT * FROM books WHERE title LIKE 'ABC%';",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-verify-query-012",
+      "weekUnitId": "week-unit-week19",
+      "format": "singleChoice",
+      "prompt": "出版日条件のSQLを確認します。適切な小さいテストデータは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "CSSだけ確認する"
+          },
+          {
+            "id": "a",
+            "text": "境界の前日・当日・翌日の本を用意して結果を比べる"
+          },
+          {
+            "id": "b",
+            "text": "条件を見ず、件数だけ覚える"
+          },
+          {
+            "id": "c",
+            "text": "同じ日付だけ3件用意する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "その件数になった根拠が分かりません。",
+          "c": "境界の違いが分かりません。",
+          "d": "抽出される行を確認していません。"
+        }
+      },
+      "explanation": "期待する行と実際の行を照合します。件数が偶然一致するだけでは十分ではありません。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "抽出条件の境界を確認する",
+      "conceptId": "ph2-week19-verify-query",
+      "variantGroup": "ph2-week19-verify-query",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week19-2/README.md",
+        "heading": "問題",
+        "line": 14,
+        "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week19-2/README.md",
+          "heading": "19週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 19",
+          "line": 216,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week19-2/README.md：抽出条件の境界を確認する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "含まれる行と外れる行を両方用意しましょう。",
+      "success": "抽出条件の境界を確認する。条件に合う候補：境界の前日・当日・翌日の本を用意して結果を比べる",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

@@ -1,0 +1,837 @@
+[
+  {
+    "question": {
+      "id": "question-week10-promise-001",
+      "weekUnitId": "week-unit-week10",
+      "format": "singleChoice",
+      "prompt": "fetch(url)をawaitなしで呼んだ直後に受け取るものは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "通信が必ず成功したことを表すtrue"
+          },
+          {
+            "id": "a",
+            "text": "処理の完了や失敗を表すPromise"
+          },
+          {
+            "id": "b",
+            "text": "APIから届いたユーザーのname文字列そのもの"
+          },
+          {
+            "id": "c",
+            "text": "完成済みのHTMLのli要素"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "fetchの戻り値はPromiseです。完了後も、まずResponseを受け取ります。",
+          "c": "fetchはDOMのliを自動で作りません。",
+          "d": "fetchを呼んだだけでは、通信やHTTP成功を確認できません。"
+        }
+      },
+      "explanation": "Promiseは非同期処理の結果を後で受け取るためのものです。fetchのPromiseをawaitしてResponseを受け取り、さらにjson()でデータを読みます。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "「Promise」という入れ物"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "fetchのPromiseとデータ本体を区別する",
+      "conceptId": "ph1-week10-promise",
+      "variantGroup": "ph1-week10-promise",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "「Promise」という入れ物",
+        "line": 53,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-2/README.md：fetchのPromiseとデータ本体を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "「通信を頼む」と「データを使える状態にする」は同時ではありません。",
+      "success": "fetchのPromiseとデータ本体を区別する。条件に合う候補：処理の完了や失敗を表すPromise",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-response-002",
+      "weekUnitId": "week-unit-week10",
+      "format": "singleChoice",
+      "prompt": "await fetch(url)で受け取ったresponseは、この教材では何ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "HTTPの状態などと、読み取り前の応答本文を持つResponse"
+          },
+          {
+            "id": "b",
+            "text": "ユーザーのnameだけを取り出した文字列"
+          },
+          {
+            "id": "c",
+            "text": "HTMLを表示するReactコンポーネント"
+          },
+          {
+            "id": "d",
+            "text": "APIのデータを読み終えた配列と必ず同じもの"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "nameは、本文を読み取って得るデータ側のプロパティです。",
+          "c": "通信の応答とReactのUI部品は別です。",
+          "d": "本文をjson()で読み取る手順がまだ必要です。"
+        }
+      },
+      "explanation": "Responseでokやstatusを確認し、本文をawait response.json()で読み取ります。応答の状態と、その中のデータを分けて扱います。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "受け取っても、まだ中身は使えない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "ResponseとJSONを読み取ったデータを区別する",
+      "conceptId": "ph1-week10-response",
+      "variantGroup": "ph1-week10-response",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "受け取っても、まだ中身は使えない",
+        "line": 89,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-1/README.md：ResponseとJSONを読み取ったデータを区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "応答の状態と、本文に入っているデータは別です。",
+      "success": "ResponseとJSONを読み取ったデータを区別する。条件に合う候補：HTTPの状態などと、読み取り前の応答本文を持つResponse",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-json-read-003",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "responseは取得済みです。JSONの本文をJavaScriptで使える値として受け取る空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "response.name"
+          },
+          {
+            "id": "c",
+            "text": "response.json"
+          },
+          {
+            "id": "d",
+            "text": "response"
+          },
+          {
+            "id": "a",
+            "text": "await response.json()"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "Responseのnameではなく、本文を読み取ったデータのnameを使います。",
+          "c": "これはメソッドそのものです。呼び出して完了を待つ手順がありません。",
+          "d": "応答オブジェクトをそのまま代入するだけで、JSONの本文を読み取りません。"
+        },
+        "content": "async function readData(response) {\n  const data = ___;\n  console.log(data);\n}",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "json()を呼んで応答本文を読み取り、そのPromiseの完了をawaitで待ちます。ここで得たdataの形を確認してからプロパティを使います。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "受け取っても、まだ中身は使えない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "JSON本文を読み取る操作をコードに対応させる",
+      "conceptId": "ph1-week10-json-read",
+      "variantGroup": "ph1-week10-json-read",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "受け取っても、まだ中身は使えない",
+        "line": 89,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-1/README.md：JSON本文を読み取る操作をコードに対応させる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "メソッドの呼び出しと、完了を待つことの両方を見ましょう。",
+      "success": "JSON本文を読み取る操作をコードに対応させる。条件に合う候補：await response.json()",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "async function readData(response) {\n  const data = ___;\n  console.log(data);\n}",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-async-function-004",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "この関数の中でawaitを使います。関数宣言の先頭へ入れるキーワードは？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "return"
+          },
+          {
+            "id": "d",
+            "text": "await"
+          },
+          {
+            "id": "a",
+            "text": "async"
+          },
+          {
+            "id": "b",
+            "text": "const"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "この形の関数宣言にconstを足しても、関数をasyncにできません。",
+          "c": "returnは関数の結果を返す操作であり、関数宣言の修飾ではありません。",
+          "d": "awaitは待つ式へ付けるもので、この関数宣言のキーワードではありません。"
+        },
+        "content": "___ function loadPosts() {\n  const response = await fetch(url);\n  const posts = await response.json();\n}",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "この関数の中でawaitを使うため、関数をasyncとして宣言します。ここでは関数の外のawaitやモジュールの詳細は扱いません。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "async と、いちばん多い事故"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "関数内のawaitに必要なasync宣言を選ぶ",
+      "conceptId": "ph1-week10-async-function",
+      "variantGroup": "ph1-week10-async-function",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "async と、いちばん多い事故",
+        "line": 65,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-1/README.md：関数内のawaitに必要なasync宣言を選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "待つ行を包んでいる関数の宣言を見ましょう。",
+      "success": "関数内のawaitに必要なasync宣言を選ぶ。条件に合う候補：async",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "___ function loadPosts() {\n  const response = await fetch(url);\n  const posts = await response.json();\n}",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-http-ok-005",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "HTTPの成功・失敗を確認して、失敗ならcatchへ進めたい。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "response.status === 200"
+          },
+          {
+            "id": "a",
+            "text": "!response.ok"
+          },
+          {
+            "id": "b",
+            "text": "response.ok"
+          },
+          {
+            "id": "c",
+            "text": "response"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "成功時にエラーを投げてしまいます。",
+          "c": "Responseがあることだけでは、HTTPの成功を判定できません。",
+          "d": "成功した200でエラーを投げてしまいます。"
+        },
+        "content": "const response = await fetch(url);\nif (___) {\n  throw new Error(\"取得に失敗\");\n}",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "HTTPが成功していない応答ではresponse.okがfalseです。!response.okで失敗を判定し、throwでcatchへ処理を移せます。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "通信はわりと失敗する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "HTTP状態の確認にresponse.okを選ぶ",
+      "conceptId": "ph1-week10-http-ok",
+      "variantGroup": "ph1-week10-http-ok",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "通信はわりと失敗する",
+        "line": 114,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-1/README.md：HTTP状態の確認にresponse.okを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "HTTPの失敗をtrueにする条件を探しましょう。",
+      "success": "HTTP状態の確認にresponse.okを選ぶ。条件に合う候補：!response.ok",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const response = await fetch(url);\nif (___) {\n  throw new Error(\"取得に失敗\");\n}",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-inspect-shape-006",
+      "weekUnitId": "week-unit-week10",
+      "format": "singleChoice",
+      "prompt": "取得したdataを一覧表示したいが、配列かオブジェクトか分かりません。DOMを組む前にする確認は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "console.log(data)で形と使えるプロパティを見る"
+          },
+          {
+            "id": "b",
+            "text": "確認せずdata.forEachを使う"
+          },
+          {
+            "id": "c",
+            "text": "画面の色を変えてみる"
+          },
+          {
+            "id": "d",
+            "text": "URLを毎回別のものへ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "配列でない場合には、forEachで処理できない可能性があります。",
+          "c": "データの形やプロパティの名前は確認できません。",
+          "d": "欲しいデータを取得する条件を変えてしまい、形の確認になりません。"
+        }
+      },
+      "explanation": "まず本文を読み取ったデータの形を確かめます。配列なら各要素をループでき、オブジェクトならプロパティを直接使う、と判断できます。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "取ってきたデータを、画面に出す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "DOM描画前にデータ形を確かめる手段を選ぶ",
+      "conceptId": "ph1-week10-inspect-shape",
+      "variantGroup": "ph1-week10-inspect-shape",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "取ってきたデータを、画面に出す",
+        "line": 151,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-3/README.md：DOM描画前にデータ形を確かめる手段を選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "一覧を作る処理に、どんな形のデータが必要でしょうか。",
+      "success": "DOM描画前にデータ形を確かめる手段を選ぶ。条件に合う候補：console.log(data)で形と使えるプロパティを見る",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-fetch-json-flow-007",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "urlはJSONを返すAPIです。取得して本文を読み、その後に使う順になる空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "const data = await response.json();\n  const response = await fetch(url);"
+          },
+          {
+            "id": "c",
+            "text": "const response = fetch(url);\n  const data = response;"
+          },
+          {
+            "id": "d",
+            "text": "const response = await fetch(url);\n  const data = response.json();"
+          },
+          {
+            "id": "a",
+            "text": "const response = await fetch(url);\n  const data = await response.json();"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "responseを宣言する前に使っており、処理の順序が逆です。",
+          "c": "Promiseをdataへ入れただけで、応答やJSONを読み取れていません。",
+          "d": "json()の完了を待たず、dataはPromiseのままです。"
+        },
+        "content": "async function load() {\n  ___\n  console.log(data);\n}",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "fetchの完了を待ってResponseを受け取り、その本文の読み取りも待ってからdataを使います。一つずつの操作を、使う順序につなぎます。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "全部つなげた完成サンプル"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "fetch・Response・JSON・データ利用を順序立てる",
+      "conceptId": "ph1-week10-fetch-json-flow",
+      "variantGroup": "ph1-week10-fetch-json-flow",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "全部つなげた完成サンプル",
+        "line": 188,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-1/README.md：fetch・Response・JSON・データ利用を順序立てる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "次の行で必要な値が、前の行で準備できているか確かめましょう。",
+      "success": "fetch・Response・JSON・データ利用を順序立てる。条件に合う候補：const response = await fetch(url);\n  const data = await response.json();",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "async function load() {\n  ___\n  console.log(data);\n}",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-data-property-008",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "JSONを読み取ったdataは{name:\"田中\", email:\"sample@example.invalid\"}です。名前を表示する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "data.email"
+          },
+          {
+            "id": "d",
+            "text": "nameEl"
+          },
+          {
+            "id": "a",
+            "text": "data.name"
+          },
+          {
+            "id": "b",
+            "text": "response.name"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "nameはJSONを読んだdataにあります。Response側のプロパティではありません。",
+          "c": "メールを表示しており、指定した名前ではありません。",
+          "d": "表示先の要素そのものであり、取り出す名前ではありません。"
+        },
+        "content": "const data = await response.json();\nnameEl.textContent = ___;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "本文を読み取ったオブジェクトからnameを取り出し、表示先のtextContentへ渡します。通信の応答・データ・表示先の3つを区別します。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "取ってきたデータを、画面に出す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "取得データのプロパティとDOMの表示先をつなぐ",
+      "conceptId": "ph1-week10-data-property",
+      "variantGroup": "ph1-week10-data-property",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "取ってきたデータを、画面に出す",
+        "line": 151,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-1/README.md：取得データのプロパティとDOMの表示先をつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "取り出す元と、表示を受け取る先を分けましょう。",
+      "success": "取得データのプロパティとDOMの表示先をつなぐ。条件に合う候補：data.name",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const data = await response.json();\nnameEl.textContent = ___;",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-list-flow-009",
+      "weekUnitId": "week-unit-week10",
+      "format": "singleChoice",
+      "prompt": "postsは取得済みの投稿配列です。slice(0, 5)は先頭から5件を取り出します。その5件のtitleをliとして表示する流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "fetchしたResponseをそのままulへ追加する"
+          },
+          {
+            "id": "a",
+            "text": "posts.slice(0,5) → forEach → liを作る → titleを入れる → 親ulへ追加"
+          },
+          {
+            "id": "b",
+            "text": "posts.slice(0,5) → titleを変える → fetchを再び呼ぶ"
+          },
+          {
+            "id": "c",
+            "text": "ulを5個作るだけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "取得した各投稿をDOMへ並べる処理になっていません。",
+          "c": "投稿タイトルを入れるliを作っていません。",
+          "d": "DOMへ追加する要素と、通信の応答は別のものです。"
+        }
+      },
+      "explanation": "取得は先に済ませ、必要件数のデータへ絞ってから、1件ずつDOMへ変換します。配列処理とDOM操作をつなぐ流れです。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "取ってきたデータを、画面に出す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "取得済み配列・件数の指定・一覧描画を組み合わせる",
+      "conceptId": "ph1-week10-list-flow",
+      "variantGroup": "ph1-week10-list-flow",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "取ってきたデータを、画面に出す",
+        "line": 151,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-1/README.md：取得済み配列・件数の指定・一覧描画を組み合わせる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。 slice(0,5)の意味は問題文に固定の補足として提示する。",
+      "hint": "通信後は、Week08の一覧表示と同じ判断が使えます。",
+      "success": "取得済み配列・件数の指定・一覧描画を組み合わせる。条件に合う候補：posts.slice(0,5) → forEach → liを作る → titleを入れる → 親ulへ追加",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-missing-await-fetch-010",
+      "weekUnitId": "week-unit-week10",
+      "format": "bugDiagnosis",
+      "prompt": "response.json is not a functionが出ました。fetchの結果の扱いを直す候補は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "fetch(url)の前にawaitを付ける"
+          },
+          {
+            "id": "b",
+            "text": "dataの変数名をuserにする"
+          },
+          {
+            "id": "c",
+            "text": "jsonをJSONという名前に変える"
+          },
+          {
+            "id": "d",
+            "text": "asyncを関数から外す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "Responseを待たずにPromiseのjsonを呼ぶ問題は変わりません。",
+          "c": "メソッド名はjsonです。名前を変えてもPromiseをResponseにはできません。",
+          "d": "awaitを使う関数であり、asyncを外すと別の構文問題になります。"
+        },
+        "code": "async function load() {\n  const response = fetch(url);\n  const data = await response.json();\n}"
+      },
+      "explanation": "awaitなしのfetchから受け取ったresponseはPromiseです。まずawait fetch(url)でResponseを受け取り、それからjson()を呼びます。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "async と、いちばん多い事故"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "jsonメソッドのエラーからfetchのawait不足を見つける",
+      "conceptId": "ph1-week10-missing-await-fetch",
+      "variantGroup": "ph1-week10-missing-await-fetch",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "async と、いちばん多い事故",
+        "line": 65,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-2/README.md：jsonメソッドのエラーからfetchのawait不足を見つける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "responseの時点で、PromiseかResponseかを区別しましょう。",
+      "success": "jsonメソッドのエラーからfetchのawait不足を見つける。条件に合う候補：fetch(url)の前にawaitを付ける",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "async function load() {\n  const response = fetch(url);\n  const data = await response.json();\n}",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-missing-await-json-011",
+      "weekUnitId": "week-unit-week10",
+      "format": "bugDiagnosis",
+      "prompt": "APIのJSON本文にはnameがあります。それでもdata.nameがundefinedです。原因を直す候補は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "data.nameをresponse.nameに変える"
+          },
+          {
+            "id": "c",
+            "text": "console.logを2回書く"
+          },
+          {
+            "id": "d",
+            "text": "nameという文字を全部大文字にする"
+          },
+          {
+            "id": "a",
+            "text": "response.json()の前にもawaitを付ける"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "JSON本文のnameはResponseに直接ある値ではありません。",
+          "c": "Promiseを読んでいる原因は直りません。",
+          "d": "JSONのnameとは別のキーになるだけです。"
+        },
+        "code": "async function load() {\n  const response = await fetch(url);\n  const data = response.json();\n  console.log(data.name);\n}"
+      },
+      "explanation": "fetchを待つことと、本文を読み終わるまで待つことは別です。await response.json()を使ってからdata.nameを読みます。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "受け取っても、まだ中身は使えない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "本文の読み取り完了前に使う不具合を修正する",
+      "conceptId": "ph1-week10-missing-await-json",
+      "variantGroup": "ph1-week10-missing-await-json",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "受け取っても、まだ中身は使えない",
+        "line": 89,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-1/README.md：本文の読み取り完了前に使う不具合を修正する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "fetchの後にも、時間のかかる操作があります。",
+      "success": "本文の読み取り完了前に使う不具合を修正する。条件に合う候補：response.json()の前にもawaitを付ける",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "async function load() {\n  const response = await fetch(url);\n  const data = response.json();\n  console.log(data.name);\n}",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-http-404-012",
+      "weekUnitId": "week-unit-week10",
+      "format": "trueFalse",
+      "prompt": "通常のfetchは、HTTP 404の応答を受け取ると、それだけで必ずPromiseを拒否してcatchへ入る。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "fetchはHTTP 404の応答でもResponseを返すため、response.okなどを自分で確認します。ネットワークの失敗で拒否される場合と区別し、HTTP失敗ではthrowしてcatchへ移せます。"
+        }
+      },
+      "explanation": "fetchはHTTP 404の応答でもResponseを返すため、response.okなどを自分で確認します。ネットワークの失敗で拒否される場合と区別し、HTTP失敗ではthrowしてcatchへ移せます。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "通信はわりと失敗する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "HTTP失敗をresponse.okで確かめる必要性を説明する",
+      "conceptId": "ph1-week10-http-404",
+      "variantGroup": "ph1-week10-http-404",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "heading": "通信はわりと失敗する",
+        "line": 114,
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "drillConnection": "drill-ph1/week10-1/README.md：HTTP失敗をresponse.okで確かめる必要性を説明する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "HTTPの応答が届いた失敗と、通信が成立しない失敗を分けましょう。",
+      "success": "HTTP失敗をresponse.okで確かめる必要性を説明する。条件に合う候補：誤り",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "○×の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

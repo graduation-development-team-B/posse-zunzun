@@ -1,0 +1,815 @@
+[
+  {
+    "question": {
+      "id": "question-week2-padding-meaning",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "カードの「内側の余白」とは、どの間隔？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "カードと次のカードの間隔"
+          },
+          {
+            "id": "c",
+            "text": "文章の文字そのものの大きさ"
+          },
+          {
+            "id": "d",
+            "text": "画像ファイルの容量"
+          },
+          {
+            "id": "a",
+            "text": "カードの枠と中の文章との間隔"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "要素の外側の余白はmarginです。",
+          "c": "文字の大きさはfont-sizeです。",
+          "d": "余白は画面の間隔で、ファイル容量ではありません。"
+        }
+      },
+      "explanation": "paddingは要素の内側の余白です。カードと中身の間隔を広げたいとき、カードのpaddingを調整します。外側の間隔とは分けます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：カードの「内側の余白」とは、どの間隔？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "カードの背景色が続いている内側の間隔を考えましょう。",
+      "success": "問題文の条件に合う回答：カードの枠と中の文章との間隔",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-margin-meaning",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "本のカード同士の外側に余白を付けたい。marginは何を変える？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "要素の外側の余白"
+          },
+          {
+            "id": "b",
+            "text": "要素の中身と枠の間隔"
+          },
+          {
+            "id": "c",
+            "text": "文字の太さ"
+          },
+          {
+            "id": "d",
+            "text": "背景色"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "それはpaddingです。",
+          "c": "それはfont-weightです。",
+          "d": "それはbackground-colorです。"
+        }
+      },
+      "explanation": "marginは要素の外側の余白です。中身との間隔はpadding、他の要素との間隔はmarginとして、何を離したいかで選びます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：本のカード同士の外側に余白を付けたい。marginは何を変える？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "間隔を空けたい場所がカードの内か外かを確認しましょう。",
+      "success": "問題文の条件に合う回答：要素の外側の余白",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-choose-padding",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "本のカードの本文と枠の間に1.25remの余白を付けます。教材のp-5を使う指定は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "本文を包む要素にw-80"
+          },
+          {
+            "id": "a",
+            "text": "本文を包む要素にp-5"
+          },
+          {
+            "id": "b",
+            "text": "本文を包む要素にm-5"
+          },
+          {
+            "id": "c",
+            "text": "本文を包む要素にtext-xl"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "m-5は要素の外側に余白を付けます。",
+          "c": "文字の大きさを変える指定です。",
+          "d": "幅を変える指定です。"
+        }
+      },
+      "explanation": "本文を包む要素のp-5が、内側に1.25remの余白を作ります。仕様表の「本文パディング」を、対象要素とクラスへ結びつけましょう。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：本のカードの本文と枠の間に1.25remの余白を付けます。教材のp-5を使う指定は？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "pとmがそれぞれどちら側の余白か考えましょう。",
+      "success": "問題文の条件に合う回答：本文を包む要素にp-5",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-choose-center",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "親の幅が十分にあり、幅w-80のブロック要素を左右中央に置きたい。追加するクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "font-bold"
+          },
+          {
+            "id": "d",
+            "text": "py-4"
+          },
+          {
+            "id": "a",
+            "text": "mx-auto"
+          },
+          {
+            "id": "b",
+            "text": "text-center"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "中の文字は中央に寄りますが、要素自体を中央には置きません。",
+          "c": "太さの指定です。",
+          "d": "上下の内側余白です。"
+        }
+      },
+      "explanation": "幅の決まったブロック要素にmx-autoを付けると、左右の外側余白が自動調整されて中央に置けます。文字の中央寄せとは別です。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "3. 幅と中央寄せ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：親の幅が十分にあり、幅w-80のブロック要素を左右中央に置きたい。追加するクラスは？",
+      "conceptId": "week2-section-3",
+      "variantGroup": "week2-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "3. 幅と中央寄せ",
+        "line": 99,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "箱自体を動かすのか、中の文字を揃えるのかを分けましょう。",
+      "success": "問題文の条件に合う回答：mx-auto",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-choose-color",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "カードの背景は白いまま、タイトルの文字をgray-900にしたい。使うクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "bg-gray-900"
+          },
+          {
+            "id": "c",
+            "text": "font-gray-900"
+          },
+          {
+            "id": "d",
+            "text": "text-xl"
+          },
+          {
+            "id": "a",
+            "text": "text-gray-900"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "bgは背景を変えるので条件と異なります。",
+          "c": "文字色のクラス名はtext-で始まります。",
+          "d": "文字の大きさを指定します。"
+        }
+      },
+      "explanation": "text-gray-900は文字色の指定です。bg-gray-900は背景色です。同じ色名でも、変えたい対象に応じて接頭部分を選びます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "4. 文字の大きさ・太さ・色"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：カードの背景は白いまま、タイトルの文字をgray-900にしたい。使うクラスは？",
+      "conceptId": "week2-section-4",
+      "variantGroup": "week2-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "4. 文字の大きさ・太さ・色",
+        "line": 151,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "色名の前にあるtextとbgの役割を比べましょう。",
+      "success": "問題文の条件に合う回答：text-gray-900",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-choose-hover",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "リンクは通常gray-600、マウスを乗せたときだけgray-900にしたい。追加するクラスは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "hover:text-gray-900"
+          },
+          {
+            "id": "b",
+            "text": "text-gray-900"
+          },
+          {
+            "id": "c",
+            "text": "hover:bg-gray-900"
+          },
+          {
+            "id": "d",
+            "text": "hover: text-gray-900"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "通常時の文字色も変わります。",
+          "c": "文字ではなく背景が変わります。",
+          "d": "スペースを入れると二つのクラスに分かれます。"
+        }
+      },
+      "explanation": "hover:の直後にクラス名を続けると、マウスを乗せている間だけ適用されます。文字色なのでtext-を選びます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "6. hover：マウスを乗せた時の変化"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：リンクは通常gray-600、マウスを乗せたときだけgray-900にしたい。追加するクラスは？",
+      "conceptId": "week2-section-6",
+      "variantGroup": "week2-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "6. hover：マウスを乗せた時の変化",
+        "line": 228,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "変えるタイミングと変える対象の両方が必要です。",
+      "success": "問題文の条件に合う回答：hover:text-gray-900",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-badge-combine",
+      "weekUnitId": "week-unit-week2",
+      "format": "singleChoice",
+      "prompt": "カテゴリバッジの左右は0.5rem、上下は0.25remの内側余白にします。教材の対応表に合う組み合わせは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "p-2"
+          },
+          {
+            "id": "a",
+            "text": "px-2 py-1"
+          },
+          {
+            "id": "b",
+            "text": "px-1 py-2"
+          },
+          {
+            "id": "c",
+            "text": "mx-2 my-1"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "左右と上下の値が逆です。",
+          "c": "内側ではなく外側の余白です。",
+          "d": "四方向すべて0.5remとなり、上下の指定が異なります。"
+        }
+      },
+      "explanation": "pxは左右、pyは上下のpaddingです。px-2とpy-1を組み合わせると、方向ごとに違う余白を付けられます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：カテゴリバッジの左右は0.5rem、上下は0.25remの内側余白にします。教材の対応表に合う組み合わせは？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "xは左右、yは上下です。それぞれ必要な数値を合わせましょう。",
+      "success": "問題文の条件に合う回答：px-2 py-1",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-card-combine",
+      "weekUnitId": "week-unit-week2",
+      "format": "fillBlank",
+      "prompt": "白いカードの角を丸くし、影を付けたい。仕様はbg-white・rounded-xl・shadow-lgです。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "shadow-lg font-bold"
+          },
+          {
+            "id": "d",
+            "text": "bg-white"
+          },
+          {
+            "id": "a",
+            "text": "rounded-xl shadow-lg"
+          },
+          {
+            "id": "b",
+            "text": "rounded-xl text-lg"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "角丸はありますが影の指定がありません。",
+          "c": "影はありますが角丸の指定がありません。",
+          "d": "背景は指定済みで、角丸と影が不足します。"
+        },
+        "content": "<article class=\"bg-white __BLANK__\">本の紹介</article>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "背景・角丸・影はそれぞれ別のクラスで指定します。既にある背景色を残し、rounded-xlとshadow-lgで残りの条件を満たします。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "5. 背景色とカード"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：白いカードの角を丸くし、影を付けたい。仕様はbg-white・rounded-xl・shadow-lgです。空欄は？",
+      "conceptId": "week2-section-5",
+      "variantGroup": "week2-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "5. 背景色とカード",
+        "line": 201,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "既に指定されている条件と、足りない条件を分けましょう。",
+      "success": "問題文の条件に合う回答：rounded-xl shadow-lg",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-fix-padding",
+      "weekUnitId": "week-unit-week2",
+      "format": "bugDiagnosis",
+      "prompt": "文章とカードの枠がくっついたままです。内側に1.25remの余白を付ける修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "m-5をm-4に変える"
+          },
+          {
+            "id": "c",
+            "text": "bg-whiteをtext-whiteに変える"
+          },
+          {
+            "id": "d",
+            "text": "p要素の文章を消す"
+          },
+          {
+            "id": "a",
+            "text": "m-5をp-5に変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "外側の値を変えても内側には余白ができません。",
+          "c": "文字色の指定になり、余白はできません。",
+          "d": "内容を消す操作は余白の解決ではありません。"
+        },
+        "code": "<article class=\"bg-white m-5\"><p>本の紹介</p></article>"
+      },
+      "explanation": "m-5は外側の余白です。p-5へ変えると背景と文章の間に内側の余白ができます。修正後は文章が枠から離れたか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：文章とカードの枠がくっついたままです。内側に1.25remの余白を付ける修正は？",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "余白を付ける場所が内か外かを見直しましょう。",
+      "success": "問題文の条件に合う回答：m-5をp-5に変える",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-fix-text-center",
+      "weekUnitId": "week-unit-week2",
+      "format": "bugDiagnosis",
+      "prompt": "親の幅が十分にあるのに、カード自体は左に寄っています。幅w-80のカードを左右中央へ置く追加指定は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "articleにmx-autoを加える"
+          },
+          {
+            "id": "b",
+            "text": "articleにfont-boldを加える"
+          },
+          {
+            "id": "c",
+            "text": "pにtext-centerをもう一度加える"
+          },
+          {
+            "id": "d",
+            "text": "articleのw-80を削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "文字の太さは箱の位置を変えません。",
+          "c": "文字は揃ってもカード自体の位置は変わりません。",
+          "d": "幅を維持して中央に置く条件に合いません。"
+        },
+        "code": "<article class=\"w-80 text-center\"><p>本の紹介</p></article>"
+      },
+      "explanation": "text-centerは要素の中の文字を中央へ揃えます。カードの箱を中央へ置くにはmx-autoを追加します。文字と箱の両方の位置を確かめましょう。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "3. 幅と中央寄せ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：親の幅が十分にあるのに、カード自体は左に寄っています。幅w-80のカードを左右中央へ置く追加指定は？",
+      "conceptId": "week2-section-3",
+      "variantGroup": "week2-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "3. 幅と中央寄せ",
+        "line": 99,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "今中央に寄っているのは文字か、カードの箱かを確認しましょう。",
+      "success": "問題文の条件に合う回答：articleにmx-autoを加える",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-preview-padding",
+      "weekUnitId": "week-unit-week2",
+      "format": "fillBlank",
+      "prompt": "白い本文エリアの内側四方向にp-5の余白を付けてください。ほかの余白クラスは加えません。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "py-1"
+          },
+          {
+            "id": "a",
+            "text": "p-5"
+          },
+          {
+            "id": "b",
+            "text": "m-5"
+          },
+          {
+            "id": "c",
+            "text": "p-2"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "外側の余白です。",
+          "c": "内側ですが指定の1.25remではありません。",
+          "d": "上下だけに0.25remの余白を付けます。"
+        },
+        "content": "<main class=\"p-4 bg-gray-100\"><section class=\"bg-white __BLANK__\"><h1>本の紹介</h1><p>小さく作って試そう</p></section></main>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "p-5は四方向の内側余白です。実行すると、白い背景の端と本文が離れます。m-5との表示の違いも確認できます。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "2. 余白：内側と外側を分けて考える"
+      },
+      "published": true,
+      "deleted": false,
+      "preview": {
+        "drillId": "week2-preview-padding",
+        "title": "内側の余白を確かめる",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "白い背景の内側で文章を枠から離します。",
+        "goalCode": "<main class=\"p-4 bg-gray-100\"><section class=\"bg-white p-5\"><h1>本の紹介</h1><p>小さく作って試そう</p></section></main>",
+        "starterCode": "<main class=\"p-4 bg-gray-100\"><section class=\"bg-white \"><h1>本の紹介</h1><p>小さく作って試そう</p></section></main>",
+        "inputMode": "classes"
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：白い本文エリアの内側四方向にp-5の余白を付けてください。ほかの余白クラスは加えません。",
+      "conceptId": "week2-section-2",
+      "variantGroup": "week2-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "2. 余白：内側と外側を分けて考える",
+        "line": 44,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "白い背景の内側で文章を枠から離します。",
+      "success": "問題文の条件に合う回答：p-5",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week2-preview-type",
+      "weekUnitId": "week-unit-week2",
+      "format": "fillBlank",
+      "prompt": "タイトルをtext-xl・font-bold・text-gray-900にします。3つのクラスを組み合わせてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "text-xl text-gray-900"
+          },
+          {
+            "id": "d",
+            "text": "text-xl font-bold bg-gray-900"
+          },
+          {
+            "id": "a",
+            "text": "text-xl font-bold text-gray-900"
+          },
+          {
+            "id": "b",
+            "text": "text-sm font-bold text-gray-900"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "大きさがtext-smです。",
+          "c": "太さの指定が不足しています。",
+          "d": "文字色ではなく背景色が変わります。"
+        },
+        "content": "<main class=\"p-4 bg-white\"><h1 class=\"__BLANK__\">本の紹介</h1><p>著者：田中</p></main>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "文字の大きさ・太さ・色を別々のクラスで組み合わせます。背景色を変えるbg-と文字色を変えるtext-を区別しましょう。",
+      "sourceReference": {
+        "weekKey": "week2",
+        "sectionHeading": "4. 文字の大きさ・太さ・色"
+      },
+      "published": true,
+      "deleted": false,
+      "preview": {
+        "drillId": "week2-preview-type",
+        "title": "タイトルの指定を組み合わせる",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "仕様を、大きさ・太さ・色の三つに分けましょう。",
+        "goalCode": "<main class=\"p-4 bg-white\"><h1 class=\"text-xl font-bold text-gray-900\">本の紹介</h1><p>著者：田中</p></main>",
+        "starterCode": "<main class=\"p-4 bg-white\"><h1 class=\"\">本の紹介</h1><p>著者：田中</p></main>",
+        "inputMode": "classes"
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：タイトルをtext-xl・font-bold・text-gray-900にします。3つのクラスを組み合わせてください。",
+      "conceptId": "week2-section-4",
+      "variantGroup": "week2-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week02.md",
+        "heading": "4. 文字の大きさ・太さ・色",
+        "line": 151,
+        "sha256": "571385f9f2bcdaeb9fd00cd260ed19dc07229b404573c9fd9193540a8a09614c"
+      },
+      "drillConnection": "Week02 問題1・3：本文余白・見出し・カード装飾を選ぶ。drill-ph1/week02-1/README.md、week02-2/README.md（問題3）。問題2のバグ診断はcurriculum内",
+      "priorKnowledge": "Week01〜02のインプット",
+      "hint": "仕様を、大きさ・太さ・色の三つに分けましょう。",
+      "success": "問題文の条件に合う回答：text-xl font-bold text-gray-900",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  }
+]

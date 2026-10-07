@@ -1,0 +1,1234 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week25-update-001",
+      "weekUnitId": "week-unit-week25",
+      "format": "singleChoice",
+      "prompt": "UPDATEの対象は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "必ず新しい行を増やす"
+          },
+          {
+            "id": "d",
+            "text": "全てのPHPファイル"
+          },
+          {
+            "id": "a",
+            "text": "条件に合う既存の行"
+          },
+          {
+            "id": "b",
+            "text": "新しい表だけを作る"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "構造の作成はCREATE TABLEです。",
+          "c": "追加はINSERTです。",
+          "d": "SQLのテーブル内の行を扱います。"
+        }
+      },
+      "explanation": "既存データの変更にはUPDATEを使い、対象はWHEREで指定します。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "1. 更新処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "更新の対象を説明する",
+      "conceptId": "ph2-week25-update",
+      "variantGroup": "ph2-week25-update",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "1. 更新処理",
+        "line": 7,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-1/README.md",
+          "heading": "25週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "bed2b52bf3dd230d179535310440ffe312c7f963fce21c55031d2570a0515725"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-1/index.php",
+          "line": 1,
+          "sha256": "24102b5048bb08c7ece210595e581380fec0e16bc9589121fcc2a34aa5220df6",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-1/README.md：更新の対象を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "既存データを変える目的です。",
+      "success": "更新の対象を説明する。条件に合う候補：条件に合う既存の行",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-where-002",
+      "weekUnitId": "week-unit-week25",
+      "format": "singleChoice",
+      "prompt": "DELETEのWHERE id=:idは何を決めますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "必ず削除を禁止する条件"
+          },
+          {
+            "id": "a",
+            "text": "削除する行"
+          },
+          {
+            "id": "b",
+            "text": "削除後の文字色"
+          },
+          {
+            "id": "c",
+            "text": "DBのパスワード"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "SQLの対象条件です。",
+          "c": "接続設定ではありません。",
+          "d": "条件に合う行が削除されます。"
+        }
+      },
+      "explanation": "命令が何かと、どの行が対象かを分けます。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "2. 削除処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "削除の条件を説明する",
+      "conceptId": "ph2-week25-where",
+      "variantGroup": "ph2-week25-where",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "2. 削除処理",
+        "line": 47,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-2/README.md",
+          "heading": "25週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "6bc4758d9375dac2e310b369eead0063d370c25fc4eefec1cdb3a1ec56b592ca"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-2/index.php",
+          "line": 1,
+          "sha256": "40d0397422044f55d7d8e931e7c89a4dee91b725a9c44d7dccacb0beb924235e",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-2/README.md：削除の条件を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "消す対象を限定する部分です。",
+      "success": "削除の条件を説明する。条件に合う候補：削除する行",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-hidden-003",
+      "weekUnitId": "week-unit-week25",
+      "format": "singleChoice",
+      "prompt": "type=\"hidden\"で送るidは何のためですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "編集している対象をサーバーへ伝える"
+          },
+          {
+            "id": "b",
+            "text": "値の改ざんを絶対に防ぐ"
+          },
+          {
+            "id": "c",
+            "text": "入力をハッシュ化する"
+          },
+          {
+            "id": "d",
+            "text": "全てのDB行を更新する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "非表示でも送信値は変更可能です。",
+          "c": "隠す表示とハッシュ化は別です。",
+          "d": "対象の識別に使います。"
+        }
+      },
+      "explanation": "画面で編集しないidも送信できます。ただしサーバーの確認が不要になるわけではありません。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "1. 更新処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "表示しないIDの役割を説明する",
+      "conceptId": "ph2-week25-hidden",
+      "variantGroup": "ph2-week25-hidden",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "1. 更新処理",
+        "line": 7,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-1/README.md",
+          "heading": "25週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "bed2b52bf3dd230d179535310440ffe312c7f963fce21c55031d2570a0515725"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-1/index.php",
+          "line": 1,
+          "sha256": "24102b5048bb08c7ece210595e581380fec0e16bc9589121fcc2a34aa5220df6",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-1/README.md：表示しないIDの役割を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "非表示と信頼できる値は別です。",
+      "success": "表示しないIDの役割を説明する。条件に合う候補：編集している対象をサーバーへ伝える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-update-sql-004",
+      "weekUnitId": "week-unit-week25",
+      "format": "fillBlank",
+      "prompt": "studentsの指定idの名前だけ変えます。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "VALUES"
+          },
+          {
+            "id": "c",
+            "text": "ORDER BY"
+          },
+          {
+            "id": "d",
+            "text": "JOIN"
+          },
+          {
+            "id": "a",
+            "text": "SET"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "INSERTで値を追加する記法です。",
+          "c": "並び順の指定です。",
+          "d": "ここでの値の更新指定ではありません。"
+        },
+        "content": "UPDATE students ___ name = :name WHERE id = :id;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "SETで新しい値、WHEREで対象を指定します。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "1. 更新処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "更新する値の指定を選ぶ",
+      "conceptId": "ph2-week25-update-sql",
+      "variantGroup": "ph2-week25-update-sql",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "1. 更新処理",
+        "line": 7,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-1/README.md",
+          "heading": "25週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "bed2b52bf3dd230d179535310440ffe312c7f963fce21c55031d2570a0515725"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-1/index.php",
+          "line": 1,
+          "sha256": "24102b5048bb08c7ece210595e581380fec0e16bc9589121fcc2a34aa5220df6",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-1/README.md：更新する値の指定を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "変更内容と対象を分けましょう。",
+      "success": "更新する値の指定を選ぶ。条件に合う候補：SET",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "UPDATE students ___ name = :name WHERE id = :id;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-delete-sql-005",
+      "weekUnitId": "week-unit-week25",
+      "format": "fillBlank",
+      "prompt": "studentsの指定idを1件削除します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "SELECT FROM"
+          },
+          {
+            "id": "d",
+            "text": "INSERT INTO"
+          },
+          {
+            "id": "a",
+            "text": "DELETE FROM"
+          },
+          {
+            "id": "b",
+            "text": "UPDATE"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "変更する命令で、この構文は削除ではありません。",
+          "c": "取得であり削除ではありません。",
+          "d": "行の追加です。"
+        },
+        "content": "___ students WHERE id = :id;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "削除はDELETE FROMです。対象のWHEREも維持します。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "2. 削除処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "削除に合う命令を選ぶ",
+      "conceptId": "ph2-week25-delete-sql",
+      "variantGroup": "ph2-week25-delete-sql",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "2. 削除処理",
+        "line": 47,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-2/README.md",
+          "heading": "25週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "6bc4758d9375dac2e310b369eead0063d370c25fc4eefec1cdb3a1ec56b592ca"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-2/index.php",
+          "line": 1,
+          "sha256": "40d0397422044f55d7d8e931e7c89a4dee91b725a9c44d7dccacb0beb924235e",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-2/README.md：削除に合う命令を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "取得・作成・変更・削除を区別しましょう。",
+      "success": "削除に合う命令を選ぶ。条件に合う候補：DELETE FROM",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "___ students WHERE id = :id;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-dependent-delete-006",
+      "weekUnitId": "week-unit-week25",
+      "format": "fillBlank",
+      "prompt": "学生を消す前に、その学生の学習記録だけ消します。studiesの所属列はstudent_idです。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "date"
+          },
+          {
+            "id": "a",
+            "text": "student_id"
+          },
+          {
+            "id": "b",
+            "text": "id"
+          },
+          {
+            "id": "c",
+            "text": "hours"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "学習記録自身のIDで、学生IDではありません。",
+          "c": "学習時間と学生IDは別です。",
+          "d": "学習日と学生IDは別です。"
+        },
+        "content": "DELETE FROM studies WHERE ___ = :student_id;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "親を消す前に、所属する子データを適切なキーで扱います。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "2. 削除処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "関連する行の削除条件を選ぶ",
+      "conceptId": "ph2-week25-dependent-delete",
+      "variantGroup": "ph2-week25-dependent-delete",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "2. 削除処理",
+        "line": 47,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-2/README.md",
+          "heading": "25週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "6bc4758d9375dac2e310b369eead0063d370c25fc4eefec1cdb3a1ec56b592ca"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-2/index.php",
+          "line": 1,
+          "sha256": "40d0397422044f55d7d8e931e7c89a4dee91b725a9c44d7dccacb0beb924235e",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-2/README.md：関連する行の削除条件を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "各IDが何を識別するか考えましょう。",
+      "success": "関連する行の削除条件を選ぶ。条件に合う候補：student_id",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "DELETE FROM studies WHERE ___ = :student_id;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-bind-id-007",
+      "weekUnitId": "week-unit-week25",
+      "format": "fillBlank",
+      "prompt": "POSTのidを更新対象へ渡します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "$_POST[\"id\"]"
+          },
+          {
+            "id": "b",
+            "text": "$_POST[\"name\"]"
+          },
+          {
+            "id": "c",
+            "text": "\"id\""
+          },
+          {
+            "id": "d",
+            "text": "$_GET[\"id\"]"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "名前は更新値で、対象IDではありません。",
+          "c": "キー名の文字であり入力IDではありません。",
+          "d": "この問題ではidをPOSTで受け取ります。"
+        },
+        "content": "$stmt = $dbh->prepare(\"UPDATE students SET name=:name WHERE id=:id\");\n$stmt->bindValue(\":name\", $_POST[\"name\"]);\n$stmt->bindValue(\":id\", ___);\n$stmt->execute();",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "変更する値と変更する対象を別々にバインドします。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "1. 更新処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "対象IDとSQLの条件をつなぐ",
+      "conceptId": "ph2-week25-bind-id",
+      "variantGroup": "ph2-week25-bind-id",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "1. 更新処理",
+        "line": 7,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-1/README.md",
+          "heading": "25週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "bed2b52bf3dd230d179535310440ffe312c7f963fce21c55031d2570a0515725"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-1/index.php",
+          "line": 1,
+          "sha256": "24102b5048bb08c7ece210595e581380fec0e16bc9589121fcc2a34aa5220df6",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-1/README.md：対象IDとSQLの条件をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "名前とIDの受け渡しを分けましょう。",
+      "success": "対象IDとSQLの条件をつなぐ。条件に合う候補：$_POST[\"id\"]",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "$stmt = $dbh->prepare(\"UPDATE students SET name=:name WHERE id=:id\");\n$stmt->bindValue(\":name\", $_POST[\"name\"]);\n$stmt->bindValue(\":id\", ___);\n$stmt->execute();",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-delete-order-008",
+      "weekUnitId": "week-unit-week25",
+      "format": "singleChoice",
+      "prompt": "studies.student_idがstudents.idを参照し、削除の自動連鎖はありません。両方消す順序は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "studentsだけ先に消す"
+          },
+          {
+            "id": "c",
+            "text": "全学生のstudiesを消す"
+          },
+          {
+            "id": "d",
+            "text": "表示だけ隠しDBはそのまま"
+          },
+          {
+            "id": "a",
+            "text": "対象学生のstudiesを消す → studentsを消す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "参照されている親の削除が制約で失敗し得ます。",
+          "c": "対象外の記録まで消しています。",
+          "d": "データの削除をしていません。"
+        }
+      },
+      "explanation": "この制約では子の関連データを先に削除します。自動連鎖がある別の設定とは区別します。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "2. 削除処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "関連テーブルの削除順を組む",
+      "conceptId": "ph2-week25-delete-order",
+      "variantGroup": "ph2-week25-delete-order",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "2. 削除処理",
+        "line": 47,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-2/README.md",
+          "heading": "25週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "6bc4758d9375dac2e310b369eead0063d370c25fc4eefec1cdb3a1ec56b592ca"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-2/index.php",
+          "line": 1,
+          "sha256": "40d0397422044f55d7d8e931e7c89a4dee91b725a9c44d7dccacb0beb924235e",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-2/README.md：関連テーブルの削除順を組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "親を参照する行が残るか考えましょう。",
+      "success": "関連テーブルの削除順を組む。条件に合う候補：対象学生のstudiesを消す → studentsを消す",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-update-check-009",
+      "weekUnitId": "week-unit-week25",
+      "format": "singleChoice",
+      "prompt": "id=2の名前だけ変更する処理を確認します。チェックすべき結果は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "全件同じ名前になる"
+          },
+          {
+            "id": "d",
+            "text": "行数が増える"
+          },
+          {
+            "id": "a",
+            "text": "id=2の名前が変わり、id=1・3の名前は変わらない"
+          },
+          {
+            "id": "b",
+            "text": "変更対象だけ見て他は見ない"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "対象外も更新する不具合を見逃します。",
+          "c": "指定1件だけという条件に反します。",
+          "d": "新規作成ではありません。"
+        }
+      },
+      "explanation": "対象と対象外を両方確認すると、WHEREの漏れを見つけられます。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "1. 更新処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "更新範囲を結果と照合する",
+      "conceptId": "ph2-week25-update-check",
+      "variantGroup": "ph2-week25-update-check",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "1. 更新処理",
+        "line": 7,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-1/README.md",
+          "heading": "25週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "bed2b52bf3dd230d179535310440ffe312c7f963fce21c55031d2570a0515725"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-1/index.php",
+          "line": 1,
+          "sha256": "24102b5048bb08c7ece210595e581380fec0e16bc9589121fcc2a34aa5220df6",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-1/README.md：更新範囲を結果と照合する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "変えるものと保つものを確認しましょう。",
+      "success": "更新範囲を結果と照合する。条件に合う候補：id=2の名前が変わり、id=1・3の名前は変わらない",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-missing-where-010",
+      "weekUnitId": "week-unit-week25",
+      "format": "bugDiagnosis",
+      "prompt": "選択した学生だけ変えたいのに全員の名前が変わります。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "UPDATEを2回呼ぶ"
+          },
+          {
+            "id": "a",
+            "text": "WHERE id = :idを足し、対象IDもバインドする"
+          },
+          {
+            "id": "b",
+            "text": "SETを消す"
+          },
+          {
+            "id": "c",
+            "text": "nameの別名だけ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "変更する内容までなくなります。",
+          "c": "対象の限定不足は残ります。",
+          "d": "同じ全件更新を繰り返します。"
+        },
+        "code": "UPDATE students SET name = :name;"
+      },
+      "explanation": "対象の条件がないUPDATEは全行へ影響します。値だけでなく対象を指定します。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "1. 更新処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "更新対象の限定漏れを修正する",
+      "conceptId": "ph2-week25-missing-where",
+      "variantGroup": "ph2-week25-missing-where",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "1. 更新処理",
+        "line": 7,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-1/README.md",
+          "heading": "25週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "bed2b52bf3dd230d179535310440ffe312c7f963fce21c55031d2570a0515725"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-1/index.php",
+          "line": 1,
+          "sha256": "24102b5048bb08c7ece210595e581380fec0e16bc9589121fcc2a34aa5220df6",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-1/README.md：更新対象の限定漏れを修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "対象IDを使っているか確認しましょう。",
+      "success": "更新対象の限定漏れを修正する。条件に合う候補：WHERE id = :idを足し、対象IDもバインドする",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "UPDATE students SET name = :name;",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-wrong-delete-key-011",
+      "weekUnitId": "week-unit-week25",
+      "format": "bugDiagnosis",
+      "prompt": "学生2の学習記録を消したいのに別の1記録しか消えません。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "idをstudent_idへ変える"
+          },
+          {
+            "id": "b",
+            "text": "WHEREを全て削除する"
+          },
+          {
+            "id": "c",
+            "text": "dateを使う"
+          },
+          {
+            "id": "d",
+            "text": "studentsの名前だけ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "全学生の記録が消えます。",
+          "c": "学生を指定する条件ではありません。",
+          "d": "学習記録の所属条件を直していません。"
+        },
+        "code": "DELETE FROM studies WHERE id = :student_id;"
+      },
+      "explanation": "記録のidと、その記録の学生idは別です。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "2. 削除処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "IDの用途の混同を直す",
+      "conceptId": "ph2-week25-wrong-delete-key",
+      "variantGroup": "ph2-week25-wrong-delete-key",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "2. 削除処理",
+        "line": 47,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-2/README.md",
+          "heading": "25週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "6bc4758d9375dac2e310b369eead0063d370c25fc4eefec1cdb3a1ec56b592ca"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-2/index.php",
+          "line": 1,
+          "sha256": "40d0397422044f55d7d8e931e7c89a4dee91b725a9c44d7dccacb0beb924235e",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-2/README.md：IDの用途の混同を直す。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "1件の記録と1人分の記録を分けましょう。",
+      "success": "IDの用途の混同を直す。条件に合う候補：idをstudent_idへ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "DELETE FROM studies WHERE id = :student_id;",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week25-refresh-read-012",
+      "weekUnitId": "week-unit-week25",
+      "format": "singleChoice",
+      "prompt": "DBでは更新済みですが、同じリクエストで一覧が古いままです。更新前に取得した配列を出しています。必要な処理は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "更新前の配列を再度echoするだけ"
+          },
+          {
+            "id": "c",
+            "text": "CSSを再読み込みするだけ"
+          },
+          {
+            "id": "d",
+            "text": "同じUPDATEを繰り返すだけ"
+          },
+          {
+            "id": "a",
+            "text": "更新後にSELECTし直し、その結果を表示する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "取得済みの値は自動更新されません。",
+          "c": "元のデータを読み直していません。",
+          "d": "画面へ渡す配列は古いままです。"
+        }
+      },
+      "explanation": "DBの更新と取得済みのPHPデータは別です。表示へ渡す値を更新後に取得します。",
+      "sourceReference": {
+        "weekKey": "week25",
+        "sectionHeading": "1. 更新処理"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "更新後の取得と表示のずれを修正する",
+      "conceptId": "ph2-week25-refresh-read",
+      "variantGroup": "ph2-week25-refresh-read",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week25.md",
+        "heading": "1. 更新処理",
+        "line": 7,
+        "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week25-1/README.md",
+          "heading": "25週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "bed2b52bf3dd230d179535310440ffe312c7f963fce21c55031d2570a0515725"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 25",
+          "line": 794,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week25.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "80c38b4b8491eee9221bd19d07ad8beca150f0a3c833568371d8fead0aa17cb2"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        },
+        {
+          "path": "drill-ph2/src/week25-1/index.php",
+          "line": 1,
+          "sha256": "24102b5048bb08c7ece210595e581380fec0e16bc9589121fcc2a34aa5220df6",
+          "description": "ドリルの開始コードの参照。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week25-1/README.md：更新後の取得と表示のずれを修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "DBとPHPの配列を区別しましょう。",
+      "success": "更新後の取得と表示のずれを修正する。条件に合う候補：更新後にSELECTし直し、その結果を表示する",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

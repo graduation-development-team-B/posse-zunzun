@@ -1,0 +1,177 @@
+{
+  "environment": "SQLite in-memory; SQL logic auxiliary check, NOT MySQL runtime verification",
+  "questions": 17,
+  "candidateExecutions": 68,
+  "results": [
+    {
+      "id": "question-ph2-week19-date-column-005",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week19-like-006",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "b": false,
+        "c": false,
+        "d": false,
+        "a": true
+      }
+    },
+    {
+      "id": "question-ph2-week19-combined-where-007",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "c": false,
+        "d": false,
+        "a": true,
+        "b": false
+      }
+    },
+    {
+      "id": "question-ph2-week20-count-004",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week20-quantity-005",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "b": false,
+        "c": false,
+        "d": false,
+        "a": true
+      }
+    },
+    {
+      "id": "question-ph2-week20-price-times-006",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "c": false,
+        "d": false,
+        "a": true,
+        "b": false
+      }
+    },
+    {
+      "id": "question-ph2-week20-group-key-008",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week21-limit-006",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week22-join-key-004",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "c": false,
+        "d": false,
+        "a": true,
+        "b": false
+      }
+    },
+    {
+      "id": "question-ph2-week22-aggregate-filter-005",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week22-missing-child-006",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week25-dependent-delete-006",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week29-date-range-004",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "b": false,
+        "c": false,
+        "d": false,
+        "a": true
+      }
+    },
+    {
+      "id": "question-ph2-week29-student-filter-005",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "c": false,
+        "d": false,
+        "a": true,
+        "b": false
+      }
+    },
+    {
+      "id": "question-ph2-week29-content-filter-006",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "d": false,
+        "a": true,
+        "b": false,
+        "c": false
+      }
+    },
+    {
+      "id": "question-ph2-week29-person-period-007",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "a": true,
+        "b": false,
+        "c": false,
+        "d": false
+      }
+    },
+    {
+      "id": "question-ph2-week31-owner-query-006",
+      "cases": "isolated in-memory fixture, includes boundaries and non-matching rows",
+      "candidateOutcomes": {
+        "b": false,
+        "c": false,
+        "d": false,
+        "a": true
+      }
+    }
+  ]
+}

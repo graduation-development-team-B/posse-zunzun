@@ -1,0 +1,864 @@
+[
+  {
+    "question": {
+      "id": "question-week8-array-index-001",
+      "weekUnitId": "week-unit-week8",
+      "format": "fillBlank",
+      "prompt": "先頭の備品名を表示します。空欄の番号は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "1"
+          },
+          {
+            "id": "c",
+            "text": "2"
+          },
+          {
+            "id": "d",
+            "text": "names.length"
+          },
+          {
+            "id": "a",
+            "text": "0"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "インデックス1は2件目のスピーカーです。",
+          "c": "2件の配列に、インデックス2の要素はありません。",
+          "d": "lengthは要素数2であり、先頭の番号ではありません。"
+        },
+        "content": "const names = [\"プロジェクター\", \"スピーカー\"];\nconsole.log(names[___]);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "配列の番号は0から始まります。件数のlengthと、取り出す位置のインデックスを区別します。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "1. 配列とは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "先頭の要素と0始まりのインデックスを対応させる",
+      "conceptId": "ph1-week08-array-index",
+      "variantGroup": "ph1-week08-array-index",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "1. 配列とは",
+        "line": 22,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-1/README.md：先頭の要素と0始まりのインデックスを対応させる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "要素数ではなく、先頭から数える番号です。",
+      "success": "先頭の要素と0始まりのインデックスを対応させる。条件に合う候補：0",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const names = [\"プロジェクター\", \"スピーカー\"];\nconsole.log(names[___]);",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-object-property-002",
+      "weekUnitId": "week-unit-week8",
+      "format": "fillBlank",
+      "prompt": "備品の数量2を取り出す空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "item[0]"
+          },
+          {
+            "id": "d",
+            "text": "items.qty"
+          },
+          {
+            "id": "a",
+            "text": "item.qty"
+          },
+          {
+            "id": "b",
+            "text": "item.name"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "nameの値は備品名です。数量ではありません。",
+          "c": "itemは番号で並ぶ配列ではなく、名前付きのプロパティを持つオブジェクトです。",
+          "d": "このコードで定義している変数はitemです。itemsはありません。"
+        },
+        "content": "const item = { name: \"ホワイトボード\", qty: 2 };\nconsole.log(___);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "オブジェクトの値は、付けたキーで取り出します。この例では数量に対応するキーはqtyなので、item.qtyです。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "3. オブジェクトとは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "キーと値の意味を対応させてオブジェクトを読む",
+      "conceptId": "ph1-week08-object-property",
+      "variantGroup": "ph1-week08-object-property",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "3. オブジェクトとは",
+        "line": 83,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-1/README.md：キーと値の意味を対応させてオブジェクトを読む。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "キーが何の情報についた名前か確認しましょう。",
+      "success": "キーと値の意味を対応させてオブジェクトを読む。条件に合う候補：item.qty",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const item = { name: \"ホワイトボード\", qty: 2 };\nconsole.log(___);",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-map-meaning-003",
+      "weekUnitId": "week-unit-week8",
+      "format": "singleChoice",
+      "prompt": "mapの働きとして合っているものは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "DOMの親要素を見つける"
+          },
+          {
+            "id": "a",
+            "text": "各要素から値を作り、その値を並べた新しい配列を返す"
+          },
+          {
+            "id": "b",
+            "text": "元の配列の末尾に値を追加する"
+          },
+          {
+            "id": "c",
+            "text": "条件に合わない要素を元配列から直接消す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "末尾への追加はpushの働きです。",
+          "c": "mapは要素の変換です。条件で選ぶのはfilterで、filterも新しい配列を返します。",
+          "d": "DOMの取得と、配列の変換は別の操作です。"
+        }
+      },
+      "explanation": "mapは要素を変換して新しい配列を受け取るために使います。元配列の追加やDOM取得とは役割が違います。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "6. map で新しい配列を作る"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "mapと追加・絞り込み・DOM取得の役割を区別する",
+      "conceptId": "ph1-week08-map-meaning",
+      "variantGroup": "ph1-week08-map-meaning",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "6. map で新しい配列を作る",
+        "line": 179,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-2/README.md：mapと追加・絞り込み・DOM取得の役割を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "戻ってくる値が、新しい配列かどうかを見ましょう。",
+      "success": "mapと追加・絞り込み・DOM取得の役割を区別する。条件に合う候補：各要素から値を作り、その値を並べた新しい配列を返す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-array-push-004",
+      "weekUnitId": "week-unit-week8",
+      "format": "singleChoice",
+      "prompt": "備品配列itemsの末尾にnewItemを1件追加したい。使うものは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "items.push(newItem)"
+          },
+          {
+            "id": "b",
+            "text": "items.pop(newItem)"
+          },
+          {
+            "id": "c",
+            "text": "items.length"
+          },
+          {
+            "id": "d",
+            "text": "items[0]"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "popは末尾を削除するメソッドで、追加ではありません。",
+          "c": "lengthは件数の参照であり、備品を追加しません。",
+          "d": "先頭の要素を参照するだけでは、新しい備品は追加されません。"
+        }
+      },
+      "explanation": "pushは配列の末尾へ値を追加します。後のReactではstate配列を直接変更しないため、ここでは素のJavaScriptの配列操作として学びます。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "2. 配列を操作する主なメソッド"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "素のJavaScriptで末尾追加にpushを選ぶ",
+      "conceptId": "ph1-week08-array-push",
+      "variantGroup": "ph1-week08-array-push",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "2. 配列を操作する主なメソッド",
+        "line": 63,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-1/README.md：素のJavaScriptで末尾追加にpushを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "ここではReactのstateではなく、通常の配列を扱います。",
+      "success": "素のJavaScriptで末尾追加にpushを選ぶ。条件に合う候補：items.push(newItem)",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-for-each-005",
+      "weekUnitId": "week-unit-week8",
+      "format": "singleChoice",
+      "prompt": "戻り値の配列は不要です。itemsの各備品についてDOMへ行を追加する、教材のループの書き方は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "items.pop()"
+          },
+          {
+            "id": "c",
+            "text": "items[0]だけを使う"
+          },
+          {
+            "id": "d",
+            "text": "items.lengthだけを表示する"
+          },
+          {
+            "id": "a",
+            "text": "items.forEach((item) => { /* 行を作って追加 */ })"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "末尾を削除するだけで、各備品を順に処理しません。",
+          "c": "1件目しか処理せず、備品全件の表示になりません。",
+          "d": "件数が分かるだけで、各行のデータは表示できません。"
+        }
+      },
+      "explanation": "forEachは要素ごとに処理を実行します。新しい配列の戻り値が必要なmapと、表示などの処理を繰り返すforEachを目的から選びます。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "5. forEach でループする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "備品一覧の全件描画にforEachを選ぶ",
+      "conceptId": "ph1-week08-for-each",
+      "variantGroup": "ph1-week08-for-each",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "5. forEach でループする",
+        "line": 139,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-1/README.md：備品一覧の全件描画にforEachを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "全件の処理と、新しい配列の受け取りを分けましょう。",
+      "success": "備品一覧の全件描画にforEachを選ぶ。条件に合う候補：items.forEach((item) => { /* 行を作って追加 */ })",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-filter-006",
+      "weekUnitId": "week-unit-week8",
+      "format": "fillBlank",
+      "prompt": "発展：roleが\"エンジニア\"のメンバーだけ取り出します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "member.name === \"エンジニア\""
+          },
+          {
+            "id": "d",
+            "text": "member.role === \"デザイナー\""
+          },
+          {
+            "id": "a",
+            "text": "member.role === \"エンジニア\""
+          },
+          {
+            "id": "b",
+            "text": "member.role !== \"エンジニア\""
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "エンジニア以外を残す条件になっています。",
+          "c": "調べたいのは名前ではなく役割roleです。",
+          "d": "残したい役割と比較する文字列が違います。"
+        },
+        "content": "const engineers = members.filter((member) => ___);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "filterは条件がtrueの要素を新しい配列へ残します。どのプロパティを、どの値と比較するのかを要求から決めます。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "8. filter で絞り込む（発展）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "絞り込みの要求をプロパティと比較条件へ変える",
+      "conceptId": "ph1-week08-filter",
+      "variantGroup": "ph1-week08-filter",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "8. filter で絞り込む（発展）",
+        "line": 265,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-3/README.md：絞り込みの要求をプロパティと比較条件へ変える。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。 Week08の発展節「filterで絞り込む」を読んだ後の問題。",
+      "hint": "残す条件がtrueになる人を考えましょう。",
+      "success": "絞り込みの要求をプロパティと比較条件へ変える。条件に合う候補：member.role === \"エンジニア\"",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const engineers = members.filter((member) => ___);",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-map-return-007",
+      "weekUnitId": "week-unit-week8",
+      "format": "fillBlank",
+      "prompt": "mapで各数値を2倍にします。実行して順に2、4と表示される空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "return n * 3;"
+          },
+          {
+            "id": "a",
+            "text": "return n * 2;"
+          },
+          {
+            "id": "b",
+            "text": "return n + 2;"
+          },
+          {
+            "id": "c",
+            "text": "return n;"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "1は3になり、期待する2倍の配列ではありません。",
+          "c": "入力の値をそのまま返すだけで、2倍になりません。",
+          "d": "3倍にしており、期待する結果と違います。"
+        },
+        "content": "const numbers = [1, 2];\nconst doubled = numbers.map((n) => { ___ });\nconsole.log(doubled[0]);\nconsole.log(doubled[1]);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "波括弧のあるコールバックでは、新しい配列に入れる値をreturnします。各要素を2倍にする計算と、値を返す操作を組み合わせます。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "6. map で新しい配列を作る"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "quiz-week8-map-return",
+        "title": "変換式とreturnを組み合わせて新しい配列を作る",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "変換する式だけでなく、返す操作も必要です。",
+        "goalCode": "const numbers = [1, 2];\nconst doubled = numbers.map((n) => { return n * 2; });\nconsole.log(doubled[0]);\nconsole.log(doubled[1]);",
+        "starterCode": "const numbers = [1, 2];\nconst doubled = numbers.map((n) => { ___ });\nconsole.log(doubled[0]);\nconsole.log(doubled[1]);",
+        "inputMode": "text",
+        "expectedOutput": ["2", "4"]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "変換式とreturnを組み合わせて新しい配列を作る",
+      "conceptId": "ph1-week08-map-return",
+      "variantGroup": "ph1-week08-map-return",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "6. map で新しい配列を作る",
+        "line": 179,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-2/README.md：変換式とreturnを組み合わせて新しい配列を作る。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "変換する式だけでなく、返す操作も必要です。",
+      "success": "変換式とreturnを組み合わせて新しい配列を作る。条件に合う候補：return n * 2;",
+      "grading": "単一候補を選択し、正答IDと実行したConsole出力の両方を確認する。編集前の出力は採点に使わない。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Webの制限付きJavaScript Console（ネットワーク・DOM・Reactを使わない同期コード）",
+      "initialState": "const numbers = [1, 2];\nconst doubled = numbers.map((n) => { ___ });\nconsole.log(doubled[0]);\nconsole.log(doubled[1]);",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。Consoleは全候補を実行し、正答のみ期待出力と一致することを確認。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-member-name-008",
+      "weekUnitId": "week-unit-week8",
+      "format": "fillBlank",
+      "prompt": "各メンバーの名前だけを順に表示します。実行して「田中」「佐藤」を確認する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "member.name"
+          },
+          {
+            "id": "b",
+            "text": "members.name"
+          },
+          {
+            "id": "c",
+            "text": "member.role"
+          },
+          {
+            "id": "d",
+            "text": "members[0].name"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "membersは配列です。配列自体に各人のnameはありません。",
+          "c": "役割を表示しており、求めている名前とは違います。",
+          "d": "どの回でも先頭の名前だけを表示してしまいます。"
+        },
+        "content": "const members = [{ name: \"田中\", role: \"設計\" }, { name: \"佐藤\", role: \"実装\" }];\nmembers.forEach((member) => console.log(___));",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "配列から1人分のオブジェクトをforEachで受け取り、そのnameを読むと、各人の名前を表示できます。配列全体と1件分を区別します。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "4. 配列の中にオブジェクト（最重要パターン）"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "quiz-week8-member-name",
+        "title": "配列のループとオブジェクトのプロパティ参照をつなぐ",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "forEachの引数memberは、今回取り出した1人です。",
+        "goalCode": "const members = [{ name: \"田中\", role: \"設計\" }, { name: \"佐藤\", role: \"実装\" }];\nmembers.forEach((member) => console.log(member.name));",
+        "starterCode": "const members = [{ name: \"田中\", role: \"設計\" }, { name: \"佐藤\", role: \"実装\" }];\nmembers.forEach((member) => console.log(___));",
+        "inputMode": "text",
+        "expectedOutput": ["田中", "佐藤"]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "配列のループとオブジェクトのプロパティ参照をつなぐ",
+      "conceptId": "ph1-week08-member-name",
+      "variantGroup": "ph1-week08-member-name",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "4. 配列の中にオブジェクト（最重要パターン）",
+        "line": 119,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-1/README.md：配列のループとオブジェクトのプロパティ参照をつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "forEachの引数memberは、今回取り出した1人です。",
+      "success": "配列のループとオブジェクトのプロパティ参照をつなぐ。条件に合う候補：member.name",
+      "grading": "単一候補を選択し、正答IDと実行したConsole出力の両方を確認する。編集前の出力は採点に使わない。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Webの制限付きJavaScript Console（ネットワーク・DOM・Reactを使わない同期コード）",
+      "initialState": "const members = [{ name: \"田中\", role: \"設計\" }, { name: \"佐藤\", role: \"実装\" }];\nmembers.forEach((member) => console.log(___));",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。Consoleは全候補を実行し、正答のみ期待出力と一致することを確認。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-dom-loop-009",
+      "weekUnitId": "week-unit-week8",
+      "format": "fillBlank",
+      "prompt": "listは取得済みのulです。各備品名をliにして追加する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "li.appendChild(list)"
+          },
+          {
+            "id": "c",
+            "text": "list.textContent = item.name"
+          },
+          {
+            "id": "d",
+            "text": "document.createElement(\"li\")"
+          },
+          {
+            "id": "a",
+            "text": "list.appendChild(li)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "作ったliの中へリスト全体を入れようとしており、親子が逆です。",
+          "c": "前の表示を上書きするため、各備品のliを並べられません。",
+          "d": "要素を追加せず、もう一つ作るだけです。"
+        },
+        "content": "items.forEach((item) => {\n  const li = document.createElement(\"li\");\n  li.textContent = item.name;\n  ___;\n});",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "1件ごとに要素を作り、名前を設定してから、共通の親へ追加します。ループの各回のliを残すにはappendChildを使います。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "7. forEach + DOM操作でHTML要素を動的に生成する（今週のメイン）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ループ・要素作成・文字設定・親への追加をつなぐ",
+      "conceptId": "ph1-week08-dom-loop",
+      "variantGroup": "ph1-week08-dom-loop",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "7. forEach + DOM操作でHTML要素を動的に生成する（今週のメイン）",
+        "line": 203,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-1/README.md：ループ・要素作成・文字設定・親への追加をつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "1回前に追加した行を残せる書き方を選びましょう。",
+      "success": "ループ・要素作成・文字設定・親への追加をつなぐ。条件に合う候補：list.appendChild(li)",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "items.forEach((item) => {\n  const li = document.createElement(\"li\");\n  li.textContent = item.name;\n  ___;\n});",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-missing-return-010",
+      "weekUnitId": "week-unit-week8",
+      "format": "bugDiagnosis",
+      "prompt": "linesの各要素がundefinedになりました。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "membersの変数名だけ変える"
+          },
+          {
+            "id": "d",
+            "text": "nameを大文字にする"
+          },
+          {
+            "id": "a",
+            "text": "式の前にreturnを付ける"
+          },
+          {
+            "id": "b",
+            "text": "式の末尾にコメントを付ける"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "コメントを付けても、コールバックは値を返しません。",
+          "c": "入力の変数名ではなく、コールバックの戻り値が不足しています。",
+          "d": "プロパティ名を変えると別の参照になり、return不足は直りません。"
+        },
+        "code": "const lines = members.map((m) => {\n  m.name + \" · \" + m.role;\n});"
+      },
+      "explanation": "波括弧を使った関数は、式を書くだけでは値を返しません。return m.name + \" · \" + m.role;で、新しい配列の各要素になる文字列を返します。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "6. map で新しい配列を作る"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "mapのundefinedをコールバックのreturn不足へ絞る",
+      "conceptId": "ph1-week08-missing-return",
+      "variantGroup": "ph1-week08-missing-return",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "6. map で新しい配列を作る",
+        "line": 179,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-2/README.md：mapのundefinedをコールバックのreturn不足へ絞る。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "式が計算されることと、関数から返ることは別です。",
+      "success": "mapのundefinedをコールバックのreturn不足へ絞る。条件に合う候補：式の前にreturnを付ける",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const lines = members.map((m) => {\n  m.name + \" · \" + m.role;\n});",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-duplicate-render-011",
+      "weekUnitId": "week-unit-week8",
+      "format": "bugDiagnosis",
+      "prompt": "render()を2回呼ぶと、同じメンバーが2組表示されます。毎回一覧を作り直す修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "membersの全データを消す"
+          },
+          {
+            "id": "a",
+            "text": "forEachの前にcontainer.innerHTML = \"\"を置く"
+          },
+          {
+            "id": "b",
+            "text": "forEachの中で毎回container.innerHTML = \"\"にする"
+          },
+          {
+            "id": "c",
+            "text": "appendChildを2回呼ぶ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "各回で直前のカードを消すため、最後の1件だけになります。",
+          "c": "重複防止の処理にならず、一覧を初期化できません。",
+          "d": "表示対象のデータを消すのではなく、古い表示を空にします。"
+        },
+        "code": "function render() {\n  members.forEach((member) => {\n    const card = document.createElement(\"div\");\n    card.textContent = member.name;\n    container.appendChild(card);\n  });\n}"
+      },
+      "explanation": "再描画では、古いDOMを一度空にしてから全件を追加します。データを消すことや、ループ中に毎回画面を空にすることとは違います。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "7. forEach + DOM操作でHTML要素を動的に生成する（今週のメイン）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "重複表示から再描画前の初期化不足を見つける",
+      "conceptId": "ph1-week08-duplicate-render",
+      "variantGroup": "ph1-week08-duplicate-render",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "7. forEach + DOM操作でHTML要素を動的に生成する（今週のメイン）",
+        "line": 203,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-3/README.md：重複表示から再描画前の初期化不足を見つける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "空にするのはデータでしょうか、画面の挿入先でしょうか。",
+      "success": "重複表示から再描画前の初期化不足を見つける。条件に合う候補：forEachの前にcontainer.innerHTML = \"\"を置く",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "function render() {\n  members.forEach((member) => {\n    const card = document.createElement(\"div\");\n    card.textContent = member.name;\n    container.appendChild(card);\n  });\n}",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week8-filter-source-012",
+      "weekUnitId": "week-unit-week8",
+      "format": "trueFalse",
+      "prompt": "発展：members.filter((member) => member.role === \"エンジニア\")を呼ぶと、エンジニア以外の人は元のmembers配列から自動で削除される。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "filterは条件に合う要素を集めた新しい配列を返します。元の配列そのものは削除されないので、全員表示へ戻すために元データを残せます。"
+        }
+      },
+      "explanation": "filterは条件に合う要素を集めた新しい配列を返します。元の配列そのものは削除されないので、全員表示へ戻すために元データを残せます。",
+      "sourceReference": {
+        "weekKey": "week8",
+        "sectionHeading": "8. filter で絞り込む（発展）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "絞り込み後も元の一覧データが残ることを確認する",
+      "conceptId": "ph1-week08-filter-source",
+      "variantGroup": "ph1-week08-filter-source",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week08.md",
+        "heading": "8. filter で絞り込む（発展）",
+        "line": 265,
+        "sha256": "dd0de1bf373f3e25135b086ff833797849c4f28d2b84e2a1d6f8bde8e4059fe5"
+      },
+      "drillConnection": "drill-ph1/week08-3/README.md：絞り込み後も元の一覧データが残ることを確認する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜08の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。 Week08の発展節「filterで絞り込む」を読んだ後の問題。",
+      "hint": "戻り値の配列と、元の配列は別の入れ物です。",
+      "success": "絞り込み後も元の一覧データが残ることを確認する。条件に合う候補：誤り",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "○×の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

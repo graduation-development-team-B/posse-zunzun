@@ -1,0 +1,861 @@
+[
+  {
+    "question": {
+      "id": "question-week9-validation-001",
+      "weekUnitId": "week-unit-week9",
+      "format": "singleChoice",
+      "prompt": "フォームの「バリデーション」とは何をすることですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "入力した内容を必ずそのまま保存する"
+          },
+          {
+            "id": "d",
+            "text": "フォームに送信ボタンを付けるだけ"
+          },
+          {
+            "id": "a",
+            "text": "入力が条件を満たすか確かめ、不正な入力を受け付けない"
+          },
+          {
+            "id": "b",
+            "text": "入力欄を中央に配置する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "それはレイアウトの調整です。入力の内容を検証していません。",
+          "c": "条件に合わない入力を弾く役割がありません。",
+          "d": "送信の仕組みと、入力の検証は別です。"
+        }
+      },
+      "explanation": "未入力や短すぎる文字列を確認し、条件を満たさない場合にメッセージを出すのがバリデーションです。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "4. HTML5バリデーション"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "バリデーションを入力条件の確認として説明する",
+      "conceptId": "ph1-week09-validation",
+      "variantGroup": "ph1-week09-validation",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "4. HTML5バリデーション",
+        "line": 126,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-1/README.md：バリデーションを入力条件の確認として説明する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "入力を受け付けてよいか判断する場面です。",
+      "success": "バリデーションを入力条件の確認として説明する。条件に合う候補：入力が条件を満たすか確かめ、不正な入力を受け付けない",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-checked-002",
+      "weekUnitId": "week-unit-week9",
+      "format": "trueFalse",
+      "prompt": "チェックボックスの.checkedは、チェックされているかをtrue / falseで返す。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "true",
+        "incorrectReasons": {
+          "false": "チェック状態はcheckedで取得します。valueは設定された値を表すため、チェックの有無とは役割が違います。"
+        }
+      },
+      "explanation": "チェック状態はcheckedで取得します。valueは設定された値を表すため、チェックの有無とは役割が違います。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "3. JavaScriptで値を取得する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "checkedとvalueの役割を区別する",
+      "conceptId": "ph1-week09-checked",
+      "variantGroup": "ph1-week09-checked",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "3. JavaScriptで値を取得する",
+        "line": 90,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-1/README.md：checkedとvalueの役割を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "知りたいのは、文字列ではなくON/OFFです。",
+      "success": "checkedとvalueの役割を区別する。条件に合う候補：正しい",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "○×の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-required-003",
+      "weekUnitId": "week-unit-week9",
+      "format": "fillBlank",
+      "prompt": "ブラウザ標準の検証で、空欄の送信を止める属性は？ このformにnovalidateはありません。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "required"
+          },
+          {
+            "id": "b",
+            "text": "placeholder"
+          },
+          {
+            "id": "c",
+            "text": "id=\"name\""
+          },
+          {
+            "id": "d",
+            "text": "value=\"\""
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "placeholderは入力の案内であり、未入力を拒む条件ではありません。",
+          "c": "idは要素を識別する目印です。入力の必須条件ではありません。",
+          "d": "空の初期値を指定しても、必須項目にはなりません。"
+        },
+        "content": "<input type=\"text\" ___ />",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "requiredは未入力の送信をブラウザが止めるための属性です。novalidateを付けて標準検証を止めた場合は、自分のJSで入力を確認します。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "4. HTML5バリデーション"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "標準の未入力検証にrequiredを対応させる",
+      "conceptId": "ph1-week09-required",
+      "variantGroup": "ph1-week09-required",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "4. HTML5バリデーション",
+        "line": 126,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-1/README.md：標準の未入力検証にrequiredを対応させる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "見た目の案内と、送信できる条件を分けましょう。",
+      "success": "標準の未入力検証にrequiredを対応させる。条件に合う候補：required",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "<input type=\"text\" ___ />",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-submit-event-004",
+      "weekUnitId": "week-unit-week9",
+      "format": "fillBlank",
+      "prompt": "ボタンでもEnterでも、フォーム送信時に検証したい。登録するイベントは？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "click"
+          },
+          {
+            "id": "c",
+            "text": "input"
+          },
+          {
+            "id": "d",
+            "text": "load"
+          },
+          {
+            "id": "a",
+            "text": "submit"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ボタンのクリックだけでは、フォーム送信全体の入口を指定していません。",
+          "c": "入力が変わるたびのイベントであり、送信時の検証ではありません。",
+          "d": "ページを読み込んだ時点は、フォームを送信する時点とは違います。"
+        },
+        "content": "form.addEventListener(\"___\", (event) => {\n  event.preventDefault();\n  // 入力を確認する\n});",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "フォーム自体のsubmitイベントで送信を扱います。標準の送信動作を止めた後で、自分の検証処理を行います。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "5. submit イベントと preventDefault()"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "フォーム送信の要求からsubmitを選ぶ",
+      "conceptId": "ph1-week09-submit-event",
+      "variantGroup": "ph1-week09-submit-event",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "5. submit イベントと preventDefault()",
+        "line": 197,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-1/README.md：フォーム送信の要求からsubmitを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "処理を登録する要素はbuttonではなくformです。",
+      "success": "フォーム送信の要求からsubmitを選ぶ。条件に合う候補：submit",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "form.addEventListener(\"___\", (event) => {\n  event.preventDefault();\n  // 入力を確認する\n});",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-novalidate-005",
+      "weekUnitId": "week-unit-week9",
+      "format": "singleChoice",
+      "prompt": "requiredの空欄を送ると標準の吹き出しが出て、submit内の独自メッセージが動きません。JS側で検証を行うため、この教材でformへ足す属性は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "placeholder"
+          },
+          {
+            "id": "d",
+            "text": "type=\"email\""
+          },
+          {
+            "id": "a",
+            "text": "novalidate"
+          },
+          {
+            "id": "b",
+            "text": "hidden"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "フォームを非表示にするだけで、標準検証の役割分担は変わりません。",
+          "c": "フォームの標準検証を無効にする属性ではありません。",
+          "d": "メール形式の標準検証を増やす指定で、目的と違います。"
+        }
+      },
+      "explanation": "novalidateで送信時のブラウザ標準検証を止めます。その分、JSで未入力などを確認してから受け付ける必要があります。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "4. HTML5バリデーション"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "独自検証の入口を開くためにnovalidateを選ぶ",
+      "conceptId": "ph1-week09-novalidate",
+      "variantGroup": "ph1-week09-novalidate",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "4. HTML5バリデーション",
+        "line": 126,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-1/README.md：独自検証の入口を開くためにnovalidateを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "自動検証を止めることと、検証を不要にすることは別です。",
+      "success": "独自検証の入口を開くためにnovalidateを選ぶ。条件に合う候補：novalidate",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-length-check-006",
+      "weekUnitId": "week-unit-week9",
+      "format": "fillBlank",
+      "prompt": "8文字以上を受け付けます。実行して7文字はNG、8文字はOKになる空欄を選んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "value === \"\""
+          },
+          {
+            "id": "a",
+            "text": "value.length < 8"
+          },
+          {
+            "id": "b",
+            "text": "value.length <= 8"
+          },
+          {
+            "id": "c",
+            "text": "value.length > 8"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "8文字もNGにしてしまいます。",
+          "c": "短すぎる入力をNGにする条件になっていません。",
+          "d": "7文字は空文字ではないので、短すぎてもOKになってしまいます。"
+        },
+        "content": "function validate(value) {\n  if (___) { return \"NG\"; }\n  return \"OK\";\n}\nconsole.log(validate(\"1234567\"));\nconsole.log(validate(\"12345678\"));",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "不合格になるのは8文字未満です。境目の7文字と8文字を両方確かめると、<と<=の取り違えを見つけられます。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "6. JavaScriptでバリデーションを書く"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "quiz-week9-length-check",
+        "title": "文字数の要求から境界を含む検証条件を選ぶ",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "「8文字以上を受け付ける」の逆を、NGの条件にします。",
+        "goalCode": "function validate(value) {\n  return value.length < 8 ? \"NG\" : \"OK\";\n}\nconsole.log(validate(\"1234567\"));\nconsole.log(validate(\"12345678\"));",
+        "starterCode": "function validate(value) {\n  return ___ ? \"NG\" : \"OK\";\n}\nconsole.log(validate(\"1234567\"));\nconsole.log(validate(\"12345678\"));",
+        "inputMode": "text",
+        "expectedOutput": ["NG", "OK"]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "文字数の要求から境界を含む検証条件を選ぶ",
+      "conceptId": "ph1-week09-length-check",
+      "variantGroup": "ph1-week09-length-check",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "6. JavaScriptでバリデーションを書く",
+        "line": 216,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-1/README.md：文字数の要求から境界を含む検証条件を選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "「8文字以上を受け付ける」の逆を、NGの条件にします。",
+      "success": "文字数の要求から境界を含む検証条件を選ぶ。条件に合う候補：value.length < 8",
+      "grading": "単一候補を選択し、正答IDと実行したConsole出力の両方を確認する。編集前の出力は採点に使わない。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Webの制限付きJavaScript Console（ネットワーク・DOM・Reactを使わない同期コード）",
+      "initialState": "function validate(value) {\n  if (___) { return \"NG\"; }\n  return \"OK\";\n}\nconsole.log(validate(\"1234567\"));\nconsole.log(validate(\"12345678\"));",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。Consoleは全候補を実行し、正答のみ期待出力と一致することを確認。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-prevent-default-007",
+      "weekUnitId": "week-unit-week9",
+      "format": "fillBlank",
+      "prompt": "フォームの標準送信によるページ移動を止め、続けて入力を検証します。先頭の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "event.preventDefault()"
+          },
+          {
+            "id": "b",
+            "text": "form.submit()"
+          },
+          {
+            "id": "c",
+            "text": "nameInput.value = \"\""
+          },
+          {
+            "id": "d",
+            "text": "result.textContent = \"\""
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "自分で送信を呼ぶ操作であり、標準動作を止める処理ではありません。",
+          "c": "検証する前に入力を消してしまいます。",
+          "d": "メッセージを消しても、ページの標準送信は止まりません。"
+        },
+        "content": "form.addEventListener(\"submit\", (event) => {\n  ___;\n  const name = nameInput.value;\n  if (name === \"\") { result.textContent = \"名前を入力\"; return; }\n  result.textContent = \"受付しました\";\n});",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "preventDefaultで標準の送信を止めてから、入力取得→検証→結果表示へ進みます。不正入力でreturnする場合も、先に標準動作を止めます。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "5. submit イベントと preventDefault()"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "標準動作の停止・入力取得・検証をつなぐ",
+      "conceptId": "ph1-week09-prevent-default",
+      "variantGroup": "ph1-week09-prevent-default",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "5. submit イベントと preventDefault()",
+        "line": 197,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-2/README.md：標準動作の停止・入力取得・検証をつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "エラーで途中終了する前にも、標準動作を止めておきます。",
+      "success": "標準動作の停止・入力取得・検証をつなぐ。条件に合う候補：event.preventDefault()",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "form.addEventListener(\"submit\", (event) => {\n  ___;\n  const name = nameInput.value;\n  if (name === \"\") { result.textContent = \"名前を入力\"; return; }\n  result.textContent = \"受付しました\";\n});",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-register-flow-008",
+      "weekUnitId": "week-unit-week9",
+      "format": "singleChoice",
+      "prompt": "名前と役割を登録する配列membersがあります。不正入力を追加しない手順は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "push → 値を検証 → 不正ならメッセージだけ出す"
+          },
+          {
+            "id": "c",
+            "text": "入力欄を空にする → 値を取得 → push"
+          },
+          {
+            "id": "d",
+            "text": "一覧を描き直す → 標準送信をそのまま行う"
+          },
+          {
+            "id": "a",
+            "text": "標準送信を止める → 値を取得・検証 → 有効ならpush → 一覧を描き直す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "検証前に不正なデータを追加してしまいます。",
+          "c": "ユーザーが入力した情報を取得前に消してしまいます。",
+          "d": "検証も追加もなく、標準動作でページを移動してしまいます。"
+        }
+      },
+      "explanation": "追加してよいかを確認してからデータへ反映します。データ更新後に描画し、受け付けた場合に入力欄を空に戻すと、表示とデータをそろえられます。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "7. まとめ：バリデーション付きフォームの完全サンプル"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "検証・配列追加・一覧の再描画を順序立てる",
+      "conceptId": "ph1-week09-register-flow",
+      "variantGroup": "ph1-week09-register-flow",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "7. まとめ：バリデーション付きフォームの完全サンプル",
+        "line": 241,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-3/README.md：検証・配列追加・一覧の再描画を順序立てる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "データへ追加するより前に、満たすべき条件があります。",
+      "success": "検証・配列追加・一覧の再描画を順序立てる。条件に合う候補：標準送信を止める → 値を取得・検証 → 有効ならpush → 一覧を描き直す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-any-empty-009",
+      "weekUnitId": "week-unit-week9",
+      "format": "fillBlank",
+      "prompt": "名前か本文のどちらかが空ならNGです。実行して、片方が空の2ケースはNG、両方入力済みはOKになる空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "name !== \"\" && message !== \"\""
+          },
+          {
+            "id": "d",
+            "text": "name === \"\""
+          },
+          {
+            "id": "a",
+            "text": "name === \"\" || message === \"\""
+          },
+          {
+            "id": "b",
+            "text": "name === \"\" && message === \"\""
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "両方とも空の場合しかNGにならず、片方の空欄を見逃します。",
+          "c": "入力済みのときにNGとなり、条件が逆です。",
+          "d": "本文だけが空の場合を見逃します。"
+        },
+        "content": "function check(name, message) {\n  if (___) { return \"NG\"; }\n  return \"OK\";\n}\nconsole.log(check(\"\", \"相談\"));\nconsole.log(check(\"田中\", \"\"));\nconsole.log(check(\"田中\", \"相談\"));",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "「どちらかが空」は||で2つの条件をつなぎます。片方だけ空の場合を両方向で確認することで、検証漏れを見つけられます。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "6. JavaScriptでバリデーションを書く"
+      },
+      "published": true,
+      "deleted": false,
+      "console": {
+        "drillId": "quiz-week9-any-empty",
+        "title": "複数の必須条件を論理演算で組み合わせる",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "NGにしたいのは、名前と本文のどちらかが空の状態です。",
+        "goalCode": "function check(name, message) {\n  return name === \"\" || message === \"\" ? \"NG\" : \"OK\";\n}\nconsole.log(check(\"\", \"相談\"));\nconsole.log(check(\"田中\", \"\"));\nconsole.log(check(\"田中\", \"相談\"));",
+        "starterCode": "function check(name, message) {\n  return ___ ? \"NG\" : \"OK\";\n}\nconsole.log(check(\"\", \"相談\"));\nconsole.log(check(\"田中\", \"\"));\nconsole.log(check(\"田中\", \"相談\"));",
+        "inputMode": "text",
+        "expectedOutput": ["NG", "NG", "OK"]
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "複数の必須条件を論理演算で組み合わせる",
+      "conceptId": "ph1-week09-any-empty",
+      "variantGroup": "ph1-week09-any-empty",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "6. JavaScriptでバリデーションを書く",
+        "line": 216,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-1/README.md：複数の必須条件を論理演算で組み合わせる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "NGにしたいのは、名前と本文のどちらかが空の状態です。",
+      "success": "複数の必須条件を論理演算で組み合わせる。条件に合う候補：name === \"\" || message === \"\"",
+      "grading": "単一候補を選択し、正答IDと実行したConsole出力の両方を確認する。編集前の出力は採点に使わない。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Webの制限付きJavaScript Console（ネットワーク・DOM・Reactを使わない同期コード）",
+      "initialState": "function check(name, message) {\n  if (___) { return \"NG\"; }\n  return \"OK\";\n}\nconsole.log(check(\"\", \"相談\"));\nconsole.log(check(\"田中\", \"\"));\nconsole.log(check(\"田中\", \"相談\"));",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。Consoleは全候補を実行し、正答のみ期待出力と一致することを確認。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-reload-bug-010",
+      "weekUnitId": "week-unit-week9",
+      "format": "bugDiagnosis",
+      "prompt": "formにnovalidateがあり、未入力でもsubmitは発火します。メッセージが一瞬出てページが移動する原因を直す修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "resultの背景色を変える"
+          },
+          {
+            "id": "a",
+            "text": "引数eventを受け取り、先頭でevent.preventDefault()を呼ぶ"
+          },
+          {
+            "id": "b",
+            "text": "result.textContentを2回代入する"
+          },
+          {
+            "id": "c",
+            "text": "イベント名をkeydownにする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "標準送信を止めていないので、ページ移動の原因は残ります。",
+          "c": "フォーム送信の処理を直す方法ではなく、マウス送信にも対応できません。",
+          "d": "標準の送信動作は、背景色とは無関係です。"
+        },
+        "code": "form.addEventListener(\"submit\", () => {\n  result.textContent = \"受付しました\";\n});"
+      },
+      "explanation": "標準送信によるページ移動で表示が消えています。eventを受け取ってpreventDefaultを呼ぶと、現在の画面で自分の処理を続けられます。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "5. submit イベントと preventDefault()"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "送信後の表示消失から標準動作の停止不足を見つける",
+      "conceptId": "ph1-week09-reload-bug",
+      "variantGroup": "ph1-week09-reload-bug",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "5. submit イベントと preventDefault()",
+        "line": 197,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-2/README.md：送信後の表示消失から標準動作の停止不足を見つける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "メッセージが消える前に、ページ自体が移動していないか見ましょう。",
+      "success": "送信後の表示消失から標準動作の停止不足を見つける。条件に合う候補：引数eventを受け取り、先頭でevent.preventDefault()を呼ぶ",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "form.addEventListener(\"submit\", () => {\n  result.textContent = \"受付しました\";\n});",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-checkbox-value-011",
+      "weekUnitId": "week-unit-week9",
+      "format": "bugDiagnosis",
+      "prompt": "同意にチェックしていなくても受付されます。チェック状態を判定する修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "agree.valueをagree.checkedに変える"
+          },
+          {
+            "id": "b",
+            "text": "result.textContentを空にする"
+          },
+          {
+            "id": "c",
+            "text": "agree.valueをNumberで変換する"
+          },
+          {
+            "id": "d",
+            "text": "if文を消す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "表示を消しても、チェック状態を確認していません。",
+          "c": "同意の有無は文字列の数値変換では調べられません。",
+          "d": "同意しているかを確かめる条件自体がなくなります。"
+        },
+        "code": "// agreeはvalue=\"on\"のチェックボックス。checkedはfalse。\nif (agree.value) {\n  result.textContent = \"受付しました\";\n}"
+      },
+      "explanation": "valueの\"on\"はチェックのON/OFFそのものではありません。checkedがtrueかfalseかで、同意したかを確かめます。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "3. JavaScriptで値を取得する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "valueとcheckedの取り違えを症状から修正する",
+      "conceptId": "ph1-week09-checkbox-value",
+      "variantGroup": "ph1-week09-checkbox-value",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "3. JavaScriptで値を取得する",
+        "line": 90,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-2/README.md：valueとcheckedの取り違えを症状から修正する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "チェックを外してもvalueの文字列は変わらない点に注目しましょう。",
+      "success": "valueとcheckedの取り違えを症状から修正する。条件に合う候補：agree.valueをagree.checkedに変える",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "// agreeはvalue=\"on\"のチェックボックス。checkedはfalse。\nif (agree.value) {\n  result.textContent = \"受付しました\";\n}",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week9-form-cases-012",
+      "weekUnitId": "week-unit-week9",
+      "format": "singleChoice",
+      "prompt": "名前と本文の両方が必須です。検証の漏れを確認する入力の組み合わせは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "両方入力した1通りだけ"
+          },
+          {
+            "id": "c",
+            "text": "名前だけ入力した1通りだけ"
+          },
+          {
+            "id": "d",
+            "text": "名前を長くしたケースだけ"
+          },
+          {
+            "id": "a",
+            "text": "両方空・名前だけ入力・本文だけ入力・両方入力の4通り"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "正常系しか確認せず、未入力を弾けるかが分かりません。",
+          "c": "本文だけ入力したケースや、正常に受付できるかを確認できません。",
+          "d": "今回の必須条件は空かどうかで、長さだけでは不足します。"
+        }
+      },
+      "explanation": "必須欄のどちらが欠けても受付しないことと、両方そろえば受付することを確認します。成功するケースだけでは検証の漏れを見逃します。",
+      "sourceReference": {
+        "weekKey": "week9",
+        "sectionHeading": "6. JavaScriptでバリデーションを書く"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "通常ケースと未入力の各組み合わせを確認する",
+      "conceptId": "ph1-week09-form-cases",
+      "variantGroup": "ph1-week09-form-cases",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week09.md",
+        "heading": "6. JavaScriptでバリデーションを書く",
+        "line": 216,
+        "sha256": "d9fb6ccf04234e5368122fdf8830bf2ceabfa7ff36ea6c2f7a2fe70a3d90ece6"
+      },
+      "drillConnection": "drill-ph1/week09-1/README.md：通常ケースと未入力の各組み合わせを確認する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜09の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "必須条件の各分岐と、成功する分岐を一つずつ通しましょう。",
+      "success": "通常ケースと未入力の各組み合わせを確認する。条件に合う候補：両方空・名前だけ入力・本文だけ入力・両方入力の4通り",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

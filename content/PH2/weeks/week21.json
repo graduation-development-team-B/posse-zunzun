@@ -1,0 +1,1162 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week21-pdo-001",
+      "weekUnitId": "week-unit-week21",
+      "format": "singleChoice",
+      "prompt": "PDOは、この教材で何をするための仕組みですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "SQLの全結果を必ず画像にする道具"
+          },
+          {
+            "id": "d",
+            "text": "Dockerを停止するコマンド"
+          },
+          {
+            "id": "a",
+            "text": "PHPからDBへ接続しSQLを扱う共通のインターフェース"
+          },
+          {
+            "id": "b",
+            "text": "HTMLへ色を付ける専用タグ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "DB接続の仕組みです。",
+          "c": "結果はPHPでデータとして扱います。",
+          "d": "PHPのDB操作と環境操作は別です。"
+        }
+      },
+      "explanation": "PDOを通してPHPとDBをつなぎます。SQLの方言まですべて同一になるとは限りません。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "2. PDOとは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "PDOの役割を説明する",
+      "conceptId": "ph2-week21-pdo",
+      "variantGroup": "ph2-week21-pdo",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "heading": "2. PDOとは？",
+        "line": 11,
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "heading": "21週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-1/README.md：PDOの役割を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "PHPとDBの間の役割を考えましょう。",
+      "success": "PDOの役割を説明する。条件に合う候補：PHPからDBへ接続しSQLを扱う共通のインターフェース",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-dsn-002",
+      "weekUnitId": "week-unit-week21",
+      "format": "singleChoice",
+      "prompt": "DSNのdbname=ph2drillは何を指定しますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "PHPコンテナのポート"
+          },
+          {
+            "id": "a",
+            "text": "接続先のデータベース名"
+          },
+          {
+            "id": "b",
+            "text": "ブラウザのページ名"
+          },
+          {
+            "id": "c",
+            "text": "出力する学生名"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "DBへの接続設定です。",
+          "c": "検索結果の値ではありません。",
+          "d": "dbnameはDB名の指定です。"
+        }
+      },
+      "explanation": "hostとdbnameは別です。接続先サービスと、その中のDBを対応させます。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "3. 接続方法"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "DSNの項目を接続条件へ対応させる",
+      "conceptId": "ph2-week21-dsn",
+      "variantGroup": "ph2-week21-dsn",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "heading": "3. 接続方法",
+        "line": 19,
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "heading": "21週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-1/README.md：DSNの項目を接続条件へ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "どこへ接続し、どのDBを使うか分けましょう。",
+      "success": "DSNの項目を接続条件へ対応させる。条件に合う候補：接続先のデータベース名",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-descending-003",
+      "weekUnitId": "week-unit-week21",
+      "format": "singleChoice",
+      "prompt": "ORDER BY id DESCはどのような順ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "idの大きい順"
+          },
+          {
+            "id": "b",
+            "text": "idの小さい順"
+          },
+          {
+            "id": "c",
+            "text": "必ず学生名順"
+          },
+          {
+            "id": "d",
+            "text": "必ず元の登録順"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "小さい順はASCです。",
+          "c": "並べ替える列はidです。",
+          "d": "明示したキーの順になります。"
+        }
+      },
+      "explanation": "DESCは降順です。順序は期待する画面の並びと対応させます。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "降順を具体的な並びへ対応させる",
+      "conceptId": "ph2-week21-descending",
+      "variantGroup": "ph2-week21-descending",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week21-2/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "e5c1f85d6ee424db3b681ebfeef88a61bdc5a422f3796332f743fdf0a7781645"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-2/README.md",
+          "heading": "21週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "e5c1f85d6ee424db3b681ebfeef88a61bdc5a422f3796332f743fdf0a7781645"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-2/README.md：降順を具体的な並びへ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "大きい値を先に置く条件です。",
+      "success": "降順を具体的な並びへ対応させる。条件に合う候補：idの大きい順",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-db-host-004",
+      "weekUnitId": "week-unit-week21",
+      "format": "fillBlank",
+      "prompt": "PHPもDBも同じComposeネットワーク内です。DBサービス名はdbです。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "localhost"
+          },
+          {
+            "id": "c",
+            "text": "students"
+          },
+          {
+            "id": "d",
+            "text": "name"
+          },
+          {
+            "id": "a",
+            "text": "db"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "PHPコンテナ自身を指し、別のDBサービスではありません。",
+          "c": "テーブル名でホストではありません。",
+          "d": "検索する列名でホストではありません。"
+        },
+        "content": "mysql:host=___;dbname=ph2drill;charset=utf8mb4",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "同じCompose内の別サービスにはサービス名で接続します。この前提下のlocalhostとの違いを確認します。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "3. 接続方法"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "Compose内のDB接続先を選ぶ",
+      "conceptId": "ph2-week21-db-host",
+      "variantGroup": "ph2-week21-db-host",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "heading": "3. 接続方法",
+        "line": 19,
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "heading": "21週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-1/README.md：Compose内のDB接続先を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "PHPコンテナから見た接続先です。",
+      "success": "Compose内のDB接続先を選ぶ。条件に合う候補：db",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "mysql:host=___;dbname=ph2drill;charset=utf8mb4",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "text"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-query-005",
+      "weekUnitId": "week-unit-week21",
+      "format": "fillBlank",
+      "prompt": "$dbhは接続済みのPDOです。固定のSELECTを実行する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "bindValue"
+          },
+          {
+            "id": "d",
+            "text": "session_start"
+          },
+          {
+            "id": "a",
+            "text": "query"
+          },
+          {
+            "id": "b",
+            "text": "echo"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "PDOのSQL実行メソッドではありません。",
+          "c": "SQLを準備・実行するこの場面とは違います。",
+          "d": "セッションの開始とDB取得は別です。"
+        },
+        "content": "foreach ($dbh->___(\"SELECT name FROM students\") as $row) { echo $row[\"name\"]; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "queryで固定SQLを実行し、得た行から必要な列を読みます。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "4. データの取得"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "DBの取得方法を選ぶ",
+      "conceptId": "ph2-week21-query",
+      "variantGroup": "ph2-week21-query",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "heading": "4. データの取得",
+        "line": 46,
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "heading": "21週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-1/README.md：DBの取得方法を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "固定SQLを実行する操作です。",
+      "success": "DBの取得方法を選ぶ。条件に合う候補：query",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "foreach ($dbh->___(\"SELECT name FROM students\") as $row) { echo $row[\"name\"]; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-limit-006",
+      "weekUnitId": "week-unit-week21",
+      "format": "fillBlank",
+      "prompt": "id降順で上位2件だけ取得します。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "GROUP BY id"
+          },
+          {
+            "id": "a",
+            "text": "LIMIT 2"
+          },
+          {
+            "id": "b",
+            "text": "LIMIT 3"
+          },
+          {
+            "id": "c",
+            "text": "WHERE id = 2"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "3件まで取得します。",
+          "c": "件数ではなくidを限定します。",
+          "d": "取得件数を制限する句ではありません。"
+        },
+        "content": "SELECT * FROM students ORDER BY id DESC ___;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "並び順を決め、LIMITで取り出す件数を指定します。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "件数の要求をLIMITへ対応させる",
+      "conceptId": "ph2-week21-limit",
+      "variantGroup": "ph2-week21-limit",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week21-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "aadbce3718729d444c83d2a2885e68f03d7e928af368ad56494c734db0dea654"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-3/README.md",
+          "heading": "21週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "aadbce3718729d444c83d2a2885e68f03d7e928af368ad56494c734db0dea654"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-3/README.md：件数の要求をLIMITへ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "値が2の行と2件を区別しましょう。",
+      "success": "件数の要求をLIMITへ対応させる。条件に合う候補：LIMIT 2",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT * FROM students ORDER BY id DESC ___;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。SQLiteの隔離メモリDBで全候補のSQLロジックを補助確認（MySQL実行の確認ではない）。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-row-property-007",
+      "weekUnitId": "week-unit-week21",
+      "format": "fillBlank",
+      "prompt": "SELECT nameの結果を$rowへ受け取っています。学生名を出す空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "$row[\"name\"]"
+          },
+          {
+            "id": "b",
+            "text": "$row[\"description\"]"
+          },
+          {
+            "id": "c",
+            "text": "$dbh[\"name\"]"
+          },
+          {
+            "id": "d",
+            "text": "\"name\""
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "今回のSELECTには含まれません。",
+          "c": "接続先のオブジェクトと取得行は別です。",
+          "d": "列名の文字そのものを出します。"
+        },
+        "content": "foreach ($dbh->query(\"SELECT name FROM students\") as $row) { echo ___; }",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "SELECTした列が行のデータへ入ります。列名と参照するキーをそろえます。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "4. データの取得"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "SQLの列とPHPの行参照をつなぐ",
+      "conceptId": "ph2-week21-row-property",
+      "variantGroup": "ph2-week21-row-property",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "heading": "4. データの取得",
+        "line": 46,
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "heading": "21週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-1/README.md：SQLの列とPHPの行参照をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "取得した列だけを使います。",
+      "success": "SQLの列とPHPの行参照をつなぐ。条件に合う候補：$row[\"name\"]",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "foreach ($dbh->query(\"SELECT name FROM students\") as $row) { echo ___; }",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-connect-render-008",
+      "weekUnitId": "week-unit-week21",
+      "format": "singleChoice",
+      "prompt": "DBの学生名をHTMLに出す流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "HTMLへ空の行を追加するだけ"
+          },
+          {
+            "id": "c",
+            "text": "SELECT前に$rowを使う"
+          },
+          {
+            "id": "d",
+            "text": "CSSを変える → 接続せず完了"
+          },
+          {
+            "id": "a",
+            "text": "接続 → SELECT → 各行のnameを読む → HTMLへ出力"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "DBからデータを読んでいません。",
+          "c": "まだ取得した行がありません。",
+          "d": "DBのデータを取得していません。"
+        }
+      },
+      "explanation": "接続の結果をSQL実行へ、取得した行を出力へ渡します。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "4. データの取得"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "接続・取得・出力を順につなぐ",
+      "conceptId": "ph2-week21-connect-render",
+      "variantGroup": "ph2-week21-connect-render",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "heading": "4. データの取得",
+        "line": 46,
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "heading": "21週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-1/README.md：接続・取得・出力を順につなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "必要な値がどの段階で得られるか考えましょう。",
+      "success": "接続・取得・出力を順につなぐ。条件に合う候補：接続 → SELECT → 各行のnameを読む → HTMLへ出力",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-top-two-result-009",
+      "weekUnitId": "week-unit-week21",
+      "format": "singleChoice",
+      "prompt": "studentsのidは1・2・3・4です。ORDER BY id DESC LIMIT 2の結果のidは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "2だけ"
+          },
+          {
+            "id": "d",
+            "text": "4、3、2、1"
+          },
+          {
+            "id": "a",
+            "text": "4、3"
+          },
+          {
+            "id": "b",
+            "text": "1、2"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "昇順の先頭です。",
+          "c": "2は取得する件数です。",
+          "d": "LIMIT 2を反映していません。"
+        }
+      },
+      "explanation": "降順で並べた4・3・2・1の先頭2件です。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "並べ替えと取り出す件数を組み合わせる",
+      "conceptId": "ph2-week21-top-two-result",
+      "variantGroup": "ph2-week21-top-two-result",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week21-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "aadbce3718729d444c83d2a2885e68f03d7e928af368ad56494c734db0dea654"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-3/README.md",
+          "heading": "21週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "aadbce3718729d444c83d2a2885e68f03d7e928af368ad56494c734db0dea654"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-3/README.md：並べ替えと取り出す件数を組み合わせる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "並べ替えをしてから件数を考えましょう。",
+      "success": "並べ替えと取り出す件数を組み合わせる。条件に合う候補：4、3",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-wrong-db-010",
+      "weekUnitId": "week-unit-week21",
+      "format": "bugDiagnosis",
+      "prompt": "host=dbには接続できますが、Unknown database testdbと出ます。使うDBはph2drillです。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "hostをnameへ変える"
+          },
+          {
+            "id": "a",
+            "text": "dbnameをph2drillへ合わせる"
+          },
+          {
+            "id": "b",
+            "text": "studentsへ変える"
+          },
+          {
+            "id": "c",
+            "text": "CSSを読み直す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "studentsはこのDB内の表名です。",
+          "c": "接続設定は変わりません。",
+          "d": "DB名の不一致に別の問題を増やします。"
+        },
+        "code": "mysql:host=db;dbname=testdb;charset=utf8mb4"
+      },
+      "explanation": "エラーが指すDB名と、作ったDB名を照合します。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "3. 接続方法"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "接続エラーからDB名を修正する",
+      "conceptId": "ph2-week21-wrong-db",
+      "variantGroup": "ph2-week21-wrong-db",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "heading": "3. 接続方法",
+        "line": 19,
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "heading": "21週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-1/README.md：接続エラーからDB名を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "hostとdbnameを混同しないようにしましょう。",
+      "success": "接続エラーからDB名を修正する。条件に合う候補：dbnameをph2drillへ合わせる",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "mysql:host=db;dbname=testdb;charset=utf8mb4",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "text"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-wrong-order-011",
+      "weekUnitId": "week-unit-week21",
+      "format": "bugDiagnosis",
+      "prompt": "idの大きい順が要件ですが1から出ます。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "ASCをDESCへ変える"
+          },
+          {
+            "id": "b",
+            "text": "idをnameへ変える"
+          },
+          {
+            "id": "c",
+            "text": "LIMITを削除する"
+          },
+          {
+            "id": "d",
+            "text": "WHERE id=1を加える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "求めるキーが変わります。",
+          "c": "並び順の指定は変わりません。",
+          "d": "1件に絞るだけです。"
+        },
+        "code": "SELECT * FROM students ORDER BY id ASC;"
+      },
+      "explanation": "結果の先頭が期待と違うとき、並べ替えの向きを確認します。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "結果の順序から方向指定を修正する",
+      "conceptId": "ph2-week21-wrong-order",
+      "variantGroup": "ph2-week21-wrong-order",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week21-2/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "e5c1f85d6ee424db3b681ebfeef88a61bdc5a422f3796332f743fdf0a7781645"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-2/README.md",
+          "heading": "21週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "e5c1f85d6ee424db3b681ebfeef88a61bdc5a422f3796332f743fdf0a7781645"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-2/README.md：結果の順序から方向指定を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "列名と順方向を別々に見ましょう。",
+      "success": "結果の順序から方向指定を修正する。条件に合う候補：ASCをDESCへ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT * FROM students ORDER BY id ASC;",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-exception-012",
+      "weekUnitId": "week-unit-week21",
+      "format": "singleChoice",
+      "prompt": "Connection failedというPDO例外が出ました。適切な次の確認は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "失敗文を隠して必ず成功と表示"
+          },
+          {
+            "id": "c",
+            "text": "nameだけ全て変更"
+          },
+          {
+            "id": "d",
+            "text": "全テーブルを削除して試す"
+          },
+          {
+            "id": "a",
+            "text": "エラー文と、DBサービス・DSN・接続設定を照合する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "接続の原因が残ります。",
+          "c": "接続設定の調査ではありません。",
+          "d": "エラーから原因を絞っていません。"
+        }
+      },
+      "explanation": "接続できていない段階では、取得や表示より先に接続条件を確かめます。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "3. 接続方法"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "例外から接続の前提を調べる",
+      "conceptId": "ph2-week21-exception",
+      "variantGroup": "ph2-week21-exception",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "heading": "3. 接続方法",
+        "line": 19,
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "heading": "21週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 21",
+          "line": 385,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week21-1/README.md：例外から接続の前提を調べる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "処理が止まった段階を特定しましょう。",
+      "success": "例外から接続の前提を調べる。条件に合う候補：エラー文と、DBサービス・DSN・接続設定を照合する",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

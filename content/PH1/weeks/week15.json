@@ -1,0 +1,851 @@
+[
+  {
+    "question": {
+      "id": "question-week15-state-001",
+      "weekUnitId": "week-unit-week15",
+      "format": "singleChoice",
+      "prompt": "この教材のstateは、どんな値を持つ仕組みですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "操作で変わる値をReactが保持し、UIへ反映するための状態"
+          },
+          {
+            "id": "b",
+            "text": "必ず一度しか使えない変数"
+          },
+          {
+            "id": "c",
+            "text": "HTMLのidと同じ名前の属性"
+          },
+          {
+            "id": "d",
+            "text": "画面のすべての固定文字を保存する必要がある箱"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "stateは更新し、再描画でも値を引き継ぐための仕組みです。",
+          "c": "stateはコンポーネントの状態であり、DOMのidそのものではありません。",
+          "d": "固定文字まで、すべてをstateにする必要はありません。"
+        }
+      },
+      "explanation": "useStateは現在の値と更新関数を返します。更新をReactへ知らせることで、新しい状態を使ったUIの表示へ進めます。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "ボタンを通すと、ボードが変わる"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "stateをReactが保持・反映する変化する値として説明する",
+      "conceptId": "ph1-week15-state",
+      "variantGroup": "ph1-week15-state",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "ボタンを通すと、ボードが変わる",
+        "line": 81,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-1/README.md：stateをReactが保持・反映する変化する値として説明する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "変わる値と、固定の文字を分けましょう。",
+      "success": "stateをReactが保持・反映する変化する値として説明する。条件に合う候補：操作で変わる値をReactが保持し、UIへ反映するための状態",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-setter-002",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "useStateが返す「値を更新する関数」は、空欄のどれですか？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "count"
+          },
+          {
+            "id": "c",
+            "text": "0"
+          },
+          {
+            "id": "d",
+            "text": "useState(0)"
+          },
+          {
+            "id": "a",
+            "text": "setCount"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "countは現在の値です。更新関数ではありません。",
+          "c": "0は初期値です。呼び出す関数ではありません。",
+          "d": "stateを用意する呼び出しであり、受け取った更新関数の名前はsetCountです。"
+        },
+        "content": "const [count, setCount] = useState(0);\n// 更新関数: ___",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "[count, setCount]のcountは読む値、setCountは更新を依頼する関数です。値へ直接代入する書き方とは違います。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "ボタンを通すと、ボードが変わる"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "現在値と更新関数の役割を区別する",
+      "conceptId": "ph1-week15-setter",
+      "variantGroup": "ph1-week15-setter",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "ボタンを通すと、ボードが変わる",
+        "line": 81,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-1/README.md：現在値と更新関数の役割を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "セットで返る2つの、読む側と更新する側を区別しましょう。",
+      "success": "現在値と更新関数の役割を区別する。条件に合う候補：setCount",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const [count, setCount] = useState(0);\n// 更新関数: ___",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-effect-003",
+      "weekUnitId": "week-unit-week15",
+      "format": "singleChoice",
+      "prompt": "useEffectは、この教材ではどんな処理に使いますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "配列の最初の値を必ず取り出す処理"
+          },
+          {
+            "id": "d",
+            "text": "クリックのたびにstateへ直接代入する処理"
+          },
+          {
+            "id": "a",
+            "text": "Reactの表示更新に合わせ、document.titleなど外側の状態を同期する処理"
+          },
+          {
+            "id": "b",
+            "text": "JSXのタグを閉じるための記号"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "JSXの構文ではなく、外側との同期などの処理を登録します。",
+          "c": "要素の取得は配列の参照であり、useEffectの意味とは違います。",
+          "d": "stateは更新関数を通し、useEffectとも役割が違います。"
+        }
+      },
+      "explanation": "教材ではcountが変わったときのdocument.title更新や、tasksの保存にuseEffectを使います。依存する値を指定し、表示更新に合わせて同期します。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "描いたあとに、ひと仕事してほしい"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "useEffectを外側との同期処理として説明する",
+      "conceptId": "ph1-week15-effect",
+      "variantGroup": "ph1-week15-effect",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "描いたあとに、ひと仕事してほしい",
+        "line": 351,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-1/README.md：useEffectを外側との同期処理として説明する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "ReactのUIの外にも、合わせたい状態があります。",
+      "success": "useEffectを外側との同期処理として説明する。条件に合う候補：Reactの表示更新に合わせ、document.titleなど外側の状態を同期する処理",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-derived-value-004",
+      "weekUnitId": "week-unit-week15",
+      "format": "singleChoice",
+      "prompt": "tasksがstateです。件数も画面に出したい場合、教材の方針に合う方法は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "件数表示のためにDOMを毎回直接探して書き換える"
+          },
+          {
+            "id": "a",
+            "text": "描画時にtasks.lengthから求め、件数だけのstateは増やさない"
+          },
+          {
+            "id": "b",
+            "text": "件数を初期値だけで固定する"
+          },
+          {
+            "id": "c",
+            "text": "件数のためにtasksの中身を消す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "追加・削除後の件数を反映できません。",
+          "c": "表示したいデータを消してしまいます。",
+          "d": "このReactの表示では、stateからJSXへ値を渡す考え方を使います。"
+        }
+      },
+      "explanation": "既存のstateから計算できる値は、その都度求められます。件数を別管理しないことで、tasksとのずれを減らせます。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "何をstateにして、何をしないか"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "必要なstateと既存stateから導ける値を区別する",
+      "conceptId": "ph1-week15-derived-value",
+      "variantGroup": "ph1-week15-derived-value",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "何をstateにして、何をしないか",
+        "line": 146,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-1/README.md：必要なstateと既存stateから導ける値を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "件数は、今あるstateから計算できるでしょうか。",
+      "success": "必要なstateと既存stateから導ける値を区別する。条件に合う候補：描画時にtasks.lengthから求め、件数だけのstateは増やさない",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-filter-visible-005",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "tasks自体は消さず、未完了だけの表示用配列を作ります。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "!task.done"
+          },
+          {
+            "id": "b",
+            "text": "task.done"
+          },
+          {
+            "id": "c",
+            "text": "task.id"
+          },
+          {
+            "id": "d",
+            "text": "false"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "完了済みだけを残す条件で、未完了ではありません。",
+          "c": "IDの存在を調べる条件で、完了状態ではありません。",
+          "d": "すべての要素を除外してしまいます。"
+        },
+        "content": "const visibleTasks = tasks.filter((task) => ___);",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "filterは条件がtrueの要素を新しい配列へ残します。doneがfalseのタスクを表示するには!task.doneを使い、元のtasksを維持します。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "数・文字・ON/OFF・リストをstateで持つ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "元データを保ったまま表示用の絞り込みを選ぶ",
+      "conceptId": "ph1-week15-filter-visible",
+      "variantGroup": "ph1-week15-filter-visible",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "数・文字・ON/OFF・リストをstateで持つ",
+        "line": 168,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-1/README.md：元データを保ったまま表示用の絞り込みを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "未完了のときにtrueになる条件を選びましょう。",
+      "success": "元データを保ったまま表示用の絞り込みを選ぶ。条件に合う候補：!task.done",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const visibleTasks = tasks.filter((task) => ___);",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-input-change-006",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "入力された文字をinputのstateへ反映する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "setInput(\"event.target.value\")"
+          },
+          {
+            "id": "c",
+            "text": "setInput(event.target.checked)"
+          },
+          {
+            "id": "d",
+            "text": "input = event.target.value"
+          },
+          {
+            "id": "a",
+            "text": "setInput(event.target.value)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "入力値ではなく、event.target.valueという文字を固定で入れます。",
+          "c": "このテキスト入力で使うのはvalueです。checkedはチェック状態です。",
+          "d": "stateの更新はsetInputを通します。値への直接代入はしません。"
+        },
+        "content": "<input value={input} onChange={(event) => ___} />",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "onChangeでその時点の入力文字を読み、setInputへ渡します。value={input}と組み合わせると、入力欄とstateをつなげられます。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "クリック・入力・送信を受け取る"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "テキスト入力をstate更新につなぐ",
+      "conceptId": "ph1-week15-input-change",
+      "variantGroup": "ph1-week15-input-change",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "クリック・入力・送信を受け取る",
+        "line": 320,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-1/README.md：テキスト入力をstate更新につなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "入力された値を読む操作と、stateを更新する操作の2つが必要です。",
+      "success": "テキスト入力をstate更新につなぐ。条件に合う候補：setInput(event.target.value)",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "<input value={input} onChange={(event) => ___} />",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-immutable-add-007",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "tasksには既存のタスクが2件あり、newTaskは作成済みでIDも重複しません。今のtasksを直接変えず、既存の2件に1件追加する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "setTasks(tasks.push(newTask))"
+          },
+          {
+            "id": "d",
+            "text": "setTasks([newTask])"
+          },
+          {
+            "id": "a",
+            "text": "setTasks([...tasks, newTask])"
+          },
+          {
+            "id": "b",
+            "text": "tasks.push(newTask)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "元のstate配列を直接変更し、更新関数も通していません。",
+          "c": "pushの戻り値は配列ではなく、新しい件数です。",
+          "d": "既存のタスクを残さず、新しい1件だけに置き換えています。"
+        },
+        "content": "const newTask = { id: 3, text: \"復習\", done: false };\n___;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "既存の要素をスプレッドで新しい配列へ展開し、新しい要素を足して更新関数へ渡します。素のJSのpushとの違いが、Reactへ進むときの重要な切り替えです。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "stateは、上書きせずに作り直す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "既存データ・新要素・新配列・更新関数をつなぐ",
+      "conceptId": "ph1-week15-immutable-add",
+      "variantGroup": "ph1-week15-immutable-add",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "stateは、上書きせずに作り直す",
+        "line": 224,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-2/README.md：既存データ・新要素・新配列・更新関数をつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "既存の中身を残した新しい入れ物を作りましょう。",
+      "success": "既存データ・新要素・新配列・更新関数をつなぐ。条件に合う候補：setTasks([...tasks, newTask])",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const newTask = { id: 3, text: \"復習\", done: false };\n___;",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-immutable-delete-008",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "targetIdのタスクだけを除き、新しい配列で更新する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "false"
+          },
+          {
+            "id": "a",
+            "text": "task.id !== targetId"
+          },
+          {
+            "id": "b",
+            "text": "task.id === targetId"
+          },
+          {
+            "id": "c",
+            "text": "task.done"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "削除対象だけを残してしまいます。",
+          "c": "完了状態で絞っており、削除するIDを見ていません。",
+          "d": "指定の1件ではなく、全タスクを削除します。"
+        },
+        "content": "setTasks(tasks.filter((task) => ___));",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "filterは残す条件を書くため、削除対象とはIDが違うものを残します。作った新配列をsetTasksへ渡して表示も更新します。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "stateは、上書きせずに作り直す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "対象ID・filter・state更新を組み合わせる",
+      "conceptId": "ph1-week15-immutable-delete",
+      "variantGroup": "ph1-week15-immutable-delete",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "stateは、上書きせずに作り直す",
+        "line": 224,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-3/README.md：対象ID・filter・state更新を組み合わせる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "消す条件ではなく、残す条件を考えましょう。",
+      "success": "対象ID・filter・state更新を組み合わせる。条件に合う候補：task.id !== targetId",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "setTasks(tasks.filter((task) => ___));",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-child-event-009",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "TaskItemが親からonToggle関数を受け取っています。文字をクリックした時だけtask.idを渡す空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "() => onToggle(task.id)"
+          },
+          {
+            "id": "b",
+            "text": "onToggle(task.id)"
+          },
+          {
+            "id": "c",
+            "text": "() => onToggle"
+          },
+          {
+            "id": "d",
+            "text": "() => onToggle(task.text)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "表示を作る時点で呼び出してしまい、クリック時の関数を渡していません。",
+          "c": "関数を参照するだけで、IDを渡して呼び出していません。",
+          "d": "渡す条件はtask.idです。文字が同じタスクもあり得ます。"
+        },
+        "content": "function TaskItem({ task, onToggle }) {\n  return <span onClick={___}>{task.text}</span>;\n}",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "親の関数をpropsで受け取り、クリック用の関数の中で呼び出します。stateは親に置いたまま、子からどのタスクが操作されたかをIDで伝えます。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "クリック・入力・送信を受け取る"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "子のクリック・ID・親の更新関数をつなぐ",
+      "conceptId": "ph1-week15-child-event",
+      "variantGroup": "ph1-week15-child-event",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "クリック・入力・送信を受け取る",
+        "line": 320,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-3/README.md：子のクリック・ID・親の更新関数をつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "いま呼ぶのか、クリックされた時に呼ぶ関数を渡すのかを区別しましょう。",
+      "success": "子のクリック・ID・親の更新関数をつなぐ。条件に合う候補：() => onToggle(task.id)",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "function TaskItem({ task, onToggle }) {\n  return <span onClick={___}>{task.text}</span>;\n}",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-push-bug-010",
+      "weekUnitId": "week-unit-week15",
+      "format": "bugDiagnosis",
+      "prompt": "他のstate更新はありません。追加ボタンがこの処理だけを呼ぶと、一覧が更新されません。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "pushの後にsetTasks(tasks)で同じ配列を渡す"
+          },
+          {
+            "id": "c",
+            "text": "pushを2回呼ぶ"
+          },
+          {
+            "id": "d",
+            "text": "ボタンの文字を変える"
+          },
+          {
+            "id": "a",
+            "text": "setTasks([...tasks, newTask])で新しい配列を渡す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "直接変更した同じ参照を渡す方法ではなく、新しい配列を作る必要があります。",
+          "c": "元の配列を直接変更する問題は残り、追加数まで変わります。",
+          "d": "state更新の不具合を直していません。"
+        },
+        "code": "const addTask = () => {\n  tasks.push(newTask);\n};"
+      },
+      "explanation": "直接pushするだけではReactへ更新を依頼していません。同じ配列をsetTasksへ渡し直すのでもなく、元を変更せず新配列を渡します。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "stateは、上書きせずに作り直す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "素の配列操作からReactの不変な更新へ修正する",
+      "conceptId": "ph1-week15-push-bug",
+      "variantGroup": "ph1-week15-push-bug",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "stateは、上書きせずに作り直す",
+        "line": 224,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-2/README.md：素の配列操作からReactの不変な更新へ修正する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "更新関数を通すことと、新しい参照を渡すことの両方を確認しましょう。",
+      "success": "素の配列操作からReactの不変な更新へ修正する。条件に合う候補：setTasks([...tasks, newTask])で新しい配列を渡す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const addTask = () => {\n  tasks.push(newTask);\n};",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-effect-dependency-011",
+      "weekUnitId": "week-unit-week15",
+      "format": "bugDiagnosis",
+      "prompt": "発展：初回の表示では保存されますが、追加後のtasksが保存されません。依存配列の修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "JSON.stringifyを消す"
+          },
+          {
+            "id": "d",
+            "text": "保存するキーを毎回別の名前にする"
+          },
+          {
+            "id": "a",
+            "text": "[]を[tasks]にする"
+          },
+          {
+            "id": "b",
+            "text": "依存配列を[count]にする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "この処理が使うtasksの変更と結びついていません。",
+          "c": "localStorageは文字列を保存するため、配列をそのまま保存する方法にはしません。",
+          "d": "tasksが変わったときに同期する条件を直していません。"
+        },
+        "code": "useEffect(() => {\n  localStorage.setItem(\"tasks\", JSON.stringify(tasks));\n}, []);"
+      },
+      "explanation": "この処理が参照するtasksを依存配列に指定します。初回の同期に加え、tasksの参照が変わった更新後にも保存します。開発時のStrictModeによる追加実行は別に扱います。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "リロードしても消えないタスク（発展）"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "保存漏れをuseEffectの依存配列に結びつける",
+      "conceptId": "ph1-week15-effect-dependency",
+      "variantGroup": "ph1-week15-effect-dependency",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "リロードしても消えないタスク（発展）",
+        "line": 405,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-1/README.md：保存漏れをuseEffectの依存配列に結びつける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。 Week15の発展節「リロードしても消えないタスク」を読んだ後の問題。",
+      "hint": "保存対象が変わったことを、依存配列へ伝えているか見ましょう。",
+      "success": "保存漏れをuseEffectの依存配列に結びつける。条件に合う候補：[]を[tasks]にする",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "useEffect(() => {\n  localStorage.setItem(\"tasks\", JSON.stringify(tasks));\n}, []);",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-controlled-input-012",
+      "weekUnitId": "week-unit-week15",
+      "format": "bugDiagnosis",
+      "prompt": "追加後にsetInput(\"\")を呼んでいますが、入力欄の文字だけ残ります。stateと入力欄をつなぐ修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "placeholder={input}だけ足す"
+          },
+          {
+            "id": "a",
+            "text": "input要素にvalue={input}を足す"
+          },
+          {
+            "id": "b",
+            "text": "onChangeを削除する"
+          },
+          {
+            "id": "c",
+            "text": "setInput(\" \")へ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "入力のstate更新までなくし、入力欄とstateをつなげられません。",
+          "c": "空白をstateへ入れても、入力欄とのつながりの不足は直りません。",
+          "d": "placeholderは案内であり、入力欄の現在値を制御するvalueではありません。"
+        },
+        "code": "const [input, setInput] = useState(\"\");\n// JSX\n<input onChange={(event) => setInput(event.target.value)} />"
+      },
+      "explanation": "onChangeだけでは入力欄の表示をstateで制御していません。value={input}も指定すると、setInput(\"\")による変更が入力欄にも反映されます。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "数・文字・ON/OFF・リストをstateで持つ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "入力欄の表示とstateのずれをvalue指定で修正する",
+      "conceptId": "ph1-week15-controlled-input",
+      "variantGroup": "ph1-week15-controlled-input",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "heading": "数・文字・ON/OFF・リストをstateで持つ",
+        "line": 168,
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "drillConnection": "drill-ph1/week15-3/README.md：入力欄の表示とstateのずれをvalue指定で修正する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "入力欄からstateへと、stateから入力欄への2方向を確認しましょう。",
+      "success": "入力欄の表示とstateのずれをvalue指定で修正する。条件に合う候補：input要素にvalue={input}を足す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "const [input, setInput] = useState(\"\");\n// JSX\n<input onChange={(event) => setInput(event.target.value)} />",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

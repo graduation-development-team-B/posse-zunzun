@@ -1,0 +1,830 @@
+[
+  {
+    "question": {
+      "id": "question-week13-node-001",
+      "weekUnitId": "week-unit-week13",
+      "format": "singleChoice",
+      "prompt": "Node.jsは、この開発環境で何をするものですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "Tailwindで背景色を指定するクラス"
+          },
+          {
+            "id": "d",
+            "text": "画面を表示するReactコンポーネント"
+          },
+          {
+            "id": "a",
+            "text": "ブラウザの外でJavaScriptを実行する環境"
+          },
+          {
+            "id": "b",
+            "text": "ブラウザのHTMLのボタン要素"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "実行環境と、画面のDOM要素は別です。",
+          "c": "Node.jsはCSSのクラスではありません。",
+          "d": "Node.jsはUI部品ではなく、開発ツールなどを動かす環境です。"
+        }
+      },
+      "explanation": "Node.jsでJavaScriptをブラウザの外でも動かせるため、Viteなどの開発ツールをターミナルから使えます。ブラウザのDOMがそのまま用意されるわけではありません。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "ブラウザの外でJavaScriptを動かす"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "Node.jsとブラウザの役割を区別する",
+      "conceptId": "ph1-week13-node",
+      "variantGroup": "ph1-week13-node",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "ブラウザの外でJavaScriptを動かす",
+        "line": 59,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-1/README.md：Node.jsとブラウザの役割を区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "コードを動かす場所が、ブラウザかターミナルかを見ましょう。",
+      "success": "Node.jsとブラウザの役割を区別する。条件に合う候補：ブラウザの外でJavaScriptを実行する環境",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-scripts-002",
+      "weekUnitId": "week-unit-week13",
+      "format": "singleChoice",
+      "prompt": "package.jsonのscriptsは、どんな情報の登録表ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "すべての依存ライブラリの実体ファイル"
+          },
+          {
+            "id": "a",
+            "text": "pnpm runの名前と、その名前で実行するコマンド"
+          },
+          {
+            "id": "b",
+            "text": "HTMLの見出しの一覧"
+          },
+          {
+            "id": "c",
+            "text": "APIから受け取った投稿の配列"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "画面の構造ではなく、開発用コマンドなどを登録します。",
+          "c": "アプリの取得データではなく、プロジェクトの設定です。",
+          "d": "道具の実体はnode_modulesに入り、scriptsはコマンドの登録です。"
+        }
+      },
+      "explanation": "scriptsのdevにviteがある場合、pnpm run devでそのコマンドを呼び出します。コードの処理やデータとは違う、開発環境の設定です。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "設定書（package.json）を読む"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "scriptsをコマンドの登録として読み取る",
+      "conceptId": "ph1-week13-scripts",
+      "variantGroup": "ph1-week13-scripts",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "設定書（package.json）を読む",
+        "line": 243,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-1/README.md：scriptsをコマンドの登録として読み取る。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "短いコマンド名が、何を呼び出すかを調べる場所です。",
+      "success": "scriptsをコマンドの登録として読み取る。条件に合う候補：pnpm runの名前と、その名前で実行するコマンド",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-build-003",
+      "weekUnitId": "week-unit-week13",
+      "format": "singleChoice",
+      "prompt": "Viteの「ビルド」は、この教材では何をする作業ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "書いたコードを、本番に置くためのファイルへまとめる"
+          },
+          {
+            "id": "b",
+            "text": "入力フォームへ1人分のデータを追加する"
+          },
+          {
+            "id": "c",
+            "text": "開発中のターミナルを閉じるだけ"
+          },
+          {
+            "id": "d",
+            "text": "ブラウザの文字をその場で変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "アプリの入力操作ではなく、公開用の生成です。",
+          "c": "本番用ファイルを生成していません。",
+          "d": "その場のDOM操作と、公開用の生成は別です。"
+        }
+      },
+      "explanation": "pnpm run buildで本番用のファイルを作り、通常はdistへ出力します。開発サーバーを起動する作業や、画面操作とは分けます。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "本番用に固めて公開する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "ビルドを本番用の成果物を作る工程として説明する",
+      "conceptId": "ph1-week13-build",
+      "variantGroup": "ph1-week13-build",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "本番用に固めて公開する",
+        "line": 311,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-3/README.md：ビルドを本番用の成果物を作る工程として説明する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "開発中の作業場と、公開する完成物を分けましょう。",
+      "success": "ビルドを本番用の成果物を作る工程として説明する。条件に合う候補：書いたコードを、本番に置くためのファイルへまとめる",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-dev-command-004",
+      "weekUnitId": "week-unit-week13",
+      "format": "fillBlank",
+      "prompt": "scriptsが下の設定です。開発サーバーを起動するコマンドの空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "pnpm run build"
+          },
+          {
+            "id": "c",
+            "text": "pnpm run preview"
+          },
+          {
+            "id": "d",
+            "text": "node -v"
+          },
+          {
+            "id": "a",
+            "text": "pnpm run dev"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "本番用ファイルの生成で、開発サーバーの起動ではありません。",
+          "c": "ビルド済みの結果を確認するもので、開発用とは役割が違います。",
+          "d": "Node.jsのバージョン表示で、開発サーバーは起動しません。"
+        },
+        "content": "// package.jsonのscripts\n// { \"dev\": \"vite\", \"build\": \"vite build\", \"preview\": \"vite preview\" }\n// ターミナルで実行するコマンド: ___",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "scriptsのdevを呼ぶpnpm run devを選びます。手順の暗記だけでなく、設定にあるコマンド名と目的を対応させます。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "設定書（package.json）を読む"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "設定のdevと起動コマンドを対応させる",
+      "conceptId": "ph1-week13-dev-command",
+      "variantGroup": "ph1-week13-dev-command",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "設定書（package.json）を読む",
+        "line": 243,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-1/README.md：設定のdevと起動コマンドを対応させる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "開発中に使う名前は、scriptsのどの欄でしょうか。",
+      "success": "設定のdevと起動コマンドを対応させる。条件に合う候補：pnpm run dev",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "// package.jsonのscripts\n// { \"dev\": \"vite\", \"build\": \"vite build\", \"preview\": \"vite preview\" }\n// ターミナルで実行するコマンド: ___",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-install-005",
+      "weekUnitId": "week-unit-week13",
+      "format": "singleChoice",
+      "prompt": "Viteの雛形を作り、プロジェクトのフォルダへ移動しました。まだ道具を入れていません。依存をそろえるコマンドは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "pnpm run build"
+          },
+          {
+            "id": "d",
+            "text": "node -v"
+          },
+          {
+            "id": "a",
+            "text": "pnpm install"
+          },
+          {
+            "id": "b",
+            "text": "pnpm run dev"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "依存が用意されていない段階では、必要な開発ツールを使えないことがあります。",
+          "c": "ビルドも道具が必要であり、まず依存を用意します。",
+          "d": "実行環境のバージョン確認で、依存のインストールではありません。"
+        }
+      },
+      "explanation": "pnpm installでpackage.jsonなどに基づく依存をそろえます。プロジェクト作成・フォルダ移動・依存の準備・起動を分けます。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "作業場を立ち上げる"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "環境準備の状態から依存のインストールを選ぶ",
+      "conceptId": "ph1-week13-install",
+      "variantGroup": "ph1-week13-install",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "作業場を立ち上げる",
+        "line": 133,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-1/README.md：環境準備の状態から依存のインストールを選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "いま不足しているのは、雛形ではなく道具の実体です。",
+      "success": "環境準備の状態から依存のインストールを選ぶ。条件に合う候補：pnpm install",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-local-url-006",
+      "weekUnitId": "week-unit-week13",
+      "format": "singleChoice",
+      "prompt": "pnpm run devが起動し、Local: http://localhost:5173/と出ています。教材のViteアプリの確認先は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "node_modulesの中のファイルを任意に開く"
+          },
+          {
+            "id": "a",
+            "text": "表示されたLocalのURLをブラウザで開く"
+          },
+          {
+            "id": "b",
+            "text": "src/main.jsをブラウザのアドレス欄へ直接貼る"
+          },
+          {
+            "id": "c",
+            "text": "index.htmlをファイルとしてダブルクリックする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "開発サーバーが処理する入口から開いていません。",
+          "c": "このVite環境では、サーバー経由のモジュール処理を使って確認します。",
+          "d": "依存の実体は、アプリの確認ページではありません。"
+        }
+      },
+      "explanation": "起動ログのLocalのURLから、動いている開発サーバーへアクセスします。ポートが別の番号なら、その実際に表示されたURLを使います。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "作業場を立ち上げる"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "起動ログから実際のアプリの確認先を選ぶ",
+      "conceptId": "ph1-week13-local-url",
+      "variantGroup": "ph1-week13-local-url",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "作業場を立ち上げる",
+        "line": 133,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-1/README.md：起動ログから実際のアプリの確認先を選ぶ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "いつも同じ番号を暗記するより、今の起動ログを見ましょう。",
+      "success": "起動ログから実際のアプリの確認先を選ぶ。条件に合う候補：表示されたLocalのURLをブラウザで開く",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-setup-flow-007",
+      "weekUnitId": "week-unit-week13",
+      "format": "singleChoice",
+      "prompt": "my-appの雛形ができました。道具をそろえ、開発サーバーを動かす順序は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "cd my-app → pnpm install → pnpm run dev"
+          },
+          {
+            "id": "b",
+            "text": "pnpm run dev → cd my-app → pnpm install"
+          },
+          {
+            "id": "c",
+            "text": "cd my-app → node -v → 終了する"
+          },
+          {
+            "id": "d",
+            "text": "pnpm install → フォルダを作らずに終了する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "対象フォルダへ入り、依存を用意する前に起動しています。",
+          "c": "バージョン確認だけで、依存の準備と起動を行っていません。",
+          "d": "どのプロジェクトを対象にするかと、サーバー起動がそろっていません。"
+        }
+      },
+      "explanation": "コマンドは対象フォルダで実行します。cdで移動し、installで依存を用意してからdevで起動します。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "作業場を立ち上げる"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "作業場所・依存の準備・起動を順序立てる",
+      "conceptId": "ph1-week13-setup-flow",
+      "variantGroup": "ph1-week13-setup-flow",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "作業場を立ち上げる",
+        "line": 133,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-1/README.md：作業場所・依存の準備・起動を順序立てる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "「どこで実行するか」を、コマンドの目的とセットで見ましょう。",
+      "success": "作業場所・依存の準備・起動を順序立てる。条件に合う候補：cd my-app → pnpm install → pnpm run dev",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-css-import-008",
+      "weekUnitId": "week-unit-week13",
+      "format": "fillBlank",
+      "prompt": "src/main.jsとsrc/style.cssが同じフォルダにあります。CSSを読み込む空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "import \"./styles.css\""
+          },
+          {
+            "id": "c",
+            "text": "import \"./components/style.css\""
+          },
+          {
+            "id": "d",
+            "text": "import \"./main.js\""
+          },
+          {
+            "id": "a",
+            "text": "import \"./style.css\""
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "実在するstyle.cssとファイル名が違います。",
+          "c": "指定した配置では、componentsの下にはありません。",
+          "d": "自分のJSを指しており、CSSを読み込めません。"
+        },
+        "content": "// src/main.js\n___;\ndocument.querySelector(\"#app\").innerHTML = \"<h1>カード</h1>\";",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "同じフォルダのCSSを相対パス./style.cssで読み込みます。HTMLを組む処理と、その見た目を定義するファイルをつなぎます。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "main.jsを書き換えて、カウンターにする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "CSSの配置とJSのimportを対応させる",
+      "conceptId": "ph1-week13-css-import",
+      "variantGroup": "ph1-week13-css-import",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "main.jsを書き換えて、カウンターにする",
+        "line": 280,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-3/README.md：CSSの配置とJSのimportを対応させる。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "ファイル名と、main.jsから見た位置の両方を確かめましょう。",
+      "success": "CSSの配置とJSのimportを対応させる。条件に合う候補：import \"./style.css\"",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "// src/main.js\n___;\ndocument.querySelector(\"#app\").innerHTML = \"<h1>カード</h1>\";",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-module-entry-009",
+      "weekUnitId": "week-unit-week13",
+      "format": "fillBlank",
+      "prompt": "Viteの入口HTMLからsrc/main.jsをモジュールとして読み込みます。空欄のtypeは？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "text/css"
+          },
+          {
+            "id": "d",
+            "text": "button"
+          },
+          {
+            "id": "a",
+            "text": "module"
+          },
+          {
+            "id": "b",
+            "text": "submit"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "フォーム送信の種別ではなく、scriptの実行形式を指定します。",
+          "c": "これはCSSの種類で、JavaScriptのモジュール指定ではありません。",
+          "d": "ボタンの種別で、scriptのtypeではありません。"
+        },
+        "content": "<div id=\"app\"></div>\n<script type=\"___\" src=\"/src/main.js\"></script>",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "教材の入口はtype=\"module\"のscriptからmain.jsを読み込みます。main.js内のimportを含む構成を、Viteのサーバー経由でつなぎます。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "作業場の中には何が入っているか"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "入口HTML・モジュール読込み・main.jsをつなぐ",
+      "conceptId": "ph1-week13-module-entry",
+      "variantGroup": "ph1-week13-module-entry",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "作業場の中には何が入っているか",
+        "line": 216,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-1/README.md：入口HTML・モジュール読込み・main.jsをつなぐ。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "HTMLの入口と、importを使うJSの関係です。",
+      "success": "入口HTML・モジュール読込み・main.jsをつなぐ。条件に合う候補：module",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "<div id=\"app\"></div>\n<script type=\"___\" src=\"/src/main.js\"></script>",
+      "editableRange": "___の1箇所のみ",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-import-path-010",
+      "weekUnitId": "week-unit-week13",
+      "format": "bugDiagnosis",
+      "prompt": "srcにはstyle.cssだけがあります。Failed to resolve import \"./styles.css\"が出ました。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "styles.cssという文字をイベント名へ使う"
+          },
+          {
+            "id": "a",
+            "text": "importのファイル名を\"./style.css\"へ合わせる"
+          },
+          {
+            "id": "b",
+            "text": "CSSの文字色だけ変える"
+          },
+          {
+            "id": "c",
+            "text": "main.jsを空にする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ファイルを読み込めない問題なので、中の色を変えても解決しません。",
+          "c": "必要な処理を消すだけで、読み込みの対応を直していません。",
+          "d": "importのパスの不一致は解消しません。"
+        },
+        "code": "// src/main.js\nimport \"./styles.css\";"
+      },
+      "explanation": "エラー文は、main.jsが探しているCSSのパスを示しています。実際の配置と照合し、1文字違うstyles.cssをstyle.cssへ修正します。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "main.jsを書き換えて、カウンターにする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "importのエラーから実ファイルとの名前の不一致を見つける",
+      "conceptId": "ph1-week13-import-path",
+      "variantGroup": "ph1-week13-import-path",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "main.jsを書き換えて、カウンターにする",
+        "line": 280,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-2/README.md：importのエラーから実ファイルとの名前の不一致を見つける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "エラーに出ているパスと、実在するファイル名を比べましょう。",
+      "success": "importのエラーから実ファイルとの名前の不一致を見つける。条件に合う候補：importのファイル名を\"./style.css\"へ合わせる",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "コードを読んで診断の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "// src/main.js\nimport \"./styles.css\";",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-pages-base-011",
+      "weekUnitId": "week-unit-week13",
+      "format": "singleChoice",
+      "prompt": "GitHub Pagesの/app/配下へ公開したのに、/assets/...を探して404になります。教材で示す、相対パスでビルドする設定は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "vite.config.jsでbase: \"./\"を指定してビルドし直す"
+          },
+          {
+            "id": "b",
+            "text": "base: \"/\"を指定する"
+          },
+          {
+            "id": "c",
+            "text": "base: \"/assets/\"を指定する"
+          },
+          {
+            "id": "d",
+            "text": "CSSの背景色だけを変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ルートからのパスのままで、/app/配下の配置に対応していません。",
+          "c": "今回の公開先/app/との対応を作る設定ではありません。",
+          "d": "読み込み先のURLが404になる原因は直りません。"
+        }
+      },
+      "explanation": "教材ではbase: \"./\"で読み込み先を相対パスにし、再ビルドします。別の有効なbase設定もありますが、ここでは提示された配置と教材の方法を確認します。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "本番用に固めて公開する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "公開先とアセットURLのずれをbase設定に結びつける",
+      "conceptId": "ph1-week13-pages-base",
+      "variantGroup": "ph1-week13-pages-base",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "本番用に固めて公開する",
+        "line": 311,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-3/README.md：公開先とアセットURLのずれをbase設定に結びつける。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "公開先の階層と、assetsを探している階層を比べましょう。",
+      "success": "公開先とアセットURLのずれをbase設定に結びつける。条件に合う候補：vite.config.jsでbase: \"./\"を指定してビルドし直す",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-node-modules-012",
+      "weekUnitId": "week-unit-week13",
+      "format": "trueFalse",
+      "prompt": "環境を他の人が再現できるようにするには、node_modulesの中身をすべてGitへコミットする必要がある。",
+      "payload": {
+        "kind": "trueFalse",
+        "options": [
+          {
+            "id": "true",
+            "text": "正しい"
+          },
+          {
+            "id": "false",
+            "text": "誤り"
+          }
+        ],
+        "correctOptionId": "false",
+        "incorrectReasons": {
+          "true": "依存の実体はpackage.jsonとpnpm-lock.yamlなどからpnpm installで再現します。教材ではnode_modulesをGitの対象から除外し、設定とロックファイルを記録します。"
+        }
+      },
+      "explanation": "依存の実体はpackage.jsonとpnpm-lock.yamlなどからpnpm installで再現します。教材ではnode_modulesをGitの対象から除外し、設定とロックファイルを記録します。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "作業場の中には何が入っているか"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "依存実体と環境再現に必要なファイルを区別する",
+      "conceptId": "ph1-week13-node-modules",
+      "variantGroup": "ph1-week13-node-modules",
+      "variantNote": "独立問題。同概念の問題は判断や条件を変えた練習であり、完全に等価な類題とは扱わない。",
+      "dependency": "なし。この問題の提示コード・条件から開始する。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "heading": "作業場の中には何が入っているか",
+        "line": 216,
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "drillConnection": "drill-ph1/week13-3/README.md：依存実体と環境再現に必要なファイルを区別する。制作全体のうち、この判断を小さく取り出す。",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。",
+      "hint": "再生成できる道具の実体と、再現に必要な記録を分けましょう。",
+      "success": "依存実体と環境再現に必要なファイルを区別する。条件に合う候補：誤り",
+      "grading": "提示された条件の下で正答となる候補を1つ選択する。正答IDで判定する。",
+      "inputFormat": "○×の単一選択",
+      "runtime": "選択UI（コードの実行は要求しない）",
+      "initialState": "問題文に提示した状況。前問の結果を引き継がない。",
+      "editableRange": "回答候補のみ。提示コードは編集しない。",
+      "hintUse": "ヒントを開いた場合はhintUsedとして記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
+    },
+    "status": "published"
+  }
+]

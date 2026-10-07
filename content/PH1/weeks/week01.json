@@ -1,0 +1,815 @@
+[
+  {
+    "question": {
+      "id": "question-week1-web-response",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "URLを開くとブラウザにカードが表示されました。ブラウザとサーバーの関係として適切なのは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "サーバーが画面をクリックしてブラウザへ送る"
+          },
+          {
+            "id": "c",
+            "text": "HTMLを保存すると自動で全員のブラウザへ届く"
+          },
+          {
+            "id": "d",
+            "text": "ブラウザはHTMLを読むことができない"
+          },
+          {
+            "id": "a",
+            "text": "ブラウザが要求し、サーバーが返したHTMLなどをブラウザが表示する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "クリックは利用者の操作です。サーバーは要求に応じてデータを返します。",
+          "c": "共有にはサーバーなどで公開する工程が必要です。",
+          "d": "ブラウザはHTMLを解釈して画面を表示します。"
+        }
+      },
+      "explanation": "ブラウザはURLの先へデータを要求し、受け取ったHTMLなどを解釈して表示します。保存しただけでは他の人へ公開されません。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "1. Webページが表示されるまでの仕組み"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：URLを開くとブラウザにカードが表示されました。ブラウザとサーバーの関係として適切なのは？",
+      "conceptId": "week1-section-1",
+      "variantGroup": "week1-section-1",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "1. Webページが表示されるまでの仕組み",
+        "line": 38,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "要求する側と、データを返す側に分けて考えましょう。",
+      "success": "問題文の条件に合う回答：ブラウザが要求し、サーバーが返したHTMLなどをブラウザが表示する",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-element-meaning",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "<p>映画の紹介</p> について、「要素」に当たるまとまりはどれ？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "<p>映画の紹介</p> 全体"
+          },
+          {
+            "id": "b",
+            "text": "<p> の記号だけ"
+          },
+          {
+            "id": "c",
+            "text": "映画の紹介という文字だけ"
+          },
+          {
+            "id": "d",
+            "text": "</p> だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "これは開始タグです。通常、要素は内容と終了タグも含むまとまりです。",
+          "c": "これは要素の内容です。",
+          "d": "これは終了タグです。"
+        }
+      },
+      "explanation": "p要素は開始タグ・内容・終了タグを含むまとまりです。タグの名前だけでなく、どこからどこまでが一つの要素か確かめましょう。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "2. HTMLはページの構造を書く言語"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：<p>映画の紹介</p> について、「要素」に当たるまとまりはどれ？",
+      "conceptId": "week1-section-2",
+      "variantGroup": "week1-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "2. HTMLはページの構造を書く言語",
+        "line": 56,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "始まり・内容・終わりを合わせた範囲を探しましょう。",
+      "success": "問題文の条件に合う回答：<p>映画の紹介</p> 全体",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-attribute-meaning",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "<a href=\"./detail.html\">詳細</a> の href は何を指定する属性？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "画像ファイルの場所"
+          },
+          {
+            "id": "a",
+            "text": "リンクを押したときの移動先"
+          },
+          {
+            "id": "b",
+            "text": "画面に表示する文字"
+          },
+          {
+            "id": "c",
+            "text": "文字の太さ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "表示する文字は開始タグと終了タグの間に書きます。",
+          "c": "文字の太さはCSSやTailwindで指定します。",
+          "d": "img要素の画像にはsrc属性を使います。"
+        }
+      },
+      "explanation": "属性は要素へ情報を追加するものです。aのhrefは移動先を指定します。リンクの表示文字はタグの間に書きます。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "4. 属性"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "条件とコード・操作を対応させて判断する：<a href=\"./detail.html\">詳細</a> の href は何を指定する属性？",
+      "conceptId": "week1-section-4",
+      "variantGroup": "week1-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "4. 属性",
+        "line": 205,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "「何を表示するか」と「どこへ移動するか」を分けましょう。",
+      "success": "問題文の条件に合う回答：リンクを押したときの移動先",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-choose-heading",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "映画カードのタイトルを見出しとして表したい。使う要素は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "img"
+          },
+          {
+            "id": "d",
+            "text": "a"
+          },
+          {
+            "id": "a",
+            "text": "h1"
+          },
+          {
+            "id": "b",
+            "text": "p"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "pは段落を表します。見出しとしての意味にはh1などを使います。",
+          "c": "imgは画像を表示する要素です。",
+          "d": "aはリンクを表します。"
+        }
+      },
+      "explanation": "見出しはh1などの見出し要素で表します。見た目が大きいかだけでなく、内容がタイトルか段落かで要素を選びます。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "3. よく使うHTMLタグ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：映画カードのタイトルを見出しとして表したい。使う要素は？",
+      "conceptId": "week1-section-3",
+      "variantGroup": "week1-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "3. よく使うHTMLタグ",
+        "line": 110,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "文章の役割に合うタグを探しましょう。",
+      "success": "問題文の条件に合う回答：h1",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-choose-image",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "./images/poster.jpg を画像として表示するコードは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "<img href=\"./images/poster.jpg\">"
+          },
+          {
+            "id": "c",
+            "text": "<a href=\"./images/poster.jpg\">ポスター</a>"
+          },
+          {
+            "id": "d",
+            "text": "<p>./images/poster.jpg</p>"
+          },
+          {
+            "id": "a",
+            "text": "<img src=\"./images/poster.jpg\" alt=\"映画のポスター\">"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "画像の場所にはhrefではなくsrcを使います。",
+          "c": "これは画像へのリンクです。画像自体をページに表示しません。",
+          "d": "これはファイル名を文字として表示します。"
+        }
+      },
+      "explanation": "imgのsrcに画像の場所を指定します。altには画像の内容を表す代替テキストを書きます。リンク用のhrefと使い分けましょう。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "4. 属性"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：./images/poster.jpg を画像として表示するコードは？",
+      "conceptId": "week1-section-4",
+      "variantGroup": "week1-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "4. 属性",
+        "line": 205,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "画像の読み込み先を指定する属性を確認しましょう。",
+      "success": "問題文の条件に合う回答：<img src=\"./images/poster.jpg\" alt=\"映画のポスター\">",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-choose-style",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "文字は合っているが太さを変えたい。Tailwindを読み込み済みのとき、どこに指定する？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "対象要素のclass属性にfont-boldを加える"
+          },
+          {
+            "id": "b",
+            "text": "対象要素のhrefをfont-boldにする"
+          },
+          {
+            "id": "c",
+            "text": "文字をすべてimg要素へ入れる"
+          },
+          {
+            "id": "d",
+            "text": "終了タグをすべて削除する"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "hrefはリンク先です。見た目を指定しません。",
+          "c": "画像要素に替えても文字の太さは指定できません。",
+          "d": "構造を壊す操作で、見た目の指定にはなりません。"
+        }
+      },
+      "explanation": "HTMLで文章の役割を示し、class属性へTailwindのクラスを付けて見た目を調整します。font-boldは文字を太くする指定です。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "5. Tailwind CDN で見た目をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：文字は合っているが太さを変えたい。Tailwindを読み込み済みのとき、どこに指定する？",
+      "conceptId": "week1-section-5",
+      "variantGroup": "week1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "5. Tailwind CDN で見た目をつける",
+        "line": 225,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "役割を示すHTMLと、見た目を示すクラスを分けましょう。",
+      "success": "問題文の条件に合う回答：対象要素のclass属性にfont-boldを加える",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-list-parent",
+      "weekUnitId": "week-unit-week1",
+      "format": "singleChoice",
+      "prompt": "アーティストのメンバー一覧を作ります。li要素をulの中に入れた構造は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "<p><li>田中</li><li>佐藤</li></p>"
+          },
+          {
+            "id": "a",
+            "text": "<ul><li>田中</li><li>佐藤</li></ul>"
+          },
+          {
+            "id": "b",
+            "text": "<ul></ul><li>田中</li><li>佐藤</li>"
+          },
+          {
+            "id": "c",
+            "text": "<li><ul>田中</ul><ul>佐藤</ul></li>"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "liがulの外側です。",
+          "c": "一覧を表すulと、各項目を表すliの関係が逆です。",
+          "d": "pは一覧をまとめる要素ではありません。"
+        }
+      },
+      "explanation": "ulで一覧全体を囲み、各項目をliにします。見た目の前に、一覧の親と項目の子という関係を作ります。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "3. よく使うHTMLタグ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：アーティストのメンバー一覧を作ります。li要素をulの中に入れた構造は？",
+      "conceptId": "week1-section-3",
+      "variantGroup": "week1-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "3. よく使うHTMLタグ",
+        "line": 110,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "全体の箱と、箱の中の各項目に分けましょう。",
+      "success": "問題文の条件に合う回答：<ul><li>田中</li><li>佐藤</li></ul>",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-fix-src",
+      "weekUnitId": "week-unit-week1",
+      "format": "bugDiagnosis",
+      "prompt": "画像が表示されません。画像ファイルは ./images/poster.jpg にあります。属性の修正として正しいのは？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "c",
+            "text": "imgをpへ変える"
+          },
+          {
+            "id": "d",
+            "text": "画像ファイル名を表示文字にする"
+          },
+          {
+            "id": "a",
+            "text": "hrefをsrcに直す"
+          },
+          {
+            "id": "b",
+            "text": "altをhrefに直す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "altは画像の説明です。読み込み先の指定を直します。",
+          "c": "pは画像を読み込みません。",
+          "d": "ファイル名を表示しても画像は読み込まれません。"
+        },
+        "code": "<img href=\"./images/poster.jpg\" alt=\"映画のポスター\">"
+      },
+      "explanation": "画像の読み込み先はsrcに指定します。hrefをsrcへ直した後、ブラウザでポスターが表示されるか確認します。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "4. 属性"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：画像が表示されません。画像ファイルは ./images/poster.jpg にあります。属性の修正として正しいのは？",
+      "conceptId": "week1-section-4",
+      "variantGroup": "week1-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "4. 属性",
+        "line": 205,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "リンク先用と画像用の属性を比べましょう。",
+      "success": "問題文の条件に合う回答：hrefをsrcに直す",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-fix-nesting",
+      "weekUnitId": "week-unit-week1",
+      "format": "bugDiagnosis",
+      "prompt": "HTMLの親子関係を整えたい。pを閉じる前にdivを閉じています。タグの入れ子を直す選択肢は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "<div><p>紹介</div></p>"
+          },
+          {
+            "id": "c",
+            "text": "<p><div>紹介</p></div>"
+          },
+          {
+            "id": "d",
+            "text": "<div><p>紹介</p><div>"
+          },
+          {
+            "id": "a",
+            "text": "<div><p>紹介</p></div>"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "内側のpを閉じる前に外側のdivが閉じています。",
+          "c": "pの中にdivを置き、さらに閉じる順序も交差しています。",
+          "d": "最後がdivの開始タグで、外側のdivが閉じていません。"
+        },
+        "code": "<div><p>紹介</div></p>"
+      },
+      "explanation": "内側で開いたpを先に閉じ、その後に外側のdivを閉じます。修正後はコードの開始・終了タグをたどって親子関係を確認します。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "2. HTMLはページの構造を書く言語"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "条件とコード・操作を対応させて判断する：HTMLの親子関係を整えたい。pを閉じる前にdivを閉じています。タグの入れ子を直す選択肢は？",
+      "conceptId": "week1-section-2",
+      "variantGroup": "week1-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "2. HTMLはページの構造を書く言語",
+        "line": 56,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "入れた箱を、内側から順に閉じるイメージです。",
+      "success": "問題文の条件に合う回答：<div><p>紹介</p></div>",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-classes-blank",
+      "weekUnitId": "week-unit-week1",
+      "format": "fillBlank",
+      "prompt": "タイトルを大きく、太くしたい。指定はtext-xlとfont-boldです。classの空欄に入れる書き方は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "text-xl font-bold"
+          },
+          {
+            "id": "b",
+            "text": "text-xl,font-bold"
+          },
+          {
+            "id": "c",
+            "text": "text-xlfont-bold"
+          },
+          {
+            "id": "d",
+            "text": "text-xl.font-bold"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "classではクラス名をカンマで区切りません。",
+          "c": "別のクラス名として認識されるよう半角スペースで区切ります。",
+          "d": "ピリオドでは区切りません。"
+        },
+        "content": "<h1 class=\"__BLANK__\">映画の紹介</h1>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "class属性には複数のクラスを半角スペースで区切って並べます。大きさと太さを同じ要素に組み合わせられます。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "5. Tailwind CDN で見た目をつける"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：タイトルを大きく、太くしたい。指定はtext-xlとfont-boldです。classの空欄に入れる書き方は？",
+      "conceptId": "week1-section-5",
+      "variantGroup": "week1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "5. Tailwind CDN で見た目をつける",
+        "line": 225,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "二つのクラス名の境目をどう示すか考えましょう。",
+      "success": "問題文の条件に合う回答：text-xl font-bold",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-preview-heading",
+      "weekUnitId": "week-unit-week1",
+      "format": "fillBlank",
+      "prompt": "空欄に「イベント」のh1要素を組み立てて、本文の前に見出しを表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "</h1>イベント<h1>"
+          },
+          {
+            "id": "a",
+            "text": "<h1>イベント</h1>"
+          },
+          {
+            "id": "b",
+            "text": "<p>イベント</p>"
+          },
+          {
+            "id": "c",
+            "text": "<h1></h1>イベント"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "段落ではなく見出しh1を使う問題です。",
+          "c": "文字がh1の外に出ています。",
+          "d": "開始タグと終了タグが逆です。"
+        },
+        "content": "<main class=\"p-4 bg-white\">\n__BLANK__\n<p>土曜日に開催します</p>\n</main>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "h1の開始タグ、見出しの文字、終了タグの順に組み立てます。表示だけでなく、文字がh1要素の中に入っていることも確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "3. よく使うHTMLタグ"
+      },
+      "published": true,
+      "deleted": false,
+      "preview": {
+        "drillId": "week1-preview-heading",
+        "title": "見出しを組み立てる",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "表示したい文字を、同じ名前の開始タグと終了タグで囲みます。",
+        "goalCode": "<main class=\"p-4 bg-white\">\n<h1>イベント</h1>\n<p>土曜日に開催します</p>\n</main>",
+        "starterCode": "<main class=\"p-4 bg-white\">\n\n<p>土曜日に開催します</p>\n</main>",
+        "inputMode": "code"
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "条件とコード・操作を対応させて判断する：空欄に「イベント」のh1要素を組み立てて、本文の前に見出しを表示してください。",
+      "conceptId": "week1-section-3",
+      "variantGroup": "week1-section-3",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "3. よく使うHTMLタグ",
+        "line": 110,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "表示したい文字を、同じ名前の開始タグと終了タグで囲みます。",
+      "success": "問題文の条件に合う回答：<h1>イベント</h1>",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week1-preview-title-style",
+      "weekUnitId": "week-unit-week1",
+      "format": "fillBlank",
+      "prompt": "見出しのclassにtext-xlとfont-boldを加えてください。ほかのクラスは加えません。",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "text-xl"
+          },
+          {
+            "id": "d",
+            "text": "text-sm"
+          },
+          {
+            "id": "a",
+            "text": "text-xl font-bold"
+          },
+          {
+            "id": "b",
+            "text": "text-sm font-bold"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "太さは合っていますが、大きさがtext-smです。",
+          "c": "大きさだけが指定され、太さの指定が足りません。",
+          "d": "大きさと太さが条件を満たしません。"
+        },
+        "content": "<main class=\"p-4 bg-white\"><h1 class=\"__BLANK__\">イベント</h1><p>土曜日に開催します</p></main>",
+        "mode": "choice",
+        "blankToken": "__BLANK__"
+      },
+      "explanation": "text-xlで大きさ、font-boldで太さを指定します。二つを組み合わせてから実行し、変更前と比べて確認できます。",
+      "sourceReference": {
+        "weekKey": "week1",
+        "sectionHeading": "5. Tailwind CDN で見た目をつける"
+      },
+      "published": true,
+      "deleted": false,
+      "preview": {
+        "drillId": "week1-preview-title-style",
+        "title": "タイトルを整える",
+        "version": 1,
+        "step": 1,
+        "total": 1,
+        "hint": "大きさと太さを、それぞれ一つのクラスで指定します。",
+        "goalCode": "<main class=\"p-4 bg-white\"><h1 class=\"text-xl font-bold\">イベント</h1><p>土曜日に開催します</p></main>",
+        "starterCode": "<main class=\"p-4 bg-white\"><h1 class=\"\">イベント</h1><p>土曜日に開催します</p></main>",
+        "inputMode": "classes"
+      }
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "条件とコード・操作を対応させて判断する：見出しのclassにtext-xlとfont-boldを加えてください。ほかのクラスは加えません。",
+      "conceptId": "week1-section-5",
+      "variantGroup": "week1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/Week01.md",
+        "heading": "5. Tailwind CDN で見た目をつける",
+        "line": 225,
+        "sha256": "e3f4978b4529e8e2ce9297febad992a2d2f7020986dc9a03e351defd570542f0"
+      },
+      "drillConnection": "Week01 問題1〜3：タイトル・画像・一覧をHTMLへ分解し、classを付ける。drill-ph1/week01-1/README.md、week01-2/README.md、week01-3/README.md",
+      "priorKnowledge": "Week01〜01のインプット",
+      "hint": "大きさと太さを、それぞれ一つのクラスで指定します。",
+      "success": "問題文の条件に合う回答：text-xl font-bold",
+      "grading": "指定した候補による限定入力。正答IDを判定。previewのクラス順序は不問。consoleは指定構文と実行結果の両方を確認",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  }
+]

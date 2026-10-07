@@ -1,0 +1,1090 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week30-group-unit-001",
+      "weekUnitId": "week-unit-week30",
+      "format": "singleChoice",
+      "prompt": "「学生・日ごと」の合計では、結果の1行が表すものは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "DBの全行数だけ"
+          },
+          {
+            "id": "a",
+            "text": "1人の学生の1日分の合計"
+          },
+          {
+            "id": "b",
+            "text": "必ず全学生の月合計"
+          },
+          {
+            "id": "c",
+            "text": "学習記録1件だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "人と日のまとまりを失っています。",
+          "c": "同じ日の複数記録を集計します。",
+          "d": "時間の合計と別です。"
+        }
+      },
+      "explanation": "人と日を両方の集計キーにすると、同じ人の同じ日の時間をまとめられます。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "複数キーの集計単位を説明する",
+      "conceptId": "ph2-week30-group-unit",
+      "variantGroup": "ph2-week30-group-unit",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week30-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-1/README.md",
+          "heading": "30週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-1/README.md：複数キーの集計単位を説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "何と何を同じグループにするか考えましょう。",
+      "success": "複数キーの集計単位を説明する。条件に合う候補：1人の学生の1日分の合計",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-date-format-002",
+      "weekUnitId": "week-unit-week30",
+      "format": "singleChoice",
+      "prompt": "DATE_FORMAT(date, \"%Y-%m\")の結果は何を表しますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "年と月"
+          },
+          {
+            "id": "b",
+            "text": "日付の時刻まで全て"
+          },
+          {
+            "id": "c",
+            "text": "月だけで年は含まない"
+          },
+          {
+            "id": "d",
+            "text": "学生のID"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "指定に日や時刻はありません。",
+          "c": "%Yが年を表します。",
+          "d": "日付の書式です。"
+        }
+      },
+      "explanation": "年を含めると別の年の同じ月を区別できます。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "日付書式の年と月を読める",
+      "conceptId": "ph2-week30-date-format",
+      "variantGroup": "ph2-week30-date-format",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week30-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "9ec591f1d35e6b901c67b07f816a104fd0cfc96738afcce507ffb3cd9c58bb2d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-3/README.md",
+          "heading": "30週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "9ec591f1d35e6b901c67b07f816a104fd0cfc96738afcce507ffb3cd9c58bb2d"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-3/README.md：日付書式の年と月を読める。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "年と月の両方を確認しましょう。",
+      "success": "日付書式の年と月を読める。条件に合う候補：年と月",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-crud-status-003",
+      "weekUnitId": "week-unit-week30",
+      "format": "singleChoice",
+      "prompt": "To-Doの内容はそのまま、完了状態だけ変える操作はCRUDのどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "Create（作成）"
+          },
+          {
+            "id": "c",
+            "text": "Read（取得）だけ"
+          },
+          {
+            "id": "d",
+            "text": "Delete（削除）"
+          },
+          {
+            "id": "a",
+            "text": "Update（更新）"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "新しいTo-Doを増やす操作ではありません。",
+          "c": "状態を変更する必要があります。",
+          "d": "To-Do自体は残します。"
+        }
+      },
+      "explanation": "変更したい列と対象行を決めてUPDATEします。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "Week 30"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "状態変更をデータ操作へ対応させる",
+      "conceptId": "ph2-week30-crud-status",
+      "variantGroup": "ph2-week30-crud-status",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "heading": "Week 30",
+        "line": 1245,
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-1/README.md",
+          "heading": "30週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-1/README.md：状態変更をデータ操作へ対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "何を残し、何を変えるか見ましょう。",
+      "success": "状態変更をデータ操作へ対応させる。条件に合う候補：Update（更新）",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-day-format-004",
+      "weekUnitId": "week-unit-week30",
+      "format": "fillBlank",
+      "prompt": "時刻の違う同じ日をまとめます。YYYY-MM-DDという日付を取り出す書式の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "%H:%i:%s"
+          },
+          {
+            "id": "d",
+            "text": "%d"
+          },
+          {
+            "id": "a",
+            "text": "%Y-%m-%d"
+          },
+          {
+            "id": "b",
+            "text": "%Y-%m"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "日がなく、月ごとになります。",
+          "c": "時刻ごとで、日付ではありません。",
+          "d": "年と月を区別できません。"
+        },
+        "content": "DATE_FORMAT(studies.date, \"___\")",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "日ごとのキーには年・月・日をそろえます。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "日別集計のキーを選ぶ",
+      "conceptId": "ph2-week30-day-format",
+      "variantGroup": "ph2-week30-day-format",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week30-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-1/README.md",
+          "heading": "30週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-1/README.md：日別集計のキーを選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "何を同じ日とみなすか考えましょう。",
+      "success": "日別集計のキーを選ぶ。条件に合う候補：%Y-%m-%d",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "DATE_FORMAT(studies.date, \"___\")",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-month-format-005",
+      "weekUnitId": "week-unit-week30",
+      "format": "fillBlank",
+      "prompt": "2022年6月と2023年6月を別グループにします。月別キーの書式は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "%H"
+          },
+          {
+            "id": "a",
+            "text": "%Y-%m"
+          },
+          {
+            "id": "b",
+            "text": "%m"
+          },
+          {
+            "id": "c",
+            "text": "%Y-%m-%d"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "別の年の6月も同じキーです。",
+          "c": "日ごとに分かれます。",
+          "d": "時刻で分けています。"
+        },
+        "content": "DATE_FORMAT(studies.date, \"___\")",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "必要な年と月を残し、日を外して月単位へまとめます。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "年を含む月別のキーを選ぶ",
+      "conceptId": "ph2-week30-month-format",
+      "variantGroup": "ph2-week30-month-format",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week30-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "9ec591f1d35e6b901c67b07f816a104fd0cfc96738afcce507ffb3cd9c58bb2d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-3/README.md",
+          "heading": "30週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "9ec591f1d35e6b901c67b07f816a104fd0cfc96738afcce507ffb3cd9c58bb2d"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-3/README.md：年を含む月別のキーを選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "年をまたぐ条件にも注目しましょう。",
+      "success": "年を含む月別のキーを選ぶ。条件に合う候補：%Y-%m",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "DATE_FORMAT(studies.date, \"___\")",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-complete-toggle-006",
+      "weekUnitId": "week-unit-week30",
+      "format": "fillBlank",
+      "prompt": "statusは0か1です。0を1、1を0へ切り替える空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "a",
+            "text": "1 - status"
+          },
+          {
+            "id": "b",
+            "text": "1"
+          },
+          {
+            "id": "c",
+            "text": "0"
+          },
+          {
+            "id": "d",
+            "text": "status"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "1に固定して戻せません。",
+          "c": "0に固定して完了にできません。",
+          "d": "値が変わりません。"
+        },
+        "content": "UPDATE todos SET status = ___ WHERE id = :id;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "現在の値を使って反対の値を計算します。両方向を確認すると固定値との差が分かります。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "Week 30"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "切替仕様に合う更新式を選ぶ",
+      "conceptId": "ph2-week30-complete-toggle",
+      "variantGroup": "ph2-week30-complete-toggle",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "heading": "Week 30",
+        "line": 1245,
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-1/README.md",
+          "heading": "30週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-1/README.md：切替仕様に合う更新式を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "0と1をそれぞれ代入しましょう。",
+      "success": "切替仕様に合う更新式を選ぶ。条件に合う候補：1 - status",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "UPDATE todos SET status = ___ WHERE id = :id;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-join-group-flow-007",
+      "weekUnitId": "week-unit-week30",
+      "format": "singleChoice",
+      "prompt": "学習時間を学生名と日ごとに出す流れは？ 同姓同名もあり得ます。",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "学生名だけで全日を一つにする"
+          },
+          {
+            "id": "c",
+            "text": "学習時間の大きさだけでグループ化"
+          },
+          {
+            "id": "d",
+            "text": "JOINせず名前を一つ固定"
+          },
+          {
+            "id": "a",
+            "text": "学生IDで結合 → 学生ID・名前・日付キーで分ける → hoursを合計"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "日ごとの条件や同名の学生の区別を失います。",
+          "c": "学生と日の単位になりません。",
+          "d": "学生ごとの名前に対応しません。"
+        }
+      },
+      "explanation": "人はIDで識別し、表示する名前と日付をそろえて集計します。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "結合と人・日別の集計を組む",
+      "conceptId": "ph2-week30-join-group-flow",
+      "variantGroup": "ph2-week30-join-group-flow",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week30-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-1/README.md",
+          "heading": "30週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-1/README.md：結合と人・日別の集計を組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "表示名と識別用のIDを分けましょう。",
+      "success": "結合と人・日別の集計を組む。条件に合う候補：学生IDで結合 → 学生ID・名前・日付キーで分ける → hoursを合計",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-sum-hours-008",
+      "weekUnitId": "week-unit-week30",
+      "format": "fillBlank",
+      "prompt": "学生別・月別のキーは用意済みです。学習時間の合計の空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "MAX(hours)"
+          },
+          {
+            "id": "d",
+            "text": "AVG(hours)"
+          },
+          {
+            "id": "a",
+            "text": "SUM(hours)"
+          },
+          {
+            "id": "b",
+            "text": "COUNT(*)"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "記録の件数で、時間ではありません。",
+          "c": "最大の1記録だけです。",
+          "d": "平均で、合計ではありません。"
+        },
+        "content": "SELECT student_id, DATE_FORMAT(date, '%Y-%m') AS month, ___ AS hours\nFROM studies GROUP BY student_id, month;",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "グループのキーと、その中で足す値を組み合わせます。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "月別のキーと時間合計を組む",
+      "conceptId": "ph2-week30-sum-hours",
+      "variantGroup": "ph2-week30-sum-hours",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week30-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "9ec591f1d35e6b901c67b07f816a104fd0cfc96738afcce507ffb3cd9c58bb2d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-3/README.md",
+          "heading": "30週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "9ec591f1d35e6b901c67b07f816a104fd0cfc96738afcce507ffb3cd9c58bb2d"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-3/README.md：月別のキーと時間合計を組む。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "結果の単位が「時間の合計」です。",
+      "success": "月別のキーと時間合計を組む。条件に合う候補：SUM(hours)",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "SELECT student_id, DATE_FORMAT(date, '%Y-%m') AS month, ___ AS hours\nFROM studies GROUP BY student_id, month;",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-crud-flow-009",
+      "weekUnitId": "week-unit-week30",
+      "format": "singleChoice",
+      "prompt": "通常のフォーム送信でTo-Doを追加し、一覧へ戻す流れは？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "全データを削除して再表示"
+          },
+          {
+            "id": "a",
+            "text": "POSTの値を確認 → INSERT → 一覧へリダイレクト → 更新された一覧を取得"
+          },
+          {
+            "id": "b",
+            "text": "一覧を出した後だけINSERTする"
+          },
+          {
+            "id": "c",
+            "text": "POSTの値を読むだけで戻る"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "その一覧は更新前のデータです。",
+          "c": "データを追加していません。",
+          "d": "新しい1件の追加ではありません。"
+        }
+      },
+      "explanation": "保存の成功を確認して、一覧画面で新しいデータを読みます。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "Week 30"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "フォーム・追加・一覧への遷移をつなぐ",
+      "conceptId": "ph2-week30-crud-flow",
+      "variantGroup": "ph2-week30-crud-flow",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "heading": "Week 30",
+        "line": 1245,
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-1/README.md",
+          "heading": "30週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-1/README.md：フォーム・追加・一覧への遷移をつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "データの更新と画面の取得を分けましょう。",
+      "success": "フォーム・追加・一覧への遷移をつなぐ。条件に合う候補：POSTの値を確認 → INSERT → 一覧へリダイレクト → 更新された一覧を取得",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-month-no-year-010",
+      "weekUnitId": "week-unit-week30",
+      "format": "bugDiagnosis",
+      "prompt": "別の年の同じ月が混ざりました。月別キーの修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "a",
+            "text": "%Y-%mへ変える"
+          },
+          {
+            "id": "b",
+            "text": "%dへ変える"
+          },
+          {
+            "id": "c",
+            "text": "SUMをCOUNTへ変える"
+          },
+          {
+            "id": "d",
+            "text": "学生名を短くする"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "日だけになり、年月を区別できません。",
+          "c": "グループの混同は残ります。",
+          "d": "日付キーは変わりません。"
+        },
+        "code": "DATE_FORMAT(studies.date, \"%m\")"
+      },
+      "explanation": "グループのキーに必要な年が不足しています。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "集計キーの不足を修正する",
+      "conceptId": "ph2-week30-month-no-year",
+      "variantGroup": "ph2-week30-month-no-year",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week30-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "9ec591f1d35e6b901c67b07f816a104fd0cfc96738afcce507ffb3cd9c58bb2d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-3/README.md",
+          "heading": "30週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "9ec591f1d35e6b901c67b07f816a104fd0cfc96738afcce507ffb3cd9c58bb2d"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-3/README.md：集計キーの不足を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "区別すべき年月の情報が残るか見ましょう。",
+      "success": "集計キーの不足を修正する。条件に合う候補：%Y-%mへ変える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "DATE_FORMAT(studies.date, \"%m\")",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-week-start-011",
+      "weekUnitId": "week-unit-week30",
+      "format": "bugDiagnosis",
+      "prompt": "WEEKDAYは月曜0〜日曜6です。DATE_SUBは指定日数を引きます。月曜始まりにしたいのに前日へずれます。修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "b",
+            "text": "WEEKDAYの後の+1を+2へ変える"
+          },
+          {
+            "id": "c",
+            "text": "WEEKDAYをhoursへ変える"
+          },
+          {
+            "id": "d",
+            "text": "月曜のデータを削除する"
+          },
+          {
+            "id": "a",
+            "text": "+ 1を外す"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "さらに1日多く引き、正しい月曜から遠ざかります。",
+          "c": "時間の値と曜日は別です。",
+          "d": "計算の間違いを直していません。"
+        },
+        "code": "DATE_SUB(DATE(studies.date), INTERVAL (WEEKDAY(studies.date) + 1) DAY)"
+      },
+      "explanation": "月曜なら0日引く必要があります。+1で日曜へずれるため、固定の加算を外します。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "週の開始日の計算を境界で修正する",
+      "conceptId": "ph2-week30-week-start",
+      "variantGroup": "ph2-week30-week-start",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week30-2/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "b69a94439eb8127e29dce5ac6d0f5d792d5db240718fe073b0cfb6cce8fa2ea9"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-2/README.md",
+          "heading": "30週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "b69a94439eb8127e29dce5ac6d0f5d792d5db240718fe073b0cfb6cce8fa2ea9"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-2/README.md：週の開始日の計算を境界で修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "月曜のWEEKDAY=0で式を試しましょう。",
+      "success": "週の開始日の計算を境界で修正する。条件に合う候補：+ 1を外す",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "DATE_SUB(DATE(studies.date), INTERVAL (WEEKDAY(studies.date) + 1) DAY)",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-crud-tests-012",
+      "weekUnitId": "week-unit-week30",
+      "format": "singleChoice",
+      "prompt": "To-Doの追加・内容編集・削除・状態切替が要件です。完成を確認する方法は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "画面の静止画像だけ見る"
+          },
+          {
+            "id": "d",
+            "text": "ボタンの名前だけ変える"
+          },
+          {
+            "id": "a",
+            "text": "各操作と一覧の変化、再取得後のDBの値をそれぞれ確かめる"
+          },
+          {
+            "id": "b",
+            "text": "追加だけ動いたので全部完了"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "他の操作を試していません。",
+          "c": "操作と保存の結果は分かりません。",
+          "d": "要件の動作を確認していません。"
+        }
+      },
+      "explanation": "操作ごとに対象・変化・保存結果を照合します。状態は完了と戻す方向を両方試します。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "Week 30"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "複数の要件を操作結果と照合する",
+      "conceptId": "ph2-week30-crud-tests",
+      "variantGroup": "ph2-week30-crud-tests",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "heading": "Week 30",
+        "line": 1245,
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-1/README.md",
+          "heading": "30週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 30",
+          "line": 1245,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c",
+          "description": "表・列・初期値の確認。設問中の小さいデータはこの値の丸写しではない。"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week30-1/README.md：複数の要件を操作結果と照合する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "4つの機能を別々に確認しましょう。",
+      "success": "複数の要件を操作結果と照合する。条件に合う候補：各操作と一覧の変化、再取得後のDBの値をそれぞれ確かめる",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

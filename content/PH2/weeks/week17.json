@@ -1,0 +1,1084 @@
+[
+  {
+    "question": {
+      "id": "question-ph2-week17-container-001",
+      "weekUnitId": "week-unit-week17",
+      "format": "singleChoice",
+      "prompt": "コンテナは、この教材では何をまとめた環境ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "ブラウザの履歴だけ"
+          },
+          {
+            "id": "d",
+            "text": "画面に出る数字だけ"
+          },
+          {
+            "id": "a",
+            "text": "アプリを動かすのに必要なソフトウェアや設定"
+          },
+          {
+            "id": "b",
+            "text": "HTMLの色だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "見た目だけでなく、実行に必要な環境です。",
+          "c": "閲覧の履歴ではありません。",
+          "d": "出力データと実行環境は別です。"
+        }
+      },
+      "explanation": "アプリと必要な環境をまとめ、他の環境と分けて動かします。PHPやDBを動かす土台になります。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "4. コンテナ技術とは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "コンテナを実行環境として説明する",
+      "conceptId": "ph2-week17-container",
+      "variantGroup": "ph2-week17-container",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week17.md",
+        "heading": "4. コンテナ技術とは",
+        "line": 39,
+        "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-1/README.md",
+          "heading": "17週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-1/README.md：コンテナを実行環境として説明する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "コードの中身と、動かす道具を分けましょう。",
+      "success": "コンテナを実行環境として説明する。条件に合う候補：アプリを動かすのに必要なソフトウェアや設定",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-compose-002",
+      "weekUnitId": "week-unit-week17",
+      "format": "singleChoice",
+      "prompt": "web・php・dbをまとめて定義し起動する道具は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "d",
+            "text": "MySQLのSELECT"
+          },
+          {
+            "id": "a",
+            "text": "Docker Compose"
+          },
+          {
+            "id": "b",
+            "text": "CSS Grid"
+          },
+          {
+            "id": "c",
+            "text": "PHPのforeach"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "画面の配置を作る道具です。",
+          "c": "配列を繰り返す構文です。",
+          "d": "データを取得するSQLです。"
+        }
+      },
+      "explanation": "Composeは複数サービスの設定と起動をまとめます。PHPの処理そのものを書く構文ではありません。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "7. Docker Compose とは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "Composeとアプリの処理を区別する",
+      "conceptId": "ph2-week17-compose",
+      "variantGroup": "ph2-week17-compose",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week17.md",
+        "heading": "7. Docker Compose とは",
+        "line": 111,
+        "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-1/README.md",
+          "heading": "17週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-1/README.md：Composeとアプリの処理を区別する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "複数のコンテナを一緒に扱う役割を探しましょう。",
+      "success": "Composeとアプリの処理を区別する。条件に合う候補：Docker Compose",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-port-003",
+      "weekUnitId": "week-unit-week17",
+      "format": "singleChoice",
+      "prompt": "portsの\"3000:80\"では、左側の3000は何ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "PC側でアクセスするポート"
+          },
+          {
+            "id": "b",
+            "text": "コンテナ内のPHP変数"
+          },
+          {
+            "id": "c",
+            "text": "表示する行数"
+          },
+          {
+            "id": "d",
+            "text": "MySQLのテーブル数"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ポート指定と変数は別です。",
+          "c": "出力の件数ではありません。",
+          "d": "DBの構造を指定しません。"
+        }
+      },
+      "explanation": "左はホスト側、右はコンテナ側です。この指定ならPCのlocalhost:3000からコンテナの80へつながります。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "ホストとコンテナのポートを対応させる",
+      "conceptId": "ph2-week17-port",
+      "variantGroup": "ph2-week17-port",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week17-2/README.md",
+        "heading": "問題",
+        "line": 14,
+        "sha256": "7ca67214da80022ad692a80c1fa38caa28705a0ab03c8339859e421eb10941ca"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-2/README.md",
+          "heading": "17週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "7ca67214da80022ad692a80c1fa38caa28705a0ab03c8339859e421eb10941ca"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-2/README.md：ホストとコンテナのポートを対応させる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "URLに書く番号はどちら側か考えましょう。",
+      "success": "ホストとコンテナのポートを対応させる。条件に合う候補：PC側でアクセスするポート",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-up-004",
+      "weekUnitId": "week-unit-week17",
+      "format": "fillBlank",
+      "prompt": "Composeの設定があるフォルダです。複数サービスをバックグラウンドで起動する空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "b",
+            "text": "down"
+          },
+          {
+            "id": "c",
+            "text": "logs"
+          },
+          {
+            "id": "d",
+            "text": "ps"
+          },
+          {
+            "id": "a",
+            "text": "up -d"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "起動ではなく停止・削除の操作です。",
+          "c": "ログを読む操作です。",
+          "d": "状態を表示する操作です。"
+        },
+        "content": "docker compose ___",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "upで設定のサービスを起動し、-dでバックグラウンドにします。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "7. Docker Compose とは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "起動の目的からupを選ぶ",
+      "conceptId": "ph2-week17-up",
+      "variantGroup": "ph2-week17-up",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week17.md",
+        "heading": "7. Docker Compose とは",
+        "line": 111,
+        "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-1/README.md",
+          "heading": "17週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-1/README.md：起動の目的からupを選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "状態の確認と起動を分けましょう。",
+      "success": "起動の目的からupを選ぶ。条件に合う候補：up -d",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "docker compose ___",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "text"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-exec-005",
+      "weekUnitId": "week-unit-week17",
+      "format": "fillBlank",
+      "prompt": "dbサービスは起動済みです。中でbashを動かす空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "c",
+            "text": "down"
+          },
+          {
+            "id": "d",
+            "text": "ps"
+          },
+          {
+            "id": "a",
+            "text": "exec"
+          },
+          {
+            "id": "b",
+            "text": "logs"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "ログを読むだけです。",
+          "c": "サービスを停止する操作です。",
+          "d": "実行中の状態を見るだけです。"
+        },
+        "content": "docker compose ___ db bash",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "execは起動中のサービスのコンテナでコマンドを実行します。ここではdb内のbashを使います。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "コンテナ内に入る操作を選ぶ",
+      "conceptId": "ph2-week17-exec",
+      "variantGroup": "ph2-week17-exec",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week17-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "64a946c7a3f85524bbcd217daf3403dfa1cfbd71ff4ed81274297aca52fb5565"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-3/README.md",
+          "heading": "17週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "64a946c7a3f85524bbcd217daf3403dfa1cfbd71ff4ed81274297aca52fb5565"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-3/README.md：コンテナ内に入る操作を選ぶ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "起動済みの中で処理を実行します。",
+      "success": "コンテナ内に入る操作を選ぶ。条件に合う候補：exec",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "docker compose ___ db bash",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "text"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-host-port-006",
+      "weekUnitId": "week-unit-week17",
+      "format": "fillBlank",
+      "prompt": "コンテナの80は維持し、PCのlocalhost:3000で開きたい。空欄は？",
+      "payload": {
+        "kind": "fillBlank",
+        "options": [
+          {
+            "id": "d",
+            "text": "3000:8080"
+          },
+          {
+            "id": "a",
+            "text": "3000:80"
+          },
+          {
+            "id": "b",
+            "text": "8080:80"
+          },
+          {
+            "id": "c",
+            "text": "80:3000"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "PC側は8080のままです。",
+          "c": "左右が逆でコンテナ側を変えています。",
+          "d": "コンテナが待つ80と一致しません。"
+        },
+        "content": "ports:\n  - \"___\"",
+        "blankToken": "___",
+        "mode": "choice"
+      },
+      "explanation": "ブラウザから使う左側だけを3000へ変更します。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "アクセス先からポート対応を決める",
+      "conceptId": "ph2-week17-host-port",
+      "variantGroup": "ph2-week17-host-port",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week17-2/README.md",
+        "heading": "問題",
+        "line": 14,
+        "sha256": "7ca67214da80022ad692a80c1fa38caa28705a0ab03c8339859e421eb10941ca"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-2/README.md",
+          "heading": "17週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "7ca67214da80022ad692a80c1fa38caa28705a0ab03c8339859e421eb10941ca"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-2/README.md：アクセス先からポート対応を決める。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "コンテナ内の番号は固定という条件に注目しましょう。",
+      "success": "アクセス先からポート対応を決める。条件に合う候補：3000:80",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "1箇所の穴埋め・候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "ports:\n  - \"___\"",
+      "editableRange": "___の1箇所だけ",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "yaml"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-mount-007",
+      "weekUnitId": "week-unit-week17",
+      "format": "singleChoice",
+      "prompt": "PCの./srcにPHPコードがあります。webとphpが同じコードを/var/www/htmlで読むための指定は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "両サービスへ./src:/var/www/htmlを指定"
+          },
+          {
+            "id": "b",
+            "text": "webだけへ指定する"
+          },
+          {
+            "id": "c",
+            "text": "両方のポート番号だけ変える"
+          },
+          {
+            "id": "d",
+            "text": "dbのパスワードだけ変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "php側にも同じコードが必要です。",
+          "c": "ファイルの共有はポートでは設定しません。",
+          "d": "共有するコードの場所は変わりません。"
+        }
+      },
+      "explanation": "ファイルの場所を両サービスでそろえます。通信のポートと共有するファイルは別の設定です。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "共有元と共有先を複数サービスにつなぐ",
+      "conceptId": "ph2-week17-mount",
+      "variantGroup": "ph2-week17-mount",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week17-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-1/README.md",
+          "heading": "17週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-1/README.md：共有元と共有先を複数サービスにつなぐ。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "どのサービスがファイルを読むか整理しましょう。",
+      "success": "共有元と共有先を複数サービスにつなぐ。条件に合う候補：両サービスへ./src:/var/www/htmlを指定",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-mysql-flow-008",
+      "weekUnitId": "week-unit-week17",
+      "format": "singleChoice",
+      "prompt": "dbのMySQLへ接続する手順は？ パスワードは教材用の設定値を使います。",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "SQLをブラウザのURLへ入力"
+          },
+          {
+            "id": "c",
+            "text": "exec db bashだけでSELECTを書く"
+          },
+          {
+            "id": "d",
+            "text": "コンテナを停止 → mysqlを実行"
+          },
+          {
+            "id": "a",
+            "text": "起動を確認 → exec db bash → mysql -u root -p"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "SQLはMySQLへ送る必要があります。",
+          "c": "bashとMySQLの入力先は別です。",
+          "d": "接続先が停止しています。"
+        }
+      },
+      "explanation": "コンテナに入った後、MySQLクライアントへ接続します。二つの操作を区別します。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "コンテナとMySQLへの接続を組み立てる",
+      "conceptId": "ph2-week17-mysql-flow",
+      "variantGroup": "ph2-week17-mysql-flow",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week17-3/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "64a946c7a3f85524bbcd217daf3403dfa1cfbd71ff4ed81274297aca52fb5565"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-3/README.md",
+          "heading": "17週目ミニドリル 3問目",
+          "line": 1,
+          "sha256": "64a946c7a3f85524bbcd217daf3403dfa1cfbd71ff4ed81274297aca52fb5565"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-3/README.md：コンテナとMySQLへの接続を組み立てる。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "ターミナルの入力先を順にたどりましょう。",
+      "success": "コンテナとMySQLへの接続を組み立てる。条件に合う候補：起動を確認 → exec db bash → mysql -u root -p",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-environment-009",
+      "weekUnitId": "week-unit-week17",
+      "format": "singleChoice",
+      "prompt": "同じコードなのにチームで動作が違います。Dockerでそろえる対象は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "c",
+            "text": "ブラウザのブックマークだけ"
+          },
+          {
+            "id": "d",
+            "text": "全員の画面の明るさだけ"
+          },
+          {
+            "id": "a",
+            "text": "PHPなどのバージョン・依存・設定を含む実行環境"
+          },
+          {
+            "id": "b",
+            "text": "変数名の文字数だけ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "動作環境の差をそろえていません。",
+          "c": "アプリの依存や設定はそろいません。",
+          "d": "実行環境とは無関係です。"
+        }
+      },
+      "explanation": "コードだけでなく実行環境もそろえると、環境差による不具合を減らせます。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "5-2. ローカル開発環境の統一"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "環境差と再現の必要条件を結びつける",
+      "conceptId": "ph2-week17-environment",
+      "variantGroup": "ph2-week17-environment",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week17.md",
+        "heading": "5-2. ローカル開発環境の統一",
+        "line": 72,
+        "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-1/README.md",
+          "heading": "17週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-1/README.md：環境差と再現の必要条件を結びつける。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "動かすための前提条件を考えましょう。",
+      "success": "環境差と再現の必要条件を結びつける。条件に合う候補：PHPなどのバージョン・依存・設定を含む実行環境",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-yaml-path-010",
+      "weekUnitId": "week-unit-week17",
+      "format": "bugDiagnosis",
+      "prompt": "srcのコードを共有したいのに、共有元が未指定です。提示した設定の共有元の修正は？",
+      "payload": {
+        "kind": "bugDiagnosis",
+        "options": [
+          {
+            "id": "d",
+            "text": "/var/www/htmlを削除する"
+          },
+          {
+            "id": "a",
+            "text": "???を./srcに置き換える"
+          },
+          {
+            "id": "b",
+            "text": "PHPの数字を増やす"
+          },
+          {
+            "id": "c",
+            "text": "ブラウザの色を変える"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "設定のパスの不足を直していません。",
+          "c": "Composeの設定には影響しません。",
+          "d": "共有先までなくなります。"
+        },
+        "code": "volumes:\n  - ???:/var/www/html"
+      },
+      "explanation": "不足しているのはホスト側の共有元です。ドリルの開始コードの未指定箇所を探します。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "未指定の共有元を修正する",
+      "conceptId": "ph2-week17-yaml-path",
+      "variantGroup": "ph2-week17-yaml-path",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "drill-ph2/src/week17-1/README.md",
+        "heading": "問題",
+        "line": 3,
+        "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-1/README.md",
+          "heading": "17週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-1/README.md：未指定の共有元を修正する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "コロンの左右を確認しましょう。",
+      "success": "未指定の共有元を修正する。条件に合う候補：???を./srcに置き換える",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "提示コードを読んで修正の候補選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "volumes:\n  - ???:/var/www/html",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。",
+      "codeLanguage": "yaml"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-allocated-011",
+      "weekUnitId": "week-unit-week17",
+      "format": "singleChoice",
+      "prompt": "port is already allocatedと出ました。最初に調べる対象は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "指定ポートを使っている既存のサービスやコンテナ"
+          },
+          {
+            "id": "b",
+            "text": "PHPの配列の順番"
+          },
+          {
+            "id": "c",
+            "text": "SQLの列名"
+          },
+          {
+            "id": "d",
+            "text": "HTMLの文字サイズ"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "起動時のポート競合と別です。",
+          "c": "ポートを確保できない原因ではありません。",
+          "d": "起動の失敗には関係しません。"
+        }
+      },
+      "explanation": "エラーのportは通信の入口です。利用中のサービスを確認して、競合する設定を整理します。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "7. Docker Compose とは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "ポート競合から調査対象を絞る",
+      "conceptId": "ph2-week17-allocated",
+      "variantGroup": "ph2-week17-allocated",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week17.md",
+        "heading": "7. Docker Compose とは",
+        "line": 111,
+        "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-2/README.md",
+          "heading": "17週目ミニドリル 2問目",
+          "line": 1,
+          "sha256": "7ca67214da80022ad692a80c1fa38caa28705a0ab03c8339859e421eb10941ca"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-2/README.md：ポート競合から調査対象を絞る。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "エラーの対象がコードか環境か分けましょう。",
+      "success": "ポート競合から調査対象を絞る。条件に合う候補：指定ポートを使っている既存のサービスやコンテナ",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-verify-start-012",
+      "weekUnitId": "week-unit-week17",
+      "format": "singleChoice",
+      "prompt": "upが終了しました。PHPページまで動くことを確かめる確認は？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "b",
+            "text": "起動コマンドの文字を見たので完了"
+          },
+          {
+            "id": "c",
+            "text": "SQLファイル名だけ確認"
+          },
+          {
+            "id": "d",
+            "text": "別のPCで色を見るだけ"
+          },
+          {
+            "id": "a",
+            "text": "サービスの状態とログを確認し、指定URLで出力を見る"
+          }
+        ],
+        "correctOptionId": "a",
+        "incorrectReasons": {
+          "b": "実際に動いたか確認していません。",
+          "c": "PHPページの確認になりません。",
+          "d": "対象環境の起動を確認していません。"
+        }
+      },
+      "explanation": "起動状態、ログ、ブラウザの出力をつなげて確かめます。コマンドを入力したことだけでは完了ではありません。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "7. Docker Compose とは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "起動結果と画面表示を照合する",
+      "conceptId": "ph2-week17-verify-start",
+      "variantGroup": "ph2-week17-verify-start",
+      "variantNote": "独立問題。PH1や他Weekの類似概念も、この問題の条件から解答する。",
+      "dependency": "なし。前問の回答や実行状態を引き継がない。",
+      "source": {
+        "path": "curriculum/PH2/Week17.md",
+        "heading": "7. Docker Compose とは",
+        "line": 111,
+        "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-1/README.md",
+          "heading": "17週目ミニドリル 1問目",
+          "line": 1,
+          "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "heading": "Week 17",
+          "line": 17,
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "heading": "はじめに",
+          "line": 3,
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "drillConnection": "drill-ph2/src/week17-1/README.md：起動結果と画面表示を照合する。対象ドリルの実装を小さな判断に分解した練習。",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。",
+      "hint": "期待した数字が見えるまで確認しましょう。",
+      "success": "起動結果と画面表示を照合する。条件に合う候補：サービスの状態とログを確認し、指定URLで出力を見る",
+      "grading": "提示条件に合う候補を1つ選択する。正答IDで採点し、誤答には候補別の理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。PHP・SQL・Docker・通信・外部ライブラリはアプリ内で実行しない。",
+      "initialState": "問題文に提示した条件。実サービスや実DBへの変更は行わない。",
+      "editableRange": "回答候補だけ。提示コードは固定。",
+      "hintUse": "ヒント利用をhintUsedに記録し、自力正解と区別する。",
+      "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
+    },
+    "status": "published"
+  }
+]

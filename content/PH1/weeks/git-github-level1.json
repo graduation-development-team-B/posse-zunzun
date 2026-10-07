@@ -1,0 +1,442 @@
+[
+  {
+    "question": {
+      "id": "question-git-level1-001-pwd",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "いま作業しているディレクトリのフルパスを確認しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-001-pwd"
+      },
+      "explanation": "pwdは現在作業しているディレクトリのフルパスを表示します。操作前に現在地を確認すると、別の場所でGitコマンドを実行するミスを防げます。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "2. ターミナルの基本"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "模擬環境で問題に指定された操作を実行する：いま作業しているディレクトリのフルパスを確認しよう。",
+      "conceptId": "git_github_level1-section-2",
+      "variantGroup": "git_github_level1-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "2. ターミナルの基本",
+        "line": 15,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "現在地を表示する3文字のコマンドを選びます。",
+      "success": "pwdで作業中の場所を確認できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-git-level1-002-cd",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "sample-ph1-githubにあるassetsディレクトリへ移動しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-002-cd"
+      },
+      "explanation": "cdはchange directoryの略で、後ろに指定したディレクトリへ移動します。lsで移動先の名前を確認してからcd assetsを実行すると安全です。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "2. ターミナルの基本"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "模擬環境で問題に指定された操作を実行する：sample-ph1-githubにあるassetsディレクトリへ移動しよう。",
+      "conceptId": "git_github_level1-section-2",
+      "variantGroup": "git_github_level1-section-2",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "2. ターミナルの基本",
+        "line": 15,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "change directoryの略と、移動先の名前を順に選びます。",
+      "success": "cd assetsで作業ディレクトリを移動できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-git-level1-003-clone",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "GitHubの練習用リポジトリをworkspaceへ複製しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-003-clone"
+      },
+      "explanation": "git clone URLを実行すると、リモートリポジトリの内容がカレントディレクトリへ複製されます。実行前にpwdで保存先を確認しておくと安心です。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "模擬環境で問題に指定された操作を実行する：GitHubの練習用リポジトリをworkspaceへ複製しよう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "git、複製する操作、リポジトリURLの順です。",
+      "success": "git cloneでリモートリポジトリを複製できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-git-level1-004-fetch",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "GitHubで作成した新しいブランチ情報を取得しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-004-fetch"
+      },
+      "explanation": "この説明は正しいです。GitHubで新しいブランチを作った後はgit fetchで情報を取得できますが、作業中のファイル自体はその操作だけでは更新されません。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "4. Git、GitHub 基礎知識"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "言葉の理解",
+      "objective": "模擬環境で問題に指定された操作を実行する：GitHubで作成した新しいブランチ情報を取得しよう。",
+      "conceptId": "git_github_level1-section-4",
+      "variantGroup": "git_github_level1-section-4",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "4. Git、GitHub 基礎知識",
+        "line": 17,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "作業ファイルを変えず、リモートの最新情報だけを取得する操作です。",
+      "success": "git fetchでリモートの最新情報を取得できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-git-level1-005-checkout",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "編集を始める前にfeature_0.0_nameへ切り替えよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-005-checkout"
+      },
+      "explanation": "git checkout ブランチ名で作業ブランチを切り替えます。編集前に目的のfeatureブランチへ移動できているか、git statusでも確認しましょう。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の選択",
+      "objective": "模擬環境で問題に指定された操作を実行する：編集を始める前にfeature_0.0_nameへ切り替えよう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "git、ブランチを切り替える操作、作業ブランチ名の順です。",
+      "success": "作業用のfeatureブランチへ切り替えられました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-git-level1-006-add-files",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "変更した2ファイルを、index.html → assets/img/me.pngの順に1ファイルずつコミット対象へ追加しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-006-add-files"
+      },
+      "explanation": "git commitに含まれるのはgit addでステージングした変更です。画像も含めるには、コミット前にgit add assets/img/me.pngを実行する必要があります。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "模擬環境で問題に指定された操作を実行する：変更した2ファイルを、index.html → assets/img/me.pngの順に1ファイルずつコミット対象へ追加しよう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "まずindex.html、次にassets/img/me.pngをgit addします。1回ずつ実行できます。",
+      "success": "2つの変更をコミット対象へ追加できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-git-level1-007-commit",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "ステージング済みの変更を「自己紹介を更新」というメッセージで記録しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-007-commit"
+      },
+      "explanation": "git commit -m \"メッセージ\"で、git addした変更をローカルリポジトリの履歴として記録します。何を変更したか分かる短いメッセージを付けましょう。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "模擬環境で問題に指定された操作を実行する：ステージング済みの変更を「自己紹介を更新」というメッセージで記録しよう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "git commitに-mを付け、その後ろに引用符付きのメッセージを置きます。",
+      "success": "変更をローカルリポジトリの履歴へ記録できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-git-level1-008-push",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "作成したコミットをoriginのfeature_0.0_nameへ送ろう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-008-push"
+      },
+      "explanation": "git push origin ブランチ名で、ローカルのコミットをorigin上の指定ブランチへアップロードします。push後にGitHubで変更を確認できます。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "5. Git を使ってみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "模擬環境で問題に指定された操作を実行する：作成したコミットをoriginのfeature_0.0_nameへ送ろう。",
+      "conceptId": "git_github_level1-section-5",
+      "variantGroup": "git_github_level1-section-5",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "5. Git を使ってみよう",
+        "line": 18,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "git、送信する操作、リモート名、ブランチ名の順です。",
+      "success": "featureブランチのコミットをGitHubへ送信できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-git-level1-009-pr",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "Pull Requestでfeature_0.0_nameの変更をmain_0.0_nameへ反映する向きを設定しよう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-009-pr"
+      },
+      "explanation": "Pull Requestではbaseが変更の反映先、compareが変更を持つ作業ブランチです。マージ前にbaseとcompareの向きを必ず確認しましょう。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "6. GitHub で Pull Request (PR) を使ってコードを反映してみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "知識の組み立て",
+      "objective": "模擬環境で問題に指定された操作を実行する：Pull Requestでfeature_0.0_nameの変更をmain_0.0_nameへ反映する向きを設定しよう。",
+      "conceptId": "git_github_level1-section-6",
+      "variantGroup": "git_github_level1-section-6",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "6. GitHub で Pull Request (PR) を使ってコードを反映してみよう",
+        "line": 19,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "baseは反映先、compareは変更を持っている作業ブランチです。",
+      "success": "baseとcompareを正しい向きで設定できました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-git-level1-010-pull",
+      "weekUnitId": "week-unit-git-github-level1",
+      "format": "interactive",
+      "prompt": "Mergedされた変更を手元のmain_0.0_nameへ取り込もう。",
+      "payload": {
+        "kind": "activityRef",
+        "activityType": "terminalToken",
+        "activityId": "activity-git-github-level1-terminal",
+        "stageId": "git-level1-stage-010-pull"
+      },
+      "explanation": "まずgit checkout main_0.0_nameで反映先ブランチへ移動し、次にgit pull origin main_0.0_nameを実行します。切り替えと取り込みの順番が重要です。",
+      "sourceReference": {
+        "weekKey": "git_github_level1",
+        "sectionHeading": "7. 反映されたか確認してみよう"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 2,
+      "target": "結果の確認・修正",
+      "objective": "模擬環境で問題に指定された操作を実行する：Mergedされた変更を手元のmain_0.0_nameへ取り込もう。",
+      "conceptId": "git_github_level1-section-7",
+      "variantGroup": "git_github_level1-section-7",
+      "variantNote": "同節の他問題は視点・文脈を変える関連問題。完全な等価類題とは扱わない。",
+      "dependency": "なし。毎回この問題の初期コード／シミュレーター開始状態から開始",
+      "source": {
+        "path": "curriculum/PH1/PH1_Git_GitHub_Level_1.md",
+        "heading": "7. 反映されたか確認してみよう",
+        "line": 20,
+        "sha256": "b9ecad53fd551fbabe0967052dbe521f99fe40a6873b3556b51a36bea3de54e3"
+      },
+      "drillConnection": "Git/GitHub Level 1：ターミナル操作→変更の記録→共有→PR→手元への反映。Git単元に対応するmini-drillフォルダはなく、教材の操作練習に対応",
+      "priorKnowledge": "Git/GitHub Level 1のインプット（実機のGit操作は不要）",
+      "hint": "先に反映先ブランチへ切り替え、その後にoriginから同じブランチをpullします。",
+      "success": "正しいブランチへ切り替えてからマージ結果を取り込めました。",
+      "grading": "教材で指定した操作列をシミュレーターで判定。実際のGitの全操作・全状態は再現しない。複数操作の問題は指定順序も練習対象。",
+      "hintUse": "ヒントを開いて解けた状態と自力正解は区別する。現行の成績保存にはヒント利用フラグがなく、今回の成績から自力正解とは断定しない",
+      "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
+    },
+    "status": "published"
+  }
+]
