@@ -102,10 +102,22 @@ export default function OnboardingScreen() {
           <PasswordField label="パスワード" value={password} onChangeText={setPassword} />
           <View style={styles.pair}>
             <View style={styles.flex}>
-              <SelectField label="所属POSSE" value={posse} options={POSSE_OPTIONS} onChange={setPosse} />
+              <SelectField
+                label="所属POSSE"
+                value={posse}
+                options={POSSE_OPTIONS}
+                onChange={setPosse}
+                webNativeSelect
+              />
             </View>
             <View style={styles.flex}>
-              <SelectField label="期生" value={generation} options={GENERATION_OPTIONS} onChange={setGeneration} />
+              <SelectField
+                label="期生"
+                value={generation}
+                options={GENERATION_OPTIONS}
+                onChange={setGeneration}
+                webNativeSelect
+              />
             </View>
           </View>
         </View>

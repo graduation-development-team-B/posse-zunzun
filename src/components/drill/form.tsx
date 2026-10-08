@@ -1,5 +1,5 @@
-import { useState, type ComponentProps, type ReactNode } from 'react';
-import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { useState, type ComponentProps, type CSSProperties, type ReactNode } from 'react';
+import { Platform, Pressable, StyleSheet, TextInput, View } from 'react-native';
 
 import { Drill, Typo } from '@/constants/drill';
 import { Icon } from './icons';
@@ -77,11 +77,34 @@ type SelectFieldProps = {
   value: string | null;
   options: string[];
   onChange: (value: string) => void;
+  webNativeSelect?: boolean;
 };
 
 /** タップで候補が開くセレクト欄 */
-export function SelectField({ label, value, options, onChange }: SelectFieldProps) {
+export function SelectField({ label, value, options, onChange, webNativeSelect = false }: SelectFieldProps) {
   const [open, setOpen] = useState(false);
+
+  if (Platform.OS === 'web' && webNativeSelect) {
+    return (
+      <Field label={label}>
+        <select
+          aria-label={label}
+          value={value ?? ''}
+          onChange={(event) => onChange(event.currentTarget.value)}
+          style={webSelectStyle}>
+          <option value="" disabled>
+            選択してください
+          </option>
+          {options.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </Field>
+    );
+  }
+
   return (
     <Field label={label}>
       <Pressable
@@ -173,3 +196,16 @@ const styles = StyleSheet.create({
   },
   option: { minHeight: 44, justifyContent: 'center', paddingHorizontal: 12 },
 });
+
+const webSelectStyle: CSSProperties = {
+  width: '100%',
+  minHeight: 48,
+  padding: '0 12px',
+  borderRadius: 12,
+  border: `1px solid ${Drill.borderStrong}`,
+  backgroundColor: Drill.surface,
+  color: Drill.text,
+  fontSize: 16,
+  fontFamily: 'inherit',
+  appearance: 'auto',
+};
