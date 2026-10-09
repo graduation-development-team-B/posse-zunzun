@@ -11,6 +11,7 @@ import { correctOption, gradeChoice, optionsFor } from '@/lib/quiz/core';
 import type { QuestionItem } from '@/types/content';
 import type { AnswerRecord } from '@/lib/quiz/session';
 import { questionSource, targetLabel } from './question-presentation';
+import { PressFeedback } from './press-feedback';
 
 export function ChoiceWorkspace({ q, selectedId, answer, hintUsed, busy, error, current, total, onSelect, onHint, onConfirm, onNext }: {
   q: QuestionItem; selectedId: string; answer?: AnswerRecord; hintUsed: boolean; busy: boolean;
@@ -56,7 +57,7 @@ export function ChoiceWorkspace({ q, selectedId, answer, hintUsed, busy, error, 
             const isAnswer = i === Q.answer;
             const tone = optionTone({ checked, isPicked, isAnswer });
             return (
-              <Pressable
+              <PressFeedback
                 key={label}
                 role="radio"
                 aria-checked={isPicked}
@@ -84,7 +85,7 @@ export function ChoiceWorkspace({ q, selectedId, answer, hintUsed, busy, error, 
                 </DText>
                 {checked && isAnswer && <Icon name="check" size={22} color={Drill.success} strokeWidth={2.8} />}
                 {checked && isPicked && !isAnswer && <Icon name="close" size={20} color={Drill.danger} strokeWidth={2.8} />}
-              </Pressable>
+              </PressFeedback>
             );
           })}
         </View>

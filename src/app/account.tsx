@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, Switch, View } from 'react-native';
 
 import { CtaButton, IconButton } from '@/components/drill/buttons';
 import { SelectField } from '@/components/drill/form';
@@ -10,9 +10,11 @@ import { Drill, Radius } from '@/constants/drill';
 import { PHASES, type PhaseId } from '@/data/drill';
 import { GENERATION_OPTIONS, POSSE_OPTIONS } from '@/data/profileOptions';
 import { useAuth } from '@/lib/auth/provider';
+import { useFeedback } from '@/lib/feedback/provider';
 
 /** アカウント：フェーズの切り替えと登録情報 */
 export default function AccountScreen() {
+  const { preferences, preferencesReady, updatePreferences } = useFeedback();
   const { user, profile, settings, profileReady, savePhase, saveProfile, signOut, error: authError } = useAuth();
   const [selectedPhase, setSelectedPhase] = useState<PhaseId | null>(null);
   const [profileDraftState, setProfileDraftState] = useState<{
@@ -73,6 +75,45 @@ export default function AccountScreen() {
       </View>
 
       <Body paddingTop={12} paddingBottom={24} gap={20}>
+        <View style={styles.section}>
+          <DText size={15} weight="bold" role="heading" aria-level={2}>
+            操作フィードバック
+          </DText>
+          <DText size={12} lh={1.6} color={Drill.textSub}>
+            問題を選んだときや回答したときの反応を設定できます。効果音は初期設定でオフです。
+          </DText>
+          <View style={styles.feedbackRows}>
+            <View style={styles.feedbackRow}>
+              <View style={styles.feedbackCopy}>
+                <DText size={14} weight="bold">振動</DText>
+                <DText size={12} color={Drill.textSub}>選択・回答・次の問題への移動</DText>
+              </View>
+              <Switch
+                accessibilityLabel="振動フィードバック"
+                value={preferences.hapticsEnabled}
+                disabled={!preferencesReady}
+                onValueChange={(enabled) => updatePreferences({ ...preferences, hapticsEnabled: enabled })}
+                trackColor={{ false: Drill.border, true: Drill.accent }}
+                thumbColor={Drill.surface}
+              />
+            </View>
+            <View style={[styles.feedbackRow, styles.feedbackBorder]}>
+              <View style={styles.feedbackCopy}>
+                <DText size={14} weight="bold">効果音</DText>
+                <DText size={12} color={Drill.textSub}>正解・不正解の回答時</DText>
+              </View>
+              <Switch
+                accessibilityLabel="効果音"
+                value={preferences.soundEnabled}
+                disabled={!preferencesReady}
+                onValueChange={(enabled) => updatePreferences({ ...preferences, soundEnabled: enabled })}
+                trackColor={{ false: Drill.border, true: Drill.accent }}
+                thumbColor={Drill.surface}
+              />
+            </View>
+          </View>
+        </View>
+
         <View style={styles.section}>
           <View>
             <DText size={15} weight="bold" role="heading" aria-level={2}>
@@ -187,6 +228,10 @@ const styles = StyleSheet.create({
   phaseTitle: { flexDirection: 'row', alignItems: 'baseline', gap: 8 },
   rows: { borderRadius: Radius.lg, borderWidth: 1, borderColor: Drill.border, backgroundColor: Drill.surface, overflow: 'hidden' },
   profileChoices: { gap: 12 },
+  feedbackRows: { borderRadius: Radius.lg, borderWidth: 1, borderColor: Drill.border, backgroundColor: Drill.surface, overflow: 'hidden' },
+  feedbackRow: { minHeight: 64, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
+  feedbackBorder: { borderTopWidth: 1, borderTopColor: Drill.divider },
+  feedbackCopy: { gap: 2, flex: 1 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 52, paddingLeft: 16, paddingRight: 12 },
   rowBorder: { borderTopWidth: 1, borderTopColor: Drill.divider },
   rowLabel: { width: 88 },

@@ -4,6 +4,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { Drill, Radius } from '@/constants/drill';
 import { Icon } from './icons';
 import { DText } from './ui';
+import { PressFeedback } from './press-feedback';
 
 type CtaButtonProps = {
   label: string;
@@ -32,7 +33,7 @@ export function CtaButton({ label, href, onPress, disabled, arrow, minHeight = 5
   }
 
   const button = (
-    <Pressable
+    <PressFeedback
       role={href ? 'link' : 'button'}
       onPress={onPress}
       style={StyleSheet.flatten([styles.cta, { minHeight }])}>
@@ -40,7 +41,7 @@ export function CtaButton({ label, href, onPress, disabled, arrow, minHeight = 5
         {label}
       </DText>
       {arrow && <Icon name="arrowRight" size={18} strokeWidth={2.4} />}
-    </Pressable>
+    </PressFeedback>
   );
 
   return href ? (

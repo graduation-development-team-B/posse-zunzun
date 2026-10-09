@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Drill } from "@/constants/drill";
 import { AuthProvider, useAuth } from "@/lib/auth/provider";
 import { LearningProvider } from "@/lib/progress/provider";
+import { FeedbackProvider } from "@/lib/feedback/provider";
 import { Body, DText, Screen } from "@/components/drill/ui";
 
 /** ミニドリルはライト固定。画面はすべてこの Stack の子として並ぶ */
@@ -24,7 +25,9 @@ export default function RootLayout() {
     <AuthProvider>
       <ThemeProvider value={theme}>
         <LearningProvider>
-          <AuthRouter />
+          <FeedbackProvider>
+            <AuthRouter />
+          </FeedbackProvider>
         </LearningProvider>
       </ThemeProvider>
     </AuthProvider>

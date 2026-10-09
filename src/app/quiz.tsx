@@ -7,6 +7,7 @@ import { CtaButton } from "@/components/drill/buttons";
 import { Body, DText, Screen } from "@/components/drill/ui";
 import { catalog } from "@/lib/content/catalog";
 import { useLearning } from "@/lib/progress/provider";
+import { useFeedback } from "@/lib/feedback/provider";
 import {
   codeFor,
   questionMode,
@@ -81,6 +82,7 @@ export default function QuizScreen() {
 function QuestionScreen({ question: q }: { question: QuestionItem }) {
   const router = useRouter();
   const { state, mutate, confirmAnswer, error } = useLearning();
+  const feedback = useFeedback();
   const session = state.session!;
   const draft = draftFor(state, q, catalog);
   const answer = answerFor(state, q);
@@ -186,12 +188,14 @@ function QuestionScreen({ question: q }: { question: QuestionItem }) {
   const confirm = async () => {
     setBusy(true);
     try {
-      await confirmAnswer(q, {
+      const updated = await confirmAnswer(q, {
         input,
         executed,
         status: consoleResult?.status,
         lines: consoleResult?.lines,
       });
+      const savedAnswer = answerFor(updated, q);
+      if (savedAnswer) feedback.answer(savedAnswer.correct);
     } catch {
     } finally {
       setBusy(false);
@@ -201,6 +205,7 @@ function QuestionScreen({ question: q }: { question: QuestionItem }) {
     setBusy(true);
     try {
       const updated = await mutate((s) => nextQuestion(s, catalog));
+      feedback.next();
       if (updated.session?.completedAt)
         router.replace({ pathname: "/done", params: { session: session.id } });
     } catch {
@@ -208,7 +213,10 @@ function QuestionScreen({ question: q }: { question: QuestionItem }) {
       setBusy(false);
     }
   };
-  const onSelect = (id: string) => change(s => editDraft(s, q, { optionId: id }, catalog));
+  const onSelect = (id: string) => {
+    if (id !== draft.optionId) feedback.selection();
+    change(s => editDraft(s, q, { optionId: id }, catalog));
+  };
   const onHint = () => attempt(s => editDraft(s, q, { hintUsed: true }, catalog));
   const shared = { q, answer, busy, error, current: session.cursor + 1, total: session.refs.length,
     onSelect, onHint, onConfirm: () => void confirm(), onNext: () => void next() };
