@@ -2,7 +2,7 @@
  * - ページ遷移：ネットワーク優先、オフライン時はキャッシュ
  * - 同一オリジンの静的ファイルと Google Fonts：キャッシュ優先で裏で更新
  * 配信内容を変えたら CACHE のバージョンを上げる。 */
-const CACHE = 'minidrill-v1';
+const CACHE = 'minidrill-v2';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(['/', '/manifest.json'])));
@@ -51,6 +51,39 @@ self.addEventListener('fetch', (event) => {
         })
         .catch(() => hit);
       return hit || network;
+    })
+  );
+});
+
+self.addEventListener('push', (event) => {
+  let payload = { title: 'ミニドリル', body: '今日の3問、やってみませんか？', url: '/' };
+  try {
+    if (event.data) payload = { ...payload, ...event.data.json() };
+  } catch {
+    if (event.data) payload.body = event.data.text() || payload.body;
+  }
+
+  event.waitUntil(
+    self.registration.showNotification(payload.title, {
+      body: payload.body,
+      icon: '/icon-192.png',
+      badge: '/icon-192.png',
+      tag: 'daily-learning-reminder',
+      data: { url: payload.url },
+    })
+  );
+});
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  const target = new URL(event.notification.data?.url || '/', self.location.origin);
+  if (target.origin !== self.location.origin) return;
+
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clients) => {
+      const existing = clients.find((client) => new URL(client.url).pathname === target.pathname);
+      if (existing) return existing.focus();
+      return self.clients.openWindow(target.href);
     })
   );
 });

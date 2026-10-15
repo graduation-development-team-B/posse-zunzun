@@ -55,7 +55,8 @@
     "export:web": "expo export --platform web",
     "content:init": "node scripts/init-week.js",
     "format:content": "prettier --write content",
-    "test:ui": "node --test --test-reporter=dot tests/ui/*.test.mjs"
+    "test:ui": "node --test --test-reporter=dot tests/ui/*.test.mjs",
+    "reminders:keys": "node scripts/generate-vapid-keys.mjs"
   },
   "private": true,
   "engines": {
