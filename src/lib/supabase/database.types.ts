@@ -61,9 +61,75 @@ export type Database = {
         Update: never;
         Relationships: [];
       };
+      push_subscriptions: {
+        Row: {
+          id: string;
+          user_id: string;
+          endpoint: string;
+          p256dh: string;
+          auth: string;
+          enabled: boolean;
+          reminder_time: string;
+          reminder_timezone: string;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id: string;
+          endpoint: string;
+          p256dh: string;
+          auth: string;
+          enabled?: boolean;
+          reminder_time?: string;
+          reminder_timezone?: string;
+        };
+        Update: {
+          user_id?: string;
+          endpoint?: string;
+          p256dh?: string;
+          auth?: string;
+          enabled?: boolean;
+          reminder_time?: string;
+          reminder_timezone?: string;
+        };
+        Relationships: [];
+      };
+      reminder_dispatches: {
+        Row: {
+          subscription_id: string;
+          local_date: string;
+          status: "claimed" | "sent" | "skipped" | "failed";
+          updated_at: string;
+        };
+        Insert: {
+          subscription_id: string;
+          local_date: string;
+          status: "claimed" | "sent" | "skipped" | "failed";
+          updated_at?: string;
+        };
+        Update: {
+          status?: "claimed" | "sent" | "skipped" | "failed";
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
     };
     Views: Record<string, never>;
-    Functions: Record<string, never>;
+    Functions: {
+      get_due_learning_reminders: {
+        Args: Record<string, never>;
+        Returns: {
+          subscription_id: string;
+          user_id: string;
+          endpoint: string;
+          p256dh: string;
+          auth: string;
+          local_date: string;
+          studied_today: boolean;
+        }[];
+      };
+    };
     Enums: Record<string, never>;
     CompositeTypes: Record<string, never>;
   };

@@ -1,0 +1,120 @@
+import { Platform } from "react-native";
+import { requireSupabase } from "@/lib/supabase/client";
+
+export type ReminderPreference = {
+  enabled: boolean;
+  reminder_time: string;
+};
+
+function browserOnly(): void {
+  if (Platform.OS !== "web" || typeof window === "undefined") {
+    throw new Error("学習リマインダーはPWAで利用できます。");
+  }
+}
+
+function applicationServerKey(value: string): ArrayBuffer {
+  const padding = "=".repeat((4 - (value.length % 4)) % 4);
+  const binary = window.atob(value.replace(/-/g, "+").replace(/_/g, "/") + padding);
+  const buffer = new ArrayBuffer(binary.length);
+  const bytes = new Uint8Array(buffer);
+  for (let index = 0; index < binary.length; index++) bytes[index] = binary.charCodeAt(index);
+  return buffer;
+}
+
+function encodeBase64Url(value: ArrayBuffer): string {
+  const bytes = new Uint8Array(value);
+  let binary = "";
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return window.btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
+
+async function getSubscription() {
+  browserOnly();
+  if (!("serviceWorker" in navigator) || !("PushManager" in window)) return null;
+  const registration = await navigator.serviceWorker.getRegistration();
+  if (!registration) return null;
+  return registration.pushManager.getSubscription();
+}
+
+export async function loadReminderPreference(userId: string): Promise<ReminderPreference | null> {
+  const subscription = await getSubscription();
+  if (!subscription) return null;
+  const { data, error } = await requireSupabase()
+    .from("push_subscriptions")
+    .select("enabled, reminder_time")
+    .eq("user_id", userId)
+    .eq("endpoint", subscription.endpoint)
+    .maybeSingle();
+  if (error) throw error;
+  return data;
+}
+
+export async function enableReminder(userId: string, reminderTime: string): Promise<void> {
+  browserOnly();
+  if (!window.isSecureContext || !("serviceWorker" in navigator) || !("PushManager" in window)) {
+    throw new Error("このブラウザーでは通知を利用できません。HTTPSのPWAからお試しください。");
+  }
+  const publicKey = process.env.EXPO_PUBLIC_WEB_PUSH_VAPID_PUBLIC_KEY?.trim();
+  if (!publicKey) throw new Error("通知の公開鍵が設定されていません。");
+  if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(reminderTime)) {
+    throw new Error("通知時刻を選び直してください。");
+  }
+
+  const permission = await Notification.requestPermission();
+  if (permission !== "granted") throw new Error("通知が許可されていません。ブラウザーの設定をご確認ください。");
+
+  await navigator.serviceWorker.register("/sw.js");
+  const registration = await navigator.serviceWorker.ready;
+  const subscription =
+    (await registration.pushManager.getSubscription()) ??
+    (await registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: applicationServerKey(publicKey),
+    }));
+  const p256dh = subscription.getKey("p256dh");
+  const auth = subscription.getKey("auth");
+  if (!p256dh || !auth) throw new Error("通知の購読情報を読み取れませんでした。");
+
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  if (!timezone) throw new Error("端末のタイムゾーンを取得できませんでした。");
+
+  const { error } = await requireSupabase().from("push_subscriptions").upsert(
+    {
+      user_id: userId,
+      endpoint: subscription.endpoint,
+      p256dh: encodeBase64Url(p256dh),
+      auth: encodeBase64Url(auth),
+      enabled: true,
+      reminder_time: reminderTime,
+      reminder_timezone: timezone,
+    },
+    { onConflict: "endpoint" },
+  );
+  if (error) throw error;
+}
+
+export async function updateReminderTime(userId: string, reminderTime: string): Promise<void> {
+  browserOnly();
+  const subscription = await getSubscription();
+  if (!subscription) throw new Error("通知をオンにしてから時刻を保存してください。");
+  const { error, data } = await requireSupabase()
+    .from("push_subscriptions")
+    .update({ reminder_time: reminderTime, reminder_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone })
+    .eq("user_id", userId)
+    .eq("endpoint", subscription.endpoint)
+    .select("id");
+  if (error) throw error;
+  if (!data?.length) throw new Error("通知設定を見つけられませんでした。通知をもう一度オンにしてください。");
+}
+
+export async function disableReminder(userId: string): Promise<void> {
+  browserOnly();
+  const subscription = await getSubscription();
+  if (!subscription) return;
+  const { error } = await requireSupabase()
+    .from("push_subscriptions")
+    .update({ enabled: false })
+    .eq("user_id", userId)
+    .eq("endpoint", subscription.endpoint);
+  if (error) throw error;
+}
