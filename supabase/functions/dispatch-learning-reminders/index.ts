@@ -123,7 +123,7 @@ Deno.serve(async (request) => {
             keys: { p256dh: reminder.p256dh, auth: reminder.auth },
           },
           {
-            title: "ミニドリル",
+            title: "POSSEずんずん",
             body: "今日の3問、やってみませんか？",
             url: "/",
             tag: "daily-learning-reminder",

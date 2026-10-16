@@ -5,6 +5,7 @@ import { CtaButton, IconButton } from '@/components/drill/buttons';
 import { SelectField } from '@/components/drill/form';
 import { Icon } from '@/components/drill/icons';
 import { ReminderTimeInput } from '@/components/drill/reminder-time-input';
+import { PwaNotificationSetup } from '@/components/drill/pwa-notification-setup';
 import { RadioDot, SelectCard } from '@/components/drill/select';
 import { Body, DText, Footer, Screen } from '@/components/drill/ui';
 import { Drill, Radius } from '@/constants/drill';
@@ -187,6 +188,7 @@ export default function AccountScreen() {
               <DText size={12} lh={1.6} color={Drill.textSub}>
                 端末のタイムゾーンに合わせて、0時から23時まで1時間単位で選んだ時刻に「今日の3問、やってみませんか？」とお知らせします。その日に1問以上解いている場合は通知しません。
               </DText>
+              <PwaNotificationSetup />
               <View style={styles.feedbackRow}>
                 <View style={styles.feedbackCopy}>
                   <DText size={14} weight="bold">通知を受け取る</DText>
