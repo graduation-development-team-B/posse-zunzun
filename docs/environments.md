@@ -19,14 +19,24 @@ dev SupabaseのAuth Redirect URLsに、previewからメール確認後に戻るU
 
 ## production
 
-ユーザーはdevとは別の本番用Supabase環境を作成済み。本番のURLとpublishable keyはまだ設定していない。dev値を本番値として保存・公開しない。
+`v*`タグでの公開手順と必要なCI用Secretsは[releasing.md](releasing.md)を参照する。
 
-EASのpreviewにはdevの値、productionには本番の値を別々に登録する。クライアントの値はExpoの書き出し時に組み込まれるため、deploy時の環境だけ変えても接続先は変わらない。本番を書き出す作業領域ではdevの`.env.local`を混入させず、productionの値をexportに渡す。
+本番Supabaseは`posse-quiz-app-prod`（project ref `pzwptfsgdsovbxuctmue`）。EASのproduction環境には本番URL・publishable key・production専用VAPID公開鍵を登録する。VAPID秘密鍵とdispatch secretは本番SupabaseのFunction Secretsにのみ保存し、対応するURL・publishable key・dispatch secretはVaultに保存する。devとproductionのVAPID鍵は分離する。
 
-本番公開前にSite URL・メール確認・再設定の戻り先、RLS、本人の回答保存を確認する。
+学習データとWeb Pushの2つのmigrationを本番へ適用済み。`dispatch-learning-reminders` Edge Functionをデプロイし、`pg_cron`と`pg_net`を有効化した。Cronは毎時`0 * * * *`にリマインダーを処理し、毎日`17 3 * * *`に7日より古いCron実行履歴を削除する。EAS Hosting production URLは[https://posse-zunzun.expo.app](https://posse-zunzun.expo.app)。
+
+クライアント用のproduction値はEASのproduction環境からWeb書き出し時に組み込む。ローカルのdev用`.env.local`をproduction値として保存・公開しない。
+
+本番運用の確認事項として、Site URL・メール確認・再設定の戻り先、RLS、本人の回答保存を確認する。
 
 ## 検証の範囲
 
-preview URLと登録ルートのHTTP 200応答を確認済み。ユーザー登録・確認メール・ログイン・DB保存・RLSのエンドツーエンド確認は未実施。本番DBへの変更や本番アクセスは行っていない。
+2026-10-16にproductionへWebをデプロイし、トップページ・manifest・Service Worker・アイコンがHTTP 200で返ること、bundleに本番Supabase URLとproduction VAPID公開鍵が含まれdev URLが含まれないことを確認した。Functionの診断でVAPID鍵ペアとsubject形式を確認し、購読0件の状態でdispatchを実行して`processed: 0`を確認した。実ユーザー端末への通知配送は、購読がないため未確認。
+
+preview URLと登録ルートのHTTP 200応答も確認済み。ユーザー登録・確認メール・ログイン・DB保存・RLSのエンドツーエンド確認は未実施。
 
 2026-10-07の作業結果：dev DBにプロフィール・学習設定・回答履歴のマイグレーションを適用し、CLIで適用済み状態を確認した。devのAuth公開設定はHTTP 200。登録・メール配送・ログインやData APIのRLS動作は未検証。
+
+2026-10-16の追加確認：productionを`ddlmqbbyhg`へ更新し、Production aliasを再割り当てした。preview配信中のPWAアイコン4点を`public/`へ反映し、アイコンURLに画像の版を付け、Service Workerのキャッシュを`minidrill-v8`へ更新した。本番URLのmanifest・Service Worker・アイコン・JSを取得し、production用ビルドとの一致、本番Supabase・VAPID公開鍵、通知エラー診断の組み込みを確認した。Auth公開設定はEmailプロバイダー有効、新規登録許可、メール自動確認。これらのAuth設定変更は今回の作業では行っていない。
+
+同日の23:00:02（日本時間）に既存購読の配信履歴が`sent`となり、Cron実行も`succeeded`を確認した。iPhoneホーム画面PWAの再起動後、通知OFF→ONの保存成功と、Safariのホーム画面追加確認画面での新アイコン表示をユーザーが確認した。ユーザーが時刻を0時へ変更した後、本番DBにも`enabled: true`・`00:00:00`・`Asia/Tokyo`の購読が保存されていることを確認した。以前の23時購読も別レコードとして残っており、削除していない。次回0時の端末への通知到着は未確認。

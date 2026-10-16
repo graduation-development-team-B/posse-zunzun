@@ -2,7 +2,7 @@
  * - ページ遷移：ネットワーク優先、オフライン時はキャッシュ
  * - 同一オリジンの静的ファイルと Google Fonts：キャッシュ優先で裏で更新
  * 配信内容を変えたら CACHE のバージョンを上げる。 */
-const CACHE = 'minidrill-v4';
+const CACHE = 'minidrill-v8';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(['/', '/manifest.json'])));
@@ -66,8 +66,8 @@ self.addEventListener('push', (event) => {
   event.waitUntil(
     self.registration.showNotification(payload.title, {
       body: payload.body,
-      icon: '/icon-192.png',
-      badge: '/icon-192.png',
+      icon: '/icon-192.png?v=d5850588',
+      badge: '/icon-192.png?v=d5850588',
       tag: 'daily-learning-reminder',
       data: { url: payload.url },
     })

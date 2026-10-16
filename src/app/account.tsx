@@ -14,6 +14,7 @@ import { GENERATION_OPTIONS, POSSE_OPTIONS } from '@/data/profileOptions';
 import { useAuth } from '@/lib/auth/provider';
 import { useFeedback } from '@/lib/feedback/provider';
 import { disableReminder, enableReminder, loadReminderPreference, updateReminderTime } from '@/lib/notifications/webPush';
+import { reminderErrorMessage } from '@/lib/notifications/errors';
 
 /** アカウント：フェーズの切り替えと登録情報 */
 export default function AccountScreen() {
@@ -49,8 +50,8 @@ export default function AccountScreen() {
         setReminderTime(wholeHour);
         setSavedReminderTime(wholeHour);
       })
-      .catch(() => {
-        if (live) setReminderError('通知設定を読み込めませんでした。ページを再読み込みしてください。');
+      .catch((cause) => {
+        if (live) setReminderError(`通知設定を読み込めませんでした。${reminderErrorMessage(cause, 'ページを再読み込みしてください。')}`);
       });
     return () => { live = false; };
   }, [user]);
@@ -72,7 +73,7 @@ export default function AccountScreen() {
         setReminderNotice('学習リマインダーを停止しました。');
       }
     } catch (cause) {
-      setReminderError(cause instanceof Error ? cause.message : '通知設定を保存できませんでした。');
+      setReminderError(reminderErrorMessage(cause, '通知設定を保存できませんでした。'));
     } finally {
       setReminderBusy(false);
     }
@@ -88,7 +89,7 @@ export default function AccountScreen() {
       setSavedReminderTime(reminderTime);
       setReminderNotice('通知時刻を保存しました。');
     } catch (cause) {
-      setReminderError(cause instanceof Error ? cause.message : '通知時刻を保存できませんでした。');
+      setReminderError(reminderErrorMessage(cause, '通知時刻を保存できませんでした。'));
     } finally {
       setReminderBusy(false);
     }

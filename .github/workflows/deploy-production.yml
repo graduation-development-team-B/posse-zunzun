@@ -12,30 +12,140 @@ concurrency:
 jobs:
   deploy:
     if: ${{ !contains(github.ref_name, '-') }}
-    name: Export and deploy production
+    name: Validate, deploy Supabase, and publish production
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     permissions:
       contents: read
+    defaults:
+      run:
+        working-directory: app
+    env:
+      RELEASE_TAG: ${{ github.ref_name }}
+      EXPO_NO_DOTENV: "1"
+      QUIZ_WORKSPACE: ${{ github.workspace }}
+      SUPABASE_PROJECT_ID: pzwptfsgdsovbxuctmue
     steps:
-      - name: Check out tagged commit
+      - name: Check out tagged commit and main history
         uses: actions/checkout@v4
+        with:
+          path: app
+          fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22.19.0
           cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Validate tag and committed release
+        run: node scripts/release/tag.mjs --ci "$RELEASE_TAG"
+
+      - name: Check required CI credentials
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          QUIZ_SOURCES_TOKEN: ${{ secrets.QUIZ_SOURCES_TOKEN }}
+        run: |
+          for name in EXPO_TOKEN SUPABASE_ACCESS_TOKEN SUPABASE_DB_PASSWORD QUIZ_SOURCES_TOKEN; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Missing GitHub Actions secret: $name"
+              exit 1
+            fi
+          done
+
+      # Source hashes in the content tests require these source repositories.
+      - name: Check out reviewed curriculum revision
+        uses: actions/checkout@v4
+        with:
+          repository: posse-ap/curriculum
+          ref: 3cf198c321e243268061e131bc1de3821c3e5158
+          path: curriculum
+          token: ${{ secrets.QUIZ_SOURCES_TOKEN }}
+          persist-credentials: false
+
+      - name: Check out reviewed PH2 drill revision
+        uses: actions/checkout@v4
+        with:
+          repository: posse-ap/drill-ph2
+          ref: 341a509eccd152fa47f1f379bc99794c4a54e09f
+          path: drill-ph2
+          token: ${{ secrets.QUIZ_SOURCES_TOKEN }}
+          persist-credentials: false
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Export web app with EAS production variables
-        run: npx eas-cli@latest env:exec production 'npx expo export --clear --platform web' --non-interactive
+      - name: Lint, typecheck, and test
+        run: |
+          npm run lint
+          npm run typecheck
+          npm test
+
+      - name: Validate production variables, export, and record asset hashes
+        run: npx eas-cli@latest env:exec production 'npm run release:build' --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Deploy to EAS Hosting production
-        run: npx eas-cli@latest deploy --non-interactive --environment production --prod
+      - name: Set up Supabase CLI
+        uses: supabase/setup-cli@v1
+        with:
+          version: 2.113.0
+
+      - name: Deploy pending production migrations
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+        run: |
+          supabase link --project-ref "$SUPABASE_PROJECT_ID"
+          supabase db push --linked --dry-run
+          supabase db push --linked --yes
+          supabase migration list --linked
+
+      - name: Deploy production reminder function
+        run: supabase functions deploy dispatch-learning-reminders --project-ref "$SUPABASE_PROJECT_ID" --use-api
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+
+      - name: Choose immutable deployment ID
+        id: deployment
+        run: printf 'id=p%sa%s\n' "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy web to immutable URL
+        run: npx eas-cli@latest deploy --id "$DEPLOYMENT_ID" --environment production --non-interactive
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          DEPLOYMENT_ID: ${{ steps.deployment.outputs.id }}
+
+      - name: Verify immutable deployment before publishing
+        run: npm run release:verify -- --url "https://posse-zunzun--${DEPLOYMENT_ID}.expo.app"
+        env:
+          DEPLOYMENT_ID: ${{ steps.deployment.outputs.id }}
+
+      - name: Promote verified deployment to production
+        run: npx eas-cli@latest deploy:alias --id "$DEPLOYMENT_ID" --prod --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          DEPLOYMENT_ID: ${{ steps.deployment.outputs.id }}
+
+      - name: Verify production and refresh alias once if stale
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          DEPLOYMENT_ID: ${{ steps.deployment.outputs.id }}
+        run: |
+          if ! npm run release:verify; then
+            echo "::warning::Production verification failed; reassigning the verified deployment once."
+            npx eas-cli@latest deploy:alias --id "$DEPLOYMENT_ID" --prod --non-interactive
+            npm run release:verify
+          fi
+
+      - name: Save release verification manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-release-${{ github.run_id }}-${{ github.run_attempt }}
+          path: app/dist/release.json
+          if-no-files-found: ignore
