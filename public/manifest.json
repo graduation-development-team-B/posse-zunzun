@@ -1,6 +1,7 @@
 {
-  "name": "ミニドリル",
-  "short_name": "ミニドリル",
+  "id": "/",
+  "name": "POSSEずんずん",
+  "short_name": "POSSEずんずん",
   "description": "開いて3問、迷わず終われる毎日のミニドリル",
   "lang": "ja",
   "start_url": "/",

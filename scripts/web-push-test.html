@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Push ローカルテスト</title>
+<link rel="manifest" href="/manifest.json?local-test=1">
+<meta name="theme-color" content="#FF7A2F">
+<link rel="icon" href="/icon-192.png">
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; padding: 24px; margin: auto; line-height: 1.7; color: #262626; background: #f7f6f3; }
+  button { display: block; width: 100%; min-height: 48px; margin: 16px 0; padding: 12px; font: inherit; cursor: pointer; }
+  [hidden] { display: none !important; }
+  pre { background: white; border: 1px solid #ddd; padding: 16px; white-space: pre-wrap; overflow-wrap: anywhere; }
+</style>
+<h1>Web Push ローカルテスト</h1>
+<p>①はブラウザーの通知表示、②はPushサービスを経由した受信を確認します。アプリと同じサービスワーカーを使用します。Supabase・Cron・学習済み判定はこのテストに含みません。</p>
+<p>Chromeなどの通常のタブで開いてください。スマホ表示用の拡張機能やiframe内での実行は避けてください。</p>
+<p>macOSのChrome 152以降で左側のChromeアイコンもアプリのアイコンにするには、このページをPWAとしてインストールして開き、macOS側でもアプリの通知を許可してください。通常のタブではChromeのアイコンになります。</p>
+<button id="display">① 通知を表示する</button>
+<button id="push">② 実際のWeb Pushを送る</button>
+<button id="install" hidden>③ POSSEずんずん 通知テストをインストール</button>
+<p id="native-settings">インストールしてアプリとして開いた後、通知を許可すると「システム設定 → 通知 → POSSEずんずん 通知テスト」で表示方法などを管理できます。</p>
+<pre id="status" role="status" aria-live="polite"></pre>
+<p>通知のバナーが見えない場合は、OSの通知センター・Chromeの通知設定・集中モードも確認してください。テスト終了後はターミナルでCtrl+Cを押します。</p>
+<script type="module">
+const status = document.querySelector('#status');
+const buttons = [...document.querySelectorAll('button')];
+const installButton = document.querySelector('#install');
+const standalone = matchMedia('(display-mode: standalone)').matches;
+let installPrompt = null;
+window.addEventListener('beforeinstallprompt', event => {
+  if (standalone) return;
+  event.preventDefault();
+  installPrompt = event;
+  installButton.hidden = false;
+});
+window.addEventListener('appinstalled', () => {
+  installPrompt = null;
+  installButton.hidden = true;
+  document.querySelector('#native-settings').textContent = 'インストールした「POSSEずんずん 通知テスト」をDockやアプリケーションから開いてください。通知を送った際にmacOSの許可画面が出たら許可してください。';
+});
+installButton.addEventListener('click', async () => {
+  if (!installPrompt) return;
+  const prompt = installPrompt;
+  installPrompt = null;
+  installButton.hidden = true;
+  try { await prompt.prompt(); } catch { log('Chromeのメニューからアプリをインストールしてください。'); }
+});
+const log = (text) => { status.textContent += `${text}\n`; };
+const supported = window.isSecureContext && 'Notification' in window && 'serviceWorker' in navigator && 'PushManager' in window;
+log(`通知API: ${supported ? '利用可能' : '利用不可'}`);
+if ('Notification' in window) log(`通知許可: ${Notification.permission}`);
+log(`起動方法: ${standalone ? 'インストールしたPWA' : 'ブラウザーのタブ'}`);
+buttons.forEach(button => { button.disabled = !supported; });
+
+async function setup() {
+  // Request permission before any await unrelated to the user gesture.
+  if (await Notification.requestPermission() !== 'granted') {
+    throw new Error('通知が許可されていません。アドレスバーのサイト設定で許可してください。');
+  }
+  log('通知許可: granted');
+  await navigator.serviceWorker.register('/sw.js');
+  const registration = await navigator.serviceWorker.ready;
+  log('サービスワーカー: active');
+  for (const notification of await registration.getNotifications()) notification.close();
+  return registration;
+}
+
+function run(action) {
+  return async () => {
+    buttons.forEach(button => { button.disabled = true; });
+    try { await action(); } catch (error) { log(`失敗: ${error.message}`); }
+    finally { buttons.forEach(button => { button.disabled = false; }); }
+  };
+}
+
+document.querySelector('#display').addEventListener('click', run(async () => {
+  const registration = await setup();
+  await registration.showNotification('POSSEずんずん', {
+    body: '今日の3問、やってみませんか？', icon: '/icon-192.png', tag: 'local-display-test', data: { url: '/' },
+  });
+  log('① 通知表示API: 成功（OSの通知表示も確認してください）');
+}));
+
+document.querySelector('#push').addEventListener('click', run(async () => {
+  const registration = await setup();
+  const response = await fetch(`/config?session=${Date.now()}`, { cache: 'no-store' });
+  const { publicKey } = await response.json();
+  const key = Uint8Array.from(atob(publicKey.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - publicKey.length % 4) % 4)), char => char.charCodeAt(0));
+  let subscription = await registration.pushManager.getSubscription();
+  // A restart creates a new ephemeral VAPID key. Rotate this test-origin
+  // subscription only; the application's real subscription is untouched.
+  if (subscription) {
+    const previous = new Uint8Array(subscription.options.applicationServerKey || new ArrayBuffer(0));
+    if (previous.length !== key.length || previous.some((byte, index) => byte !== key[index])) {
+      await subscription.unsubscribe();
+      subscription = null;
+    }
+  }
+  subscription ??= await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: key });
+  log('Push購読: 成功');
+  const sent = await fetch('/send', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(subscription) });
+  const result = await sent.json();
+  if (!sent.ok) throw new Error(result.error || '購読が失効しています。もう一度試してください。');
+  log('Pushサービス: 受け付け済み');
+  for (let attempt = 0; attempt < 30; attempt++) {
+    const notifications = await registration.getNotifications({ tag: 'daily-learning-reminder' });
+    if (notifications.length) {
+      log('② Web Push受信 → アプリと同じサービスワーカーで通知表示: 成功');
+      return;
+    }
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  }
+  log('送信は受け付けられましたが、30秒以内に通知の受信を確認できませんでした。ブラウザー・ネットワーク・通知センターを確認してください。');
+}));
+</script>
+</html>
