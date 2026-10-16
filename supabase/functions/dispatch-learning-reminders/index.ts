@@ -1,4 +1,5 @@
 import { sendPushNotification } from "npm:@mmmike/web-push@1.0.1/send";
+import { pushFailureReason, vapidDiagnostics } from "./diagnostics.ts";
 
 type DueReminder = {
   subscription_id: string;
@@ -62,6 +63,12 @@ Deno.serve(async (request) => {
   const vapidSubject = Deno.env.get("VAPID_SUBJECT") ?? "";
   if (!supabaseUrl || !serviceKey || !vapidPublicKey || !vapidPrivateKey || !vapidSubject) {
     return json({ error: "server_configuration_missing" }, 500);
+  }
+  const diagnostics = await vapidDiagnostics(vapidPublicKey, vapidPrivateKey, vapidSubject);
+  console.info("Reminder VAPID diagnostics", diagnostics);
+  // Protected by the same dispatch secret; no subscriptions are read or sent.
+  if (new URL(request.url).searchParams.get("diagnostics") === "1") {
+    return json(diagnostics);
   }
 
   const headers = {
@@ -155,7 +162,12 @@ Deno.serve(async (request) => {
             `reminder_dispatches?subscription_id=eq.${encodeURIComponent(reminder.subscription_id)}&local_date=eq.${encodeURIComponent(reminder.local_date)}`,
             { method: "PATCH", body: JSON.stringify({ status: "failed" }) },
           );
-          console.error("Reminder delivery failed", { statusCode });
+          console.error("Reminder delivery failed", {
+            statusCode,
+            reason: pushFailureReason(error),
+            subscriptionId: reminder.subscription_id,
+            pushService: new URL(reminder.endpoint).hostname,
+          });
         }
       }
     }

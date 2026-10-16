@@ -36,6 +36,14 @@ async function getSubscription() {
   return registration.pushManager.getSubscription();
 }
 
+function sameApplicationServerKey(subscription: PushSubscription, publicKey: string): boolean {
+  const currentKey = subscription.options.applicationServerKey;
+  if (!currentKey) return false;
+  const expectedKey = new Uint8Array(applicationServerKey(publicKey));
+  const actualKey = new Uint8Array(currentKey);
+  return expectedKey.length === actualKey.length && expectedKey.every((byte, index) => byte === actualKey[index]);
+}
+
 export async function loadReminderPreference(userId: string): Promise<ReminderPreference | null> {
   const subscription = await getSubscription();
   if (!subscription) return null;
@@ -65,12 +73,18 @@ export async function enableReminder(userId: string, reminderTime: string): Prom
 
   await navigator.serviceWorker.register("/sw.js");
   const registration = await navigator.serviceWorker.ready;
-  const subscription =
-    (await registration.pushManager.getSubscription()) ??
-    (await registration.pushManager.subscribe({
+  let subscription = await registration.pushManager.getSubscription();
+  let previousEndpoint: string | null = null;
+  if (subscription && !sameApplicationServerKey(subscription, publicKey)) {
+    previousEndpoint = subscription.endpoint;
+    const unsubscribed = await subscription.unsubscribe();
+    if (!unsubscribed) throw new Error("以前の通知購読を更新できませんでした。ブラウザーの通知設定をご確認ください。");
+    subscription = null;
+  }
+  subscription ??= await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: applicationServerKey(publicKey),
-    }));
+    });
   const p256dh = subscription.getKey("p256dh");
   const auth = subscription.getKey("auth");
   if (!p256dh || !auth) throw new Error("通知の購読情報を読み取れませんでした。");
@@ -91,6 +105,14 @@ export async function enableReminder(userId: string, reminderTime: string): Prom
     { onConflict: "endpoint" },
   );
   if (error) throw error;
+  if (previousEndpoint) {
+    const { error: cleanupError } = await requireSupabase()
+      .from("push_subscriptions")
+      .delete()
+      .eq("user_id", userId)
+      .eq("endpoint", previousEndpoint);
+    if (cleanupError) throw cleanupError;
+  }
 }
 
 export async function updateReminderTime(userId: string, reminderTime: string): Promise<void> {
