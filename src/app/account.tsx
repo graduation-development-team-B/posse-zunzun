@@ -1,365 +1,177 @@
-import { useEffect, useState } from 'react';
-import { Platform, Pressable, StyleSheet, Switch, View } from 'react-native';
+import { useState } from "react";
+import { Image, Platform, Pressable, StyleSheet, View } from "react-native";
+import { BottomNav } from "@/components/drill/bottom-nav";
+import { Body, DText, Pill, Screen } from "@/components/drill/ui";
+import {
+  ConfirmDialog,
+  SettingsGroup,
+  SettingsLink,
+  StatusMessage,
+} from "@/components/settings/ui";
+import { Drill, Radius } from "@/constants/drill";
+import { PHASES } from "@/data/drill";
+import { useAuth } from "@/lib/auth/provider";
+import { useFeedback } from "@/lib/feedback/provider";
+import { useReminderSettings } from "@/lib/settings/use-reminder";
 
-import { CtaButton, IconButton } from '@/components/drill/buttons';
-import { SelectField } from '@/components/drill/form';
-import { Icon } from '@/components/drill/icons';
-import { ReminderTimeInput } from '@/components/drill/reminder-time-input';
-import { PwaNotificationSetup } from '@/components/drill/pwa-notification-setup';
-import { RadioDot, SelectCard } from '@/components/drill/select';
-import { Body, DText, Footer, Screen } from '@/components/drill/ui';
-import { Drill, Radius } from '@/constants/drill';
-import { PHASES, type PhaseId } from '@/data/drill';
-import { GENERATION_OPTIONS, POSSE_OPTIONS } from '@/data/profileOptions';
-import { useAuth } from '@/lib/auth/provider';
-import { useFeedback } from '@/lib/feedback/provider';
-import { disableReminder, enableReminder, loadReminderPreference, updateReminderTime } from '@/lib/notifications/webPush';
-import { reminderErrorMessage } from '@/lib/notifications/errors';
-import { BottomNav } from '@/components/drill/bottom-nav';
-
-/** アカウント：フェーズの切り替えと登録情報 */
 export default function AccountScreen() {
-  const { preferences, preferencesReady, updatePreferences } = useFeedback();
-  const { user, profile, settings, profileReady, savePhase, saveProfile, signOut, error: authError } = useAuth();
-  const [selectedPhase, setSelectedPhase] = useState<PhaseId | null>(null);
-  const [profileDraftState, setProfileDraftState] = useState<{
-    userId: string;
-    posse: string | null;
-    cohort: string | null;
-  } | null>(null);
-  const profileDraft = profileDraftState?.userId === user?.id ? profileDraftState : null;
-  const selectedPosse = profileDraft?.posse ?? profile?.posse ?? null;
-  const selectedCohort = profileDraft?.cohort ?? profile?.cohort ?? null;
-  const phase: PhaseId = selectedPhase ?? settings?.phase ?? 'ph1';
+  const {
+    user,
+    profile,
+    settings,
+    profileReady,
+    signOut,
+    error: authError,
+  } = useAuth();
+  const { preferences, preferencesReady } = useFeedback();
+  const reminder = useReminderSettings();
+  const [confirmLogout, setConfirmLogout] = useState(false);
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState('');
-  const [reminderEnabled, setReminderEnabled] = useState(false);
-  const [reminderTime, setReminderTime] = useState('20:00');
-  const [savedReminderTime, setSavedReminderTime] = useState('20:00');
-  const [reminderBusy, setReminderBusy] = useState(false);
-  const [reminderError, setReminderError] = useState('');
-  const [reminderNotice, setReminderNotice] = useState('');
-
-  useEffect(() => {
-    if (Platform.OS !== 'web' || !user) return;
-    let live = true;
-    void loadReminderPreference(user.id)
-      .then((preference) => {
-        if (!live || !preference) return;
-        setReminderEnabled(preference.enabled);
-        const wholeHour = `${preference.reminder_time.slice(0, 2)}:00`;
-        setReminderTime(wholeHour);
-        setSavedReminderTime(wholeHour);
-      })
-      .catch((cause) => {
-        if (live) setReminderError(`通知設定を読み込めませんでした。${reminderErrorMessage(cause, 'ページを再読み込みしてください。')}`);
-      });
-    return () => { live = false; };
-  }, [user]);
-
-  const toggleReminder = async (enabled: boolean) => {
-    if (!user) return;
-    setReminderBusy(true);
-    setReminderError('');
-    setReminderNotice('');
-    try {
-      if (enabled) {
-        await enableReminder(user.id, reminderTime);
-        setReminderEnabled(true);
-        setSavedReminderTime(reminderTime);
-        setReminderNotice('選んだ時刻に学習リマインダーを送ります。');
-      } else {
-        await disableReminder(user.id);
-        setReminderEnabled(false);
-        setReminderNotice('学習リマインダーを停止しました。');
-      }
-    } catch (cause) {
-      setReminderError(reminderErrorMessage(cause, '通知設定を保存できませんでした。'));
-    } finally {
-      setReminderBusy(false);
-    }
-  };
-
-  const saveReminderTime = async () => {
-    if (!user) return;
-    setReminderBusy(true);
-    setReminderError('');
-    setReminderNotice('');
-    try {
-      await updateReminderTime(user.id, reminderTime);
-      setSavedReminderTime(reminderTime);
-      setReminderNotice('通知時刻を保存しました。');
-    } catch (cause) {
-      setReminderError(reminderErrorMessage(cause, '通知時刻を保存できませんでした。'));
-    } finally {
-      setReminderBusy(false);
-    }
-  };
-  const save = async () => {
-    setBusy(true);
-    setError('');
-    try {
-      await savePhase(phase);
-      await saveProfile({ posse: selectedPosse, cohort: selectedCohort });
-      setProfileDraftState(null);
-    } catch {
-      setError('設定を保存できませんでした。通信を確認して再度お試しください。');
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  const showProfileChoices = profileReady && (!profile?.posse || !profile?.cohort);
-  const rows = [
-    { label: '名前', value: profile?.display_name ?? '読み込み中…' },
-    { label: 'メールアドレス', value: user?.email ?? '—' },
-    { label: 'パスワード', value: '••••••••' },
-    ...(!showProfileChoices ? [
-      { label: '所属POSSE', value: profile?.posse ?? '未設定' },
-      { label: '期生', value: profile?.cohort ?? '未設定' },
-    ] : []),
-  ];
-
+  const [error, setError] = useState("");
+  const phase = PHASES.find((p) => p.id === settings?.phase);
+  const phaseLabel = phase ? `${phase.code} ${phase.title}` : "読み込み中…";
+  const feedback = preferencesReady
+    ? `振動 ${preferences.hapticsEnabled ? "オン" : "オフ"}・効果音 ${preferences.soundEnabled ? "オン" : "オフ"}`
+    : "読み込み中…";
+  const reminderLabel =
+    Platform.OS !== "web"
+      ? "PWAで設定できます"
+      : reminder.error
+        ? "設定を確認してください"
+        : !reminder.ready
+          ? "読み込み中…"
+          : `毎日 ${reminder.savedTime}・${reminder.enabled ? "オン" : "オフ"}`;
   const logout = async () => {
+    if (busy) return;
     setBusy(true);
-    setError('');
+    setError("");
     try {
       await signOut();
     } catch {
-      setError('ログアウトできませんでした。再度お試しください。');
+      setError("ログアウトできませんでした。もう一度お試しください。");
     } finally {
       setBusy(false);
     }
   };
-
   return (
     <Screen>
-      <View style={styles.header}>
-        <DText size={18} weight="bold" role="heading" aria-level={1}>
+      <View style={styles.heading}>
+        <DText size={24} weight="bold" role="heading" aria-level={1}>
+          設定
         </DText>
       </View>
-
-      <Body paddingTop={12} paddingBottom={24} gap={20}>
-        <View style={styles.section}>
-          <DText size={15} weight="bold" role="heading" aria-level={2}>
-            操作フィードバック
-          </DText>
-          <DText size={12} lh={1.6} color={Drill.textSub}>
-            問題を選んだときや回答したときの反応を設定できます。効果音は初期設定でオフです。
-          </DText>
-          <View style={styles.feedbackRows}>
-            <View style={styles.feedbackRow}>
-              <View style={styles.feedbackCopy}>
-                <DText size={14} weight="bold">振動</DText>
-                <DText size={12} color={Drill.textSub}>選択・回答・次の問題への移動</DText>
-              </View>
-              <Switch
-                accessibilityLabel="振動フィードバック"
-                value={preferences.hapticsEnabled}
-                disabled={!preferencesReady}
-                onValueChange={(enabled) => updatePreferences({ ...preferences, hapticsEnabled: enabled })}
-                trackColor={{ false: Drill.border, true: Drill.accent }}
-                thumbColor={Drill.surface}
-              />
-            </View>
-            <View style={[styles.feedbackRow, styles.feedbackBorder]}>
-              <View style={styles.feedbackCopy}>
-                <DText size={14} weight="bold">効果音</DText>
-                <DText size={12} color={Drill.textSub}>正解・不正解の回答時</DText>
-              </View>
-              <Switch
-                accessibilityLabel="効果音"
-                value={preferences.soundEnabled}
-                disabled={!preferencesReady}
-                onValueChange={(enabled) => updatePreferences({ ...preferences, soundEnabled: enabled })}
-                trackColor={{ false: Drill.border, true: Drill.accent }}
-                thumbColor={Drill.surface}
-              />
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.section}>
-          <DText size={15} weight="bold" role="heading" aria-level={2}>
-            学習リマインダー
-          </DText>
-          {Platform.OS === 'web' ? (
-            <>
-              <DText size={12} lh={1.6} color={Drill.textSub}>
-                端末のタイムゾーンに合わせて、0時から23時まで1時間単位で選んだ時刻に「今日の3問、やってみませんか？」とお知らせします。その日に1問以上解いている場合は通知しません。
-              </DText>
-              <PwaNotificationSetup />
-              <View style={styles.feedbackRow}>
-                <View style={styles.feedbackCopy}>
-                  <DText size={14} weight="bold">通知を受け取る</DText>
-                  <DText size={12} color={Drill.textSub}>ブラウザーの通知許可が必要です</DText>
-                </View>
-                <Switch
-                  accessibilityLabel="学習リマインダー通知"
-                  value={reminderEnabled}
-                  disabled={!user || !profileReady || reminderBusy}
-                  onValueChange={(enabled) => void toggleReminder(enabled)}
-                  trackColor={{ false: Drill.border, true: Drill.accent }}
-                  thumbColor={Drill.surface}
-                />
-              </View>
-              <ReminderTimeInput
-                value={reminderTime}
-                disabled={reminderBusy}
-                onChange={setReminderTime}
-              />
-              {reminderEnabled && reminderTime !== savedReminderTime && (
-                <Pressable
-                  role="button"
-                  disabled={reminderBusy}
-                  onPress={() => void saveReminderTime()}
-                  style={styles.reminderSave}>
-                  <DText size={13} weight="bold" color={Drill.accentText}>
-                    {reminderBusy ? '保存しています…' : '通知時刻を保存'}
-                  </DText>
-                </Pressable>
-              )}
-              {Boolean(reminderError) && <DText size={12} role="alert" color={Drill.danger}>{reminderError}</DText>}
-              {Boolean(reminderNotice) && <DText size={12} color={Drill.textSub}>{reminderNotice}</DText>}
-            </>
-          ) : (
-            <DText size={12} lh={1.6} color={Drill.textSub}>
-              学習リマインダーはPWAで利用できます。ホーム画面に追加したPWAを開いて設定してください。
+      <Body paddingTop={4} gap={22}>
+        <View style={styles.profile}>
+          <Image
+            source={require("../../assets/images/nettyu/default.png")}
+            style={styles.mascot}
+            accessibilityLabel="POSSEずんずんのマスコット"
+          />
+          <View style={styles.profileCopy}>
+            <DText size={19} weight="bold">
+              {profile?.display_name ?? "読み込み中…"}
             </DText>
-          )}
-        </View>
-
-        <View style={styles.section}>
-          <View>
-            <DText size={15} weight="bold" role="heading" aria-level={2}>
-              フェーズ
+            <DText size={12} color={Drill.textSub}>
+              {profileReady
+                ? `${profile?.posse ?? "所属未設定"}・${profile?.cohort ?? "期生未設定"}`
+                : "アカウントを確認しています"}
             </DText>
-            <DText size={12} lh={1.6} color={Drill.textSub} style={styles.hint}>
-              次のフェーズに進んだら切り替えてください。これまでの記録はそのまま残ります。
-            </DText>
-          </View>
-          <View role="radiogroup" aria-label="フェーズ" style={styles.phases}>
-            {PHASES.map((p) => (
-              <SelectCard
-                key={p.id}
-                label={`${p.code} ${p.title}`}
-                selected={p.id === phase}
-                disabled={p.id === 'ph3'}
-                onPress={() => p.id !== 'ph3' && setSelectedPhase(p.id)}
-                paddingV={10}
-                style={[styles.phaseCard, p.id === 'ph3' && styles.phaseUnavailable]}>
-                <View style={styles.phaseRow}>
-                  <RadioDot selected={p.id === phase} />
-                  <View style={styles.phaseText}>
-                    <View style={styles.phaseTitle}>
-                      <DText size={13} weight="bold" mono color={Drill.accentText}>
-                        {p.code}
-                      </DText>
-                      <DText size={15} weight="bold">
-                        {p.title}
-                      </DText>
-                    </View>
-                    <DText size={12} color={Drill.textSub}>
-                      {p.sub}
-                    </DText>
-                  </View>
-                </View>
-              </SelectCard>
-            ))}
+            {phase && (
+              <Pill
+                label={`${phase.code} 学習中`}
+                background={Drill.accentSoft}
+                color={Drill.accentText}
+              />
+            )}
           </View>
         </View>
-
-        <View style={styles.section}>
-          <DText size={15} weight="bold" role="heading" aria-level={2}>
-            登録情報
-          </DText>
-          <View style={styles.rows}>
-            {rows.map((row, i) => (
-              <Pressable
-                key={row.label}
-                role="button"
-                aria-label={`${row.label}を変更`}
-                disabled
-                style={[styles.row, i > 0 && styles.rowBorder]}>
-                <DText size={13} color={Drill.textSub} style={styles.rowLabel}>
-                  {row.label}
-                </DText>
-                <DText size={14} weight="medium" numberOfLines={1} style={styles.rowValue}>
-                  {row.value}
-                </DText>
-                <Icon name="chevronRight" size={18} color={Drill.textFaint} />
-              </Pressable>
-            ))}
-          </View>
-          {showProfileChoices && (
-            <View style={styles.profileChoices}>
-              <DText size={12} lh={1.6} color={Drill.textSub}>
-                POSSEと期生を選んで保存してください。
-              </DText>
-              <SelectField
-                label="所属POSSE"
-                value={selectedPosse}
-                options={POSSE_OPTIONS}
-                onChange={(posse) => setProfileDraftState({ userId: user?.id ?? '', posse, cohort: selectedCohort })}
-              />
-              <SelectField
-                label="期生"
-                value={selectedCohort}
-                options={GENERATION_OPTIONS}
-                onChange={(cohort) => setProfileDraftState({ userId: user?.id ?? '', posse: selectedPosse, cohort })}
-              />
-            </View>
-          )}
-        </View>
-
-        {Boolean(authError || error) && <DText role="alert" color={Drill.danger}>{error || authError}</DText>}
-        <Pressable role="button" disabled={busy} onPress={() => void logout()} style={styles.logout}>
-          <DText size={14} weight="bold" color={Drill.dangerText}>
+        <SettingsGroup title="学習設定">
+          <SettingsLink
+            first
+            label="学習フェーズ"
+            value={phaseLabel}
+            icon="book"
+            href="/settings/phase"
+          />
+          <SettingsLink
+            label="学習リマインダー"
+            value={reminderLabel}
+            icon="bell"
+            href="/settings/reminders"
+          />
+          <SettingsLink
+            label="操作フィードバック"
+            value={feedback}
+            icon="vibration"
+            href="/settings/feedback"
+          />
+        </SettingsGroup>
+        <SettingsGroup title="アカウント管理">
+          <SettingsLink
+            first
+            label="プロフィール編集"
+            value="名前・所属POSSE・期生"
+            icon="user"
+            href="/settings/profile"
+          />
+          <SettingsLink
+            label="メールアドレス"
+            value={user?.email ?? "読み込み中…"}
+            icon="mail"
+            href="/settings/email"
+          />
+          <SettingsLink
+            label="パスワード変更"
+            value="ログインに使うパスワード"
+            icon="lock"
+            href="/settings/password"
+          />
+        </SettingsGroup>
+        <StatusMessage error={authError} />
+        <Pressable
+          role="button"
+          onPress={() => {
+            setError("");
+            setConfirmLogout(true);
+          }}
+          style={styles.logout}
+        >
+          <DText weight="bold" color={Drill.dangerText}>
             ログアウト
           </DText>
         </Pressable>
       </Body>
-
-      <Footer>
-        <CtaButton
-          label={!profileReady ? '読み込み中…' : busy ? '保存しています…' : '保存する'}
-          onPress={() => void save()}
-          disabled={busy || !profileReady}
-        />
-      </Footer>
       <BottomNav active="account" />
+      <ConfirmDialog
+        visible={confirmLogout}
+        title="ログアウトしますか？"
+        description="学習記録は保存されています。再びログインすると続きから学習できます。"
+        confirmLabel="ログアウト"
+        busy={busy}
+        error={error}
+        onCancel={() => setConfirmLogout(false)}
+        onConfirm={() => void logout()}
+      />
     </Screen>
   );
 }
-
 const styles = StyleSheet.create({
-  header: { flexDirection: 'row', alignItems: 'center', gap: 4, paddingTop: 12, paddingBottom: 4, paddingLeft: 4, paddingRight: 20 },
-  section: { gap: 8 },
-  hint: { marginTop: 2 },
-  phases: { gap: 8 },
-  phaseCard: { minHeight: 66, justifyContent: 'center' },
-  phaseUnavailable: { opacity: 0.45 },
-  phaseRow: { flexDirection: 'row', alignItems: 'center', gap: 14 },
-  phaseText: { flex: 1, gap: 2 },
-  phaseTitle: { flexDirection: 'row', alignItems: 'baseline', gap: 8 },
-  rows: { borderRadius: Radius.lg, borderWidth: 1, borderColor: Drill.border, backgroundColor: Drill.surface, overflow: 'hidden' },
-  profileChoices: { gap: 12 },
-  feedbackRows: { borderRadius: Radius.lg, borderWidth: 1, borderColor: Drill.border, backgroundColor: Drill.surface, overflow: 'hidden' },
-  feedbackRow: { minHeight: 64, paddingHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 12 },
-  feedbackBorder: { borderTopWidth: 1, borderTopColor: Drill.divider },
-  feedbackCopy: { gap: 2, flex: 1 },
-  reminderSave: { minHeight: 42, alignItems: 'center', justifyContent: 'center', borderRadius: Radius.md, backgroundColor: Drill.accentSoft },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 8, minHeight: 52, paddingLeft: 16, paddingRight: 12 },
-  rowBorder: { borderTopWidth: 1, borderTopColor: Drill.divider },
-  rowLabel: { width: 88 },
-  rowValue: { flex: 1, minWidth: 0 },
+  heading: { paddingHorizontal: 20, paddingTop: 22, paddingBottom: 18 },
+  profile: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 14,
+    padding: 16,
+    backgroundColor: Drill.surface,
+    borderRadius: Radius.xl,
+  },
+  mascot: { width: 64, height: 72, resizeMode: "contain" },
+  profileCopy: { flex: 1, gap: 6 },
   logout: {
     minHeight: 52,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: Radius.lg,
-    borderWidth: 1,
-    borderColor: Drill.border,
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: Drill.surface,
+    borderRadius: Radius.lg,
   },
 });

@@ -45,7 +45,7 @@ type AuthContextValue = {
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
   savePhase: (phase: PhaseId) => Promise<void>;
-  saveProfile: (profile: { posse: string | null; cohort: string | null }) => Promise<void>;
+  saveProfile: (profile: { display_name?: string; posse: string | null; cohort: string | null }) => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -236,13 +236,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     );
   }, [session?.user]);
 
-  const saveProfile = useCallback(async (profile: { posse: string | null; cohort: string | null }) => {
+  const saveProfile = useCallback(async (profile: { display_name?: string; posse: string | null; cohort: string | null }) => {
     const client = requireSupabase();
     const currentUser = session?.user;
     if (!currentUser) throw new Error("ログインしてください。");
+    if (profile.display_name !== undefined && !profile.display_name.trim()) {
+      throw new Error("名前を入力してください。");
+    }
     const { data, error: saveError } = await client
       .from("profiles")
       .update({
+        ...(profile.display_name !== undefined ? { display_name: profile.display_name.trim() } : {}),
         posse: nullableChoice(profile.posse),
         cohort: nullableChoice(profile.cohort),
       })

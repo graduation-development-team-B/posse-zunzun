@@ -1,6 +1,10 @@
 import Svg, { Circle, Path } from 'react-native-svg';
 
 export type IconName =
+  | 'bell'
+  | 'vibration'
+  | 'mail'
+  | 'lock'
   | 'back'
   | 'close'
   | 'user'
@@ -41,6 +45,10 @@ export function Icon({ name, size = 24, color = '#1C1F26', strokeWidth = 2 }: Ic
 
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" aria-hidden>
+      {name === 'bell' && <Path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" {...stroke} />}
+      {name === 'vibration' && <Path d="M8 3h8v18H8zM4 8v8M1 10v4M20 8v8M23 10v4" {...stroke} />}
+      {name === 'mail' && <Path d="M3 5h18v14H3zM3 6l9 7 9-7" {...stroke} />}
+      {name === 'lock' && <Path d="M5 10h14v11H5zM8 10V6a4 4 0 0 1 8 0v4M12 14v3" {...stroke} />}
       {name === 'back' && <Path d="M15 6l-6 6 6 6" {...stroke} />}
       {name === 'close' && <Path d="M6 6l12 12M18 6L6 18" {...stroke} />}
       {name === 'user' && (
