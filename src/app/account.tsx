@@ -15,6 +15,7 @@ import { useAuth } from '@/lib/auth/provider';
 import { useFeedback } from '@/lib/feedback/provider';
 import { disableReminder, enableReminder, loadReminderPreference, updateReminderTime } from '@/lib/notifications/webPush';
 import { reminderErrorMessage } from '@/lib/notifications/errors';
+import { BottomNav } from '@/components/drill/bottom-nav';
 
 /** アカウント：フェーズの切り替えと登録情報 */
 export default function AccountScreen() {
@@ -134,9 +135,7 @@ export default function AccountScreen() {
   return (
     <Screen>
       <View style={styles.header}>
-        <IconButton icon="back" label="ホームへ戻る" href="/" />
         <DText size={18} weight="bold" role="heading" aria-level={1}>
-          アカウント
         </DText>
       </View>
 
@@ -328,6 +327,7 @@ export default function AccountScreen() {
           disabled={busy || !profileReady}
         />
       </Footer>
+      <BottomNav active="account" />
     </Screen>
   );
 }

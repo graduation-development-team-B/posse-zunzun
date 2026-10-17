@@ -215,7 +215,7 @@ function RoadItem({ week, last }: { week: Week; last: boolean }) {
         )}
         {week.state === 'next' && (
           <DText size={12} color={Drill.textSub}>
-            次のミニドリルはここから
+            次のWeekはここから
           </DText>
         )}
       </View>

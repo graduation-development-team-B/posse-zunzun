@@ -5,15 +5,16 @@ import { Drill } from '@/constants/drill';
 import { Icon, type IconName } from './icons';
 import { DText } from './ui';
 
-export type NavKey = 'home' | 'materials' | 'records';
+export type NavKey = 'home' | 'materials' | 'records' | 'account';
 
 const ITEMS: { key: NavKey; label: string; icon: IconName; href: Href }[] = [
-  { key: 'home', label: 'ミニドリル', icon: 'flame', href: '/' },
-  { key: 'materials', label: '教材', icon: 'book', href: '/materials' },
+  { key: 'home', label: 'ホーム', icon: 'flame', href: '/' },
+  { key: 'materials', label: '教材一覧', icon: 'book', href: '/materials' },
   { key: 'records', label: '記録', icon: 'trophy', href: '/records' },
+  { key: 'account', label: '設定', icon: 'user', href: '/account' },
 ];
 
-/** 下部ナビ（ミニドリル／教材／記録）。タブ画面の一番下に置く */
+/** 下部ナビ（ホーム／教材一覧／記録／設定）。タブ画面の一番下に置く */
 export function BottomNav({ active }: { active: NavKey }) {
   return (
     <View role="navigation" aria-label="メイン" style={styles.nav}>
