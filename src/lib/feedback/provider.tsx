@@ -19,7 +19,7 @@ const DEFAULT_PREFERENCES: FeedbackPreferences = {
 type FeedbackContextValue = {
   preferences: FeedbackPreferences;
   preferencesReady: boolean;
-  updatePreferences: (next: FeedbackPreferences) => void;
+  updatePreferences: (next: FeedbackPreferences) => Promise<void>;
   selection: () => void;
   answer: (correct: boolean) => void;
   next: () => void;
@@ -52,9 +52,9 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     return () => { active = false; };
   }, []);
 
-  const updatePreferences = useCallback((next: FeedbackPreferences) => {
+  const updatePreferences = useCallback(async (next: FeedbackPreferences) => {
+    await storage.setItem(FEEDBACK_KEY, JSON.stringify(next));
     setPreferences(next);
-    void storage.setItem(FEEDBACK_KEY, JSON.stringify(next)).catch(() => {});
   }, []);
 
   const selection = useCallback(() => {

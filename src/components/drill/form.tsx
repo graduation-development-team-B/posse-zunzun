@@ -27,6 +27,8 @@ type TextFieldProps = Pick<
   | 'secureTextEntry'
   | 'autoCapitalize'
   | 'autoCorrect'
+  | 'editable'
+  | 'maxLength'
 > & { label: string };
 
 export function TextField({ label, ...input }: TextFieldProps) {
@@ -42,10 +44,10 @@ export function TextField({ label, ...input }: TextFieldProps) {
   );
 }
 
-type PasswordFieldProps = Pick<ComponentProps<typeof TextInput>, 'value' | 'onChangeText' | 'autoComplete'> & { label: string };
+type PasswordFieldProps = Pick<ComponentProps<typeof TextInput>, 'value' | 'onChangeText' | 'autoComplete' | 'editable'> & { label: string };
 
 /** 表示／非表示を切り替えられるパスワード欄 */
-export function PasswordField({ label, value, onChangeText, autoComplete = 'new-password' }: PasswordFieldProps) {
+export function PasswordField({ label, value, onChangeText, autoComplete = 'new-password', editable }: PasswordFieldProps) {
   const [shown, setShown] = useState(false);
   return (
     <Field label={label}>
@@ -53,6 +55,7 @@ export function PasswordField({ label, value, onChangeText, autoComplete = 'new-
         <TextInput
           aria-label={label}
           value={value}
+          editable={editable}
           onChangeText={onChangeText}
           placeholder="8文字以上"
           placeholderTextColor={Drill.textFaint}
