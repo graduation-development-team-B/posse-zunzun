@@ -21,14 +21,14 @@ export default function Root({ children }: PropsWithChildren) {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
         <title>POSSEずんずん</title>
-        <meta name="description" content="開いて3問、迷わず終われる毎日のミニドリル" />
+        <meta name="description" content="1日3問から！プログラミングを楽しく勉強しませんか？" />
 
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#FF7A2F" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="POSSEずんずん" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=d5850588" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

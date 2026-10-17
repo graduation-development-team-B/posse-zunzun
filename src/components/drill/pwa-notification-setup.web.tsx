@@ -85,7 +85,7 @@ export function PwaNotificationSetup() {
       const registration = await navigator.serviceWorker.ready;
       await registration.showNotification('POSSEずんずん', {
         body: '今日の3問、やってみませんか？',
-        icon: '/icon-192.png',
+        icon: '/icon-192.png?v=d5850588',
         tag: 'notification-settings-test',
         data: { url: '/account' },
       });
