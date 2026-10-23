@@ -1098,5 +1098,444 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-assembly-assoc-person",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "nameが\"Aoi\"、ageが20の連想配列を作ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$person = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "[\"name\" => \"Aoi\", \"age\" => 20]"
+          },
+          {
+            "id": "wrong",
+            "text": "[\"name\" => 20, \"age\" => \"Aoi\"]"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "キーと値の対応が逆です。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "[",
+            "\"name\" => \"Aoi\", ",
+            "\"age\" => 20",
+            "]"
+          ],
+          "wrong": [
+            "[",
+            "\"name\" => 20, ",
+            "\"age\" => \"Aoi\"",
+            "]"
+          ]
+        }
+      },
+      "explanation": "PHPの連想配列は=>でキーと値を対応させます。PCではvar_dumpで型と値を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-6. 連想配列"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "nameが\"Aoi\"、ageが20の連想配列を作ってください。",
+      "conceptId": "ph2-week18-assoc-person",
+      "variantGroup": "ph2-week18-assembly-assoc-person",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week18の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。var_dumpで型と値を確認しましょう。",
+      "hint": "PHPの連想配列は=>でキーと値を対応させます。",
+      "success": "nameが\"Aoi\"、ageが20の連想配列を作ってください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "line": 123,
+        "heading": "2-6. 連想配列",
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-1/README.md",
+          "line": 1,
+          "heading": "18週目ミニドリル 1問目",
+          "sha256": "90d0423e4b49dca3839f5dc2b8368a2b822a72c066511cce86be5e1d1f87aa4a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 105,
+          "heading": "Week 18",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-assembly-array-lookup",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "$personのnameを出力してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$person = [\"name\" => \"Aoi\", \"age\" => 20];\necho __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$person[\"name\"]"
+          },
+          {
+            "id": "wrong",
+            "text": "$person[\"age\"]"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "ageを参照すると20が出力されます。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$person",
+            "[",
+            "\"name\"",
+            "]"
+          ],
+          "wrong": [
+            "$person",
+            "[",
+            "\"age\"",
+            "]"
+          ]
+        }
+      },
+      "explanation": "配列名とキーを組み合わせて値を取り出します。PCではnameの値を変えて確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-6. 連想配列"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$personのnameを出力してください。",
+      "conceptId": "ph2-week18-array-lookup",
+      "variantGroup": "ph2-week18-assembly-array-lookup",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week18の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。nameの値を変えて確認しましょう。",
+      "hint": "配列名とキーを組み合わせて値を取り出します。",
+      "success": "$personのnameを出力してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "line": 123,
+        "heading": "2-6. 連想配列",
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-1/README.md",
+          "line": 1,
+          "heading": "18週目ミニドリル 1問目",
+          "sha256": "90d0423e4b49dca3839f5dc2b8368a2b822a72c066511cce86be5e1d1f87aa4a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 105,
+          "heading": "Week 18",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-assembly-range-loop",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "for文で2から5までを1ずつ増やして表示します。forの括弧内を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nfor (__BLANK__) { echo $i . \" \"; }",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$i = 2; $i <= 5; $i++"
+          },
+          {
+            "id": "wrong",
+            "text": "$i = 2; $i < 5; $i++"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "<5では5が表示されず、2・3・4までです。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$i = 2; ",
+            "$i <= 5; ",
+            "$i++"
+          ],
+          "wrong": [
+            "$i = 2; ",
+            "$i < 5; ",
+            "$i++"
+          ]
+        }
+      },
+      "explanation": "初期値・継続条件・更新を順に置きます。PCでは最後の5が含まれるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-6. for命令"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "for文で2から5までを1ずつ増やして表示します。forの括弧内を組み立ててください。",
+      "conceptId": "ph2-week18-range-loop",
+      "variantGroup": "ph2-week18-assembly-range-loop",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week18の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。最後の5が含まれるか確認しましょう。",
+      "hint": "初期値・継続条件・更新を順に置きます。",
+      "success": "for文で2から5までを1ずつ増やして表示します。forの括弧内を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "line": 186,
+        "heading": "2-6. for命令",
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-2/README.md",
+          "line": 1,
+          "heading": "18週目ミニドリル 2問目",
+          "sha256": "42031835b8d4e91b8ef156b9806a2f5f26aac4cce0c9c3fed76e8f7ac8e46c0e"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 105,
+          "heading": "Week 18",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-assembly-foreach-total",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "価格100・200・300を足し、totalを600にしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$total = 0;\nforeach ([100, 200, 300] as $price) { __BLANK__; }\necho $total;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$total += $price"
+          },
+          {
+            "id": "wrong",
+            "text": "$total = $price"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "=で上書きすると最後の300だけになります。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$total ",
+            "+= ",
+            "$price"
+          ],
+          "wrong": [
+            "$total ",
+            "= ",
+            "$price"
+          ]
+        }
+      },
+      "explanation": "+=で現在の合計へ1件ずつ加算します。PCではループ前の初期化も確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-7. foreach命令"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "価格100・200・300を足し、totalを600にしてください。",
+      "conceptId": "ph2-week18-foreach-total",
+      "variantGroup": "ph2-week18-assembly-foreach-total",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week18の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。ループ前の初期化も確認しましょう。",
+      "hint": "+=で現在の合計へ1件ずつ加算します。",
+      "success": "価格100・200・300を足し、totalを600にしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "line": 209,
+        "heading": "2-7. foreach命令",
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-3/README.md",
+          "line": 1,
+          "heading": "18週目ミニドリル 3問目",
+          "sha256": "ac47239e1c78f9cadd4c848944398cf361fab4b236cb3acf86a403787268bb6e"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 105,
+          "heading": "Week 18",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week18-assembly-concat-product",
+      "weekUnitId": "week-unit-week18",
+      "format": "fillBlank",
+      "prompt": "「商品: apple」と出力するPHPの連結式を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$name = \"apple\";\necho __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "\"商品: \" . $name"
+          },
+          {
+            "id": "wrong",
+            "text": "\"商品: \" + $name"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "PHPの文字列連結は+ではなく.を使います。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "\"商品: \" ",
+            ". ",
+            "$name"
+          ],
+          "wrong": [
+            "\"商品: \" ",
+            "+ ",
+            "$name"
+          ]
+        }
+      },
+      "explanation": "ドットで文字列をつなぎます。PCでは別の商品名でも同じ書式になるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week18",
+        "sectionHeading": "2-7. foreach命令"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "「商品: apple」と出力するPHPの連結式を組み立ててください。",
+      "conceptId": "ph2-week18-concat-product",
+      "variantGroup": "ph2-week18-assembly-concat-product",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜18の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week18の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。別の商品名でも同じ書式になるか確認しましょう。",
+      "hint": "ドットで文字列をつなぎます。",
+      "success": "「商品: apple」と出力するPHPの連結式を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week18.md",
+        "line": 209,
+        "heading": "2-7. foreach命令",
+        "sha256": "606f68b98c08eb45b8183aa692fac6c0f6a2c27305f6ba98e1f4af3ec15ec3e7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week18-3/README.md",
+          "line": 1,
+          "heading": "18週目ミニドリル 3問目",
+          "sha256": "ac47239e1c78f9cadd4c848944398cf361fab4b236cb3acf86a403787268bb6e"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 105,
+          "heading": "Week 18",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
   }
 ]

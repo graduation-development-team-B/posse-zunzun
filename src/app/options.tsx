@@ -24,7 +24,7 @@ import { beginSession } from '@/lib/quiz/session';
 export default function OptionsScreen() {
   const router = useRouter();
   const { week: weekId } = useLocalSearchParams<{ week?: string }>();
-  const { weeks: WEEKS, ready, error, mutate } = useDashboard();
+  const { allWeeks: WEEKS, ready, error, mutate } = useDashboard();
   const week = WEEKS.find(w=>w.id===unitKey(weekId ?? ''));
 
   const [count, setCount] = useState<DrillCount>(3);
@@ -32,11 +32,14 @@ export default function OptionsScreen() {
   const [busy, setBusy] = useState(false);
   const web=Platform.OS==='web';
   const all=selectQuestions(catalog,week?.id ?? '', 'mix',web);
+  const choiceCount=all.filter(q=>questionMode(q)==='choice').length;
+  const buildCount=all.length-choiceCount;
   const available=all.filter(q=>type==='mix'||(type==='choice'?questionMode(q)==='choice':questionMode(q)!=='choice'));
   const actualCount=Math.min(count,available.length);
-  const operationMode=all.some(q=>questionMode(q)==='terminal')?'terminal':all.some(q=>questionMode(q)==='console')?'console':'preview';
+  const operationMode=all.some(q=>questionMode(q)==='terminal')?'terminal':all.some(q=>questionMode(q)==='assembly')?'assembly':all.some(q=>questionMode(q)==='console')?'console':'preview';
   const buildTitle=operationMode==='terminal'?'ターミナル操作':operationMode==='console'?'Console実行':'コード組み立て';
-  const sampleBlocks=operationMode==='terminal'?['git','status']:operationMode==='console'?["console.log(","'こんにちは'"]:['<h1>','イベント'];
+  const sampleQuestion=all.find(q=>q.assembly);
+  const sampleBlocks=operationMode==='assembly' && sampleQuestion?.assembly ? sampleQuestion.assembly.optionTokens[sampleQuestion.payload.kind==='fillBlank' && sampleQuestion.payload.mode==='choice'?sampleQuestion.payload.correctOptionId:''].slice(0,2) : operationMode==='terminal'?['git','status']:operationMode==='console'?["console.log(","'こんにちは'"]:['<h1>','イベント'];
   const start=async()=>{
     if(!week || busy || !actualCount) return;
     setBusy(true);
@@ -88,18 +91,18 @@ export default function OptionsScreen() {
                 <Pill label="おすすめ" background={Drill.accentSoft} color={Drill.accentText} />
               </View>
               <DText size={12} lh={1.6} color={Drill.textSub} style={styles.typeDesc}>
-                このWeekの選択式と操作問題を混ぜて出します
+                {choiceCount && buildCount ? 'このWeekの選択式と操作問題を混ぜて出します' : 'このWeekの利用できる問題から出します'}
               </DText>
             </SelectCard>
 
-            <SelectCard label="4択" selected={type === 'choice'} onPress={() => setType('choice')} paddingV={14} radius={Radius.lg}>
+            <SelectCard label="4択" selected={type === 'choice'} disabled={!choiceCount} onPress={() => setType('choice')} paddingV={14} radius={Radius.lg}>
               <View style={styles.typeHead}>
                 <RadioDot selected={type === 'choice'} />
                 <DText size={15} weight="bold" style={styles.flex}>
                   4択
                 </DText>
                 <DText size={11} color={Drill.textSub}>
-                  1問 約30秒
+                  {choiceCount ? '1問 約30秒' : 'このWeekにはありません'}
                 </DText>
               </View>
               <DText size={12} lh={1.6} color={Drill.textSub} style={styles.typeDesc}>
@@ -121,18 +124,18 @@ export default function OptionsScreen() {
               </View>
             </SelectCard>
 
-            <SelectCard label={buildTitle} selected={type === 'build'} onPress={() => setType('build')} paddingV={14} radius={Radius.lg}>
+            <SelectCard label={buildTitle} selected={type === 'build'} disabled={!buildCount} onPress={() => setType('build')} paddingV={14} radius={Radius.lg}>
               <View style={styles.typeHead}>
                 <RadioDot selected={type === 'build'} />
                 <DText size={15} weight="bold" style={styles.flex}>
                   {buildTitle}
                 </DText>
                 <DText size={11} color={Drill.textSub}>
-                  1問 約1分
+                  {buildCount ? '1問 約1分' : 'このWeekにはありません'}
                 </DText>
               </View>
               <DText size={12} lh={1.6} color={Drill.textSub} style={styles.typeDesc}>
-                {operationMode==='terminal'?'コマンドをブロックで組み立て、実行結果を確かめる':operationMode==='console'?'コードの候補を選んで実行し、Consoleの出力を確かめる':'ブロックを並べてコードを作り、表示をその場で確かめる'}
+                {operationMode==='assembly'?'ブロックを並べてコードを完成させる。実行せず、組み立てた内容で採点します':operationMode==='terminal'?'コマンドをブロックで組み立て、実行結果を確かめる':operationMode==='console'?'コードの候補を選んで実行し、Consoleの出力を確かめる':'ブロックを並べてコードを作り、表示をその場で確かめる'}
               </DText>
               <View aria-hidden style={styles.sampleDark}>
                 <View style={styles.sampleBlocks}>
@@ -155,10 +158,10 @@ export default function OptionsScreen() {
                 <View style={styles.samplePreview}>
                   <Icon name="arrowRight" size={12} color="#AEB5C2" strokeWidth={2.4} />
                   <DText size={11} color="#AEB5C2">
-                    {operationMode==='preview'?'プレビュー：':'実行結果：'}
+                    {operationMode==='assembly'?'採点方法：':operationMode==='preview'?'プレビュー：':'実行結果：'}
                   </DText>
                   <DText size={14} weight="bold" color="#FFFFFF">
-                    {operationMode==='terminal'?'working tree clean':operationMode==='console'?'こんにちは':'イベント'}
+                    {operationMode==='assembly'?'コードの組み立て':operationMode==='terminal'?'working tree clean':operationMode==='console'?'こんにちは':'イベント'}
                   </DText>
                 </View>
               </View>

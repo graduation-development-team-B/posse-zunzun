@@ -30,20 +30,20 @@ test("PH1はWeek01〜16、その後に既存Git単元を表示する", () => {
     ],
   );
   assert.equal(
-    catalog.questions.filter((q) => !q.id.startsWith("question-ph2-")).length,
-    202,
+    catalog.questions.filter((q) => !q.id.startsWith("question-ph2-") && !q.id.startsWith("question-ph3-")).length,
+    257,
   );
   assert.equal(selectQuestions(catalog, "git", "terminal", false).length, 10);
 });
 
 for (let week = 7; week <= 16; week++) {
-  test(`Week${week}: 新規12問を出題でき、3問の回答・保存・再開・完了が成立する`, () => {
+  test(`Week${week}: 既存問題と追加問題を出題でき、3問の回答・保存・再開・完了が成立する`, () => {
     const key = `week${week}`;
     const all = selectQuestions(catalog, key, "mix", true);
-    assert.equal(all.length, 12);
+    assert.equal(all.length, [8, 9].includes(week) ? 12 : 17);
     assert.equal(
       selectQuestions(catalog, key, "mix", false).length,
-      [8, 9].includes(week) ? 10 : 12,
+      [8, 9].includes(week) ? 10 : 17,
     );
     let progress = beginSession(
       emptyProgress(),

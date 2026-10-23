@@ -1162,5 +1162,486 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week24-assembly-get-keyword",
+      "weekUnitId": "week-unit-week24",
+      "format": "fillBlank",
+      "prompt": "URLはindex.php?keyword=quizです。keywordの文字列を変数へ読み取ってください。キーは必ず存在する前提です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$keyword = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$_GET[\"keyword\"]"
+          },
+          {
+            "id": "wrong",
+            "text": "$_POST[\"keyword\"]"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "URLのクエリパラメータは$_GETから取得します。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$_GET",
+            "[",
+            "\"keyword\"",
+            "]"
+          ],
+          "wrong": [
+            "$_POST",
+            "[",
+            "\"keyword\"",
+            "]"
+          ]
+        }
+      },
+      "explanation": "GETのキー名を角括弧で指定します。PCではクエリ文字列を変えて値が変わるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week24",
+        "sectionHeading": "GET"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "URLはindex.php?keyword=quizです。keywordの文字列を変数へ読み取ってください。キーは必ず存在する前提です。",
+      "conceptId": "ph2-week24-get-keyword",
+      "variantGroup": "ph2-week24-assembly-get-keyword",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。クエリ文字列を変えて値が変わるか確認しましょう。",
+      "hint": "GETのキー名を角括弧で指定します。",
+      "success": "URLはindex.php?keyword=quizです。keywordの文字列を変数へ読み取ってください。キーは必ず存在する前提です。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week24.md",
+        "line": 34,
+        "heading": "GET",
+        "sha256": "a3b26e5f0622eaef1496766cc435dcafb5ad8ed8dd4e957545b4f0d4c37e1f6e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week24-1/README.md",
+          "line": 1,
+          "heading": "24週目ミニドリル 1問目",
+          "sha256": "670aa28bdbb1e612c3d14352484214838d6f24536e5ef5e5063ed044d709dbce"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 667,
+          "heading": "Week 24",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week24-1/index.php",
+          "line": 1,
+          "heading": "<!DOCTYPE html>",
+          "sha256": "0cc2f737aa71e1479af24e74404bb66c06722d2e7cf6e4ecb3b4f666a404d05a"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week24-assembly-post-name",
+      "weekUnitId": "week-unit-week24",
+      "format": "fillBlank",
+      "prompt": "formはmethod=\"POST\"、入力欄のnameは\"nickname\"です。送信済みの値を読み取ってください。キーは必ず存在する前提です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$nickname = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$_POST[\"nickname\"]"
+          },
+          {
+            "id": "wrong",
+            "text": "$_GET[\"nickname\"]"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "POSTフォームの値を読む場所が$_GETになっています。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$_POST",
+            "[",
+            "\"nickname\"",
+            "]"
+          ],
+          "wrong": [
+            "$_GET",
+            "[",
+            "\"nickname\"",
+            "]"
+          ]
+        }
+      },
+      "explanation": "methodとPHP側の取得元を合わせます。PCではフォームのnameとキーも照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week24",
+        "sectionHeading": "POST"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "formはmethod=\"POST\"、入力欄のnameは\"nickname\"です。送信済みの値を読み取ってください。キーは必ず存在する前提です。",
+      "conceptId": "ph2-week24-post-name",
+      "variantGroup": "ph2-week24-assembly-post-name",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。フォームのnameとキーも照合しましょう。",
+      "hint": "methodとPHP側の取得元を合わせます。",
+      "success": "formはmethod=\"POST\"、入力欄のnameは\"nickname\"です。送信済みの値を読み取ってください。キーは必ず存在する前提です。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week24.md",
+        "line": 59,
+        "heading": "POST",
+        "sha256": "a3b26e5f0622eaef1496766cc435dcafb5ad8ed8dd4e957545b4f0d4c37e1f6e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week24-3/README.md",
+          "line": 1,
+          "heading": "24週目ミニドリル 3問目",
+          "sha256": "c3044fb4343ee84dfe49a2b9a15df5a4059c63e6d68ef6441c271193a21b8e34"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 667,
+          "heading": "Week 24",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week24-3/index.php",
+          "line": 1,
+          "heading": "<!DOCTYPE html>",
+          "sha256": "feced2d7a28fba528026e384b031db556bf6ba15451777de9ccbce9e5ded069b"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week24-assembly-post-form",
+      "weekUnitId": "week-unit-week24",
+      "format": "fillBlank",
+      "prompt": "nicknameをsave.phpへPOST送信するformの開始タグを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__\n<input name=\"nickname\"><button type=\"submit\">保存</button>\n</form>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "<form action=\"save.php\" method=\"POST\">"
+          },
+          {
+            "id": "wrong",
+            "text": "<form action=\"save.php\" method=\"GET\">"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "GETでは今回指定したPOST送信になりません。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "<form ",
+            "action=\"save.php\" ",
+            "method=\"POST\"",
+            ">"
+          ],
+          "wrong": [
+            "<form ",
+            "action=\"save.php\" ",
+            "method=\"GET\"",
+            ">"
+          ]
+        }
+      },
+      "explanation": "actionで送信先、methodで送信方法を指定します。PCでは送信先で$_POSTを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week24",
+        "sectionHeading": "POST"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "nicknameをsave.phpへPOST送信するformの開始タグを組み立ててください。",
+      "conceptId": "ph2-week24-post-form",
+      "variantGroup": "ph2-week24-assembly-post-form",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。送信先で$_POSTを確認しましょう。",
+      "hint": "actionで送信先、methodで送信方法を指定します。",
+      "success": "nicknameをsave.phpへPOST送信するformの開始タグを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week24.md",
+        "line": 59,
+        "heading": "POST",
+        "sha256": "a3b26e5f0622eaef1496766cc435dcafb5ad8ed8dd4e957545b4f0d4c37e1f6e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week24-3/README.md",
+          "line": 1,
+          "heading": "24週目ミニドリル 3問目",
+          "sha256": "c3044fb4343ee84dfe49a2b9a15df5a4059c63e6d68ef6441c271193a21b8e34"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 667,
+          "heading": "Week 24",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week24-3/index.php",
+          "line": 1,
+          "heading": "<!DOCTYPE html>",
+          "sha256": "feced2d7a28fba528026e384b031db556bf6ba15451777de9ccbce9e5ded069b"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week24-assembly-insert-question",
+      "weekUnitId": "week-unit-week24",
+      "format": "fillBlank",
+      "prompt": "questionsのcontentへ新しい問題を1件保存するSQLを組み立ててください。contentはプレースホルダーです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "INSERT INTO questions (content) VALUES (:content);"
+          },
+          {
+            "id": "wrong",
+            "text": "INSERT INTO questions (content) VALUES (content);"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": ":なしのcontentはバインドするプレースホルダーではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "INSERT INTO ",
+            "questions ",
+            "(content) ",
+            "VALUES ",
+            "(:content)",
+            ";"
+          ],
+          "wrong": [
+            "INSERT INTO ",
+            "questions ",
+            "(content) ",
+            "VALUES ",
+            "(content)",
+            ";"
+          ]
+        }
+      },
+      "explanation": "列の指定とVALUESの値を対応させます。PCではprepare・バインド・executeまで行って保存を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week24",
+        "sectionHeading": "5. SQLクエリの発行"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "questionsのcontentへ新しい問題を1件保存するSQLを組み立ててください。contentはプレースホルダーです。",
+      "conceptId": "ph2-week24-insert-question",
+      "variantGroup": "ph2-week24-assembly-insert-question",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。prepare・バインド・executeまで行って保存を確認しましょう。",
+      "hint": "列の指定とVALUESの値を対応させます。",
+      "success": "questionsのcontentへ新しい問題を1件保存するSQLを組み立ててください。contentはプレースホルダーです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week24.md",
+        "line": 92,
+        "heading": "5. SQLクエリの発行",
+        "sha256": "a3b26e5f0622eaef1496766cc435dcafb5ad8ed8dd4e957545b4f0d4c37e1f6e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week24-3/README.md",
+          "line": 1,
+          "heading": "24週目ミニドリル 3問目",
+          "sha256": "c3044fb4343ee84dfe49a2b9a15df5a4059c63e6d68ef6441c271193a21b8e34"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 667,
+          "heading": "Week 24",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week24-3/index.php",
+          "line": 1,
+          "heading": "<!DOCTYPE html>",
+          "sha256": "feced2d7a28fba528026e384b031db556bf6ba15451777de9ccbce9e5ded069b"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week24-assembly-bind-content",
+      "weekUnitId": "week-unit-week24",
+      "format": "fillBlank",
+      "prompt": "$stmtはcontentを含むINSERTをprepare済みです。検証済み文字列$contentを:contentへバインドしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;\n$stmt->execute();",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$stmt->bindValue(\":content\", $content)"
+          },
+          {
+            "id": "wrong",
+            "text": "$stmt->bindValue(\":content\", \"content\")"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "\"content\"では変数の値でなく固定の文字列contentが渡されます。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$stmt->",
+            "bindValue(",
+            "\":content\", ",
+            "$content",
+            ")"
+          ],
+          "wrong": [
+            "$stmt->",
+            "bindValue(",
+            "\":content\", ",
+            "\"content\"",
+            ")"
+          ]
+        }
+      },
+      "explanation": "プレースホルダー名と受け取った変数を対応させます。PCでは異なる入力を2件保存して確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week24",
+        "sectionHeading": "5. SQLクエリの発行"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$stmtはcontentを含むINSERTをprepare済みです。検証済み文字列$contentを:contentへバインドしてください。",
+      "conceptId": "ph2-week24-bind-content",
+      "variantGroup": "ph2-week24-assembly-bind-content",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。異なる入力を2件保存して確認しましょう。",
+      "hint": "プレースホルダー名と受け取った変数を対応させます。",
+      "success": "$stmtはcontentを含むINSERTをprepare済みです。検証済み文字列$contentを:contentへバインドしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week24.md",
+        "line": 92,
+        "heading": "5. SQLクエリの発行",
+        "sha256": "a3b26e5f0622eaef1496766cc435dcafb5ad8ed8dd4e957545b4f0d4c37e1f6e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week24-3/README.md",
+          "line": 1,
+          "heading": "24週目ミニドリル 3問目",
+          "sha256": "c3044fb4343ee84dfe49a2b9a15df5a4059c63e6d68ef6441c271193a21b8e34"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 667,
+          "heading": "Week 24",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week24-3/index.php",
+          "line": 1,
+          "heading": "<!DOCTYPE html>",
+          "sha256": "feced2d7a28fba528026e384b031db556bf6ba15451777de9ccbce9e5ded069b"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
   }
 ]

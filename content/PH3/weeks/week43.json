@@ -1,0 +1,1105 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week43-assembly-related-create",
+      "weekUnitId": "week-unit-week43",
+      "format": "fillBlank",
+      "prompt": "$quizは取得済みです。questionsはhasManyでquiz_idを補います。textはfillableです。検証済み文字列$textから設問を1件作成してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $question = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$quiz->questions()->create(['text' => $text])"
+          },
+          {
+            "id": "wrong",
+            "text": "$quiz->questions->create(['text' => $text])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "動的プロパティは関連モデルの集合です。保存用のリレーション呼び出しにはquestions()を使います。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$quiz->questions()->",
+            "create(",
+            "['text' => $text]",
+            ")"
+          ],
+          "wrong": [
+            "$quiz->questions->",
+            "create(",
+            "['text' => $text]",
+            ")"
+          ]
+        }
+      },
+      "explanation": "questions()->createでquiz_idを対応させます。PCでは作った設問が選択したクイズに属するか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$quizは取得済みです。questionsはhasManyでquiz_idを補います。textはfillableです。検証済み文字列$textから設問を1件作成してください。",
+      "conceptId": "ph3-week43-related-create",
+      "variantGroup": "ph3-week43-assembly-related-create",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。",
+      "drillConnection": "PH3 Week43のPOSSE課題へ接続。作った設問が選択したクイズに属するか確認しましょう。",
+      "hint": "リレーションのメソッドを呼んでからcreateします。",
+      "success": "$quizは取得済みです。questionsはhasManyでquiz_idを補います。textはfillableです。検証済み文字列$textから設問を1件作成してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-assembly-save-choice-model",
+      "weekUnitId": "week-unit-week43",
+      "format": "fillBlank",
+      "prompt": "$questionは取得済み、choicesはhasManyです。$choiceは作成済みChoiceモデルです。そのモデルを所属付きで保存してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$question->choices()->save($choice)"
+          },
+          {
+            "id": "wrong",
+            "text": "$question->choices()->create($choice)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "createは属性の配列を受け取るメソッドで、用意したモデルそのものを保存するsaveとは違います。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$question->choices()->",
+            "save(",
+            "$choice",
+            ")"
+          ],
+          "wrong": [
+            "$question->choices()->",
+            "create(",
+            "$choice",
+            ")"
+          ]
+        }
+      },
+      "explanation": "saveで渡したモデルを関連先として保存します。PCではquestion_idが親へ対応するか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$questionは取得済み、choicesはhasManyです。$choiceは作成済みChoiceモデルです。そのモデルを所属付きで保存してください。",
+      "conceptId": "ph3-week43-save-choice-model",
+      "variantGroup": "ph3-week43-assembly-save-choice-model",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。",
+      "drillConnection": "PH3 Week43のPOSSE課題へ接続。question_idが親へ対応するか確認しましょう。",
+      "hint": "渡すものがモデルか属性配列かを区別します。",
+      "success": "$questionは取得済み、choicesはhasManyです。$choiceは作成済みChoiceモデルです。そのモデルを所属付きで保存してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-assembly-existing-quiz",
+      "weekUnitId": "week-unit-week43",
+      "format": "fillBlank",
+      "prompt": "quiz_idが必須で、quizzesのidとして存在することを検証してください。FormRequest内です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nclass StoreQuestionRequest extends FormRequest {\n  public function rules(): array {\n    return ['quiz_id' => __BLANK__];\n  }\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "['required', 'exists:quizzes,id']"
+          },
+          {
+            "id": "wrong",
+            "text": "['required', 'exists:questions,id']"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "確認したい親クイズではなく設問の表を参照しています。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "[",
+            "'required', ",
+            "'exists:quizzes,id'",
+            "]"
+          ],
+          "wrong": [
+            "[",
+            "'required', ",
+            "'exists:questions,id'",
+            "]"
+          ]
+        }
+      },
+      "explanation": "exists:quizzes,idで親の存在を確かめます。PCでは存在しないクイズIDの入力も試しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "quiz_idが必須で、quizzesのidとして存在することを検証してください。FormRequest内です。",
+      "conceptId": "ph3-week43-existing-quiz",
+      "variantGroup": "ph3-week43-assembly-existing-quiz",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。",
+      "drillConnection": "PH3 Week43のPOSSE課題へ接続。存在しないクイズIDの入力も試しましょう。",
+      "hint": "外部キーが指す親の表と列を指定します。",
+      "success": "quiz_idが必須で、quizzesのidとして存在することを検証してください。FormRequest内です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-assembly-correct-choice-range",
+      "weekUnitId": "week-unit-week43",
+      "format": "fillBlank",
+      "prompt": "正解の選択肢番号correctは1〜3の整数だけを受け付けます。FormRequestのルールを作ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nclass StoreQuestionRequest extends FormRequest {\n  public function rules(): array {\n    return ['correct' => __BLANK__];\n  }\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "['required', 'integer', 'between:1,3']"
+          },
+          {
+            "id": "wrong",
+            "text": "['required', 'integer', 'between:0,3']"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "0も許可してしまい、1〜3に限定できません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "[",
+            "'required', ",
+            "'integer', ",
+            "'between:1,3'",
+            "]"
+          ],
+          "wrong": [
+            "[",
+            "'required', ",
+            "'integer', ",
+            "'between:0,3'",
+            "]"
+          ]
+        }
+      },
+      "explanation": "integerとbetween:1,3を組み合わせます。PCでは0・1・3・4を送って確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "正解の選択肢番号correctは1〜3の整数だけを受け付けます。FormRequestのルールを作ってください。",
+      "conceptId": "ph3-week43-correct-choice-range",
+      "variantGroup": "ph3-week43-assembly-correct-choice-range",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。",
+      "drillConnection": "PH3 Week43のPOSSE課題へ接続。0・1・3・4を送って確認しましょう。",
+      "hint": "数値の範囲は両端を含む指定です。",
+      "success": "正解の選択肢番号correctは1〜3の整数だけを受け付けます。FormRequestのルールを作ってください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-assembly-multipart-form",
+      "weekUnitId": "week-unit-week43",
+      "format": "fillBlank",
+      "prompt": "LaravelのPOSTフォームで画像image_fileを送ります。form開始タグに必要なエンコード指定を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<form method=\"POST\" action=\"{{ route('quizzes.store') }}\" __BLANK__>\n@csrf\n<input type=\"file\" name=\"image_file\">\n<button type=\"submit\">保存</button>\n</form>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "enctype=\"multipart/form-data\""
+          },
+          {
+            "id": "wrong",
+            "text": "enctype=\"application/x-www-form-urlencoded\""
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "通常のURLエンコードでは画像ファイルの送信形式になりません。"
+        }
+      },
+      "assembly": {
+        "language": "blade",
+        "optionTokens": {
+          "correct": [
+            "enctype=\"",
+            "multipart/form-data",
+            "\""
+          ],
+          "wrong": [
+            "enctype=\"",
+            "application/x-www-form-urlencoded",
+            "\""
+          ]
+        }
+      },
+      "explanation": "multipart/form-dataでファイルを送ります。PCでは$request->file('image_file')で受け取れるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "LaravelのPOSTフォームで画像image_fileを送ります。form開始タグに必要なエンコード指定を組み立ててください。",
+      "conceptId": "ph3-week43-multipart-form",
+      "variantGroup": "ph3-week43-assembly-multipart-form",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。",
+      "drillConnection": "week43-1の関連ドリルへ接続。$request->file('image_file')で受け取れるか確認しましょう。",
+      "hint": "ファイルを含むフォームのエンコード方式を指定します。",
+      "success": "LaravelのPOSTフォームで画像image_fileを送ります。form開始タグに必要なエンコード指定を組み立ててください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的意味レビューのみ。Blade/Laravelは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week43-1/README.md",
+          "line": 1,
+          "heading": "43週目ミニドリル 1問目",
+          "sha256": "0ee9e3f809770680525f95289b5cbf67cd5bab0ace7bec4ca3075e64aadfbce5",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week43-1/src/resources/views/quiz/create.blade.php",
+          "line": 1,
+          "heading": "@extends('layouts.app')",
+          "sha256": "8bf8ac4296e64924710aa106739eefb08ce0e981e46006ca073a93c09d2ee0ad",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "blade"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-relation-save-instance",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "取得済み$postへ新しいCommentモデル$commentを関連付けて保存します。commentsはhasManyです。適したものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$post->comments()->save($comment)"
+          },
+          {
+            "id": "wrong1",
+            "text": "$post->comments()->create($comment)"
+          },
+          {
+            "id": "wrong2",
+            "text": "$post->comments->save($comment)"
+          },
+          {
+            "id": "wrong3",
+            "text": "$post->save($comment)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "createの引数はモデルではなく属性配列です。",
+          "wrong2": "動的プロパティはコレクションであり保存用リレーションではありません。",
+          "wrong3": "親のsaveに子モデルを渡して関連保存する形ではありません。"
+        }
+      },
+      "explanation": "saveは渡した子モデルに親の外部キーを対応させて保存します。 PCでは保存されたCommentのpost_idを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$post->comments()->save($comment)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-relation-save-instance",
+      "variantGroup": "ph3-week43-choice-relation-save-instance",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week43のPOSSE課題。保存されたCommentのpost_idを確認しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "モデルインスタンスを受け取るリレーション操作を選びます。",
+      "success": "条件に適合する候補を1つ選ぶ：$post->comments()->save($comment)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-relation-create-array",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "commentsはhasManyでCommentのmessageはfillableです。親$postへ検証済みのmessageを関連保存するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "$post->comments()->save([\"message\" => $message])"
+          },
+          {
+            "id": "wrong2",
+            "text": "$post->comments->create([\"message\" => $message])"
+          },
+          {
+            "id": "wrong3",
+            "text": "new Comment([\"message\" => $message])だけ"
+          },
+          {
+            "id": "correct",
+            "text": "$post->comments()->create([\"message\" => $message])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "saveは属性配列ではなくモデルインスタンスを受け取ります。",
+          "wrong2": "コレクションではなくcomments()のリレーションを使います。",
+          "wrong3": "モデルを用意するだけでDB保存も親への関連付けも行いません。"
+        }
+      },
+      "explanation": "createは属性配列を受け取り親と関連するモデルを作成します。 PCではpost_idとmessageの保存結果を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$post->comments()->create([\"message\" => $message])」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-relation-create-array",
+      "variantGroup": "ph3-week43-choice-relation-create-array",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week43のPOSSE課題。post_idとmessageの保存結果を確認しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "属性配列から作るメソッドです。",
+      "success": "条件に適合する候補を1つ選ぶ：$post->comments()->create([\"message\" => $message])",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-parent-key-auto",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "hasManyの$post->comments()->save($comment)を使う利点はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "子の入力検証を必ずすべて自動生成する"
+          },
+          {
+            "id": "wrong3",
+            "text": "親記事を必ず物理削除する"
+          },
+          {
+            "id": "correct",
+            "text": "子のpost_idを親のIDへ対応させて保存できる"
+          },
+          {
+            "id": "wrong1",
+            "text": "すべての既存コメントを別の親へ移動する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "新しく保存する子への関連付けであり全件移動ではありません。",
+          "wrong2": "リレーション保存と入力検証は別です。",
+          "wrong3": "関連保存は親の削除処理ではありません。"
+        }
+      },
+      "explanation": "リレーションが所属先の外部キーを補います。 PCでは別の記事IDへ取り違えて保存されないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「子のpost_idを親のIDへ対応させて保存できる」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-parent-key-auto",
+      "variantGroup": "ph3-week43-choice-parent-key-auto",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week43のPOSSE課題。別の記事IDへ取り違えて保存されないか確認しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "子がどの親に属するかを設定します。",
+      "success": "条件に適合する候補を1つ選ぶ：子のpost_idを親のIDへ対応させて保存できる",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-save-many-models",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "既存の親$postへ、未保存Commentモデルの配列$commentsを関連保存します。使うものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "$post->refresh($comments)"
+          },
+          {
+            "id": "correct",
+            "text": "$post->comments()->saveMany($comments)"
+          },
+          {
+            "id": "wrong1",
+            "text": "$post->comments()->createMany($comments)"
+          },
+          {
+            "id": "wrong2",
+            "text": "$post->comments()->delete($comments)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "createManyはモデル配列ではなく属性配列の配列を受け取ります。",
+          "wrong2": "子を作成する処理ではありません。",
+          "wrong3": "再取得は新しい子の保存ではありません。"
+        }
+      },
+      "explanation": "saveManyでモデルの配列を関連保存できます。 PCでは保存した複数の子のpost_idを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$post->comments()->saveMany($comments)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-save-many-models",
+      "variantGroup": "ph3-week43-choice-save-many-models",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week43のPOSSE課題。保存した複数の子のpost_idを確認しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "モデルを複数受け取るメソッドです。",
+      "success": "条件に適合する候補を1つ選ぶ：$post->comments()->saveMany($comments)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-loaded-relation-refresh",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "先に$post->commentsを読み込んだ後、comments()->saveで子を追加しました。メモリ内の関連も再取得するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$post->refresh();"
+          },
+          {
+            "id": "wrong1",
+            "text": "$post->commentsだけを再び読む"
+          },
+          {
+            "id": "wrong2",
+            "text": "$post->delete();"
+          },
+          {
+            "id": "wrong3",
+            "text": "$post->comments()->save($comment)を重ねる"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "すでに読み込んだ関連がキャッシュされている場合、追加前の集合を読みます。",
+          "wrong2": "再取得ではなく親の削除です。",
+          "wrong3": "モデルと関連を読み直す操作ではありません。"
+        }
+      },
+      "explanation": "refreshでモデルと読み込み済み関連を読み直します。 PCでは再取得後のコメント件数を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「$post->refresh();」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-loaded-relation-refresh",
+      "variantGroup": "ph3-week43-choice-loaded-relation-refresh",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week43のPOSSE課題。再取得後のコメント件数を確認しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "保存とメモリ内の取得済み関連の更新を分けます。",
+      "success": "条件に適合する候補を1つ選ぶ：$post->refresh();",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-quiz-exists-rule",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "フォームのquiz_idがquizzesテーブルに存在するidか検証します。requiredとintegerに加えるルールはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "unique:quizzes,id"
+          },
+          {
+            "id": "wrong2",
+            "text": "max:200"
+          },
+          {
+            "id": "wrong3",
+            "text": "string"
+          },
+          {
+            "id": "correct",
+            "text": "exists:quizzes,id"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "既存IDを使う目的と逆に、重複しない値を求めてしまいます。",
+          "wrong2": "値の上限だけでは参照先の存在を確認できません。",
+          "wrong3": "文字列であることは参照先の存在を保証しません。"
+        }
+      },
+      "explanation": "existsで指定した表に値があるか確認します。 PCでは存在しないquiz_idを送って拒否されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「exists:quizzes,id」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-quiz-exists-rule",
+      "variantGroup": "ph3-week43-choice-quiz-exists-rule",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week43のPOSSE課題。存在しないquiz_idを送って拒否されるか確認しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "参照先の表と列を検証します。",
+      "success": "条件に適合する候補を1つ選ぶ：exists:quizzes,id",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-correct-choice-range",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "正解の番号は必須の整数で1〜3です。correct_numberのルールはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "required|string|max:3"
+          },
+          {
+            "id": "wrong3",
+            "text": "nullable|integer|between:1,3"
+          },
+          {
+            "id": "correct",
+            "text": "required|integer|between:1,3"
+          },
+          {
+            "id": "wrong1",
+            "text": "required|integer|min:1"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "上限がなく4以上を許してしまいます。",
+          "wrong2": "文字数の条件であり整数1〜3の制約ではありません。",
+          "wrong3": "未入力を許可してしまいます。"
+        }
+      },
+      "explanation": "integerとbetweenで範囲内の整数に限定します。 PCでは0・1・3・4・未入力を試しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「required|integer|between:1,3」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-correct-choice-range",
+      "variantGroup": "ph3-week43-choice-correct-choice-range",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week43のPOSSE課題。0・1・3・4・未入力を試しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "型と上下限と必須をそろえます。",
+      "success": "条件に適合する候補を1つ選ぶ：required|integer|between:1,3",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-question-text-limit",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "設問textは必須で200文字以内の文字列です。250文字の通常の文章を送った結果はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "画像ファイルとして扱う"
+          },
+          {
+            "id": "correct",
+            "text": "検証エラーとして保存を止める"
+          },
+          {
+            "id": "wrong1",
+            "text": "先頭200文字へ無通知で切り捨てて成功にする"
+          },
+          {
+            "id": "wrong2",
+            "text": "必ず新しいクイズとして保存する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "maxの検証は自動切り捨てではありません。",
+          "wrong2": "設問の長さが検証条件を超えています。",
+          "wrong3": "入力は設問の文章です。"
+        }
+      },
+      "explanation": "250文字は200文字以内の条件に適合しません。 PCではエラー表示とDBに増えていないことを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「検証エラーとして保存を止める」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-question-text-limit",
+      "variantGroup": "ph3-week43-choice-question-text-limit",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week43のPOSSE課題。エラー表示とDBに増えていないことを確認しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "上限を超えた値を検証で止めます。",
+      "success": "条件に適合する候補を1つ選ぶ：検証エラーとして保存を止める",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-choice-fields-required",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "choices.1.text、choices.2.text、choices.3.textをそれぞれrequired|string|max:100で検証します。2番目だけ未入力の場合はどうなりますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "2番目の必須エラーになり保存しない"
+          },
+          {
+            "id": "wrong1",
+            "text": "1番目があれば3つとも有効になる"
+          },
+          {
+            "id": "wrong2",
+            "text": "正解番号を変更すれば必須チェックが消える"
+          },
+          {
+            "id": "wrong3",
+            "text": "空の選択肢を必ず正解として保存する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "各選択肢が必須なので2番目も必要です。",
+          "wrong2": "正解番号と選択肢の入力ルールは別です。",
+          "wrong3": "空の値は必須条件を満たしません。"
+        }
+      },
+      "explanation": "3つすべてに必要なテキストを求めます。 PCでは空にする位置を変えて各欄のエラーを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「2番目の必須エラーになり保存しない」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-choice-fields-required",
+      "variantGroup": "ph3-week43-choice-choice-fields-required",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week43のPOSSE課題。空にする位置を変えて各欄のエラーを確認しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "各入力欄の条件を個別に確認します。",
+      "success": "条件に適合する候補を1つ選ぶ：2番目の必須エラーになり保存しない",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week43-choice-multipart-upload",
+      "weekUnitId": "week-unit-week43",
+      "format": "singleChoice",
+      "prompt": "POSTフォームにfile入力とCSRFトークンがあります。選択した画像をファイルとして送るため、formへ追加する属性はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "target=\"_blank\""
+          },
+          {
+            "id": "wrong2",
+            "text": "autocomplete=\"off\""
+          },
+          {
+            "id": "wrong3",
+            "text": "class=\"image\""
+          },
+          {
+            "id": "correct",
+            "text": "enctype=\"multipart/form-data\""
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "新しい画面で開く指定でありファイル送信形式ではありません。",
+          "wrong2": "入力補完の設定でありファイル送信形式ではありません。",
+          "wrong3": "CSSクラス名だけではファイルの送信形式は変わりません。"
+        }
+      },
+      "explanation": "multipart/form-dataでファイルデータを送ります。 PCでは画像選択後、サーバー側でファイルを受け取れるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week43",
+        "sectionHeading": "Week 43"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「enctype=\"multipart/form-data\"」を選び、その理由を説明する。",
+      "conceptId": "ph3-week43-multipart-upload",
+      "variantGroup": "ph3-week43-choice-multipart-upload",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 634,
+        "heading": "Week 43",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week43-1/README.md",
+          "line": 1,
+          "heading": "43週目ミニドリル 1問目",
+          "sha256": "0ee9e3f809770680525f95289b5cbf67cd5bab0ace7bec4ca3075e64aadfbce5",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week43-1の関連ドリル。画像選択後、サーバー側でファイルを受け取れるか確認しましょう。",
+      "priorKnowledge": "Week42のFormRequest。Week43のリレーション保存と関連データの検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ファイルを含むフォームのエンコード形式です。",
+      "success": "条件に適合する候補を1つ選ぶ：enctype=\"multipart/form-data\"",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

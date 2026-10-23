@@ -6,27 +6,24 @@ import { BottomNav } from '@/components/drill/bottom-nav';
 import { CtaButton, TextLink } from '@/components/drill/buttons';
 import { Icon } from '@/components/drill/icons';
 import { Mascot } from '@/components/drill/mascot';
+import { PhaseSection } from '@/components/drill/phase-section';
 import { Body, Card, DText, Pill, ProgressBar, Screen } from '@/components/drill/ui';
 import { WeekStrip } from '@/components/drill/week-strip';
 import { Drill, Radius } from '@/constants/drill';
 import {
   CURRENT_PHASE,
-  PHASES,
   WEEK_STATE_LABEL,
   type Week,
 } from '@/data/drill';
 import { catalog } from '@/lib/content/catalog';
-import { availablePhaseCodes } from '@/lib/content/phase';
 import { useDashboard } from '@/lib/progress/dashboard';
 import { beginSession } from '@/lib/quiz/session';
-import { useAuth } from '@/lib/auth/provider';
 
 export default function HomeScreen() {
   const router = useRouter();
-  const { settings } = useAuth();
-  const currentPhase = PHASES.find((phase) => phase.id === settings?.phase) ?? CURRENT_PHASE;
-  const { state, ready, error, stats, weeks: WEEKS, days: THIS_WEEK, level, reviewTags: REVIEW_TAGS, mascotLines: MASCOT_LINES, next: nextWeek, todayStudied, mutate } = useDashboard();
-  const active = state.session && !state.session.completedAt ? state.session : null;
+  const { state, ready, error, stats, phase, phaseGroups, weeks: WEEKS, days: THIS_WEEK, level, reviewTags: REVIEW_TAGS, mascotLines: MASCOT_LINES, next: nextWeek, todayStudied, mutate } = useDashboard();
+  const currentPhase = phase ?? CURRENT_PHASE;
+  const active = state.session && !state.session.completedAt && WEEKS.some(week => week.id === state.session?.weekKey) ? state.session : null;
   const activeWeek = WEEKS.find(w=>w.id===active?.weekKey) ?? nextWeek;
   const review = async () => {
     const questions = catalog.questions.filter(q=>stats.reviewIds.includes(q.id)&&state.answers.some(a=>a.questionId===q.id&&a.revision===q.learning.revision));
@@ -110,7 +107,7 @@ export default function HomeScreen() {
                 次はここから
               </DText>
               <DText size={20} weight="bold" role="heading" aria-level={2} style={styles.nextTitle}>
-                {active ? `${activeWeek?.title} の続き ${active.refs.length-active.cursor}問` : `${nextWeek?.title} を3問`}
+                {active ? `${activeWeek?.title} の続き ${active.refs.length-active.cursor}問` : nextWeek ? `${nextWeek.title} を3問` : '教材を読み込んでいます…'}
               </DText>
               <DText size={13} color={Drill.textSub}>
                 残り{activeWeek ? activeWeek.total-activeWeek.done : 0}問で{activeWeek?.title}クリア · 約2分
@@ -118,7 +115,7 @@ export default function HomeScreen() {
             </View>
             <Pill label="+15〜30 XP" background={Drill.xpSoft} color={Drill.xpText} size={12} paddingH={10} paddingV={4} />
           </View>
-          <CtaButton label="はじめる" disabled={!ready} href={active ? {pathname:'/quiz',params:{session:active.id}} : {pathname:'/options',params:{week:nextWeek?.id}}} arrow />
+          <CtaButton label="はじめる" disabled={!ready || !nextWeek} href={active ? {pathname:'/quiz',params:{session:active.id}} : {pathname:'/options',params:{week:nextWeek?.id}}} arrow />
           <TextLink label="ほかのWeekを選んで解く" href="/materials" />
         </Card>
 
@@ -156,19 +153,19 @@ export default function HomeScreen() {
           </View>
         </Card>
 
-        <Card style={styles.roadCard}>
-          <View style={styles.roadHead}>
-            <DText size={15} weight="bold" role="heading" aria-level={2}>
-              {`${availablePhaseCodes(catalog)} カリキュラム`}
-            </DText>
-            <DText size={12} color={Drill.textSub}>
-              {`${WEEKS.filter((w) => w.state === 'done').length} / ${WEEKS.length} クリア`}
-            </DText>
-          </View>
-          {WEEKS.map((week, i) => (
-            <RoadItem key={week.id} week={week} last={i === WEEKS.length - 1} />
-          ))}
-        </Card>
+        {phaseGroups.map((group) => (
+          <Card key={`${phase?.id}:${group.phase.id}`} style={styles.roadCard}>
+            <PhaseSection
+              title={`${group.phase.code} カリキュラム`}
+              summary={`${group.weeks.filter((week) => week.state === 'done').length} / ${group.weeks.length} クリア`}
+              initiallyExpanded={group.phase.id === phase?.id}
+            >
+              {group.weeks.map((week, i) => (
+                <RoadItem key={week.id} week={week} last={i === group.weeks.length - 1} />
+              ))}
+            </PhaseSection>
+          </Card>
+        ))}
       </Body>
       <BottomNav active="home" />
     </Screen>

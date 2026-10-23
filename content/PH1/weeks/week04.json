@@ -755,5 +755,477 @@
       "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week4-assembly-three-columns",
+      "weekUnitId": "week-unit-week4",
+      "format": "fillBlank",
+      "prompt": "同じ幅のカードを3列で並べ、カード間を16px空けてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<section class=\"__BLANK__\"><article>A</article><article>B</article><article>C</article></section>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "grid grid-cols-3 gap-4 "
+          },
+          {
+            "id": "wrong",
+            "text": "grid grid-cols-2 gap-4 "
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "grid-cols-2では2列になり、3枚目が次の行へ移ります。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "grid ",
+            "grid-cols-3 ",
+            "gap-4 "
+          ],
+          "wrong": [
+            "grid ",
+            "grid-cols-2 ",
+            "gap-4 "
+          ]
+        },
+        "inputMode": "classes"
+      },
+      "explanation": "gridで格子状の配置を有効にし、grid-cols-3で列数を指定します。PCではカードを4枚に増やして折り返しも確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "2. Gridの基本クラス"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "同じ幅のカードを3列で並べ、カード間を16px空けてください。",
+      "conceptId": "ph1-week4-three-columns",
+      "variantGroup": "ph1-week4-assembly-three-columns",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜04のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week04の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。カードを4枚に増やして折り返しも確認しましょう。",
+      "hint": "gridで格子状の配置を有効にし、grid-cols-3で列数を指定します。",
+      "success": "同じ幅のカードを3列で並べ、カード間を16px空けてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "line": 58,
+        "heading": "2. Gridの基本クラス",
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week04-1/README.md",
+          "line": 1,
+          "heading": "問題1：ダッシュボード風ウィジェットを作る（25分）",
+          "sha256": "b1b509d2b328c79df63b668ef6c14e77d8d1f45354074d6ddab63b1b3729fe95"
+        },
+        {
+          "path": "drill-ph1/week04-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`hover:` の使い方ミス）（15分）",
+          "sha256": "c9cffd03f48f1a2625c4b03e8e7aca87b8fe00a4229228a617537b38101dcb93"
+        },
+        {
+          "path": "drill-ph1/week04-3/README.md",
+          "line": 1,
+          "heading": "問題3：ヘッダー + Grid + 画像の復習ページを作る（20分）",
+          "sha256": "f153197f9e94de5aa376c44e674909bb355112079b2b7cee9f3dc122b715023a"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week4-assembly-wide-child",
+      "weekUnitId": "week-unit-week4",
+      "format": "fillBlank",
+      "prompt": "親は3列Gridです。「訪問者数」の子だけを2列分にしてください。開始タグを組み立てます。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<div class=\"grid grid-cols-3\">\n  __BLANK__訪問者数</article>\n  <article>注文数</article>\n</div>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "<article class=\"col-span-2\">"
+          },
+          {
+            "id": "wrong",
+            "text": "<article class=\"grid-cols-2\">"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "子にgrid-cols-2を付けても、その子が親の2列分を占める指定にはなりません。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "<article ",
+            "class=\"",
+            "col-span-2",
+            "\">"
+          ],
+          "wrong": [
+            "<article ",
+            "class=\"",
+            "grid-cols-2",
+            "\">"
+          ]
+        }
+      },
+      "explanation": "col-span-2は広くしたい子に付けます。PCでは親の列数を保ち、子の占有幅を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "3. col-span で幅を変える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "親は3列Gridです。「訪問者数」の子だけを2列分にしてください。開始タグを組み立てます。",
+      "conceptId": "ph1-week4-wide-child",
+      "variantGroup": "ph1-week4-assembly-wide-child",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜04のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week04の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。親の列数を保ち、子の占有幅を確認しましょう。",
+      "hint": "col-span-2は広くしたい子に付けます。",
+      "success": "親は3列Gridです。「訪問者数」の子だけを2列分にしてください。開始タグを組み立てます。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "line": 88,
+        "heading": "3. col-span で幅を変える",
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week04-1/README.md",
+          "line": 1,
+          "heading": "問題1：ダッシュボード風ウィジェットを作る（25分）",
+          "sha256": "b1b509d2b328c79df63b668ef6c14e77d8d1f45354074d6ddab63b1b3729fe95"
+        },
+        {
+          "path": "drill-ph1/week04-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`hover:` の使い方ミス）（15分）",
+          "sha256": "c9cffd03f48f1a2625c4b03e8e7aca87b8fe00a4229228a617537b38101dcb93"
+        },
+        {
+          "path": "drill-ph1/week04-3/README.md",
+          "line": 1,
+          "heading": "問題3：ヘッダー + Grid + 画像の復習ページを作る（20分）",
+          "sha256": "f153197f9e94de5aa376c44e674909bb355112079b2b7cee9f3dc122b715023a"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week4-assembly-responsive-grid",
+      "weekUnitId": "week-unit-week4",
+      "format": "fillBlank",
+      "prompt": "カード一覧を375pxで1列、768pxで2列、1024px以上で4列にしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<div class=\"__BLANK__\"><article>A</article><article>B</article></div>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 "
+          },
+          {
+            "id": "wrong",
+            "text": "grid grid-cols-4 md:grid-cols-2 lg:grid-cols-1 "
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "最小幅で4列、最大幅で1列となり、指定と逆になります。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "grid ",
+            "grid-cols-1 ",
+            "md:grid-cols-2 ",
+            "lg:grid-cols-4 "
+          ],
+          "wrong": [
+            "grid ",
+            "grid-cols-4 ",
+            "md:grid-cols-2 ",
+            "lg:grid-cols-1 "
+          ]
+        },
+        "inputMode": "classes"
+      },
+      "explanation": "接頭辞なしを1列、mdを2列、lgを4列にします。PCでは3つの幅を順に確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "4. レスポンシブGridの書き方"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "カード一覧を375pxで1列、768pxで2列、1024px以上で4列にしてください。",
+      "conceptId": "ph1-week4-responsive-grid",
+      "variantGroup": "ph1-week4-assembly-responsive-grid",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜04のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week04の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。3つの幅を順に確認しましょう。",
+      "hint": "接頭辞なしを1列、mdを2列、lgを4列にします。",
+      "success": "カード一覧を375pxで1列、768pxで2列、1024px以上で4列にしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "line": 106,
+        "heading": "4. レスポンシブGridの書き方",
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week04-1/README.md",
+          "line": 1,
+          "heading": "問題1：ダッシュボード風ウィジェットを作る（25分）",
+          "sha256": "b1b509d2b328c79df63b668ef6c14e77d8d1f45354074d6ddab63b1b3729fe95"
+        },
+        {
+          "path": "drill-ph1/week04-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`hover:` の使い方ミス）（15分）",
+          "sha256": "c9cffd03f48f1a2625c4b03e8e7aca87b8fe00a4229228a617537b38101dcb93"
+        },
+        {
+          "path": "drill-ph1/week04-3/README.md",
+          "line": 1,
+          "heading": "問題3：ヘッダー + Grid + 画像の復習ページを作る（20分）",
+          "sha256": "f153197f9e94de5aa376c44e674909bb355112079b2b7cee9f3dc122b715023a"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week4-assembly-hover-color",
+      "weekUnitId": "week-unit-week4",
+      "format": "fillBlank",
+      "prompt": "通常は青500、ホバー中だけ青700の背景にしてください。開始タグの属性を完成させます。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<button __BLANK__>申し込む</button>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "class=\"bg-blue-500 hover:bg-blue-700\""
+          },
+          {
+            "id": "wrong",
+            "text": "class=\"bg-blue-500 hover: bg-blue-700\""
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "hover:の直後に空白があると、hover:bg-blue-700というクラスになりません。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "class=\"",
+            "bg-blue-500 ",
+            "hover:bg-blue-700",
+            "\""
+          ],
+          "wrong": [
+            "class=\"",
+            "bg-blue-500 ",
+            "hover: bg-blue-700",
+            "\""
+          ]
+        }
+      },
+      "explanation": "状態の接頭辞とクラス本体を空白で切り離しません。PCではマウスを乗せて色を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "5. hover: で状態に応じたスタイル"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "通常は青500、ホバー中だけ青700の背景にしてください。開始タグの属性を完成させます。",
+      "conceptId": "ph1-week4-hover-color",
+      "variantGroup": "ph1-week4-assembly-hover-color",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜04のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week04の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。マウスを乗せて色を確認しましょう。",
+      "hint": "状態の接頭辞とクラス本体を空白で切り離しません。",
+      "success": "通常は青500、ホバー中だけ青700の背景にしてください。開始タグの属性を完成させます。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "line": 130,
+        "heading": "5. hover: で状態に応じたスタイル",
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week04-1/README.md",
+          "line": 1,
+          "heading": "問題1：ダッシュボード風ウィジェットを作る（25分）",
+          "sha256": "b1b509d2b328c79df63b668ef6c14e77d8d1f45354074d6ddab63b1b3729fe95"
+        },
+        {
+          "path": "drill-ph1/week04-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`hover:` の使い方ミス）（15分）",
+          "sha256": "c9cffd03f48f1a2625c4b03e8e7aca87b8fe00a4229228a617537b38101dcb93"
+        },
+        {
+          "path": "drill-ph1/week04-3/README.md",
+          "line": 1,
+          "heading": "問題3：ヘッダー + Grid + 画像の復習ページを作る（20分）",
+          "sha256": "f153197f9e94de5aa376c44e674909bb355112079b2b7cee9f3dc122b715023a"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week4-assembly-striped-list",
+      "weekUnitId": "week-unit-week4",
+      "format": "fillBlank",
+      "prompt": "各liについて、奇数番目を灰色100、偶数番目を白にしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<ul>\n  <li class=\"__BLANK__\">商品</li>\n  <!-- 同じクラスのliが続く -->\n</ul>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "odd:bg-gray-100 even:bg-white "
+          },
+          {
+            "id": "wrong",
+            "text": "even:bg-gray-100 odd:bg-white "
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "奇数と偶数の背景指定が逆です。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "odd:bg-gray-100 ",
+            "even:bg-white "
+          ],
+          "wrong": [
+            "even:bg-gray-100 ",
+            "odd:bg-white "
+          ]
+        },
+        "inputMode": "classes"
+      },
+      "explanation": "oddは1・3番目、evenは2・4番目に適用されます。PCではliを4つにして確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week4",
+        "sectionHeading": "6. odd: / even: で行ごとに色を変える"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "各liについて、奇数番目を灰色100、偶数番目を白にしてください。",
+      "conceptId": "ph1-week4-striped-list",
+      "variantGroup": "ph1-week4-assembly-striped-list",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜04のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week04の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。liを4つにして確認しましょう。",
+      "hint": "oddは1・3番目、evenは2・4番目に適用されます。",
+      "success": "各liについて、奇数番目を灰色100、偶数番目を白にしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week04.md",
+        "line": 158,
+        "heading": "6. odd: / even: で行ごとに色を変える",
+        "sha256": "12381352a98666483a47637bc7dcdd97d217e2d9a5284b20e820848638ea083d"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week04-1/README.md",
+          "line": 1,
+          "heading": "問題1：ダッシュボード風ウィジェットを作る（25分）",
+          "sha256": "b1b509d2b328c79df63b668ef6c14e77d8d1f45354074d6ddab63b1b3729fe95"
+        },
+        {
+          "path": "drill-ph1/week04-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`hover:` の使い方ミス）（15分）",
+          "sha256": "c9cffd03f48f1a2625c4b03e8e7aca87b8fe00a4229228a617537b38101dcb93"
+        },
+        {
+          "path": "drill-ph1/week04-3/README.md",
+          "line": 1,
+          "heading": "問題3：ヘッダー + Grid + 画像の復習ページを作る（20分）",
+          "sha256": "f153197f9e94de5aa376c44e674909bb355112079b2b7cee9f3dc122b715023a"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
   }
 ]

@@ -1,6 +1,6 @@
 # Week24｜GET・POST・フォーム・INSERT
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -431,3 +431,174 @@ POSTで送れば入力値が正しいと判断できますか？
 - 誤答b: 入力の妥当性を確認していません。
 - 誤答c: DB操作は別に実行・確認します。
 - 誤答d: POSTでも送信キーが必要です。
+
+## question-ph2-week24-assembly-get-keyword（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: URLはindex.php?keyword=quizです。keywordの文字列を変数へ読み取ってください。キーは必ず存在する前提です。
+- 出典: curriculum/PH2/Week24.md:34 / GET
+- ドリル接続: Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。クエリ文字列を変えて値が変わるか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week24-get-keyword
+- 類題: ph2-week24-assembly-get-keyword / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+URLはindex.php?keyword=quizです。keywordの文字列を変数へ読み取ってください。キーは必ず存在する前提です。
+
+```php
+<?php
+$keyword = __BLANK__;
+```
+
+- correct: $_GET["keyword"]（正答）
+- wrong: $_POST["keyword"]
+
+達成条件: URLはindex.php?keyword=quizです。keywordの文字列を変数へ読み取ってください。キーは必ず存在する前提です。
+
+ヒント: GETのキー名を角括弧で指定します。
+
+解説: GETのキー名を角括弧で指定します。PCではクエリ文字列を変えて値が変わるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: URLのクエリパラメータは$_GETから取得します。
+
+## question-ph2-week24-assembly-post-name（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: formはmethod="POST"、入力欄のnameは"nickname"です。送信済みの値を読み取ってください。キーは必ず存在する前提です。
+- 出典: curriculum/PH2/Week24.md:59 / POST
+- ドリル接続: Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。フォームのnameとキーも照合しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week24-post-name
+- 類題: ph2-week24-assembly-post-name / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+formはmethod="POST"、入力欄のnameは"nickname"です。送信済みの値を読み取ってください。キーは必ず存在する前提です。
+
+```php
+<?php
+$nickname = __BLANK__;
+```
+
+- correct: $_POST["nickname"]（正答）
+- wrong: $_GET["nickname"]
+
+達成条件: formはmethod="POST"、入力欄のnameは"nickname"です。送信済みの値を読み取ってください。キーは必ず存在する前提です。
+
+ヒント: methodとPHP側の取得元を合わせます。
+
+解説: methodとPHP側の取得元を合わせます。PCではフォームのnameとキーも照合しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: POSTフォームの値を読む場所が$_GETになっています。
+
+## question-ph2-week24-assembly-post-form（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: nicknameをsave.phpへPOST送信するformの開始タグを組み立ててください。
+- 出典: curriculum/PH2/Week24.md:59 / POST
+- ドリル接続: Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。送信先で$_POSTを確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week24-post-form
+- 類題: ph2-week24-assembly-post-form / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+nicknameをsave.phpへPOST送信するformの開始タグを組み立ててください。
+
+```html
+__BLANK__
+<input name="nickname"><button type="submit">保存</button>
+</form>
+```
+
+- correct: <form action="save.php" method="POST">（正答）
+- wrong: <form action="save.php" method="GET">
+
+達成条件: nicknameをsave.phpへPOST送信するformの開始タグを組み立ててください。
+
+ヒント: actionで送信先、methodで送信方法を指定します。
+
+解説: actionで送信先、methodで送信方法を指定します。PCでは送信先で$_POSTを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: GETでは今回指定したPOST送信になりません。
+
+## question-ph2-week24-assembly-insert-question（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: questionsのcontentへ新しい問題を1件保存するSQLを組み立ててください。contentはプレースホルダーです。
+- 出典: curriculum/PH2/Week24.md:92 / 5. SQLクエリの発行
+- ドリル接続: Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。prepare・バインド・executeまで行って保存を確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week24-insert-question
+- 類題: ph2-week24-assembly-insert-question / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+questionsのcontentへ新しい問題を1件保存するSQLを組み立ててください。contentはプレースホルダーです。
+
+```sql
+__BLANK__
+```
+
+- correct: INSERT INTO questions (content) VALUES (:content);（正答）
+- wrong: INSERT INTO questions (content) VALUES (content);
+
+達成条件: questionsのcontentへ新しい問題を1件保存するSQLを組み立ててください。contentはプレースホルダーです。
+
+ヒント: 列の指定とVALUESの値を対応させます。
+
+解説: 列の指定とVALUESの値を対応させます。PCではprepare・バインド・executeまで行って保存を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: :なしのcontentはバインドするプレースホルダーではありません。
+
+## question-ph2-week24-assembly-bind-content（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: $stmtはcontentを含むINSERTをprepare済みです。検証済み文字列$contentを:contentへバインドしてください。
+- 出典: curriculum/PH2/Week24.md:92 / 5. SQLクエリの発行
+- ドリル接続: Week24の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。異なる入力を2件保存して確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜24の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week24-bind-content
+- 類題: ph2-week24-assembly-bind-content / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+$stmtはcontentを含むINSERTをprepare済みです。検証済み文字列$contentを:contentへバインドしてください。
+
+```php
+<?php
+__BLANK__;
+$stmt->execute();
+```
+
+- correct: $stmt->bindValue(":content", $content)（正答）
+- wrong: $stmt->bindValue(":content", "content")
+
+達成条件: $stmtはcontentを含むINSERTをprepare済みです。検証済み文字列$contentを:contentへバインドしてください。
+
+ヒント: プレースホルダー名と受け取った変数を対応させます。
+
+解説: プレースホルダー名と受け取った変数を対応させます。PCでは異なる入力を2件保存して確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: "content"では変数の値でなく固定の文字列contentが渡されます。

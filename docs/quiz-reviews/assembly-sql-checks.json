@@ -1,0 +1,241 @@
+{
+  "environment": "SQLite 3.54.0; in-memory fixtures only; not MySQL verification",
+  "results": [
+    {
+      "id": "question-ph2-week22-assembly-join-condition",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week22-assembly-having-total",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week22-assembly-missing-details",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week22-assembly-correlated-key",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week22-assembly-group-id-name",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week19-assembly-create-table",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week19-assembly-select-title",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week19-assembly-published-range",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week19-assembly-contains-title",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week19-assembly-both-conditions",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week24-assembly-insert-question",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week29-assembly-period-start",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week29-assembly-period-end",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week29-assembly-student-sum",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week29-assembly-content-sum",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week29-assembly-todo-list-query",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week25-assembly-update-name",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week25-assembly-delete-id",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week25-assembly-delete-child",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week30-assembly-daily-key",
+      "status": "static-only",
+      "reason": "MySQL固有のUSE / DATE_FORMAT / INTERVAL構文。教材・公式仕様で静的照合し、SQLiteへ変換しない。"
+    },
+    {
+      "id": "question-ph2-week30-assembly-monthly-key",
+      "status": "static-only",
+      "reason": "MySQL固有のUSE / DATE_FORMAT / INTERVAL構文。教材・公式仕様で静的照合し、SQLiteへ変換しない。"
+    },
+    {
+      "id": "question-ph2-week30-assembly-toggle-status",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week30-assembly-weekly-monday",
+      "status": "static-only",
+      "reason": "MySQL固有のUSE / DATE_FORMAT / INTERVAL構文。教材・公式仕様で静的照合し、SQLiteへ変換しない。"
+    },
+    {
+      "id": "question-ph2-week31-assembly-owner-select",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week20-assembly-count-details",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week20-assembly-sum-quantity",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week20-assembly-sum-cost",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week20-assembly-group-order",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week20-assembly-select-database",
+      "status": "static-only",
+      "reason": "MySQL固有のUSE / DATE_FORMAT / INTERVAL構文。教材・公式仕様で静的照合し、SQLiteへ変換しない。"
+    },
+    {
+      "id": "question-ph2-week21-assembly-descending-query",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    },
+    {
+      "id": "question-ph2-week21-assembly-top-two",
+      "status": "checked",
+      "candidateOutcomes": {
+        "correct": true,
+        "wrong": false
+      }
+    }
+  ]
+}

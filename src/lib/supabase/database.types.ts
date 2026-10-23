@@ -26,12 +26,12 @@ export type Database = {
       learning_settings: {
         Row: {
           user_id: string;
-          phase: "ph1" | "ph2";
+          phase: "ph1" | "ph2" | "ph3";
           created_at: string;
           updated_at: string;
         };
-        Insert: { user_id: string; phase?: "ph1" | "ph2" };
-        Update: { phase?: "ph1" | "ph2" };
+        Insert: { user_id: string; phase?: "ph1" | "ph2" | "ph3" };
+        Update: { phase?: "ph1" | "ph2" | "ph3" };
         Relationships: [];
       };
       answer_records: {
@@ -44,6 +44,7 @@ export type Database = {
           week_unit_id: string;
           correct: boolean;
           hint_used: boolean;
+          explanation_read_at: string | null;
           option_id: string;
           received_at: string;
         };
@@ -58,7 +59,7 @@ export type Database = {
           hint_used: boolean;
           option_id: string;
         };
-        Update: never;
+        Update: { explanation_read_at?: string | null };
         Relationships: [];
       };
       push_subscriptions: {

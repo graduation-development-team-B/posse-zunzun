@@ -1086,5 +1086,444 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week29-assembly-period-start",
+      "weekUnitId": "week-unit-week29",
+      "format": "fillBlank",
+      "prompt": "dateはDATETIMEです。2022年6月20日0時以降の条件を組み立ててください。終了条件は固定済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT SUM(hours) FROM studies WHERE __BLANK__ AND date < '2022-06-26';",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "date >= '2022-06-20'"
+          },
+          {
+            "id": "wrong",
+            "text": "date > '2022-06-20'"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": ">では開始日の0時ちょうどが対象外になります。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "date ",
+            ">= ",
+            "'2022-06-20'"
+          ],
+          "wrong": [
+            "date ",
+            "> ",
+            "'2022-06-20'"
+          ]
+        }
+      },
+      "explanation": "開始側は>=で含めます。PCでは開始直前と開始ちょうどを比べましょう。",
+      "sourceReference": {
+        "weekKey": "week29",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "dateはDATETIMEです。2022年6月20日0時以降の条件を組み立ててください。終了条件は固定済みです。",
+      "conceptId": "ph2-week29-period-start",
+      "variantGroup": "ph2-week29-assembly-period-start",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜29の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week29の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。開始直前と開始ちょうどを比べましょう。",
+      "hint": "開始側は>=で含めます。",
+      "success": "dateはDATETIMEです。2022年6月20日0時以降の条件を組み立ててください。終了条件は固定済みです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week29-1/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "85828bdd61c166638b791ed532c076d0272e68ef4f81381b0be2fd35d456b191"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1141,
+          "heading": "Week 29",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week29-assembly-period-end",
+      "weekUnitId": "week-unit-week29",
+      "format": "fillBlank",
+      "prompt": "dateはDATETIMEです。2022年6月25日の夜も含め、26日0時は除く終了条件を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT SUM(hours) FROM studies WHERE date >= '2022-06-20' AND __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "date < '2022-06-26'"
+          },
+          {
+            "id": "wrong",
+            "text": "date <= '2022-06-25'"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "日付だけの25日との<=比較では25日0時を越えた記録を含められません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "date ",
+            "< ",
+            "'2022-06-26'"
+          ],
+          "wrong": [
+            "date ",
+            "<= ",
+            "'2022-06-25'"
+          ]
+        }
+      },
+      "explanation": "翌日の0時より前を条件にして対象日の全時間を含めます。PCでは25日23:59と26日0時を比べましょう。",
+      "sourceReference": {
+        "weekKey": "week29",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "dateはDATETIMEです。2022年6月25日の夜も含め、26日0時は除く終了条件を組み立ててください。",
+      "conceptId": "ph2-week29-period-end",
+      "variantGroup": "ph2-week29-assembly-period-end",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜29の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week29の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。25日23:59と26日0時を比べましょう。",
+      "hint": "翌日の0時より前を条件にして対象日の全時間を含めます。",
+      "success": "dateはDATETIMEです。2022年6月25日の夜も含め、26日0時は除く終了条件を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week29-1/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "85828bdd61c166638b791ed532c076d0272e68ef4f81381b0be2fd35d456b191"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1141,
+          "heading": "Week 29",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week29-assembly-student-sum",
+      "weekUnitId": "week-unit-week29",
+      "format": "fillBlank",
+      "prompt": "学生ID=2の全学習時間を合計してください。studies.idは記録ID、student_idは学生IDです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "SUM(hours) FROM studies WHERE student_id = 2"
+          },
+          {
+            "id": "wrong",
+            "text": "SUM(hours) FROM studies WHERE id = 2"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "id=2では学習記録1件だけを指定してしまいます。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "SUM(hours) ",
+            "FROM studies ",
+            "WHERE student_id = 2"
+          ],
+          "wrong": [
+            "SUM(hours) ",
+            "FROM studies ",
+            "WHERE id = 2"
+          ]
+        }
+      },
+      "explanation": "所属するstudent_idで対象の学生を絞ります。PCでは同じ学生に複数記録を用意して合計しましょう。",
+      "sourceReference": {
+        "weekKey": "week29",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "学生ID=2の全学習時間を合計してください。studies.idは記録ID、student_idは学生IDです。",
+      "conceptId": "ph2-week29-student-sum",
+      "variantGroup": "ph2-week29-assembly-student-sum",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜29の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week29の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。同じ学生に複数記録を用意して合計しましょう。",
+      "hint": "所属するstudent_idで対象の学生を絞ります。",
+      "success": "学生ID=2の全学習時間を合計してください。studies.idは記録ID、student_idは学生IDです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week29-2/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "b30924a178c2c9ef665033e45afa14dfd180e58774a86f01dea925a063dc69ed"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1141,
+          "heading": "Week 29",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week29-assembly-content-sum",
+      "weekUnitId": "week-unit-week29",
+      "format": "fillBlank",
+      "prompt": "学習内容contentがPHPと等しい記録だけ、学習時間を合計してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT SUM(hours) FROM studies WHERE __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "content = 'PHP'"
+          },
+          {
+            "id": "wrong",
+            "text": "content LIKE '%PHP%'"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "部分一致ではPHP入門などPHPと等しくない内容も対象になります。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "content ",
+            "= ",
+            "'PHP'"
+          ],
+          "wrong": [
+            "content ",
+            "LIKE ",
+            "'%PHP%'"
+          ]
+        }
+      },
+      "explanation": "等しい値に限定するには=です。PCではPHPとPHP入門を別々に用意して確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week29",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "学習内容contentがPHPと等しい記録だけ、学習時間を合計してください。",
+      "conceptId": "ph2-week29-content-sum",
+      "variantGroup": "ph2-week29-assembly-content-sum",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜29の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week29の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。PHPとPHP入門を別々に用意して確認しましょう。",
+      "hint": "等しい値に限定するには=です。",
+      "success": "学習内容contentがPHPと等しい記録だけ、学習時間を合計してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week29-3/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "e172e89805c86189eadf61ad28cc837b07e6cf37bd2986cdfc5dec0e3efd54cd"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1141,
+          "heading": "Week 29",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week29-assembly-todo-list-query",
+      "weekUnitId": "week-unit-week29",
+      "format": "fillBlank",
+      "prompt": "todosにはid・text・statusがあります。登録したタスクをid昇順で一覧取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "SELECT id, text, status FROM todos ORDER BY id ASC;"
+          },
+          {
+            "id": "wrong",
+            "text": "SELECT id, text, status FROM todos ORDER BY id DESC;"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "DESCではidが大きい順となり、指定した昇順ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "SELECT ",
+            "id, text, status ",
+            "FROM todos ",
+            "ORDER BY id ASC",
+            ";"
+          ],
+          "wrong": [
+            "SELECT ",
+            "id, text, status ",
+            "FROM todos ",
+            "ORDER BY id DESC",
+            ";"
+          ]
+        }
+      },
+      "explanation": "一覧に必要な列を取り、並び順を明示します。PCでは取得結果をforeachで表示しましょう。",
+      "sourceReference": {
+        "weekKey": "week29",
+        "sectionHeading": "Week 29"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "todosにはid・text・statusがあります。登録したタスクをid昇順で一覧取得してください。",
+      "conceptId": "ph2-week29-todo-list-query",
+      "variantGroup": "ph2-week29-assembly-todo-list-query",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜29の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week29の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。取得結果をforeachで表示しましょう。",
+      "hint": "一覧に必要な列を取り、並び順を明示します。",
+      "success": "todosにはid・text・statusがあります。登録したタスクをid昇順で一覧取得してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "line": 1141,
+        "heading": "Week 29",
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week29-1/README.md",
+          "line": 1,
+          "heading": "29週目ミニドリル 1問目",
+          "sha256": "85828bdd61c166638b791ed532c076d0272e68ef4f81381b0be2fd35d456b191"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
   }
 ]

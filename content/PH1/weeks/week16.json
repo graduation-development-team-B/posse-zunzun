@@ -824,5 +824,455 @@
       "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-assembly-review-append",
+      "weekUnitId": "week-unit-week16",
+      "format": "fillBlank",
+      "prompt": "AI案を修正します。tasksはstate配列、newTaskは一意のidを持ちます。既存の順序を保って末尾へ追加してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const addTask = () => {\n  __BLANK__;\n  setInput(\"\");\n};",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "setTasks([...tasks, newTask])"
+          },
+          {
+            "id": "wrong",
+            "text": "setTasks([newTask, ...tasks])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "提示の順序では先頭に追加され、末尾追加の要件を満たしません。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "setTasks(",
+            "[...tasks, ",
+            "newTask",
+            "]",
+            ")"
+          ],
+          "wrong": [
+            "setTasks(",
+            "[newTask, ",
+            "...tasks",
+            "]",
+            ")"
+          ]
+        }
+      },
+      "explanation": "既存配列の要素を先に展開してから追加します。PCでは元配列を直接変えていないことを説明し、一覧で順序を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AI案を修正します。tasksはstate配列、newTaskは一意のidを持ちます。既存の順序を保って末尾へ追加してください。",
+      "conceptId": "ph1-week16-review-append",
+      "variantGroup": "ph1-week16-assembly-review-append",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。元配列を直接変えていないことを説明し、一覧で順序を確認しましょう。",
+      "hint": "既存配列の要素を先に展開してから追加します。",
+      "success": "AI案を修正します。tasksはstate配列、newTaskは一意のidを持ちます。既存の順序を保って末尾へ追加してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "line": 142,
+        "heading": "貼る前の、最後の見直し",
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week16-1/README.md",
+          "line": 1,
+          "heading": "AIが生成したコードのレビュー問題（30分）",
+          "sha256": "431a3f14e10079f9fb7789305b546e839cef31a852c67233576a49485b1328d4"
+        },
+        {
+          "path": "curriculum/PH1/Week15.md",
+          "line": 1,
+          "heading": "Week15｜React状態管理（useState・useEffect）",
+          "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-assembly-review-delete",
+      "weekUnitId": "week-unit-week16",
+      "format": "fillBlank",
+      "prompt": "AI案の直接変更を直します。tasksはstateで各idは一意です。targetIdだけを除いた新配列で更新してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "setTasks(tasks.filter((task) => task.id !== targetId))"
+          },
+          {
+            "id": "wrong",
+            "text": "setTasks(tasks.filter((task) => task.id === targetId))"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "===では削除対象だけを残してしまいます。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "setTasks(",
+            "tasks.filter(",
+            "(task) => ",
+            "task.id !== targetId",
+            ")",
+            ")"
+          ],
+          "wrong": [
+            "setTasks(",
+            "tasks.filter(",
+            "(task) => ",
+            "task.id === targetId",
+            ")",
+            ")"
+          ]
+        }
+      },
+      "explanation": "filterは残す条件を書くため!==を使います。PCでは対象と別のタスクの両方がある状態で削除を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AI案の直接変更を直します。tasksはstateで各idは一意です。targetIdだけを除いた新配列で更新してください。",
+      "conceptId": "ph1-week16-review-delete",
+      "variantGroup": "ph1-week16-assembly-review-delete",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。対象と別のタスクの両方がある状態で削除を確認しましょう。",
+      "hint": "filterは残す条件を書くため!==を使います。",
+      "success": "AI案の直接変更を直します。tasksはstateで各idは一意です。targetIdだけを除いた新配列で更新してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "line": 142,
+        "heading": "貼る前の、最後の見直し",
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week16-1/README.md",
+          "line": 1,
+          "heading": "AIが生成したコードのレビュー問題（30分）",
+          "sha256": "431a3f14e10079f9fb7789305b546e839cef31a852c67233576a49485b1328d4"
+        },
+        {
+          "path": "curriculum/PH1/Week15.md",
+          "line": 1,
+          "heading": "Week15｜React状態管理（useState・useEffect）",
+          "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-assembly-review-controlled",
+      "weekUnitId": "week-unit-week16",
+      "format": "fillBlank",
+      "prompt": "AI案のinputをstateにつなぎます。inputとsetInputは用意済みです。開始タグを完成させてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "<input value={input} onChange={(event) => setInput(event.target.value)} />"
+          },
+          {
+            "id": "wrong",
+            "text": "<input defaultValue={input} onChange={(event) => setInput(event.target.value)} />"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "defaultValueは初期値の指定で、後のstate変更を表示へ同期するvalueではありません。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "<input ",
+            "value={input} ",
+            "onChange={(event) => setInput(event.target.value)} ",
+            "/>"
+          ],
+          "wrong": [
+            "<input ",
+            "defaultValue={input} ",
+            "onChange={(event) => setInput(event.target.value)} ",
+            "/>"
+          ]
+        }
+      },
+      "explanation": "valueで現在のstateを入力欄へ反映します。PCでは追加後にsetInput(\"\")で文字も消えることを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AI案のinputをstateにつなぎます。inputとsetInputは用意済みです。開始タグを完成させてください。",
+      "conceptId": "ph1-week16-review-controlled",
+      "variantGroup": "ph1-week16-assembly-review-controlled",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。追加後にsetInput(\"\")で文字も消えることを確認しましょう。",
+      "hint": "valueで現在のstateを入力欄へ反映します。",
+      "success": "AI案のinputをstateにつなぎます。inputとsetInputは用意済みです。開始タグを完成させてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "line": 142,
+        "heading": "貼る前の、最後の見直し",
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week16-1/README.md",
+          "line": 1,
+          "heading": "AIが生成したコードのレビュー問題（30分）",
+          "sha256": "431a3f14e10079f9fb7789305b546e839cef31a852c67233576a49485b1328d4"
+        },
+        {
+          "path": "curriculum/PH1/Week15.md",
+          "line": 1,
+          "heading": "Week15｜React状態管理（useState・useEffect）",
+          "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-assembly-review-key",
+      "weekUnitId": "week-unit-week16",
+      "format": "fillBlank",
+      "prompt": "AI案の一覧を直します。tasksのidは固定で一意、textは重複します。mapが返すliに適切なkeyを付けてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<ul>{tasks.map((task) => (\n  __BLANK__{task.text}</li>\n))}</ul>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "<li key={task.id}>"
+          },
+          {
+            "id": "wrong",
+            "text": "<li key={task.text}>"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "同じtextのタスクがあるため、textではkeyが重複します。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "<li ",
+            "key={",
+            "task.id",
+            "}>"
+          ],
+          "wrong": [
+            "<li ",
+            "key={",
+            "task.text",
+            "}>"
+          ]
+        }
+      },
+      "explanation": "表示文字ではなくタスクの固定idで識別します。PCでは同じ文字のタスクを2つ作り、削除後も正しく対応するか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AI案の一覧を直します。tasksのidは固定で一意、textは重複します。mapが返すliに適切なkeyを付けてください。",
+      "conceptId": "ph1-week16-review-key",
+      "variantGroup": "ph1-week16-assembly-review-key",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。同じ文字のタスクを2つ作り、削除後も正しく対応するか確認しましょう。",
+      "hint": "表示文字ではなくタスクの固定idで識別します。",
+      "success": "AI案の一覧を直します。tasksのidは固定で一意、textは重複します。mapが返すliに適切なkeyを付けてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "line": 142,
+        "heading": "貼る前の、最後の見直し",
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week16-1/README.md",
+          "line": 1,
+          "heading": "AIが生成したコードのレビュー問題（30分）",
+          "sha256": "431a3f14e10079f9fb7789305b546e839cef31a852c67233576a49485b1328d4"
+        },
+        {
+          "path": "curriculum/PH1/Week15.md",
+          "line": 1,
+          "heading": "Week15｜React状態管理（useState・useEffect）",
+          "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week16-assembly-review-event",
+      "weekUnitId": "week-unit-week16",
+      "format": "fillBlank",
+      "prompt": "AI案を直します。クリックした時だけtask.idをdeleteTaskへ渡してください。deleteTaskは定義済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<button onClick={__BLANK__}>削除</button>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "() => deleteTask(task.id)"
+          },
+          {
+            "id": "wrong",
+            "text": "deleteTask(task.id)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "関数呼び出しを直接書くと描画時に実行され、クリック時の処理になりません。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "() => ",
+            "deleteTask(",
+            "task.id",
+            ")"
+          ],
+          "wrong": [
+            "deleteTask(",
+            "task.id",
+            ")"
+          ]
+        }
+      },
+      "explanation": "イベントには実行を遅らせる関数を渡します。PCでは描画時に消えず、クリックした対象だけ消えるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week16",
+        "sectionHeading": "貼る前の、最後の見直し"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AI案を直します。クリックした時だけtask.idをdeleteTaskへ渡してください。deleteTaskは定義済みです。",
+      "conceptId": "ph1-week16-review-event",
+      "variantGroup": "ph1-week16-assembly-review-event",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。描画時に消えず、クリックした対象だけ消えるか確認しましょう。",
+      "hint": "イベントには実行を遅らせる関数を渡します。",
+      "success": "AI案を直します。クリックした時だけtask.idをdeleteTaskへ渡してください。deleteTaskは定義済みです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week16.md",
+        "line": 142,
+        "heading": "貼る前の、最後の見直し",
+        "sha256": "bafe9400794011bc94a9c5350e378ed00a74faa2d5859b50fad36e54d6716cf9"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week16-1/README.md",
+          "line": 1,
+          "heading": "AIが生成したコードのレビュー問題（30分）",
+          "sha256": "431a3f14e10079f9fb7789305b546e839cef31a852c67233576a49485b1328d4"
+        },
+        {
+          "path": "curriculum/PH1/Week15.md",
+          "line": 1,
+          "heading": "Week15｜React状態管理（useState・useEffect）",
+          "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
   }
 ]

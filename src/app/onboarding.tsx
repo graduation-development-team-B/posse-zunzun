@@ -41,10 +41,6 @@ export default function OnboardingScreen() {
       setError('パスワードは8文字以上で入力してください。');
       return;
     }
-    if (phase === 'ph3') {
-      setError('PH3のクイズはまだ利用できません。');
-      return;
-    }
     setBusy(true);
     setError('');
     setMessage('');
@@ -139,9 +135,8 @@ export default function OnboardingScreen() {
                   key={p.id}
                   role="radio"
                   aria-checked={on}
-                  disabled={p.id === 'ph3'}
-                  onPress={() => p.id !== 'ph3' && setPhase(p.id)}
-                  style={[styles.phase, on ? styles.phaseOn : styles.phaseOff, p.id === 'ph3' && styles.phaseUnavailable]}>
+                  onPress={() => setPhase(p.id)}
+                  style={[styles.phase, on ? styles.phaseOn : styles.phaseOff]}>
                   <DText size={16} weight="bold" mono>
                     {p.code}
                   </DText>

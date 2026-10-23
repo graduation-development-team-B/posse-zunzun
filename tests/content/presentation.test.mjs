@@ -25,11 +25,12 @@ const answer = (at, correct = true, revision = q.learning.revision) => ({
   at,
   xp: correct ? 10 : 5,
 });
-test("未回答なら記録・バッジは未獲得で、当月の日数と曜日を表示する", () => {
+test("選択PHで未回答なら記録・バッジは未獲得で、当月の日数と曜日を表示する", () => {
   const p = presentationData(
     emptyProgress(),
     catalog,
     new Date(2024, 1, 29, 12),
+    "PH1",
   );
   assert.equal(p.stats.xp, 0);
   assert.equal(p.weeks[0].state, "now");
@@ -92,4 +93,94 @@ test("レベルの表示計算で保存済みXPは書き換えない", () => {
   const before = JSON.stringify(state);
   presentationData(state, catalog);
   assert.equal(JSON.stringify(state), before);
+});
+
+test("選択PHのおすすめ・見直しだけを表示し、継続日数とXPは全PHの記録を使う", () => {
+  const ph2Question = catalog.questions.find((question) =>
+    catalog.weekUnits.some(
+      (unit) => unit.id === question.weekUnitId && unit.phase === "PH2",
+    ),
+  );
+  const now = new Date(2026, 9, 22, 12);
+  const previousDay = new Date(2026, 9, 21, 12);
+  const state = {
+    ...emptyProgress(),
+    answers: [
+      answer(previousDay.toISOString(), false),
+      {
+        ...answer(now.toISOString(), false),
+        questionId: ph2Question.id,
+        weekUnitId: ph2Question.weekUnitId,
+        revision: ph2Question.learning.revision,
+      },
+    ],
+  };
+  const before = JSON.stringify(state);
+  const ph1 = presentationData(state, catalog, now, "PH1");
+  const ph2 = presentationData(state, catalog, now, "PH2");
+  assert.equal(ph1.next.id, "week1");
+  assert.equal(ph2.next.id, "week17");
+  assert.equal(ph1.weeks.length, 17);
+  assert.equal(ph2.weeks.length, 16);
+  assert.ok(ph1.weeks.every((week) => week.phase === "PH1"));
+  assert.ok(ph2.weeks.every((week) => week.phase === "PH2"));
+  assert.deepEqual(ph1.stats.reviewIds, [q.id]);
+  assert.deepEqual(ph2.stats.reviewIds, [ph2Question.id]);
+  assert.equal(ph2.reviewTags.length, 1);
+  assert.equal(ph2.stats.streak, 2);
+  assert.equal(ph2.stats.xp, 10);
+  assert.equal(ph2.stats.answered, 2);
+  assert.equal(ph2.days[5].kind, "done");
+  assert.equal(ph2.days[6].kind, "done");
+  assert.equal(JSON.stringify(state), before);
+});
+
+test("選択外のPHも展開用データとWeek選択先を保持し、獲得済みバッジも残す", () => {
+  const firstUnit = catalog.weekUnits[0];
+  const state = {
+    ...emptyProgress(),
+    answers: catalog.questions
+      .filter((question) => question.weekUnitId === firstUnit.id)
+      .map((question, index) => ({
+        ...answer(new Date(2026, 9, 22, 12, index).toISOString()),
+        questionId: question.id,
+        weekUnitId: question.weekUnitId,
+        revision: question.learning.revision,
+      })),
+  };
+  const data = presentationData(
+    state,
+    catalog,
+    new Date(2026, 9, 22, 13),
+    "PH2",
+  );
+  assert.equal(data.phaseGroups.length, 3);
+  assert.equal(
+    data.phaseGroups.find((group) => group.code === "PH1").weeks[0].state,
+    "done",
+  );
+  assert.equal(
+    data.phaseGroups.find((group) => group.code === "PH2").weeks[0].state,
+    "now",
+  );
+  assert.equal(data.allWeeks.length, catalog.weekUnits.length);
+  assert.equal(
+    data.allWeeks.find((week) => week.id === "week1").done,
+    state.answers.length,
+  );
+  assert.equal(data.badges.find((badge) => badge.mark === "W1").got, true);
+});
+
+test("プロフィールPHの読み込み前に全PHのおすすめや見直し問題を表示しない", () => {
+  const data = presentationData(
+    { ...emptyProgress(), answers: [answer(new Date().toISOString(), false)] },
+    catalog,
+    new Date(),
+    "",
+  );
+  assert.deepEqual(data.weeks, []);
+  assert.deepEqual(data.stats.reviewIds, []);
+  assert.deepEqual(data.reviewTags, []);
+  assert.equal(data.next, undefined);
+  assert.equal(data.phaseGroups.length, 3);
 });

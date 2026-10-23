@@ -1,6 +1,6 @@
 # Week21｜PDO接続・取得・並べ替え
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -423,3 +423,171 @@ Connection failedというPDO例外が出ました。適切な次の確認は？
 - 誤答b: 接続の原因が残ります。
 - 誤答c: 接続設定の調査ではありません。
 - 誤答d: エラーから原因を絞っていません。
+
+## question-ph2-week21-assembly-dsn-db（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: PHPとDBは同じComposeネットワークです。サービス名db、DB名ph2drill、文字コードutf8mb4のDSNを組み立ててください。
+- 出典: curriculum/PH2/Week21.md:19 / 3. 接続方法
+- ドリル接続: Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。DSNと実際のDB名を照合しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week21-dsn-db
+- 類題: ph2-week21-assembly-dsn-db / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+PHPとDBは同じComposeネットワークです。サービス名db、DB名ph2drill、文字コードutf8mb4のDSNを組み立ててください。
+
+```php
+<?php
+$dsn = "__BLANK__";
+```
+
+- correct: mysql:host=db;dbname=ph2drill;charset=utf8mb4（正答）
+- wrong: mysql:host=localhost;dbname=ph2drill;charset=utf8mb4
+
+達成条件: PHPとDBは同じComposeネットワークです。サービス名db、DB名ph2drill、文字コードutf8mb4のDSNを組み立ててください。
+
+ヒント: hostには同じComposeネットワークのサービス名を指定します。
+
+解説: hostには同じComposeネットワークのサービス名を指定します。PCではDSNと実際のDB名を照合しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: PHPコンテナ内のlocalhostはPHP自身を指し、別サービスのdbではありません。
+
+## question-ph2-week21-assembly-pdo-query（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: $dbhは接続済みPDOです。ユーザー入力を含まない固定SQLで学生名を取得してください。
+- 出典: curriculum/PH2/Week21.md:46 / 4. データの取得
+- ドリル接続: Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。結果の各行にnameがあるか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week21-pdo-query
+- 類題: ph2-week21-assembly-pdo-query / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+$dbhは接続済みPDOです。ユーザー入力を含まない固定SQLで学生名を取得してください。
+
+```php
+<?php
+$rows = __BLANK__;
+```
+
+- correct: $dbh->query("SELECT name FROM students")（正答）
+- wrong: $dbh->query("SELECT name FROM studies")
+
+達成条件: $dbhは接続済みPDOです。ユーザー入力を含まない固定SQLで学生名を取得してください。
+
+ヒント: 固定SELECTをqueryへ渡します。
+
+解説: 固定SELECTをqueryへ渡します。PCでは結果の各行にnameがあるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 提示した学生の表はstudentsであり、studiesではありません。
+
+## question-ph2-week21-assembly-descending-query（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: studentsをidの大きい順に取得してください。
+- 出典: drill-ph2/src/week21-2/README.md:3 / 問題
+- ドリル接続: Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。idが1〜4なら4から始まることを確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week21-descending-query
+- 類題: ph2-week21-assembly-descending-query / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+studentsをidの大きい順に取得してください。
+
+```sql
+SELECT * FROM students __BLANK__;
+```
+
+- correct: ORDER BY id DESC（正答）
+- wrong: ORDER BY id ASC
+
+達成条件: studentsをidの大きい順に取得してください。
+
+ヒント: 降順はDESCです。
+
+解説: 降順はDESCです。PCではidが1〜4なら4から始まることを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: ASCは小さい順です。
+
+## question-ph2-week21-assembly-top-two（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: studentsをidの大きい順に並べて、先頭2件だけ取得してください。
+- 出典: drill-ph2/src/week21-3/README.md:3 / 問題
+- ドリル接続: Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。id=1〜4の時に4・3となるか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week21-top-two
+- 類題: ph2-week21-assembly-top-two / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+studentsをidの大きい順に並べて、先頭2件だけ取得してください。
+
+```sql
+SELECT * FROM students __BLANK__;
+```
+
+- correct: ORDER BY id DESC LIMIT 2（正答）
+- wrong: ORDER BY id DESC LIMIT 3
+
+達成条件: studentsをidの大きい順に並べて、先頭2件だけ取得してください。
+
+ヒント: 並べ替えた結果にLIMIT 2を指定します。
+
+解説: 並べ替えた結果にLIMIT 2を指定します。PCではid=1〜4の時に4・3となるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: LIMIT 3では3件となり、2件だけという条件に合いません。
+
+## question-ph2-week21-assembly-read-row（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: $rowはSELECT name FROM studentsの取得行です。学生名を変数nameへ受け取ってください。
+- 出典: curriculum/PH2/Week21.md:46 / 4. データの取得
+- ドリル接続: Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。SELECTの列とPHP側のキーを対応させましょう。
+- 既習: PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week21-read-row
+- 類題: ph2-week21-assembly-read-row / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+$rowはSELECT name FROM studentsの取得行です。学生名を変数nameへ受け取ってください。
+
+```php
+<?php
+$name = __BLANK__;
+```
+
+- correct: $row["name"]（正答）
+- wrong: $row["id"]
+
+達成条件: $rowはSELECT name FROM studentsの取得行です。学生名を変数nameへ受け取ってください。
+
+ヒント: 取得列と同じキーで値を読みます。
+
+解説: 取得列と同じキーで値を読みます。PCではSELECTの列とPHP側のキーを対応させましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: このSELECTはnameを取得しており、idは指定されていません。

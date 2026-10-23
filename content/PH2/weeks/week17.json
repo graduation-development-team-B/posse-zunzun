@@ -1080,5 +1080,448 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-assembly-compose-up",
+      "weekUnitId": "week-unit-week17",
+      "format": "fillBlank",
+      "prompt": "Compose設定のあるディレクトリです。全サービスをバックグラウンドで起動するコマンドを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "docker compose up -d"
+          },
+          {
+            "id": "wrong",
+            "text": "docker compose down -d"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "downはサービスを停止・削除する側の操作で、起動ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "docker ",
+            "compose ",
+            "up ",
+            "-d"
+          ],
+          "wrong": [
+            "docker ",
+            "compose ",
+            "down ",
+            "-d"
+          ]
+        }
+      },
+      "explanation": "upで起動し、-dでバックグラウンド動作にします。PCでは起動状態を確かめてから指定URLを開きましょう。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "7. Docker Compose とは"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Compose設定のあるディレクトリです。全サービスをバックグラウンドで起動するコマンドを組み立ててください。",
+      "conceptId": "ph2-week17-compose-up",
+      "variantGroup": "ph2-week17-assembly-compose-up",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week17の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。起動状態を確かめてから指定URLを開きましょう。",
+      "hint": "upで起動し、-dでバックグラウンド動作にします。",
+      "success": "Compose設定のあるディレクトリです。全サービスをバックグラウンドで起動するコマンドを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week17.md",
+        "line": 111,
+        "heading": "7. Docker Compose とは",
+        "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week17-1/README.md",
+          "line": 1,
+          "heading": "17週目ミニドリル 1問目",
+          "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 17,
+          "heading": "Week 17",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        }
+      ],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-assembly-compose-exec",
+      "weekUnitId": "week-unit-week17",
+      "format": "fillBlank",
+      "prompt": "dbサービスは起動済みでbashが入っています。そのコンテナ内でbashを動かしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "docker compose exec db bash"
+          },
+          {
+            "id": "wrong",
+            "text": "docker compose exec php bash"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "phpサービスを指定しており、目的のdbコンテナではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "docker ",
+            "compose ",
+            "exec ",
+            "db ",
+            "bash"
+          ],
+          "wrong": [
+            "docker ",
+            "compose ",
+            "exec ",
+            "php ",
+            "bash"
+          ]
+        }
+      },
+      "explanation": "execの後にサービス名と実行するコマンドを置きます。PCではdb内でmysql -u root -pへ進みましょう。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "dbサービスは起動済みでbashが入っています。そのコンテナ内でbashを動かしてください。",
+      "conceptId": "ph2-week17-compose-exec",
+      "variantGroup": "ph2-week17-assembly-compose-exec",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week17の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。db内でmysql -u root -pへ進みましょう。",
+      "hint": "execの後にサービス名と実行するコマンドを置きます。",
+      "success": "dbサービスは起動済みでbashが入っています。そのコンテナ内でbashを動かしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week17-3/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "64a946c7a3f85524bbcd217daf3403dfa1cfbd71ff4ed81274297aca52fb5565"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 17,
+          "heading": "Week 17",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-assembly-port-mapping",
+      "weekUnitId": "week-unit-week17",
+      "format": "fillBlank",
+      "prompt": "コンテナの80番は維持し、PCのlocalhost:3000から開けるようportsを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "ports:\n  - \"__BLANK__\"",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "3000:80"
+          },
+          {
+            "id": "wrong",
+            "text": "80:3000"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "左右を逆にするとPC側80、コンテナ側3000の指定になります。"
+        }
+      },
+      "assembly": {
+        "language": "yaml",
+        "optionTokens": {
+          "correct": [
+            "3000",
+            ":",
+            "80"
+          ],
+          "wrong": [
+            "80",
+            ":",
+            "3000"
+          ]
+        }
+      },
+      "explanation": "portsの短い書式はPC側:コンテナ側です。PCでは設定変更後にサービスを反映し、3000番のURLを開きましょう。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "コンテナの80番は維持し、PCのlocalhost:3000から開けるようportsを組み立ててください。",
+      "conceptId": "ph2-week17-port-mapping",
+      "variantGroup": "ph2-week17-assembly-port-mapping",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week17の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。設定変更後にサービスを反映し、3000番のURLを開きましょう。",
+      "hint": "portsの短い書式はPC側:コンテナ側です。",
+      "success": "コンテナの80番は維持し、PCのlocalhost:3000から開けるようportsを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week17-2/README.md",
+        "line": 14,
+        "heading": "問題",
+        "sha256": "7ca67214da80022ad692a80c1fa38caa28705a0ab03c8339859e421eb10941ca"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 17,
+          "heading": "Week 17",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "codeLanguage": "yaml"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-assembly-source-mount",
+      "weekUnitId": "week-unit-week17",
+      "format": "fillBlank",
+      "prompt": "PCの./srcをコンテナの/var/www/htmlへ共有します。volumesの指定を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "volumes:\n  - \"__BLANK__\"",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "./src:/var/www/html"
+          },
+          {
+            "id": "wrong",
+            "text": "/var/www/html:./src"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "共有元とコンテナ内の共有先が逆です。"
+        }
+      },
+      "assembly": {
+        "language": "yaml",
+        "optionTokens": {
+          "correct": [
+            "./src",
+            ":",
+            "/var/www/html"
+          ],
+          "wrong": [
+            "/var/www/html",
+            ":",
+            "./src"
+          ]
+        }
+      },
+      "explanation": "左にPC側、右にコンテナ内のパスを置きます。PCではPHPコードを保存して表示へ反映されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "PCの./srcをコンテナの/var/www/htmlへ共有します。volumesの指定を組み立ててください。",
+      "conceptId": "ph2-week17-source-mount",
+      "variantGroup": "ph2-week17-assembly-source-mount",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week17の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。PHPコードを保存して表示へ反映されるか確認しましょう。",
+      "hint": "左にPC側、右にコンテナ内のパスを置きます。",
+      "success": "PCの./srcをコンテナの/var/www/htmlへ共有します。volumesの指定を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week17-1/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "2ce3be645f5a17208acbd94993442901661090f1991b619d8c805c3c1888571a"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 17,
+          "heading": "Week 17",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "codeLanguage": "yaml"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week17-assembly-mysql-login",
+      "weekUnitId": "week-unit-week17",
+      "format": "fillBlank",
+      "prompt": "dbコンテナ内にいます。MySQLへユーザーrootとして、パスワードを対話入力して接続してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "mysql -u root -p"
+          },
+          {
+            "id": "wrong",
+            "text": "mysql -u root -P"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "大文字-Pはポートの指定で、対話的なパスワード入力の-pとは別です。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "mysql ",
+            "-u ",
+            "root ",
+            "-p"
+          ],
+          "wrong": [
+            "mysql ",
+            "-u ",
+            "root ",
+            "-P"
+          ]
+        }
+      },
+      "explanation": "ユーザー名は-u、パスワードの入力要求は小文字-pです。PCでは教材用に設定された値を入力しましょう。",
+      "sourceReference": {
+        "weekKey": "week17",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "dbコンテナ内にいます。MySQLへユーザーrootとして、パスワードを対話入力して接続してください。",
+      "conceptId": "ph2-week17-mysql-login",
+      "variantGroup": "ph2-week17-assembly-mysql-login",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜17の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week17の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。教材用に設定された値を入力しましょう。",
+      "hint": "ユーザー名は-u、パスワードの入力要求は小文字-pです。",
+      "success": "dbコンテナ内にいます。MySQLへユーザーrootとして、パスワードを対話入力して接続してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week17-3/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "64a946c7a3f85524bbcd217daf3403dfa1cfbd71ff4ed81274297aca52fb5565"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 17,
+          "heading": "Week 17",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week17.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "9f676be24a0bf57cf7ddb36e166358e4dbbfd1d678a2e3e14664b2d648e09854"
+        }
+      ],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
   }
 ]

@@ -30,6 +30,7 @@ export interface AnswerRecord {
   weekUnitId: string;
   correct: boolean;
   hintUsed: boolean;
+  explanationRead: boolean;
   optionId: string;
   at: string;
   xp: number;
@@ -79,6 +80,19 @@ export function beginSession(
     const j = Math.floor(random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
+  // 同じ版への回答回数で並べ、同数の問題はシャッフルした順を保つ。
+  // 未回答が先頭になり、一巡後も回答の少ない問題から出題される。
+  const attempts = new Map<string, Map<number, number>>();
+  for (const answer of state.answers) {
+    const revisions = attempts.get(answer.questionId) ?? new Map<number, number>();
+    revisions.set(answer.revision, (revisions.get(answer.revision) ?? 0) + 1);
+    attempts.set(answer.questionId, revisions);
+  }
+  shuffled.sort(
+    (a, b) =>
+      (attempts.get(a.id)?.get(a.learning.revision) ?? 0) -
+      (attempts.get(b.id)?.get(b.learning.revision) ?? 0),
+  );
   const questions = shuffled.slice(0, Math.min(count, shuffled.length));
   return {
     ...state,
@@ -170,6 +184,11 @@ export function submitAnswer(
     const result = gradeChoice(q, optionId);
     if (!result.canSubmit) throw new Error("選択肢を選んでください。");
     correct = result.correct;
+  } else if (mode === "assembly") {
+    if (!draft.tokens.length || draft.tokens.length > 24 || draft.tokens.some(t => !tokenBank(q).includes(t)))
+      throw new Error("候補のブロックを並べてください。");
+    optionId = tokenOption(q, draft.tokens);
+    correct = optionId === correctOption(q);
   } else if (mode === "preview" || mode === "console") {
     const input =
       mode === "preview" ? JSON.stringify(draft.tokens) : draft.optionId;
@@ -202,6 +221,7 @@ export function submitAnswer(
     weekUnitId: q.weekUnitId,
     correct,
     hintUsed: draft.hintUsed,
+    explanationRead: false,
     optionId,
     at: now.toISOString(),
     xp: 5 + (correct ? 5 : 0),
@@ -236,6 +256,7 @@ export function restoreProgress(
       return emptyProgress();
     const ids = new Set<string>();
     const answers = value.answers.filter((a) => {
+      const explanationRead = a?.explanationRead === true;
       const valid =
         a &&
         typeof a.id === "string" &&
@@ -243,21 +264,24 @@ export function restoreProgress(
         !ids.has(a.id) &&
         typeof a.correct === "boolean" &&
         typeof a.hintUsed === "boolean" &&
+        (a.explanationRead === undefined || typeof a.explanationRead === "boolean") &&
+        (!explanationRead || !a.correct) &&
         Number.isInteger(a.revision) &&
         a.revision > 0 &&
         typeof a.weekUnitId === "string" &&
         typeof a.optionId === "string" &&
         Number.isFinite(Date.parse(a.at)) &&
-        a.xp === 5 + (a.correct ? 5 : 0);
+        a.xp === 5 + (a.correct ? 5 : 0) + (explanationRead ? 5 : 0);
       if (valid) ids.add(a.id);
       return valid;
     });
+    for (const answer of answers) answer.explanationRead = answer.explanationRead === true;
     const s = value.session;
     if (
       !s ||
       typeof s.id !== "string" ||
       typeof s.weekKey !== "string" ||
-      !["mix", "choice", "preview", "console", "terminal"].includes(s.mode) ||
+      !["mix", "choice", "preview", "console", "terminal", "assembly"].includes(s.mode) ||
       !Array.isArray(s.refs) ||
       s.refs.length < 1 ||
       s.refs.length > 15 ||

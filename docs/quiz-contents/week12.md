@@ -1,6 +1,6 @@
 # Week12｜CSSアニメーション・ライブラリ活用
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -434,3 +434,171 @@ main.jsでnew Splide(".splide").mount()を呼びます。対象HTMLは先に読�
 - 誤答b: 時間をかけた変化や、マウスを外した後の状態は確認できません。
 - 誤答c: 他のカードの動作や、変化にかかる時間が分かりません。
 - 誤答d: ホバー時の変化を確認していません。
+
+## question-week12-assembly-transition-css（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: カードのtransformの変化を300ms、easeでなめらかにしてください。CSS宣言を組み立てます。
+- 出典: curriculum/PH1/Week12.md:24 / パッと変わると、安っぽい
+- ドリル接続: Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。ホバー前とホバー中を往復して動きを確認しましょう。
+- 既習: Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week12-transition-css
+- 類題: ph1-week12-assembly-transition-css / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+カードのtransformの変化を300ms、easeでなめらかにしてください。CSS宣言を組み立てます。
+
+```css
+.card { __BLANK__ }
+```
+
+- correct: transition: transform 300ms ease;（正答）
+- wrong: transition: transform 0ms ease;
+
+達成条件: カードのtransformの変化を300ms、easeでなめらかにしてください。CSS宣言を組み立てます。
+
+ヒント: transitionに対象・時間・速度を指定します。
+
+解説: transitionに対象・時間・速度を指定します。PCではホバー前とホバー中を往復して動きを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 0msでは変化を時間をかけてつなげません。
+
+## question-week12-assembly-translate-hover（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: カードのホバー中だけ、見た目を上へ4px動かしてください。
+- 出典: curriculum/PH1/Week12.md:80 / 周りを押しのけずに、動かす
+- ドリル接続: Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。周りの要素の配置が押し出されないかも見ましょう。
+- 既習: Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week12-translate-hover
+- 類題: ph1-week12-assembly-translate-hover / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+カードのホバー中だけ、見た目を上へ4px動かしてください。
+
+```css
+.card { transition: transform 300ms ease; }
+.card:hover { __BLANK__ }
+```
+
+- correct: transform: translateY(-4px);（正答）
+- wrong: transform: translateY(4px);
+
+達成条件: カードのホバー中だけ、見た目を上へ4px動かしてください。
+
+ヒント: translateYの負の値で上へ動かします。
+
+解説: translateYの負の値で上へ動かします。PCでは周りの要素の配置が押し出されないかも見ましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 正のY方向は下なので、下へ4px動いてしまいます。
+
+## question-week12-assembly-scale-hover（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: カードをホバー時だけ1.05倍にし、300msで変化させてください。
+- 出典: curriculum/PH1/Week12.md:80 / 周りを押しのけずに、動かす
+- ドリル接続: Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。マウスを外した時に元の大きさへ戻るか確認しましょう。
+- 既習: Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week12-scale-hover
+- 類題: ph1-week12-assembly-scale-hover / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+カードをホバー時だけ1.05倍にし、300msで変化させてください。
+
+```html
+<article class="__BLANK__">作品</article>
+```
+
+- correct: transition-transform duration-300 hover:scale-105（正答）
+- wrong: transition-transform duration-300 scale-105
+
+達成条件: カードをホバー時だけ1.05倍にし、300msで変化させてください。
+
+ヒント: hover:でホバー中に限定します。
+
+解説: hover:でホバー中に限定します。PCではマウスを外した時に元の大きさへ戻るか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 接頭辞なしのscale-105では普段から拡大されます。
+
+## question-week12-assembly-group-fade（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 親にはgroupが付いています。詳細を普段は透明、親ホバー時に不透明にし、300msで変化させてください。
+- 出典: curriculum/PH1/Week12.md:131 / 消したいのに、消すと動かせない
+- ドリル接続: Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。透明でもクリック領域が残る点に注意して確認しましょう。
+- 既習: Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week12-group-fade
+- 類題: ph1-week12-assembly-group-fade / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+親にはgroupが付いています。詳細を普段は透明、親ホバー時に不透明にし、300msで変化させてください。
+
+```html
+<article class="relative group"><p class="__BLANK__">詳細</p></article>
+```
+
+- correct: opacity-0 group-hover:opacity-100 transition-opacity duration-300（正答）
+- wrong: opacity-100 group-hover:opacity-0 transition-opacity duration-300
+
+達成条件: 親にはgroupが付いています。詳細を普段は透明、親ホバー時に不透明にし、300msで変化させてください。
+
+ヒント: 親のgroupと子のgroup-hoverを対応させます。
+
+解説: 親のgroupと子のgroup-hoverを対応させます。PCでは透明でもクリック領域が残る点に注意して確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 普段が不透明、親ホバーで透明になる逆の指定です。
+
+## question-week12-assembly-splide-list-tag（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: Splideのtrack内に、正しいクラス名のリストを作ってください。開始タグを組み立てます。
+- 出典: curriculum/PH1/Week12.md:187 / 決められた名前じゃないと、動かない
+- ドリル接続: Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。他の構造とJSの読み込みも照合してから動きを確認しましょう。
+- 既習: Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week12-splide-list-tag
+- 類題: ph1-week12-assembly-splide-list-tag / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+Splideのtrack内に、正しいクラス名のリストを作ってください。開始タグを組み立てます。
+
+```html
+<section class="splide"><div class="splide__track">
+__BLANK__<li class="splide__slide">作品</li></ul>
+</div></section>
+```
+
+- correct: <ul class="splide__list">（正答）
+- wrong: <ul class="splide-list">
+
+達成条件: Splideのtrack内に、正しいクラス名のリストを作ってください。開始タグを組み立てます。
+
+ヒント: splide__listの区切りはアンダースコア2つです。
+
+解説: splide__listの区切りはアンダースコア2つです。PCでは他の構造とJSの読み込みも照合してから動きを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: ハイフンのsplide-listはライブラリが要求するクラス名ではありません。

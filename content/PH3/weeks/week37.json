@@ -1,0 +1,1152 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week37-assembly-detail-parameter",
+      "weekUnitId": "week-unit-week37",
+      "format": "fillBlank",
+      "prompt": "QuizControllerのshowはクイズIDを受け取ります。1や2を固定せず、GET /quizzes/{id}を登録してください。Controllerはimport済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\QuizController;\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Route::get('/quizzes/{id}', [QuizController::class, 'show'])"
+          },
+          {
+            "id": "wrong",
+            "text": "Route::get('/quizzes/1', [QuizController::class, 'show'])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "1を固定すると他のクイズIDを同じルートで扱えません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "Route::get(",
+            "'/quizzes/{id}', ",
+            "[QuizController::class, 'show']",
+            ")"
+          ],
+          "wrong": [
+            "Route::get(",
+            "'/quizzes/1', ",
+            "[QuizController::class, 'show']",
+            ")"
+          ]
+        }
+      },
+      "explanation": "{id}で各クイズのIDを受け取ります。PCでは/quizzes/1と/quizzes/2の両方を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "QuizControllerのshowはクイズIDを受け取ります。1や2を固定せず、GET /quizzes/{id}を登録してください。Controllerはimport済みです。",
+      "conceptId": "ph3-week37-detail-parameter",
+      "variantGroup": "ph3-week37-assembly-detail-parameter",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。",
+      "drillConnection": "PH3 Week37のPOSSE課題へ接続。/quizzes/1と/quizzes/2の両方を確認しましょう。",
+      "hint": "URLの変わる部分を波括弧でパラメータにします。",
+      "success": "QuizControllerのshowはクイズIDを受け取ります。1や2を固定せず、GET /quizzes/{id}を登録してください。Controllerはimport済みです。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-assembly-find-detail",
+      "weekUnitId": "week-unit-week37",
+      "format": "fillBlank",
+      "prompt": "Quizはimport済みです。$idのクイズを1件取得し、存在しない場合は404へ進むメソッドを使ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $quiz = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Quiz::findOrFail($id)"
+          },
+          {
+            "id": "wrong",
+            "text": "Quiz::find($id)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "findは存在しない場合nullを返すため、この指定だけで404にはなりません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "Quiz::",
+            "findOrFail(",
+            "$id",
+            ")"
+          ],
+          "wrong": [
+            "Quiz::",
+            "find(",
+            "$id",
+            ")"
+          ]
+        }
+      },
+      "explanation": "findOrFailは見つからないモデルを例外として扱い、通常404応答へつなぎます。PCでは存在するIDと存在しないIDを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Quizはimport済みです。$idのクイズを1件取得し、存在しない場合は404へ進むメソッドを使ってください。",
+      "conceptId": "ph3-week37-find-detail",
+      "variantGroup": "ph3-week37-assembly-find-detail",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。",
+      "drillConnection": "PH3 Week37のPOSSE課題へ接続。存在するIDと存在しないIDを確認しましょう。",
+      "hint": "見つからなかった時の動きも含むメソッドです。",
+      "success": "Quizはimport済みです。$idのクイズを1件取得し、存在しない場合は404へ進むメソッドを使ってください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-assembly-eager-nested",
+      "weekUnitId": "week-unit-week37",
+      "format": "fillBlank",
+      "prompt": "Quizのquestions、そのQuestionのchoicesリレーションは定義済みです。設問と選択肢を先読みして$idを取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $quiz = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Quiz::with('questions.choices')->findOrFail($id)"
+          },
+          {
+            "id": "wrong",
+            "text": "Quiz::with('questions')->findOrFail($id)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "questionsだけでは、その下のchoicesまで先読みする指定になりません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "Quiz::with(",
+            "'questions.choices'",
+            ")->findOrFail(",
+            "$id",
+            ")"
+          ],
+          "wrong": [
+            "Quiz::with(",
+            "'questions'",
+            ")->findOrFail(",
+            "$id",
+            ")"
+          ]
+        }
+      },
+      "explanation": "questions.choicesで設問の選択肢まで先読みします。PCでは設問数を増やしてクエリ数を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Quizのquestions、そのQuestionのchoicesリレーションは定義済みです。設問と選択肢を先読みして$idを取得してください。",
+      "conceptId": "ph3-week37-eager-nested",
+      "variantGroup": "ph3-week37-assembly-eager-nested",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。",
+      "drillConnection": "PH3 Week37のPOSSE課題へ接続。設問数を増やしてクエリ数を確認しましょう。",
+      "hint": "入れ子のリレーションはドットで指定できます。",
+      "success": "Quizのquestions、そのQuestionのchoicesリレーションは定義済みです。設問と選択肢を先読みして$idを取得してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-assembly-provided-scope",
+      "weekUnitId": "week-unit-week37",
+      "format": "fillBlank",
+      "prompt": "UserにはscopeFirstGeneration($query)が定義済みで、generation=1を絞り込みます。このスコープを使って取得してください。Userはimport済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $users = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "User::firstGeneration()->get()"
+          },
+          {
+            "id": "wrong",
+            "text": "User::scopeFirstGeneration()->get()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "呼び出し側にscopeという接頭辞は付けません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "User::",
+            "firstGeneration(",
+            ")->get(",
+            ")"
+          ],
+          "wrong": [
+            "User::",
+            "scopeFirstGeneration(",
+            ")->get(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "firstGeneration()で提供済みスコープを使います。PCではgenerationが1以外の利用者が除かれるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "UserにはscopeFirstGeneration($query)が定義済みで、generation=1を絞り込みます。このスコープを使って取得してください。Userはimport済みです。",
+      "conceptId": "ph3-week37-provided-scope",
+      "variantGroup": "ph3-week37-assembly-provided-scope",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。",
+      "drillConnection": "week37-1の関連ドリルへ接続。generationが1以外の利用者が除かれるか確認しましょう。",
+      "hint": "定義のscope接頭辞を外して呼び出します。",
+      "success": "UserにはscopeFirstGeneration($query)が定義済みで、generation=1を絞り込みます。このスコープを使って取得してください。Userはimport済みです。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-1/README.md",
+          "line": 1,
+          "heading": "37週目ミニドリル 1問目",
+          "sha256": "c3bd42a128398605e9b3bc2e16ac872bc9e02fb0c328c84731320b12b86d26bc",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-1/src/app/Models/User.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "82d481ca7660927d7ad8cbc3b3c0a60e8c1eafd8187be5b834b28bcea5ca7f36",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-assembly-provided-accessor",
+      "weekUnitId": "week-unit-week37",
+      "format": "fillBlank",
+      "prompt": "UserにはgetFullNameAttribute()が定義済みです。Bladeでそのアクセサの値を表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<p>{{ __BLANK__ }}</p>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$user->full_name"
+          },
+          {
+            "id": "wrong",
+            "text": "$user->getFullNameAttribute"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "メソッド名をそのままプロパティ名にはしません。"
+        }
+      },
+      "assembly": {
+        "language": "blade",
+        "optionTokens": {
+          "correct": [
+            "$user->",
+            "full_name"
+          ],
+          "wrong": [
+            "$user->",
+            "getFullNameAttribute"
+          ]
+        }
+      },
+      "explanation": "提供済みアクセサはfull_nameという属性として参照できます。PCでは姓名が結合された表示を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "UserにはgetFullNameAttribute()が定義済みです。Bladeでそのアクセサの値を表示してください。",
+      "conceptId": "ph3-week37-provided-accessor",
+      "variantGroup": "ph3-week37-assembly-provided-accessor",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。",
+      "drillConnection": "week37-2の関連ドリルへ接続。姓名が結合された表示を確認しましょう。",
+      "hint": "アクセサの名前に対応するsnake_caseの属性を読みます。",
+      "success": "UserにはgetFullNameAttribute()が定義済みです。Bladeでそのアクセサの値を表示してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的意味レビューのみ。Blade/Laravelは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-2/README.md",
+          "line": 1,
+          "heading": "37週目ミニドリル 2問目",
+          "sha256": "4bf3cab2512975cdf9446c632c1ceb3cbfac3947d55e6d45767401e6cd5aebde",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-2/src/app/Models/User.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "c8716b93b09622dbec1311f23276473e013ed22f740ecedf72664366d7a77ec2",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "blade"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-crud-read",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "CRUDのうち、保存済みのクイズ1件を詳細表示する操作に対応するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Read"
+          },
+          {
+            "id": "wrong1",
+            "text": "Create"
+          },
+          {
+            "id": "wrong2",
+            "text": "Update"
+          },
+          {
+            "id": "wrong3",
+            "text": "Delete"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "新しいレコードの作成です。",
+          "wrong2": "既存レコードの変更です。",
+          "wrong3": "レコードの削除です。"
+        }
+      },
+      "explanation": "詳細表示はReadに対応します。 PCでは詳細画面のControllerがどのレコードを読むか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「Read」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-crud-read",
+      "variantGroup": "ph3-week37-choice-crud-read",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week37のPOSSE課題。詳細画面のControllerがどのレコードを読むか確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "データを変更せず読み取る操作です。",
+      "success": "条件に適合する候補を1つ選ぶ：Read",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-dynamic-route",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "/quizzes/1と/quizzes/2を同じアクションで扱うルートのパスはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "/quizzes/1"
+          },
+          {
+            "id": "wrong2",
+            "text": "/quizzes?id"
+          },
+          {
+            "id": "wrong3",
+            "text": "/quizzes/id"
+          },
+          {
+            "id": "correct",
+            "text": "/quizzes/{id}"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "idが2のURLを同じ定義で扱えません。",
+          "wrong2": "パスの値を受け取るルートパラメーターの書式ではありません。",
+          "wrong3": "idという固定文字のパスになってしまいます。"
+        }
+      },
+      "explanation": "ルートパラメーターでIDの異なるURLを扱います。 PCでは2つのIDで同じアクションへ到達するか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「/quizzes/{id}」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-dynamic-route",
+      "variantGroup": "ph3-week37-choice-dynamic-route",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week37のPOSSE課題。2つのIDで同じアクションへ到達するか確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "変わる箇所を波括弧で囲みます。",
+      "success": "条件に適合する候補を1つ選ぶ：/quizzes/{id}",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-id-fetch",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "show($id)でURLから受け取ったIDのクイズを1件取得します。存在しなければ404にする呼び出しはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "Quiz::first()"
+          },
+          {
+            "id": "wrong3",
+            "text": "new Quiz()"
+          },
+          {
+            "id": "correct",
+            "text": "Quiz::findOrFail($id)"
+          },
+          {
+            "id": "wrong1",
+            "text": "Quiz::all()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "全件取得であり、対象の1件にも404にも対応しません。",
+          "wrong2": "受け取ったIDを条件に使っていません。",
+          "wrong3": "DBから対象レコードを取得しません。"
+        }
+      },
+      "explanation": "findOrFailは対象のモデルか未検出の例外を返します。 PCでは存在するIDと存在しないIDの応答を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Quiz::findOrFail($id)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-id-fetch",
+      "variantGroup": "ph3-week37-choice-id-fetch",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week37のPOSSE課題。存在するIDと存在しないIDの応答を確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "指定主キーで探し、見つからなければ失敗させます。",
+      "success": "条件に適合する候補を1つ選ぶ：Quiz::findOrFail($id)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-detail-nested-load",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "Quizにquestions、Questionにchoicesの関係を定義済みです。両方を先読みする指定はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "Quiz::with(\"users\")->findOrFail($id)"
+          },
+          {
+            "id": "correct",
+            "text": "Quiz::with(\"questions.choices\")->findOrFail($id)"
+          },
+          {
+            "id": "wrong1",
+            "text": "Quiz::with(\"choices.questions\")->findOrFail($id)"
+          },
+          {
+            "id": "wrong2",
+            "text": "Quiz::findOrFail($id)だけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "定義された親子の順序が逆です。",
+          "wrong2": "関連を先読みする指定がありません。",
+          "wrong3": "必要なのは設問と選択肢の関連です。"
+        }
+      },
+      "explanation": "questionsの中のchoicesまで先読みします。 PCでは設問と選択肢を表示した際のクエリ数を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Quiz::with(\"questions.choices\")->findOrFail($id)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-detail-nested-load",
+      "variantGroup": "ph3-week37-choice-detail-nested-load",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week37のPOSSE課題。設問と選択肢を表示した際のクエリ数を確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "親から子へ順番にドットでつなぎます。",
+      "success": "条件に適合する候補を1つ選ぶ：Quiz::with(\"questions.choices\")->findOrFail($id)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-question-choice-loop",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "Bladeで各設問に対応する選択肢を出します。外側のforeachで$questionを取り出した後、内側で回すものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$question->choices"
+          },
+          {
+            "id": "wrong1",
+            "text": "$quiz->questions"
+          },
+          {
+            "id": "wrong2",
+            "text": "Choice::all()"
+          },
+          {
+            "id": "wrong3",
+            "text": "$question->quiz"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "再び設問全体を回すと選択肢の表示にはなりません。",
+          "wrong2": "その設問以外の選択肢も混ざってしまいます。",
+          "wrong3": "親クイズであり、選択肢の集合ではありません。"
+        }
+      },
+      "explanation": "各設問からそのchoicesをたどります。 PCでは別の設問の選択肢が混ざらないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "提示条件に対して「$question->choices」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-question-choice-loop",
+      "variantGroup": "ph3-week37-choice-question-choice-loop",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week37のPOSSE課題。別の設問の選択肢が混ざらないか確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "現在表示している設問の関連を使います。",
+      "success": "条件に適合する候補を1つ選ぶ：$question->choices",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-named-detail-parameter",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "名前付きルートquizzes.showは/quizzes/{id}です。id=2へのURLを生成するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "route(\"quizzes.show\")"
+          },
+          {
+            "id": "wrong2",
+            "text": "view(\"quizzes.show\", [\"id\" => 2])"
+          },
+          {
+            "id": "wrong3",
+            "text": "route(\"quizzes.index\", [\"id\" => 2])"
+          },
+          {
+            "id": "correct",
+            "text": "route(\"quizzes.show\", [\"id\" => 2])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "必須のidパラメーターがありません。",
+          "wrong2": "ビューを返す呼び出しでありURLを生成しません。",
+          "wrong3": "指定された詳細ルートを使用していません。"
+        }
+      },
+      "explanation": "ルートの{id}に2を対応させます。 PCでは一覧の各リンクが異なるIDになるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「route(\"quizzes.show\", [\"id\" => 2])」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-named-detail-parameter",
+      "variantGroup": "ph3-week37-choice-named-detail-parameter",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week37のPOSSE課題。一覧の各リンクが異なるIDになるか確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ルート名と必要なパラメーターを渡します。",
+      "success": "条件に適合する候補を1つ選ぶ：route(\"quizzes.show\", [\"id\" => 2])",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-local-scope-call",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "UserにscopeFirstGeneration($query)を定義済みです。ローカルスコープの呼び出しはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "User::all()->firstGeneration()"
+          },
+          {
+            "id": "wrong3",
+            "text": "User::find(\"firstGeneration\")"
+          },
+          {
+            "id": "correct",
+            "text": "User::firstGeneration()->get()"
+          },
+          {
+            "id": "wrong1",
+            "text": "User::scopeFirstGeneration()->get()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "利用側ではscopeの接頭辞を除いて呼び出します。",
+          "wrong2": "取得後のコレクションではなくモデルクエリへスコープを適用します。",
+          "wrong3": "スコープ名を主キーの値として検索してしまいます。"
+        }
+      },
+      "explanation": "クエリへfirstGenerationを適用してから取得します。 PCではgeneration=1の利用者だけになるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「User::firstGeneration()->get()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-local-scope-call",
+      "variantGroup": "ph3-week37-choice-local-scope-call",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-1/README.md",
+          "line": 1,
+          "heading": "37週目ミニドリル 1問目",
+          "sha256": "c3bd42a128398605e9b3bc2e16ac872bc9e02fb0c328c84731320b12b86d26bc",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-1/src/app/Models/User.php",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "82d481ca7660927d7ad8cbc3b3c0a60e8c1eafd8187be5b834b28bcea5ca7f36"
+        }
+      ],
+      "drillConnection": "week37-1の関連ドリル。generation=1の利用者だけになるか確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "定義のscopeという接頭辞は呼び出し側で外します。",
+      "success": "条件に適合する候補を1つ選ぶ：User::firstGeneration()->get()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-accessor-read",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "提供済みUserにgetFullNameAttribute()アクセサがあります。計算されたフルネームを動的属性として読むものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "User::full_name()"
+          },
+          {
+            "id": "correct",
+            "text": "$user->full_name"
+          },
+          {
+            "id": "wrong1",
+            "text": "$user->full_name()"
+          },
+          {
+            "id": "wrong2",
+            "text": "$user->first_name"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "アクセサを動的属性として読む形ではありません。",
+          "wrong2": "名前の一部だけで、フルネームのアクセサではありません。",
+          "wrong3": "モデルインスタンスの属性参照ではありません。"
+        }
+      },
+      "explanation": "getFullNameAttributeはfull_nameとして読めます。 PCではBladeで結合処理を書かずフルネームが出るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$user->full_name」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-accessor-read",
+      "variantGroup": "ph3-week37-choice-accessor-read",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-2/README.md",
+          "line": 1,
+          "heading": "37週目ミニドリル 2問目",
+          "sha256": "4bf3cab2512975cdf9446c632c1ceb3cbfac3947d55e6d45767401e6cd5aebde",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-2/src/app/Models/User.php",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "c8716b93b09622dbec1311f23276473e013ed22f740ecedf72664366d7a77ec2"
+        }
+      ],
+      "drillConnection": "week37-2の関連ドリル。Bladeで結合処理を書かずフルネームが出るか確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "この形式のアクセサはsnake_caseの属性名で読みます。",
+      "success": "条件に適合する候補を1つ選ぶ：$user->full_name",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-fillable-diagnosis",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "family_name列は存在し、値も検証済みです。$user->update([\"family_name\" => $value])が反映されず、fillableにはfirst_nameしかありません。見直す箇所はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Userのfillableへfamily_nameを追加する"
+          },
+          {
+            "id": "wrong1",
+            "text": "name列を新しく増やす"
+          },
+          {
+            "id": "wrong2",
+            "text": "Controllerの名前をすべて小文字へ変える"
+          },
+          {
+            "id": "wrong3",
+            "text": "Bladeだけで新しい値を固定表示する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "不足しているのは存在済みfamily_nameの一括代入許可です。",
+          "wrong2": "一括代入の許可設定を直すことになりません。",
+          "wrong3": "保存が直ったことにはなりません。"
+        }
+      },
+      "explanation": "保存対象の属性をfillableに含めます。 PCでは保存後にDBのfamily_nameも変わるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「Userのfillableへfamily_nameを追加する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-fillable-diagnosis",
+      "variantGroup": "ph3-week37-choice-fillable-diagnosis",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-3/README.md",
+          "line": 1,
+          "heading": "37週目ミニドリル 3問目",
+          "sha256": "29c9c3473a6c3d9716914a13e0790ad4c54a89f79cc9780886e1081650f3f9a1",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week37-3/src/app/Models/User.php",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "51ae2dd9aa6eadf3bc4446434c4d0e125694b3306a3e4656c60958e753da4d60"
+        }
+      ],
+      "drillConnection": "week37-3の関連ドリル。保存後にDBのfamily_nameも変わるか確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "列の存在と一括代入の許可は別です。",
+      "success": "条件に適合する候補を1つ選ぶ：Userのfillableへfamily_nameを追加する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week37-choice-quiz-filter-evidence",
+      "weekUnitId": "week-unit-week37",
+      "format": "singleChoice",
+      "prompt": "/quizzes/2で、id=1のクイズの設問も混ざります。全設問を表示していた場合の修正はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "クイズ名だけid=2の名前へ固定する"
+          },
+          {
+            "id": "wrong2",
+            "text": "全設問をランダムに並べる"
+          },
+          {
+            "id": "wrong3",
+            "text": "設問の文字色を薄くする"
+          },
+          {
+            "id": "correct",
+            "text": "取得したid=2のクイズのquestionsを表示する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "表示名を変えても所属が異なる設問は除外されません。",
+          "wrong2": "並べ替えても別クイズの設問が混ざります。",
+          "wrong3": "所属による絞り込みになりません。"
+        }
+      },
+      "explanation": "選んだクイズに属する設問だけを表示します。 PCでは2つの詳細URLで設問が分かれるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week37",
+        "sectionHeading": "Week 37"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「取得したid=2のクイズのquestionsを表示する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week37-quiz-filter-evidence",
+      "variantGroup": "ph3-week37-choice-quiz-filter-evidence",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 358,
+        "heading": "Week 37",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week37のPOSSE課題。2つの詳細URLで設問が分かれるか確認しましょう。",
+      "priorKnowledge": "Week36までのリレーション・先読み。提供済みスコープとアクセサの役割は問題文で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "詳細画面の親を起点に関連をたどります。",
+      "success": "条件に適合する候補を1つ選ぶ：取得したid=2のクイズのquestionsを表示する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

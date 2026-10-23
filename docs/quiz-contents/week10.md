@@ -1,6 +1,6 @@
 # Week10｜非同期処理・Fetch・JSON
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -448,3 +448,178 @@ async function load() {
 検証: 2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。
 
 - 誤答true: fetchはHTTP 404の応答でもResponseを返すため、response.okなどを自分で確認します。ネットワークの失敗で拒否される場合と区別し、HTTP失敗ではthrowしてcatchへ移せます。
+
+## question-week10-assembly-await-fetch（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: async関数の中です。通信完了後のResponseをresponseへ受け取ってください。urlは定義済みです。
+- 出典: curriculum/PH1/Week10.md:53 / 「Promise」という入れ物
+- ドリル接続: Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。response.okを確認できる状態にしましょう。
+- 既習: Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week10-await-fetch
+- 類題: ph1-week10-assembly-await-fetch / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+async関数の中です。通信完了後のResponseをresponseへ受け取ってください。urlは定義済みです。
+
+```js
+async function load() {
+  const response = __BLANK__;
+}
+```
+
+- correct: await fetch(url)（正答）
+- wrong: fetch(url)
+
+達成条件: async関数の中です。通信完了後のResponseをresponseへ受け取ってください。urlは定義済みです。
+
+ヒント: fetchの完了を待ってResponseを受け取ります。
+
+解説: fetchの完了を待ってResponseを受け取ります。PCではresponse.okを確認できる状態にしましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: awaitがないとresponseはResponseではなくPromiseになります。
+
+## question-week10-assembly-await-json（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: responseは取得済みです。JSON本文を読んだ値をdataへ入れてください。
+- 出典: curriculum/PH1/Week10.md:89 / 受け取っても、まだ中身は使えない
+- ドリル接続: Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。dataの形をConsoleで確認しましょう。
+- 既習: Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week10-await-json
+- 類題: ph1-week10-assembly-await-json / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+responseは取得済みです。JSON本文を読んだ値をdataへ入れてください。
+
+```js
+async function read(response) {
+  const data = __BLANK__;
+  console.log(data);
+}
+```
+
+- correct: await response.json()（正答）
+- wrong: response.json()
+
+達成条件: responseは取得済みです。JSON本文を読んだ値をdataへ入れてください。
+
+ヒント: fetchを待つ処理と本文を読む処理は別です。
+
+解説: fetchを待つ処理と本文を読む処理は別です。PCではdataの形をConsoleで確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: json()もPromiseを返すため、awaitなしでは読み取った値になりません。
+
+## question-week10-assembly-async-declaration（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: JSONを取得する関数の宣言を組み立ててください。関数内ではawaitを使います。
+- 出典: curriculum/PH1/Week10.md:65 / async と、いちばん多い事故
+- ドリル接続: Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。関数を呼び出して応答を確認しましょう。
+- 既習: Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week10-async-declaration
+- 類題: ph1-week10-assembly-async-declaration / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+JSONを取得する関数の宣言を組み立ててください。関数内ではawaitを使います。
+
+```js
+__BLANK__ {
+  const response = await fetch(url);
+  return await response.json();
+}
+```
+
+- correct: async function loadUser()（正答）
+- wrong: function loadUser()
+
+達成条件: JSONを取得する関数の宣言を組み立ててください。関数内ではawaitを使います。
+
+ヒント: asyncを付けた関数でawaitを使います。
+
+解説: asyncを付けた関数でawaitを使います。PCでは関数を呼び出して応答を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: この通常の関数宣言のままでは関数内にawaitを書けません。
+
+## question-week10-assembly-http-failure（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: HTTPが成功でない時だけErrorを投げます。responseは取得済みです。
+- 出典: curriculum/PH1/Week10.md:114 / 通信はわりと失敗する
+- ドリル接続: Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。成功URLと404になるURLを試しましょう。
+- 既習: Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week10-http-failure
+- 類題: ph1-week10-assembly-http-failure / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+HTTPが成功でない時だけErrorを投げます。responseは取得済みです。
+
+```js
+if (__BLANK__) {
+  throw new Error("取得失敗");
+}
+```
+
+- correct: !response.ok（正答）
+- wrong: response.ok
+
+達成条件: HTTPが成功でない時だけErrorを投げます。responseは取得済みです。
+
+ヒント: !response.okでHTTP失敗を区別します。
+
+解説: !response.okでHTTP失敗を区別します。PCでは成功URLと404になるURLを試しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 成功時にエラーを投げる逆の条件です。
+
+## question-week10-assembly-render-name（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: dataは{name:"佐藤", email:"sato@example.invalid"}です。nameElは取得済みです。名前を表示してください。
+- 出典: curriculum/PH1/Week10.md:151 / 取ってきたデータを、画面に出す
+- ドリル接続: Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。Consoleで形を見てから表示を確認しましょう。
+- 既習: Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week10-render-name
+- 類題: ph1-week10-assembly-render-name / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+dataは{name:"佐藤", email:"sato@example.invalid"}です。nameElは取得済みです。名前を表示してください。
+
+```js
+__BLANK__;
+```
+
+- correct: nameEl.textContent = data.name（正答）
+- wrong: nameEl.textContent = data.email
+
+達成条件: dataは{name:"佐藤", email:"sato@example.invalid"}です。nameElは取得済みです。名前を表示してください。
+
+ヒント: 取得したオブジェクトのnameを表示枠のtextContentへ渡します。
+
+解説: 取得したオブジェクトのnameを表示枠のtextContentへ渡します。PCではConsoleで形を見てから表示を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: emailを参照すると名前ではなくメールアドレスが表示されます。

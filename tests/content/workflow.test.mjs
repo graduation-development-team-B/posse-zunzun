@@ -22,6 +22,7 @@ test("新しい単元をdraft→reviewed→publishedとして追加でき、既�
     fs.cpSync(path.join(root, "scripts"), path.join(work, "scripts"), {
       recursive: true,
     });
+    fs.cpSync(path.join(root, "docs/quiz-sources"), path.join(work, "docs/quiz-sources"), { recursive: true });
     const command = (file, args) =>
       spawnSync(process.execPath, [path.join(work, "scripts", file), ...args], {
         cwd: work,

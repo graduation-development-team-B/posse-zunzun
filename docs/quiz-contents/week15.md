@@ -1,6 +1,6 @@
 # Week15｜React状態管理（useState・useEffect）
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -445,3 +445,173 @@ const [input, setInput] = useState("");
 - 誤答b: 入力のstate更新までなくし、入力欄とstateをつなげられません。
 - 誤答c: 空白をstateへ入れても、入力欄とのつながりの不足は直りません。
 - 誤答d: placeholderは案内であり、入力欄の現在値を制御するvalueではありません。
+
+## question-week15-assembly-state-initial（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 初期値が"all"のfilterと更新関数setFilterをuseStateで用意してください。useStateはimport済みです。
+- 出典: curriculum/PH1/Week15.md:81 / ボタンを通すと、ボードが変わる
+- ドリル接続: Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。フィルターボタンからsetFilterを呼びましょう。
+- 既習: Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week15-state-initial
+- 類題: ph1-week15-assembly-state-initial / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+初期値が"all"のfilterと更新関数setFilterをuseStateで用意してください。useStateはimport済みです。
+
+```jsx
+function App() {
+  __BLANK__
+  // 続くUIでfilterを使う
+}
+```
+
+- correct: const [filter, setFilter] = useState("all");（正答）
+- wrong: const [setFilter, filter] = useState("all");
+
+達成条件: 初期値が"all"のfilterと更新関数setFilterをuseStateで用意してください。useStateはimport済みです。
+
+ヒント: 配列の1つ目で状態値、2つ目で更新関数を受け取ります。
+
+解説: 配列の1つ目で状態値、2つ目で更新関数を受け取ります。PCではフィルターボタンからsetFilterを呼びましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: useStateの返す順序は状態値が先、更新関数が後です。
+
+## question-week15-assembly-controlled-input（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: inputとsetInputはuseStateで用意済みです。入力文字をstateへ渡す式を組み立ててください。
+- 出典: curriculum/PH1/Week15.md:320 / クリック・入力・送信を受け取る
+- ドリル接続: Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。setInput("")で入力欄も空になるか確認しましょう。
+- 既習: Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week15-controlled-input
+- 類題: ph1-week15-assembly-controlled-input / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+inputとsetInputはuseStateで用意済みです。入力文字をstateへ渡す式を組み立ててください。
+
+```jsx
+<input value={input} onChange={(event) => __BLANK__} />
+```
+
+- correct: setInput(event.target.value)（正答）
+- wrong: setInput(event.target.name)
+
+達成条件: inputとsetInputはuseStateで用意済みです。入力文字をstateへ渡す式を組み立ててください。
+
+ヒント: valueとonChangeでstateと入力欄をつなぎます。
+
+解説: valueとonChangeでstateと入力欄をつなぎます。PCではsetInput("")で入力欄も空になるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: nameは入力値ではなく、フォーム部品の名前です。
+
+## question-week15-assembly-append-state（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: tasksはstate配列、newTaskは重複しないidを持つ作成済みのタスクです。元配列を変えず、末尾に追加してください。
+- 出典: curriculum/PH1/Week15.md:224 / stateは、上書きせずに作り直す
+- ドリル接続: Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。2件ある一覧へ追加して順序を確認しましょう。
+- 既習: Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week15-append-state
+- 類題: ph1-week15-assembly-append-state / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+tasksはstate配列、newTaskは重複しないidを持つ作成済みのタスクです。元配列を変えず、末尾に追加してください。
+
+```jsx
+__BLANK__;
+```
+
+- correct: setTasks([...tasks, newTask])（正答）
+- wrong: setTasks([newTask, ...tasks])
+
+達成条件: tasksはstate配列、newTaskは重複しないidを持つ作成済みのタスクです。元配列を変えず、末尾に追加してください。
+
+ヒント: スプレッドで既存の要素を残し、その後ろへ新要素を置きます。
+
+解説: スプレッドで既存の要素を残し、その後ろへ新要素を置きます。PCでは2件ある一覧へ追加して順序を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: これは先頭への追加で、指定した末尾への追加とは異なります。
+
+## question-week15-assembly-filter-visible（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: tasksを変更せず、doneがfalseのタスクだけvisibleTasksへ取り出してください。
+- 出典: curriculum/PH1/Week15.md:168 / 数・文字・ON/OFF・リストをstateで持つ
+- ドリル接続: Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。「すべて」に戻した時に元のタスクが残っているか確認しましょう。
+- 既習: Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week15-filter-visible
+- 類題: ph1-week15-assembly-filter-visible / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+tasksを変更せず、doneがfalseのタスクだけvisibleTasksへ取り出してください。
+
+```jsx
+const visibleTasks = __BLANK__;
+```
+
+- correct: tasks.filter((task) => !task.done)（正答）
+- wrong: tasks.filter((task) => task.done)
+
+達成条件: tasksを変更せず、doneがfalseのタスクだけvisibleTasksへ取り出してください。
+
+ヒント: filterで条件がtrueのものを残します。
+
+解説: filterで条件がtrueのものを残します。PCでは「すべて」に戻した時に元のタスクが残っているか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: task.doneをそのまま返すと完了済みだけが残ります。
+
+## question-week15-assembly-effect-title（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: tasksの件数が変わるたびにブラウザのタイトルを同期します。useEffectはimport済み、tasksはstateです。
+- 出典: curriculum/PH1/Week15.md:351 / 描いたあとに、ひと仕事してほしい
+- ドリル接続: Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。追加・削除後のタブのタイトルを確認しましょう。
+- 既習: Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week15-effect-title
+- 類題: ph1-week15-assembly-effect-title / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+tasksの件数が変わるたびにブラウザのタイトルを同期します。useEffectはimport済み、tasksはstateです。
+
+```jsx
+useEffect(() => {
+  document.title = __BLANK__;
+}, [tasks]);
+```
+
+- correct: "タスク数: " + tasks.length（正答）
+- wrong: "タスク数: " + tasks
+
+達成条件: tasksの件数が変わるたびにブラウザのタイトルを同期します。useEffectはimport済み、tasksはstateです。
+
+ヒント: 件数はtasks.lengthから求め、Effectでdocument.titleへ反映します。
+
+解説: 件数はtasks.lengthから求め、Effectでdocument.titleへ反映します。PCでは追加・削除後のタブのタイトルを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 配列そのものを連結すると、件数を表すタイトルになりません。

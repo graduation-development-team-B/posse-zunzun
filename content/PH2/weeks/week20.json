@@ -1158,5 +1158,484 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-assembly-count-details",
+      "weekUnitId": "week-unit-week20",
+      "format": "fillBlank",
+      "prompt": "order_detailsは1行が1種類で、同じ注文内で商品は重複しません。注文ごとの種類数をkindsへ集計してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT order_id, __BLANK__ AS kinds\nFROM order_details GROUP BY order_id;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "COUNT(*)"
+          },
+          {
+            "id": "wrong",
+            "text": "SUM(quantity)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "SUM(quantity)は購入個数の合計であり、明細の種類数ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "COUNT(",
+            "*",
+            ")"
+          ],
+          "wrong": [
+            "SUM(",
+            "quantity",
+            ")"
+          ]
+        }
+      },
+      "explanation": "COUNT(*)で明細の行数を数えます。PCでは個数が2以上の明細を含めて違いを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "order_detailsは1行が1種類で、同じ注文内で商品は重複しません。注文ごとの種類数をkindsへ集計してください。",
+      "conceptId": "ph2-week20-count-details",
+      "variantGroup": "ph2-week20-assembly-count-details",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week20の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。個数が2以上の明細を含めて違いを確認しましょう。",
+      "hint": "COUNT(*)で明細の行数を数えます。",
+      "success": "order_detailsは1行が1種類で、同じ注文内で商品は重複しません。注文ごとの種類数をkindsへ集計してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week20-1/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "e715084b532722e803f4232bb44b6e6eb59971f49314e3c99dee48c43cdb9e5f"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 307,
+          "heading": "Week 20",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-assembly-sum-quantity",
+      "weekUnitId": "week-unit-week20",
+      "format": "fillBlank",
+      "prompt": "注文ごとにquantityの合計個数をamountへ求めてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT order_id, __BLANK__ AS amount\nFROM order_details GROUP BY order_id;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "SUM(quantity)"
+          },
+          {
+            "id": "wrong",
+            "text": "COUNT(quantity)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "COUNTは値が入っている行を数えるため、quantity自体の足し算になりません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "SUM(",
+            "quantity",
+            ")"
+          ],
+          "wrong": [
+            "COUNT(",
+            "quantity",
+            ")"
+          ]
+        }
+      },
+      "explanation": "合計値にはSUMを使います。PCではquantityが2と3の2行なら5になることを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "注文ごとにquantityの合計個数をamountへ求めてください。",
+      "conceptId": "ph2-week20-sum-quantity",
+      "variantGroup": "ph2-week20-assembly-sum-quantity",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week20の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。quantityが2と3の2行なら5になることを確認しましょう。",
+      "hint": "合計値にはSUMを使います。",
+      "success": "注文ごとにquantityの合計個数をamountへ求めてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week20-2/README.md",
+        "line": 11,
+        "heading": "問題",
+        "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 307,
+          "heading": "Week 20",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-assembly-sum-cost",
+      "weekUnitId": "week-unit-week20",
+      "format": "fillBlank",
+      "prompt": "priceは単価、quantityは個数です。注文ごとの代金合計を求めてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT order_id, __BLANK__ AS total\nFROM order_details GROUP BY order_id;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "SUM(price * quantity)"
+          },
+          {
+            "id": "wrong",
+            "text": "SUM(price + quantity)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "単価と個数を足しても明細の金額にはなりません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "SUM(",
+            "price ",
+            "* ",
+            "quantity",
+            ")"
+          ],
+          "wrong": [
+            "SUM(",
+            "price ",
+            "+ ",
+            "quantity",
+            ")"
+          ]
+        }
+      },
+      "explanation": "1行の金額を掛け算し、その結果をSUMで足します。PCでは100円×2個と300円×1個なら500円になるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "priceは単価、quantityは個数です。注文ごとの代金合計を求めてください。",
+      "conceptId": "ph2-week20-sum-cost",
+      "variantGroup": "ph2-week20-assembly-sum-cost",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week20の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。100円×2個と300円×1個なら500円になるか確認しましょう。",
+      "hint": "1行の金額を掛け算し、その結果をSUMで足します。",
+      "success": "priceは単価、quantityは個数です。注文ごとの代金合計を求めてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week20-3/README.md",
+        "line": 9,
+        "heading": "問題",
+        "sha256": "de2ed4577143d6a3b57e2b3098cad4d6d4933c076a8d60d6753f3471ae524849"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 307,
+          "heading": "Week 20",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-assembly-group-order",
+      "weekUnitId": "week-unit-week20",
+      "format": "fillBlank",
+      "prompt": "全明細を注文IDごとに分けて合計します。FROM以降を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT order_id, SUM(quantity) AS amount\n__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "FROM order_details GROUP BY order_id;"
+          },
+          {
+            "id": "wrong",
+            "text": "FROM order_details GROUP BY quantity;"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "quantityで分けると注文ごとの合計ではなく、個数が同じ行のグループになります。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "FROM ",
+            "order_details ",
+            "GROUP BY ",
+            "order_id",
+            ";"
+          ],
+          "wrong": [
+            "FROM ",
+            "order_details ",
+            "GROUP BY ",
+            "quantity",
+            ";"
+          ]
+        }
+      },
+      "explanation": "集計する単位をGROUP BYへ指定します。PCでは複数注文を含めて結果の行数を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "目的"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "全明細を注文IDごとに分けて合計します。FROM以降を組み立ててください。",
+      "conceptId": "ph2-week20-group-order",
+      "variantGroup": "ph2-week20-assembly-group-order",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week20の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。複数注文を含めて結果の行数を確認しましょう。",
+      "hint": "集計する単位をGROUP BYへ指定します。",
+      "success": "全明細を注文IDごとに分けて合計します。FROM以降を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week20-2/README.md",
+        "line": 3,
+        "heading": "目的",
+        "sha256": "1ad1530d8569a9f24d638fdbda29ddf39a4986d3bd2b7e888265a07237f54593"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 307,
+          "heading": "Week 20",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week20-assembly-select-database",
+      "weekUnitId": "week-unit-week20",
+      "format": "fillBlank",
+      "prompt": "MySQLへ接続済みです。既存のph2drillを、この接続で使うデータベースに選択してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "USE ph2drill;"
+          },
+          {
+            "id": "wrong",
+            "text": "SHOW DATABASES;"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "SHOW DATABASESは一覧を表示する操作で、使用するDBの選択ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "USE ",
+            "ph2drill",
+            ";"
+          ],
+          "wrong": [
+            "SHOW ",
+            "DATABASES",
+            ";"
+          ]
+        }
+      },
+      "explanation": "USEの後にデータベース名を書きます。PCでは選択したDB内でSELECTを実行し、対象テーブルを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week20",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "MySQLへ接続済みです。既存のph2drillを、この接続で使うデータベースに選択してください。",
+      "conceptId": "ph2-week20-select-database",
+      "variantGroup": "ph2-week20-assembly-select-database",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week19ドリルのMySQL接続とUSEによるDB選択。",
+      "drillConnection": "Week20のターミナルからSQLを実行する準備。Week19ドリルのUSEを復習し、別のDBへ誤ってクエリを発行するのを防ぐ。",
+      "hint": "一覧を見る命令と、使用する箱を選ぶ命令を区別しましょう。",
+      "success": "MySQLへ接続済みです。既存のph2drillを、この接続で使うデータベースに選択してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。MySQL固有構文は教材・公式仕様との静的照合のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week19-1/README.md",
+        "heading": "問題",
+        "line": 16,
+        "sha256": "3cb378023eaa9858c4fb808e4c4140a1f9a17df063206b9425413883d0b93d10"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 307,
+          "heading": "Week 20",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        },
+        {
+          "path": "curriculum/PH2/Week20.md",
+          "heading": "1-1. init.sql",
+          "line": 12,
+          "sha256": "8c45ff6298d7fa13504b7c5380746b00a8077147624e7e1a6c865d394b6bc18d"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
   }
 ]

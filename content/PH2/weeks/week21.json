@@ -1158,5 +1158,478 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-assembly-dsn-db",
+      "weekUnitId": "week-unit-week21",
+      "format": "fillBlank",
+      "prompt": "PHPとDBは同じComposeネットワークです。サービス名db、DB名ph2drill、文字コードutf8mb4のDSNを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$dsn = \"__BLANK__\";",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "mysql:host=db;dbname=ph2drill;charset=utf8mb4"
+          },
+          {
+            "id": "wrong",
+            "text": "mysql:host=localhost;dbname=ph2drill;charset=utf8mb4"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "PHPコンテナ内のlocalhostはPHP自身を指し、別サービスのdbではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "mysql:",
+            "host=db;",
+            "dbname=ph2drill;",
+            "charset=utf8mb4"
+          ],
+          "wrong": [
+            "mysql:",
+            "host=localhost;",
+            "dbname=ph2drill;",
+            "charset=utf8mb4"
+          ]
+        }
+      },
+      "explanation": "hostには同じComposeネットワークのサービス名を指定します。PCではDSNと実際のDB名を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "3. 接続方法"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "PHPとDBは同じComposeネットワークです。サービス名db、DB名ph2drill、文字コードutf8mb4のDSNを組み立ててください。",
+      "conceptId": "ph2-week21-dsn-db",
+      "variantGroup": "ph2-week21-assembly-dsn-db",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。DSNと実際のDB名を照合しましょう。",
+      "hint": "hostには同じComposeネットワークのサービス名を指定します。",
+      "success": "PHPとDBは同じComposeネットワークです。サービス名db、DB名ph2drill、文字コードutf8mb4のDSNを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "line": 19,
+        "heading": "3. 接続方法",
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "line": 1,
+          "heading": "21週目ミニドリル 1問目",
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 385,
+          "heading": "Week 21",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-assembly-pdo-query",
+      "weekUnitId": "week-unit-week21",
+      "format": "fillBlank",
+      "prompt": "$dbhは接続済みPDOです。ユーザー入力を含まない固定SQLで学生名を取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$rows = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$dbh->query(\"SELECT name FROM students\")"
+          },
+          {
+            "id": "wrong",
+            "text": "$dbh->query(\"SELECT name FROM studies\")"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "提示した学生の表はstudentsであり、studiesではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$dbh->",
+            "query(",
+            "\"SELECT name FROM students\"",
+            ")"
+          ],
+          "wrong": [
+            "$dbh->",
+            "query(",
+            "\"SELECT name FROM studies\"",
+            ")"
+          ]
+        }
+      },
+      "explanation": "固定SELECTをqueryへ渡します。PCでは結果の各行にnameがあるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "4. データの取得"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$dbhは接続済みPDOです。ユーザー入力を含まない固定SQLで学生名を取得してください。",
+      "conceptId": "ph2-week21-pdo-query",
+      "variantGroup": "ph2-week21-assembly-pdo-query",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。結果の各行にnameがあるか確認しましょう。",
+      "hint": "固定SELECTをqueryへ渡します。",
+      "success": "$dbhは接続済みPDOです。ユーザー入力を含まない固定SQLで学生名を取得してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "line": 46,
+        "heading": "4. データの取得",
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "line": 1,
+          "heading": "21週目ミニドリル 1問目",
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 385,
+          "heading": "Week 21",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-assembly-descending-query",
+      "weekUnitId": "week-unit-week21",
+      "format": "fillBlank",
+      "prompt": "studentsをidの大きい順に取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT * FROM students __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "ORDER BY id DESC"
+          },
+          {
+            "id": "wrong",
+            "text": "ORDER BY id ASC"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "ASCは小さい順です。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "ORDER BY ",
+            "id ",
+            "DESC"
+          ],
+          "wrong": [
+            "ORDER BY ",
+            "id ",
+            "ASC"
+          ]
+        }
+      },
+      "explanation": "降順はDESCです。PCではidが1〜4なら4から始まることを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "studentsをidの大きい順に取得してください。",
+      "conceptId": "ph2-week21-descending-query",
+      "variantGroup": "ph2-week21-assembly-descending-query",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。idが1〜4なら4から始まることを確認しましょう。",
+      "hint": "降順はDESCです。",
+      "success": "studentsをidの大きい順に取得してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week21-2/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "e5c1f85d6ee424db3b681ebfeef88a61bdc5a422f3796332f743fdf0a7781645"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 385,
+          "heading": "Week 21",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-assembly-top-two",
+      "weekUnitId": "week-unit-week21",
+      "format": "fillBlank",
+      "prompt": "studentsをidの大きい順に並べて、先頭2件だけ取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT * FROM students __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "ORDER BY id DESC LIMIT 2"
+          },
+          {
+            "id": "wrong",
+            "text": "ORDER BY id DESC LIMIT 3"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "LIMIT 3では3件となり、2件だけという条件に合いません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "ORDER BY ",
+            "id DESC ",
+            "LIMIT ",
+            "2"
+          ],
+          "wrong": [
+            "ORDER BY ",
+            "id DESC ",
+            "LIMIT ",
+            "3"
+          ]
+        }
+      },
+      "explanation": "並べ替えた結果にLIMIT 2を指定します。PCではid=1〜4の時に4・3となるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "studentsをidの大きい順に並べて、先頭2件だけ取得してください。",
+      "conceptId": "ph2-week21-top-two",
+      "variantGroup": "ph2-week21-assembly-top-two",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。id=1〜4の時に4・3となるか確認しましょう。",
+      "hint": "並べ替えた結果にLIMIT 2を指定します。",
+      "success": "studentsをidの大きい順に並べて、先頭2件だけ取得してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week21-3/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "aadbce3718729d444c83d2a2885e68f03d7e928af368ad56494c734db0dea654"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 385,
+          "heading": "Week 21",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week21.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week21-assembly-read-row",
+      "weekUnitId": "week-unit-week21",
+      "format": "fillBlank",
+      "prompt": "$rowはSELECT name FROM studentsの取得行です。学生名を変数nameへ受け取ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$name = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$row[\"name\"]"
+          },
+          {
+            "id": "wrong",
+            "text": "$row[\"id\"]"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "このSELECTはnameを取得しており、idは指定されていません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$row",
+            "[",
+            "\"name\"",
+            "]"
+          ],
+          "wrong": [
+            "$row",
+            "[",
+            "\"id\"",
+            "]"
+          ]
+        }
+      },
+      "explanation": "取得列と同じキーで値を読みます。PCではSELECTの列とPHP側のキーを対応させましょう。",
+      "sourceReference": {
+        "weekKey": "week21",
+        "sectionHeading": "4. データの取得"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$rowはSELECT name FROM studentsの取得行です。学生名を変数nameへ受け取ってください。",
+      "conceptId": "ph2-week21-read-row",
+      "variantGroup": "ph2-week21-assembly-read-row",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜21の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week21の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。SELECTの列とPHP側のキーを対応させましょう。",
+      "hint": "取得列と同じキーで値を読みます。",
+      "success": "$rowはSELECT name FROM studentsの取得行です。学生名を変数nameへ受け取ってください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week21.md",
+        "line": 46,
+        "heading": "4. データの取得",
+        "sha256": "678c72957cd9e63634008083d855d0412ba5a53b28c6b65f3d50ef96c6720286"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week21-1/README.md",
+          "line": 1,
+          "heading": "21週目ミニドリル 1問目",
+          "sha256": "fa9ce0dfca20ebd1554182e066cc2f91457116983a2b9d3a07dbbe3417efebf7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 385,
+          "heading": "Week 21",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
   }
 ]

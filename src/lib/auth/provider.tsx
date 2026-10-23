@@ -21,7 +21,7 @@ export type Profile = {
 
 export type LearningSettings = {
   user_id: string;
-  phase: "ph1" | "ph2";
+  phase: PhaseId;
 };
 
 type SignUpInput = {
@@ -30,7 +30,7 @@ type SignUpInput = {
   password: string;
   posse: string | null;
   cohort: string | null;
-  phase: "ph1" | "ph2";
+  phase: PhaseId;
 };
 
 type AuthContextValue = {
@@ -103,7 +103,7 @@ async function ensureSettings(user: User): Promise<LearningSettings> {
   if (found.data) return found.data as LearningSettings;
 
   const requested = user.user_metadata?.phase;
-  const phase = requested === "ph2" ? "ph2" : "ph1";
+  const phase = requested === "ph2" || requested === "ph3" ? requested : "ph1";
   const inserted = await client
     .from("learning_settings")
     .insert({ user_id: user.id, phase })
@@ -218,7 +218,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const savePhase = useCallback(async (phase: PhaseId) => {
-    if (phase === "ph3") throw new Error("PH3のクイズはまだ利用できません。");
     const client = requireSupabase();
     const currentUser = session?.user;
     if (!currentUser) throw new Error("ログインしてください。");

@@ -1158,5 +1158,478 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-assembly-create-table",
+      "weekUnitId": "week-unit-week19",
+      "format": "fillBlank",
+      "prompt": "idを整数の主キー、titleを最大100文字とするbooksテーブルを作ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "CREATE TABLE books (id INT PRIMARY KEY, title VARCHAR(100));"
+          },
+          {
+            "id": "wrong",
+            "text": "CREATE TABLE books (id INT PRIMARY KEY, title INT);"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "titleをINTにすると、本のタイトルを文字列として保存する定義になりません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "CREATE TABLE ",
+            "books ",
+            "(id INT PRIMARY KEY, ",
+            "title VARCHAR(100)",
+            ");"
+          ],
+          "wrong": [
+            "CREATE TABLE ",
+            "books ",
+            "(id INT PRIMARY KEY, ",
+            "title INT",
+            ");"
+          ]
+        }
+      },
+      "explanation": "表名の後に列名と型を指定します。PCでは作成後に表の構造を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "idを整数の主キー、titleを最大100文字とするbooksテーブルを作ってください。",
+      "conceptId": "ph2-week19-create-table",
+      "variantGroup": "ph2-week19-assembly-create-table",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week19の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。作成後に表の構造を確認しましょう。",
+      "hint": "表名の後に列名と型を指定します。",
+      "success": "idを整数の主キー、titleを最大100文字とするbooksテーブルを作ってください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week19-1/README.md",
+        "line": 16,
+        "heading": "問題",
+        "sha256": "3cb378023eaa9858c4fb808e4c4140a1f9a17df063206b9425413883d0b93d10"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 216,
+          "heading": "Week 19",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-assembly-select-title",
+      "weekUnitId": "week-unit-week19",
+      "format": "fillBlank",
+      "prompt": "booksからtitle列だけ取得するSELECTを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "SELECT title FROM books;"
+          },
+          {
+            "id": "wrong",
+            "text": "SELECT * FROM books;"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "*は全列を選ぶため、title列だけという指定ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "SELECT ",
+            "title ",
+            "FROM ",
+            "books",
+            ";"
+          ],
+          "wrong": [
+            "SELECT ",
+            "* ",
+            "FROM ",
+            "books",
+            ";"
+          ]
+        }
+      },
+      "explanation": "SELECTの後に取得する列、FROMの後に表を置きます。PCでは結果の列数を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "目的"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "booksからtitle列だけ取得するSELECTを組み立ててください。",
+      "conceptId": "ph2-week19-select-title",
+      "variantGroup": "ph2-week19-assembly-select-title",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week19の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。結果の列数を確認しましょう。",
+      "hint": "SELECTの後に取得する列、FROMの後に表を置きます。",
+      "success": "booksからtitle列だけ取得するSELECTを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week19-2/README.md",
+        "line": 3,
+        "heading": "目的",
+        "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 216,
+          "heading": "Week 19",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-assembly-published-range",
+      "weekUnitId": "week-unit-week19",
+      "format": "fillBlank",
+      "prompt": "2005年1月1日以降に出版された本だけ取得します。当日も含める条件を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT * FROM books WHERE __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "published_at >= '2005-01-01'"
+          },
+          {
+            "id": "wrong",
+            "text": "published_at > '2005-01-01'"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": ">では2005年1月1日0時ちょうどの本を除外します。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "published_at ",
+            ">= ",
+            "'2005-01-01'"
+          ],
+          "wrong": [
+            "published_at ",
+            "> ",
+            "'2005-01-01'"
+          ]
+        }
+      },
+      "explanation": ">=で境界を含めます。PCでは境界の前・ちょうど・後を用意して確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "2005年1月1日以降に出版された本だけ取得します。当日も含める条件を組み立ててください。",
+      "conceptId": "ph2-week19-published-range",
+      "variantGroup": "ph2-week19-assembly-published-range",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week19の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。境界の前・ちょうど・後を用意して確認しましょう。",
+      "hint": ">=で境界を含めます。",
+      "success": "2005年1月1日以降に出版された本だけ取得します。当日も含める条件を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week19-2/README.md",
+        "line": 14,
+        "heading": "問題",
+        "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 216,
+          "heading": "Week 19",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-assembly-contains-title",
+      "weekUnitId": "week-unit-week19",
+      "format": "fillBlank",
+      "prompt": "titleに「PHP」をどこかに含む本を検索する条件を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT * FROM books WHERE __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "title LIKE '%PHP%'"
+          },
+          {
+            "id": "wrong",
+            "text": "title LIKE 'PHP%'"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "PHP%ではPHPから始まるタイトルだけになります。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "title ",
+            "LIKE ",
+            "'%PHP%'"
+          ],
+          "wrong": [
+            "title ",
+            "LIKE ",
+            "'PHP%'"
+          ]
+        }
+      },
+      "explanation": "両側の%は前後に別の文字があっても一致させる指定です。PCでは「入門PHP」も対象になるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "titleに「PHP」をどこかに含む本を検索する条件を組み立ててください。",
+      "conceptId": "ph2-week19-contains-title",
+      "variantGroup": "ph2-week19-assembly-contains-title",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week19の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。「入門PHP」も対象になるか確認しましょう。",
+      "hint": "両側の%は前後に別の文字があっても一致させる指定です。",
+      "success": "titleに「PHP」をどこかに含む本を検索する条件を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week19-3/README.md",
+        "line": 15,
+        "heading": "問題",
+        "sha256": "85a664d95caea4a130cd9141e9ece89737035d4b90c51641c040e8de1021f2fb"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 216,
+          "heading": "Week 19",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week19-assembly-both-conditions",
+      "weekUnitId": "week-unit-week19",
+      "format": "fillBlank",
+      "prompt": "2005年以降で、かつtitleにPHPを含む本だけ取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT * FROM books WHERE __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "published_at >= '2005-01-01' AND title LIKE '%PHP%'"
+          },
+          {
+            "id": "wrong",
+            "text": "published_at >= '2005-01-01' OR title LIKE '%PHP%'"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "ORではどちらか一方を満たすだけの本も含みます。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "published_at >= '2005-01-01' ",
+            "AND ",
+            "title LIKE '%PHP%'"
+          ],
+          "wrong": [
+            "published_at >= '2005-01-01' ",
+            "OR ",
+            "title LIKE '%PHP%'"
+          ]
+        }
+      },
+      "explanation": "両方を満たすにはANDで条件をつなぎます。PCでは片方だけを満たす行が除かれるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week19",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "2005年以降で、かつtitleにPHPを含む本だけ取得してください。",
+      "conceptId": "ph2-week19-both-conditions",
+      "variantGroup": "ph2-week19-assembly-both-conditions",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜19の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week19の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。片方だけを満たす行が除かれるか確認しましょう。",
+      "hint": "両方を満たすにはANDで条件をつなぎます。",
+      "success": "2005年以降で、かつtitleにPHPを含む本だけ取得してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week19-2/README.md",
+        "line": 14,
+        "heading": "問題",
+        "sha256": "1cda7b26a37e434af8e6ec35b82fdd1eba81ccd79019b78c2b854391ef5d78c3"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 216,
+          "heading": "Week 19",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week19.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "54ccc5ae34b6da37c5f723533fcfc34c7d4c95f30b8bd24e71f22c946921d9bb"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
   }
 ]

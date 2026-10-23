@@ -1,0 +1,1118 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week44-assembly-update-question",
+      "weekUnitId": "week-unit-week44",
+      "format": "fillBlank",
+      "prompt": "$questionは認可確認済みのモデルです。quiz_idとtextはfillableで、$validatedはその2項目だけの検証済み配列です。既存設問を更新してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$question->update($validated)"
+          },
+          {
+            "id": "wrong",
+            "text": "$question->create($validated)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "createでは新しい行を作るため、既存設問の編集にはなりません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$question->",
+            "update(",
+            "$validated",
+            ")"
+          ],
+          "wrong": [
+            "$question->",
+            "create(",
+            "$validated",
+            ")"
+          ]
+        }
+      },
+      "explanation": "updateで設問の属性を変更します。PCではidを維持したまま所属クイズと本文が変わるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$questionは認可確認済みのモデルです。quiz_idとtextはfillableで、$validatedはその2項目だけの検証済み配列です。既存設問を更新してください。",
+      "conceptId": "ph3-week44-update-question",
+      "variantGroup": "ph3-week44-assembly-update-question",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。",
+      "drillConnection": "PH3 Week44のPOSSE課題へ接続。idを維持したまま所属クイズと本文が変わるか確認しましょう。",
+      "hint": "対象モデルに対する更新メソッドを使います。",
+      "success": "$questionは認可確認済みのモデルです。quiz_idとtextはfillableで、$validatedはその2項目だけの検証済み配列です。既存設問を更新してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-assembly-include-deleted",
+      "weekUnitId": "week-unit-week44",
+      "format": "fillBlank",
+      "prompt": "QuizはSoftDeletesを使います。管理一覧に、未削除と論理削除済みの両方を取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $quizzes = Quiz::__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "withTrashed()->get()"
+          },
+          {
+            "id": "wrong",
+            "text": "onlyTrashed()->get()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "onlyTrashedでは論理削除済みだけになり、未削除のデータが含まれません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "withTrashed(",
+            ")->get(",
+            ")"
+          ],
+          "wrong": [
+            "onlyTrashed(",
+            ")->get(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "withTrashedで両方を取得します。PCでは削除状態の違う2件を管理画面で確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "QuizはSoftDeletesを使います。管理一覧に、未削除と論理削除済みの両方を取得してください。",
+      "conceptId": "ph3-week44-include-deleted",
+      "variantGroup": "ph3-week44-assembly-include-deleted",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。",
+      "drillConnection": "PH3 Week44のPOSSE課題へ接続。削除状態の違う2件を管理画面で確認しましょう。",
+      "hint": "削除済みも含める指定と、削除済みだけを区別します。",
+      "success": "QuizはSoftDeletesを使います。管理一覧に、未削除と論理削除済みの両方を取得してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-assembly-deleted-label",
+      "weekUnitId": "week-unit-week44",
+      "format": "fillBlank",
+      "prompt": "管理一覧の$quizはSoftDeletesモデルです。削除済みなら「削除済み」、そうでなければ「公開中」と表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "@if (__BLANK__)\n  削除済み\n@else\n  公開中\n@endif",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$quiz->trashed()"
+          },
+          {
+            "id": "wrong",
+            "text": "$quiz->exists"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "existsはDBに保存済みかの属性で、論理削除状態の判定ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "blade",
+        "optionTokens": {
+          "correct": [
+            "$quiz->",
+            "trashed(",
+            ")"
+          ],
+          "wrong": [
+            "$quiz->",
+            "exists"
+          ]
+        }
+      },
+      "explanation": "trashed()で削除状態を判別します。PCでは削除済み項目の編集導線も無効か確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "管理一覧の$quizはSoftDeletesモデルです。削除済みなら「削除済み」、そうでなければ「公開中」と表示してください。",
+      "conceptId": "ph3-week44-deleted-label",
+      "variantGroup": "ph3-week44-assembly-deleted-label",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。",
+      "drillConnection": "PH3 Week44のPOSSE課題へ接続。削除済み項目の編集導線も無効か確認しましょう。",
+      "hint": "論理削除状態を調べるメソッドを使います。",
+      "success": "管理一覧の$quizはSoftDeletesモデルです。削除済みなら「削除済み」、そうでなければ「公開中」と表示してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的意味レビューのみ。Blade/Laravelは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "blade"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-assembly-custom-required-message",
+      "weekUnitId": "week-unit-week44",
+      "format": "fillBlank",
+      "prompt": "FormRequestのsample.requiredに、日本語メッセージを指定してください。messages内の返却配列です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nclass QuizCreateRequest extends FormRequest {\n  public function messages(): array {\n    return [__BLANK__];\n  }\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "'sample.required' => 'サンプルは必須です。'"
+          },
+          {
+            "id": "wrong",
+            "text": "'sample.max' => 'サンプルは必須です。'"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "maxのエラーへ設定しており、requiredが失敗した時には使われません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "'sample.required' ",
+            "=> ",
+            "'サンプルは必須です。'"
+          ],
+          "wrong": [
+            "'sample.max' ",
+            "=> ",
+            "'サンプルは必須です。'"
+          ]
+        }
+      },
+      "explanation": "sample.requiredをキーにします。PCでは未入力送信でこのメッセージが出るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "FormRequestのsample.requiredに、日本語メッセージを指定してください。messages内の返却配列です。",
+      "conceptId": "ph3-week44-custom-required-message",
+      "variantGroup": "ph3-week44-assembly-custom-required-message",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。",
+      "drillConnection": "week44-1の関連ドリルへ接続。未入力送信でこのメッセージが出るか確認しましょう。",
+      "hint": "項目名とルール名をドットで結びます。",
+      "success": "FormRequestのsample.requiredに、日本語メッセージを指定してください。messages内の返却配列です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week44-1/README.md",
+          "line": 1,
+          "heading": "44週目ミニドリル 1問目",
+          "sha256": "b1314aa7652b896d3382c4a66a5f49141efe24497521757b4ae58f6afddc332e",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week44-1/src/app/Http/Requests/QuizCreateRequest.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "04bca66ee65f55616008b196a12100db1d8cae8160d4b2f77ccb01c998e2838a",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-assembly-update-owned-choice",
+      "weekUnitId": "week-unit-week44",
+      "format": "fillBlank",
+      "prompt": "取得済み$questionのchoicesリレーションから、フォームで指定した$choiceIdの1件を取得してください。親設問の認可確認は済んでいます。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $choice = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$question->choices()->findOrFail($choiceId)"
+          },
+          {
+            "id": "wrong",
+            "text": "Choice::findOrFail($choiceId)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "Choice全体から探すと、別の設問に属する選択肢も取得し得ます。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$question->choices()->",
+            "findOrFail(",
+            "$choiceId",
+            ")"
+          ],
+          "wrong": [
+            "Choice::",
+            "findOrFail(",
+            "$choiceId",
+            ")"
+          ]
+        }
+      },
+      "explanation": "親に属する選択肢の範囲でIDを探します。PCでは別の設問の選択肢IDを送っても更新できないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "取得済み$questionのchoicesリレーションから、フォームで指定した$choiceIdの1件を取得してください。親設問の認可確認は済んでいます。",
+      "conceptId": "ph3-week44-update-owned-choice",
+      "variantGroup": "ph3-week44-assembly-update-owned-choice",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。",
+      "drillConnection": "PH3 Week44のPOSSE課題へ接続。別の設問の選択肢IDを送っても更新できないか確認しましょう。",
+      "hint": "取得範囲を現在の親リレーションへ限定します。",
+      "success": "取得済み$questionのchoicesリレーションから、フォームで指定した$choiceIdの1件を取得してください。親設問の認可確認は済んでいます。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-question-soft-delete",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "QuestionにSoftDeletesとdeleted_atがあります。管理者が設問を論理削除する処理はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "Question::truncate();"
+          },
+          {
+            "id": "wrong3",
+            "text": "$question->text = \"削除済み\"; だけ"
+          },
+          {
+            "id": "correct",
+            "text": "$question->delete();"
+          },
+          {
+            "id": "wrong1",
+            "text": "$question->forceDelete();"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "行を物理削除する処理になります。",
+          "wrong2": "テーブルの全行を削除する操作であり対象1件の論理削除ではありません。",
+          "wrong3": "削除日時を記録する論理削除になりません。"
+        }
+      },
+      "explanation": "SoftDeletesを使うdeleteで行を残します。 PCではDBに行とdeleted_atが残るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$question->delete();」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-question-soft-delete",
+      "variantGroup": "ph3-week44-choice-question-soft-delete",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week44のPOSSE課題。DBに行とdeleted_atが残るか確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "削除日時を記録するモデルの操作です。",
+      "success": "条件に適合する候補を1つ選ぶ：$question->delete();",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-admin-includes-deleted",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "管理用設問一覧で未削除と削除済みを両方表示します。QuestionがSoftDeletesの場合、使う取得はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "Question::where(\"text\", \"削除済み\")->paginate(20)"
+          },
+          {
+            "id": "correct",
+            "text": "Question::withTrashed()->paginate(20)"
+          },
+          {
+            "id": "wrong1",
+            "text": "Question::onlyTrashed()->paginate(20)"
+          },
+          {
+            "id": "wrong2",
+            "text": "Question::paginate(20)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "未削除の設問が含まれません。",
+          "wrong2": "通常は削除済みが除外されます。",
+          "wrong3": "本文では削除状態を判定できません。"
+        }
+      },
+      "explanation": "withTrashedで両方を含め、状態をラベルで示します。 PCでは通常一覧との表示の違いを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Question::withTrashed()->paginate(20)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-admin-includes-deleted",
+      "variantGroup": "ph3-week44-choice-admin-includes-deleted",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week44のPOSSE課題。通常一覧との表示の違いを確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "管理一覧は削除済みも取得対象にします。",
+      "success": "条件に適合する候補を1つ選ぶ：Question::withTrashed()->paginate(20)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-disabled-server-update",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "削除済み設問には編集リンクを出しません。更新URLへ直接送信される場合の対応はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "サーバー側でも削除済みか確認し更新を拒否する"
+          },
+          {
+            "id": "wrong1",
+            "text": "編集リンクがないので更新を無条件に許可する"
+          },
+          {
+            "id": "wrong2",
+            "text": "削除済みの日時を消して必ず更新する"
+          },
+          {
+            "id": "wrong3",
+            "text": "文字色だけ灰色へ変更する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "直接リクエストを送る経路が残ります。",
+          "wrong2": "編集禁止という要件に反します。",
+          "wrong3": "保存処理を拒否できません。"
+        }
+      },
+      "explanation": "削除状態に応じた操作制限を保存処理にも適用します。 PCでは削除済みIDへの更新でデータが変わらないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「サーバー側でも削除済みか確認し更新を拒否する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-disabled-server-update",
+      "variantGroup": "ph3-week44-choice-disabled-server-update",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week44のPOSSE課題。削除済みIDへの更新でデータが変わらないか確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "リンクの表示以外からも更新は要求できます。",
+      "success": "条件に適合する候補を1つ選ぶ：サーバー側でも削除済みか確認し更新を拒否する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-related-choice-update",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "編集対象$questionのchoicesはhasManyです。送信された$choiceIdがこの設問に属することも確かめて取得するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "Choice::findOrFail($choiceId)"
+          },
+          {
+            "id": "wrong2",
+            "text": "Choice::first()"
+          },
+          {
+            "id": "wrong3",
+            "text": "$question->choices()->first()"
+          },
+          {
+            "id": "correct",
+            "text": "$question->choices()->findOrFail($choiceId)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "別の設問の選択肢IDも取得でき、所属の条件がありません。",
+          "wrong2": "指定IDも親の所属も確認しません。",
+          "wrong3": "親は限定されますが指定された選択肢IDを使っていません。"
+        }
+      },
+      "explanation": "親を起点に取得すれば別の設問の子を取り違えずに済みます。 PCでは別設問の選択肢IDを送って拒否されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「$question->choices()->findOrFail($choiceId)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-related-choice-update",
+      "variantGroup": "ph3-week44-choice-related-choice-update",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week44のPOSSE課題。別設問の選択肢IDを送って拒否されるか確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "親の関連から送信IDを探します。",
+      "success": "条件に適合する候補を1つ選ぶ：$question->choices()->findOrFail($choiceId)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-reassign-quiz",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "管理者が設問を別のクイズへ移します。検証済みの所属先IDを変更する列はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "choices.is_correct"
+          },
+          {
+            "id": "wrong3",
+            "text": "quizzes.name"
+          },
+          {
+            "id": "correct",
+            "text": "questions.quiz_id"
+          },
+          {
+            "id": "wrong1",
+            "text": "questions.id"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "設問自身の主キーを変更する処理ではありません。",
+          "wrong2": "選択肢の正誤は所属クイズを変えません。",
+          "wrong3": "親の名前だけを変えても所属先は変わりません。"
+        }
+      },
+      "explanation": "quiz_idを更新して所属先を変えます。 PCでは変更前後の両クイズで設問一覧を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "提示条件に対して「questions.quiz_id」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-reassign-quiz",
+      "variantGroup": "ph3-week44-choice-reassign-quiz",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week44のPOSSE課題。変更前後の両クイズで設問一覧を確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "子が持つ親への参照を更新します。",
+      "success": "条件に適合する候補を1つ選ぶ：questions.quiz_id",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-edit-validation-retained",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "新規設問ではtextを必須・200文字以内に検証しています。編集フォームで必要な対応はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "HTMLのmaxlengthだけに任せる"
+          },
+          {
+            "id": "correct",
+            "text": "編集でも同じ要件の入力検証を適用する"
+          },
+          {
+            "id": "wrong1",
+            "text": "新規時に検証したので編集では長さを調べない"
+          },
+          {
+            "id": "wrong2",
+            "text": "編集では入力をすべて画像として扱う"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "編集で不正な長さへ変更できてしまいます。",
+          "wrong2": "設問本文の検証要件に合いません。",
+          "wrong3": "クライアント側だけでは直接送信を防げません。"
+        }
+      },
+      "explanation": "更新時も必須と長さなどの制約を確認します。 PCでは編集で250文字を送って拒否されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「編集でも同じ要件の入力検証を適用する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-edit-validation-retained",
+      "variantGroup": "ph3-week44-choice-edit-validation-retained",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week44のPOSSE課題。編集で250文字を送って拒否されるか確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "保存するたびに同じ要件を守ります。",
+      "success": "条件に適合する候補を1つ選ぶ：編集でも同じ要件の入力検証を適用する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-custom-message-method",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "FormRequestで特定の検証エラー文を変更するメソッドはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "messages()"
+          },
+          {
+            "id": "wrong1",
+            "text": "up()"
+          },
+          {
+            "id": "wrong2",
+            "text": "index()"
+          },
+          {
+            "id": "wrong3",
+            "text": "getFullNameAttribute()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "マイグレーションの変更処理に使う名前です。",
+          "wrong2": "一般に一覧用アクションであり検証文の定義ではありません。",
+          "wrong3": "モデルのアクセサであり検証文の定義ではありません。"
+        }
+      },
+      "explanation": "messagesで検証エラー文を指定できます。 PCではFormRequestへメソッドを追加して未入力時の文を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「messages()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-custom-message-method",
+      "variantGroup": "ph3-week44-choice-custom-message-method",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week44-1/README.md",
+          "line": 1,
+          "heading": "44週目ミニドリル 1問目",
+          "sha256": "b1314aa7652b896d3382c4a66a5f49141efe24497521757b4ae58f6afddc332e",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week44-1/src/app/Http/Requests/QuizCreateRequest.php",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "04bca66ee65f55616008b196a12100db1d8cae8160d4b2f77ccb01c998e2838a"
+        }
+      ],
+      "drillConnection": "week44-1の関連ドリル。FormRequestへメソッドを追加して未入力時の文を確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ルールの定義とは別に表示文を返します。",
+      "success": "条件に適合する候補を1つ選ぶ：messages()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-custom-message-key",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "sampleのrequiredエラーだけを「入力してください」にするmessagesのキーはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "required.sample"
+          },
+          {
+            "id": "wrong2",
+            "text": "sample.max"
+          },
+          {
+            "id": "wrong3",
+            "text": "email.required"
+          },
+          {
+            "id": "correct",
+            "text": "sample.required"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "基本の指定はフィールド名.ルール名です。",
+          "wrong2": "長さ上限のエラーへ指定してしまいます。",
+          "wrong3": "別のフィールドの必須エラーです。"
+        }
+      },
+      "explanation": "sample.requiredでその欄の必須エラーを指定します。 PCでは未入力と長さ超過で文が使い分けられるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「sample.required」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-custom-message-key",
+      "variantGroup": "ph3-week44-choice-custom-message-key",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week44-1/README.md",
+          "line": 1,
+          "heading": "44週目ミニドリル 1問目",
+          "sha256": "b1314aa7652b896d3382c4a66a5f49141efe24497521757b4ae58f6afddc332e",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week44-1/src/app/Http/Requests/QuizCreateRequest.php",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "04bca66ee65f55616008b196a12100db1d8cae8160d4b2f77ccb01c998e2838a"
+        }
+      ],
+      "drillConnection": "week44-1の関連ドリル。未入力と長さ超過で文が使い分けられるか確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "入力名と失敗したルール名をドットでつなぎます。",
+      "success": "条件に適合する候補を1つ選ぶ：sample.required",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-admin-delete-auth",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "一般ユーザーの画面から削除ボタンを外しました。削除リクエストを管理者だけに制限する方法はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "確認モーダルだけを追加してサーバー確認を省く"
+          },
+          {
+            "id": "wrong3",
+            "text": "URLにadminと書くだけ"
+          },
+          {
+            "id": "correct",
+            "text": "削除ルートまたはControllerで管理者認可を必須にする"
+          },
+          {
+            "id": "wrong1",
+            "text": "ボタンを隠したので削除ルートを公開したままにする"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "直接のリクエストを防げません。",
+          "wrong2": "モーダルを経由しない送信が可能です。",
+          "wrong3": "パス名は利用者の権限を確認しません。"
+        }
+      },
+      "explanation": "管理者認可を削除処理の入口で強制します。 PCでは一般ユーザーから直接削除を要求して拒否を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「削除ルートまたはControllerで管理者認可を必須にする」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-admin-delete-auth",
+      "variantGroup": "ph3-week44-choice-admin-delete-auth",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week44のPOSSE課題。一般ユーザーから直接削除を要求して拒否を確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "サーバーへ届いた時点で利用者の許可を調べます。",
+      "success": "条件に適合する候補を1つ選ぶ：削除ルートまたはControllerで管理者認可を必須にする",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week44-choice-edit-check-related-data",
+      "weekUnitId": "week-unit-week44",
+      "format": "singleChoice",
+      "prompt": "設問と3つの選択肢を編集し、保存の成功通知が出ました。内容の対応を確かめる確認はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "画面を閉じて確認を省く"
+          },
+          {
+            "id": "correct",
+            "text": "対象クイズの画面とDBで設問・選択肢・正解フラグを照合する"
+          },
+          {
+            "id": "wrong1",
+            "text": "成功通知だけで全項目が正しいと判断する"
+          },
+          {
+            "id": "wrong2",
+            "text": "別のクイズの見出しだけを見る"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "通知だけでは関連付けや個別の保存値を確認できません。",
+          "wrong2": "変更した対象を確認していません。",
+          "wrong3": "保存結果が要件と一致するか分かりません。"
+        }
+      },
+      "explanation": "親子の関連と選択肢の正誤をまとめて照合します。 PCでは別設問の選択肢が変わっていないことも確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week44",
+        "sectionHeading": "Week 44"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「対象クイズの画面とDBで設問・選択肢・正解フラグを照合する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week44-edit-check-related-data",
+      "variantGroup": "ph3-week44-choice-edit-check-related-data",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 772,
+        "heading": "Week 44",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week44のPOSSE課題。別設問の選択肢が変わっていないことも確認しましょう。",
+      "priorKnowledge": "Week43の設問・選択肢の関連保存。Week39の論理削除、Week42の検証。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "保存成功と期待どおりの内容を分けて確認します。",
+      "success": "条件に適合する候補を1つ選ぶ：対象クイズの画面とDBで設問・選択肢・正解フラグを照合する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

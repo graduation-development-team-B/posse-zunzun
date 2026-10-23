@@ -833,5 +833,474 @@
       "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-assembly-await-fetch",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "async関数の中です。通信完了後のResponseをresponseへ受け取ってください。urlは定義済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "async function load() {\n  const response = __BLANK__;\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "await fetch(url)"
+          },
+          {
+            "id": "wrong",
+            "text": "fetch(url)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "awaitがないとresponseはResponseではなくPromiseになります。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "await ",
+            "fetch(",
+            "url",
+            ")"
+          ],
+          "wrong": [
+            "fetch(",
+            "url",
+            ")"
+          ]
+        }
+      },
+      "explanation": "fetchの完了を待ってResponseを受け取ります。PCではresponse.okを確認できる状態にしましょう。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "「Promise」という入れ物"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "async関数の中です。通信完了後のResponseをresponseへ受け取ってください。urlは定義済みです。",
+      "conceptId": "ph1-week10-await-fetch",
+      "variantGroup": "ph1-week10-assembly-await-fetch",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。response.okを確認できる状態にしましょう。",
+      "hint": "fetchの完了を待ってResponseを受け取ります。",
+      "success": "async関数の中です。通信完了後のResponseをresponseへ受け取ってください。urlは定義済みです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "line": 53,
+        "heading": "「Promise」という入れ物",
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week10-1/README.md",
+          "line": 1,
+          "heading": "問題1：投稿タイトル一覧（fetch × forEach）（20分）",
+          "sha256": "709d0c610cda4f9b4030f385d25aedd6250e3d8b89066a31efa6a4312f5c512c"
+        },
+        {
+          "path": "drill-ph1/week10-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（await 忘れ）（15分）",
+          "sha256": "c4d31f3cd134a28f705604e0bd55cb0db3efb32e50cfce2dd25347647a1d11ca"
+        },
+        {
+          "path": "drill-ph1/week10-3/README.md",
+          "line": 1,
+          "heading": "問題3：投稿検索（fetch × filter・input の復習）（25分）",
+          "sha256": "cdb3f8b9676f93c5b6f7d15bfc875ad94fc2db0af3fc4f09a365a6685518321f"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-assembly-await-json",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "responseは取得済みです。JSON本文を読んだ値をdataへ入れてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "async function read(response) {\n  const data = __BLANK__;\n  console.log(data);\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "await response.json()"
+          },
+          {
+            "id": "wrong",
+            "text": "response.json()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "json()もPromiseを返すため、awaitなしでは読み取った値になりません。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "await ",
+            "response.",
+            "json(",
+            ")"
+          ],
+          "wrong": [
+            "response.",
+            "json(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "fetchを待つ処理と本文を読む処理は別です。PCではdataの形をConsoleで確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "受け取っても、まだ中身は使えない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "responseは取得済みです。JSON本文を読んだ値をdataへ入れてください。",
+      "conceptId": "ph1-week10-await-json",
+      "variantGroup": "ph1-week10-assembly-await-json",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。dataの形をConsoleで確認しましょう。",
+      "hint": "fetchを待つ処理と本文を読む処理は別です。",
+      "success": "responseは取得済みです。JSON本文を読んだ値をdataへ入れてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "line": 89,
+        "heading": "受け取っても、まだ中身は使えない",
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week10-1/README.md",
+          "line": 1,
+          "heading": "問題1：投稿タイトル一覧（fetch × forEach）（20分）",
+          "sha256": "709d0c610cda4f9b4030f385d25aedd6250e3d8b89066a31efa6a4312f5c512c"
+        },
+        {
+          "path": "drill-ph1/week10-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（await 忘れ）（15分）",
+          "sha256": "c4d31f3cd134a28f705604e0bd55cb0db3efb32e50cfce2dd25347647a1d11ca"
+        },
+        {
+          "path": "drill-ph1/week10-3/README.md",
+          "line": 1,
+          "heading": "問題3：投稿検索（fetch × filter・input の復習）（25分）",
+          "sha256": "cdb3f8b9676f93c5b6f7d15bfc875ad94fc2db0af3fc4f09a365a6685518321f"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-assembly-async-declaration",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "JSONを取得する関数の宣言を組み立ててください。関数内ではawaitを使います。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__ {\n  const response = await fetch(url);\n  return await response.json();\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "async function loadUser()"
+          },
+          {
+            "id": "wrong",
+            "text": "function loadUser()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "この通常の関数宣言のままでは関数内にawaitを書けません。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "async ",
+            "function ",
+            "loadUser(",
+            ")"
+          ],
+          "wrong": [
+            "function ",
+            "loadUser(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "asyncを付けた関数でawaitを使います。PCでは関数を呼び出して応答を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "async と、いちばん多い事故"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "JSONを取得する関数の宣言を組み立ててください。関数内ではawaitを使います。",
+      "conceptId": "ph1-week10-async-declaration",
+      "variantGroup": "ph1-week10-assembly-async-declaration",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。関数を呼び出して応答を確認しましょう。",
+      "hint": "asyncを付けた関数でawaitを使います。",
+      "success": "JSONを取得する関数の宣言を組み立ててください。関数内ではawaitを使います。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "line": 65,
+        "heading": "async と、いちばん多い事故",
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week10-1/README.md",
+          "line": 1,
+          "heading": "問題1：投稿タイトル一覧（fetch × forEach）（20分）",
+          "sha256": "709d0c610cda4f9b4030f385d25aedd6250e3d8b89066a31efa6a4312f5c512c"
+        },
+        {
+          "path": "drill-ph1/week10-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（await 忘れ）（15分）",
+          "sha256": "c4d31f3cd134a28f705604e0bd55cb0db3efb32e50cfce2dd25347647a1d11ca"
+        },
+        {
+          "path": "drill-ph1/week10-3/README.md",
+          "line": 1,
+          "heading": "問題3：投稿検索（fetch × filter・input の復習）（25分）",
+          "sha256": "cdb3f8b9676f93c5b6f7d15bfc875ad94fc2db0af3fc4f09a365a6685518321f"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-assembly-http-failure",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "HTTPが成功でない時だけErrorを投げます。responseは取得済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "if (__BLANK__) {\n  throw new Error(\"取得失敗\");\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "!response.ok"
+          },
+          {
+            "id": "wrong",
+            "text": "response.ok"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "成功時にエラーを投げる逆の条件です。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "!",
+            "response.",
+            "ok"
+          ],
+          "wrong": [
+            "response.",
+            "ok"
+          ]
+        }
+      },
+      "explanation": "!response.okでHTTP失敗を区別します。PCでは成功URLと404になるURLを試しましょう。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "通信はわりと失敗する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "HTTPが成功でない時だけErrorを投げます。responseは取得済みです。",
+      "conceptId": "ph1-week10-http-failure",
+      "variantGroup": "ph1-week10-assembly-http-failure",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。成功URLと404になるURLを試しましょう。",
+      "hint": "!response.okでHTTP失敗を区別します。",
+      "success": "HTTPが成功でない時だけErrorを投げます。responseは取得済みです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "line": 114,
+        "heading": "通信はわりと失敗する",
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week10-1/README.md",
+          "line": 1,
+          "heading": "問題1：投稿タイトル一覧（fetch × forEach）（20分）",
+          "sha256": "709d0c610cda4f9b4030f385d25aedd6250e3d8b89066a31efa6a4312f5c512c"
+        },
+        {
+          "path": "drill-ph1/week10-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（await 忘れ）（15分）",
+          "sha256": "c4d31f3cd134a28f705604e0bd55cb0db3efb32e50cfce2dd25347647a1d11ca"
+        },
+        {
+          "path": "drill-ph1/week10-3/README.md",
+          "line": 1,
+          "heading": "問題3：投稿検索（fetch × filter・input の復習）（25分）",
+          "sha256": "cdb3f8b9676f93c5b6f7d15bfc875ad94fc2db0af3fc4f09a365a6685518321f"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week10-assembly-render-name",
+      "weekUnitId": "week-unit-week10",
+      "format": "fillBlank",
+      "prompt": "dataは{name:\"佐藤\", email:\"sato@example.invalid\"}です。nameElは取得済みです。名前を表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "nameEl.textContent = data.name"
+          },
+          {
+            "id": "wrong",
+            "text": "nameEl.textContent = data.email"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "emailを参照すると名前ではなくメールアドレスが表示されます。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "nameEl.",
+            "textContent ",
+            "= ",
+            "data.name"
+          ],
+          "wrong": [
+            "nameEl.",
+            "textContent ",
+            "= ",
+            "data.email"
+          ]
+        }
+      },
+      "explanation": "取得したオブジェクトのnameを表示枠のtextContentへ渡します。PCではConsoleで形を見てから表示を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week10",
+        "sectionHeading": "取ってきたデータを、画面に出す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "dataは{name:\"佐藤\", email:\"sato@example.invalid\"}です。nameElは取得済みです。名前を表示してください。",
+      "conceptId": "ph1-week10-render-name",
+      "variantGroup": "ph1-week10-assembly-render-name",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜10の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week10の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。Consoleで形を見てから表示を確認しましょう。",
+      "hint": "取得したオブジェクトのnameを表示枠のtextContentへ渡します。",
+      "success": "dataは{name:\"佐藤\", email:\"sato@example.invalid\"}です。nameElは取得済みです。名前を表示してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week10.md",
+        "line": 151,
+        "heading": "取ってきたデータを、画面に出す",
+        "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week10-1/README.md",
+          "line": 1,
+          "heading": "問題1：投稿タイトル一覧（fetch × forEach）（20分）",
+          "sha256": "709d0c610cda4f9b4030f385d25aedd6250e3d8b89066a31efa6a4312f5c512c"
+        },
+        {
+          "path": "drill-ph1/week10-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（await 忘れ）（15分）",
+          "sha256": "c4d31f3cd134a28f705604e0bd55cb0db3efb32e50cfce2dd25347647a1d11ca"
+        },
+        {
+          "path": "drill-ph1/week10-3/README.md",
+          "line": 1,
+          "heading": "問題3：投稿検索（fetch × filter・input の復習）（25分）",
+          "sha256": "cdb3f8b9676f93c5b6f7d15bfc875ad94fc2db0af3fc4f09a365a6685518321f"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
   }
 ]

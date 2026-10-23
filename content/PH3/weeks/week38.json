@@ -1,0 +1,1146 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week38-assembly-edit-route",
+      "weekUnitId": "week-unit-week38",
+      "format": "fillBlank",
+      "prompt": "QuizControllerのupdateへ、PATCH /quizzes/{id}を結び付けてください。Controllerはimport済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\QuizController;\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Route::patch('/quizzes/{id}', [QuizController::class, 'update'])"
+          },
+          {
+            "id": "wrong",
+            "text": "Route::get('/quizzes/{id}', [QuizController::class, 'update'])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "GETはデータ更新の送信方法として指定していません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "Route::patch(",
+            "'/quizzes/{id}', ",
+            "[QuizController::class, 'update']",
+            ")"
+          ],
+          "wrong": [
+            "Route::get(",
+            "'/quizzes/{id}', ",
+            "[QuizController::class, 'update']",
+            ")"
+          ]
+        }
+      },
+      "explanation": "PATCHで更新処理へ結び付けます。PCではroute:listでupdateのHTTPメソッドを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "QuizControllerのupdateへ、PATCH /quizzes/{id}を結び付けてください。Controllerはimport済みです。",
+      "conceptId": "ph3-week38-edit-route",
+      "variantGroup": "ph3-week38-assembly-edit-route",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。",
+      "drillConnection": "PH3 Week38のPOSSE課題へ接続。route:listでupdateのHTTPメソッドを確認しましょう。",
+      "hint": "更新用ルートには指定されたHTTPメソッドを使います。",
+      "success": "QuizControllerのupdateへ、PATCH /quizzes/{id}を結び付けてください。Controllerはimport済みです。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-assembly-patch-form",
+      "weekUnitId": "week-unit-week38",
+      "format": "fillBlank",
+      "prompt": "WebルートにはCSRFミドルウェアがあり、更新先はPATCHです。HTML formはPOST送信するので、CSRFとPATCHの指定を追加してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<form method=\"POST\" action=\"{{ route('quizzes.update', $quiz) }}\">\n__BLANK__\n<input name=\"name\"><button type=\"submit\">更新</button>\n</form>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "@csrf\n@method('PATCH')"
+          },
+          {
+            "id": "wrong",
+            "text": "@csrf\n@method('GET')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "GETへ偽装するとPATCHの更新ルートに一致しません。"
+        }
+      },
+      "assembly": {
+        "language": "blade",
+        "optionTokens": {
+          "correct": [
+            "@csrf\n",
+            "@method(",
+            "'PATCH'",
+            ")"
+          ],
+          "wrong": [
+            "@csrf\n",
+            "@method(",
+            "'GET'",
+            ")"
+          ]
+        }
+      },
+      "explanation": "@csrfと@methodを組み合わせます。PCでは送信先のupdateが呼ばれるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "WebルートにはCSRFミドルウェアがあり、更新先はPATCHです。HTML formはPOST送信するので、CSRFとPATCHの指定を追加してください。",
+      "conceptId": "ph3-week38-patch-form",
+      "variantGroup": "ph3-week38-assembly-patch-form",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。",
+      "drillConnection": "PH3 Week38のPOSSE課題へ接続。送信先のupdateが呼ばれるか確認しましょう。",
+      "hint": "フォームのPOSTに、Laravelが読むHTTPメソッド指定を添えます。",
+      "success": "WebルートにはCSRFミドルウェアがあり、更新先はPATCHです。HTML formはPOST送信するので、CSRFとPATCHの指定を追加してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的意味レビューのみ。Blade/Laravelは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "blade"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-assembly-update-name",
+      "weekUnitId": "week-unit-week38",
+      "format": "fillBlank",
+      "prompt": "$quizは取得済みでnameはfillableです。$validatedはnameだけを含む検証済み配列です。既存クイズを更新してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$quiz->update($validated)"
+          },
+          {
+            "id": "wrong",
+            "text": "$quiz->create($validated)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "createは新しいレコードを作る処理で、取得済みクイズの更新ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$quiz->",
+            "update(",
+            "$validated",
+            ")"
+          ],
+          "wrong": [
+            "$quiz->",
+            "create(",
+            "$validated",
+            ")"
+          ]
+        }
+      },
+      "explanation": "updateへ検証済みの属性だけを渡します。PCでは同じidの名前が変わり、行数が増えないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$quizは取得済みでnameはfillableです。$validatedはnameだけを含む検証済み配列です。既存クイズを更新してください。",
+      "conceptId": "ph3-week38-update-name",
+      "variantGroup": "ph3-week38-assembly-update-name",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。",
+      "drillConnection": "PH3 Week38のPOSSE課題へ接続。同じidの名前が変わり、行数が増えないか確認しましょう。",
+      "hint": "取得したモデル自身を更新するメソッドです。",
+      "success": "$quizは取得済みでnameはfillableです。$validatedはnameだけを含む検証済み配列です。既存クイズを更新してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-assembly-session-put",
+      "weekUnitId": "week-unit-week38",
+      "format": "fillBlank",
+      "prompt": "Laravelのsessionヘルパーを使い、キーhomeに数値1を保存してください。Webセッションは利用可能です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "session(['home' => 1])"
+          },
+          {
+            "id": "wrong",
+            "text": "session('home', 1)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "session(key, default)は読み取りで、保存の指定ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "session(",
+            "['home' => ",
+            "1",
+            "]",
+            ")"
+          ],
+          "wrong": [
+            "session(",
+            "'home', ",
+            "1",
+            ")"
+          ]
+        }
+      },
+      "explanation": "sessionへ配列を渡すと値を保存します。PCでは次の処理でhomeを読んで1か確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Laravelのsessionヘルパーを使い、キーhomeに数値1を保存してください。Webセッションは利用可能です。",
+      "conceptId": "ph3-week38-session-put",
+      "variantGroup": "ph3-week38-assembly-session-put",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。",
+      "drillConnection": "week38-1の関連ドリルへ接続。次の処理でhomeを読んで1か確認しましょう。",
+      "hint": "複数の値を保存する形ではキーと値の配列を渡します。",
+      "success": "Laravelのsessionヘルパーを使い、キーhomeに数値1を保存してください。Webセッションは利用可能です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week38-1/README.md",
+          "line": 1,
+          "heading": "38週目ミニドリル 1問目",
+          "sha256": "bd1ca5a68fd70888950f99a41f624a31f8f3b060bedbd80ac2ba942336fbf018",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week38-1/src/app/Http/Controllers/HomeController.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "868e1549f23c8d25bcae51062db613a2e5df90928c7a827b1a14e0563bd68ee8",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-assembly-session-get",
+      "weekUnitId": "week-unit-week38",
+      "format": "fillBlank",
+      "prompt": "Laravelのsessionヘルパーからhomeを読み、未保存なら0を返してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $home = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "session('home', 0)"
+          },
+          {
+            "id": "wrong",
+            "text": "session(['home' => 0])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "配列を渡す形ではhomeを0で保存する操作になります。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "session(",
+            "'home', ",
+            "0",
+            ")"
+          ],
+          "wrong": [
+            "session(",
+            "['home' => ",
+            "0",
+            "]",
+            ")"
+          ]
+        }
+      },
+      "explanation": "session(key, default)で読み取ります。PCでは未保存と保存済みの両方を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Laravelのsessionヘルパーからhomeを読み、未保存なら0を返してください。",
+      "conceptId": "ph3-week38-session-get",
+      "variantGroup": "ph3-week38-assembly-session-get",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。",
+      "drillConnection": "week38-1の関連ドリルへ接続。未保存と保存済みの両方を確認しましょう。",
+      "hint": "読み取りではキーと、値がない時の初期値を渡します。",
+      "success": "Laravelのsessionヘルパーからhomeを読み、未保存なら0を返してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week38-1/README.md",
+          "line": 1,
+          "heading": "38週目ミニドリル 1問目",
+          "sha256": "bd1ca5a68fd70888950f99a41f624a31f8f3b060bedbd80ac2ba942336fbf018",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week38-1/src/app/Http/Controllers/HomeController.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "868e1549f23c8d25bcae51062db613a2e5df90928c7a827b1a14e0563bd68ee8",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-edit-existing-value",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "クイズ編集フォームを初めて開きました。name欄に最初から表示する値はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "別のクイズのname"
+          },
+          {
+            "id": "wrong3",
+            "text": "一覧にある全クイズのnameを連結した値"
+          },
+          {
+            "id": "correct",
+            "text": "編集対象クイズの現在のname"
+          },
+          {
+            "id": "wrong1",
+            "text": "必ず空文字"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "既存値を確認して編集する要件を満たしません。",
+          "wrong2": "編集対象と一致しません。",
+          "wrong3": "一つのクイズのタイトルを編集するフォームです。"
+        }
+      },
+      "explanation": "編集時は既存のタイトルを初期表示します。 PCでは異なる2件の編集ページで初期値を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「編集対象クイズの現在のname」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-edit-existing-value",
+      "variantGroup": "ph3-week38-choice-edit-existing-value",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week38のPOSSE課題。異なる2件の編集ページで初期値を確認しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "対象モデルから現在の値を取り出します。",
+      "success": "条件に適合する候補を1つ選ぶ：編集対象クイズの現在のname",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-old-input-fallback",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "検証エラー後は入力し直した値、初回は既存の$quiz->nameを表示します。Bladeで使うものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "session(\"password\")"
+          },
+          {
+            "id": "correct",
+            "text": "old(\"name\", $quiz->name)"
+          },
+          {
+            "id": "wrong1",
+            "text": "$quiz->nameだけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "old(\"name\")だけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "エラー後に入力し直した値を優先できません。",
+          "wrong2": "初回の既存値へのフォールバックがありません。",
+          "wrong3": "タイトルの再表示に使う値ではありません。"
+        }
+      },
+      "explanation": "oldの第2引数で初期値を指定できます。 PCでは検証エラーの前後で入力値が維持されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「old(\"name\", $quiz->name)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-old-input-fallback",
+      "variantGroup": "ph3-week38-choice-old-input-fallback",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week38のPOSSE課題。検証エラーの前後で入力値が維持されるか確認しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "直前の入力を優先し、なければ既存値に戻します。",
+      "success": "条件に適合する候補を1つ選ぶ：old(\"name\", $quiz->name)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-update-existing-row",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "取得済みの$quizのnameだけを更新します。$validatedはnameのみの検証済み配列です。適切な処理はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$quiz->update($validated)"
+          },
+          {
+            "id": "wrong1",
+            "text": "Quiz::create($validated)"
+          },
+          {
+            "id": "wrong2",
+            "text": "$quiz->delete()"
+          },
+          {
+            "id": "wrong3",
+            "text": "Quiz::all()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "新しい行を作成するため既存行の更新になりません。",
+          "wrong2": "削除処理でありタイトル更新ではありません。",
+          "wrong3": "取得だけでは値を変更しません。"
+        }
+      },
+      "explanation": "updateで同じ行の属性を更新します。 PCではidと行数が変わらずnameが変わるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$quiz->update($validated)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-update-existing-row",
+      "variantGroup": "ph3-week38-choice-update-existing-row",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week38のPOSSE課題。idと行数が変わらずnameが変わるか確認しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "既存モデルを対象に変更を保存します。",
+      "success": "条件に適合する候補を1つ選ぶ：$quiz->update($validated)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-patch-form",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "更新ルートがPATCHを受け付けます。通常のHTMLフォームから送るLaravelの組み合わせはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "method=\"PATCH\"だけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "method=\"GET\"と@csrfだけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "method=\"POST\"だけでメソッド指定を省略"
+          },
+          {
+            "id": "correct",
+            "text": "method=\"POST\"と@csrfと@method(\"PATCH\")"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "通常のHTMLフォームではPATCHを直接指定する形は使いません。",
+          "wrong2": "更新ルートが求めるPATCHにはなりません。",
+          "wrong3": "PATCHルートへ送るためのメソッド偽装が必要です。"
+        }
+      },
+      "explanation": "POSTとメソッド偽装でPATCHを表し、CSRFトークンも送ります。 PCでは開発ツールとroute:listでメソッドを照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「method=\"POST\"と@csrfと@method(\"PATCH\")」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-patch-form",
+      "variantGroup": "ph3-week38-choice-patch-form",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week38のPOSSE課題。開発ツールとroute:listでメソッドを照合しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "HTMLが送るPOSTにLaravel用の更新メソッドを付けます。",
+      "success": "条件に適合する候補を1つ選ぶ：method=\"POST\"と@csrfと@method(\"PATCH\")",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-redirect-after-update",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "クイズ更新後に一覧へ移動する要件です。名前付きルートquizzes.indexがある場合の返却はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "return Quiz::all();"
+          },
+          {
+            "id": "wrong3",
+            "text": "return redirect()->route(\"login\");"
+          },
+          {
+            "id": "correct",
+            "text": "return redirect()->route(\"quizzes.index\");"
+          },
+          {
+            "id": "wrong1",
+            "text": "return view(\"quizzes.edit\");"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "編集画面の表示になり、一覧へのリダイレクトではありません。",
+          "wrong2": "データを返すだけでは一覧への遷移になりません。",
+          "wrong3": "移動先が指定されたクイズ一覧ではありません。"
+        }
+      },
+      "explanation": "更新後に一覧へリダイレクトします。 PCでは更新後のURLと一覧のタイトルを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「return redirect()->route(\"quizzes.index\");」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-redirect-after-update",
+      "variantGroup": "ph3-week38-choice-redirect-after-update",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week38のPOSSE課題。更新後のURLと一覧のタイトルを確認しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "処理完了後の移動先を指定します。",
+      "success": "条件に適合する候補を1つ選ぶ：return redirect()->route(\"quizzes.index\");",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-flash-message",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "更新後のリダイレクト先で一度だけ成功メッセージを表示します。適した仕組みはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "すべての利用者へ同じDB行を上書きして通知する"
+          },
+          {
+            "id": "correct",
+            "text": "フラッシュセッション"
+          },
+          {
+            "id": "wrong1",
+            "text": "恒久的にタイトルを成功メッセージへ変更する"
+          },
+          {
+            "id": "wrong2",
+            "text": "CSSのcontentだけに更新結果を保存する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "クイズ名を壊してしまい、通知の保存先として不適切です。",
+          "wrong2": "サーバーの更新結果を受け渡す仕組みにはなりません。",
+          "wrong3": "個々の更新通知を次のリクエストへ渡す用途に合いません。"
+        }
+      },
+      "explanation": "フラッシュ値を付けてリダイレクトし、一覧で読みます。 PCでは一覧で成功文が出て、その後に残り続けないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「フラッシュセッション」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-flash-message",
+      "variantGroup": "ph3-week38-choice-flash-message",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week38のPOSSE課題。一覧で成功文が出て、その後に残り続けないか確認しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "次のリクエストまで値を引き継ぐ仕組みです。",
+      "success": "条件に適合する候補を1つ選ぶ：フラッシュセッション",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-session-helper-read",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "セッションにhome=1が保存済みです。session(\"home\", 99)の結果はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "1を読み、homeの値を99へ上書きしない"
+          },
+          {
+            "id": "wrong1",
+            "text": "99へ上書きして99を返す"
+          },
+          {
+            "id": "wrong2",
+            "text": "homeキーを削除する"
+          },
+          {
+            "id": "wrong3",
+            "text": "すべてのセッション値を削除する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "第2引数は未保存の場合のデフォルト値です。",
+          "wrong2": "読み取り呼び出しでは削除しません。",
+          "wrong3": "セッションの破棄処理ではありません。"
+        }
+      },
+      "explanation": "キーがあるため保存済みの1を返します。 PCではhomeがある場合とない場合で返却値を比較しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「1を読み、homeの値を99へ上書きしない」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-session-helper-read",
+      "variantGroup": "ph3-week38-choice-session-helper-read",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week38-1/README.md",
+          "line": 1,
+          "heading": "38週目ミニドリル 1問目",
+          "sha256": "bd1ca5a68fd70888950f99a41f624a31f8f3b060bedbd80ac2ba942336fbf018",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week38-1の関連ドリル。homeがある場合とない場合で返却値を比較しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ヘルパーの文字列引数は読み取りです。",
+      "success": "条件に適合する候補を1つ選ぶ：1を読み、homeの値を99へ上書きしない",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-session-helper-write",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "sessionヘルパーでdraft_titleへ「学習記録」を保存するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "session(\"draft_title\", \"学習記録\");"
+          },
+          {
+            "id": "wrong2",
+            "text": "view(\"draft_title\", [\"学習記録\"]);"
+          },
+          {
+            "id": "wrong3",
+            "text": "route(\"draft_title\");"
+          },
+          {
+            "id": "correct",
+            "text": "session([\"draft_title\" => \"学習記録\"]);"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "これは未保存時のデフォルトを指定する読み取りです。",
+          "wrong2": "ビューを返す呼び出しで、セッションに保存しません。",
+          "wrong3": "ルート名からURLを作る処理です。"
+        }
+      },
+      "explanation": "sessionへ配列を渡して値を書き込みます。 PCでは次のリクエストで同じキーを読み出しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「session([\"draft_title\" => \"学習記録\"]);」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-session-helper-write",
+      "variantGroup": "ph3-week38-choice-session-helper-write",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week38-1/README.md",
+          "line": 1,
+          "heading": "38週目ミニドリル 1問目",
+          "sha256": "bd1ca5a68fd70888950f99a41f624a31f8f3b060bedbd80ac2ba942336fbf018",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week38-1の関連ドリル。次のリクエストで同じキーを読み出しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "保存はキーと値の配列で指定します。",
+      "success": "条件に適合する候補を1つ選ぶ：session([\"draft_title\" => \"学習記録\"]);",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-carbon-format",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "Carbonの日時$nowを「2026/10/23 09:05:07」の形式で表示します。適切な書式はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "$now->format(\"Y-m-d\")"
+          },
+          {
+            "id": "wrong3",
+            "text": "$now->format(\"H:i:s\")"
+          },
+          {
+            "id": "correct",
+            "text": "$now->format(\"Y/m/d H:i:s\")"
+          },
+          {
+            "id": "wrong1",
+            "text": "$now->format(\"Y/m/d H:m:s\")"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "分の指定はiであり、mは月です。",
+          "wrong2": "時分秒が含まれず区切りも指定と異なります。",
+          "wrong3": "年月日が含まれていません。"
+        }
+      },
+      "explanation": "Y/m/d H:i:sで年月日と24時間表記の時分秒を出します。 PCでは現在日時を表示して月と分の位置を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$now->format(\"Y/m/d H:i:s\")」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-carbon-format",
+      "variantGroup": "ph3-week38-choice-carbon-format",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week38-2/README.md",
+          "line": 1,
+          "heading": "38週目ミニドリル 2問目",
+          "sha256": "d832747ef3a312e7d45557914cda015a6793e9a29dad34c99dc7d920d46e6f01",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week38-2の関連ドリル。現在日時を表示して月と分の位置を確認しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "月と分の書式文字が異なります。",
+      "success": "条件に適合する候補を1つ選ぶ：$now->format(\"Y/m/d H:i:s\")",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week38-choice-month-no-overflow",
+      "weekUnitId": "week-unit-week38",
+      "format": "singleChoice",
+      "prompt": "Carbonの2022-01-31に1か月を加え、2月に存在しない31日を月末の28日に収めます。使うものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "format(\"m\")"
+          },
+          {
+            "id": "correct",
+            "text": "addMonthNoOverflow()"
+          },
+          {
+            "id": "wrong1",
+            "text": "addDays(31)"
+          },
+          {
+            "id": "wrong2",
+            "text": "subMonthNoOverflow()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "日数加算では2月末へ収める月加算の指定になりません。",
+          "wrong2": "1か月前へ移動してしまいます。",
+          "wrong3": "表示用の月を得るだけで日付を進めません。"
+        }
+      },
+      "explanation": "NoOverflowで対象月の末日へ収めます。 PCでは1月31日からの結果が2月28日か確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week38",
+        "sectionHeading": "Week 38"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「addMonthNoOverflow()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week38-month-no-overflow",
+      "variantGroup": "ph3-week38-choice-month-no-overflow",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 416,
+        "heading": "Week 38",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week38-3/README.md",
+          "line": 1,
+          "heading": "38週目ミニドリル 3問目",
+          "sha256": "8b5e387698a727b9f5b4a5f06e19508c972c30274f44900d68148655b090c1fb",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week38-3の関連ドリル。1月31日からの結果が2月28日か確認しましょう。",
+      "priorKnowledge": "Week37までの個別取得とモデル。Week38の更新フォーム。sessionは関連ドリルのヘルパー練習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "月末を超えた日を次の月へ繰り越さない指定です。",
+      "success": "条件に適合する候補を1つ選ぶ：addMonthNoOverflow()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

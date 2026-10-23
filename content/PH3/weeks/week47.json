@@ -1,0 +1,1117 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week47-assembly-admin-route-group",
+      "weekUnitId": "week-unit-week47",
+      "format": "fillBlank",
+      "prompt": "標準authと、登録済みのadminミドルウェアで管理者一覧を保護してください。adminはサーバーで管理者を確認します。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Route;\nRoute::middleware(__BLANK__)->group(function () {\n  // この中に管理者一覧のGETルートを登録する\n});",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "['auth', 'admin']"
+          },
+          {
+            "id": "wrong",
+            "text": "['auth']"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "ログイン確認だけでは一般ユーザーも管理者一覧へ入れてしまいます。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "[",
+            "'auth', ",
+            "'admin'",
+            "]"
+          ],
+          "wrong": [
+            "[",
+            "'auth'",
+            "]"
+          ]
+        }
+      },
+      "explanation": "2つのミドルウェアでグループを保護します。PCでは一般ユーザーの直接アクセスも確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "標準authと、登録済みのadminミドルウェアで管理者一覧を保護してください。adminはサーバーで管理者を確認します。",
+      "conceptId": "ph3-week47-admin-route-group",
+      "variantGroup": "ph3-week47-assembly-admin-route-group",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。",
+      "drillConnection": "PH3 Week47のPOSSE課題へ接続。一般ユーザーの直接アクセスも確認しましょう。",
+      "hint": "認証と管理者の確認を両方適用します。",
+      "success": "標準authと、登録済みのadminミドルウェアで管理者一覧を保護してください。adminはサーバーで管理者を確認します。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-assembly-list-admin-users",
+      "weekUnitId": "week-unit-week47",
+      "format": "fillBlank",
+      "prompt": "Userのis_adminはサーバーで管理する真偽値です。管理者一覧のため、trueの利用者だけ取得してください。一覧へのアクセス認可は確認済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $admins = User::__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "where('is_admin', true)->get()"
+          },
+          {
+            "id": "wrong",
+            "text": "where('is_admin', false)->get()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "falseでは管理者でない利用者を取得します。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "where(",
+            "'is_admin', ",
+            "true",
+            ")->get(",
+            ")"
+          ],
+          "wrong": [
+            "where(",
+            "'is_admin', ",
+            "false",
+            ")->get(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "whereで管理者だけを絞ります。PCでは管理者と一般ユーザーの2種類で表示を比べましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Userのis_adminはサーバーで管理する真偽値です。管理者一覧のため、trueの利用者だけ取得してください。一覧へのアクセス認可は確認済みです。",
+      "conceptId": "ph3-week47-list-admin-users",
+      "variantGroup": "ph3-week47-assembly-list-admin-users",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。",
+      "drillConnection": "PH3 Week47のPOSSE課題へ接続。管理者と一般ユーザーの2種類で表示を比べましょう。",
+      "hint": "管理者属性がtrueの行へ限定します。",
+      "success": "Userのis_adminはサーバーで管理する真偽値です。管理者一覧のため、trueの利用者だけ取得してください。一覧へのアクセス認可は確認済みです。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-assembly-define-admin-gate",
+      "weekUnitId": "week-unit-week47",
+      "format": "fillBlank",
+      "prompt": "view-adminsゲートを、認証済み$userが管理者ならtrueになるよう定義してください。is_adminはサーバー管理です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Gate;\nGate::define('view-admins', function ($user) { return __BLANK__; });",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$user->is_admin"
+          },
+          {
+            "id": "wrong",
+            "text": "!$user->is_admin"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "否定すると一般ユーザーを許可してしまいます。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$user->",
+            "is_admin"
+          ],
+          "wrong": [
+            "!",
+            "$user->",
+            "is_admin"
+          ]
+        }
+      },
+      "explanation": "管理者属性で許可を決めます。PCでは一覧のControllerでもこのゲートを要求しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "view-adminsゲートを、認証済み$userが管理者ならtrueになるよう定義してください。is_adminはサーバー管理です。",
+      "conceptId": "ph3-week47-define-admin-gate",
+      "variantGroup": "ph3-week47-assembly-define-admin-gate",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。",
+      "drillConnection": "PH3 Week47のPOSSE課題へ接続。一覧のControllerでもこのゲートを要求しましょう。",
+      "hint": "許可条件をそのまま真偽値で返します。",
+      "success": "view-adminsゲートを、認証済み$userが管理者ならtrueになるよう定義してください。is_adminはサーバー管理です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 固定入力で正誤比較。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-assembly-admin-named-redirect",
+      "weekUnitId": "week-unit-week47",
+      "format": "fillBlank",
+      "prompt": "ログインと管理者確認は成功済みです。登録済みの名前付きルートadmin.indexへリダイレクトしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nfunction afterAdminLogin() {\n  return __BLANK__;\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "redirect()->route('admin.index')"
+          },
+          {
+            "id": "wrong",
+            "text": "redirect()->route('login')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "ログイン画面へ戻す指定で、確認済み管理者を管理画面へ進められません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "redirect()->route(",
+            "'admin.index'",
+            ")"
+          ],
+          "wrong": [
+            "redirect()->route(",
+            "'login'",
+            ")"
+          ]
+        }
+      },
+      "explanation": "redirect()->routeで管理画面へ移動します。PCではログイン前と一般ユーザーの導線も分けて確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ログインと管理者確認は成功済みです。登録済みの名前付きルートadmin.indexへリダイレクトしてください。",
+      "conceptId": "ph3-week47-admin-named-redirect",
+      "variantGroup": "ph3-week47-assembly-admin-named-redirect",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。",
+      "drillConnection": "PH3 Week47のPOSSE課題へ接続。ログイン前と一般ユーザーの導線も分けて確認しましょう。",
+      "hint": "登録済みの移動先ルート名を指定します。",
+      "success": "ログインと管理者確認は成功済みです。登録済みの名前付きルートadmin.indexへリダイレクトしてください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-assembly-node-version-check",
+      "weekUnitId": "week-unit-week47",
+      "format": "fillBlank",
+      "prompt": "nodeコンテナ内です。Node.jsの実際のバージョンを表示し、別途確認したLTSの指定と照合するコマンドを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "node --version"
+          },
+          {
+            "id": "wrong",
+            "text": "npm --version"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "npmのバージョンを見てもNode.js本体のバージョン確認にはなりません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "node ",
+            "--version"
+          ],
+          "wrong": [
+            "npm ",
+            "--version"
+          ]
+        }
+      },
+      "explanation": "node --versionで本体のバージョンを表示します。PCでは現在の公式LTS情報とDockerのimage指定を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "nodeコンテナ内です。Node.jsの実際のバージョンを表示し、別途確認したLTSの指定と照合するコマンドを組み立ててください。",
+      "conceptId": "ph3-week47-node-version-check",
+      "variantGroup": "ph3-week47-assembly-node-version-check",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。",
+      "drillConnection": "week47-1の関連ドリルへ接続。現在の公式LTS情報とDockerのimage指定を照合しましょう。",
+      "hint": "バージョンを調べたい実行環境のコマンドを使います。",
+      "success": "nodeコンテナ内です。Node.jsの実際のバージョンを表示し、別途確認したLTSの指定と照合するコマンドを組み立ててください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。sh -nによる構文確認のみ。コマンドは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week47-1/README.md",
+          "line": 1,
+          "heading": "47週目ミニドリル 1問目",
+          "sha256": "a4f4430c80403d7ef4de7d5d505870823ae64f8695369ce72c2a3f12879cc337",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week47-1/docker-compose.yml",
+          "line": 1,
+          "heading": "services:",
+          "sha256": "b24130ceda4818e2a3dac4d1a45988189bbd077ec91b1c3e55fa49d5098602ee",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-admin-list-auth",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "管理者一覧ページを守る条件はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "ログイン済みで、サーバー側で管理者権限も確認する"
+          },
+          {
+            "id": "wrong1",
+            "text": "ログインしていれば一般ユーザーも全員許可する"
+          },
+          {
+            "id": "wrong2",
+            "text": "URLを/adminsにしただけで許可する"
+          },
+          {
+            "id": "wrong3",
+            "text": "ログイン画面へ管理者と書くだけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "管理者専用という要件を満たしません。",
+          "wrong2": "パス名だけでは認証・認可になりません。",
+          "wrong3": "表示文はアクセス制御を強制しません。"
+        }
+      },
+      "explanation": "管理者だけが許可される条件をサーバーで強制します。 PCでは未ログイン・一般・管理者の3状態で確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「ログイン済みで、サーバー側で管理者権限も確認する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-admin-list-auth",
+      "variantGroup": "ph3-week47-choice-admin-list-auth",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week47のPOSSE課題。未ログイン・一般・管理者の3状態で確認しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "認証と管理者の認可を組み合わせます。",
+      "success": "条件に適合する候補を1つ選ぶ：ログイン済みで、サーバー側で管理者権限も確認する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-admin-only-records",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "Userのis_adminはbooleanへcast済みです。管理者一覧へ管理者だけを取得する条件はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "User::all()"
+          },
+          {
+            "id": "wrong2",
+            "text": "User::where(\"is_admin\", false)->get()"
+          },
+          {
+            "id": "wrong3",
+            "text": "User::where(\"name\", \"admin\")->get()"
+          },
+          {
+            "id": "correct",
+            "text": "User::where(\"is_admin\", true)->get()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "一般ユーザーも含まれます。",
+          "wrong2": "管理者ではない利用者を取得します。",
+          "wrong3": "表示名がadminであることと管理者権限は別です。"
+        }
+      },
+      "explanation": "is_adminの値で管理者の行だけを取得します。 PCでは管理者2人と一般ユーザーで表示対象を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「User::where(\"is_admin\", true)->get()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-admin-only-records",
+      "variantGroup": "ph3-week47-choice-admin-only-records",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week47のPOSSE課題。管理者2人と一般ユーザーで表示対象を照合しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "権限を表すサーバー管理の属性で絞ります。",
+      "success": "条件に適合する候補を1つ選ぶ：User::where(\"is_admin\", true)->get()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-login-page-not-proof",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "管理者用ログインページから一般ユーザーがログインしました。ページを通っただけで管理者と扱ってよいですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "ページ名にadminがあるので確認を省く"
+          },
+          {
+            "id": "wrong3",
+            "text": "メールアドレスを知らなくても常に管理者にする"
+          },
+          {
+            "id": "correct",
+            "text": "扱わず、認証後に管理者権限も確認する"
+          },
+          {
+            "id": "wrong1",
+            "text": "そのページを通った人は全員管理者とする"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "入口の画面は権限の証明ではありません。",
+          "wrong2": "ページ名から利用者の権限は分かりません。",
+          "wrong3": "本人の認証も管理者認可も必要です。"
+        }
+      },
+      "explanation": "認証された利用者の管理権限を別途確認します。 PCでは一般アカウントで管理者用ログインを試して確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「扱わず、認証後に管理者権限も確認する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-login-page-not-proof",
+      "variantGroup": "ph3-week47-choice-login-page-not-proof",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week47のPOSSE課題。一般アカウントで管理者用ログインを試して確認しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "認証に成功したことと管理者であることを分けます。",
+      "success": "条件に適合する候補を1つ選ぶ：扱わず、認証後に管理者権限も確認する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-admin-flag-not-request",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "管理画面へ?is_admin=1を付けると一般ユーザーも入れました。原因への修正はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "すべての利用者を管理者へ更新する"
+          },
+          {
+            "id": "correct",
+            "text": "リクエスト値ではなく認証済み利用者の権限で判定する"
+          },
+          {
+            "id": "wrong1",
+            "text": "パラメーター名を長くするだけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "管理リンクを小さくするだけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "利用者が送る値を信頼する問題が残ります。",
+          "wrong2": "直接URLへの要求を防げません。",
+          "wrong3": "必要な権限制御を失います。"
+        }
+      },
+      "explanation": "サーバー側に保持した認証済み利用者の権限を参照します。 PCではクエリ値を変えても一般ユーザーが入れないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「リクエスト値ではなく認証済み利用者の権限で判定する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-admin-flag-not-request",
+      "variantGroup": "ph3-week47-choice-admin-flag-not-request",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week47のPOSSE課題。クエリ値を変えても一般ユーザーが入れないか確認しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "利用者が指定できる値を権限の根拠にしません。",
+      "success": "条件に適合する候補を1つ選ぶ：リクエスト値ではなく認証済み利用者の権限で判定する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-admin-controller-gate",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "管理者一覧の認可ゲートview-adminsは定義済みです。許可されなければ中断する処理はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Gate::authorize(\"view-admins\");"
+          },
+          {
+            "id": "wrong1",
+            "text": "Gate::allows(\"view-admins\"); を呼んで結果を無視する"
+          },
+          {
+            "id": "wrong2",
+            "text": "return view(\"admins.index\"); だけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "route(\"admins.index\"); だけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "拒否の真偽値を使わず後続の処理へ進めてしまいます。",
+          "wrong2": "画面を返すだけでは許可を確認しません。",
+          "wrong3": "URLの生成であり認可の強制ではありません。"
+        }
+      },
+      "explanation": "authorizeで許可のないアクセスを中断します。 PCでは一般ユーザーに一覧データを返していないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Gate::authorize(\"view-admins\");」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-admin-controller-gate",
+      "variantGroup": "ph3-week47-choice-admin-controller-gate",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week47のPOSSE課題。一般ユーザーに一覧データを返していないか確認しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "拒否されたときに処理を止めます。",
+      "success": "条件に適合する候補を1つ選ぶ：Gate::authorize(\"view-admins\");",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-admin-group-coverage",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "管理トップは守られていますが、管理者一覧へ直接アクセスすると一般ユーザーにも表示されます。修正する箇所はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "トップの文字をさらに大きくする"
+          },
+          {
+            "id": "wrong2",
+            "text": "一覧リンクをトップから消すだけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "全管理者の表示名を非公開へ変えるだけ"
+          },
+          {
+            "id": "correct",
+            "text": "一覧ルートにも認証・管理者認可を適用する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "一覧への直接アクセスを制限できません。",
+          "wrong2": "直接URLの経路が残ります。",
+          "wrong3": "一覧のアクセス制御は直りません。"
+        }
+      },
+      "explanation": "管理用の各ルートに共通の認証・認可を適用します。 PCでは管理URLを一つずつ直接開いて確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「一覧ルートにも認証・管理者認可を適用する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-admin-group-coverage",
+      "variantGroup": "ph3-week47-choice-admin-group-coverage",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week47のPOSSE課題。管理URLを一つずつ直接開いて確認しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "入口の画面だけでなく各リクエストを守ります。",
+      "success": "条件に適合する候補を1つ選ぶ：一覧ルートにも認証・管理者認可を適用する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-admin-list-safe-fields",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "管理者一覧で名前とメールを表示します。認証用のパスワードハッシュについて適切な扱いはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "名前の代わりに表示する"
+          },
+          {
+            "id": "wrong3",
+            "text": "HTMLコメントなら必ず利用者に見えない"
+          },
+          {
+            "id": "correct",
+            "text": "必要ないため画面や一覧レスポンスへ含めない"
+          },
+          {
+            "id": "wrong1",
+            "text": "ハッシュなら全利用者へ表示してよい"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "不要な認証情報を一覧へ出す必要はありません。",
+          "wrong2": "一覧の目的に合わず不要な情報を露出します。",
+          "wrong3": "HTMLコメントも受信した内容から読めます。"
+        }
+      },
+      "explanation": "一覧の目的に不要な認証情報は返しません。 PCではHTMLやNetworkのレスポンスにも含まれないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「必要ないため画面や一覧レスポンスへ含めない」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-admin-list-safe-fields",
+      "variantGroup": "ph3-week47-choice-admin-list-safe-fields",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week47のPOSSE課題。HTMLやNetworkのレスポンスにも含まれないか確認しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "表示に必要な属性へ絞ります。",
+      "success": "条件に適合する候補を1つ選ぶ：必要ないため画面や一覧レスポンスへ含めない",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-node-lts-verification",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "教材のnodeコンテナをLTSへそろえます。適切な確認手順はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "composeを書き換えたので起動後の確認を省く"
+          },
+          {
+            "id": "correct",
+            "text": "Node.js公式のLTS指定とimageを照合し、起動後にnode --versionで確認する"
+          },
+          {
+            "id": "wrong1",
+            "text": "古い教材のバージョンが永久にLTSだと判断する"
+          },
+          {
+            "id": "wrong2",
+            "text": "npm --versionだけでNode.js本体の版も同じと判断する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "LTSの対象は時期によって変わります。",
+          "wrong2": "npmとNode.jsのバージョンは別です。",
+          "wrong3": "実際に使われたコンテナの版は未確認です。"
+        }
+      },
+      "explanation": "現在の公式情報と実行中のNode.jsの版を対応させます。 PCではコンテナ内で実際のバージョンを記録しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Node.js公式のLTS指定とimageを照合し、起動後にnode --versionで確認する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-node-lts-verification",
+      "variantGroup": "ph3-week47-choice-node-lts-verification",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week47-1/README.md",
+          "line": 1,
+          "heading": "47週目ミニドリル 1問目",
+          "sha256": "a4f4430c80403d7ef4de7d5d505870823ae64f8695369ce72c2a3f12879cc337",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week47-1/docker-compose.yml",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "b24130ceda4818e2a3dac4d1a45988189bbd077ec91b1c3e55fa49d5098602ee"
+        }
+      ],
+      "drillConnection": "week47-1の関連ドリル。コンテナ内で実際のバージョンを記録しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "設定値と実行環境の両方を確かめます。",
+      "success": "条件に適合する候補を1つ選ぶ：Node.js公式のLTS指定とimageを照合し、起動後にnode --versionで確認する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-compose-node-service",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "ComposeでnodeサービスのNode.jsの版を変えるため、まず確認する設定はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "nodeサービスのimageのタグ"
+          },
+          {
+            "id": "wrong1",
+            "text": "MySQLのテーブル名"
+          },
+          {
+            "id": "wrong2",
+            "text": "Bladeのh1の文言"
+          },
+          {
+            "id": "wrong3",
+            "text": "管理者のメールアドレス"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "Node.jsランタイムの版とは別です。",
+          "wrong2": "表示文を変えてもランタイムは変わりません。",
+          "wrong3": "コンテナの実行環境を指定する値ではありません。"
+        }
+      },
+      "explanation": "imageのタグが使うイメージの版を指定します。 PCでは教材のcomposeと公式LTSの対応を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「nodeサービスのimageのタグ」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-compose-node-service",
+      "variantGroup": "ph3-week47-choice-compose-node-service",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week47-1/README.md",
+          "line": 1,
+          "heading": "47週目ミニドリル 1問目",
+          "sha256": "a4f4430c80403d7ef4de7d5d505870823ae64f8695369ce72c2a3f12879cc337",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week47-1/docker-compose.yml",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "b24130ceda4818e2a3dac4d1a45988189bbd077ec91b1c3e55fa49d5098602ee"
+        }
+      ],
+      "drillConnection": "week47-1の関連ドリル。教材のcomposeと公式LTSの対応を確認しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "どのコンテナイメージを使うかの設定です。",
+      "success": "条件に適合する候補を1つ選ぶ：nodeサービスのimageのタグ",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week47-choice-admin-login-destination",
+      "weekUnitId": "week-unit-week47",
+      "format": "singleChoice",
+      "prompt": "認証・管理者認可が成功したあと管理者一覧へ移動します。admins.indexが登録済みなら適した返却はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "return redirect()->route(\"login\");"
+          },
+          {
+            "id": "wrong2",
+            "text": "return view(\"register\");"
+          },
+          {
+            "id": "wrong3",
+            "text": "return User::all();"
+          },
+          {
+            "id": "correct",
+            "text": "return redirect()->route(\"admins.index\");"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ログイン済み管理者を一覧へ進める指定ではありません。",
+          "wrong2": "登録画面を表示する処理です。",
+          "wrong3": "対象画面へのリダイレクトになりません。"
+        }
+      },
+      "explanation": "認可後に管理者一覧へリダイレクトします。 PCでは成功後のURLと一覧の表示を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week47",
+        "sectionHeading": "Week 47"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「return redirect()->route(\"admins.index\");」を選び、その理由を説明する。",
+      "conceptId": "ph3-week47-admin-login-destination",
+      "variantGroup": "ph3-week47-choice-admin-login-destination",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 868,
+        "heading": "Week 47",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week47のPOSSE課題。成功後のURLと一覧の表示を確認しましょう。",
+      "priorKnowledge": "Week40の認証・認可とWeek46の記事アプリ。管理者属性の取り扱いとコンテナ名は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "成功後の移動先を名前付きルートで示します。",
+      "success": "条件に適合する候補を1つ選ぶ：return redirect()->route(\"admins.index\");",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

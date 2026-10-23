@@ -40,9 +40,7 @@ export default function PhaseScreen() {
         {PHASES.map((phase) => (
           <SelectCard
             key={phase.id}
-            label={
-              phase.id === "ph3" ? "PH3 準備中" : `${phase.code} ${phase.title}`
-            }
+            label={`${phase.code} ${phase.title}`}
             selected={phase.id === settings?.phase}
             style={
               phase.id === settings?.phase
@@ -52,7 +50,7 @@ export default function PhaseScreen() {
                   }
                 : undefined
             }
-            disabled={phase.id === "ph3" || !profileReady || !settings || busy}
+            disabled={!profileReady || !settings || busy}
             onPress={() => {
               if (phase.id !== settings?.phase) {
                 setError("");
@@ -70,14 +68,8 @@ export default function PhaseScreen() {
                   {phase.code}
                   {phase.id === settings?.phase ? "・学習中" : ""}
                 </DText>
-                <DText weight="bold">
-                  {phase.id === "ph3" ? "準備中" : phase.title}
-                </DText>
-                {phase.id !== "ph3" && (
-                  <DText size={12} color={Drill.textSub}>
-                    {phase.sub}
-                  </DText>
-                )}
+                <DText weight="bold">{phase.title}</DText>
+                <DText size={12} color={Drill.textSub}>{phase.sub}</DText>
               </View>
             </View>
           </SelectCard>

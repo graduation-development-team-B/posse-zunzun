@@ -34,17 +34,22 @@ const before = JSON.parse(
   fs.readFileSync(new URL("./pre-ph2-hashes.json", import.meta.url), "utf8"),
 );
 
-test("PH2追加で既存PH1・Gitの202問の正本を変更しない", () => {
+test("既存PH1・Gitの202問を保持し、承認された組み立て問題を追加する", () => {
   for (const [file, sha] of Object.entries(before)) {
+    const raw = fs.readFileSync(path.join(root, file));
+    const entries = file.includes('/weeks/') ? JSON.parse(raw.toString('utf8')) : null;
+    const original = entries?.some(e => e.question.assembly)
+      ? JSON.stringify(entries.filter(e => !e.question.assembly), null, 2) + '\n'
+      : raw;
     assert.equal(
       createHash("sha256")
-        .update(fs.readFileSync(path.join(root, file)))
+        .update(original)
         .digest("hex"),
       sha,
       file,
     );
   }
-  assert.equal(catalog.questions.length, 394);
+  assert.equal(catalog.questions.filter(q => !q.id.startsWith('question-ph3-')).length, 529);
   assert.deepEqual(
     catalog.weekUnits.filter((u) => u.phase === "PH2").map((u) => u.key),
     Array.from({ length: 16 }, (_, i) => `week${i + 17}`),
@@ -53,15 +58,15 @@ test("PH2追加で既存PH1・Gitの202問の正本を変更しない", () => {
   assert.equal(phaseForUnit(catalog, "git_github_level1").code, "PH1");
   assert.equal(phaseForUnit(catalog, "week17").code, "PH2");
   assert.equal(phaseForUnit(catalog, "week32").code, "PH2");
-  assert.equal(availablePhaseCodes(catalog), "PH1・PH2");
+  assert.equal(availablePhaseCodes(catalog), "PH1・PH2・PH3");
 });
 
 for (let week = 17; week <= 32; week++) {
-  test(`PH2 Week${week}: Web・Nativeで12問を出題し、解答・保存・再開・完了が成立する`, () => {
+  test(`PH2 Week${week}: Web・Nativeで17問を出題し、解答・保存・再開・完了が成立する`, () => {
     const key = `week${week}`;
     for (const web of [true, false]) {
       const questions = selectQuestions(catalog, key, "mix", web);
-      assert.equal(questions.length, 12);
+      assert.equal(questions.length, 17);
       assert.ok(
         questions.every(
           (q) =>
@@ -132,7 +137,7 @@ test("phaseを指定してPH2の空単元を追加し、既存を上書きしな
         [
           path.join(work, "scripts/init-week.js"),
           "--week",
-          "week33",
+          "week49",
           "--phase",
           phase,
         ],
@@ -140,9 +145,9 @@ test("phaseを指定してPH2の空単元を追加し、既存を上書きしな
       );
     assert.equal(cmd("PH9").status, 1);
     assert.equal(cmd("PH2").status, 0);
-    const unit = load(work).units.find((u) => u.key === "week33");
+    const unit = load(work).units.find((u) => u.key === "week49");
     assert.equal(unit.phase, "PH2");
-    assert.equal(unit.file, "PH2/weeks/week33.json");
+    assert.equal(unit.file, "PH2/weeks/week49.json");
     assert.deepEqual(
       JSON.parse(
         fs.readFileSync(path.join(work, "content", unit.file), "utf8"),

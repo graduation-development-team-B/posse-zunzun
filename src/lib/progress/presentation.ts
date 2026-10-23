@@ -26,8 +26,27 @@ export function presentationData(
   state: Progress,
   catalog: ContentCatalog,
   now = new Date(),
+  phaseCode?: string,
 ) {
-  const stats = metrics(state, now);
+  const overallStats = metrics(state, now);
+  const phaseUnitIds = new Set(
+    catalog.weekUnits
+      .filter(
+        (unit) =>
+          phaseCode === undefined || (unit.phase ?? "PH1") === phaseCode,
+      )
+      .map((unit) => unit.id),
+  );
+  const phaseQuestionIds = new Set(
+    catalog.questions
+      .filter((q) => phaseUnitIds.has(q.weekUnitId))
+      .map((q) => q.id),
+  );
+  // 継続日数・XPは全履歴を使い、見直し問題は表示中のフェーズに絞る。
+  const stats = {
+    ...overallStats,
+    reviewIds: overallStats.reviewIds.filter((id) => phaseQuestionIds.has(id)),
+  };
   const mastered = new Set(
     state.answers
       .filter(
@@ -43,23 +62,37 @@ export function presentationData(
     const questions = catalog.questions.filter((q) => q.weekUnitId === u.id);
     return {
       id: u.key,
+      phase: u.phase ?? "PH1",
       title: u.key === "git_github_level1" ? "Git Lv1" : u.title.split("｜")[0],
       done: questions.filter((q) => mastered.has(q.id)).length,
       total: questions.length,
     };
   });
-  const first = progress.findIndex((w) => w.done < w.total);
-  const nextIndex = progress.findIndex((w, i) => i > first && w.done < w.total);
-  const weeks = progress.map((w, i) => ({
-    ...w,
-    state: (w.done === w.total
-      ? "done"
-      : i === first
-        ? "now"
-        : i === nextIndex
-          ? "next"
-          : "lock") as "done" | "now" | "next" | "lock",
-  }));
+  const phaseGroups = [...new Set(progress.map((week) => week.phase))].map(
+    (code) => {
+      const phaseProgress = progress.filter((week) => week.phase === code);
+      const first = phaseProgress.findIndex((w) => w.done < w.total);
+      const nextIndex = phaseProgress.findIndex(
+        (w, i) => i > first && w.done < w.total,
+      );
+      const weeks = phaseProgress.map((w, i) => ({
+        ...w,
+        state: (w.done === w.total
+          ? "done"
+          : i === first
+            ? "now"
+            : i === nextIndex
+              ? "next"
+              : "lock") as "done" | "now" | "next" | "lock",
+      }));
+      return { code, weeks };
+    },
+  );
+  const allWeeks = phaseGroups.flatMap((group) => group.weeks);
+  const weeks =
+    phaseCode === undefined
+      ? allWeeks
+      : (phaseGroups.find((group) => group.code === phaseCode)?.weeks ?? []);
   const days: DayRecord[] = Array.from({ length: 7 }, (_, i) => {
     const date = new Date(now);
     date.setDate(date.getDate() - 6 + i);
@@ -107,7 +140,7 @@ export function presentationData(
     {
       mark: "W1",
       name: "Week01制覇",
-      got: weeks.some((w) => w.id === "week1" && w.state === "done"),
+      got: allWeeks.some((w) => w.id === "week1" && w.state === "done"),
     },
   ];
   const reviewCounts: Record<string, number> = {};
@@ -142,6 +175,8 @@ export function presentationData(
   return {
     stats,
     weeks,
+    allWeeks,
+    phaseGroups,
     days,
     calendar,
     level,

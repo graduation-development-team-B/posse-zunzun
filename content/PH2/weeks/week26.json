@@ -1158,5 +1158,473 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-assembly-session-start",
+      "weekUnitId": "week-unit-week26",
+      "format": "fillBlank",
+      "prompt": "HTMLを出力する前に、PHPのセッションを開始・再開してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__\n// この後でセッションの値を使う",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "session_start();"
+          },
+          {
+            "id": "wrong",
+            "text": "session_destroy();"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "session_destroyはセッションを破棄する処理です。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "session_start",
+            "(",
+            ")",
+            ";"
+          ],
+          "wrong": [
+            "session_destroy",
+            "(",
+            ")",
+            ";"
+          ]
+        }
+      },
+      "explanation": "session_start()を出力前に呼びます。PCでは各ページの先頭で開始できているか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "ユーザー情報をセッションに格納し、ログインする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "HTMLを出力する前に、PHPのセッションを開始・再開してください。",
+      "conceptId": "ph2-week26-session-start",
+      "variantGroup": "ph2-week26-assembly-session-start",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week26の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。各ページの先頭で開始できているか確認しましょう。",
+      "hint": "session_start()を出力前に呼びます。",
+      "success": "HTMLを出力する前に、PHPのセッションを開始・再開してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "line": 221,
+        "heading": "ユーザー情報をセッションに格納し、ログインする",
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "line": 1,
+          "heading": "26週目ミニドリル 1問目",
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 858,
+          "heading": "Week 26",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-assembly-store-user-id",
+      "weekUnitId": "week-unit-week26",
+      "format": "fillBlank",
+      "prompt": "認証は成功済みで$userのidは7です。そのidをセッションのidへ保存してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n// session_start()・認証は済んでいる\n$user = [\"id\" => 7, \"email\" => \"a@example.invalid\"];\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$_SESSION[\"id\"] = $user[\"id\"]"
+          },
+          {
+            "id": "wrong",
+            "text": "$_SESSION[\"id\"] = $user[\"email\"]"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "セッションのidへメールを入れるとユーザーIDとして使えません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$_SESSION[\"id\"] ",
+            "= ",
+            "$user[\"id\"]"
+          ],
+          "wrong": [
+            "$_SESSION[\"id\"] ",
+            "= ",
+            "$user[\"email\"]"
+          ]
+        }
+      },
+      "explanation": "認証済みユーザーのIDを保持します。PCでは次のリクエストでも同じIDを読めるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "ユーザー情報をセッションに格納し、ログインする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "認証は成功済みで$userのidは7です。そのidをセッションのidへ保存してください。",
+      "conceptId": "ph2-week26-store-user-id",
+      "variantGroup": "ph2-week26-assembly-store-user-id",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week26の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。次のリクエストでも同じIDを読めるか確認しましょう。",
+      "hint": "認証済みユーザーのIDを保持します。",
+      "success": "認証は成功済みで$userのidは7です。そのidをセッションのidへ保存してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "line": 221,
+        "heading": "ユーザー情報をセッションに格納し、ログインする",
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "line": 1,
+          "heading": "26週目ミニドリル 1問目",
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 858,
+          "heading": "Week 26",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-assembly-guard-session",
+      "weekUnitId": "week-unit-week26",
+      "format": "fillBlank",
+      "prompt": "session_startは済んでいます。セッションにidがない場合だけlogin.phpへ移動して処理を止めてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nif (__BLANK__) { header(\"Location: login.php\"); exit; }",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "!isset($_SESSION[\"id\"])"
+          },
+          {
+            "id": "wrong",
+            "text": "isset($_SESSION[\"id\"])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "否定がないとログイン済みの人を追い返す条件になります。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "!",
+            "isset(",
+            "$_SESSION[\"id\"]",
+            ")"
+          ],
+          "wrong": [
+            "isset(",
+            "$_SESSION[\"id\"]",
+            ")"
+          ]
+        }
+      },
+      "explanation": "!issetでIDがない場合を判定し、リダイレクト後はexitします。PCではログイン前後の両方で確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "ユーザー情報をセッションに格納し、ログインする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "session_startは済んでいます。セッションにidがない場合だけlogin.phpへ移動して処理を止めてください。",
+      "conceptId": "ph2-week26-guard-session",
+      "variantGroup": "ph2-week26-assembly-guard-session",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week26の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。ログイン前後の両方で確認しましょう。",
+      "hint": "!issetでIDがない場合を判定し、リダイレクト後はexitします。",
+      "success": "session_startは済んでいます。セッションにidがない場合だけlogin.phpへ移動して処理を止めてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "line": 221,
+        "heading": "ユーザー情報をセッションに格納し、ログインする",
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "line": 1,
+          "heading": "26週目ミニドリル 1問目",
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 858,
+          "heading": "Week 26",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-assembly-logout-values",
+      "weekUnitId": "week-unit-week26",
+      "format": "fillBlank",
+      "prompt": "session_start済みです。ログアウト時、このリクエスト内で参照するセッション変数を空の配列へ置き換えてください。Cookie削除などは別処理です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;\nsession_destroy();",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$_SESSION = []"
+          },
+          {
+            "id": "wrong",
+            "text": "$_SESSION[\"id\"] = []"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "idの値だけを配列にしてもセッション変数全体を空にはできません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$_SESSION ",
+            "= ",
+            "[]"
+          ],
+          "wrong": [
+            "$_SESSION[\"id\"] ",
+            "= ",
+            "[]"
+          ]
+        }
+      },
+      "explanation": "$_SESSION全体へ空配列を代入します。PCではログアウト後にIDが読めず、保護ページへ戻れないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "4. ログアウト機能"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "session_start済みです。ログアウト時、このリクエスト内で参照するセッション変数を空の配列へ置き換えてください。Cookie削除などは別処理です。",
+      "conceptId": "ph2-week26-logout-values",
+      "variantGroup": "ph2-week26-assembly-logout-values",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week26の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。ログアウト後にIDが読めず、保護ページへ戻れないか確認しましょう。",
+      "hint": "$_SESSION全体へ空配列を代入します。",
+      "success": "session_start済みです。ログアウト時、このリクエスト内で参照するセッション変数を空の配列へ置き換えてください。Cookie削除などは別処理です。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "line": 249,
+        "heading": "4. ログアウト機能",
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-1/README.md",
+          "line": 1,
+          "heading": "26週目ミニドリル 1問目",
+          "sha256": "742f0ba6ce26431eb2cc113c2e19da80a8a0d0244b217c3cb1b2be75601522e7"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 858,
+          "heading": "Week 26",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week26-1/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "e7869861604b8dc810e0e1c3742c92d631da2d29f1b992a50c4632043f41c800"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week26-assembly-redirect-stop",
+      "weekUnitId": "week-unit-week26",
+      "format": "fillBlank",
+      "prompt": "ログアウト処理後、login.phpへリダイレクトします。headerの引数を組み立ててください。出力はまだありません。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nheader(__BLANK__);\nexit;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "\"Location: login.php\""
+          },
+          {
+            "id": "wrong",
+            "text": "\"Location: profile.php\""
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "profile.phpでは指定したログイン画面へ移動しません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "\"Location: ",
+            "login.php",
+            "\""
+          ],
+          "wrong": [
+            "\"Location: ",
+            "profile.php",
+            "\""
+          ]
+        }
+      },
+      "explanation": "Locationヘッダーで移動先を伝え、exitで後続処理を止めます。PCでは移動後のURLとログイン状態を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week26",
+        "sectionHeading": "4. ログアウト機能"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ログアウト処理後、login.phpへリダイレクトします。headerの引数を組み立ててください。出力はまだありません。",
+      "conceptId": "ph2-week26-redirect-stop",
+      "variantGroup": "ph2-week26-assembly-redirect-stop",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜26の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week26の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。移動後のURLとログイン状態を確認しましょう。",
+      "hint": "Locationヘッダーで移動先を伝え、exitで後続処理を止めます。",
+      "success": "ログアウト処理後、login.phpへリダイレクトします。headerの引数を組み立ててください。出力はまだありません。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week26.md",
+        "line": 249,
+        "heading": "4. ログアウト機能",
+        "sha256": "fbc630c16d9ad68c57d91cbfef671f67a326ff90c72c0a7a8f5a40e6c5817e1e"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week26-2/README.md",
+          "line": 1,
+          "heading": "26週目ミニドリル 2問目",
+          "sha256": "4b91353926acd3a8053b1a1be8d5ce8e8fe747fdf3630f285b157d597d835328"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 858,
+          "heading": "Week 26",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week26-2/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "783ceb8cf87e06382c38910bb2c71c2ce14df011d80fa91054c65455dd2a2b8c"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
   }
 ]

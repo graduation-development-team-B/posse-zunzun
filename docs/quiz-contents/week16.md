@@ -1,6 +1,6 @@
 # Week16｜AIコーディング実践
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 8
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -420,3 +420,173 @@ AIと作ったアプリで「追加は動く」と確認しました。完了切
 - 誤答b: 要件ごとの操作を確かめていません。
 - 誤答c: 操作結果やConsoleの警告は分かりません。
 - 誤答d: 自分の要件を満たしたかの確認になっていません。
+
+## question-week16-assembly-review-append（版1・published）
+
+- 形式: assembly
+- 主対象: 結果の確認・修正
+- 学習目標: AI案を修正します。tasksはstate配列、newTaskは一意のidを持ちます。既存の順序を保って末尾へ追加してください。
+- 出典: curriculum/PH1/Week16.md:142 / 貼る前の、最後の見直し
+- ドリル接続: Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。元配列を直接変えていないことを説明し、一覧で順序を確認しましょう。
+- 既習: Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week16-review-append
+- 類題: ph1-week16-assembly-review-append / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+AI案を修正します。tasksはstate配列、newTaskは一意のidを持ちます。既存の順序を保って末尾へ追加してください。
+
+```jsx
+const addTask = () => {
+  __BLANK__;
+  setInput("");
+};
+```
+
+- correct: setTasks([...tasks, newTask])（正答）
+- wrong: setTasks([newTask, ...tasks])
+
+達成条件: AI案を修正します。tasksはstate配列、newTaskは一意のidを持ちます。既存の順序を保って末尾へ追加してください。
+
+ヒント: 既存配列の要素を先に展開してから追加します。
+
+解説: 既存配列の要素を先に展開してから追加します。PCでは元配列を直接変えていないことを説明し、一覧で順序を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 提示の順序では先頭に追加され、末尾追加の要件を満たしません。
+
+## question-week16-assembly-review-delete（版1・published）
+
+- 形式: assembly
+- 主対象: 結果の確認・修正
+- 学習目標: AI案の直接変更を直します。tasksはstateで各idは一意です。targetIdだけを除いた新配列で更新してください。
+- 出典: curriculum/PH1/Week16.md:142 / 貼る前の、最後の見直し
+- ドリル接続: Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。対象と別のタスクの両方がある状態で削除を確認しましょう。
+- 既習: Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week16-review-delete
+- 類題: ph1-week16-assembly-review-delete / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+AI案の直接変更を直します。tasksはstateで各idは一意です。targetIdだけを除いた新配列で更新してください。
+
+```jsx
+__BLANK__;
+```
+
+- correct: setTasks(tasks.filter((task) => task.id !== targetId))（正答）
+- wrong: setTasks(tasks.filter((task) => task.id === targetId))
+
+達成条件: AI案の直接変更を直します。tasksはstateで各idは一意です。targetIdだけを除いた新配列で更新してください。
+
+ヒント: filterは残す条件を書くため!==を使います。
+
+解説: filterは残す条件を書くため!==を使います。PCでは対象と別のタスクの両方がある状態で削除を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: ===では削除対象だけを残してしまいます。
+
+## question-week16-assembly-review-controlled（版1・published）
+
+- 形式: assembly
+- 主対象: 結果の確認・修正
+- 学習目標: AI案のinputをstateにつなぎます。inputとsetInputは用意済みです。開始タグを完成させてください。
+- 出典: curriculum/PH1/Week16.md:142 / 貼る前の、最後の見直し
+- ドリル接続: Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。追加後にsetInput("")で文字も消えることを確認しましょう。
+- 既習: Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week16-review-controlled
+- 類題: ph1-week16-assembly-review-controlled / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+AI案のinputをstateにつなぎます。inputとsetInputは用意済みです。開始タグを完成させてください。
+
+```jsx
+__BLANK__
+```
+
+- correct: <input value={input} onChange={(event) => setInput(event.target.value)} />（正答）
+- wrong: <input defaultValue={input} onChange={(event) => setInput(event.target.value)} />
+
+達成条件: AI案のinputをstateにつなぎます。inputとsetInputは用意済みです。開始タグを完成させてください。
+
+ヒント: valueで現在のstateを入力欄へ反映します。
+
+解説: valueで現在のstateを入力欄へ反映します。PCでは追加後にsetInput("")で文字も消えることを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: defaultValueは初期値の指定で、後のstate変更を表示へ同期するvalueではありません。
+
+## question-week16-assembly-review-key（版1・published）
+
+- 形式: assembly
+- 主対象: 結果の確認・修正
+- 学習目標: AI案の一覧を直します。tasksのidは固定で一意、textは重複します。mapが返すliに適切なkeyを付けてください。
+- 出典: curriculum/PH1/Week16.md:142 / 貼る前の、最後の見直し
+- ドリル接続: Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。同じ文字のタスクを2つ作り、削除後も正しく対応するか確認しましょう。
+- 既習: Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week16-review-key
+- 類題: ph1-week16-assembly-review-key / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+AI案の一覧を直します。tasksのidは固定で一意、textは重複します。mapが返すliに適切なkeyを付けてください。
+
+```jsx
+<ul>{tasks.map((task) => (
+  __BLANK__{task.text}</li>
+))}</ul>
+```
+
+- correct: <li key={task.id}>（正答）
+- wrong: <li key={task.text}>
+
+達成条件: AI案の一覧を直します。tasksのidは固定で一意、textは重複します。mapが返すliに適切なkeyを付けてください。
+
+ヒント: 表示文字ではなくタスクの固定idで識別します。
+
+解説: 表示文字ではなくタスクの固定idで識別します。PCでは同じ文字のタスクを2つ作り、削除後も正しく対応するか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 同じtextのタスクがあるため、textではkeyが重複します。
+
+## question-week16-assembly-review-event（版1・published）
+
+- 形式: assembly
+- 主対象: 結果の確認・修正
+- 学習目標: AI案を直します。クリックした時だけtask.idをdeleteTaskへ渡してください。deleteTaskは定義済みです。
+- 出典: curriculum/PH1/Week16.md:142 / 貼る前の、最後の見直し
+- ドリル接続: Week16の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。描画時に消えず、クリックした対象だけ消えるか確認しましょう。
+- 既習: Week01〜16の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week16-review-event
+- 類題: ph1-week16-assembly-review-event / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+AI案を直します。クリックした時だけtask.idをdeleteTaskへ渡してください。deleteTaskは定義済みです。
+
+```jsx
+<button onClick={__BLANK__}>削除</button>
+```
+
+- correct: () => deleteTask(task.id)（正答）
+- wrong: deleteTask(task.id)
+
+達成条件: AI案を直します。クリックした時だけtask.idをdeleteTaskへ渡してください。deleteTaskは定義済みです。
+
+ヒント: イベントには実行を遅らせる関数を渡します。
+
+解説: イベントには実行を遅らせる関数を渡します。PCでは描画時に消えず、クリックした対象だけ消えるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 関数呼び出しを直接書くと描画時に実行され、クリック時の処理になりません。

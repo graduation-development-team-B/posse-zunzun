@@ -13,16 +13,17 @@ import type { AnswerRecord } from '@/lib/quiz/session';
 import { questionSource, targetLabel } from './question-presentation';
 import { PressFeedback } from './press-feedback';
 
-export function ChoiceWorkspace({ q, selectedId, answer, hintUsed, busy, error, current, total, onSelect, onHint, onConfirm, onNext }: {
+export function ChoiceWorkspace({ q, selectedId, answer, hintUsed, busy, error, current, total, onSelect, onHint, onConfirm, onNext, onExplanationRead }: {
   q: QuestionItem; selectedId: string; answer?: AnswerRecord; hintUsed: boolean; busy: boolean;
   error: string | null; current: number; total: number;
-  onSelect: (id: string) => void; onHint: () => void; onConfirm: () => void; onNext: () => void;
+  onSelect: (id: string) => void; onHint: () => void; onConfirm: () => void; onNext: () => void; onExplanationRead: () => Promise<unknown>;
 }) {
   const options = optionsFor(q);
-  const Q = { tags: [q.payload.kind === 'trueFalse' ? '○×問題' : q.payload.kind === 'fillBlank' ? '穴埋め' : q.payload.kind === 'bugDiagnosis' ? 'バグ診断' : '4択問題', targetLabel(q)],
+  const typeTag = q.payload.kind === 'choice' ? null : q.payload.kind === 'trueFalse' ? '○×問題' : q.payload.kind === 'fillBlank' ? '穴埋め' : q.payload.kind === 'bugDiagnosis' ? 'バグ診断' : '4択問題';
+  const Q = { tags: [targetLabel(q)], typeTag,
     prompt: q.prompt, options: options.map(o => o.text), answer: options.findIndex(o => o.id === correctOption(q)),
     correctText: q.explanation, materialCorrect: questionSource(q),
-    wrongPoint: { tag: `つまずきポイント · ${targetLabel(q)}`, text: gradeChoice(q, selectedId).reason || q.explanation } };
+    wrongPoint: { text: gradeChoice(q, selectedId).reason || q.explanation } };
   const selectedIndex = options.findIndex(o => o.id === selectedId);
   const picked = selectedIndex < 0 ? null : selectedIndex;
   const checked = !!answer;
@@ -36,8 +37,8 @@ export function ChoiceWorkspace({ q, selectedId, answer, hintUsed, busy, error, 
           <Mascot name="cheer" width={64} />
           <View style={styles.bubble}>
             <View style={styles.tagRow}>
-              <QuizTag label={Q.tags[0]} tone="gray" />
-              <QuizTag label={Q.tags[1]} tone="orange" />
+              {Q.typeTag !== null && <QuizTag label={Q.typeTag} tone="gray" />}
+              <QuizTag label={Q.tags[0]} tone="orange" />
             </View>
             <DText size={18} weight="bold" lh={1.65} role="heading" aria-level={1}>
               {Q.prompt}
@@ -127,13 +128,11 @@ export function ChoiceWorkspace({ q, selectedId, answer, hintUsed, busy, error, 
             </>
           }
           source={Q.materialCorrect}
+          explanationRead={answer.explanationRead}
+          onExplanationRead={onExplanationRead}
           onNext={onNext} nextDisabled={busy}>
-          <View style={styles.point}>
-            <DText size={11} weight="bold" color={Drill.accentText} style={styles.pointTag}>
-              {Q.wrongPoint.tag}
-            </DText>
-            <FeedbackText>{Q.wrongPoint.text}</FeedbackText>
-          </View>
+          <FeedbackText>{Q.wrongPoint.text}</FeedbackText>
+          {Q.wrongPoint.text !== q.explanation && <FeedbackText>{q.explanation}</FeedbackText>}
         </FeedbackSheet>
       )}
     </Screen>

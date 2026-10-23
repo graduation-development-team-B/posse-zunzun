@@ -12,6 +12,7 @@ type AnswerRow = {
   week_unit_id: string;
   correct: boolean;
   hint_used: boolean;
+  explanation_read_at: string | null;
   option_id: string;
   received_at: string;
 };
@@ -25,9 +26,10 @@ function toRecord(row: AnswerRow): AnswerRecord {
     weekUnitId: row.week_unit_id,
     correct: row.correct,
     hintUsed: row.hint_used,
+    explanationRead: row.explanation_read_at !== null,
     optionId: row.option_id,
     at: row.received_at,
-    xp: 5 + (row.correct ? 5 : 0),
+    xp: 5 + (row.correct ? 5 : 0) + (row.explanation_read_at !== null ? 5 : 0),
   };
 }
 
@@ -69,14 +71,14 @@ export async function saveAnswer(
   const inserted = await client
     .from("answer_records")
     .insert(payload)
-    .select("user_id, record_id, session_id, question_id, revision, week_unit_id, correct, hint_used, option_id, received_at")
+    .select("user_id, record_id, session_id, question_id, revision, week_unit_id, correct, hint_used, explanation_read_at, option_id, received_at")
     .single();
   if (!inserted.error) return toRecord(inserted.data);
   if (inserted.error.code !== "23505") throw inserted.error;
 
   const existing = await client
     .from("answer_records")
-    .select("user_id, record_id, session_id, question_id, revision, week_unit_id, correct, hint_used, option_id, received_at")
+    .select("user_id, record_id, session_id, question_id, revision, week_unit_id, correct, hint_used, explanation_read_at, option_id, received_at")
     .eq("user_id", userId)
     .eq("record_id", record.id)
     .maybeSingle();
@@ -93,7 +95,7 @@ export async function loadAnswers(userId: string): Promise<AnswerRecord[]> {
   for (let start = 0; ; start += PAGE_SIZE) {
     const { data, error } = await client
       .from("answer_records")
-      .select("user_id, record_id, session_id, question_id, revision, week_unit_id, correct, hint_used, option_id, received_at")
+      .select("user_id, record_id, session_id, question_id, revision, week_unit_id, correct, hint_used, explanation_read_at, option_id, received_at")
       .eq("user_id", userId)
       .order("received_at", { ascending: false })
       .order("record_id", { ascending: false })
@@ -103,4 +105,34 @@ export async function loadAnswers(userId: string): Promise<AnswerRecord[]> {
     if (data.length < PAGE_SIZE) break;
   }
   return rows.map(toRecord);
+}
+
+export async function claimWrongExplanation(
+  userId: string,
+  recordId: string,
+): Promise<{ claimed: boolean; explanationRead: boolean }> {
+  const client = requireSupabase();
+  const update = await client
+    .from("answer_records")
+    .update({ explanation_read_at: new Date().toISOString() })
+    .eq("user_id", userId)
+    .eq("record_id", recordId)
+    .is("explanation_read_at", null)
+    .select("explanation_read_at")
+    .maybeSingle();
+  if (update.error) throw update.error;
+  if (update.data) return { claimed: true, explanationRead: true };
+
+  const existing = await client
+    .from("answer_records")
+    .select("explanation_read_at")
+    .eq("user_id", userId)
+    .eq("record_id", recordId)
+    .maybeSingle();
+  if (existing.error) throw existing.error;
+  if (!existing.data) throw new Error("回答記録が見つかりません。");
+  return {
+    claimed: false,
+    explanationRead: existing.data.explanation_read_at !== null,
+  };
 }

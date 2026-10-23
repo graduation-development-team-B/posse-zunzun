@@ -767,5 +767,476 @@
       "validation": "出典・条件・正誤の静的確認。実行検証は検証レポート参照"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-assembly-mobile-grid",
+      "weekUnitId": "week-unit-week5",
+      "format": "fillBlank",
+      "prompt": "説明と一覧を375pxで1列、768px以上で2列にしてください。間隔は24pxです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<main class=\"__BLANK__\"><section>説明</section><section>一覧</section></main>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "grid grid-cols-1 md:grid-cols-2 gap-6 "
+          },
+          {
+            "id": "wrong",
+            "text": "grid grid-cols-2 md:grid-cols-1 gap-6 "
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "スマートフォンとmd以上の列数が逆です。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "grid ",
+            "grid-cols-1 ",
+            "md:grid-cols-2 ",
+            "gap-6 "
+          ],
+          "wrong": [
+            "grid ",
+            "grid-cols-2 ",
+            "md:grid-cols-1 ",
+            "gap-6 "
+          ]
+        },
+        "inputMode": "classes"
+      },
+      "explanation": "最小幅のgrid-cols-1を基準に、md以上だけ2列にします。PCでは375pxで横スクロールがないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "説明と一覧を375pxで1列、768px以上で2列にしてください。間隔は24pxです。",
+      "conceptId": "ph1-week5-mobile-grid",
+      "variantGroup": "ph1-week5-assembly-mobile-grid",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜05のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week05の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。375pxで横スクロールがないか確認しましょう。",
+      "hint": "最小幅のgrid-cols-1を基準に、md以上だけ2列にします。",
+      "success": "説明と一覧を375pxで1列、768px以上で2列にしてください。間隔は24pxです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "line": 71,
+        "heading": "4. よく使うレスポンシブパターン",
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week05-1/README.md",
+          "line": 1,
+          "heading": "問題1：防災チェックリストLPを作る（25分）",
+          "sha256": "161f44eeb5cb97cbced8aebf20baa1b551d078ce6460f4a0c41fd871f95f95a5"
+        },
+        {
+          "path": "drill-ph1/week05-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`md:` クラスが効かない）（15分）",
+          "sha256": "971346fe9370fbd9ca85490850e3695362b5b6b36128a4938b0c40197b271a5a"
+        },
+        {
+          "path": "drill-ph1/week05-3/README.md",
+          "line": 1,
+          "heading": "問題3：Flex + Grid + レスポンシブを全部使う（20分）",
+          "sha256": "b13e2d9d43b3d2478ff407c0e65a829ace56d0d1cbee86c4ca2c6eba7000ec28"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-assembly-desktop-only",
+      "weekUnitId": "week-unit-week5",
+      "format": "fillBlank",
+      "prompt": "375pxでは補足を非表示、768px以上でblock表示にしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<aside class=\"__BLANK__\">詳しい説明</aside>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "hidden md:block "
+          },
+          {
+            "id": "wrong",
+            "text": "block md:hidden "
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "375pxで表示され、md以上で隠れる逆の指定です。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "hidden ",
+            "md:block "
+          ],
+          "wrong": [
+            "block ",
+            "md:hidden "
+          ]
+        },
+        "inputMode": "classes"
+      },
+      "explanation": "hiddenを基準にし、md:blockで広い画面の表示を上書きします。PCでは767pxと768pxを比べましょう。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "3. ブレイクポイント接頭辞"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "375pxでは補足を非表示、768px以上でblock表示にしてください。",
+      "conceptId": "ph1-week5-desktop-only",
+      "variantGroup": "ph1-week5-assembly-desktop-only",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜05のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week05の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。767pxと768pxを比べましょう。",
+      "hint": "hiddenを基準にし、md:blockで広い画面の表示を上書きします。",
+      "success": "375pxでは補足を非表示、768px以上でblock表示にしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "line": 55,
+        "heading": "3. ブレイクポイント接頭辞",
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week05-1/README.md",
+          "line": 1,
+          "heading": "問題1：防災チェックリストLPを作る（25分）",
+          "sha256": "161f44eeb5cb97cbced8aebf20baa1b551d078ce6460f4a0c41fd871f95f95a5"
+        },
+        {
+          "path": "drill-ph1/week05-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`md:` クラスが効かない）（15分）",
+          "sha256": "971346fe9370fbd9ca85490850e3695362b5b6b36128a4938b0c40197b271a5a"
+        },
+        {
+          "path": "drill-ph1/week05-3/README.md",
+          "line": 1,
+          "heading": "問題3：Flex + Grid + レスポンシブを全部使う（20分）",
+          "sha256": "b13e2d9d43b3d2478ff407c0e65a829ace56d0d1cbee86c4ca2c6eba7000ec28"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-assembly-image-width",
+      "weekUnitId": "week-unit-week5",
+      "format": "fillBlank",
+      "prompt": "画像を375pxでは親の全幅、768px以上では親の半分の幅にしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<img class=\"__BLANK__\" src=\"photo.jpg\" alt=\"会場\">",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "w-full md:w-1/2 "
+          },
+          {
+            "id": "wrong",
+            "text": "w-1/2 md:w-full "
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "小さい画面で半幅、広い画面で全幅になってしまいます。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "w-full ",
+            "md:w-1/2 "
+          ],
+          "wrong": [
+            "w-1/2 ",
+            "md:w-full "
+          ]
+        },
+        "inputMode": "classes"
+      },
+      "explanation": "基準をw-full、md以上をw-1/2にします。PCでは親の幅に対する割合を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "画像を375pxでは親の全幅、768px以上では親の半分の幅にしてください。",
+      "conceptId": "ph1-week5-image-width",
+      "variantGroup": "ph1-week5-assembly-image-width",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜05のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week05の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。親の幅に対する割合を確認しましょう。",
+      "hint": "基準をw-full、md以上をw-1/2にします。",
+      "success": "画像を375pxでは親の全幅、768px以上では親の半分の幅にしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "line": 71,
+        "heading": "4. よく使うレスポンシブパターン",
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week05-1/README.md",
+          "line": 1,
+          "heading": "問題1：防災チェックリストLPを作る（25分）",
+          "sha256": "161f44eeb5cb97cbced8aebf20baa1b551d078ce6460f4a0c41fd871f95f95a5"
+        },
+        {
+          "path": "drill-ph1/week05-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`md:` クラスが効かない）（15分）",
+          "sha256": "971346fe9370fbd9ca85490850e3695362b5b6b36128a4938b0c40197b271a5a"
+        },
+        {
+          "path": "drill-ph1/week05-3/README.md",
+          "line": 1,
+          "heading": "問題3：Flex + Grid + レスポンシブを全部使う（20分）",
+          "sha256": "b13e2d9d43b3d2478ff407c0e65a829ace56d0d1cbee86c4ca2c6eba7000ec28"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-assembly-navigation-stack",
+      "weekUnitId": "week-unit-week5",
+      "format": "fillBlank",
+      "prompt": "ナビを375pxで縦並び、768px以上で横並びにしてください。小さい画面で8px、md以上で16pxの間隔にします。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<nav class=\"__BLANK__\"><a href=\"#a\">案内</a><a href=\"#b\">連絡先</a></nav>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "flex flex-col md:flex-row gap-2 md:gap-4 "
+          },
+          {
+            "id": "wrong",
+            "text": "flex flex-row md:flex-col gap-2 md:gap-4 "
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "幅に応じた並び方向が逆になっています。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "flex ",
+            "flex-col ",
+            "md:flex-row ",
+            "gap-2 ",
+            "md:gap-4 "
+          ],
+          "wrong": [
+            "flex ",
+            "flex-row ",
+            "md:flex-col ",
+            "gap-2 ",
+            "md:gap-4 "
+          ]
+        },
+        "inputMode": "classes"
+      },
+      "explanation": "方向と間隔をそれぞれ基準値とmd以上の値に分けます。PCでは2つの画面幅でナビの読み順を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "4. よく使うレスポンシブパターン"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ナビを375pxで縦並び、768px以上で横並びにしてください。小さい画面で8px、md以上で16pxの間隔にします。",
+      "conceptId": "ph1-week5-navigation-stack",
+      "variantGroup": "ph1-week5-assembly-navigation-stack",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜05のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week05の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。2つの画面幅でナビの読み順を確認しましょう。",
+      "hint": "方向と間隔をそれぞれ基準値とmd以上の値に分けます。",
+      "success": "ナビを375pxで縦並び、768px以上で横並びにしてください。小さい画面で8px、md以上で16pxの間隔にします。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "line": 71,
+        "heading": "4. よく使うレスポンシブパターン",
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week05-1/README.md",
+          "line": 1,
+          "heading": "問題1：防災チェックリストLPを作る（25分）",
+          "sha256": "161f44eeb5cb97cbced8aebf20baa1b551d078ce6460f4a0c41fd871f95f95a5"
+        },
+        {
+          "path": "drill-ph1/week05-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`md:` クラスが効かない）（15分）",
+          "sha256": "971346fe9370fbd9ca85490850e3695362b5b6b36128a4938b0c40197b271a5a"
+        },
+        {
+          "path": "drill-ph1/week05-3/README.md",
+          "line": 1,
+          "heading": "問題3：Flex + Grid + レスポンシブを全部使う（20分）",
+          "sha256": "b13e2d9d43b3d2478ff407c0e65a829ace56d0d1cbee86c4ca2c6eba7000ec28"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week5-assembly-prefix-repair",
+      "weekUnitId": "week-unit-week5",
+      "format": "fillBlank",
+      "prompt": "768px以上で3列にする、空白のないmd接頭辞を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<div class=\"grid grid-cols-1 __BLANK__\"><p>A</p><p>B</p><p>C</p></div>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "md:grid-cols-3"
+          },
+          {
+            "id": "wrong",
+            "text": "md: grid-cols-3"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "md:の後の空白により別のクラスへ分割されます。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "md:",
+            "grid-cols-",
+            "3"
+          ],
+          "wrong": [
+            "md: ",
+            "grid-cols-",
+            "3"
+          ]
+        }
+      },
+      "explanation": "md:grid-cols-3は一つのクラス名です。PCでは767pxと768pxで列数の変化を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week5",
+        "sectionHeading": "7. レスポンシブデザインでよくある間違い"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "768px以上で3列にする、空白のないmd接頭辞を組み立ててください。",
+      "conceptId": "ph1-week5-prefix-repair",
+      "variantGroup": "ph1-week5-assembly-prefix-repair",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜05のインプット。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week05の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。767pxと768pxで列数の変化を確認しましょう。",
+      "hint": "md:grid-cols-3は一つのクラス名です。",
+      "success": "768px以上で3列にする、空白のないmd接頭辞を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week05.md",
+        "line": 216,
+        "heading": "7. レスポンシブデザインでよくある間違い",
+        "sha256": "321cfaa6eae79aa03ac98913f2f3f850b77223bc0e04f7ec82f7e10172af6c20"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week05-1/README.md",
+          "line": 1,
+          "heading": "問題1：防災チェックリストLPを作る（25分）",
+          "sha256": "161f44eeb5cb97cbced8aebf20baa1b551d078ce6460f4a0c41fd871f95f95a5"
+        },
+        {
+          "path": "drill-ph1/week05-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（`md:` クラスが効かない）（15分）",
+          "sha256": "971346fe9370fbd9ca85490850e3695362b5b6b36128a4938b0c40197b271a5a"
+        },
+        {
+          "path": "drill-ph1/week05-3/README.md",
+          "line": 1,
+          "heading": "問題3：Flex + Grid + レスポンシブを全部使う（20分）",
+          "sha256": "b13e2d9d43b3d2478ff407c0e65a829ace56d0d1cbee86c4ca2c6eba7000ec28"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
   }
 ]

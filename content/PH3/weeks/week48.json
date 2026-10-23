@@ -1,0 +1,1105 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week48-assembly-user-soft-delete",
+      "weekUnitId": "week-unit-week48",
+      "format": "fillBlank",
+      "prompt": "管理者のユーザー削除権限は確認済みです。UserはSoftDeletesを使いdeleted_at列もあります。取得済み$userを論理削除してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$user->delete()"
+          },
+          {
+            "id": "wrong",
+            "text": "$user->forceDelete()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "forceDeleteはユーザーの行を物理削除します。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$user->",
+            "delete(",
+            ")"
+          ],
+          "wrong": [
+            "$user->",
+            "forceDelete(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "SoftDeletesモデルのdeleteで論理削除します。PCでは一覧表示とDBのdeleted_atを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "管理者のユーザー削除権限は確認済みです。UserはSoftDeletesを使いdeleted_at列もあります。取得済み$userを論理削除してください。",
+      "conceptId": "ph3-week48-user-soft-delete",
+      "variantGroup": "ph3-week48-assembly-user-soft-delete",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。",
+      "drillConnection": "PH3 Week48のPOSSE課題へ接続。一覧表示とDBのdeleted_atを確認しましょう。",
+      "hint": "この設問では削除日時を残す操作を使います。",
+      "success": "管理者のユーザー削除権限は確認済みです。UserはSoftDeletesを使いdeleted_at列もあります。取得済み$userを論理削除してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-assembly-create-post-comment",
+      "weekUnitId": "week-unit-week48",
+      "format": "fillBlank",
+      "prompt": "Commentのbodyはfillableです。$postはコメント可能と認可確認済みで、commentsはhasManyです。検証済み文字列$bodyからコメントを作ってください。投稿者IDはサーバー側の既存処理で設定されます。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $comment = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$post->comments()->create(['body' => $body])"
+          },
+          {
+            "id": "wrong",
+            "text": "$post->comments->create(['body' => $body])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "保存にはコレクションでなくcomments()のリレーションを使います。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$post->comments()->",
+            "create(",
+            "['body' => $body]",
+            ")"
+          ],
+          "wrong": [
+            "$post->comments->",
+            "create(",
+            "['body' => $body]",
+            ")"
+          ]
+        }
+      },
+      "explanation": "comments()->createで記事への所属を対応させます。PCでは別の記事へコメントが混ざらないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Commentのbodyはfillableです。$postはコメント可能と認可確認済みで、commentsはhasManyです。検証済み文字列$bodyからコメントを作ってください。投稿者IDはサーバー側の既存処理で設定されます。",
+      "conceptId": "ph3-week48-create-post-comment",
+      "variantGroup": "ph3-week48-assembly-create-post-comment",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。",
+      "drillConnection": "PH3 Week48のPOSSE課題へ接続。別の記事へコメントが混ざらないか確認しましょう。",
+      "hint": "親記事のリレーションへ属性配列を渡します。",
+      "success": "Commentのbodyはfillableです。$postはコメント可能と認可確認済みで、commentsはhasManyです。検証済み文字列$bodyからコメントを作ってください。投稿者IDはサーバー側の既存処理で設定されます。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-assembly-comment-owner-policy",
+      "weekUnitId": "week-unit-week48",
+      "format": "fillBlank",
+      "prompt": "Commentのuser_idと、認証済みUserのidは整数です。updateポリシーで投稿者本人の時だけtrueを返してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nfunction update(User $user, Comment $comment): bool {\n  return __BLANK__;\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$user->id === $comment->user_id"
+          },
+          {
+            "id": "wrong",
+            "text": "$user->id === $comment->id"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "コメント自身のidと利用者idを比べても、投稿者本人か判断できません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$user->id ",
+            "=== ",
+            "$comment->user_id"
+          ],
+          "wrong": [
+            "$user->id ",
+            "=== ",
+            "$comment->id"
+          ]
+        }
+      },
+      "explanation": "user_idで投稿者を確認します。PCでは本人と他人の両方で更新リクエストを試しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Commentのuser_idと、認証済みUserのidは整数です。updateポリシーで投稿者本人の時だけtrueを返してください。",
+      "conceptId": "ph3-week48-comment-owner-policy",
+      "variantGroup": "ph3-week48-assembly-comment-owner-policy",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。",
+      "drillConnection": "PH3 Week48のPOSSE課題へ接続。本人と他人の両方で更新リクエストを試しましょう。",
+      "hint": "コメントの所属ユーザーIDと認証済みIDを比べます。",
+      "success": "Commentのuser_idと、認証済みUserのidは整数です。updateポリシーで投稿者本人の時だけtrueを返してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 固定入力で正誤比較。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-assembly-authorize-comment-delete",
+      "weekUnitId": "week-unit-week48",
+      "format": "fillBlank",
+      "prompt": "Commentのdeleteポリシーは本人だけを許可します。取得済み$commentを消す前にControllerで権限を要求してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nclass CommentController extends Controller {\n  public function destroy($comment) {\n    __BLANK__;\n    $comment->delete();\n  }\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$this->authorize('delete', $comment)"
+          },
+          {
+            "id": "wrong",
+            "text": "$this->authorize('view', $comment)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "閲覧を許可しても、その人がコメントを削除できるとは限りません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$this->authorize(",
+            "'delete', ",
+            "$comment",
+            ")"
+          ],
+          "wrong": [
+            "$this->authorize(",
+            "'view', ",
+            "$comment",
+            ")"
+          ]
+        }
+      },
+      "explanation": "deleteの認可を通してから削除します。PCでは他人のコメントのIDを送っても消せないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Commentのdeleteポリシーは本人だけを許可します。取得済み$commentを消す前にControllerで権限を要求してください。",
+      "conceptId": "ph3-week48-authorize-comment-delete",
+      "variantGroup": "ph3-week48-assembly-authorize-comment-delete",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。",
+      "drillConnection": "PH3 Week48のPOSSE課題へ接続。他人のコメントのIDを送っても消せないか確認しましょう。",
+      "hint": "これから行う操作に対応した権限を要求します。",
+      "success": "Commentのdeleteポリシーは本人だけを許可します。取得済み$commentを消す前にControllerで権限を要求してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-assembly-mix-production",
+      "weekUnitId": "week-unit-week48",
+      "format": "fillBlank",
+      "prompt": "旧ミニドリルのpackage.jsonでは、scripts.productionがNODE_ENV=productionでLaravel Mixを実行し、scripts.devは開発用です。productionを実行するコマンドを組み立ててください。Laravel 10標準のVite設定とは別の教材です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "npm run production"
+          },
+          {
+            "id": "wrong",
+            "text": "npm run dev"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "devは開発用で、指定したproductionのスクリプトを実行しません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "npm ",
+            "run ",
+            "production"
+          ],
+          "wrong": [
+            "npm ",
+            "run ",
+            "dev"
+          ]
+        }
+      },
+      "explanation": "npm run productionで指定された本番向けビルドを実行します。PCでは生成先のJSと圧縮状態を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "旧ミニドリルのpackage.jsonでは、scripts.productionがNODE_ENV=productionでLaravel Mixを実行し、scripts.devは開発用です。productionを実行するコマンドを組み立ててください。Laravel 10標準のVite設定とは別の教材です。",
+      "conceptId": "ph3-week48-mix-production",
+      "variantGroup": "ph3-week48-assembly-mix-production",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。",
+      "drillConnection": "week48-1の関連ドリルへ接続。生成先のJSと圧縮状態を確認しましょう。",
+      "hint": "このプロジェクトのscriptsのキーを読み取ります。",
+      "success": "旧ミニドリルのpackage.jsonでは、scripts.productionがNODE_ENV=productionでLaravel Mixを実行し、scripts.devは開発用です。productionを実行するコマンドを組み立ててください。Laravel 10標準のVite設定とは別の教材です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。sh -nによる構文確認のみ。コマンドは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week48-1/README.md",
+          "line": 1,
+          "heading": "48週目ミニドリル 1問目",
+          "sha256": "e2f764320ff53c5c4838671715a856a775216c6cc04d975e05b0d168ad5a4011",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week48-1/src/package.json",
+          "line": 1,
+          "heading": "{",
+          "sha256": "3ef1c023f6179fd6bd30812af8174611aa557624013afc8ca40fd2d91ea0afb5",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-user-list-admin",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "管理者用ユーザー一覧のアクセス条件はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "ユーザー名にadminが含まれれば許可する"
+          },
+          {
+            "id": "wrong3",
+            "text": "URLを知っていれば未ログインでも許可する"
+          },
+          {
+            "id": "correct",
+            "text": "認証済みの管理者だけ許可する"
+          },
+          {
+            "id": "wrong1",
+            "text": "すべてのログイン利用者へ無条件に許可する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "一般ユーザーにも管理機能を開いてしまいます。",
+          "wrong2": "表示名は管理者権限の証明ではありません。",
+          "wrong3": "管理者専用の要件を満たしません。"
+        }
+      },
+      "explanation": "管理者専用のルートに認証と認可を適用します。 PCでは一般ユーザーからの直接アクセスを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「認証済みの管理者だけ許可する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-user-list-admin",
+      "variantGroup": "ph3-week48-choice-user-list-admin",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week48のPOSSE課題。一般ユーザーからの直接アクセスを確認しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ログインと管理者権限の両方を確認します。",
+      "success": "条件に適合する候補を1つ選ぶ：認証済みの管理者だけ許可する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-soft-delete-user-evidence",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "UserはSoftDeletesです。管理者が$user->delete()した後の確認として正しいものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "すべてのユーザーのidが0になる"
+          },
+          {
+            "id": "correct",
+            "text": "行がDBに残り、deleted_atに削除日時が入る"
+          },
+          {
+            "id": "wrong1",
+            "text": "usersから必ず行が消える"
+          },
+          {
+            "id": "wrong2",
+            "text": "passwordだけが空になる"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "この前提では論理削除であり行は残ります。",
+          "wrong2": "削除日時による状態管理です。",
+          "wrong3": "対象1件の削除で主キーを全件変更しません。"
+        }
+      },
+      "explanation": "SoftDeletesのdeleteは削除日時を記録します。 PCではDBの削除日時と管理一覧の状態を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「行がDBに残り、deleted_atに削除日時が入る」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-soft-delete-user-evidence",
+      "variantGroup": "ph3-week48-choice-soft-delete-user-evidence",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week48のPOSSE課題。DBの削除日時と管理一覧の状態を照合しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "行の存在と通常取得からの除外を分けて確認します。",
+      "success": "条件に適合する候補を1つ選ぶ：行がDBに残り、deleted_atに削除日時が入る",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-user-delete-server-check",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "管理者だけがユーザー削除できます。削除ボタンを隠す以外に必要な対応はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "削除処理でも管理者の認可を強制する"
+          },
+          {
+            "id": "wrong1",
+            "text": "削除URLを長い文字列にするだけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "確認モーダルを出せば認可を省く"
+          },
+          {
+            "id": "wrong3",
+            "text": "フォームのis_admin=1を信頼する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "URLを知った利用者からの要求を拒否できません。",
+          "wrong2": "モーダルは管理者権限の確認ではありません。",
+          "wrong3": "送信値は利用者が改変できます。"
+        }
+      },
+      "explanation": "直接送信されても管理者以外を拒否します。 PCでは一般ユーザーから削除を要求し行が変わらないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「削除処理でも管理者の認可を強制する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-user-delete-server-check",
+      "variantGroup": "ph3-week48-choice-user-delete-server-check",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week48のPOSSE課題。一般ユーザーから削除を要求し行が変わらないか確認しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "操作の入口でサーバーが権限を判断します。",
+      "success": "条件に適合する候補を1つ選ぶ：削除処理でも管理者の認可を強制する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-comment-post-relation",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "comments.post_idがposts.idを参照します。この列の役割はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "コメントの投稿者を必ず示す"
+          },
+          {
+            "id": "wrong2",
+            "text": "コメントが削除済みかを示す"
+          },
+          {
+            "id": "wrong3",
+            "text": "記事のタイトルの長さを示す"
+          },
+          {
+            "id": "correct",
+            "text": "コメントが属する記事を示す"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "投稿者の参照は通常user_idで、post_idは記事です。",
+          "wrong2": "削除日時やフラグの指定ではありません。",
+          "wrong3": "記事の主キーへの参照です。"
+        }
+      },
+      "explanation": "post_idで記事とコメントを関連付けます。 PCでは同じ記事のコメントが同じpost_idを持つか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「コメントが属する記事を示す」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-comment-post-relation",
+      "variantGroup": "ph3-week48-choice-comment-post-relation",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week48のPOSSE課題。同じ記事のコメントが同じpost_idを持つか確認しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "子コメントから親記事を指します。",
+      "success": "条件に適合する候補を1つ選ぶ：コメントが属する記事を示す",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-comment-create-parent",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "commentsはhasManyでbodyはfillableです。記事$postに属するコメントを属性配列から作るものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "$post->comments()->save([\"body\" => $body])"
+          },
+          {
+            "id": "wrong3",
+            "text": "new Comment([\"body\" => $body])だけ"
+          },
+          {
+            "id": "correct",
+            "text": "$post->comments()->create([\"body\" => $body])"
+          },
+          {
+            "id": "wrong1",
+            "text": "$post->comments->create([\"body\" => $body])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "コレクションではなくリレーションメソッドを使います。",
+          "wrong2": "saveはモデルインスタンスを受け取ります。",
+          "wrong3": "DB保存も記事への関連付けも行いません。"
+        }
+      },
+      "explanation": "createで親に関連するコメントを作れます。 PCでは保存されたpost_idとbodyを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$post->comments()->create([\"body\" => $body])」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-comment-create-parent",
+      "variantGroup": "ph3-week48-choice-comment-create-parent",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week48のPOSSE課題。保存されたpost_idとbodyを確認しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "親のリレーションへ属性配列を渡します。",
+      "success": "条件に適合する候補を1つ選ぶ：$post->comments()->create([\"body\" => $body])",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-comment-owner-reference",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "認証済みUserのidとCommentのuser_idは整数です。コメント投稿者本人を判定する比較はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "$user->name === $comment->body"
+          },
+          {
+            "id": "correct",
+            "text": "$user->id === $comment->user_id"
+          },
+          {
+            "id": "wrong1",
+            "text": "$user->id === $comment->id"
+          },
+          {
+            "id": "wrong2",
+            "text": "$user->id === $comment->post_id"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "コメント自身のIDでは投稿者を判定できません。",
+          "wrong2": "記事のIDと利用者IDは別です。",
+          "wrong3": "名前と本文の一致は投稿者の根拠になりません。"
+        }
+      },
+      "explanation": "commentのuser_idが認証済み利用者のidと一致するか調べます。 PCでは他人のコメントで不許可になるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$user->id === $comment->user_id」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-comment-owner-reference",
+      "variantGroup": "ph3-week48-choice-comment-owner-reference",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week48のPOSSE課題。他人のコメントで不許可になるか確認しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "投稿者への参照と現在の利用者を対応させます。",
+      "success": "条件に適合する候補を1つ選ぶ：$user->id === $comment->user_id",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-comment-delete-authorize",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "Commentのdeleteポリシーは本人だけを許可します。削除前に行うものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$this->authorize(\"delete\", $comment);"
+          },
+          {
+            "id": "wrong1",
+            "text": "$this->authorize(\"view\", $comment);"
+          },
+          {
+            "id": "wrong2",
+            "text": "$comment->user_idを現在の利用者へ変更する"
+          },
+          {
+            "id": "wrong3",
+            "text": "削除ボタンの表示だけで許可と判断する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "閲覧許可は削除許可と異なります。",
+          "wrong2": "所有者を書き換えて認可を通すのは要件に反します。",
+          "wrong3": "サーバー側で直接のリクエストを確認できません。"
+        }
+      },
+      "explanation": "削除権限を確認してから削除します。 PCでは他人のIDで削除リクエストを送って拒否を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$this->authorize(\"delete\", $comment);」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-comment-delete-authorize",
+      "variantGroup": "ph3-week48-choice-comment-delete-authorize",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week48のPOSSE課題。他人のIDで削除リクエストを送って拒否を確認しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "対象と実行する操作の権限を確認します。",
+      "success": "条件に適合する候補を1つ選ぶ：$this->authorize(\"delete\", $comment);",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-article-comments-filter",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "記事詳細で、その記事のコメントだけを表示します。Postにcommentsを定義済みです。読むものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "Comment::all()"
+          },
+          {
+            "id": "wrong2",
+            "text": "User::all()"
+          },
+          {
+            "id": "wrong3",
+            "text": "$post->user"
+          },
+          {
+            "id": "correct",
+            "text": "$post->comments"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "他の記事のコメントも取得してしまいます。",
+          "wrong2": "記事のコメントではなく利用者の一覧です。",
+          "wrong3": "記事の投稿者でありコメント集合ではありません。"
+        }
+      },
+      "explanation": "親記事のcommentsで所属を限定します。 PCでは別の記事へコメントが混ざらないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$post->comments」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-article-comments-filter",
+      "variantGroup": "ph3-week48-choice-article-comments-filter",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week48のPOSSE課題。別の記事へコメントが混ざらないか確認しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "詳細画面の親記事から関連をたどります。",
+      "success": "条件に適合する候補を1つ選ぶ：$post->comments",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-comment-edit-fields",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "本人確認後にコメント本文だけを更新します。保存対象として適切なのはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "他人のコメントも一緒に同じ本文へ更新する"
+          },
+          {
+            "id": "wrong3",
+            "text": "入力検証を省いてすべてのキーを保存する"
+          },
+          {
+            "id": "correct",
+            "text": "検証済みのbodyだけ"
+          },
+          {
+            "id": "wrong1",
+            "text": "受信したuser_idとpost_idも無条件に保存する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "投稿者や所属記事まで改変できてしまいます。",
+          "wrong2": "対象のコメントだけを編集する要件と異なります。",
+          "wrong3": "本文の条件も保存可能な属性の範囲も保証できません。"
+        }
+      },
+      "explanation": "許可した本文だけを検証して更新します。 PCでは余分なuser_idやpost_idを送っても変わらないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「検証済みのbodyだけ」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-comment-edit-fields",
+      "variantGroup": "ph3-week48-choice-comment-edit-fields",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week48のPOSSE課題。余分なuser_idやpost_idを送っても変わらないか確認しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "本人確認と更新できる項目の限定を両方行います。",
+      "success": "条件に適合する候補を1つ選ぶ：検証済みのbodyだけ",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week48-choice-legacy-build-script",
+      "weekUnitId": "week-unit-week48",
+      "format": "singleChoice",
+      "prompt": "旧ドリルのscriptsはdevが開発用、productionが本番向けMixビルドです。productionを実行するものはどれですか？ Laravel 10標準のViteとは別の構成です。",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "php artisan migrate"
+          },
+          {
+            "id": "correct",
+            "text": "npm run production"
+          },
+          {
+            "id": "wrong1",
+            "text": "npm run dev"
+          },
+          {
+            "id": "wrong2",
+            "text": "composer install"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "この構成では開発用のスクリプトです。",
+          "wrong2": "PHPの依存をそろえる処理で、指定のnpmスクリプトを実行しません。",
+          "wrong3": "DB構造を適用する処理で、アセットのビルドではありません。"
+        }
+      },
+      "explanation": "npm run productionで指定された本番用ビルドを起動します。 PCでは生成されたpublic/js/main.jsと圧縮状態を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week48",
+        "sectionHeading": "Week 48"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「npm run production」を選び、その理由を説明する。",
+      "conceptId": "ph3-week48-legacy-build-script",
+      "variantGroup": "ph3-week48-choice-legacy-build-script",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 890,
+        "heading": "Week 48",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week48-1/README.md",
+          "line": 1,
+          "heading": "48週目ミニドリル 1問目",
+          "sha256": "e2f764320ff53c5c4838671715a856a775216c6cc04d975e05b0d168ad5a4011",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week48-1/src/package.json",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "3ef1c023f6179fd6bd30812af8174611aa557624013afc8ca40fd2d91ea0afb5"
+        }
+      ],
+      "drillConnection": "week48-1の関連ドリル。生成されたpublic/js/main.jsと圧縮状態を確認しましょう。",
+      "priorKnowledge": "Week47の管理者認可。Week39のSoftDeletes、Week43の関連保存、PH1のnpm scripts。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "このプロジェクトのscriptsにあるキーを使います。",
+      "success": "条件に適合する候補を1つ選ぶ：npm run production",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

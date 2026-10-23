@@ -1,0 +1,1123 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week41-assembly-paginate-twenty",
+      "weekUnitId": "week-unit-week41",
+      "format": "fillBlank",
+      "prompt": "Quizはimport済みです。id昇順に並べ、1ページ20件ずつ取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $quizzes = Quiz::orderBy('id')->__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "paginate(20)"
+          },
+          {
+            "id": "wrong",
+            "text": "get()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "getではページ分割を行わず全件取得します。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "paginate(",
+            "20",
+            ")"
+          ],
+          "wrong": [
+            "get(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "paginate(20)で20件ずつに分けます。PCでは21件以上を用意し、次のページへ移動できるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Quizはimport済みです。id昇順に並べ、1ページ20件ずつ取得してください。",
+      "conceptId": "ph3-week41-paginate-twenty",
+      "variantGroup": "ph3-week41-assembly-paginate-twenty",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。",
+      "drillConnection": "PH3 Week41のPOSSE課題へ接続。21件以上を用意し、次のページへ移動できるか確認しましょう。",
+      "hint": "件数を指定してページ用の結果を取得します。",
+      "success": "Quizはimport済みです。id昇順に並べ、1ページ20件ずつ取得してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-assembly-pagination-links",
+      "weekUnitId": "week-unit-week41",
+      "format": "fillBlank",
+      "prompt": "$quizzesはpaginate(20)の結果です。Bladeでページ移動のリンクを表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<nav>{{ __BLANK__ }}</nav>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$quizzes->links()"
+          },
+          {
+            "id": "wrong",
+            "text": "$quizzes->count()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "countは現在のページの件数で、移動用リンクではありません。"
+        }
+      },
+      "assembly": {
+        "language": "blade",
+        "optionTokens": {
+          "correct": [
+            "$quizzes->",
+            "links(",
+            ")"
+          ],
+          "wrong": [
+            "$quizzes->",
+            "count(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "links()でページ移動を表示します。PCでは次ページのリンク先と一覧の変化を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$quizzesはpaginate(20)の結果です。Bladeでページ移動のリンクを表示してください。",
+      "conceptId": "ph3-week41-pagination-links",
+      "variantGroup": "ph3-week41-assembly-pagination-links",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。",
+      "drillConnection": "PH3 Week41のPOSSE課題へ接続。次ページのリンク先と一覧の変化を確認しましょう。",
+      "hint": "Paginatorが提供するリンクの生成メソッドを使います。",
+      "success": "$quizzesはpaginate(20)の結果です。Bladeでページ移動のリンクを表示してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的意味レビューのみ。Blade/Laravelは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "blade"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-assembly-resource-index-only",
+      "weekUnitId": "week-unit-week41",
+      "format": "fillBlank",
+      "prompt": "UserControllerはimport済みです。resourceルートを一覧indexだけに制限してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\UserController;\nRoute::resource('users', UserController::class)->__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "only(['index'])"
+          },
+          {
+            "id": "wrong",
+            "text": "except(['index'])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "exceptは指定アクションを除くため、index以外を残す逆の制限です。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "only(",
+            "['index']",
+            ")"
+          ],
+          "wrong": [
+            "except(",
+            "['index']",
+            ")"
+          ]
+        }
+      },
+      "explanation": "onlyでindexだけを登録します。PCではroute:listにusers.indexだけがあるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "UserControllerはimport済みです。resourceルートを一覧indexだけに制限してください。",
+      "conceptId": "ph3-week41-resource-index-only",
+      "variantGroup": "ph3-week41-assembly-resource-index-only",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。",
+      "drillConnection": "week41-1の関連ドリルへ接続。route:listにusers.indexだけがあるか確認しましょう。",
+      "hint": "許可するアクションだけを列挙するメソッドです。",
+      "success": "UserControllerはimport済みです。resourceルートを一覧indexだけに制限してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week41-1/README.md",
+          "line": 1,
+          "heading": "41週目ミニドリル 1問目",
+          "sha256": "150e68317e0382002c0178ea8929f9cfdbf02f850190299a4052a5d414ebc420",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week41-1/src/routes/web.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "1d6280ad61c9b6ebaf48b490121ddcc161deb5f1b83c76902303ebf543e35022",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-assembly-admin-edit-guard",
+      "weekUnitId": "week-unit-week41",
+      "format": "fillBlank",
+      "prompt": "GET /admin/quizzes/{id}/editは登録済みです。登録済みauthとadminの両ミドルウェアを指定してください。adminはサーバーの管理者判定です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\QuizController;\nRoute::get('/admin/quizzes/{id}/edit', [QuizController::class, 'edit'])->middleware(__BLANK__);",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "['auth', 'admin']"
+          },
+          {
+            "id": "wrong",
+            "text": "['auth']"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "authだけではログイン済み一般ユーザーの編集を防げません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "[",
+            "'auth', ",
+            "'admin'",
+            "]"
+          ],
+          "wrong": [
+            "[",
+            "'auth'",
+            "]"
+          ]
+        }
+      },
+      "explanation": "認証と管理者の認可を分けて適用します。PCでは一般ユーザーが編集URLへ直接アクセスしても拒否されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "GET /admin/quizzes/{id}/editは登録済みです。登録済みauthとadminの両ミドルウェアを指定してください。adminはサーバーの管理者判定です。",
+      "conceptId": "ph3-week41-admin-edit-guard",
+      "variantGroup": "ph3-week41-assembly-admin-edit-guard",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。",
+      "drillConnection": "PH3 Week41のPOSSE課題へ接続。一般ユーザーが編集URLへ直接アクセスしても拒否されるか確認しましょう。",
+      "hint": "ログインと管理者の確認を両方適用します。",
+      "success": "GET /admin/quizzes/{id}/editは登録済みです。登録済みauthとadminの両ミドルウェアを指定してください。adminはサーバーの管理者判定です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-assembly-stable-pagination",
+      "weekUnitId": "week-unit-week41",
+      "format": "fillBlank",
+      "prompt": "QuizをID昇順で安定してページ分割します。ソートを指定してから20件ずつ取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $quizzes = Quiz::__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "orderBy('id')->paginate(20)"
+          },
+          {
+            "id": "wrong",
+            "text": "orderBy('name')->paginate(20)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "nameでの並べ替えは指定されたid昇順と異なり、同名もあり得ます。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "orderBy(",
+            "'id'",
+            ")->paginate(",
+            "20",
+            ")"
+          ],
+          "wrong": [
+            "orderBy(",
+            "'name'",
+            ")->paginate(",
+            "20",
+            ")"
+          ]
+        }
+      },
+      "explanation": "orderByのidで並び順を固定します。PCではページをまたいで順番を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "QuizをID昇順で安定してページ分割します。ソートを指定してから20件ずつ取得してください。",
+      "conceptId": "ph3-week41-stable-pagination",
+      "variantGroup": "ph3-week41-assembly-stable-pagination",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。",
+      "drillConnection": "PH3 Week41のPOSSE課題へ接続。ページをまたいで順番を確認しましょう。",
+      "hint": "一意なキーで明確な順序を与えます。",
+      "success": "QuizをID昇順で安定してページ分割します。ソートを指定してから20件ずつ取得してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-paginate-twenty",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "クイズ一覧を1ページ20件に分け、ページ情報も取得します。適した呼び出しはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Quiz::orderBy(\"id\")->paginate(20)"
+          },
+          {
+            "id": "wrong1",
+            "text": "Quiz::all()"
+          },
+          {
+            "id": "wrong2",
+            "text": "Quiz::limit(20)->get()"
+          },
+          {
+            "id": "wrong3",
+            "text": "Quiz::find(20)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "全件取得でありページ分割しません。",
+          "wrong2": "先頭20件だけの取得で、ページ移動の情報を持ちません。",
+          "wrong3": "20件ではなく主キー20の1件を探します。"
+        }
+      },
+      "explanation": "paginateでページごとのデータとページ情報を得ます。 PCでは21件以上を用意して2ページ目へ進めるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Quiz::orderBy(\"id\")->paginate(20)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-paginate-twenty",
+      "variantGroup": "ph3-week41-choice-paginate-twenty",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week41のPOSSE課題。21件以上を用意して2ページ目へ進めるか確認しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "件数制限とページ分割を区別します。",
+      "success": "条件に適合する候補を1つ選ぶ：Quiz::orderBy(\"id\")->paginate(20)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-pagination-links",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "ControllerからPaginatorの$quizzesを渡しています。Bladeでページ移動リンクを出すものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "{{ $quizzes->name }}"
+          },
+          {
+            "id": "wrong2",
+            "text": "@csrfだけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "{{ count($quizzes) }}だけ"
+          },
+          {
+            "id": "correct",
+            "text": "{{ $quizzes->links() }}"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ページ全体をクイズ1件のように扱えません。",
+          "wrong2": "CSRFトークンはページ移動リンクではありません。",
+          "wrong3": "件数の表示だけで移動リンクは出ません。"
+        }
+      },
+      "explanation": "linksでページ移動用のリンクを表示します。 PCでは次へ進んだとき表示レコードが変わるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「{{ $quizzes->links() }}」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-pagination-links",
+      "variantGroup": "ph3-week41-choice-pagination-links",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week41のPOSSE課題。次へ進んだとき表示レコードが変わるか確認しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ページ分割の結果が持つリンク生成を使います。",
+      "success": "条件に適合する候補を1つ選ぶ：{{ $quizzes->links() }}",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-page-count",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "削除済みを含まない全45件を、1ページ20件でpaginateします。最後のページの表示件数は何件ですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "25件"
+          },
+          {
+            "id": "wrong3",
+            "text": "45件"
+          },
+          {
+            "id": "correct",
+            "text": "5件"
+          },
+          {
+            "id": "wrong1",
+            "text": "20件"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "最初の2ページで40件を表示するため残りは5件です。",
+          "wrong2": "1ページの上限20件も超えています。",
+          "wrong3": "全件を1ページで表示する設定ではありません。"
+        }
+      },
+      "explanation": "45件を20件ずつ分けると20・20・5件です。 PCでは件数と最終ページの表示を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「5件」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-page-count",
+      "variantGroup": "ph3-week41-choice-page-count",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week41のPOSSE課題。件数と最終ページの表示を照合しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "前のページで表示した件数を引きます。",
+      "success": "条件に適合する候補を1つ選ぶ：5件",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-stable-page-order",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "ページを移動しても順序が一貫するよう、重複しないidを使って取得します。適したものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "Quiz::find(1)"
+          },
+          {
+            "id": "correct",
+            "text": "Quiz::orderBy(\"id\")->paginate(20)"
+          },
+          {
+            "id": "wrong1",
+            "text": "Quiz::inRandomOrder()->paginate(20)"
+          },
+          {
+            "id": "wrong2",
+            "text": "Quiz::limit(20)->get()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ページごとにランダム取得すると同じ行の重複や欠落を招き得ます。",
+          "wrong2": "順序やページ移動の指定になっていません。",
+          "wrong3": "一覧をページ分割する処理ではありません。"
+        }
+      },
+      "explanation": "一意な列による順序を固定してページ分割します。 PCでは1ページ目と2ページ目でIDの並びを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Quiz::orderBy(\"id\")->paginate(20)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-stable-page-order",
+      "variantGroup": "ph3-week41-choice-stable-page-order",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week41のPOSSE課題。1ページ目と2ページ目でIDの並びを確認しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ページの境界が変わらない並びを指定します。",
+      "success": "条件に適合する候補を1つ選ぶ：Quiz::orderBy(\"id\")->paginate(20)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-resource-index-only",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "UserControllerはimport済みです。resourceで一覧表示だけを登録するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Route::resource(\"users\", UserController::class)->only([\"index\"]);"
+          },
+          {
+            "id": "wrong1",
+            "text": "Route::resource(\"users\", UserController::class)->except([\"index\"]);"
+          },
+          {
+            "id": "wrong2",
+            "text": "Route::resource(\"users\", UserController::class)->only([\"store\"]);"
+          },
+          {
+            "id": "wrong3",
+            "text": "Route::resource(\"users\", UserController::class);"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "一覧を除くルートを登録してしまいます。",
+          "wrong2": "登録するのは新規保存のアクションです。",
+          "wrong3": "一覧以外の標準アクションも登録されます。"
+        }
+      },
+      "explanation": "onlyでindexだけに限定できます。 PCではroute:listでusers.index以外がないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Route::resource(\"users\", UserController::class)->only([\"index\"]);」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-resource-index-only",
+      "variantGroup": "ph3-week41-choice-resource-index-only",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week41-1/README.md",
+          "line": 1,
+          "heading": "41週目ミニドリル 1問目",
+          "sha256": "150e68317e0382002c0178ea8929f9cfdbf02f850190299a4052a5d414ebc420",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week41-1の関連ドリル。route:listでusers.index以外がないか確認しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "必要なアクションを許可リストへ指定します。",
+      "success": "条件に適合する候補を1つ選ぶ：Route::resource(\"users\", UserController::class)->only([\"index\"]);",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-resource-index-method",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "標準のresourceルートで、ユーザー一覧indexに対応するHTTPメソッドとURIはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "POST /users"
+          },
+          {
+            "id": "wrong2",
+            "text": "DELETE /users/{user}"
+          },
+          {
+            "id": "wrong3",
+            "text": "GET /users/create"
+          },
+          {
+            "id": "correct",
+            "text": "GET /users"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "標準ではstoreに対応します。",
+          "wrong2": "標準ではdestroyに対応します。",
+          "wrong3": "標準ではcreateフォームに対応します。"
+        }
+      },
+      "explanation": "indexはGETでコレクションの一覧を返します。 PCではroute:listのメソッド・URI・アクションを照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「GET /users」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-resource-index-method",
+      "variantGroup": "ph3-week41-choice-resource-index-method",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week41-1/README.md",
+          "line": 1,
+          "heading": "41週目ミニドリル 1問目",
+          "sha256": "150e68317e0382002c0178ea8929f9cfdbf02f850190299a4052a5d414ebc420",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week41-1の関連ドリル。route:listのメソッド・URI・アクションを照合しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "一覧の取得と作成フォームを区別します。",
+      "success": "条件に適合する候補を1つ選ぶ：GET /users",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-resource-except",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "標準resourceのうちdestroyだけを登録しない指定はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "->except([\"index\"])"
+          },
+          {
+            "id": "wrong3",
+            "text": "->name(\"destroy\")"
+          },
+          {
+            "id": "correct",
+            "text": "->except([\"destroy\"])"
+          },
+          {
+            "id": "wrong1",
+            "text": "->only([\"destroy\"])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "削除だけを登録する逆の指定です。",
+          "wrong2": "除外対象が一覧になっています。",
+          "wrong3": "名前を付けても削除アクションを除外しません。"
+        }
+      },
+      "explanation": "exceptは指定したアクションを登録対象から外します。 PCではroute:listでDELETEのルートが消えたか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「->except([\"destroy\"])」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-resource-except",
+      "variantGroup": "ph3-week41-choice-resource-except",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week41-1/README.md",
+          "line": 1,
+          "heading": "41週目ミニドリル 1問目",
+          "sha256": "150e68317e0382002c0178ea8929f9cfdbf02f850190299a4052a5d414ebc420",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week41-1の関連ドリル。route:listでDELETEのルートが消えたか確認しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "必要ないアクションの除外を指定します。",
+      "success": "条件に適合する候補を1つ選ぶ：->except([\"destroy\"])",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-edit-endpoint-security",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "一般ユーザー用一覧から編集ボタンを削除しました。編集機能のアクセス制御として必要な追加対応はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "編集ボタンの削除だけで完了とする"
+          },
+          {
+            "id": "correct",
+            "text": "編集画面と更新処理の両方で管理者の認可を行う"
+          },
+          {
+            "id": "wrong1",
+            "text": "編集URLを知っている人だけ通す"
+          },
+          {
+            "id": "wrong2",
+            "text": "更新処理だけを誰でも通せるままにする"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "URLを知ることは権限の証明ではありません。",
+          "wrong2": "画面を開かず更新リクエストを送れてしまいます。",
+          "wrong3": "直接のURLアクセスを拒否できません。"
+        }
+      },
+      "explanation": "編集画面の閲覧と更新処理のどちらにも認可が必要です。 PCでは一般ユーザーでGETと更新リクエストの両方を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「編集画面と更新処理の両方で管理者の認可を行う」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-edit-endpoint-security",
+      "variantGroup": "ph3-week41-choice-edit-endpoint-security",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week41のPOSSE課題。一般ユーザーでGETと更新リクエストの両方を確認しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "表示用と保存用の入口を両方守ります。",
+      "success": "条件に適合する候補を1つ選ぶ：編集画面と更新処理の両方で管理者の認可を行う",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-admin-question-link",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "管理用クイズ一覧のタイトルを押すと、そのクイズの設問メンテナンスへ移動します。リンクに含める情報はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "クリックしたクイズのID"
+          },
+          {
+            "id": "wrong1",
+            "text": "一覧の件数だけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "最初のクイズのIDをすべてへ固定"
+          },
+          {
+            "id": "wrong3",
+            "text": "ログイン画面の見出しだけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "どのクイズを選んだか区別できません。",
+          "wrong2": "別の行を押しても同じクイズへ移動してしまいます。",
+          "wrong3": "設問メンテナンスの対象を指定できません。"
+        }
+      },
+      "explanation": "各クイズのIDを対応するメンテナンスルートへ渡します。 PCでは異なる2行で対象の設問一覧が変わるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "提示条件に対して「クリックしたクイズのID」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-admin-question-link",
+      "variantGroup": "ph3-week41-choice-admin-question-link",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week41のPOSSE課題。異なる2行で対象の設問一覧が変わるか確認しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "一覧の各行と移動先の親を対応させます。",
+      "success": "条件に適合する候補を1つ選ぶ：クリックしたクイズのID",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week41-choice-only-is-not-authorization",
+      "weekUnitId": "week-unit-week41",
+      "format": "singleChoice",
+      "prompt": "resourceをonly([\"index\"])に限定しました。この設定だけでは行われないことはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "resourceからstoreを登録対象外にすること"
+          },
+          {
+            "id": "wrong2",
+            "text": "resourceからdestroyを登録対象外にすること"
+          },
+          {
+            "id": "wrong3",
+            "text": "resourceの対象アクションをindexへ限定すること"
+          },
+          {
+            "id": "correct",
+            "text": "indexにアクセスする利用者の管理者権限の確認"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "indexだけに限定すればstoreは登録されません。",
+          "wrong2": "indexだけに限定すればdestroyは登録されません。",
+          "wrong3": "それがonlyの役割です。"
+        }
+      },
+      "explanation": "onlyは登録するアクションの制限であり認可ではありません。 PCでは必要な認証・認可ミドルウェアも付いているか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week41",
+        "sectionHeading": "Week 41"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「indexにアクセスする利用者の管理者権限の確認」を選び、その理由を説明する。",
+      "conceptId": "ph3-week41-only-is-not-authorization",
+      "variantGroup": "ph3-week41-choice-only-is-not-authorization",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 563,
+        "heading": "Week 41",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week41-1/README.md",
+          "line": 1,
+          "heading": "41週目ミニドリル 1問目",
+          "sha256": "150e68317e0382002c0178ea8929f9cfdbf02f850190299a4052a5d414ebc420",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week41-1の関連ドリル。必要な認証・認可ミドルウェアも付いているか確認しましょう。",
+      "priorKnowledge": "Week40の管理者認可。Week41のページ分割と管理一覧。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ルートの有無と利用者の許可を分けます。",
+      "success": "条件に適合する候補を1つ選ぶ：indexにアクセスする利用者の管理者権限の確認",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]
