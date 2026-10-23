@@ -81,9 +81,9 @@ DBを回答履歴・設定の正本とする。端末保存は途中状態とキ
 | テーブル | 主なカラム | 制約・用途 |
 | --- | --- | --- |
 | `profiles` | `user_id uuid`、`display_name text`、`posse text nullable`、`cohort text nullable`、`created_at timestamptz`、`updated_at timestamptz` | `user_id`を主キーかつ`auth.users.id`への外部キーにする。名前の長さ等を制限する |
-| `learning_settings` | `user_id uuid`、`phase text`、`created_at timestamptz`、`updated_at timestamptz` | 同じ主キー・外部キー。`phase`は`ph1`／`ph2`に制限する |
+| `learning_settings` | `user_id uuid`、`phase text`、`created_at timestamptz`、`updated_at timestamptz` | 同じ主キー・外部キー。`phase`は`ph1`／`ph2`／`ph3`に制限する |
 
-所属・期生は任意の自己申告情報であり、権限判定に使わない。既存の選択肢は仮の表示なので、実際の値は実装時に確認する。未選択でも登録できるようにする。PH3は問題がないため、既存の見た目を保ちつつ選択不可などの最小限の表示にする。
+所属・期生は任意の自己申告情報であり、権限判定に使わない。既存の選択肢は仮の表示なので、実際の値は実装時に確認する。未選択でも登録できるようにする。PH3はWeek33〜48の問題追加に合わせて選択可能にした。
 
 プロフィールと設定は最初の認証完了後に、存在しない場合だけ作成する。毎回のログインやトークン更新で初期値を上書きしない。確認メールを別ブラウザで開く場合に備え、登録時の表示名等をAuthの`user_metadata`へ一時的に渡す案とするが、プロフィールの初期値にのみ使い、アクセス権限には使わない。
 
@@ -100,14 +100,14 @@ DBを回答履歴・設定の正本とする。端末保存は途中状態とキ
 | パスワード | `password: string` | Supabase Authの`password` | 必須 |
 | 所属POSSE | `posse: string \| null` | 表示用metadata `posse` → `profiles.posse` | 任意。未選択は`null` |
 | 期生 | `generation: string \| null` | 表示用metadata `cohort` → `profiles.cohort` | 任意。未選択は`null` |
-| 学習フェーズ | `phase: PhaseId`（初期値`ph1`） | 表示用metadata `phase` → `learning_settings.phase` | 必須。現行の問題があるPH1／PH2 |
+| 学習フェーズ | `phase: PhaseId`（初期値`ph1`） | 表示用metadata `phase` → `learning_settings.phase` | 必須。PH1／PH2／PH3 |
 
 所属・期生は任意項目で、未選択でも登録できる。選択した値はAuth metadataを経由して`profiles`へ保存する。
 
 現行コードにある値と注意点：
 
 - 現在の選択肢は所属POSSEが`POSSE①`〜`POSSE③`、期生が`1期生`〜`7.5期生`の0.5刻み。以前の角括弧付き値を保存時に除外していたため、未設定になった既存プロフィールはアカウント画面から再選択できるようにした。
-- フェーズの入力値は`ph1`／`ph2`／`ph3`、表示は`PH1`／`PH2`／`PH3`。DBには`ph1`／`ph2`を保存し、既存の`PhaseId`へ対応させる。PH3は未対応。
+- フェーズの入力値・DBの許可値は`ph1`／`ph2`／`ph3`、表示は`PH1`／`PH2`／`PH3`。`20261023095930_enable_ph3_learning_phase.sql`でPH3を追加。表示の設定であり、アクセス権限には利用しない。
 - パスワード欄の表示は「8文字以上」。これに合わせた入力検証を追加し、Supabase側の実際のパスワード条件も確認する。表示だけでは条件を満たしたことにならない。
 - メールの`example@posse.jp`は入力例であり、ドメイン制限ではない。
 - 「登録してはじめる」は6項目を収集し、入力検証後にSupabase Authへ渡す。

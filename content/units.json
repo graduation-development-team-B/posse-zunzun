@@ -33,7 +33,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week03.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week4",
@@ -45,7 +45,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week04.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week5",
@@ -57,7 +57,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week05.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week6",
@@ -81,7 +81,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week07.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week8",
@@ -117,7 +117,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week10.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week11",
@@ -129,7 +129,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week11.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week12",
@@ -141,7 +141,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week12.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week13",
@@ -153,7 +153,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week13.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week14",
@@ -165,7 +165,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week14.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week15",
@@ -177,7 +177,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week15.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week16",
@@ -189,7 +189,7 @@
     "phase": "PH1",
     "file": "PH1/weeks/week16.json",
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-git-github-level1",
@@ -213,7 +213,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week18",
@@ -225,7 +225,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week19",
@@ -237,7 +237,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week20",
@@ -249,7 +249,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week21",
@@ -261,7 +261,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week22",
@@ -273,7 +273,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week23",
@@ -285,7 +285,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week24",
@@ -297,7 +297,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week25",
@@ -309,7 +309,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week26",
@@ -321,7 +321,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week27",
@@ -333,7 +333,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week28",
@@ -345,7 +345,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week29",
@@ -357,7 +357,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week30",
@@ -369,7 +369,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week31",
@@ -381,7 +381,7 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
-    "maxQuestions": 15
+    "maxQuestions": 17
   },
   {
     "id": "week-unit-week32",
@@ -393,6 +393,198 @@
     "published": true,
     "deleted": false,
     "minQuestions": 10,
+    "maxQuestions": 17
+  },
+  {
+    "id": "week-unit-week33",
+    "key": "week33",
+    "order": 34,
+    "title": "Week33｜Laravelの環境構築",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week33.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week34",
+    "key": "week34",
+    "order": 35,
+    "title": "Week34｜ルーティング・MVC・Blade",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week34.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week35",
+    "key": "week35",
+    "order": 36,
+    "title": "Week35｜マイグレーション・モデル・保存",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week35.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week36",
+    "key": "week36",
+    "order": 37,
+    "title": "Week36｜一覧・リレーション・先読み",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week36.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week37",
+    "key": "week37",
+    "order": 38,
+    "title": "Week37｜個別表示とモデルの利用",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week37.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week38",
+    "key": "week38",
+    "order": 39,
+    "title": "Week38｜編集・更新・セッション",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week38.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week39",
+    "key": "week39",
+    "order": 40,
+    "title": "Week39｜論理削除・PHPDoc・型",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week39.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week40",
+    "key": "week40",
+    "order": 41,
+    "title": "Week40｜認証・ミドルウェア・認可",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week40.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week41",
+    "key": "week41",
+    "order": 42,
+    "title": "Week41｜ページネーション・ルート制限",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week41.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week42",
+    "key": "week42",
+    "order": 43,
+    "title": "Week42｜入力検証・エラー表示",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week42.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week43",
+    "key": "week43",
+    "order": 44,
+    "title": "Week43｜関連データの保存・画像送信",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week43.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week44",
+    "key": "week44",
+    "order": 45,
+    "title": "Week44｜設問編集・削除状態の表示",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week44.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week45",
+    "key": "week45",
+    "order": 46,
+    "title": "Week45｜記事投稿・下書き・画像",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week45.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week46",
+    "key": "week46",
+    "order": 47,
+    "title": "Week46｜記事一覧・本人の編集削除",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week46.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week47",
+    "key": "week47",
+    "order": 48,
+    "title": "Week47｜管理者画面・環境確認",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week47.json",
+    "minQuestions": 15,
+    "maxQuestions": 15
+  },
+  {
+    "id": "week-unit-week48",
+    "key": "week48",
+    "order": 49,
+    "title": "Week48｜ユーザー管理・コメント",
+    "published": true,
+    "deleted": false,
+    "phase": "PH3",
+    "file": "PH3/weeks/week48.json",
+    "minQuestions": 15,
     "maxQuestions": 15
   }
 ]

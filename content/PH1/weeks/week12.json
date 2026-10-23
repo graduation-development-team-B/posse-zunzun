@@ -830,5 +830,480 @@
       "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-assembly-transition-css",
+      "weekUnitId": "week-unit-week12",
+      "format": "fillBlank",
+      "prompt": "カードのtransformの変化を300ms、easeでなめらかにしてください。CSS宣言を組み立てます。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": ".card { __BLANK__ }",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "transition: transform 300ms ease;"
+          },
+          {
+            "id": "wrong",
+            "text": "transition: transform 0ms ease;"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "0msでは変化を時間をかけてつなげません。"
+        }
+      },
+      "assembly": {
+        "language": "css",
+        "optionTokens": {
+          "correct": [
+            "transition: ",
+            "transform ",
+            "300ms ",
+            "ease;"
+          ],
+          "wrong": [
+            "transition: ",
+            "transform ",
+            "0ms ",
+            "ease;"
+          ]
+        }
+      },
+      "explanation": "transitionに対象・時間・速度を指定します。PCではホバー前とホバー中を往復して動きを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "パッと変わると、安っぽい"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "カードのtransformの変化を300ms、easeでなめらかにしてください。CSS宣言を組み立てます。",
+      "conceptId": "ph1-week12-transition-css",
+      "variantGroup": "ph1-week12-assembly-transition-css",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。ホバー前とホバー中を往復して動きを確認しましょう。",
+      "hint": "transitionに対象・時間・速度を指定します。",
+      "success": "カードのtransformの変化を300ms、easeでなめらかにしてください。CSS宣言を組み立てます。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "line": 24,
+        "heading": "パッと変わると、安っぽい",
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week12-1/README.md",
+          "line": 1,
+          "heading": "問題1：ホバーアニメーション（transition × transform）（20分）",
+          "sha256": "ecf1e8e5165f6868ba89ebfdee0a5f41ea7bd083df84efdf8188e871a478dfa7"
+        },
+        {
+          "path": "drill-ph1/week12-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（Splideのクラス名）（15分）",
+          "sha256": "23da7aa4ca3d429b220f8c1844243e789a3d87e407be2fd9c295ab283ab221c6"
+        },
+        {
+          "path": "drill-ph1/week12-3/README.md",
+          "line": 1,
+          "heading": "問題3：作品カードのホバー演出（group-hover の復習）（25分）",
+          "sha256": "92d4f61a7408b3aada82be7b486a6034565a5b9e9258f4ec6542b48a683070cb"
+        }
+      ],
+      "codeLanguage": "css"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-assembly-translate-hover",
+      "weekUnitId": "week-unit-week12",
+      "format": "fillBlank",
+      "prompt": "カードのホバー中だけ、見た目を上へ4px動かしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": ".card { transition: transform 300ms ease; }\n.card:hover { __BLANK__ }",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "transform: translateY(-4px);"
+          },
+          {
+            "id": "wrong",
+            "text": "transform: translateY(4px);"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "正のY方向は下なので、下へ4px動いてしまいます。"
+        }
+      },
+      "assembly": {
+        "language": "css",
+        "optionTokens": {
+          "correct": [
+            "transform: ",
+            "translateY(",
+            "-4px",
+            ");"
+          ],
+          "wrong": [
+            "transform: ",
+            "translateY(",
+            "4px",
+            ");"
+          ]
+        }
+      },
+      "explanation": "translateYの負の値で上へ動かします。PCでは周りの要素の配置が押し出されないかも見ましょう。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "周りを押しのけずに、動かす"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "カードのホバー中だけ、見た目を上へ4px動かしてください。",
+      "conceptId": "ph1-week12-translate-hover",
+      "variantGroup": "ph1-week12-assembly-translate-hover",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。周りの要素の配置が押し出されないかも見ましょう。",
+      "hint": "translateYの負の値で上へ動かします。",
+      "success": "カードのホバー中だけ、見た目を上へ4px動かしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "line": 80,
+        "heading": "周りを押しのけずに、動かす",
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week12-1/README.md",
+          "line": 1,
+          "heading": "問題1：ホバーアニメーション（transition × transform）（20分）",
+          "sha256": "ecf1e8e5165f6868ba89ebfdee0a5f41ea7bd083df84efdf8188e871a478dfa7"
+        },
+        {
+          "path": "drill-ph1/week12-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（Splideのクラス名）（15分）",
+          "sha256": "23da7aa4ca3d429b220f8c1844243e789a3d87e407be2fd9c295ab283ab221c6"
+        },
+        {
+          "path": "drill-ph1/week12-3/README.md",
+          "line": 1,
+          "heading": "問題3：作品カードのホバー演出（group-hover の復習）（25分）",
+          "sha256": "92d4f61a7408b3aada82be7b486a6034565a5b9e9258f4ec6542b48a683070cb"
+        }
+      ],
+      "codeLanguage": "css"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-assembly-scale-hover",
+      "weekUnitId": "week-unit-week12",
+      "format": "fillBlank",
+      "prompt": "カードをホバー時だけ1.05倍にし、300msで変化させてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<article class=\"__BLANK__\">作品</article>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "transition-transform duration-300 hover:scale-105 "
+          },
+          {
+            "id": "wrong",
+            "text": "transition-transform duration-300 scale-105 "
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "接頭辞なしのscale-105では普段から拡大されます。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "transition-transform ",
+            "duration-300 ",
+            "hover:scale-105 "
+          ],
+          "wrong": [
+            "transition-transform ",
+            "duration-300 ",
+            "scale-105 "
+          ]
+        },
+        "inputMode": "classes"
+      },
+      "explanation": "hover:でホバー中に限定します。PCではマウスを外した時に元の大きさへ戻るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "周りを押しのけずに、動かす"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "カードをホバー時だけ1.05倍にし、300msで変化させてください。",
+      "conceptId": "ph1-week12-scale-hover",
+      "variantGroup": "ph1-week12-assembly-scale-hover",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。マウスを外した時に元の大きさへ戻るか確認しましょう。",
+      "hint": "hover:でホバー中に限定します。",
+      "success": "カードをホバー時だけ1.05倍にし、300msで変化させてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "line": 80,
+        "heading": "周りを押しのけずに、動かす",
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week12-1/README.md",
+          "line": 1,
+          "heading": "問題1：ホバーアニメーション（transition × transform）（20分）",
+          "sha256": "ecf1e8e5165f6868ba89ebfdee0a5f41ea7bd083df84efdf8188e871a478dfa7"
+        },
+        {
+          "path": "drill-ph1/week12-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（Splideのクラス名）（15分）",
+          "sha256": "23da7aa4ca3d429b220f8c1844243e789a3d87e407be2fd9c295ab283ab221c6"
+        },
+        {
+          "path": "drill-ph1/week12-3/README.md",
+          "line": 1,
+          "heading": "問題3：作品カードのホバー演出（group-hover の復習）（25分）",
+          "sha256": "92d4f61a7408b3aada82be7b486a6034565a5b9e9258f4ec6542b48a683070cb"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-assembly-group-fade",
+      "weekUnitId": "week-unit-week12",
+      "format": "fillBlank",
+      "prompt": "親にはgroupが付いています。詳細を普段は透明、親ホバー時に不透明にし、300msで変化させてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<article class=\"relative group\"><p class=\"__BLANK__\">詳細</p></article>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "opacity-0 group-hover:opacity-100 transition-opacity duration-300 "
+          },
+          {
+            "id": "wrong",
+            "text": "opacity-100 group-hover:opacity-0 transition-opacity duration-300 "
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "普段が不透明、親ホバーで透明になる逆の指定です。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "opacity-0 ",
+            "group-hover:opacity-100 ",
+            "transition-opacity ",
+            "duration-300 "
+          ],
+          "wrong": [
+            "opacity-100 ",
+            "group-hover:opacity-0 ",
+            "transition-opacity ",
+            "duration-300 "
+          ]
+        },
+        "inputMode": "classes"
+      },
+      "explanation": "親のgroupと子のgroup-hoverを対応させます。PCでは透明でもクリック領域が残る点に注意して確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "消したいのに、消すと動かせない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "親にはgroupが付いています。詳細を普段は透明、親ホバー時に不透明にし、300msで変化させてください。",
+      "conceptId": "ph1-week12-group-fade",
+      "variantGroup": "ph1-week12-assembly-group-fade",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。透明でもクリック領域が残る点に注意して確認しましょう。",
+      "hint": "親のgroupと子のgroup-hoverを対応させます。",
+      "success": "親にはgroupが付いています。詳細を普段は透明、親ホバー時に不透明にし、300msで変化させてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "line": 131,
+        "heading": "消したいのに、消すと動かせない",
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week12-1/README.md",
+          "line": 1,
+          "heading": "問題1：ホバーアニメーション（transition × transform）（20分）",
+          "sha256": "ecf1e8e5165f6868ba89ebfdee0a5f41ea7bd083df84efdf8188e871a478dfa7"
+        },
+        {
+          "path": "drill-ph1/week12-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（Splideのクラス名）（15分）",
+          "sha256": "23da7aa4ca3d429b220f8c1844243e789a3d87e407be2fd9c295ab283ab221c6"
+        },
+        {
+          "path": "drill-ph1/week12-3/README.md",
+          "line": 1,
+          "heading": "問題3：作品カードのホバー演出（group-hover の復習）（25分）",
+          "sha256": "92d4f61a7408b3aada82be7b486a6034565a5b9e9258f4ec6542b48a683070cb"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week12-assembly-splide-list-tag",
+      "weekUnitId": "week-unit-week12",
+      "format": "fillBlank",
+      "prompt": "Splideのtrack内に、正しいクラス名のリストを作ってください。開始タグを組み立てます。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<section class=\"splide\"><div class=\"splide__track\">\n__BLANK__<li class=\"splide__slide\">作品</li></ul>\n</div></section>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "<ul class=\"splide__list\">"
+          },
+          {
+            "id": "wrong",
+            "text": "<ul class=\"splide-list\">"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "ハイフンのsplide-listはライブラリが要求するクラス名ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "<ul ",
+            "class=\"",
+            "splide__list",
+            "\">"
+          ],
+          "wrong": [
+            "<ul ",
+            "class=\"",
+            "splide-list",
+            "\">"
+          ]
+        }
+      },
+      "explanation": "splide__listの区切りはアンダースコア2つです。PCでは他の構造とJSの読み込みも照合してから動きを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week12",
+        "sectionHeading": "決められた名前じゃないと、動かない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Splideのtrack内に、正しいクラス名のリストを作ってください。開始タグを組み立てます。",
+      "conceptId": "ph1-week12-splide-list-tag",
+      "variantGroup": "ph1-week12-assembly-splide-list-tag",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜12の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week12の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。他の構造とJSの読み込みも照合してから動きを確認しましょう。",
+      "hint": "splide__listの区切りはアンダースコア2つです。",
+      "success": "Splideのtrack内に、正しいクラス名のリストを作ってください。開始タグを組み立てます。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week12.md",
+        "line": 187,
+        "heading": "決められた名前じゃないと、動かない",
+        "sha256": "23505eb0ed2195fb3f12eb1f78d3922020f9579e6da9a851a671fb922a573395"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week12-1/README.md",
+          "line": 1,
+          "heading": "問題1：ホバーアニメーション（transition × transform）（20分）",
+          "sha256": "ecf1e8e5165f6868ba89ebfdee0a5f41ea7bd083df84efdf8188e871a478dfa7"
+        },
+        {
+          "path": "drill-ph1/week12-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（Splideのクラス名）（15分）",
+          "sha256": "23da7aa4ca3d429b220f8c1844243e789a3d87e407be2fd9c295ab283ab221c6"
+        },
+        {
+          "path": "drill-ph1/week12-3/README.md",
+          "line": 1,
+          "heading": "問題3：作品カードのホバー演出（group-hover の復習）（25分）",
+          "sha256": "92d4f61a7408b3aada82be7b486a6034565a5b9e9258f4ec6542b48a683070cb"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
   }
 ]

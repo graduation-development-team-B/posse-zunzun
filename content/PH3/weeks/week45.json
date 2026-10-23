@@ -1,0 +1,1126 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week45-assembly-post-auth",
+      "weekUnitId": "week-unit-week45",
+      "format": "fillBlank",
+      "prompt": "記事作成のPOST /postsへ、標準のauthミドルウェアを付けてください。PostControllerはimport済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\PostController;\nRoute::post('/posts', [PostController::class, 'store'])->__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "middleware('auth')"
+          },
+          {
+            "id": "wrong",
+            "text": "middleware('guest')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "guestは未ログイン用で、投稿をログイン必須にする指定ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "middleware(",
+            "'auth'",
+            ")"
+          ],
+          "wrong": [
+            "middleware(",
+            "'guest'",
+            ")"
+          ]
+        }
+      },
+      "explanation": "authで投稿者のログインを要求します。PCでは未ログインで直接POSTしても作成されないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "記事作成のPOST /postsへ、標準のauthミドルウェアを付けてください。PostControllerはimport済みです。",
+      "conceptId": "ph3-week45-post-auth",
+      "variantGroup": "ph3-week45-assembly-post-auth",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。",
+      "drillConnection": "PH3 Week45のPOSSE課題へ接続。未ログインで直接POSTしても作成されないか確認しましょう。",
+      "hint": "サーバー側の作成ルートを認証で保護します。",
+      "success": "記事作成のPOST /postsへ、標準のauthミドルウェアを付けてください。PostControllerはimport済みです。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-assembly-post-required-fields",
+      "weekUnitId": "week-unit-week45",
+      "format": "fillBlank",
+      "prompt": "記事のtitleを必須・文字列・100文字以内にします。詳細や画像は別ルールで検証済みとします。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nclass StorePostRequest extends FormRequest {\n  public function rules(): array {\n    return ['title' => __BLANK__];\n  }\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "['required', 'string', 'max:100']"
+          },
+          {
+            "id": "wrong",
+            "text": "['nullable', 'string', 'max:100']"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "nullableではタイトルの未入力を拒否する必須条件になりません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "[",
+            "'required', ",
+            "'string', ",
+            "'max:100'",
+            "]"
+          ],
+          "wrong": [
+            "[",
+            "'nullable', ",
+            "'string', ",
+            "'max:100'",
+            "]"
+          ]
+        }
+      },
+      "explanation": "titleをrequiredで検証します。PCでは不足時に保存されず、入力値とエラーが戻るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "記事のtitleを必須・文字列・100文字以内にします。詳細や画像は別ルールで検証済みとします。",
+      "conceptId": "ph3-week45-post-required-fields",
+      "variantGroup": "ph3-week45-assembly-post-required-fields",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。",
+      "drillConnection": "PH3 Week45のPOSSE課題へ接続。不足時に保存されず、入力値とエラーが戻るか確認しましょう。",
+      "hint": "入力不足を防ぐルールを含めます。",
+      "success": "記事のtitleを必須・文字列・100文字以内にします。詳細や画像は別ルールで検証済みとします。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-assembly-store-image",
+      "weekUnitId": "week-unit-week45",
+      "format": "fillBlank",
+      "prompt": "$requestのimageは画像として検証済みです。publicディスクのposts配下へ保存し、返されたパスを受け取ってください。Laravelのファイル保存APIを使います。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $path = $request->file('image')->__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "store('posts', 'public')"
+          },
+          {
+            "id": "wrong",
+            "text": "store('posts', 'local')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "localを指定するとpublicディスクへの保存という条件に合いません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "store(",
+            "'posts', ",
+            "'public'",
+            ")"
+          ],
+          "wrong": [
+            "store(",
+            "'posts', ",
+            "'local'",
+            ")"
+          ]
+        }
+      },
+      "explanation": "storeの第2引数でディスクを選びます。PCではパスをDBへ保存し、設定した公開方法で画像を参照できるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$requestのimageは画像として検証済みです。publicディスクのposts配下へ保存し、返されたパスを受け取ってください。Laravelのファイル保存APIを使います。",
+      "conceptId": "ph3-week45-store-image",
+      "variantGroup": "ph3-week45-assembly-store-image",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。",
+      "drillConnection": "PH3 Week45のPOSSE課題へ接続。パスをDBへ保存し、設定した公開方法で画像を参照できるか確認しましょう。",
+      "hint": "保存先のディレクトリとディスクを分けて指定します。",
+      "success": "$requestのimageは画像として検証済みです。publicディスクのposts配下へ保存し、返されたパスを受け取ってください。Laravelのファイル保存APIを使います。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-assembly-draft-session",
+      "weekUnitId": "week-unit-week45",
+      "format": "fillBlank",
+      "prompt": "$draftは下書きのtitleとbodyを含む配列です。LaravelのWebセッションへpost_draftというキーで保存してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "session(['post_draft' => $draft])"
+          },
+          {
+            "id": "wrong",
+            "text": "session('post_draft', $draft)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "キーとデフォルト値の形式では読み取りになり、下書きを保存できません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "session(",
+            "['post_draft' => ",
+            "$draft",
+            "]",
+            ")"
+          ],
+          "wrong": [
+            "session(",
+            "'post_draft', ",
+            "$draft",
+            ")"
+          ]
+        }
+      },
+      "explanation": "セッションへ下書きを保存します。PCでは別ページから戻った時に値が復元できるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$draftは下書きのtitleとbodyを含む配列です。LaravelのWebセッションへpost_draftというキーで保存してください。",
+      "conceptId": "ph3-week45-draft-session",
+      "variantGroup": "ph3-week45-assembly-draft-session",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。",
+      "drillConnection": "PH3 Week45のPOSSE課題へ接続。別ページから戻った時に値が復元できるか確認しましょう。",
+      "hint": "保存はキーと値の配列で渡します。",
+      "success": "$draftは下書きのtitleとbodyを含む配列です。LaravelのWebセッションへpost_draftというキーで保存してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-assembly-relative-seed-date",
+      "weekUnitId": "week-unit-week45",
+      "format": "fillBlank",
+      "prompt": "$nowはCarbonImmutableの日時、$iは1〜19です。$nowを変更せず、その$i日前の日時を求めてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n $studyDate = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$now->subDays($i)"
+          },
+          {
+            "id": "wrong",
+            "text": "$now->addDays($i)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "addDaysは未来へ加算するため、過去$i日前になりません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$now->",
+            "subDays(",
+            "$i",
+            ")"
+          ],
+          "wrong": [
+            "$now->",
+            "addDays(",
+            "$i",
+            ")"
+          ]
+        }
+      },
+      "explanation": "subDays($i)で過去の日時を作ります。CarbonImmutableなので元の$nowは変わりません。PCでは基準日を固定して1日前と19日前を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$nowはCarbonImmutableの日時、$iは1〜19です。$nowを変更せず、その$i日前の日時を求めてください。",
+      "conceptId": "ph3-week45-relative-seed-date",
+      "variantGroup": "ph3-week45-assembly-relative-seed-date",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。",
+      "drillConnection": "week45-1の関連ドリルへ接続。基準日を固定して1日前と19日前を確認しましょう。",
+      "hint": "過去へ日数を引くメソッドを選びます。",
+      "success": "$nowはCarbonImmutableの日時、$iは1〜19です。$nowを変更せず、その$i日前の日時を求めてください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week45-1/README.md",
+          "line": 1,
+          "heading": "44週目ミニドリル 1問目",
+          "sha256": "fa0b9a6e4bf769a2d986d8c980bf3e64664ebff13f6932cf38505a845e7a139b",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week45-1/src/database/seeds/StudyHoursPostsSeeder.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "dc54517ab5aa3f85509c4fe5bde4b50705a50d231ae0c15b79f9d41d88ae7248",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-post-required-fields",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "POSSE MEDIAの記事作成で、titleとbodyは必須という要件です。サーバー側で必要な対応はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "保存前に両方を必須として検証する"
+          },
+          {
+            "id": "wrong1",
+            "text": "フォームの説明文へ必須と書くだけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "DBへ保存してから不足を調べる"
+          },
+          {
+            "id": "wrong3",
+            "text": "titleだけあればbodyの不足を無視する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "説明文だけでは未入力の送信を拒否できません。",
+          "wrong2": "検証前に不完全な記事が残ってしまいます。",
+          "wrong3": "両方必須という要件を満たしません。"
+        }
+      },
+      "explanation": "必要な項目はサーバーでも検証してから保存します。 PCではtitleとbodyをそれぞれ空にして送信してみましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「保存前に両方を必須として検証する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-post-required-fields",
+      "variantGroup": "ph3-week45-choice-post-required-fields",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week45のPOSSE課題。titleとbodyをそれぞれ空にして送信してみましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "画面での案内と保存時の検証を分けます。",
+      "success": "条件に適合する候補を1つ選ぶ：保存前に両方を必須として検証する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-post-author-id",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "ログイン利用者のIDを記事のuser_idとして保存します。採用する値はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "フォームのuser_idを検証なしでそのまま採用"
+          },
+          {
+            "id": "wrong2",
+            "text": "URLの?user_idだけを採用"
+          },
+          {
+            "id": "wrong3",
+            "text": "すべての記事に固定値1を設定"
+          },
+          {
+            "id": "correct",
+            "text": "認証済みの利用者からサーバー側で取得したID"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "利用者が他人のIDへ書き換えられます。",
+          "wrong2": "URLの値は利用者が指定できます。",
+          "wrong3": "投稿者が異なる場合に正しく対応しません。"
+        }
+      },
+      "explanation": "投稿者は信頼できる認証情報に結び付けます。 PCでは別のuser_idを送っても投稿者が変わらないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「認証済みの利用者からサーバー側で取得したID」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-post-author-id",
+      "variantGroup": "ph3-week45-choice-post-author-id",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week45のPOSSE課題。別のuser_idを送っても投稿者が変わらないか確認しましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "誰が送ったかはサーバーの認証状態から決めます。",
+      "success": "条件に適合する候補を1つ選ぶ：認証済みの利用者からサーバー側で取得したID",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-session-draft-purpose",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "公開前の入力内容を同じ利用者が後で続けられるよう、セッションへ下書きを保存します。目的はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "ログインパスワードを記事本文へ追加する"
+          },
+          {
+            "id": "wrong3",
+            "text": "必須チェックを永久に不要にする"
+          },
+          {
+            "id": "correct",
+            "text": "公開用の保存と分けて入力途中の内容を保持する"
+          },
+          {
+            "id": "wrong1",
+            "text": "すべての利用者へ記事を公開する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "下書きは公開済み記事とは区別します。",
+          "wrong2": "下書きの目的ではなく秘密値を扱う場所でもありません。",
+          "wrong3": "公開時の入力検証は別に必要です。"
+        }
+      },
+      "explanation": "下書き保存で入力を一時的に引き継げます。 PCでは画面を移動して戻り、入力が復元されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「公開用の保存と分けて入力途中の内容を保持する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-session-draft-purpose",
+      "variantGroup": "ph3-week45-choice-session-draft-purpose",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week45のPOSSE課題。画面を移動して戻り、入力が復元されるか確認しましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "入力途中と公開を区別します。",
+      "success": "条件に適合する候補を1つ選ぶ：公開用の保存と分けて入力途中の内容を保持する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-draft-read-default",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "セッションに下書きがあれば復元し、なければ空配列を使います。適した読み取りはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "view(\"post_draft\")"
+          },
+          {
+            "id": "correct",
+            "text": "session(\"post_draft\", [])"
+          },
+          {
+            "id": "wrong1",
+            "text": "session([\"post_draft\" => []])"
+          },
+          {
+            "id": "wrong2",
+            "text": "session(\"post_draft\")を常に文字列として連結する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "毎回空配列を書き込むため既存の下書きを消してしまいます。",
+          "wrong2": "未保存時も含めて配列として扱う前提と異なります。",
+          "wrong3": "ビューの表示でありセッションの読み取りではありません。"
+        }
+      },
+      "explanation": "キーがなければ空配列を返し、あれば保存値を読みます。 PCでは下書きあり・なしの両方で表示を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「session(\"post_draft\", [])」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-draft-read-default",
+      "variantGroup": "ph3-week45-choice-draft-read-default",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week45のPOSSE課題。下書きあり・なしの両方で表示を確認しましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "読み取りの第2引数はデフォルト値です。",
+      "success": "条件に適合する候補を1つ選ぶ：session(\"post_draft\", [])",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-draft-clear-on-success",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "下書きから記事を公開し、DB保存が成功しました。古い下書きが次の作成フォームへ残らない処理はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "成功後に対象の下書きキーだけをセッションから削除する"
+          },
+          {
+            "id": "wrong1",
+            "text": "検証前にセッション全体を破棄する"
+          },
+          {
+            "id": "wrong2",
+            "text": "公開後も必ず同じ下書きを復元し続ける"
+          },
+          {
+            "id": "wrong3",
+            "text": "DBの記事を削除して下書きだけ残す"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "失敗時の下書きや他のセッション情報まで失います。",
+          "wrong2": "次の記事へ古い内容が残ります。",
+          "wrong3": "公開した記事を保持する目的と異なります。"
+        }
+      },
+      "explanation": "成功後に不要になった下書きだけを消します。 PCでは公開後に新規作成フォームを開いて確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "提示条件に対して「成功後に対象の下書きキーだけをセッションから削除する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-draft-clear-on-success",
+      "variantGroup": "ph3-week45-choice-draft-clear-on-success",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week45のPOSSE課題。公開後に新規作成フォームを開いて確認しましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "保存成功と下書きの片付けを対応させます。",
+      "success": "条件に適合する候補を1つ選ぶ：成功後に対象の下書きキーだけをセッションから削除する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-uploaded-file-check",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "記事画像を受け取ります。拡張子の文字列だけを信じる代わりに必要な対応はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "ファイル名がimageなら中身を確認しない"
+          },
+          {
+            "id": "wrong2",
+            "text": "ブラウザのaccept属性だけで安全と判断する"
+          },
+          {
+            "id": "wrong3",
+            "text": "送信者が指定した絶対パスへそのまま保存する"
+          },
+          {
+            "id": "correct",
+            "text": "サーバーで画像であることや許可サイズを検証する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ファイル名だけでは内容は保証されません。",
+          "wrong2": "クライアント側の制限は回避できます。",
+          "wrong3": "保存先を利用者任せにする必要はありません。"
+        }
+      },
+      "explanation": "画像の内容とサイズなどの条件をサーバーで確認します。 PCでは画像以外のファイルと上限超過でも拒否されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「サーバーで画像であることや許可サイズを検証する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-uploaded-file-check",
+      "variantGroup": "ph3-week45-choice-uploaded-file-check",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week45のPOSSE課題。画像以外のファイルと上限超過でも拒否されるか確認しましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "送られたファイルも入力として検証します。",
+      "success": "条件に適合する候補を1つ選ぶ：サーバーで画像であることや許可サイズを検証する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-upload-path-record",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "記事画像をストレージへ保存し、公開用のパスを得ました。記事の画像情報として扱う値はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "アップロードフォームのCSSクラス名"
+          },
+          {
+            "id": "wrong3",
+            "text": "MySQLのログインパスワード"
+          },
+          {
+            "id": "correct",
+            "text": "サーバーで保存したファイルのパス"
+          },
+          {
+            "id": "wrong1",
+            "text": "利用者PC上のC:\\fakepathから始まる表示値"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "利用者側の表示パスはサーバーの保存先ではありません。",
+          "wrong2": "画像ファイルの保存先を表しません。",
+          "wrong3": "画像の参照情報ではありません。"
+        }
+      },
+      "explanation": "保存したファイルを後で参照できるパスを記録します。 PCでは保存後のパスから画像を表示できるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「サーバーで保存したファイルのパス」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-upload-path-record",
+      "variantGroup": "ph3-week45-choice-upload-path-record",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week45のPOSSE課題。保存後のパスから画像を表示できるか確認しましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "利用者のPC上の場所と保存先を分けます。",
+      "success": "条件に適合する候補を1つ選ぶ：サーバーで保存したファイルのパス",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-login-required-post",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "未ログインの利用者から記事作成リクエストが届きました。ログイン必須の要件を守る対応はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "titleがあれば自動的に管理者として扱う"
+          },
+          {
+            "id": "correct",
+            "text": "保存処理の入口で認証を要求する"
+          },
+          {
+            "id": "wrong1",
+            "text": "投稿ボタンだけ非表示にして保存を許可する"
+          },
+          {
+            "id": "wrong2",
+            "text": "適当な既存ユーザーを投稿者にする"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "直接の送信が可能なので認証を強制できません。",
+          "wrong2": "送信者本人の認証になりません。",
+          "wrong3": "入力内容は利用者の認証情報ではありません。"
+        }
+      },
+      "explanation": "認証された利用者だけが作成できるようにします。 PCでは未ログインで直接送信して記事が増えないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「保存処理の入口で認証を要求する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-login-required-post",
+      "variantGroup": "ph3-week45-choice-login-required-post",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week45のPOSSE課題。未ログインで直接送信して記事が増えないか確認しましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "サーバーへ届くすべての保存経路を守ります。",
+      "success": "条件に適合する候補を1つ選ぶ：保存処理の入口で認証を要求する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-relative-seed-date",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "CarbonImmutableの$baseを今日とし、$i日前の日付を生成します。適した呼び出しはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$base->subDays($i)"
+          },
+          {
+            "id": "wrong1",
+            "text": "$base->addDays($i)"
+          },
+          {
+            "id": "wrong2",
+            "text": "$base->subDays(1)を全行で使う"
+          },
+          {
+            "id": "wrong3",
+            "text": "\"2022-08-08\"を全行へ固定"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "過去ではなく未来の日付へ進みます。",
+          "wrong2": "すべて同じ1日前になり、$i日前になりません。",
+          "wrong3": "実行時の日付からの相対日付になりません。"
+        }
+      },
+      "explanation": "Immutableの基準日は変更せず、各$i日前を得られます。 PCでは生成された日付が1日前ずつ分かれるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$base->subDays($i)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-relative-seed-date",
+      "variantGroup": "ph3-week45-choice-relative-seed-date",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week45-1/README.md",
+          "line": 1,
+          "heading": "44週目ミニドリル 1問目",
+          "sha256": "fa0b9a6e4bf769a2d986d8c980bf3e64664ebff13f6932cf38505a845e7a139b",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week45-1/src/database/seeds/StudyHoursPostsSeeder.php",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "dc54517ab5aa3f85509c4fe5bde4b50705a50d231ae0c15b79f9d41d88ae7248"
+        }
+      ],
+      "drillConnection": "week45-1の関連ドリル。生成された日付が1日前ずつ分かれるか確認しましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "引く日数へループ変数を渡します。",
+      "success": "条件に適合する候補を1つ選ぶ：$base->subDays($i)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week45-choice-seed-loop-boundary",
+      "weekUnitId": "week-unit-week45",
+      "format": "singleChoice",
+      "prompt": "for ($i = 1; $i < 20; $i++)で、毎回$base->subDays($i)を使います。$baseはCarbonImmutableです。生成する日付の範囲はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "1日前〜20日前の20件"
+          },
+          {
+            "id": "wrong2",
+            "text": "今日〜19日前の20件"
+          },
+          {
+            "id": "wrong3",
+            "text": "1日前だけを19件"
+          },
+          {
+            "id": "correct",
+            "text": "1日前〜19日前の19件"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "条件が$i < 20なので20は含みません。",
+          "wrong2": "開始値は0ではなく1です。",
+          "wrong3": "$iは1ずつ増えるため引く日数も変わります。"
+        }
+      },
+      "explanation": "1以上20未満なので1〜19を使います。 PCではループの件数と最古の日付を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week45",
+        "sectionHeading": "Week 45"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「1日前〜19日前の19件」を選び、その理由を説明する。",
+      "conceptId": "ph3-week45-seed-loop-boundary",
+      "variantGroup": "ph3-week45-choice-seed-loop-boundary",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 807,
+        "heading": "Week 45",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week45-1/README.md",
+          "line": 1,
+          "heading": "44週目ミニドリル 1問目",
+          "sha256": "fa0b9a6e4bf769a2d986d8c980bf3e64664ebff13f6932cf38505a845e7a139b",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week45-1/src/database/seeds/StudyHoursPostsSeeder.php",
+          "scope": "repository",
+          "line": 1,
+          "sha256": "dc54517ab5aa3f85509c4fe5bde4b50705a50d231ae0c15b79f9d41d88ae7248"
+        }
+      ],
+      "drillConnection": "week45-1の関連ドリル。ループの件数と最古の日付を照合しましょう。",
+      "priorKnowledge": "Week33〜44の認証・FormRequest・モデル・セッション。CarbonImmutableの前提は設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "開始値と終了条件を両方読みます。",
+      "success": "条件に適合する候補を1つ選ぶ：1日前〜19日前の19件",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

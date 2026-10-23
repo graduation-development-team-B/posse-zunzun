@@ -1,0 +1,461 @@
+{
+  "environment": {
+    "node": "v22.19.0",
+    "php": "PHP 8.4.13 (cli) (built: Sep 23 2025 14:14:32) (NTS)"
+  },
+  "checks": [
+    {
+      "id": "question-week7-assembly-find-output",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week7-assembly-click-message",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week7-assembly-read-number",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week7-assembly-toggle-done",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week7-assembly-append-item",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week10-assembly-await-fetch",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week10-assembly-await-json",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week10-assembly-async-declaration",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week10-assembly-http-failure",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week10-assembly-render-name",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week11-assembly-ai-number-repair",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week11-assembly-ai-empty-guard",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week11-assembly-ai-selector-fix",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week11-assembly-ai-fetch-check",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week11-assembly-ai-upper-bound",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week13-assembly-css-import",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week13-assembly-relative-base",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week14-assembly-jsx-title",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week14-assembly-props-card",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week14-assembly-map-key",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week14-assembly-component-return",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week14-assembly-default-import",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week15-assembly-state-initial",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week15-assembly-controlled-input",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week15-assembly-append-state",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week15-assembly-filter-visible",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week15-assembly-effect-title",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week16-assembly-review-append",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week16-assembly-review-delete",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week16-assembly-review-controlled",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week16-assembly-review-key",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-week16-assembly-review-event",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-ph2-week18-assembly-assoc-person",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week18-assembly-array-lookup",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week18-assembly-range-loop",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week18-assembly-foreach-total",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week18-assembly-concat-product",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week21-assembly-dsn-db",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week21-assembly-pdo-query",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week21-assembly-read-row",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week23-assembly-substring",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week23-assembly-implode-list",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week23-assembly-round-one",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week23-assembly-map-round",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week23-assembly-function-return",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week24-assembly-get-keyword",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week24-assembly-post-name",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week24-assembly-bind-content",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week25-assembly-bind-update",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week26-assembly-session-start",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week26-assembly-store-user-id",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week26-assembly-guard-session",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week26-assembly-logout-values",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week26-assembly-redirect-stop",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week27-assembly-email-validation",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week27-assembly-empty-required",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week27-assembly-ascii-length",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week27-assembly-hash-password",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week27-assembly-verify-password",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week28-assembly-autoload-path",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week28-assembly-carbon-use",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week28-assembly-carbon-now",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week30-assembly-crud-return",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week31-assembly-study-pair",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week31-assembly-map-studies",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week31-assembly-owner-bind",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week31-assembly-encode-chart",
+      "check": "PHP CLI -l; 構文のみ"
+    },
+    {
+      "id": "question-ph2-week32-assembly-async-json",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-ph2-week32-assembly-post-delete",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-ph2-week32-assembly-chart-columns",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-ph2-week32-assembly-http-guard",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-ph2-week32-assembly-remove-target",
+      "check": "TypeScript parser; JSはimport/export以外をasync関数内で構文確認"
+    },
+    {
+      "id": "question-ph2-week18-assembly-assoc-person",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week18-assembly-array-lookup",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week18-assembly-range-loop",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week18-assembly-foreach-total",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week18-assembly-concat-product",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week23-assembly-substring",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week23-assembly-implode-list",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week23-assembly-round-one",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week23-assembly-map-round",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week23-assembly-function-return",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week24-assembly-get-keyword",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week24-assembly-post-name",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week24-assembly-bind-content",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week25-assembly-bind-update",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week26-assembly-store-user-id",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week27-assembly-email-validation",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 2
+    },
+    {
+      "id": "question-ph2-week27-assembly-empty-required",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 2
+    },
+    {
+      "id": "question-ph2-week27-assembly-ascii-length",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 3
+    },
+    {
+      "id": "question-ph2-week27-assembly-hash-password",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week27-assembly-verify-password",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 2
+    },
+    {
+      "id": "question-ph2-week31-assembly-study-pair",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week31-assembly-map-studies",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week31-assembly-encode-chart",
+      "check": "PHP CLI; 正答と主要誤答を固定入力で比較",
+      "cases": 1
+    },
+    {
+      "id": "question-week7-assembly-read-number",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 1
+    },
+    {
+      "id": "question-week10-assembly-await-json",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 1
+    },
+    {
+      "id": "question-week10-assembly-render-name",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 1
+    },
+    {
+      "id": "question-week11-assembly-ai-number-repair",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 1
+    },
+    {
+      "id": "question-week11-assembly-ai-upper-bound",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 2
+    },
+    {
+      "id": "question-ph2-week32-assembly-async-json",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week32-assembly-post-delete",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week32-assembly-chart-columns",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 1
+    },
+    {
+      "id": "question-ph2-week32-assembly-http-guard",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 2
+    },
+    {
+      "id": "question-ph2-week32-assembly-remove-target",
+      "check": "Node VM; 外部通信なし・固定入力で正答と主要誤答を比較",
+      "cases": 1
+    }
+  ]
+}

@@ -1158,5 +1158,478 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week31-assembly-study-pair",
+      "weekUnitId": "week-unit-week31",
+      "format": "fillBlank",
+      "prompt": "$studyのget_day()は日付文字列、get_hours()は整数時間を返す提供済みメソッドです。[日付,時間]の配列を作ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$row = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "[$study->get_day(), $study->get_hours()]"
+          },
+          {
+            "id": "wrong",
+            "text": "[$study->get_hours(), $study->get_day()]"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "日付と時間の順が逆になります。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "[",
+            "$study->get_day(), ",
+            "$study->get_hours()",
+            "]"
+          ],
+          "wrong": [
+            "[",
+            "$study->get_hours(), ",
+            "$study->get_day()",
+            "]"
+          ]
+        }
+      },
+      "explanation": "配列の位置と利用側の期待を合わせます。PCでは取得1件の型と順序を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week31",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$studyのget_day()は日付文字列、get_hours()は整数時間を返す提供済みメソッドです。[日付,時間]の配列を作ってください。",
+      "conceptId": "ph2-week31-study-pair",
+      "variantGroup": "ph2-week31-assembly-study-pair",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜31の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week31の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。取得1件の型と順序を確認しましょう。",
+      "hint": "配列の位置と利用側の期待を合わせます。",
+      "success": "$studyのget_day()は日付文字列、get_hours()は整数時間を返す提供済みメソッドです。[日付,時間]の配列を作ってください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week31/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "0c44a0b9a9e7883e1bf740fbdedcda3e3a35339afca2eddb5715b3f204305650"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1309,
+          "heading": "Week 31",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        },
+        {
+          "path": "drill-ph2/src/week31/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "8519d3bf0c220ee976022e4ee29d81d7cb770ace421126d53760c410d96545cd"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week31-assembly-map-studies",
+      "weekUnitId": "week-unit-week31",
+      "format": "fillBlank",
+      "prompt": "$studiesは提供済みStudyオブジェクトの配列です。get_dayとget_hoursが日付と整数時間を返します。各結果を[日付,時間]へ変換してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$data = array_map(function ($study) {\n  __BLANK__\n}, $studies);",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "return [$study->get_day(), $study->get_hours()];"
+          },
+          {
+            "id": "wrong",
+            "text": "echo [$study->get_day(), $study->get_hours()];"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "echoは表示であり、array_mapが集める各結果をreturnしていません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "return ",
+            "[$study->get_day(), ",
+            "$study->get_hours()]",
+            ";"
+          ],
+          "wrong": [
+            "echo ",
+            "[$study->get_day(), ",
+            "$study->get_hours()]",
+            ";"
+          ]
+        }
+      },
+      "explanation": "コールバックから各1件の配列を返します。PCでは外側の件数と各行の要素数を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week31",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$studiesは提供済みStudyオブジェクトの配列です。get_dayとget_hoursが日付と整数時間を返します。各結果を[日付,時間]へ変換してください。",
+      "conceptId": "ph2-week31-map-studies",
+      "variantGroup": "ph2-week31-assembly-map-studies",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜31の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week31の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。外側の件数と各行の要素数を確認しましょう。",
+      "hint": "コールバックから各1件の配列を返します。",
+      "success": "$studiesは提供済みStudyオブジェクトの配列です。get_dayとget_hoursが日付と整数時間を返します。各結果を[日付,時間]へ変換してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week31/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "0c44a0b9a9e7883e1bf740fbdedcda3e3a35339afca2eddb5715b3f204305650"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1309,
+          "heading": "Week 31",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        },
+        {
+          "path": "drill-ph2/src/week31/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "8519d3bf0c220ee976022e4ee29d81d7cb770ace421126d53760c410d96545cd"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week31-assembly-owner-select",
+      "weekUnitId": "week-unit-week31",
+      "format": "fillBlank",
+      "prompt": "ログイン確認済みです。認証済みの利用者IDを:user_idへバインドする前提で、その人のTo-Doだけ取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "SELECT * FROM todos WHERE user_id = :user_id;"
+          },
+          {
+            "id": "wrong",
+            "text": "SELECT * FROM todos WHERE id = :user_id;"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "idはタスク自身のIDであり、所有者IDではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "SELECT * ",
+            "FROM todos ",
+            "WHERE user_id = :user_id",
+            ";"
+          ],
+          "wrong": [
+            "SELECT * ",
+            "FROM todos ",
+            "WHERE id = :user_id",
+            ";"
+          ]
+        }
+      },
+      "explanation": "user_idで取得範囲を限定します。PCではAとBに別のタスクを作って確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week31",
+        "sectionHeading": "Week 31"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ログイン確認済みです。認証済みの利用者IDを:user_idへバインドする前提で、その人のTo-Doだけ取得してください。",
+      "conceptId": "ph2-week31-owner-select",
+      "variantGroup": "ph2-week31-assembly-owner-select",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜31の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week31の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。AとBに別のタスクを作って確認しましょう。",
+      "hint": "user_idで取得範囲を限定します。",
+      "success": "ログイン確認済みです。認証済みの利用者IDを:user_idへバインドする前提で、その人のTo-Doだけ取得してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "line": 1309,
+        "heading": "Week 31",
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week31/README.md",
+          "line": 1,
+          "heading": "31週目ミニドリル",
+          "sha256": "0c44a0b9a9e7883e1bf740fbdedcda3e3a35339afca2eddb5715b3f204305650"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        },
+        {
+          "path": "drill-ph2/src/week31/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "8519d3bf0c220ee976022e4ee29d81d7cb770ace421126d53760c410d96545cd"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week31-assembly-owner-bind",
+      "weekUnitId": "week-unit-week31",
+      "format": "fillBlank",
+      "prompt": "認証済みのセッションIDを取得条件へ渡してください。GETのuser_idは利用者が変更できます。session_startとログイン確認は済んでいます。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$stmt = $dbh->prepare(\"SELECT * FROM todos WHERE user_id=:user_id\");\n$stmt->bindValue(\":user_id\", __BLANK__);\n$stmt->execute();",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$_SESSION[\"id\"]"
+          },
+          {
+            "id": "wrong",
+            "text": "$_GET[\"user_id\"]"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "GETのIDを信用すると他人のIDへ変えて取得される可能性があります。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$_SESSION",
+            "[",
+            "\"id\"",
+            "]"
+          ],
+          "wrong": [
+            "$_GET",
+            "[",
+            "\"user_id\"",
+            "]"
+          ]
+        }
+      },
+      "explanation": "認証確認済みのサーバー側セッションからIDを取ります。PCではURLを書き換えても他人のデータが出ないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week31",
+        "sectionHeading": "Week 31"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "認証済みのセッションIDを取得条件へ渡してください。GETのuser_idは利用者が変更できます。session_startとログイン確認は済んでいます。",
+      "conceptId": "ph2-week31-owner-bind",
+      "variantGroup": "ph2-week31-assembly-owner-bind",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜31の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week31の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。URLを書き換えても他人のデータが出ないか確認しましょう。",
+      "hint": "認証確認済みのサーバー側セッションからIDを取ります。",
+      "success": "認証済みのセッションIDを取得条件へ渡してください。GETのuser_idは利用者が変更できます。session_startとログイン確認は済んでいます。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "line": 1309,
+        "heading": "Week 31",
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week31/README.md",
+          "line": 1,
+          "heading": "31週目ミニドリル",
+          "sha256": "0c44a0b9a9e7883e1bf740fbdedcda3e3a35339afca2eddb5715b3f204305650"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        },
+        {
+          "path": "drill-ph2/src/week31/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "8519d3bf0c220ee976022e4ee29d81d7cb770ace421126d53760c410d96545cd"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week31-assembly-encode-chart",
+      "weekUnitId": "week-unit-week31",
+      "format": "fillBlank",
+      "prompt": "$dataは[日付文字列,整数時間]の行を持つ二次元配列です。JavaScriptへ渡すJSON文字列を作ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n$chartData = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "json_encode($data)"
+          },
+          {
+            "id": "wrong",
+            "text": "json_encode(\"data\")"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "固定文字列dataをJSON化しており、二次元配列を渡していません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "json_encode(",
+            "$data",
+            ")"
+          ],
+          "wrong": [
+            "json_encode(",
+            "\"data\"",
+            ")"
+          ]
+        }
+      },
+      "explanation": "変数の配列をjson_encodeへ渡します。PCではJSONの各行が文字列と数値の組か確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week31",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$dataは[日付文字列,整数時間]の行を持つ二次元配列です。JavaScriptへ渡すJSON文字列を作ってください。",
+      "conceptId": "ph2-week31-encode-chart",
+      "variantGroup": "ph2-week31-assembly-encode-chart",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜31の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week31の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。JSONの各行が文字列と数値の組か確認しましょう。",
+      "hint": "変数の配列をjson_encodeへ渡します。",
+      "success": "$dataは[日付文字列,整数時間]の行を持つ二次元配列です。JavaScriptへ渡すJSON文字列を作ってください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week31/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "0c44a0b9a9e7883e1bf740fbdedcda3e3a35339afca2eddb5715b3f204305650"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1309,
+          "heading": "Week 31",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        },
+        {
+          "path": "drill-ph2/src/week31/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "8519d3bf0c220ee976022e4ee29d81d7cb770ace421126d53760c410d96545cd"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
   }
 ]

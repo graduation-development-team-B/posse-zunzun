@@ -1,0 +1,1113 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week39-assembly-soft-delete-trait",
+      "weekUnitId": "week-unit-week39",
+      "format": "fillBlank",
+      "prompt": "Quizで論理削除を有効にします。SoftDeletesはimport済み、deleted_at列もあります。モデル内でトレイトを使ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Database\\Eloquent\\SoftDeletes;\nclass Quiz extends Model {\n  __BLANK__\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "use SoftDeletes;"
+          },
+          {
+            "id": "wrong",
+            "text": "use Model;"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "Modelは継承元のクラスであり、論理削除のトレイトではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "use ",
+            "SoftDeletes",
+            ";"
+          ],
+          "wrong": [
+            "use ",
+            "Model",
+            ";"
+          ]
+        }
+      },
+      "explanation": "SoftDeletesを使うモデルはdeleted_atで削除状態を扱います。PCでは削除してもDBの行が残るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Quizで論理削除を有効にします。SoftDeletesはimport済み、deleted_at列もあります。モデル内でトレイトを使ってください。",
+      "conceptId": "ph3-week39-soft-delete-trait",
+      "variantGroup": "ph3-week39-assembly-soft-delete-trait",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。",
+      "drillConnection": "PH3 Week39のPOSSE課題へ接続。削除してもDBの行が残るか確認しましょう。",
+      "hint": "モデルが使うトレイトをクラス内で宣言します。",
+      "success": "Quizで論理削除を有効にします。SoftDeletesはimport済み、deleted_at列もあります。モデル内でトレイトを使ってください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-assembly-deleted-at-column",
+      "weekUnitId": "week-unit-week39",
+      "format": "fillBlank",
+      "prompt": "既存quizzesへ論理削除用のdeleted_at列を追加してください。SchemaとBlueprintはimport済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nSchema::table('quizzes', function (Blueprint $table) {\n  __BLANK__;\n});",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$table->softDeletes()"
+          },
+          {
+            "id": "wrong",
+            "text": "$table->timestamps()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "timestampsはcreated_atとupdated_atを用意するヘルパーです。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$table->",
+            "softDeletes(",
+            ")"
+          ],
+          "wrong": [
+            "$table->",
+            "timestamps(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "softDeletes()でdeleted_atを追加します。PCではマイグレーション後の表構造を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "既存quizzesへ論理削除用のdeleted_at列を追加してください。SchemaとBlueprintはimport済みです。",
+      "conceptId": "ph3-week39-deleted-at-column",
+      "variantGroup": "ph3-week39-assembly-deleted-at-column",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。",
+      "drillConnection": "PH3 Week39のPOSSE課題へ接続。マイグレーション後の表構造を確認しましょう。",
+      "hint": "論理削除専用のカラムを用意するメソッドです。",
+      "success": "既存quizzesへ論理削除用のdeleted_at列を追加してください。SchemaとBlueprintはimport済みです。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-assembly-soft-delete-model",
+      "weekUnitId": "week-unit-week39",
+      "format": "fillBlank",
+      "prompt": "$quizはSoftDeletesを使用する取得済みモデルです。論理削除してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$quiz->delete()"
+          },
+          {
+            "id": "wrong",
+            "text": "$quiz->forceDelete()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "forceDeleteは行を物理削除するため、論理削除の指定に合いません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$quiz->",
+            "delete(",
+            ")"
+          ],
+          "wrong": [
+            "$quiz->",
+            "forceDelete(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "delete()でdeleted_atを設定します。PCでは通常一覧から消え、DBには残ることを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$quizはSoftDeletesを使用する取得済みモデルです。論理削除してください。",
+      "conceptId": "ph3-week39-soft-delete-model",
+      "variantGroup": "ph3-week39-assembly-soft-delete-model",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。",
+      "drillConnection": "PH3 Week39のPOSSE課題へ接続。通常一覧から消え、DBには残ることを確認しましょう。",
+      "hint": "SoftDeletesモデルの通常の削除メソッドを選びます。",
+      "success": "$quizはSoftDeletesを使用する取得済みモデルです。論理削除してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-assembly-phpdoc-property",
+      "weekUnitId": "week-unit-week39",
+      "format": "fillBlank",
+      "prompt": "モデルのfirst_nameが文字列だとエディターへ伝えるPHPDocを組み立ててください。実行時の検証にはなりません。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n/**\n * __BLANK__\n */\nclass User extends Model {}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "@property string $first_name"
+          },
+          {
+            "id": "wrong",
+            "text": "@property int $first_name"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "intは整数型であり、文字列のfirst_nameの注釈に合いません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "@property ",
+            "string ",
+            "$first_name"
+          ],
+          "wrong": [
+            "@property ",
+            "int ",
+            "$first_name"
+          ]
+        }
+      },
+      "explanation": "@property string $first_nameで補完向けの情報を添えます。PCでは補完を確認し、実際のデータ型も別途確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "モデルのfirst_nameが文字列だとエディターへ伝えるPHPDocを組み立ててください。実行時の検証にはなりません。",
+      "conceptId": "ph3-week39-phpdoc-property",
+      "variantGroup": "ph3-week39-assembly-phpdoc-property",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。",
+      "drillConnection": "week39-1の関連ドリルへ接続。補完を確認し、実際のデータ型も別途確認しましょう。",
+      "hint": "属性の名前と型を対応させます。",
+      "success": "モデルのfirst_nameが文字列だとエディターへ伝えるPHPDocを組み立ててください。実行時の検証にはなりません。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week39-1/README.md",
+          "line": 1,
+          "heading": "39週目ミニドリル 1問目",
+          "sha256": "b0091ed10c4e8f5ea5edfb33001a6991b53dc3f4bb946438eb79ea56259d9a3e",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-assembly-integer-signature",
+      "weekUnitId": "week-unit-week39",
+      "format": "fillBlank",
+      "prompt": "strict_types=1のPHPです。整数だけを受け取り、1増やした整数を返す関数のシグネチャを作ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\ndeclare(strict_types=1);\nfunction __BLANK__ {\n  return $number + 1;\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "incrementNumber(int $number): int"
+          },
+          {
+            "id": "wrong",
+            "text": "incrementNumber(string $number): int"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "stringでは整数の引数を受け取るという指定と一致しません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "incrementNumber(",
+            "int $number",
+            "): ",
+            "int"
+          ],
+          "wrong": [
+            "incrementNumber(",
+            "string $number",
+            "): ",
+            "int"
+          ]
+        }
+      },
+      "explanation": "intの引数とintの戻り値を宣言します。PCでは1が2になり、null入力がエラーになることを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "strict_types=1のPHPです。整数だけを受け取り、1増やした整数を返す関数のシグネチャを作ってください。",
+      "conceptId": "ph3-week39-integer-signature",
+      "variantGroup": "ph3-week39-assembly-integer-signature",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。",
+      "drillConnection": "week39-3の関連ドリルへ接続。1が2になり、null入力がエラーになることを確認しましょう。",
+      "hint": "引数と戻り値の型をそれぞれ指定します。",
+      "success": "strict_types=1のPHPです。整数だけを受け取り、1増やした整数を返す関数のシグネチャを作ってください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 固定入力で正誤比較。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week39-3/README.md",
+          "line": 1,
+          "heading": "39週目ミニドリル 3問目",
+          "sha256": "ca9e8f2afb97e226cb9624d7e70559cb50714b05da03bf2e7dec50b1af9f5dd9",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week39-3/src/app/Http/Controllers/HomeController.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "007c29cf9105e678f935a2fe982c029dbc54855080c0b9d2927dbaa24b3db787",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-soft-delete-state",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "SoftDeletesを使うモデルをdeleteしたとき、行はどうなりますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "deleted_atに削除日時が入り、行は残る"
+          },
+          {
+            "id": "wrong1",
+            "text": "行が必ず物理削除される"
+          },
+          {
+            "id": "wrong2",
+            "text": "nameが必ず空文字になる"
+          },
+          {
+            "id": "wrong3",
+            "text": "idが必ず0へ変わる"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "SoftDeletesを使うdeleteは論理削除です。",
+          "wrong2": "論理削除の目印はdeleted_atです。",
+          "wrong3": "主キーを書き換える仕組みではありません。"
+        }
+      },
+      "explanation": "行を残したまま削除日時を記録します。 PCではDBで行の存在とdeleted_atを照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「deleted_atに削除日時が入り、行は残る」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-soft-delete-state",
+      "variantGroup": "ph3-week39-choice-soft-delete-state",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week39のPOSSE課題。DBで行の存在とdeleted_atを照合しましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "削除扱いの日時を残す仕組みです。",
+      "success": "条件に適合する候補を1つ選ぶ：deleted_atに削除日時が入り、行は残る",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-soft-delete-prerequisites",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "論理削除を有効にする組み合わせはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "ビューの削除ボタンだけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "モデルのhiddenだけとname列"
+          },
+          {
+            "id": "wrong3",
+            "text": "CSSのdisplay:noneだけ"
+          },
+          {
+            "id": "correct",
+            "text": "モデルのSoftDeletesトレイトとテーブルのdeleted_at列"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ボタンの追加だけでは論理削除の保存処理になりません。",
+          "wrong2": "hiddenはJSON表示の設定であり、論理削除の設定ではありません。",
+          "wrong3": "画面を隠してもDB上の削除状態は変わりません。"
+        }
+      },
+      "explanation": "SoftDeletesと削除日時の列をそろえます。 PCではモデルのuseと適用済みマイグレーションを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「モデルのSoftDeletesトレイトとテーブルのdeleted_at列」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-soft-delete-prerequisites",
+      "variantGroup": "ph3-week39-choice-soft-delete-prerequisites",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week39のPOSSE課題。モデルのuseと適用済みマイグレーションを確認しましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "モデルの機能とDBの保存先が必要です。",
+      "success": "条件に適合する候補を1つ選ぶ：モデルのSoftDeletesトレイトとテーブルのdeleted_at列",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-default-excludes-deleted",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "QuizにSoftDeletesがあります。特別なスコープ追加のないQuiz::all()で取得するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "削除済みも必ず全件含む"
+          },
+          {
+            "id": "wrong3",
+            "text": "必ず空のコレクション"
+          },
+          {
+            "id": "correct",
+            "text": "論理削除されていないクイズ"
+          },
+          {
+            "id": "wrong1",
+            "text": "論理削除されたクイズだけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "削除済みだけを取るにはonlyTrashedなどを使います。",
+          "wrong2": "通常のクエリは削除済みを除外します。",
+          "wrong3": "未削除のレコードがあれば取得します。"
+        }
+      },
+      "explanation": "通常のクエリはdeleted_atが設定された行を除きます。 PCでは1件を論理削除した前後で一覧を比較しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「論理削除されていないクイズ」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-default-excludes-deleted",
+      "variantGroup": "ph3-week39-choice-default-excludes-deleted",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week39のPOSSE課題。1件を論理削除した前後で一覧を比較しましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "SoftDeletesの標準の絞り込みを考えます。",
+      "success": "条件に適合する候補を1つ選ぶ：論理削除されていないクイズ",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-with-trashed",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "SoftDeletesのQuizで、未削除と削除済みの両方を取得するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "Quiz::whereNull(\"name\")->get()"
+          },
+          {
+            "id": "correct",
+            "text": "Quiz::withTrashed()->get()"
+          },
+          {
+            "id": "wrong1",
+            "text": "Quiz::onlyTrashed()->get()"
+          },
+          {
+            "id": "wrong2",
+            "text": "Quiz::all()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "削除済みだけになり未削除を含みません。",
+          "wrong2": "標準では削除済みを除外します。",
+          "wrong3": "削除状態ではなくnameがNULLかで絞り込んでしまいます。"
+        }
+      },
+      "explanation": "withTrashedで削除済みも対象へ含めます。 PCでは管理用の一覧で両方が出るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Quiz::withTrashed()->get()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-with-trashed",
+      "variantGroup": "ph3-week39-choice-with-trashed",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week39のPOSSE課題。管理用の一覧で両方が出るか確認しましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "削除済みを含める指定です。",
+      "success": "条件に適合する候補を1つ選ぶ：Quiz::withTrashed()->get()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-force-delete-difference",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "SoftDeletesモデルで、行自体をDBから取り除く操作はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "forceDelete()"
+          },
+          {
+            "id": "wrong1",
+            "text": "delete()"
+          },
+          {
+            "id": "wrong2",
+            "text": "trashed()"
+          },
+          {
+            "id": "wrong3",
+            "text": "withTrashed()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "この前提では削除日時を付けて行を残します。",
+          "wrong2": "削除済みかを確認するだけです。",
+          "wrong3": "取得対象を広げる指定で削除しません。"
+        }
+      },
+      "explanation": "forceDeleteは行を物理削除します。 PCでは破棄可能な検証データで行が残るか比較しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「forceDelete()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-force-delete-difference",
+      "variantGroup": "ph3-week39-choice-force-delete-difference",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week39のPOSSE課題。破棄可能な検証データで行が残るか比較しましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "論理削除と物理削除を分けます。",
+      "success": "条件に適合する候補を1つ選ぶ：forceDelete()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-restore-model",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "SoftDeletesで論理削除されたモデルを取得済みです。削除状態を解除するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "$quiz->forceDelete();"
+          },
+          {
+            "id": "wrong2",
+            "text": "$quiz->delete();"
+          },
+          {
+            "id": "wrong3",
+            "text": "$quiz->trashed();"
+          },
+          {
+            "id": "correct",
+            "text": "$quiz->restore();"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "復元ではなく行を物理削除します。",
+          "wrong2": "削除状態を解除する操作ではありません。",
+          "wrong3": "削除済みかの判定だけで更新しません。"
+        }
+      },
+      "explanation": "restoreで論理削除状態から戻します。 PCではdeleted_atと通常一覧への再表示を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$quiz->restore();」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-restore-model",
+      "variantGroup": "ph3-week39-choice-restore-model",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week39のPOSSE課題。deleted_atと通常一覧への再表示を確認しましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "削除日時を解除するモデルの操作です。",
+      "success": "条件に適合する候補を1つ選ぶ：$quiz->restore();",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-confirmation-cancel",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "削除確認モーダルで「いいえ」を押したときの適切な動作はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "nameだけを削除して残す"
+          },
+          {
+            "id": "wrong3",
+            "text": "確認前に削除してから閉じる"
+          },
+          {
+            "id": "correct",
+            "text": "削除リクエストを送らず閉じる"
+          },
+          {
+            "id": "wrong1",
+            "text": "閉じた後で削除リクエストを送る"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "キャンセルしたのに削除が実行されます。",
+          "wrong2": "利用者が求めていないデータ変更になります。",
+          "wrong3": "確認が誤削除防止として機能しません。"
+        }
+      },
+      "explanation": "「はい」を選んだときだけ削除処理を実行します。 PCではキャンセル後もDBと一覧にデータが残るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「削除リクエストを送らず閉じる」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-confirmation-cancel",
+      "variantGroup": "ph3-week39-choice-confirmation-cancel",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week39のPOSSE課題。キャンセル後もDBと一覧にデータが残るか確認しましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "キャンセルではデータを変えません。",
+      "success": "条件に適合する候補を1つ選ぶ：削除リクエストを送らず閉じる",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-factory-count",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "Factory設定済みのQuizで、ダミー100件をDBへ作成するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "Quiz::factory()->count(1)->create()"
+          },
+          {
+            "id": "correct",
+            "text": "Quiz::factory()->count(100)->create()"
+          },
+          {
+            "id": "wrong1",
+            "text": "Quiz::factory()->count(100)->make()"
+          },
+          {
+            "id": "wrong2",
+            "text": "Quiz::all()->take(100)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "makeはモデルを用意しますがDBへ保存しません。",
+          "wrong2": "既存行の取得であり新規作成ではありません。",
+          "wrong3": "作成する件数が100件ではありません。"
+        }
+      },
+      "explanation": "countで件数を指定しcreateで保存します。 PCでは検証用DBで実行前後の件数を比べましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Quiz::factory()->count(100)->create()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-factory-count",
+      "variantGroup": "ph3-week39-choice-factory-count",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week39のPOSSE課題。検証用DBで実行前後の件数を比べましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "生成件数とDBへ保存する操作を合わせます。",
+      "success": "条件に適合する候補を1つ選ぶ：Quiz::factory()->count(100)->create()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-phpdoc-purpose",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "モデルのPHPDocに@property string $first_nameを書く主な目的はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "エディターなどへ属性と型の情報を伝える"
+          },
+          {
+            "id": "wrong1",
+            "text": "DBにfirst_name列を追加する"
+          },
+          {
+            "id": "wrong2",
+            "text": "入力文字列を必須にする"
+          },
+          {
+            "id": "wrong3",
+            "text": "first_nameを自動で一括代入可能にする"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "コメントだけではテーブル構造は変わりません。",
+          "wrong2": "PHPDocは入力バリデーションではありません。",
+          "wrong3": "一括代入の許可にはfillableなどの設定が必要です。"
+        }
+      },
+      "explanation": "PHPDocは補完や静的解析に利用される情報です。 PCではエディターで属性の補完が出るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「エディターなどへ属性と型の情報を伝える」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-phpdoc-purpose",
+      "variantGroup": "ph3-week39-choice-phpdoc-purpose",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week39-1/README.md",
+          "line": 1,
+          "heading": "39週目ミニドリル 1問目",
+          "sha256": "b0091ed10c4e8f5ea5edfb33001a6991b53dc3f4bb946438eb79ea56259d9a3e",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week39-1の関連ドリル。エディターで属性の補完が出るか確認しましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "説明用の型情報と実行時の検証を分けます。",
+      "success": "条件に適合する候補を1つ選ぶ：エディターなどへ属性と型の情報を伝える",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week39-choice-typed-increment",
+      "weekUnitId": "week-unit-week39",
+      "format": "singleChoice",
+      "prompt": "同じPHPファイルにdeclare(strict_types=1);があり、function inc(int $n): int { return $n + 1; }を定義しています。整数2を返す呼び出しはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "inc(\"1\")"
+          },
+          {
+            "id": "wrong2",
+            "text": "inc(null)"
+          },
+          {
+            "id": "wrong3",
+            "text": "inc([1])"
+          },
+          {
+            "id": "correct",
+            "text": "inc(1)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "このstrict_typesの呼び出しで文字列はint引数に適合しません。",
+          "wrong2": "引数はnullを許可していません。",
+          "wrong3": "配列はint引数に適合しません。"
+        }
+      },
+      "explanation": "整数の1を渡すと整数の2が返ります。 PCではローカルPHPで正しい入力と型の異なる入力を比較しましょう。",
+      "sourceReference": {
+        "weekKey": "week39",
+        "sectionHeading": "Week 39"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「inc(1)」を選び、その理由を説明する。",
+      "conceptId": "ph3-week39-typed-increment",
+      "variantGroup": "ph3-week39-choice-typed-increment",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 448,
+        "heading": "Week 39",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week39-3/README.md",
+          "line": 1,
+          "heading": "39週目ミニドリル 3問目",
+          "sha256": "ca9e8f2afb97e226cb9624d7e70559cb50714b05da03bf2e7dec50b1af9f5dd9",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week39-3の関連ドリル。ローカルPHPで正しい入力と型の異なる入力を比較しましょう。",
+      "priorKnowledge": "Week38までのモデル操作。Week39のSoftDeletes、関連ドリルのPHPDocと型宣言。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "値だけでなく引数の型も確認します。",
+      "success": "条件に適合する候補を1つ選ぶ：inc(1)",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

@@ -833,5 +833,484 @@
       "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-assembly-find-output",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "HTMLにはid=\"total\"の表示枠があります。その要素をtotalElへ取得してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const totalEl = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "document.querySelector(\"#total\")"
+          },
+          {
+            "id": "wrong",
+            "text": "document.querySelector(\"total\")"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "#なしのtotalはidではなくタグ名のセレクターです。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "document.",
+            "querySelector(",
+            "\"#total\"",
+            ")"
+          ],
+          "wrong": [
+            "document.",
+            "querySelector(",
+            "\"total\"",
+            ")"
+          ]
+        }
+      },
+      "explanation": "idを指定するセレクターは#から始めます。PCでは取得した要素がnullでないことを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "2. querySelector：要素を取得する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "HTMLにはid=\"total\"の表示枠があります。その要素をtotalElへ取得してください。",
+      "conceptId": "ph1-week7-find-output",
+      "variantGroup": "ph1-week7-assembly-find-output",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。取得した要素がnullでないことを確認しましょう。",
+      "hint": "idを指定するセレクターは#から始めます。",
+      "success": "HTMLにはid=\"total\"の表示枠があります。その要素をtotalElへ取得してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "line": 42,
+        "heading": "2. querySelector：要素を取得する",
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week07-1/README.md",
+          "line": 1,
+          "heading": "問題1：数量カウンター（20分）",
+          "sha256": "2a98d60652b5f90c39f2415bd863ab2bb225b0645a0dc88ea66f49b01a18af04"
+        },
+        {
+          "path": "drill-ph1/week07-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（querySelector）（15分）",
+          "sha256": "a1e2e0c24950fcdeebad5311c1cf9a0f5ce06e0e209ad9ff240f44f6828e3560"
+        },
+        {
+          "path": "drill-ph1/week07-3/README.md",
+          "line": 1,
+          "heading": "問題3：復習ダッシュボード（Week01〜06の要素）（25分）",
+          "sha256": "8b4ecb1eba63c3b29d53e233f916ad0fae87985ea1ae5907ab195b9c4adf7cb9"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-assembly-click-message",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "btnとmessageは取得済みです。ボタンをクリックした時だけ「受付済み」と表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "btn.__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "addEventListener(\"click\", () => { message.textContent = \"受付済み\"; })"
+          },
+          {
+            "id": "wrong",
+            "text": "addEventListener(\"input\", () => { message.textContent = \"受付済み\"; })"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "inputは入力値の変化を受け取るイベントで、ここで指定したボタンクリックではありません。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "addEventListener(",
+            "\"click\", ",
+            "() => { ",
+            "message.textContent = \"受付済み\";",
+            " })"
+          ],
+          "wrong": [
+            "addEventListener(",
+            "\"input\", ",
+            "() => { ",
+            "message.textContent = \"受付済み\";",
+            " })"
+          ]
+        }
+      },
+      "explanation": "イベント名と、その時に実行する関数をaddEventListenerへ渡します。PCではクリック前後の文字を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "4. addEventListener：イベントを登録する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "btnとmessageは取得済みです。ボタンをクリックした時だけ「受付済み」と表示してください。",
+      "conceptId": "ph1-week7-click-message",
+      "variantGroup": "ph1-week7-assembly-click-message",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。クリック前後の文字を確認しましょう。",
+      "hint": "イベント名と、その時に実行する関数をaddEventListenerへ渡します。",
+      "success": "btnとmessageは取得済みです。ボタンをクリックした時だけ「受付済み」と表示してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "line": 88,
+        "heading": "4. addEventListener：イベントを登録する",
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week07-1/README.md",
+          "line": 1,
+          "heading": "問題1：数量カウンター（20分）",
+          "sha256": "2a98d60652b5f90c39f2415bd863ab2bb225b0645a0dc88ea66f49b01a18af04"
+        },
+        {
+          "path": "drill-ph1/week07-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（querySelector）（15分）",
+          "sha256": "a1e2e0c24950fcdeebad5311c1cf9a0f5ce06e0e209ad9ff240f44f6828e3560"
+        },
+        {
+          "path": "drill-ph1/week07-3/README.md",
+          "line": 1,
+          "heading": "問題3：復習ダッシュボード（Week01〜06の要素）（25分）",
+          "sha256": "8b4ecb1eba63c3b29d53e233f916ad0fae87985ea1ae5907ab195b9c4adf7cb9"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-assembly-read-number",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "priceInput.valueは\"1200\"です。数値としてpriceへ読み取ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const price = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Number(priceInput.value)"
+          },
+          {
+            "id": "wrong",
+            "text": "String(priceInput.value)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "Stringでは文字列のままで、数値への変換になりません。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "Number(",
+            "priceInput.",
+            "value",
+            ")"
+          ],
+          "wrong": [
+            "String(",
+            "priceInput.",
+            "value",
+            ")"
+          ]
+        }
+      },
+      "explanation": "入力値は文字列なのでNumberで変換します。PCではfeeを加えた結果が文字の連結でないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "5. input.value：入力値を取得する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "priceInput.valueは\"1200\"です。数値としてpriceへ読み取ってください。",
+      "conceptId": "ph1-week7-read-number",
+      "variantGroup": "ph1-week7-assembly-read-number",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。feeを加えた結果が文字の連結でないか確認しましょう。",
+      "hint": "入力値は文字列なのでNumberで変換します。",
+      "success": "priceInput.valueは\"1200\"です。数値としてpriceへ読み取ってください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "line": 119,
+        "heading": "5. input.value：入力値を取得する",
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week07-1/README.md",
+          "line": 1,
+          "heading": "問題1：数量カウンター（20分）",
+          "sha256": "2a98d60652b5f90c39f2415bd863ab2bb225b0645a0dc88ea66f49b01a18af04"
+        },
+        {
+          "path": "drill-ph1/week07-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（querySelector）（15分）",
+          "sha256": "a1e2e0c24950fcdeebad5311c1cf9a0f5ce06e0e209ad9ff240f44f6828e3560"
+        },
+        {
+          "path": "drill-ph1/week07-3/README.md",
+          "line": 1,
+          "heading": "問題3：復習ダッシュボード（Week01〜06の要素）（25分）",
+          "sha256": "8b4ecb1eba63c3b29d53e233f916ad0fae87985ea1ae5907ab195b9c4adf7cb9"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-assembly-toggle-done",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "taskTextは取得済みです。クリックのたびにline-throughを付け外ししてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "taskText.addEventListener(\"click\", () => {\n  __BLANK__;\n});",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "taskText.classList.toggle(\"line-through\")"
+          },
+          {
+            "id": "wrong",
+            "text": "taskText.classList.add(\"line-through\")"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "addだけでは付ける操作しかできず、もう一度クリックしても外れません。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "taskText.",
+            "classList.",
+            "toggle(",
+            "\"line-through\"",
+            ")"
+          ],
+          "wrong": [
+            "taskText.",
+            "classList.",
+            "add(",
+            "\"line-through\"",
+            ")"
+          ]
+        }
+      },
+      "explanation": "toggleは指定したクラスがなければ追加し、あれば削除します。PCでは同じ要素を2回クリックしましょう。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "6. classList：クラスを操作する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "taskTextは取得済みです。クリックのたびにline-throughを付け外ししてください。",
+      "conceptId": "ph1-week7-toggle-done",
+      "variantGroup": "ph1-week7-assembly-toggle-done",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。同じ要素を2回クリックしましょう。",
+      "hint": "toggleは指定したクラスがなければ追加し、あれば削除します。",
+      "success": "taskTextは取得済みです。クリックのたびにline-throughを付け外ししてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "line": 144,
+        "heading": "6. classList：クラスを操作する",
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week07-1/README.md",
+          "line": 1,
+          "heading": "問題1：数量カウンター（20分）",
+          "sha256": "2a98d60652b5f90c39f2415bd863ab2bb225b0645a0dc88ea66f49b01a18af04"
+        },
+        {
+          "path": "drill-ph1/week07-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（querySelector）（15分）",
+          "sha256": "a1e2e0c24950fcdeebad5311c1cf9a0f5ce06e0e209ad9ff240f44f6828e3560"
+        },
+        {
+          "path": "drill-ph1/week07-3/README.md",
+          "line": 1,
+          "heading": "問題3：復習ダッシュボード（Week01〜06の要素）（25分）",
+          "sha256": "8b4ecb1eba63c3b29d53e233f916ad0fae87985ea1ae5907ab195b9c4adf7cb9"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week7-assembly-append-item",
+      "weekUnitId": "week-unit-week7",
+      "format": "fillBlank",
+      "prompt": "todoListはulです。新しいliを作り、文字を入れて一覧へ追加します。空欄のメソッド呼び出しを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const item = document.createElement(\"li\");\nitem.textContent = \"教材を読む\";\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "todoList.appendChild(item)"
+          },
+          {
+            "id": "wrong",
+            "text": "item.appendChild(todoList)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "親と子が逆で、liをulへ追加する処理になりません。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "todoList.",
+            "appendChild(",
+            "item",
+            ")"
+          ],
+          "wrong": [
+            "item.",
+            "appendChild(",
+            "todoList",
+            ")"
+          ]
+        }
+      },
+      "explanation": "追加先の親でappendChildを呼び、作った子を渡します。PCではul内にliが増えることを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week7",
+        "sectionHeading": "7. createElement と appendChild：新しい要素を作って追加する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "todoListはulです。新しいliを作り、文字を入れて一覧へ追加します。空欄のメソッド呼び出しを組み立ててください。",
+      "conceptId": "ph1-week7-append-item",
+      "variantGroup": "ph1-week7-assembly-append-item",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。ul内にliが増えることを確認しましょう。",
+      "hint": "追加先の親でappendChildを呼び、作った子を渡します。",
+      "success": "todoListはulです。新しいliを作り、文字を入れて一覧へ追加します。空欄のメソッド呼び出しを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week07.md",
+        "line": 171,
+        "heading": "7. createElement と appendChild：新しい要素を作って追加する",
+        "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week07-1/README.md",
+          "line": 1,
+          "heading": "問題1：数量カウンター（20分）",
+          "sha256": "2a98d60652b5f90c39f2415bd863ab2bb225b0645a0dc88ea66f49b01a18af04"
+        },
+        {
+          "path": "drill-ph1/week07-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（querySelector）（15分）",
+          "sha256": "a1e2e0c24950fcdeebad5311c1cf9a0f5ce06e0e209ad9ff240f44f6828e3560"
+        },
+        {
+          "path": "drill-ph1/week07-3/README.md",
+          "line": 1,
+          "heading": "問題3：復習ダッシュボード（Week01〜06の要素）（25分）",
+          "sha256": "8b4ecb1eba63c3b29d53e233f916ad0fae87985ea1ae5907ab195b9c4adf7cb9"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
   }
 ]

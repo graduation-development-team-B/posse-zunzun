@@ -58,7 +58,7 @@ for (const unit of data.units) {
       lines.push(
         ...p.options.map(
           (o) =>
-            `- ${o.id}: ${o.text}${o.id === p.correctOptionId ? "（正答）" : ""}`,
+            `- ${o.id}: ${q.assembly ? o.text.trimEnd() : o.text}${o.id === p.correctOptionId ? "（正答）" : ""}`,
         ),
         "",
       );

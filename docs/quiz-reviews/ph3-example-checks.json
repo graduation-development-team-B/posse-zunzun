@@ -1,0 +1,365 @@
+{
+  "environment": {
+    "node": "v22.19.0",
+    "php": "PHP 8.4.13 (cli) (built: Sep 23 2025 14:14:32) (NTS)"
+  },
+  "questions": 80,
+  "results": [
+    {
+      "id": "question-ph3-week33-assembly-app-shell",
+      "check": "sh -nによる構文確認のみ。コマンドは実行しない。"
+    },
+    {
+      "id": "question-ph3-week33-assembly-composer-install",
+      "check": "sh -nによる構文確認のみ。コマンドは実行しない。"
+    },
+    {
+      "id": "question-ph3-week33-assembly-run-migrations",
+      "check": "sh -nによる構文確認のみ。コマンドは実行しない。"
+    },
+    {
+      "id": "question-ph3-week33-assembly-migration-status",
+      "check": "sh -nによる構文確認のみ。コマンドは実行しない。"
+    },
+    {
+      "id": "question-ph3-week33-assembly-node-dev",
+      "check": "sh -nによる構文確認のみ。コマンドは実行しない。"
+    },
+    {
+      "id": "question-ph3-week34-assembly-controller-route",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week34-assembly-return-view",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week34-assembly-escaped-name",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week34-assembly-layout-component",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week34-assembly-route-list",
+      "check": "sh -nによる構文確認のみ。コマンドは実行しない。"
+    },
+    {
+      "id": "question-ph3-week35-assembly-create-quiz-table",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week35-assembly-question-foreign-key",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week35-assembly-fillable-name",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week35-assembly-seed-record",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week35-assembly-name-validation",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week36-assembly-list-quizzes",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week36-assembly-foreach-list",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week36-assembly-named-link",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week36-assembly-has-many-questions",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week36-assembly-eager-questions",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week37-assembly-detail-parameter",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week37-assembly-find-detail",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week37-assembly-eager-nested",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week37-assembly-provided-scope",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week37-assembly-provided-accessor",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week38-assembly-edit-route",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week38-assembly-patch-form",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week38-assembly-update-name",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week38-assembly-session-put",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week38-assembly-session-get",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week39-assembly-soft-delete-trait",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week39-assembly-deleted-at-column",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week39-assembly-soft-delete-model",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week39-assembly-phpdoc-property",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week39-assembly-integer-signature",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。",
+      "nativeChecks": {
+        "cases": 3,
+        "outcomes": {
+          "correct": true,
+          "wrong": false
+        },
+        "note": "PHPの型・比較だけを固定データで確認。Laravelの動作検証ではない。"
+      }
+    },
+    {
+      "id": "question-ph3-week40-assembly-auth-middleware",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week40-assembly-admin-redirect",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week40-assembly-continue-middleware",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week40-assembly-gate-admin",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。",
+      "nativeChecks": {
+        "cases": 2,
+        "outcomes": {
+          "correct": true,
+          "wrong": false
+        },
+        "note": "PHPの型・比較だけを固定データで確認。Laravelの動作検証ではない。"
+      }
+    },
+    {
+      "id": "question-ph3-week40-assembly-authorize-request",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week41-assembly-paginate-twenty",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week41-assembly-pagination-links",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week41-assembly-resource-index-only",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week41-assembly-admin-edit-guard",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week41-assembly-stable-pagination",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week42-assembly-request-rules",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week42-assembly-validated-create",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week42-assembly-error-message",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week42-assembly-redirect-flash",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week42-assembly-all-up-buttons",
+      "check": "TypeScript parserでJSの正答構文確認。",
+      "nativeChecks": {
+        "cases": 2,
+        "note": "2個のテスト用ボタンへの登録呼び出しを照合。ブラウザDOM実行ではない。"
+      }
+    },
+    {
+      "id": "question-ph3-week43-assembly-related-create",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week43-assembly-save-choice-model",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week43-assembly-existing-quiz",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week43-assembly-correct-choice-range",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week43-assembly-multipart-form",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week44-assembly-update-question",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week44-assembly-include-deleted",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week44-assembly-deleted-label",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week44-assembly-custom-required-message",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week44-assembly-update-owned-choice",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week45-assembly-post-auth",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week45-assembly-post-required-fields",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week45-assembly-store-image",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week45-assembly-draft-session",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week45-assembly-relative-seed-date",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week46-assembly-posts-with-user",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week46-assembly-owner-authorization",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week46-assembly-soft-delete-post",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week46-assembly-post-detail",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week46-assembly-safe-js-data",
+      "check": "静的意味レビューのみ。Blade/Laravelは実行しない。"
+    },
+    {
+      "id": "question-ph3-week47-assembly-admin-route-group",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week47-assembly-list-admin-users",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week47-assembly-define-admin-gate",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。",
+      "nativeChecks": {
+        "cases": 2,
+        "outcomes": {
+          "correct": true,
+          "wrong": false
+        },
+        "note": "PHPの型・比較だけを固定データで確認。Laravelの動作検証ではない。"
+      }
+    },
+    {
+      "id": "question-ph3-week47-assembly-admin-named-redirect",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week47-assembly-node-version-check",
+      "check": "sh -nによる構文確認のみ。コマンドは実行しない。"
+    },
+    {
+      "id": "question-ph3-week48-assembly-user-soft-delete",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week48-assembly-create-post-comment",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week48-assembly-comment-owner-policy",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。",
+      "nativeChecks": {
+        "cases": 2,
+        "outcomes": {
+          "correct": true,
+          "wrong": false
+        },
+        "note": "PHPの型・比較だけを固定データで確認。Laravelの動作検証ではない。"
+      }
+    },
+    {
+      "id": "question-ph3-week48-assembly-authorize-comment-delete",
+      "check": "PHP CLI -lで正答の構文確認。Laravel実行ではない。"
+    },
+    {
+      "id": "question-ph3-week48-assembly-mix-production",
+      "check": "sh -nによる構文確認のみ。コマンドは実行しない。"
+    }
+  ]
+}

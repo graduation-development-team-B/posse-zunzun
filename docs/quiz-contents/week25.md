@@ -1,6 +1,6 @@
 # Week25｜UPDATE・DELETE
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -426,3 +426,174 @@ DBでは更新済みですが、同じリクエストで一覧が古いままで
 - 誤答b: 取得済みの値は自動更新されません。
 - 誤答c: 元のデータを読み直していません。
 - 誤答d: 画面へ渡す配列は古いままです。
+
+## question-ph2-week25-assembly-update-name（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: studentsの指定idだけ名前を更新するSQLを組み立ててください。
+- 出典: curriculum/PH2/Week25.md:7 / 1. 更新処理
+- ドリル接続: Week25の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。2人以上のデータで対象以外が変わらないか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week25-update-name
+- 類題: ph2-week25-assembly-update-name / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+studentsの指定idだけ名前を更新するSQLを組み立ててください。
+
+```sql
+__BLANK__
+```
+
+- correct: UPDATE students SET name = :name WHERE id = :id;（正答）
+- wrong: UPDATE students SET name = :name;
+
+達成条件: studentsの指定idだけ名前を更新するSQLを組み立ててください。
+
+ヒント: 変更する列をSET、対象行をWHEREで指定します。
+
+解説: 変更する列をSET、対象行をWHEREで指定します。PCでは2人以上のデータで対象以外が変わらないか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: WHEREを省くと指定id以外の行も更新します。
+
+## question-ph2-week25-assembly-delete-id（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: studentsの指定idだけ削除するSQLを組み立ててください。
+- 出典: curriculum/PH2/Week25.md:47 / 2. 削除処理
+- ドリル接続: Week25の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。教材用DBで対象と別の行が残ることを確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week25-delete-id
+- 類題: ph2-week25-assembly-delete-id / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+studentsの指定idだけ削除するSQLを組み立ててください。
+
+```sql
+__BLANK__
+```
+
+- correct: DELETE FROM students WHERE id = :id;（正答）
+- wrong: DELETE FROM students;
+
+達成条件: studentsの指定idだけ削除するSQLを組み立ててください。
+
+ヒント: DELETEにも対象を限定する条件が必要です。
+
+解説: DELETEにも対象を限定する条件が必要です。PCでは教材用DBで対象と別の行が残ることを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: WHEREがないと全学生が削除対象です。
+
+## question-ph2-week25-assembly-delete-child（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 学生を消す前に、その学生のstudiesだけ削除します。所属列はstudent_idです。
+- 出典: curriculum/PH2/Week25.md:47 / 2. 削除処理
+- ドリル接続: Week25の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。1人に複数記録があるケースで確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week25-delete-child
+- 類題: ph2-week25-assembly-delete-child / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+学生を消す前に、その学生のstudiesだけ削除します。所属列はstudent_idです。
+
+```sql
+DELETE FROM studies WHERE __BLANK__;
+```
+
+- correct: student_id = :student_id（正答）
+- wrong: id = :student_id
+
+達成条件: 学生を消す前に、その学生のstudiesだけ削除します。所属列はstudent_idです。
+
+ヒント: 親のIDと子の所属列を対応させます。
+
+解説: 親のIDと子の所属列を対応させます。PCでは1人に複数記録があるケースで確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: idは学習記録自身のIDであり、学生への所属列ではありません。
+
+## question-ph2-week25-assembly-hidden-id（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 編集対象の学生id=7をstudent_idという名前でPOST送信するhidden入力を組み立ててください。これは認可の代わりにはなりません。
+- 出典: curriculum/PH2/Week25.md:7 / 1. 更新処理
+- ドリル接続: Week25の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。POSTに対象IDが含まれるか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week25-hidden-id
+- 類題: ph2-week25-assembly-hidden-id / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+編集対象の学生id=7をstudent_idという名前でPOST送信するhidden入力を組み立ててください。これは認可の代わりにはなりません。
+
+```html
+<form method="POST">
+__BLANK__
+<button type="submit">更新</button>
+</form>
+```
+
+- correct: <input type="hidden" name="student_id" value="7">（正答）
+- wrong: <input type="hidden" name="student_id" value="8">
+
+達成条件: 編集対象の学生id=7をstudent_idという名前でPOST送信するhidden入力を組み立ててください。これは認可の代わりにはなりません。
+
+ヒント: hiddenでも値は変更できるため、サーバーでは対象IDと操作権限を確認します。
+
+解説: hiddenでも値は変更できるため、サーバーでは対象IDと操作権限を確認します。PCではPOSTに対象IDが含まれるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: valueが8では今回編集するid=7を送れません。
+
+## question-ph2-week25-assembly-bind-update（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: $stmtはUPDATE students SET name=:name WHERE id=:idをprepare済みです。検証済みの$idを対象IDへ渡してください。
+- 出典: curriculum/PH2/Week25.md:7 / 1. 更新処理
+- ドリル接続: Week25の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。送信IDと更新行を照合しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜25の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week25-bind-update
+- 類題: ph2-week25-assembly-bind-update / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+$stmtはUPDATE students SET name=:name WHERE id=:idをprepare済みです。検証済みの$idを対象IDへ渡してください。
+
+```php
+<?php
+$stmt->bindValue(":name", $name);
+__BLANK__;
+$stmt->execute();
+```
+
+- correct: $stmt->bindValue(":id", $id)（正答）
+- wrong: $stmt->bindValue(":name", $id)
+
+達成条件: $stmtはUPDATE students SET name=:name WHERE id=:idをprepare済みです。検証済みの$idを対象IDへ渡してください。
+
+ヒント: SETとWHEREそれぞれのプレースホルダーを取り違えません。
+
+解説: SETとWHEREそれぞれのプレースホルダーを取り違えません。PCでは送信IDと更新行を照合しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ / PHP CLI; 正答と主要誤答を固定入力で比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 名前側へidを渡してしまい、対象の:idがバインドされません。

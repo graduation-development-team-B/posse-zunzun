@@ -1,34 +1,30 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocalSearchParams } from 'expo-router';
+import { Link, useLocalSearchParams, useRouter } from 'expo-router';
 import { Pressable, StyleSheet, View } from 'react-native';
-import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
-import { CtaButton, TextLink } from '@/components/drill/buttons';
+import { CtaButton } from '@/components/drill/buttons';
 import { Icon } from '@/components/drill/icons';
 import { Mascot } from '@/components/drill/mascot';
+import { XpReward } from '@/components/drill/xp-reward';
 import { Body, Card, DText, Footer, Screen } from '@/components/drill/ui';
 import { Drill, Radius } from '@/constants/drill';
 import { useDashboard } from '@/lib/progress/dashboard';
-import { levelDisplay } from '@/lib/progress/presentation';
 
-/** 完了画面：ごほうびを受け取ると XP バーが伸びて、熱中くんが光る */
+/** 完了すると自動でXPが増え、Week選択へ進める。 */
 export default function DoneScreen() {
-  const [claimed, setClaimed] = useState(false);
+  const router = useRouter();
   const { state, stats, error } = useDashboard();
   const { session: id } = useLocalSearchParams<{session?:string}>();
   const session = state.session;
   const answers = state.answers.filter(a=>a.sessionId===session?.id);
   const gained=answers.reduce((sum,a)=>sum+a.xp,0);
-  const R={streakDays:stats.streak,gained,xpBefore:stats.xp-gained,xpAfter:stats.xp,xpMax:100,rewards:[{label:`${answers.length}問やりきった`,xp:answers.length*5},{label:`正解 ${answers.filter(a=>a.correct).length}問`,xp:answers.filter(a=>a.correct).length*5},{label:`ヒントを使った ${answers.filter(a=>a.hintUsed).length}問`,xp:0}]};
-  const xp = claimed ? R.xpAfter : R.xpBefore;
-  const level=levelDisplay(xp);
-  if (!session?.completedAt || (id && id!==session.id)) return <Screen><Body><DText>{error || '完了した学習の結果はここに表示されます。'}</DText><CtaButton label="ホームへ" href="/" /></Body></Screen>;
+  const R={streakDays:stats.streak,gained,xpBefore:stats.xp-gained,xpAfter:stats.xp,xpMax:100,rewards:[{label:`${answers.length}問やりきった`,xp:answers.length*5},{label:`正解 ${answers.filter(a=>a.correct).length}問`,xp:answers.filter(a=>a.correct).length*5},{label:`誤答の解説を読んだ ${answers.filter(a=>a.explanationRead).length}問`,xp:answers.filter(a=>a.explanationRead).length*5},{label:`ヒントを使った ${answers.filter(a=>a.hintUsed).length}問`,xp:0}]};
+  if (!session?.completedAt || (id && id!==session.id)) return <Screen><Body><DText>{error || '完了した学習の結果はここに表示されます。'}</DText><CtaButton label="Weekを選ぶ" onPress={() => router.replace('/materials')} /></Body></Screen>;
 
   return (
     <Screen>
       <Body paddingTop={24} paddingBottom={20} gap={14}>
         <View style={styles.hero}>
-          <Mascot name={claimed ? 'lv2Glow' : 'lv2'} width={128} alt="熱中くん" />
+          <Mascot name="lv2Glow" width={128} alt="熱中くん" />
           <DText size={24} weight="bold" role="heading" aria-level={1}>
             今回の{answers.length}問、完了！
           </DText>
@@ -59,12 +55,13 @@ export default function DoneScreen() {
         <Card style={styles.rewards}>
           <View style={styles.rewardHead}>
             <DText size={14} weight="bold" role="heading" aria-level={2}>
-              今日のごほうび
+              今回のごほうび
             </DText>
             <DText size={16} weight="bold" mono color={Drill.xpText}>
               {`+${R.gained} XP`}
             </DText>
           </View>
+          <XpReward key={session.id} before={R.xpBefore} after={R.xpAfter} />
           <View style={styles.rewardList}>
             {R.rewards.map((r) => (
               <View key={r.label} style={styles.rewardRow}>
@@ -73,25 +70,6 @@ export default function DoneScreen() {
               </View>
             ))}
           </View>
-          <View style={styles.xpBlock}>
-            <View style={styles.xpRow}>
-              <DText size={12} weight="bold">
-                Lv.{level.level} {level.name}
-              </DText>
-              <DText size={12} weight="medium" color={Drill.textSub}>
-                {`${level.xp} / ${R.xpMax} XP`}
-              </DText>
-            </View>
-            <AnimatedBar ratio={level.xp / R.xpMax} />
-          </View>
-          {claimed && (
-            <View style={styles.evolve}>
-              <Icon name="star" size={18} color="#5C4100" />
-              <DText size={13} weight="bold" color="#5C4100">
-                あと{level.remaining} XPで次のレベルに進化！
-              </DText>
-            </View>
-          )}
         </Card>
 
         <Link href="/records" asChild>
@@ -110,31 +88,9 @@ export default function DoneScreen() {
       </Body>
 
       <Footer>
-        {claimed ? (
-          <CtaButton label="今日はここまで" href="/" />
-        ) : (
-          <CtaButton label="ごほうびを受け取る" onPress={() => setClaimed(true)} />
-        )}
-        <TextLink label="余裕があれば、もう3問" href={{pathname:'/options',params:{week:session.weekKey}}} size={14} weight="bold" color={Drill.chipText} />
+        <CtaButton label="Weekを選ぶ" onPress={() => router.replace('/materials')} arrow />
       </Footer>
     </Screen>
-  );
-}
-
-/** XP バー。値が変わると 0.8 秒かけて伸びる */
-function AnimatedBar({ ratio }: { ratio: number }) {
-  const progress = useSharedValue(ratio);
-
-  useEffect(() => {
-    progress.value = withTiming(ratio, { duration: 800 });
-  }, [ratio, progress]);
-
-  const fill = useAnimatedStyle(() => ({ width: `${progress.value * 100}%` }));
-
-  return (
-    <View style={styles.track}>
-      <Animated.View style={[styles.fill, fill]} />
-    </View>
   );
 }
 

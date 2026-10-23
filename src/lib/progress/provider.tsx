@@ -15,7 +15,7 @@ import {
   type Progress,
 } from "@/lib/quiz/session";
 import type { QuestionItem } from "@/types/content";
-import { loadAnswers, saveAnswer } from "./answerRepository";
+import { claimWrongExplanation, loadAnswers, saveAnswer } from "./answerRepository";
 import { storage, STORAGE_KEY } from "./storage";
 import { useAuth } from "@/lib/auth/provider";
 
@@ -25,6 +25,7 @@ type Learning = {
   error: string;
   mutate: (fn: (state: Progress) => Progress) => Promise<Progress>;
   confirmAnswer: (question: QuestionItem, proof?: ExecutionProof) => Promise<Progress>;
+  readWrongExplanation: (questionId: string) => Promise<Progress>;
   reload: () => void;
 };
 const Context = createContext<Learning | null>(null);
@@ -162,6 +163,57 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       throw cause;
     });
   };
+  const readWrongExplanation = (questionId: string): Promise<Progress> => {
+    const requestedKey = storageKey;
+    const requestedGeneration = generation.current;
+    const task = queue.current
+      .catch(() => {})
+      .then(async () => {
+        if (!ready || !requestedKey || !user || requestedGeneration !== generation.current)
+          throw new Error("学習記録を読み込み中です。");
+        const answer = ref.current.answers.find(
+          (item) => item.sessionId === ref.current.session?.id && item.questionId === questionId,
+        );
+        if (!answer || answer.correct) throw new Error("誤答の記録が見つかりません。");
+        if (answer.explanationRead) return ref.current;
+
+        const claim = await claimWrongExplanation(user.id, answer.id);
+        if (requestedGeneration !== generation.current) return ref.current;
+        if (!claim.explanationRead) throw new Error("解説の読了を保存できませんでした。");
+        const updatedAnswer = {
+          ...answer,
+          explanationRead: true,
+          xp: 5 + (answer.correct ? 5 : 0) + 5,
+        };
+        const next = {
+          ...ref.current,
+          answers: ref.current.answers.map((item) =>
+            item.id === answer.id ? updatedAnswer : item,
+          ),
+        };
+        await storage.setItem(requestedKey, JSON.stringify(next));
+        if (requestedGeneration !== generation.current) return ref.current;
+        ref.current = next;
+        setLoaded({ key: requestedKey, value: next, ready: true, error: "" });
+        return next;
+      });
+    queue.current = task;
+    return task.catch((cause) => {
+      if (requestedGeneration === generation.current) {
+        setLoaded((previous) =>
+          previous.key === requestedKey
+            ? {
+                ...previous,
+                error: cause instanceof Error
+                  ? cause.message
+                  : "解説を読んだ記録を保存できませんでした。通信を確認してください。",
+              }
+            : previous,
+        );
+      }
+      throw cause;
+    });
+  };
   return (
     <Context.Provider
       value={{
@@ -170,6 +222,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         error: visibleError,
         mutate,
         confirmAnswer,
+        readWrongExplanation,
         reload: () => {
           setReloadKey((k) => k + 1);
         },

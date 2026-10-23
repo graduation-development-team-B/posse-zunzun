@@ -1152,5 +1152,472 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-assembly-composer-install",
+      "weekUnitId": "week-unit-week28",
+      "format": "fillBlank",
+      "prompt": "composer.jsonとlockは一致しています。lockに固定した依存をそろえるコマンドを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "composer install"
+          },
+          {
+            "id": "wrong",
+            "text": "composer update"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "updateは依存の解決を更新し得るため、lockのバージョンを再現するinstallとは目的が異なります。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "composer ",
+            "install"
+          ],
+          "wrong": [
+            "composer ",
+            "update"
+          ]
+        }
+      },
+      "explanation": "共有済みlockを使う再現にはinstallです。PCでは対象プロジェクト内で実行しましょう。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "3. composer.lock とは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "composer.jsonとlockは一致しています。lockに固定した依存をそろえるコマンドを組み立ててください。",
+      "conceptId": "ph2-week28-composer-install",
+      "variantGroup": "ph2-week28-assembly-composer-install",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。対象プロジェクト内で実行しましょう。",
+      "hint": "共有済みlockを使う再現にはinstallです。",
+      "success": "composer.jsonとlockは一致しています。lockに固定した依存をそろえるコマンドを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week28.md",
+        "line": 33,
+        "heading": "3. composer.lock とは？",
+        "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "line": 1,
+          "heading": "28週目ミニドリル",
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1032,
+          "heading": "Week 28",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080"
+        }
+      ],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-assembly-composer-require",
+      "weekUnitId": "week-unit-week28",
+      "format": "fillBlank",
+      "prompt": "教材の画像アップロード用パッケージverot/class.upload.phpを依存へ追加してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "composer require verot/class.upload.php"
+          },
+          {
+            "id": "wrong",
+            "text": "composer remove verot/class.upload.php"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "removeは依存を取り除く操作です。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "composer ",
+            "require ",
+            "verot/class.upload.php"
+          ],
+          "wrong": [
+            "composer ",
+            "remove ",
+            "verot/class.upload.php"
+          ]
+        }
+      },
+      "explanation": "requireは新しい依存を登録・解決します。PCではjsonとlockの変更内容を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "2. composer.json とは？"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "教材の画像アップロード用パッケージverot/class.upload.phpを依存へ追加してください。",
+      "conceptId": "ph2-week28-composer-require",
+      "variantGroup": "ph2-week28-assembly-composer-require",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。jsonとlockの変更内容を確認しましょう。",
+      "hint": "requireは新しい依存を登録・解決します。",
+      "success": "教材の画像アップロード用パッケージverot/class.upload.phpを依存へ追加してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/Week28.md",
+        "line": 15,
+        "heading": "2. composer.json とは？",
+        "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week28/README.md",
+          "line": 1,
+          "heading": "28週目ミニドリル",
+          "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+        },
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1032,
+          "heading": "Week 28",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080"
+        }
+      ],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-assembly-autoload-path",
+      "weekUnitId": "week-unit-week28",
+      "format": "fillBlank",
+      "prompt": "プロジェクト直下にvendor、実行ファイルはsrc/week28/index.phpです。そのファイルからautoloadを読み込んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__\nuse Carbon\\Carbon;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "require \"../../vendor/autoload.php\";"
+          },
+          {
+            "id": "wrong",
+            "text": "require \"../vendor/autoload.php\";"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "1階層上だけではsrc内を指し、プロジェクト直下のvendorへ届きません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "require ",
+            "\"../../vendor/autoload.php\"",
+            ";"
+          ],
+          "wrong": [
+            "require ",
+            "\"../vendor/autoload.php\"",
+            ";"
+          ]
+        }
+      },
+      "explanation": "2階層上のvendorを参照します。PCではフォルダ構成と照合し、クラスが見つかるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "プロジェクト直下にvendor、実行ファイルはsrc/week28/index.phpです。そのファイルからautoloadを読み込んでください。",
+      "conceptId": "ph2-week28-autoload-path",
+      "variantGroup": "ph2-week28-assembly-autoload-path",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。フォルダ構成と照合し、クラスが見つかるか確認しましょう。",
+      "hint": "2階層上のvendorを参照します。",
+      "success": "プロジェクト直下にvendor、実行ファイルはsrc/week28/index.phpです。そのファイルからautoloadを読み込んでください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week28/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1032,
+          "heading": "Week 28",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-assembly-carbon-use",
+      "weekUnitId": "week-unit-week28",
+      "format": "fillBlank",
+      "prompt": "autoloadは読み込み済みです。Carbon名前空間のCarbonクラスをuse宣言し、続くCarbon::now()を利用できるようにしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nrequire \"../../vendor/autoload.php\";\n__BLANK__\necho Carbon::now();",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "use Carbon\\Carbon;"
+          },
+          {
+            "id": "wrong",
+            "text": "use Carbon\\Calendar;"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "Calendarでは、後のCarbonというクラス名を導入できません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "use ",
+            "Carbon\\",
+            "Carbon",
+            ";"
+          ],
+          "wrong": [
+            "use ",
+            "Carbon\\",
+            "Calendar",
+            ";"
+          ]
+        }
+      },
+      "explanation": "完全修飾名Carbon\\Carbonをuseで取り込みます。PCでは教材の開始コードと同じ宣言か確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "autoloadは読み込み済みです。Carbon名前空間のCarbonクラスをuse宣言し、続くCarbon::now()を利用できるようにしてください。",
+      "conceptId": "ph2-week28-carbon-use",
+      "variantGroup": "ph2-week28-assembly-carbon-use",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。教材の開始コードと同じ宣言か確認しましょう。",
+      "hint": "完全修飾名Carbon\\Carbonをuseで取り込みます。",
+      "success": "autoloadは読み込み済みです。Carbon名前空間のCarbonクラスをuse宣言し、続くCarbon::now()を利用できるようにしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week28/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1032,
+          "heading": "Week 28",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week28-assembly-carbon-now",
+      "weekUnitId": "week-unit-week28",
+      "format": "fillBlank",
+      "prompt": "Carbonは導入・読み込み済みです。Carbon::now()は現在時刻を返す提供済みメソッドです。その呼び出しを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Carbon\\Carbon;\necho __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Carbon::now()"
+          },
+          {
+            "id": "wrong",
+            "text": "Carbon->now()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "ここはクラス名からの呼び出しなので、オブジェクトの->ではなく::を使います。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "Carbon",
+            "::",
+            "now(",
+            ")"
+          ],
+          "wrong": [
+            "Carbon",
+            "->",
+            "now(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "教材の提供メソッドをCarbon::now()で呼びます。PCでは対象コンテナで時刻が表示されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week28",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Carbonは導入・読み込み済みです。Carbon::now()は現在時刻を返す提供済みメソッドです。その呼び出しを組み立ててください。",
+      "conceptId": "ph2-week28-carbon-now",
+      "variantGroup": "ph2-week28-assembly-carbon-now",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。対象コンテナで時刻が表示されるか確認しましょう。",
+      "hint": "教材の提供メソッドをCarbon::now()で呼びます。",
+      "success": "Carbonは導入・読み込み済みです。Carbon::now()は現在時刻を返す提供済みメソッドです。その呼び出しを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week28/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "fe037f0916d1c46b10e9e1983ce8188ca31cb46dc2c5bb57f62b01f5f8a3ad9c"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1032,
+          "heading": "Week 28",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week28.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "6e590827949e956349ace81e8425a62cb8f8f9f15263ae078f4eee55311b0f1f"
+        },
+        {
+          "path": "drill-ph2/src/week28/index.php",
+          "line": 1,
+          "heading": "<?php",
+          "sha256": "734cac6c332824716977c0f3f8a7552e335b90dd266abf4245743f8b98703080"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
   }
 ]

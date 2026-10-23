@@ -1,0 +1,1072 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week33-assembly-app-shell",
+      "weekUnitId": "week-unit-week33",
+      "format": "fillBlank",
+      "prompt": "教材のCompose構成で、サービス名appのコンテナへshで入ってください。サービスは起動済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "docker compose exec app sh"
+          },
+          {
+            "id": "wrong",
+            "text": "docker compose exec node sh"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "nodeはフロント用のサービスで、PHPを動かすappではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "docker compose ",
+            "exec ",
+            "app ",
+            "sh"
+          ],
+          "wrong": [
+            "docker compose ",
+            "exec ",
+            "node ",
+            "sh"
+          ]
+        }
+      },
+      "explanation": "execの後にappとshを指定します。PCでは入った場所を確認してからLaravelのコマンドを使いましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "教材のCompose構成で、サービス名appのコンテナへshで入ってください。サービスは起動済みです。",
+      "conceptId": "ph3-week33-app-shell",
+      "variantGroup": "ph3-week33-assembly-app-shell",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。",
+      "drillConnection": "PH3 Week33のPOSSE課題へ接続。入った場所を確認してからLaravelのコマンドを使いましょう。",
+      "hint": "ComposerやArtisanを実行するサービスを選びましょう。",
+      "success": "教材のCompose構成で、サービス名appのコンテナへshで入ってください。サービスは起動済みです。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。sh -nによる構文確認のみ。コマンドは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-assembly-composer-install",
+      "weekUnitId": "week-unit-week33",
+      "format": "fillBlank",
+      "prompt": "appコンテナ内のLaravelプロジェクト直下です。composer.jsonとlockは一致しています。PHPの依存をそろえてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "composer install"
+          },
+          {
+            "id": "wrong",
+            "text": "npm install"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "npmはJavaScriptの依存を扱うため、PHPの依存をそろえる操作ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "composer ",
+            "install"
+          ],
+          "wrong": [
+            "npm ",
+            "install"
+          ]
+        }
+      },
+      "explanation": "composer installでlockに沿って依存をそろえます。PCでは完了後にLaravelの画面が開けるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "appコンテナ内のLaravelプロジェクト直下です。composer.jsonとlockは一致しています。PHPの依存をそろえてください。",
+      "conceptId": "ph3-week33-composer-install",
+      "variantGroup": "ph3-week33-assembly-composer-install",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。",
+      "drillConnection": "PH3 Week33のPOSSE課題へ接続。完了後にLaravelの画面が開けるか確認しましょう。",
+      "hint": "PHPのパッケージ管理ツールを使います。",
+      "success": "appコンテナ内のLaravelプロジェクト直下です。composer.jsonとlockは一致しています。PHPの依存をそろえてください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。sh -nによる構文確認のみ。コマンドは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-assembly-run-migrations",
+      "weekUnitId": "week-unit-week33",
+      "format": "fillBlank",
+      "prompt": "appコンテナ内のLaravelプロジェクト直下です。未実行のマイグレーションを適用するコマンドを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "php artisan migrate"
+          },
+          {
+            "id": "wrong",
+            "text": "php artisan migrate:status"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "migrate:statusは実行状況の表示であり、未実行分の適用ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "php ",
+            "artisan ",
+            "migrate"
+          ],
+          "wrong": [
+            "php ",
+            "artisan ",
+            "migrate:status"
+          ]
+        }
+      },
+      "explanation": "php artisan migrateで未適用分を実行します。PCではテーブルが作成されたか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "appコンテナ内のLaravelプロジェクト直下です。未実行のマイグレーションを適用するコマンドを組み立ててください。",
+      "conceptId": "ph3-week33-run-migrations",
+      "variantGroup": "ph3-week33-assembly-run-migrations",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。",
+      "drillConnection": "PH3 Week33のPOSSE課題へ接続。テーブルが作成されたか確認しましょう。",
+      "hint": "適用と状態表示は別のArtisanコマンドです。",
+      "success": "appコンテナ内のLaravelプロジェクト直下です。未実行のマイグレーションを適用するコマンドを組み立ててください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。sh -nによる構文確認のみ。コマンドは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-assembly-migration-status",
+      "weekUnitId": "week-unit-week33",
+      "format": "fillBlank",
+      "prompt": "マイグレーションを実行済みか一覧で確認してください。DBの構造を変更せず状態を表示します。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "php artisan migrate:status"
+          },
+          {
+            "id": "wrong",
+            "text": "php artisan migrate"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "migrateは未適用分を実行する操作で、状態だけを表示するコマンドではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "php ",
+            "artisan ",
+            "migrate:status"
+          ],
+          "wrong": [
+            "php ",
+            "artisan ",
+            "migrate"
+          ]
+        }
+      },
+      "explanation": "migrate:statusで実行状況を確認します。PCではユーザー登録に必要なテーブルの状態を見ましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "マイグレーションを実行済みか一覧で確認してください。DBの構造を変更せず状態を表示します。",
+      "conceptId": "ph3-week33-migration-status",
+      "variantGroup": "ph3-week33-assembly-migration-status",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。",
+      "drillConnection": "PH3 Week33のPOSSE課題へ接続。ユーザー登録に必要なテーブルの状態を見ましょう。",
+      "hint": "末尾のサブコマンドで状態表示を指定します。",
+      "success": "マイグレーションを実行済みか一覧で確認してください。DBの構造を変更せず状態を表示します。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。sh -nによる構文確認のみ。コマンドは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-assembly-node-dev",
+      "weekUnitId": "week-unit-week33",
+      "format": "fillBlank",
+      "prompt": "教材のnodeコンテナ内で、scriptsのdevを起動します。package.jsonには\"dev\":\"vite\"があります。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "npm run dev"
+          },
+          {
+            "id": "wrong",
+            "text": "npm run build"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "buildは本番用ファイル生成で、指定した開発サーバーの起動ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "npm ",
+            "run ",
+            "dev"
+          ],
+          "wrong": [
+            "npm ",
+            "run ",
+            "build"
+          ]
+        }
+      },
+      "explanation": "npm run devをnodeコンテナ内で実行します。PCでは表示されたアドレスや画面のアセット読み込みを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "教材のnodeコンテナ内で、scriptsのdevを起動します。package.jsonには\"dev\":\"vite\"があります。",
+      "conceptId": "ph3-week33-node-dev",
+      "variantGroup": "ph3-week33-assembly-node-dev",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。",
+      "drillConnection": "PH3 Week33のPOSSE課題へ接続。表示されたアドレスや画面のアセット読み込みを確認しましょう。",
+      "hint": "scriptsのキーをコマンドに渡します。",
+      "success": "教材のnodeコンテナ内で、scriptsのdevを起動します。package.jsonには\"dev\":\"vite\"があります。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。sh -nによる構文確認のみ。コマンドは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-framework-role",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "ログインやDB連携のあるWebアプリをPHPで作ります。Laravelの役割はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "ルーティングやDB操作などの共通の仕組みを提供する"
+          },
+          {
+            "id": "wrong1",
+            "text": "PHPを実行せずHTMLだけを保存する"
+          },
+          {
+            "id": "wrong2",
+            "text": "MySQLを不要にして全データをCSSへ保存する"
+          },
+          {
+            "id": "wrong3",
+            "text": "ブラウザの代わりに画面を閲覧する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "LaravelはPHPで動作するフレームワークです。",
+          "wrong2": "DB接続やモデルの仕組みを提供しますが、CSSはデータ保存先ではありません。",
+          "wrong3": "閲覧はブラウザで行い、Laravelはサーバー側の処理を担います。"
+        }
+      },
+      "explanation": "共通機能を活用してアプリ固有の処理に集中できます。 PCではプロジェクトのroutesとappの役割を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「ルーティングやDB操作などの共通の仕組みを提供する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-framework-role",
+      "variantGroup": "ph3-week33-choice-framework-role",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。プロジェクトのroutesとappの役割を確認しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "リクエストを受けて応答する側の仕組みです。",
+      "success": "条件に適合する候補を1つ選ぶ：ルーティングやDB操作などの共通の仕組みを提供する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-breeze-timing",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "Week33でBreezeを先に導入するよう勧められている理由はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "Breezeを入れるとMySQLの保存容量が増えるため"
+          },
+          {
+            "id": "wrong2",
+            "text": "すべてのクイズの正解が自動生成されるため"
+          },
+          {
+            "id": "wrong3",
+            "text": "PHPの代わりにブラウザでArtisanを実行するため"
+          },
+          {
+            "id": "correct",
+            "text": "後から導入すると既存の設定ファイルなどが上書きされる可能性があるため"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "認証の雛形の導入とDB容量は別です。",
+          "wrong2": "アプリ固有のクイズ内容は自分で用意します。",
+          "wrong3": "Breezeの導入後もArtisanはPHP側のコマンドです。"
+        }
+      },
+      "explanation": "Breezeは認証の雛形を生成するため、作り込む前の導入が教材で勧められています。 PCでは変更前後のGit差分で導入されたファイルを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「後から導入すると既存の設定ファイルなどが上書きされる可能性があるため」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-breeze-timing",
+      "variantGroup": "ph3-week33-choice-breeze-timing",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。変更前後のGit差分で導入されたファイルを確認しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "認証の雛形を導入する際に変わるファイルを考えましょう。",
+      "success": "条件に適合する候補を1つ選ぶ：後から導入すると既存の設定ファイルなどが上書きされる可能性があるため",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-env-local",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "DB_HOSTなど環境ごとに異なる値を、Laravelのローカル開発で設定する代表的なファイルはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "public/favicon.ico"
+          },
+          {
+            "id": "wrong3",
+            "text": "composer.lock"
+          },
+          {
+            "id": "correct",
+            "text": ".env"
+          },
+          {
+            "id": "wrong1",
+            "text": "resources/views/welcome.blade.php"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ビューは画面を表示するためのファイルです。",
+          "wrong2": "アイコン画像へDB接続値は設定しません。",
+          "wrong3": "PHP依存の固定情報であり、環境変数を記述する場所ではありません。"
+        }
+      },
+      "explanation": ".envに環境固有の値を置き、設定ファイルから参照します。 PCでは自分のローカル.envのDB接続先を教材と照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「.env」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-env-local",
+      "variantGroup": "ph3-week33-choice-env-local",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。自分のローカル.envのDB接続先を教材と照合しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "アプリのコードと実行環境固有の値を分けます。",
+      "success": "条件に適合する候補を1つ選ぶ：.env",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-configuration-secret",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "DBのパスワードを含む.envをGitへ追加しようとしています。チームへ設定項目だけ共有する方法はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "チーム全員で本番DBのパスワードをソースへ直書きする"
+          },
+          {
+            "id": "correct",
+            "text": "秘密値を除いた.env.exampleを共有し、.envは管理対象から外す"
+          },
+          {
+            "id": "wrong1",
+            "text": ".envを公開リポジトリへそのまま追加する"
+          },
+          {
+            "id": "wrong2",
+            "text": "パスワードをBladeのコメントに移して共有する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "パスワードまで公開されてしまいます。",
+          "wrong2": "HTML側へ秘密値を移しても安全な設定共有になりません。",
+          "wrong3": "本番の秘密値をコードへ含める必要はありません。"
+        }
+      },
+      "explanation": "必要な項目は例で共有し、各環境の秘密値は別に設定します。 PCではgit statusで.envが追加対象になっていないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「秘密値を除いた.env.exampleを共有し、.envは管理対象から外す」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-configuration-secret",
+      "variantGroup": "ph3-week33-choice-configuration-secret",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。git statusで.envが追加対象になっていないか確認しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "設定の項目名と秘密の実際の値を区別します。",
+      "success": "条件に適合する候補を1つ選ぶ：秘密値を除いた.env.exampleを共有し、.envは管理対象から外す",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-migration-evidence",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "Laravelのトップ画面は表示できました。ユーザー登録用のテーブル準備を確認する次の手順はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "migrate:statusを確認し、MySQLで対象テーブルも確認する"
+          },
+          {
+            "id": "wrong1",
+            "text": "トップ画面が出たのでテーブルも必ず存在すると判断する"
+          },
+          {
+            "id": "wrong2",
+            "text": "faviconの色だけを変える"
+          },
+          {
+            "id": "wrong3",
+            "text": "npmのバージョンだけを見る"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "画面表示だけではDBのスキーマを確認できません。",
+          "wrong2": "登録用テーブルの準備は確認できません。",
+          "wrong3": "フロント用ツールの情報からDBの適用状態は分かりません。"
+        }
+      },
+      "explanation": "マイグレーションの適用状態と実テーブルを照合します。 PCではローカルDBのusersテーブルを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「migrate:statusを確認し、MySQLで対象テーブルも確認する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-migration-evidence",
+      "variantGroup": "ph3-week33-choice-migration-evidence",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。ローカルDBのusersテーブルを確認しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "表示・スキーマ・保存結果を別々に確認します。",
+      "success": "条件に適合する候補を1つ選ぶ：migrate:statusを確認し、MySQLで対象テーブルも確認する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-registration-evidence",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "/registerで登録完了画面が表示されました。入力したユーザーが保存されたことを確かめる方法はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "HTMLの見出しだけを確認する"
+          },
+          {
+            "id": "wrong2",
+            "text": "CSSが読み込めたかだけを見る"
+          },
+          {
+            "id": "wrong3",
+            "text": "別の開発者のDBだけを見る"
+          },
+          {
+            "id": "correct",
+            "text": "対象のローカルDBのusersで登録したメールアドレスを確認する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "見出しの表示とレコード保存は別です。",
+          "wrong2": "スタイルの成功だけでは保存を確認できません。",
+          "wrong3": "自分のアプリの接続先で確認する必要があります。"
+        }
+      },
+      "explanation": "画面上の成功と保存されたデータを対応させます。 PCでは接続先DB名を確かめてから登録した行を探しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「対象のローカルDBのusersで登録したメールアドレスを確認する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-registration-evidence",
+      "variantGroup": "ph3-week33-choice-registration-evidence",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。接続先DB名を確かめてから登録した行を探しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "アプリが実際に使った保存先で確認します。",
+      "success": "条件に適合する候補を1つ選ぶ：対象のローカルDBのusersで登録したメールアドレスを確認する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-container-responsibility",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "この教材ではappにPHP、nodeにNode.jsが入っています。php artisanを実行する場所はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "ブラウザのアドレスバー"
+          },
+          {
+            "id": "wrong3",
+            "text": "MySQLのSQL入力欄"
+          },
+          {
+            "id": "correct",
+            "text": "appコンテナ内のLaravelプロジェクト直下"
+          },
+          {
+            "id": "wrong1",
+            "text": "nodeコンテナの任意のディレクトリ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "この構成でPHPがあるのはappです。",
+          "wrong2": "ArtisanはURLではなくPHPのCLIコマンドです。",
+          "wrong3": "SQLとPHPのCLIは実行する環境が異なります。"
+        }
+      },
+      "explanation": "PHPとartisanファイルの両方が使える場所で実行します。 PCではappへ入り、pwdとartisanファイルの有無を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「appコンテナ内のLaravelプロジェクト直下」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-container-responsibility",
+      "variantGroup": "ph3-week33-choice-container-responsibility",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。appへ入り、pwdとartisanファイルの有無を確認しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "必要な実行環境とartisanファイルのある場所を合わせます。",
+      "success": "条件に適合する候補を1つ選ぶ：appコンテナ内のLaravelプロジェクト直下",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-db-host-network",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "Compose内のappから、同じネットワークのサービスmysqlへ接続します。mysqlがDBサービス名のときDB_HOSTの指定はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "/register"
+          },
+          {
+            "id": "correct",
+            "text": "mysql"
+          },
+          {
+            "id": "wrong1",
+            "text": "localhost"
+          },
+          {
+            "id": "wrong2",
+            "text": "users"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "app内のlocalhostは通常app自身を指し、別サービスのmysqlではありません。",
+          "wrong2": "usersはテーブル名であり、DBサーバーのホスト名ではありません。",
+          "wrong3": "登録ページのパスはDBのホスト名ではありません。"
+        }
+      },
+      "explanation": "同じComposeネットワークのDBサービス名で接続先を指定します。 PCではcomposeのサービス名とローカル.envを照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「mysql」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-db-host-network",
+      "variantGroup": "ph3-week33-choice-db-host-network",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。composeのサービス名とローカル.envを照合しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "コンテナ間ではComposeのサービス名を使います。",
+      "success": "条件に適合する候補を1つ選ぶ：mysql",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-install-versus-start",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "composer installが成功しました。これだけで確認できることはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "PHP依存のインストールが成功したこと"
+          },
+          {
+            "id": "wrong1",
+            "text": "ユーザー登録がDBへ保存できたこと"
+          },
+          {
+            "id": "wrong2",
+            "text": "すべてのURLが正しく登録されたこと"
+          },
+          {
+            "id": "wrong3",
+            "text": "フロントの開発サーバーも必ず起動したこと"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "登録操作と保存の確認はまだ行っていません。",
+          "wrong2": "ルートの登録は別途確認が必要です。",
+          "wrong3": "Composerの依存インストールはnpmの開発サーバー起動と別です。"
+        }
+      },
+      "explanation": "依存をそろえたこととアプリの動作成功を区別します。 PCでは次に画面表示と登録操作をそれぞれ確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「PHP依存のインストールが成功したこと」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-install-versus-start",
+      "variantGroup": "ph3-week33-choice-install-versus-start",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。次に画面表示と登録操作をそれぞれ確認しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "コマンドが担う範囲だけを判断します。",
+      "success": "条件に適合する候補を1つ選ぶ：PHP依存のインストールが成功したこと",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week33-choice-locale-setting",
+      "weekUnitId": "week-unit-week33",
+      "format": "singleChoice",
+      "prompt": "Laravel 10の設定でlocaleをjaに変更しました。正しい理解はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "自作の英語のHTML本文も自動で日本語に翻訳される"
+          },
+          {
+            "id": "wrong2",
+            "text": "MySQLの全レコードが自動的に翻訳される"
+          },
+          {
+            "id": "wrong3",
+            "text": "ブラウザから送った全入力が日本語へ変換される"
+          },
+          {
+            "id": "correct",
+            "text": "日本語の翻訳を選ぶ設定であり、必要な翻訳データも用意する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "localeは任意の本文を自動翻訳する機能ではありません。",
+          "wrong2": "DBに保存した文字列を一括翻訳する設定ではありません。",
+          "wrong3": "利用者の入力自体を翻訳するものではありません。"
+        }
+      },
+      "explanation": "localeは用意された翻訳を選択する設定です。 PCでは翻訳キーと日本語のメッセージが対応するか画面で確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week33",
+        "sectionHeading": "Week 33"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「日本語の翻訳を選ぶ設定であり、必要な翻訳データも用意する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week33-locale-setting",
+      "variantGroup": "ph3-week33-choice-locale-setting",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 49,
+        "heading": "Week 33",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week33のPOSSE課題。翻訳キーと日本語のメッセージが対応するか画面で確認しましょう。",
+      "priorKnowledge": "PH1〜2のPHP・Composer・Docker・コマンド操作。Laravel用のコンテナ名とscriptsは設問内で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "言語の選択と翻訳する文章の用意は別です。",
+      "success": "条件に適合する候補を1つ選ぶ：日本語の翻訳を選ぶ設定であり、必要な翻訳データも用意する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

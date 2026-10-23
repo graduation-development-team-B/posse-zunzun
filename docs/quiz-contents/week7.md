@@ -1,6 +1,6 @@
 # Week07｜DOM操作・イベント
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -436,3 +436,172 @@ showBtn.addEventListener("click", () => {
 - 誤答b: 上限・下限で押した結果が分かりません。
 - 誤答c: 上限で増やさない条件と、0で減らさない条件を確認できません。
 - 誤答d: 値が範囲を超えるかを調べる確認ではありません。
+
+## question-week7-assembly-find-output（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: HTMLにはid="total"の表示枠があります。その要素をtotalElへ取得してください。
+- 出典: curriculum/PH1/Week07.md:42 / 2. querySelector：要素を取得する
+- ドリル接続: Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。取得した要素がnullでないことを確認しましょう。
+- 既習: Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week7-find-output
+- 類題: ph1-week7-assembly-find-output / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+HTMLにはid="total"の表示枠があります。その要素をtotalElへ取得してください。
+
+```js
+const totalEl = __BLANK__;
+```
+
+- correct: document.querySelector("#total")（正答）
+- wrong: document.querySelector("total")
+
+達成条件: HTMLにはid="total"の表示枠があります。その要素をtotalElへ取得してください。
+
+ヒント: idを指定するセレクターは#から始めます。
+
+解説: idを指定するセレクターは#から始めます。PCでは取得した要素がnullでないことを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: #なしのtotalはidではなくタグ名のセレクターです。
+
+## question-week7-assembly-click-message（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: btnとmessageは取得済みです。ボタンをクリックした時だけ「受付済み」と表示してください。
+- 出典: curriculum/PH1/Week07.md:88 / 4. addEventListener：イベントを登録する
+- ドリル接続: Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。クリック前後の文字を確認しましょう。
+- 既習: Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week7-click-message
+- 類題: ph1-week7-assembly-click-message / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+btnとmessageは取得済みです。ボタンをクリックした時だけ「受付済み」と表示してください。
+
+```js
+btn.__BLANK__;
+```
+
+- correct: addEventListener("click", () => { message.textContent = "受付済み"; })（正答）
+- wrong: addEventListener("input", () => { message.textContent = "受付済み"; })
+
+達成条件: btnとmessageは取得済みです。ボタンをクリックした時だけ「受付済み」と表示してください。
+
+ヒント: イベント名と、その時に実行する関数をaddEventListenerへ渡します。
+
+解説: イベント名と、その時に実行する関数をaddEventListenerへ渡します。PCではクリック前後の文字を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: inputは入力値の変化を受け取るイベントで、ここで指定したボタンクリックではありません。
+
+## question-week7-assembly-read-number（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: priceInput.valueは"1200"です。数値としてpriceへ読み取ってください。
+- 出典: curriculum/PH1/Week07.md:119 / 5. input.value：入力値を取得する
+- ドリル接続: Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。feeを加えた結果が文字の連結でないか確認しましょう。
+- 既習: Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week7-read-number
+- 類題: ph1-week7-assembly-read-number / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+priceInput.valueは"1200"です。数値としてpriceへ読み取ってください。
+
+```js
+const price = __BLANK__;
+```
+
+- correct: Number(priceInput.value)（正答）
+- wrong: String(priceInput.value)
+
+達成条件: priceInput.valueは"1200"です。数値としてpriceへ読み取ってください。
+
+ヒント: 入力値は文字列なのでNumberで変換します。
+
+解説: 入力値は文字列なのでNumberで変換します。PCではfeeを加えた結果が文字の連結でないか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: Stringでは文字列のままで、数値への変換になりません。
+
+## question-week7-assembly-toggle-done（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: taskTextは取得済みです。クリックのたびにline-throughを付け外ししてください。
+- 出典: curriculum/PH1/Week07.md:144 / 6. classList：クラスを操作する
+- ドリル接続: Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。同じ要素を2回クリックしましょう。
+- 既習: Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week7-toggle-done
+- 類題: ph1-week7-assembly-toggle-done / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+taskTextは取得済みです。クリックのたびにline-throughを付け外ししてください。
+
+```js
+taskText.addEventListener("click", () => {
+  __BLANK__;
+});
+```
+
+- correct: taskText.classList.toggle("line-through")（正答）
+- wrong: taskText.classList.add("line-through")
+
+達成条件: taskTextは取得済みです。クリックのたびにline-throughを付け外ししてください。
+
+ヒント: toggleは指定したクラスがなければ追加し、あれば削除します。
+
+解説: toggleは指定したクラスがなければ追加し、あれば削除します。PCでは同じ要素を2回クリックしましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: addだけでは付ける操作しかできず、もう一度クリックしても外れません。
+
+## question-week7-assembly-append-item（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: todoListはulです。新しいliを作り、文字を入れて一覧へ追加します。空欄のメソッド呼び出しを組み立ててください。
+- 出典: curriculum/PH1/Week07.md:171 / 7. createElement と appendChild：新しい要素を作って追加する
+- ドリル接続: Week07の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。ul内にliが増えることを確認しましょう。
+- 既習: Week01〜07の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week7-append-item
+- 類題: ph1-week7-assembly-append-item / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+todoListはulです。新しいliを作り、文字を入れて一覧へ追加します。空欄のメソッド呼び出しを組み立ててください。
+
+```js
+const item = document.createElement("li");
+item.textContent = "教材を読む";
+__BLANK__;
+```
+
+- correct: todoList.appendChild(item)（正答）
+- wrong: item.appendChild(todoList)
+
+達成条件: todoListはulです。新しいliを作り、文字を入れて一覧へ追加します。空欄のメソッド呼び出しを組み立ててください。
+
+ヒント: 追加先の親でappendChildを呼び、作った子を渡します。
+
+解説: 追加先の親でappendChildを呼び、作った子を渡します。PCではul内にliが増えることを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 親と子が逆で、liをulへ追加する処理になりません。

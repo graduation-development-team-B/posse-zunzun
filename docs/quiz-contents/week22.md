@@ -1,6 +1,6 @@
 # Week22｜結合・副問い合わせ・データ整形
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -424,3 +424,176 @@ HAVING total > 10000
 - 誤答b: 選ばれるべき0件の例がありません。
 - 誤答c: 条件の確認ができません。
 - 誤答d: 所属明細の有無を調べていません。
+
+## question-ph2-week22-assembly-join-condition（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 注文と明細を、orders.idと明細のorder_idで結合してください。
+- 出典: drill-ph2/src/week22-1/README.md:3 / 問題
+- ドリル接続: Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。1つの注文に複数明細が結び付くことを確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week22-join-condition
+- 類題: ph2-week22-assembly-join-condition / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+注文と明細を、orders.idと明細のorder_idで結合してください。
+
+```sql
+SELECT orders.name, order_details.item_name
+FROM orders JOIN order_details ON __BLANK__;
+```
+
+- correct: orders.id = order_details.order_id（正答）
+- wrong: orders.id = order_details.id
+
+達成条件: 注文と明細を、orders.idと明細のorder_idで結合してください。
+
+ヒント: 外部キーorder_idを注文のidへ対応させます。
+
+解説: 外部キーorder_idを注文のidへ対応させます。PCでは1つの注文に複数明細が結び付くことを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 明細自身のidと注文idを合わせても所属関係を表しません。
+
+## question-ph2-week22-assembly-having-total（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 注文ごとの合計を求めた後、10000円以上の注文を残してください。
+- 出典: drill-ph2/src/week22-2/README.md:3 / 問題
+- ドリル接続: Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。9999・10000・10001円を比べましょう。
+- 既習: PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week22-having-total
+- 類題: ph2-week22-assembly-having-total / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+注文ごとの合計を求めた後、10000円以上の注文を残してください。
+
+```sql
+SELECT order_id, SUM(price * quantity) AS total
+FROM order_details GROUP BY order_id
+__BLANK__;
+```
+
+- correct: HAVING total >= 10000（正答）
+- wrong: HAVING total > 10000
+
+達成条件: 注文ごとの合計を求めた後、10000円以上の注文を残してください。
+
+ヒント: 集計後の条件にはHAVINGを使い、境界を含む>=にします。
+
+解説: 集計後の条件にはHAVINGを使い、境界を含む>=にします。PCでは9999・10000・10001円を比べましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: >では合計10000円ちょうどを含められません。
+
+## question-ph2-week22-assembly-missing-details（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 明細が1件もない注文だけ残す条件を組み立ててください。
+- 出典: drill-ph2/src/week22-3/README.md:3 / 問題
+- ドリル接続: Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。明細0件と1件の注文を比べましょう。
+- 既習: PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week22-missing-details
+- 類題: ph2-week22-assembly-missing-details / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+明細が1件もない注文だけ残す条件を組み立ててください。
+
+```sql
+SELECT orders.id FROM orders
+WHERE __BLANK__;
+```
+
+- correct: NOT EXISTS (SELECT 1 FROM order_details WHERE order_details.order_id = orders.id)（正答）
+- wrong: EXISTS (SELECT 1 FROM order_details WHERE order_details.order_id = orders.id)
+
+達成条件: 明細が1件もない注文だけ残す条件を組み立ててください。
+
+ヒント: 対応する明細がない時にNOT EXISTSがtrueになります。
+
+解説: 対応する明細がない時にNOT EXISTSがtrueになります。PCでは明細0件と1件の注文を比べましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: EXISTSでは明細が存在する注文を選ぶ逆の条件になります。
+
+## question-ph2-week22-assembly-correlated-key（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 外側の注文それぞれについて、その注文に属する明細がないか調べます。サブクエリの条件を組み立ててください。
+- 出典: drill-ph2/src/week22-3/README.md:3 / 問題
+- ドリル接続: Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。複数の注文で結果を確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week22-correlated-key
+- 類題: ph2-week22-assembly-correlated-key / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+外側の注文それぞれについて、その注文に属する明細がないか調べます。サブクエリの条件を組み立ててください。
+
+```sql
+SELECT orders.id FROM orders WHERE NOT EXISTS (
+  SELECT 1 FROM order_details WHERE __BLANK__
+);
+```
+
+- correct: order_details.order_id = orders.id（正答）
+- wrong: order_details.order_id = 1
+
+達成条件: 外側の注文それぞれについて、その注文に属する明細がないか調べます。サブクエリの条件を組み立ててください。
+
+ヒント: 外側のorders.idを参照して注文ごとに条件を変えます。
+
+解説: 外側のorders.idを参照して注文ごとに条件を変えます。PCでは複数の注文で結果を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 1への固定では外側の各注文との対応を調べられません。
+
+## question-ph2-week22-assembly-group-id-name（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 注文IDと注文者名を表示し、注文ごとに合計します。同姓同名の注文もあります。GROUP BYを組み立ててください。
+- 出典: drill-ph2/src/week22-1/README.md:3 / 問題
+- ドリル接続: Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。同名の別注文が別行になるか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week22-group-id-name
+- 類題: ph2-week22-assembly-group-id-name / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+注文IDと注文者名を表示し、注文ごとに合計します。同姓同名の注文もあります。GROUP BYを組み立ててください。
+
+```sql
+SELECT orders.id, orders.name, SUM(order_details.price * order_details.quantity) AS total
+FROM orders JOIN order_details ON orders.id = order_details.order_id
+__BLANK__;
+```
+
+- correct: GROUP BY orders.id, orders.name（正答）
+- wrong: GROUP BY orders.name
+
+達成条件: 注文IDと注文者名を表示し、注文ごとに合計します。同姓同名の注文もあります。GROUP BYを組み立ててください。
+
+ヒント: 注文idと表示する名前をグループのキーに含めます。
+
+解説: 注文idと表示する名前をグループのキーに含めます。PCでは同名の別注文が別行になるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 名前だけでは同じ名前の別注文を分けられず、表示するidの集計単位も不適切です。

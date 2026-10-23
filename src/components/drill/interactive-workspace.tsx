@@ -8,18 +8,19 @@ import { QuizHeader, QuizTag } from '@/components/drill/quiz-header';
 import { Body, DText, Footer, Screen } from '@/components/drill/ui';
 import { Drill, Radius } from '@/constants/drill';
 import type { QuestionItem } from '@/types/content';
-import { gradeChoice, optionsFor, type QuizMode } from '@/lib/quiz/core';
+import { codeFor, gradeChoice, optionsFor, type QuizMode } from '@/lib/quiz/core';
 import type { ConsoleResult } from '@/lib/quiz/consoleExecution';
 import type { AnswerRecord, draftFor } from '@/lib/quiz/session';
 import { questionSource, targetLabel } from './question-presentation';
 
-export function InteractiveWorkspace({ q, mode, draft, answer, available, busy, error, current, total, canConfirm, consoleResult, previewRun, stale, location, onSelect, onAdd, onUndo, onClear, onHint, onExecute, onConfirm, onNext, onPreviewReady }: {
+export function InteractiveWorkspace({ q, mode, draft, answer, available, busy, error, current, total, canConfirm, consoleResult, previewRun, stale, location, onSelect, onAdd, onUndo, onHint, onExecute, onConfirm, onNext, onPreviewReady, onExplanationRead }: {
   q: QuestionItem; mode: QuizMode; draft: ReturnType<typeof draftFor>; answer?: AnswerRecord;
   available: string[]; busy: boolean; error: string | null; current: number; total: number;
   canConfirm: boolean; consoleResult: ConsoleResult | null; previewRun: { code: string; id: number } | null;
   stale: boolean; location?: string; onSelect: (id: string) => void; onAdd: (token: string) => void;
-  onUndo: () => void; onClear: () => void; onHint: () => void; onExecute: () => void;
+  onUndo: () => void; onHint: () => void; onExecute: () => void;
   onConfirm: () => void; onNext: () => void; onPreviewReady: () => void;
+  onExplanationRead: () => Promise<unknown>;
 }) {
   const checked = !!answer;
   const reason = answer && !answer.correct ? gradeChoice(q, answer.optionId).reason : ''; 
@@ -28,7 +29,7 @@ export function InteractiveWorkspace({ q, mode, draft, answer, available, busy, 
   const template = q.payload.kind === 'fillBlank' ? q.payload.content.split(q.payload.blankToken) : null;
   const prefix = template?.[0] ?? '';
   const suffix = template?.slice(1).join(q.payload.kind === 'fillBlank' ? q.payload.blankToken : '') ?? '';
-  const label = mode === 'console' ? 'Console実行' : mode === 'terminal' ? 'ターミナル操作' : 'コード組み立て';
+  const label = mode === 'assembly' ? 'コード組み立て' : mode === 'console' ? 'Console実行' : mode === 'terminal' ? 'ターミナル操作' : null;
   return (
     <Screen>
       <QuizHeader current={current} total={total} />
@@ -36,13 +37,13 @@ export function InteractiveWorkspace({ q, mode, draft, answer, available, busy, 
         <View style={styles.promptRow}>
           <View style={styles.promptText}>
             <View style={styles.tagRow}>
-              <QuizTag label={label} tone="gray" />
+              {label && <QuizTag label={label} tone="gray" />}
               <QuizTag label={targetLabel(q)} tone="orange" />
             </View>
             <DText size={18} weight="bold" lh={1.6} role="heading" aria-level={1}>{q.prompt}</DText>
-            <DText size={13} lh={1.6} color={Drill.textSub}>
-              {mode === 'console' ? '候補を選んで実行。出力を確かめましょう。' : 'ブロックを順にタップ。実行して結果を確かめましょう。'}
-            </DText>
+            {mode !== 'preview' && <DText size={13} lh={1.6} color={Drill.textSub}>
+              {mode === 'assembly' ? '必要なブロックを順にタップして空欄を完成させましょう。コードの実行は行いません。' : mode === 'console' ? '候補を選んで実行。出力を確かめましょう。' : 'ブロックを順にタップ。実行して結果を確かめましょう。'}
+            </DText>}
           </View>
           <Mascot name="cheer" width={54} />
         </View>
@@ -76,15 +77,11 @@ export function InteractiveWorkspace({ q, mode, draft, answer, available, busy, 
           })}
         </View>
         <View style={styles.tools}>
-          <Pressable role="button" disabled={checked || busy} onPress={onUndo} style={styles.tool}>
+          <Pressable accessibilityRole="button" accessibilityLabel="1つ戻す" disabled={checked || busy} onPress={onUndo} style={styles.tool}>
             <Icon name="undo" size={16} color={Drill.chipText} />
-            <DText size={13} weight="medium" color={Drill.chipText}>1つ戻す</DText>
           </Pressable>
-          <Pressable role="button" disabled={checked || busy} onPress={onClear} style={styles.tool}>
-            <DText size={13} weight="medium" color={Drill.chipText}>全部はずす</DText>
-          </Pressable>
-          <Pressable role="button" disabled={checked || busy} onPress={onHint} style={styles.hint}>
-            <Icon name="bulb" size={16} /><DText size={13} weight="bold">ヒント</DText>
+          <Pressable accessibilityRole="button" accessibilityLabel="ヒント" disabled={checked || busy} onPress={onHint} style={extra.hintIcon}>
+            <Icon name="bulb" size={16} />
           </Pressable>
         </View>
         {draft.hintUsed && <DText size={13} lh={1.6} color={Drill.textSub}>{q.learning.hint}</DText>}
@@ -92,13 +89,14 @@ export function InteractiveWorkspace({ q, mode, draft, answer, available, busy, 
           <View style={styles.previewHead}>
             <View style={styles.previewDot} />
             <DText size={11} weight="bold" color={Drill.textSub} style={styles.previewLabel}>
-              {mode === 'preview' ? 'プレビュー' : mode === 'console' ? 'Console' : '実行結果'}
+              {mode === 'assembly' ? '組み立てたコード' : mode === 'preview' ? 'プレビュー' : mode === 'console' ? 'Console' : '実行結果'}
             </DText>
-            {!checked && <Pressable role="button" disabled={busy || !placed.length} onPress={onExecute} style={extra.run}>
+            {!checked && mode !== 'assembly' && <Pressable role="button" disabled={busy || !placed.length} onPress={onExecute} style={extra.run}>
               <DText size={13} weight="bold" color={busy || !placed.length ? Drill.textSub : Drill.accentText}>{busy ? '実行中…' : '実行する'}</DText>
             </Pressable>}
           </View>
           <View style={styles.previewBody}>
+            {mode === 'assembly' && <DText mono size={13} selectable>{placed.length ? codeFor(q, '', draft.tokens) : '空欄に入れるブロックを選んでください。'}</DText>}
             {mode === 'preview' && previewRun && <CodePreview height={q.sourceReference.weekKey === 'week1' ? 80 : 240} code={previewRun.code} runId={previewRun.id} onReady={onPreviewReady} />}
             {mode === 'console' && consoleResult && <DText mono size={13} selectable>
               {consoleResult.lines.join('\n') || '出力なし'}{consoleResult.message ? '\n' + consoleResult.message : ''}
@@ -107,14 +105,15 @@ export function InteractiveWorkspace({ q, mode, draft, answer, available, busy, 
               <DText mono size={12}>$ {h.command}</DText>
               <DText mono size={12} color={h.isError ? Drill.danger : Drill.textSub}>{h.lines.join('\n')}</DText>
             </View>)}
-            {!previewRun && !consoleResult && !draft.terminal?.history.length && <DText size={13} color={Drill.textSub}>実行すると、ここに結果が表示されます。</DText>}
+            {mode !== 'assembly' && !previewRun && !consoleResult && !draft.terminal?.history.length && <DText size={13} color={Drill.textSub}>実行すると、ここに結果が表示されます。</DText>}
             {stale && <DText size={12} color={Drill.accentText}>回答を変更しました。もう一度実行してください。</DText>}
           </View>
         </View>
       </Body>
-      {!checked && <Footer><CtaButton label={canConfirm ? '確定する' : placed.length ? '実行して確認してください' : mode === 'console' ? '候補を選んでください' : 'ブロックを並べてください'} disabled={!canConfirm || busy} onPress={onConfirm} minHeight={54} /></Footer>}
+      {!checked && <Footer><CtaButton label={mode === 'assembly' && busy ? '保存中…' : canConfirm ? '確定する' : placed.length ? '実行して確認してください' : mode === 'console' ? '候補を選んでください' : 'ブロックを並べてください'} disabled={!canConfirm || busy} onPress={onConfirm} minHeight={54} /></Footer>}
       {checked && <FeedbackSheet variant={answer.correct ? 'correct' : 'wrong'} title={answer.correct ? mode === 'preview' ? '組み立てられた！' : '正解！' : 'おしい！'}
-        source={questionSource(q)} onNext={onNext} nextDisabled={busy}><FeedbackText>{reason ? `${reason}\n${q.explanation}` : q.explanation}</FeedbackText></FeedbackSheet>}
+        source={questionSource(q)} explanationRead={answer.explanationRead} onExplanationRead={onExplanationRead}
+        onNext={onNext} nextDisabled={busy}><FeedbackText>{reason ? `${reason}\n${q.explanation}` : q.explanation}</FeedbackText>{mode === 'assembly' && !answer.correct && <DText mono size={13} selectable>{gradeChoice(q, answer.optionId).correctText}</DText>}</FeedbackSheet>}
     </Screen>
   );
 }
@@ -190,4 +189,4 @@ const styles = StyleSheet.create({
   previewBody: { gap: 6, minHeight: 76, paddingVertical: 14, paddingHorizontal: 16 },
 });
 
-const extra = StyleSheet.create({ tokenWidth: { maxWidth: '100%' }, run: { marginLeft: 'auto', minHeight: 28, justifyContent: 'center', paddingHorizontal: 8 } });
+const extra = StyleSheet.create({ hintIcon: { marginLeft: 'auto', minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' }, tokenWidth: { maxWidth: '100%' }, run: { marginLeft: 'auto', minHeight: 28, justifyContent: 'center', paddingHorizontal: 8 } });

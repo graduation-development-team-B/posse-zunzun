@@ -102,7 +102,8 @@ test("正本・生成物・単元件数が一致", () => {
   );
   for (const u of catalog.weekUnits) {
     const n = catalog.questions.filter((q) => q.weekUnitId === u.id).length;
-    assert.ok(n >= 10 && n <= 15);
+    const config = data.units.find(config => config.id === u.id);
+    assert.ok(n >= config.minQuestions && n <= config.maxQuestions);
   }
   assert.equal(
     new Set(catalog.questions.map((q) => q.id)).size,

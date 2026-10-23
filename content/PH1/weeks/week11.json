@@ -819,5 +819,473 @@
       "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-assembly-ai-number-repair",
+      "weekUnitId": "week-unit-week11",
+      "format": "fillBlank",
+      "prompt": "AI案を確認します。入力priceInput.valueは\"800\"、feeは数値200です。文字の連結を避け、合計1000になる式を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const fee = 200;\nconst total = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Number(priceInput.value) + fee"
+          },
+          {
+            "id": "wrong",
+            "text": "priceInput.value + fee"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "入力値を数値に直さないと\"800200\"という文字の連結になります。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "Number(",
+            "priceInput.value",
+            ") ",
+            "+ fee"
+          ],
+          "wrong": [
+            "priceInput.value",
+            " + fee"
+          ]
+        }
+      },
+      "explanation": "Numberで文字列を数値にしてから加算します。採用前に通常入力と0を試し、変換の理由を自分で説明しましょう。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "全部は、受け取らない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AI案を確認します。入力priceInput.valueは\"800\"、feeは数値200です。文字の連結を避け、合計1000になる式を組み立ててください。",
+      "conceptId": "ph1-week11-ai-number-repair",
+      "variantGroup": "ph1-week11-assembly-ai-number-repair",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week11の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。Numberで文字列を数値にしてから加算します。採用前に通常入力と0を試し、変換の理由を自分で説明しましょう。",
+      "hint": "Numberで文字列を数値にしてから加算します。",
+      "success": "AI案を確認します。入力priceInput.valueは\"800\"、feeは数値200です。文字の連結を避け、合計1000になる式を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "line": 128,
+        "heading": "全部は、受け取らない",
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH1/Week06.md",
+          "line": 1,
+          "heading": "Week06｜JavaScript基礎（変数・型・条件分岐・関数）",
+          "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+        },
+        {
+          "path": "curriculum/PH1/Week07.md",
+          "line": 1,
+          "heading": "Week07｜DOM操作・イベント",
+          "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+        },
+        {
+          "path": "curriculum/PH1/Week10.md",
+          "line": 1,
+          "heading": "Week10｜非同期処理・Fetch・JSON",
+          "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-assembly-ai-empty-guard",
+      "weekUnitId": "week-unit-week11",
+      "format": "fillBlank",
+      "prompt": "AIのフォーム修正案を確かめます。nameは取得済みの文字列です。空文字の時だけ受付を止める条件を組み立ててください。空白だけの入力は今回は扱いません。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "function submitName(name) {\n  if (__BLANK__) {\n    message.textContent = \"名前を入力\";\n    return;\n  }\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "name === \"\""
+          },
+          {
+            "id": "wrong",
+            "text": "name !== \"\""
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "!==では正常な名前の方を止めてしまいます。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "name ",
+            "=== ",
+            "\"\""
+          ],
+          "wrong": [
+            "name ",
+            "!== ",
+            "\"\""
+          ]
+        }
+      },
+      "explanation": "===で空文字との一致を調べます。PCでは空文字と\"佐藤\"を別々に試し、見た目が変わっていないかも確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "「いい感じにして」では、いい感じにならない"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AIのフォーム修正案を確かめます。nameは取得済みの文字列です。空文字の時だけ受付を止める条件を組み立ててください。空白だけの入力は今回は扱いません。",
+      "conceptId": "ph1-week11-ai-empty-guard",
+      "variantGroup": "ph1-week11-assembly-ai-empty-guard",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week11の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。空文字と\"佐藤\"を別々に試し、見た目が変わっていないかも確認しましょう。",
+      "hint": "===で空文字との一致を調べます。",
+      "success": "AIのフォーム修正案を確かめます。nameは取得済みの文字列です。空文字の時だけ受付を止める条件を組み立ててください。空白だけの入力は今回は扱いません。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "line": 45,
+        "heading": "「いい感じにして」では、いい感じにならない",
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH1/Week06.md",
+          "line": 1,
+          "heading": "Week06｜JavaScript基礎（変数・型・条件分岐・関数）",
+          "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+        },
+        {
+          "path": "curriculum/PH1/Week07.md",
+          "line": 1,
+          "heading": "Week07｜DOM操作・イベント",
+          "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+        },
+        {
+          "path": "curriculum/PH1/Week10.md",
+          "line": 1,
+          "heading": "Week10｜非同期処理・Fetch・JSON",
+          "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-assembly-ai-selector-fix",
+      "weekUnitId": "week-unit-week11",
+      "format": "fillBlank",
+      "prompt": "AI案のセレクターを自分で直します。HTMLは<p id=\"result\"></p>です。対応する取得処理を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const result = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "document.querySelector(\"#result\")"
+          },
+          {
+            "id": "wrong",
+            "text": "document.querySelector(\".result\")"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "ドットはclassを探す指定で、提示したidには一致しません。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "document.",
+            "querySelector(",
+            "\"#result\"",
+            ")"
+          ],
+          "wrong": [
+            "document.",
+            "querySelector(",
+            "\".result\"",
+            ")"
+          ]
+        }
+      },
+      "explanation": "AIの説明だけでなくHTMLのidとセレクターを照合します。PCでは取得した要素を確認してから修正を採用しましょう。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "直った。でも、なぜ直ったかは言えますか"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AI案のセレクターを自分で直します。HTMLは<p id=\"result\"></p>です。対応する取得処理を組み立ててください。",
+      "conceptId": "ph1-week11-ai-selector-fix",
+      "variantGroup": "ph1-week11-assembly-ai-selector-fix",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week11の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。取得した要素を確認してから修正を採用しましょう。",
+      "hint": "AIの説明だけでなくHTMLのidとセレクターを照合します。",
+      "success": "AI案のセレクターを自分で直します。HTMLは<p id=\"result\"></p>です。対応する取得処理を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "line": 26,
+        "heading": "直った。でも、なぜ直ったかは言えますか",
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH1/Week06.md",
+          "line": 1,
+          "heading": "Week06｜JavaScript基礎（変数・型・条件分岐・関数）",
+          "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+        },
+        {
+          "path": "curriculum/PH1/Week07.md",
+          "line": 1,
+          "heading": "Week07｜DOM操作・イベント",
+          "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+        },
+        {
+          "path": "curriculum/PH1/Week10.md",
+          "line": 1,
+          "heading": "Week10｜非同期処理・Fetch・JSON",
+          "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-assembly-ai-fetch-check",
+      "weekUnitId": "week-unit-week11",
+      "format": "fillBlank",
+      "prompt": "AI案のawait不足を直します。async関数内で、JSONを読んだ値をpostsへ受け取る式を組み立ててください。responseは取得済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const posts = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "await response.json()"
+          },
+          {
+            "id": "wrong",
+            "text": "response.json()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "awaitを省くと、読んだ配列ではなくPromiseのままです。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "await ",
+            "response.",
+            "json(",
+            ")"
+          ],
+          "wrong": [
+            "response.",
+            "json(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "既習のresponse.json()も完了を待ちます。PCではpostsを表示して配列か確認し、awaitが必要な理由を説明しましょう。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "今日のまとめ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AI案のawait不足を直します。async関数内で、JSONを読んだ値をpostsへ受け取る式を組み立ててください。responseは取得済みです。",
+      "conceptId": "ph1-week11-ai-fetch-check",
+      "variantGroup": "ph1-week11-assembly-ai-fetch-check",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week11の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。postsを表示して配列か確認し、awaitが必要な理由を説明しましょう。",
+      "hint": "既習のresponse.json()も完了を待ちます。",
+      "success": "AI案のawait不足を直します。async関数内で、JSONを読んだ値をpostsへ受け取る式を組み立ててください。responseは取得済みです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "line": 180,
+        "heading": "今日のまとめ",
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH1/Week06.md",
+          "line": 1,
+          "heading": "Week06｜JavaScript基礎（変数・型・条件分岐・関数）",
+          "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+        },
+        {
+          "path": "curriculum/PH1/Week07.md",
+          "line": 1,
+          "heading": "Week07｜DOM操作・イベント",
+          "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+        },
+        {
+          "path": "curriculum/PH1/Week10.md",
+          "line": 1,
+          "heading": "Week10｜非同期処理・Fetch・JSON",
+          "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week11-assembly-ai-upper-bound",
+      "weekUnitId": "week-unit-week11",
+      "format": "fillBlank",
+      "prompt": "AI案の境界条件を直します。countは0〜10、MAXは10です。上限の10で増えず、9では増える条件を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "if (__BLANK__) {\n  count += 1;\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "count < MAX"
+          },
+          {
+            "id": "wrong",
+            "text": "count <= MAX"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "<=ではcount=10の時も増えて11になります。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "count ",
+            "< ",
+            "MAX"
+          ],
+          "wrong": [
+            "count ",
+            "<= ",
+            "MAX"
+          ]
+        }
+      },
+      "explanation": "上限未満だけ増やすので<です。PCでは9→10と10でのクリックを分けて試し、修正を自分で確かめましょう。",
+      "sourceReference": {
+        "weekKey": "week11",
+        "sectionHeading": "直った。でも、なぜ直ったかは言えますか"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "AI案の境界条件を直します。countは0〜10、MAXは10です。上限の10で増えず、9では増える条件を組み立ててください。",
+      "conceptId": "ph1-week11-ai-upper-bound",
+      "variantGroup": "ph1-week11-assembly-ai-upper-bound",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜11の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week11の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。9→10と10でのクリックを分けて試し、修正を自分で確かめましょう。",
+      "hint": "上限未満だけ増やすので<です。",
+      "success": "AI案の境界条件を直します。countは0〜10、MAXは10です。上限の10で増えず、9では増える条件を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week11.md",
+        "line": 26,
+        "heading": "直った。でも、なぜ直ったかは言えますか",
+        "sha256": "7ffc9901b7898ede15e21a14ee6bcefc75a4377ea6c94fd411a1ac3a56ba7157"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH1/Week06.md",
+          "line": 1,
+          "heading": "Week06｜JavaScript基礎（変数・型・条件分岐・関数）",
+          "sha256": "1019c0bc47b086d9bd985162fac1da0889fc9360aee2c8dff2cce87e4d471d0b"
+        },
+        {
+          "path": "curriculum/PH1/Week07.md",
+          "line": 1,
+          "heading": "Week07｜DOM操作・イベント",
+          "sha256": "6b94920c9bc55389aec707e5aaad449eee4ef23e6fb8c9a06954c381f933fffa"
+        },
+        {
+          "path": "curriculum/PH1/Week10.md",
+          "line": 1,
+          "heading": "Week10｜非同期処理・Fetch・JSON",
+          "sha256": "c91f8cc618535882ee191067b6077a8798465fd042048995452d6c36a5a93b7e"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
   }
 ]

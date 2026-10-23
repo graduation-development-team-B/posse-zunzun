@@ -1154,5 +1154,473 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-assembly-join-condition",
+      "weekUnitId": "week-unit-week22",
+      "format": "fillBlank",
+      "prompt": "注文と明細を、orders.idと明細のorder_idで結合してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT orders.name, order_details.item_name\nFROM orders JOIN order_details ON __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "orders.id = order_details.order_id"
+          },
+          {
+            "id": "wrong",
+            "text": "orders.id = order_details.id"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "明細自身のidと注文idを合わせても所属関係を表しません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "orders.id ",
+            "= ",
+            "order_details.order_id"
+          ],
+          "wrong": [
+            "orders.id ",
+            "= ",
+            "order_details.id"
+          ]
+        }
+      },
+      "explanation": "外部キーorder_idを注文のidへ対応させます。PCでは1つの注文に複数明細が結び付くことを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "注文と明細を、orders.idと明細のorder_idで結合してください。",
+      "conceptId": "ph2-week22-join-condition",
+      "variantGroup": "ph2-week22-assembly-join-condition",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。1つの注文に複数明細が結び付くことを確認しましょう。",
+      "hint": "外部キーorder_idを注文のidへ対応させます。",
+      "success": "注文と明細を、orders.idと明細のorder_idで結合してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week22-1/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 437,
+          "heading": "Week 22",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-assembly-having-total",
+      "weekUnitId": "week-unit-week22",
+      "format": "fillBlank",
+      "prompt": "注文ごとの合計を求めた後、10000円以上の注文を残してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT order_id, SUM(price * quantity) AS total\nFROM order_details GROUP BY order_id\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "HAVING total >= 10000"
+          },
+          {
+            "id": "wrong",
+            "text": "HAVING total > 10000"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": ">では合計10000円ちょうどを含められません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "HAVING ",
+            "total ",
+            ">= ",
+            "10000"
+          ],
+          "wrong": [
+            "HAVING ",
+            "total ",
+            "> ",
+            "10000"
+          ]
+        }
+      },
+      "explanation": "集計後の条件にはHAVINGを使い、境界を含む>=にします。PCでは9999・10000・10001円を比べましょう。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "注文ごとの合計を求めた後、10000円以上の注文を残してください。",
+      "conceptId": "ph2-week22-having-total",
+      "variantGroup": "ph2-week22-assembly-having-total",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。9999・10000・10001円を比べましょう。",
+      "hint": "集計後の条件にはHAVINGを使い、境界を含む>=にします。",
+      "success": "注文ごとの合計を求めた後、10000円以上の注文を残してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week22-2/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "4132bebc001c097c45672645bc8b852a4ad9664e2544972f8bee3ddad908303b"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 437,
+          "heading": "Week 22",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-assembly-missing-details",
+      "weekUnitId": "week-unit-week22",
+      "format": "fillBlank",
+      "prompt": "明細が1件もない注文だけ残す条件を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT orders.id FROM orders\nWHERE __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "NOT EXISTS (SELECT 1 FROM order_details WHERE order_details.order_id = orders.id)"
+          },
+          {
+            "id": "wrong",
+            "text": "EXISTS (SELECT 1 FROM order_details WHERE order_details.order_id = orders.id)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "EXISTSでは明細が存在する注文を選ぶ逆の条件になります。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "NOT EXISTS ",
+            "(SELECT 1 FROM order_details ",
+            "WHERE order_details.order_id = orders.id",
+            ")"
+          ],
+          "wrong": [
+            "EXISTS ",
+            "(SELECT 1 FROM order_details ",
+            "WHERE order_details.order_id = orders.id",
+            ")"
+          ]
+        }
+      },
+      "explanation": "対応する明細がない時にNOT EXISTSがtrueになります。PCでは明細0件と1件の注文を比べましょう。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "明細が1件もない注文だけ残す条件を組み立ててください。",
+      "conceptId": "ph2-week22-missing-details",
+      "variantGroup": "ph2-week22-assembly-missing-details",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。明細0件と1件の注文を比べましょう。",
+      "hint": "対応する明細がない時にNOT EXISTSがtrueになります。",
+      "success": "明細が1件もない注文だけ残す条件を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week22-3/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 437,
+          "heading": "Week 22",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-assembly-correlated-key",
+      "weekUnitId": "week-unit-week22",
+      "format": "fillBlank",
+      "prompt": "外側の注文それぞれについて、その注文に属する明細がないか調べます。サブクエリの条件を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT orders.id FROM orders WHERE NOT EXISTS (\n  SELECT 1 FROM order_details WHERE __BLANK__\n);",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "order_details.order_id = orders.id"
+          },
+          {
+            "id": "wrong",
+            "text": "order_details.order_id = 1"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "1への固定では外側の各注文との対応を調べられません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "order_details.order_id ",
+            "= ",
+            "orders.id"
+          ],
+          "wrong": [
+            "order_details.order_id ",
+            "= ",
+            "1"
+          ]
+        }
+      },
+      "explanation": "外側のorders.idを参照して注文ごとに条件を変えます。PCでは複数の注文で結果を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "外側の注文それぞれについて、その注文に属する明細がないか調べます。サブクエリの条件を組み立ててください。",
+      "conceptId": "ph2-week22-correlated-key",
+      "variantGroup": "ph2-week22-assembly-correlated-key",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。複数の注文で結果を確認しましょう。",
+      "hint": "外側のorders.idを参照して注文ごとに条件を変えます。",
+      "success": "外側の注文それぞれについて、その注文に属する明細がないか調べます。サブクエリの条件を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week22-3/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "13792ca6ff61956040f6cad86a94b2d4931679eb70f5780f6a02f5d1a5abf1c8"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 437,
+          "heading": "Week 22",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week22-assembly-group-id-name",
+      "weekUnitId": "week-unit-week22",
+      "format": "fillBlank",
+      "prompt": "注文IDと注文者名を表示し、注文ごとに合計します。同姓同名の注文もあります。GROUP BYを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT orders.id, orders.name, SUM(order_details.price * order_details.quantity) AS total\nFROM orders JOIN order_details ON orders.id = order_details.order_id\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "GROUP BY orders.id, orders.name"
+          },
+          {
+            "id": "wrong",
+            "text": "GROUP BY orders.name"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "名前だけでは同じ名前の別注文を分けられず、表示するidの集計単位も不適切です。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "GROUP BY ",
+            "orders.id, ",
+            "orders.name"
+          ],
+          "wrong": [
+            "GROUP BY ",
+            "orders.name"
+          ]
+        }
+      },
+      "explanation": "注文idと表示する名前をグループのキーに含めます。PCでは同名の別注文が別行になるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week22",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "注文IDと注文者名を表示し、注文ごとに合計します。同姓同名の注文もあります。GROUP BYを組み立ててください。",
+      "conceptId": "ph2-week22-group-id-name",
+      "variantGroup": "ph2-week22-assembly-group-id-name",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜22の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week22の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。同名の別注文が別行になるか確認しましょう。",
+      "hint": "注文idと表示する名前をグループのキーに含めます。",
+      "success": "注文IDと注文者名を表示し、注文ごとに合計します。同姓同名の注文もあります。GROUP BYを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week22-1/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "087f5403b3f9cbdb8784435c1203b9542201d8e2f0636b0e65eeb7dc271c3c67"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 437,
+          "heading": "Week 22",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "curriculum/PH2/Week22.md",
+          "line": 3,
+          "heading": "はじめに",
+          "sha256": "fd717c34c7a0e04ed797ccf512082c4caaf21c2ce56fb66b9d4fabcd83417156"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
   }
 ]

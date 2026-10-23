@@ -847,5 +847,484 @@
       "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-assembly-state-initial",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "初期値が\"all\"のfilterと更新関数setFilterをuseStateで用意してください。useStateはimport済みです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "function App() {\n  __BLANK__\n  // 続くUIでfilterを使う\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "const [filter, setFilter] = useState(\"all\");"
+          },
+          {
+            "id": "wrong",
+            "text": "const [setFilter, filter] = useState(\"all\");"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "useStateの返す順序は状態値が先、更新関数が後です。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "const ",
+            "[filter, setFilter] ",
+            "= ",
+            "useState(\"all\")",
+            ";"
+          ],
+          "wrong": [
+            "const ",
+            "[setFilter, filter] ",
+            "= ",
+            "useState(\"all\")",
+            ";"
+          ]
+        }
+      },
+      "explanation": "配列の1つ目で状態値、2つ目で更新関数を受け取ります。PCではフィルターボタンからsetFilterを呼びましょう。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "ボタンを通すと、ボードが変わる"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "初期値が\"all\"のfilterと更新関数setFilterをuseStateで用意してください。useStateはimport済みです。",
+      "conceptId": "ph1-week15-state-initial",
+      "variantGroup": "ph1-week15-assembly-state-initial",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。フィルターボタンからsetFilterを呼びましょう。",
+      "hint": "配列の1つ目で状態値、2つ目で更新関数を受け取ります。",
+      "success": "初期値が\"all\"のfilterと更新関数setFilterをuseStateで用意してください。useStateはimport済みです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "line": 81,
+        "heading": "ボタンを通すと、ボードが変わる",
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week15-1/README.md",
+          "line": 1,
+          "heading": "問題1：フィルター機能を追加する（20分）",
+          "sha256": "0fae883ef09161a1e4529dd25d9c55b44b1d3c2a54dc4e6f8e2bba76f36aacb8"
+        },
+        {
+          "path": "drill-ph1/week15-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（追加ボタンを押しても画面が変わらない）（15分）",
+          "sha256": "e78f1c31bbe71e932021b496d05dc72af95a983b5adf4556d842847b5e8144e1"
+        },
+        {
+          "path": "drill-ph1/week15-3/README.md",
+          "line": 1,
+          "heading": "問題3：タスク1件を `TaskItem` コンポーネントに切り出す（25分）",
+          "sha256": "6b2a44adfcd574aaab4d90d5072ac3fa3d1875a0614fb16585a9dfd6fae518dc"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-assembly-controlled-input",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "inputとsetInputはuseStateで用意済みです。入力文字をstateへ渡す式を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<input value={input} onChange={(event) => __BLANK__} />",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "setInput(event.target.value)"
+          },
+          {
+            "id": "wrong",
+            "text": "setInput(event.target.name)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "nameは入力値ではなく、フォーム部品の名前です。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "setInput(",
+            "event.target.",
+            "value",
+            ")"
+          ],
+          "wrong": [
+            "setInput(",
+            "event.target.",
+            "name",
+            ")"
+          ]
+        }
+      },
+      "explanation": "valueとonChangeでstateと入力欄をつなぎます。PCではsetInput(\"\")で入力欄も空になるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "クリック・入力・送信を受け取る"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "inputとsetInputはuseStateで用意済みです。入力文字をstateへ渡す式を組み立ててください。",
+      "conceptId": "ph1-week15-controlled-input",
+      "variantGroup": "ph1-week15-assembly-controlled-input",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。setInput(\"\")で入力欄も空になるか確認しましょう。",
+      "hint": "valueとonChangeでstateと入力欄をつなぎます。",
+      "success": "inputとsetInputはuseStateで用意済みです。入力文字をstateへ渡す式を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "line": 320,
+        "heading": "クリック・入力・送信を受け取る",
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week15-1/README.md",
+          "line": 1,
+          "heading": "問題1：フィルター機能を追加する（20分）",
+          "sha256": "0fae883ef09161a1e4529dd25d9c55b44b1d3c2a54dc4e6f8e2bba76f36aacb8"
+        },
+        {
+          "path": "drill-ph1/week15-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（追加ボタンを押しても画面が変わらない）（15分）",
+          "sha256": "e78f1c31bbe71e932021b496d05dc72af95a983b5adf4556d842847b5e8144e1"
+        },
+        {
+          "path": "drill-ph1/week15-3/README.md",
+          "line": 1,
+          "heading": "問題3：タスク1件を `TaskItem` コンポーネントに切り出す（25分）",
+          "sha256": "6b2a44adfcd574aaab4d90d5072ac3fa3d1875a0614fb16585a9dfd6fae518dc"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-assembly-append-state",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "tasksはstate配列、newTaskは重複しないidを持つ作成済みのタスクです。元配列を変えず、末尾に追加してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "setTasks([...tasks, newTask])"
+          },
+          {
+            "id": "wrong",
+            "text": "setTasks([newTask, ...tasks])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "これは先頭への追加で、指定した末尾への追加とは異なります。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "setTasks(",
+            "[...tasks, ",
+            "newTask",
+            "]",
+            ")"
+          ],
+          "wrong": [
+            "setTasks(",
+            "[newTask, ",
+            "...tasks",
+            "]",
+            ")"
+          ]
+        }
+      },
+      "explanation": "スプレッドで既存の要素を残し、その後ろへ新要素を置きます。PCでは2件ある一覧へ追加して順序を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "stateは、上書きせずに作り直す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "tasksはstate配列、newTaskは重複しないidを持つ作成済みのタスクです。元配列を変えず、末尾に追加してください。",
+      "conceptId": "ph1-week15-append-state",
+      "variantGroup": "ph1-week15-assembly-append-state",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。2件ある一覧へ追加して順序を確認しましょう。",
+      "hint": "スプレッドで既存の要素を残し、その後ろへ新要素を置きます。",
+      "success": "tasksはstate配列、newTaskは重複しないidを持つ作成済みのタスクです。元配列を変えず、末尾に追加してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "line": 224,
+        "heading": "stateは、上書きせずに作り直す",
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week15-1/README.md",
+          "line": 1,
+          "heading": "問題1：フィルター機能を追加する（20分）",
+          "sha256": "0fae883ef09161a1e4529dd25d9c55b44b1d3c2a54dc4e6f8e2bba76f36aacb8"
+        },
+        {
+          "path": "drill-ph1/week15-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（追加ボタンを押しても画面が変わらない）（15分）",
+          "sha256": "e78f1c31bbe71e932021b496d05dc72af95a983b5adf4556d842847b5e8144e1"
+        },
+        {
+          "path": "drill-ph1/week15-3/README.md",
+          "line": 1,
+          "heading": "問題3：タスク1件を `TaskItem` コンポーネントに切り出す（25分）",
+          "sha256": "6b2a44adfcd574aaab4d90d5072ac3fa3d1875a0614fb16585a9dfd6fae518dc"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-assembly-filter-visible",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "tasksを変更せず、doneがfalseのタスクだけvisibleTasksへ取り出してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const visibleTasks = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "tasks.filter((task) => !task.done)"
+          },
+          {
+            "id": "wrong",
+            "text": "tasks.filter((task) => task.done)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "task.doneをそのまま返すと完了済みだけが残ります。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "tasks.",
+            "filter(",
+            "(task) => ",
+            "!task.done",
+            ")"
+          ],
+          "wrong": [
+            "tasks.",
+            "filter(",
+            "(task) => ",
+            "task.done",
+            ")"
+          ]
+        }
+      },
+      "explanation": "filterで条件がtrueのものを残します。PCでは「すべて」に戻した時に元のタスクが残っているか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "数・文字・ON/OFF・リストをstateで持つ"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "tasksを変更せず、doneがfalseのタスクだけvisibleTasksへ取り出してください。",
+      "conceptId": "ph1-week15-filter-visible",
+      "variantGroup": "ph1-week15-assembly-filter-visible",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。「すべて」に戻した時に元のタスクが残っているか確認しましょう。",
+      "hint": "filterで条件がtrueのものを残します。",
+      "success": "tasksを変更せず、doneがfalseのタスクだけvisibleTasksへ取り出してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "line": 168,
+        "heading": "数・文字・ON/OFF・リストをstateで持つ",
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week15-1/README.md",
+          "line": 1,
+          "heading": "問題1：フィルター機能を追加する（20分）",
+          "sha256": "0fae883ef09161a1e4529dd25d9c55b44b1d3c2a54dc4e6f8e2bba76f36aacb8"
+        },
+        {
+          "path": "drill-ph1/week15-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（追加ボタンを押しても画面が変わらない）（15分）",
+          "sha256": "e78f1c31bbe71e932021b496d05dc72af95a983b5adf4556d842847b5e8144e1"
+        },
+        {
+          "path": "drill-ph1/week15-3/README.md",
+          "line": 1,
+          "heading": "問題3：タスク1件を `TaskItem` コンポーネントに切り出す（25分）",
+          "sha256": "6b2a44adfcd574aaab4d90d5072ac3fa3d1875a0614fb16585a9dfd6fae518dc"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week15-assembly-effect-title",
+      "weekUnitId": "week-unit-week15",
+      "format": "fillBlank",
+      "prompt": "tasksの件数が変わるたびにブラウザのタイトルを同期します。useEffectはimport済み、tasksはstateです。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "useEffect(() => {\n  document.title = __BLANK__;\n}, [tasks]);",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "\"タスク数: \" + tasks.length"
+          },
+          {
+            "id": "wrong",
+            "text": "\"タスク数: \" + tasks"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "配列そのものを連結すると、件数を表すタイトルになりません。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "\"タスク数: \" ",
+            "+ ",
+            "tasks.length"
+          ],
+          "wrong": [
+            "\"タスク数: \" ",
+            "+ ",
+            "tasks"
+          ]
+        }
+      },
+      "explanation": "件数はtasks.lengthから求め、Effectでdocument.titleへ反映します。PCでは追加・削除後のタブのタイトルを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week15",
+        "sectionHeading": "描いたあとに、ひと仕事してほしい"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "tasksの件数が変わるたびにブラウザのタイトルを同期します。useEffectはimport済み、tasksはstateです。",
+      "conceptId": "ph1-week15-effect-title",
+      "variantGroup": "ph1-week15-assembly-effect-title",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜15の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week15の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。追加・削除後のタブのタイトルを確認しましょう。",
+      "hint": "件数はtasks.lengthから求め、Effectでdocument.titleへ反映します。",
+      "success": "tasksの件数が変わるたびにブラウザのタイトルを同期します。useEffectはimport済み、tasksはstateです。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week15.md",
+        "line": 351,
+        "heading": "描いたあとに、ひと仕事してほしい",
+        "sha256": "8f1a73b7703756c576ce3521c88bfb804ac738865f8b333d3647a9eab6a1a0d4"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week15-1/README.md",
+          "line": 1,
+          "heading": "問題1：フィルター機能を追加する（20分）",
+          "sha256": "0fae883ef09161a1e4529dd25d9c55b44b1d3c2a54dc4e6f8e2bba76f36aacb8"
+        },
+        {
+          "path": "drill-ph1/week15-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（追加ボタンを押しても画面が変わらない）（15分）",
+          "sha256": "e78f1c31bbe71e932021b496d05dc72af95a983b5adf4556d842847b5e8144e1"
+        },
+        {
+          "path": "drill-ph1/week15-3/README.md",
+          "line": 1,
+          "heading": "問題3：タスク1件を `TaskItem` コンポーネントに切り出す（25分）",
+          "sha256": "6b2a44adfcd574aaab4d90d5072ac3fa3d1875a0614fb16585a9dfd6fae518dc"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
   }
 ]

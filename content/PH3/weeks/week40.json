@@ -1,0 +1,1080 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week40-assembly-auth-middleware",
+      "weekUnitId": "week-unit-week40",
+      "format": "fillBlank",
+      "prompt": "DashboardControllerはimport済みです。GET /adminのログイン確認に、Laravel標準のauthミドルウェアを付けてください。管理者判定は別途必要です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\DashboardController;\nRoute::get('/admin', [DashboardController::class, 'index'])->__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "middleware('auth')"
+          },
+          {
+            "id": "wrong",
+            "text": "middleware('guest')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "guestは未ログイン向けのミドルウェアで、ログイン必須の指定とは異なります。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "middleware(",
+            "'auth'",
+            ")"
+          ],
+          "wrong": [
+            "middleware(",
+            "'guest'",
+            ")"
+          ]
+        }
+      },
+      "explanation": "authでログインを要求します。PCでは未ログイン時のアクセスを確認し、管理者の認可も別に設けましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "DashboardControllerはimport済みです。GET /adminのログイン確認に、Laravel標準のauthミドルウェアを付けてください。管理者判定は別途必要です。",
+      "conceptId": "ph3-week40-auth-middleware",
+      "variantGroup": "ph3-week40-assembly-auth-middleware",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。",
+      "drillConnection": "PH3 Week40のPOSSE課題へ接続。未ログイン時のアクセスを確認し、管理者の認可も別に設けましょう。",
+      "hint": "認証済みの利用者だけを通す標準の名前を選びます。",
+      "success": "DashboardControllerはimport済みです。GET /adminのログイン確認に、Laravel標準のauthミドルウェアを付けてください。管理者判定は別途必要です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-assembly-admin-redirect",
+      "weekUnitId": "week-unit-week40",
+      "format": "fillBlank",
+      "prompt": "認証済み$userのis_adminはサーバーで管理する真偽値です。管理者でない場合だけトップへ戻してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nfunction checkAdmin($user) {\n  if (__BLANK__) { return redirect('/website'); }\n  return 'allowed';\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "!$user->is_admin"
+          },
+          {
+            "id": "wrong",
+            "text": "$user->is_admin"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "否定がないと管理者を戻し、一般ユーザーを通す逆の条件です。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "!",
+            "$user->",
+            "is_admin"
+          ],
+          "wrong": [
+            "$user->",
+            "is_admin"
+          ]
+        }
+      },
+      "explanation": "サーバーで確認したis_adminを否定して拒否側を処理します。PCでは一般ユーザーがURLを直接入力しても入れないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "認証済み$userのis_adminはサーバーで管理する真偽値です。管理者でない場合だけトップへ戻してください。",
+      "conceptId": "ph3-week40-admin-redirect",
+      "variantGroup": "ph3-week40-assembly-admin-redirect",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。",
+      "drillConnection": "PH3 Week40のPOSSE課題へ接続。一般ユーザーがURLを直接入力しても入れないか確認しましょう。",
+      "hint": "管理者ではない時の条件に否定を使います。",
+      "success": "認証済み$userのis_adminはサーバーで管理する真偽値です。管理者でない場合だけトップへ戻してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-assembly-continue-middleware",
+      "weekUnitId": "week-unit-week40",
+      "format": "fillBlank",
+      "prompt": "管理者確認が成功したミドルウェアです。$nextは次の処理、$requestは現在のリクエストです。後続へ渡してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nfunction handle($request, $next) {\n  // 認証・管理者確認は成功済み\n  return __BLANK__;\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$next($request)"
+          },
+          {
+            "id": "wrong",
+            "text": "$next(null)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "nullでは現在のリクエストを後続へ引き渡せません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$next(",
+            "$request",
+            ")"
+          ],
+          "wrong": [
+            "$next(",
+            "null",
+            ")"
+          ]
+        }
+      },
+      "explanation": "$next($request)で処理を続けます。PCでは管理者の時にControllerまで到達するか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "管理者確認が成功したミドルウェアです。$nextは次の処理、$requestは現在のリクエストです。後続へ渡してください。",
+      "conceptId": "ph3-week40-continue-middleware",
+      "variantGroup": "ph3-week40-assembly-continue-middleware",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。",
+      "drillConnection": "PH3 Week40のPOSSE課題へ接続。管理者の時にControllerまで到達するか確認しましょう。",
+      "hint": "次の処理へ、受け取ったリクエストを渡します。",
+      "success": "管理者確認が成功したミドルウェアです。$nextは次の処理、$requestは現在のリクエストです。後続へ渡してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-assembly-gate-admin",
+      "weekUnitId": "week-unit-week40",
+      "format": "fillBlank",
+      "prompt": "Userのis_adminはサーバーで管理する真偽値です。manage-quizzesゲートを、管理者の時だけ許可するよう定義してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Gate;\nGate::define('manage-quizzes', function ($user) {\n  return __BLANK__;\n});",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$user->is_admin"
+          },
+          {
+            "id": "wrong",
+            "text": "!$user->is_admin"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "否定すると一般ユーザーを許可し、管理者を拒否する条件になります。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$user->",
+            "is_admin"
+          ],
+          "wrong": [
+            "!",
+            "$user->",
+            "is_admin"
+          ]
+        }
+      },
+      "explanation": "サーバーの管理者属性で許可を判断します。PCではControllerなどサーバー側でもゲートを適用しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Userのis_adminはサーバーで管理する真偽値です。manage-quizzesゲートを、管理者の時だけ許可するよう定義してください。",
+      "conceptId": "ph3-week40-gate-admin",
+      "variantGroup": "ph3-week40-assembly-gate-admin",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。",
+      "drillConnection": "PH3 Week40のPOSSE課題へ接続。Controllerなどサーバー側でもゲートを適用しましょう。",
+      "hint": "ゲートは許可する時にtrueを返します。",
+      "success": "Userのis_adminはサーバーで管理する真偽値です。manage-quizzesゲートを、管理者の時だけ許可するよう定義してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 固定入力で正誤比較。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-assembly-authorize-request",
+      "weekUnitId": "week-unit-week40",
+      "format": "fillBlank",
+      "prompt": "manage-quizzesゲートは登録済みです。管理用の更新処理を実行する前に、その権限をサーバーで要求してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Gate;\n__BLANK__;\n// この後にクイズの更新処理",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Gate::authorize('manage-quizzes')"
+          },
+          {
+            "id": "wrong",
+            "text": "Gate::allows('manage-quizzes')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "allowsの戻り値を無視しただけでは、拒否された時に処理を止められません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "Gate::",
+            "authorize(",
+            "'manage-quizzes'",
+            ")"
+          ],
+          "wrong": [
+            "Gate::",
+            "allows(",
+            "'manage-quizzes'",
+            ")"
+          ]
+        }
+      },
+      "explanation": "authorizeは許可できない場合403につなぎます。PCではボタンの非表示だけでなく直接リクエストも拒否できるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "manage-quizzesゲートは登録済みです。管理用の更新処理を実行する前に、その権限をサーバーで要求してください。",
+      "conceptId": "ph3-week40-authorize-request",
+      "variantGroup": "ph3-week40-assembly-authorize-request",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。",
+      "drillConnection": "PH3 Week40のPOSSE課題へ接続。ボタンの非表示だけでなく直接リクエストも拒否できるか確認しましょう。",
+      "hint": "許可できない時に例外で止めるメソッドを使います。",
+      "success": "manage-quizzesゲートは登録済みです。管理用の更新処理を実行する前に、その権限をサーバーで要求してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-auth-versus-admin",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "authミドルウェアを付けた管理ページへ一般ユーザーがログインしてアクセスできました。追加すべき確認はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "ページタイトルが管理画面かだけを見る"
+          },
+          {
+            "id": "wrong3",
+            "text": "URLにadminが含まれるかだけを見る"
+          },
+          {
+            "id": "correct",
+            "text": "管理者権限があるかの認可"
+          },
+          {
+            "id": "wrong1",
+            "text": "ログイン済みかだけをもう一度見る"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "一般ユーザーもログイン済みなので管理者の判定になりません。",
+          "wrong2": "タイトルはサーバー側の権限を保証しません。",
+          "wrong3": "URLの文字列だけでは利用者の権限を判定できません。"
+        }
+      },
+      "explanation": "認証に加えて管理者に許可する認可が必要です。 PCでは一般ユーザーで管理URLを直接開いて確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「管理者権限があるかの認可」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-auth-versus-admin",
+      "variantGroup": "ph3-week40-choice-auth-versus-admin",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week40のPOSSE課題。一般ユーザーで管理URLを直接開いて確認しましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "本人の確認と操作権限の確認は別です。",
+      "success": "条件に適合する候補を1つ選ぶ：管理者権限があるかの認可",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-middleware-role",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "管理画面の複数ルートに共通のアクセス条件を付けます。ミドルウェアの役割はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "コンパイル後のCSSを圧縮する"
+          },
+          {
+            "id": "correct",
+            "text": "リクエストの途中で共通の条件を確認し処理を通すか決める"
+          },
+          {
+            "id": "wrong1",
+            "text": "管理画面の文字だけを太くする"
+          },
+          {
+            "id": "wrong2",
+            "text": "DBの全行へ同じ名前を入れる"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ミドルウェアは表示の装飾ではありません。",
+          "wrong2": "データの一括上書きが目的ではありません。",
+          "wrong3": "アセットのビルドとアクセス制御は別です。"
+        }
+      },
+      "explanation": "共通の認証・認可条件をルートへ適用できます。 PCでは管理ルート群に必要なミドルウェアが付くか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「リクエストの途中で共通の条件を確認し処理を通すか決める」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-middleware-role",
+      "variantGroup": "ph3-week40-choice-middleware-role",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week40のPOSSE課題。管理ルート群に必要なミドルウェアが付くか確認しましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "個別アクションの前などに共通処理を置きます。",
+      "success": "条件に適合する候補を1つ選ぶ：リクエストの途中で共通の条件を確認し処理を通すか決める",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-hidden-button-insufficient",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "一般ユーザーには削除ボタンを表示しません。削除処理を守るために必要なことはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "削除リクエストを受けるサーバー側でも認可する"
+          },
+          {
+            "id": "wrong1",
+            "text": "ボタンの文字色だけを白くする"
+          },
+          {
+            "id": "wrong2",
+            "text": "ボタンを非表示にしたのでサーバー側の確認を外す"
+          },
+          {
+            "id": "wrong3",
+            "text": "削除URLを長くするだけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "リクエストを直接送る操作を防げません。",
+          "wrong2": "非表示は削除権限を保証しません。",
+          "wrong3": "URLを知った利用者からのリクエストを拒否できません。"
+        }
+      },
+      "explanation": "表示の制御とサーバー側の認可を両方行います。 PCでは一般ユーザーで削除URLへ直接送信して拒否されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「削除リクエストを受けるサーバー側でも認可する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-hidden-button-insufficient",
+      "variantGroup": "ph3-week40-choice-hidden-button-insufficient",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week40のPOSSE課題。一般ユーザーで削除URLへ直接送信して拒否されるか確認しましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "画面以外からリクエストを送れる点を考えます。",
+      "success": "条件に適合する候補を1つ選ぶ：削除リクエストを受けるサーバー側でも認可する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-gate-enforce",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "manage-quizzesゲートを定義済みです。Controllerで許可されない場合に処理を止める呼び出しはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "Gate::allows(\"manage-quizzes\"); の結果を無視する"
+          },
+          {
+            "id": "wrong2",
+            "text": "route(\"manage-quizzes\");"
+          },
+          {
+            "id": "wrong3",
+            "text": "view(\"admin.index\");"
+          },
+          {
+            "id": "correct",
+            "text": "Gate::authorize(\"manage-quizzes\");"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "真偽値を無視すると後続の処理が実行されます。",
+          "wrong2": "URL生成であり権限確認ではありません。",
+          "wrong3": "画面を返すだけで権限を強制しません。"
+        }
+      },
+      "explanation": "authorizeで不許可の場合に処理を中断します。 PCでは拒否された場合にDB更新が行われないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Gate::authorize(\"manage-quizzes\");」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-gate-enforce",
+      "variantGroup": "ph3-week40-choice-gate-enforce",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week40のPOSSE課題。拒否された場合にDB更新が行われないか確認しましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "拒否時に例外で止める仕組みを選びます。",
+      "success": "条件に適合する候補を1つ選ぶ：Gate::authorize(\"manage-quizzes\");",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-server-admin-flag",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "is_adminで管理者を判定する設計です。この値の設定方法として適切なのはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "URLの?is_admin=1だけで管理者にする"
+          },
+          {
+            "id": "wrong3",
+            "text": "画面のボタン名がadminなら管理者にする"
+          },
+          {
+            "id": "correct",
+            "text": "サーバー側の管理された手段で付与し、一般登録の入力を採用しない"
+          },
+          {
+            "id": "wrong1",
+            "text": "登録フォームのhidden入力をそのまま保存する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "hidden入力も利用者が改変できます。",
+          "wrong2": "URLの値は利用者が指定できます。",
+          "wrong3": "表示名は利用者の権限ではありません。"
+        }
+      },
+      "explanation": "管理権限の付与はサーバー側で管理します。 PCでは一般登録からis_adminを送っても権限が増えないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「サーバー側の管理された手段で付与し、一般登録の入力を採用しない」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-server-admin-flag",
+      "variantGroup": "ph3-week40-choice-server-admin-flag",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week40のPOSSE課題。一般登録からis_adminを送っても権限が増えないか確認しましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "利用者が自由に書き換えられる入力を信頼しません。",
+      "success": "条件に適合する候補を1つ選ぶ：サーバー側の管理された手段で付与し、一般登録の入力を採用しない",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-general-user-redirect",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "Week40の課題では、管理者でない人が管理URLを直接開いたとき、どこへ移動させますか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "管理用の編集フォームへ進める"
+          },
+          {
+            "id": "correct",
+            "text": "websiteのトップページ"
+          },
+          {
+            "id": "wrong1",
+            "text": "管理者として/adminへ入れる"
+          },
+          {
+            "id": "wrong2",
+            "text": "自動的に全ユーザーを削除する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "課題のアクセス制御に反します。",
+          "wrong2": "権限のない閲覧への応答として不適切です。",
+          "wrong3": "管理者以外のアクセスを防げません。"
+        }
+      },
+      "explanation": "管理者以外はwebsiteのトップへリダイレクトします。 PCでは一般ユーザーで直接/adminを開き遷移先を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「websiteのトップページ」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-general-user-redirect",
+      "variantGroup": "ph3-week40-choice-general-user-redirect",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week40のPOSSE課題。一般ユーザーで直接/adminを開き遷移先を確認しましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "この週の課題で指定された導線です。",
+      "success": "条件に適合する候補を1つ選ぶ：websiteのトップページ",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-admin-redirect",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "管理者のログインが成功し、権限も確認済みです。Week40で指定された遷移先はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "/adminのダッシュボード"
+          },
+          {
+            "id": "wrong1",
+            "text": "必ず/registerへ戻す"
+          },
+          {
+            "id": "wrong2",
+            "text": "ログインPOSTを同じURLへ繰り返す"
+          },
+          {
+            "id": "wrong3",
+            "text": "無関係なクイズを削除するURL"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "認証済み管理者のダッシュボードへの導線と異なります。",
+          "wrong2": "画面遷移にならずループの原因にもなります。",
+          "wrong3": "ログイン後の管理画面表示と異なります。"
+        }
+      },
+      "explanation": "認証・認可の後に管理ダッシュボードへ移動します。 PCでは管理者と一般ユーザーで遷移先が分かれるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「/adminのダッシュボード」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-admin-redirect",
+      "variantGroup": "ph3-week40-choice-admin-redirect",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week40のPOSSE課題。管理者と一般ユーザーで遷移先が分かれるか確認しましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ログイン成功後に管理者用の入口へ進みます。",
+      "success": "条件に適合する候補を1つ選ぶ：/adminのダッシュボード",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-gate-view",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "manage-quizzesゲートに通る場合だけ管理リンクをBladeで表示します。適した構文はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "@csrf … だけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "@foreach (\"manage-quizzes\" as $item) … @endforeach"
+          },
+          {
+            "id": "wrong3",
+            "text": "{{ \"manage-quizzes\" }}だけ"
+          },
+          {
+            "id": "correct",
+            "text": "@can(\"manage-quizzes\") … @endcan"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "CSRFトークンは権限による表示分岐ではありません。",
+          "wrong2": "文字列を繰り返しても権限確認になりません。",
+          "wrong3": "ゲート名を表示しても許可判定しません。"
+        }
+      },
+      "explanation": "canで認可に応じて表示を分けられます。 PCでは管理者と一般ユーザーでリンク表示を比較しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「@can(\"manage-quizzes\") … @endcan」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-gate-view",
+      "variantGroup": "ph3-week40-choice-gate-view",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week40のPOSSE課題。管理者と一般ユーザーでリンク表示を比較しましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "Bladeからゲートの許可を参照します。",
+      "success": "条件に適合する候補を1つ選ぶ：@can(\"manage-quizzes\") … @endcan",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-redirect-loop-investigation",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "GET /loginが繰り返し同じ場所へリダイレクトされます。まず確認する対象はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "一覧の文字サイズだけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "DBのすべてのクイズを削除"
+          },
+          {
+            "id": "correct",
+            "text": "ルートのアクションとリダイレクト先、適用ミドルウェア"
+          },
+          {
+            "id": "wrong1",
+            "text": "faviconの縦横比だけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "リダイレクト先の連鎖は確認できません。",
+          "wrong2": "認証のリダイレクト条件とは別です。",
+          "wrong3": "原因を調べずデータを消す必要はありません。"
+        }
+      },
+      "explanation": "ルートと認証条件と移動先を対応させて循環を探します。 PCでは開発ツールのNetworkでリダイレクト先を追いましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「ルートのアクションとリダイレクト先、適用ミドルウェア」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-redirect-loop-investigation",
+      "variantGroup": "ph3-week40-choice-redirect-loop-investigation",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week40-1/README.md",
+          "line": 1,
+          "heading": "40週目ミニドリル 1問目",
+          "sha256": "d6c7de9ec2705a4fcf959c51978eabb5b9bc6165e8a96d938138262b98cf05d0",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week40-1の関連ドリル。開発ツールのNetworkでリダイレクト先を追いましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "どの応答が次のリクエストを生むかたどります。",
+      "success": "条件に適合する候補を1つ選ぶ：ルートのアクションとリダイレクト先、適用ミドルウェア",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week40-choice-admin-test-matrix",
+      "weekUnitId": "week-unit-week40",
+      "format": "singleChoice",
+      "prompt": "管理ページのアクセス制御を確認する組み合わせはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "URLの名前にadminがあるかだけを見る"
+          },
+          {
+            "id": "correct",
+            "text": "未ログイン・一般ユーザー・管理者で直接URLを開く"
+          },
+          {
+            "id": "wrong1",
+            "text": "管理者でリンクを1回押すだけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "CSSを読み込まず画面を見るだけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "未ログインや一般ユーザーの拒否を確認できません。",
+          "wrong2": "利用者ごとの権限の違いを確認できません。",
+          "wrong3": "実際の認証・認可の動作を確認できません。"
+        }
+      },
+      "explanation": "異なる認証・認可状態でURLへの直接アクセスも確認します。 PCでは3種類の状態で応答と遷移先を記録しましょう。",
+      "sourceReference": {
+        "weekKey": "week40",
+        "sectionHeading": "Week 40"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「未ログイン・一般ユーザー・管理者で直接URLを開く」を選び、その理由を説明する。",
+      "conceptId": "ph3-week40-admin-test-matrix",
+      "variantGroup": "ph3-week40-choice-admin-test-matrix",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 530,
+        "heading": "Week 40",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week40のPOSSE課題。3種類の状態で応答と遷移先を記録しましょう。",
+      "priorKnowledge": "Week33のBreeze、Week40のミドルウェアとGate。サーバー管理のis_adminという条件を設問で指定。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "許可される人と拒否される人を分けて試します。",
+      "success": "条件に適合する候補を1つ選ぶ：未ログイン・一般ユーザー・管理者で直接URLを開く",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

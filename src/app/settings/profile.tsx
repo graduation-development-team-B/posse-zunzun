@@ -67,7 +67,7 @@ function ProfileForm({ profile }: { profile: Profile }) {
           setNotice("");
         }}
       />
-      <View pointerEvents={busy ? "none" : "auto"} style={s.form}>
+      <View style={[s.form, { pointerEvents: busy ? "none" : "auto" }]}>
         <SelectField
           label="所属POSSE"
           value={posse}

@@ -121,6 +121,12 @@ export interface QuestionItem extends PublicationFields {
   /** 順序付きプレビュー制作課題。通常のランダム出題とは分ける。 */
   preview?: PreviewStep;
   console?: ConsoleStep;
+  /** 実行せず、明示したコード断片の順序で採点する。 */
+  assembly?: {
+    language: string;
+    optionTokens: Record<string, string[]>;
+    inputMode?: "classes";
+  };
 }
 
 export interface ConsoleStep extends PreviewStep {

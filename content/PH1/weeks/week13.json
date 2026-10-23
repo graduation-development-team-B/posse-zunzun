@@ -826,5 +826,468 @@
       "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-assembly-dev-command",
+      "weekUnitId": "week-unit-week13",
+      "format": "fillBlank",
+      "prompt": "package.jsonのscriptsには\"dev\":\"vite\"があります。開発サーバーを起動するコマンドを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "pnpm run dev"
+          },
+          {
+            "id": "wrong",
+            "text": "pnpm run build"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "buildは本番用ファイルを生成する処理で、devサーバーの起動ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "pnpm ",
+            "run ",
+            "dev"
+          ],
+          "wrong": [
+            "pnpm ",
+            "run ",
+            "build"
+          ]
+        }
+      },
+      "explanation": "pnpm runはscripts内の名前を指定します。PCでは表示されたLocalのURLを開きましょう。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "設定書（package.json）を読む"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "package.jsonのscriptsには\"dev\":\"vite\"があります。開発サーバーを起動するコマンドを組み立ててください。",
+      "conceptId": "ph1-week13-dev-command",
+      "variantGroup": "ph1-week13-assembly-dev-command",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。表示されたLocalのURLを開きましょう。",
+      "hint": "pnpm runはscripts内の名前を指定します。",
+      "success": "package.jsonのscriptsには\"dev\":\"vite\"があります。開発サーバーを起動するコマンドを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "line": 243,
+        "heading": "設定書（package.json）を読む",
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week13-1/README.md",
+          "line": 1,
+          "heading": "問題1：カウンターに「減らす」「リセット」を足す（20分）",
+          "sha256": "25e34b812054d2104b3a0211bb1cd82c62827d8c5a05a9e57dd59ff9528f0fae"
+        },
+        {
+          "path": "drill-ph1/week13-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（import のファイル名）（15分）",
+          "sha256": "9b38b5ecb97238073c2ca9633e8438747e13e3f987944c0eb7ef1f5b4d2a2ed1"
+        },
+        {
+          "path": "drill-ph1/week13-3/README.md",
+          "line": 1,
+          "heading": "問題3：前週のホバーカードを、Vite に引っ越す（25分）",
+          "sha256": "0921b5c84ae616eab8c100bf5576d73c1db535ea4acb24fe943dd82833a1f2c0"
+        }
+      ],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-assembly-install-command",
+      "weekUnitId": "week-unit-week13",
+      "format": "fillBlank",
+      "prompt": "雛形を作ったmy-counter-appの中にいます。package.jsonの依存をインストールしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "pnpm install"
+          },
+          {
+            "id": "wrong",
+            "text": "pnpm run install"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "run installはscriptsのinstallを呼ぶ指定で、依存をそろえるinstallコマンドではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "pnpm ",
+            "install"
+          ],
+          "wrong": [
+            "pnpm ",
+            "run install"
+          ]
+        }
+      },
+      "explanation": "pnpm installで依存をそろえます。PCでは完了後にpnpm run devで開発サーバーを起動しましょう。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "作業場を立ち上げる"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "雛形を作ったmy-counter-appの中にいます。package.jsonの依存をインストールしてください。",
+      "conceptId": "ph1-week13-install-command",
+      "variantGroup": "ph1-week13-assembly-install-command",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。完了後にpnpm run devで開発サーバーを起動しましょう。",
+      "hint": "pnpm installで依存をそろえます。",
+      "success": "雛形を作ったmy-counter-appの中にいます。package.jsonの依存をインストールしてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "line": 133,
+        "heading": "作業場を立ち上げる",
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week13-1/README.md",
+          "line": 1,
+          "heading": "問題1：カウンターに「減らす」「リセット」を足す（20分）",
+          "sha256": "25e34b812054d2104b3a0211bb1cd82c62827d8c5a05a9e57dd59ff9528f0fae"
+        },
+        {
+          "path": "drill-ph1/week13-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（import のファイル名）（15分）",
+          "sha256": "9b38b5ecb97238073c2ca9633e8438747e13e3f987944c0eb7ef1f5b4d2a2ed1"
+        },
+        {
+          "path": "drill-ph1/week13-3/README.md",
+          "line": 1,
+          "heading": "問題3：前週のホバーカードを、Vite に引っ越す（25分）",
+          "sha256": "0921b5c84ae616eab8c100bf5576d73c1db535ea4acb24fe943dd82833a1f2c0"
+        }
+      ],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-assembly-css-import",
+      "weekUnitId": "week-unit-week13",
+      "format": "fillBlank",
+      "prompt": "src/main.jsとsrc/style.cssは同じフォルダです。main.jsからCSSを読み込む文を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__\ndocument.querySelector(\"#app\").innerHTML = \"<h1>一覧</h1>\";",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "import \"./style.css\";"
+          },
+          {
+            "id": "wrong",
+            "text": "import \"./styles.css\";"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "提示したファイル名はstyle.cssであり、styles.cssではありません。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "import ",
+            "\"./style.css\"",
+            ";"
+          ],
+          "wrong": [
+            "import ",
+            "\"./styles.css\"",
+            ";"
+          ]
+        }
+      },
+      "explanation": "相対パスと実在するファイル名を合わせます。PCでは保存してViteのエラーが消えるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "main.jsを書き換えて、カウンターにする"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "src/main.jsとsrc/style.cssは同じフォルダです。main.jsからCSSを読み込む文を組み立ててください。",
+      "conceptId": "ph1-week13-css-import",
+      "variantGroup": "ph1-week13-assembly-css-import",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。保存してViteのエラーが消えるか確認しましょう。",
+      "hint": "相対パスと実在するファイル名を合わせます。",
+      "success": "src/main.jsとsrc/style.cssは同じフォルダです。main.jsからCSSを読み込む文を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "line": 280,
+        "heading": "main.jsを書き換えて、カウンターにする",
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week13-1/README.md",
+          "line": 1,
+          "heading": "問題1：カウンターに「減らす」「リセット」を足す（20分）",
+          "sha256": "25e34b812054d2104b3a0211bb1cd82c62827d8c5a05a9e57dd59ff9528f0fae"
+        },
+        {
+          "path": "drill-ph1/week13-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（import のファイル名）（15分）",
+          "sha256": "9b38b5ecb97238073c2ca9633e8438747e13e3f987944c0eb7ef1f5b4d2a2ed1"
+        },
+        {
+          "path": "drill-ph1/week13-3/README.md",
+          "line": 1,
+          "heading": "問題3：前週のホバーカードを、Vite に引っ越す（25分）",
+          "sha256": "0921b5c84ae616eab8c100bf5576d73c1db535ea4acb24fe943dd82833a1f2c0"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-assembly-module-script",
+      "weekUnitId": "week-unit-week13",
+      "format": "fillBlank",
+      "prompt": "ViteのHTMLから/src/main.jsをJavaScriptモジュールとして読み込んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<div id=\"app\"></div>\n__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "<script type=\"module\" src=\"/src/main.js\"></script>"
+          },
+          {
+            "id": "wrong",
+            "text": "<script type=\"text/plain\" src=\"/src/main.js\"></script>"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "text/plainではJavaScriptモジュールとして実行されません。"
+        }
+      },
+      "assembly": {
+        "language": "html",
+        "optionTokens": {
+          "correct": [
+            "<script ",
+            "type=\"module\" ",
+            "src=\"/src/main.js\"",
+            "></script>"
+          ],
+          "wrong": [
+            "<script ",
+            "type=\"text/plain\" ",
+            "src=\"/src/main.js\"",
+            "></script>"
+          ]
+        }
+      },
+      "explanation": "type=\"module\"を指定してimportを使う入口を読み込みます。PCでは開発サーバーから画面を開きましょう。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "作業場の中には何が入っているか"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "ViteのHTMLから/src/main.jsをJavaScriptモジュールとして読み込んでください。",
+      "conceptId": "ph1-week13-module-script",
+      "variantGroup": "ph1-week13-assembly-module-script",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。開発サーバーから画面を開きましょう。",
+      "hint": "type=\"module\"を指定してimportを使う入口を読み込みます。",
+      "success": "ViteのHTMLから/src/main.jsをJavaScriptモジュールとして読み込んでください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "line": 216,
+        "heading": "作業場の中には何が入っているか",
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week13-1/README.md",
+          "line": 1,
+          "heading": "問題1：カウンターに「減らす」「リセット」を足す（20分）",
+          "sha256": "25e34b812054d2104b3a0211bb1cd82c62827d8c5a05a9e57dd59ff9528f0fae"
+        },
+        {
+          "path": "drill-ph1/week13-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（import のファイル名）（15分）",
+          "sha256": "9b38b5ecb97238073c2ca9633e8438747e13e3f987944c0eb7ef1f5b4d2a2ed1"
+        },
+        {
+          "path": "drill-ph1/week13-3/README.md",
+          "line": 1,
+          "heading": "問題3：前週のホバーカードを、Vite に引っ越す（25分）",
+          "sha256": "0921b5c84ae616eab8c100bf5576d73c1db535ea4acb24fe943dd82833a1f2c0"
+        }
+      ],
+      "codeLanguage": "html"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week13-assembly-relative-base",
+      "weekUnitId": "week-unit-week13",
+      "format": "fillBlank",
+      "prompt": "GitHub Pagesのサブパスへ置くため、教材の相対base設定を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "// vite.config.js\nexport default { __BLANK__ };",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "base: \"./\""
+          },
+          {
+            "id": "wrong",
+            "text": "base: \"/\""
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "/はサイトのルートを基準にする指定です。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "base: ",
+            "\"./\""
+          ],
+          "wrong": [
+            "base: ",
+            "\"/\""
+          ]
+        }
+      },
+      "explanation": "base: \"./\"にして再ビルドし、配置先でアセットのURLを確認します。PCでは生成後のファイルを配信して確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week13",
+        "sectionHeading": "本番用に固めて公開する"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "GitHub Pagesのサブパスへ置くため、教材の相対base設定を組み立ててください。",
+      "conceptId": "ph1-week13-relative-base",
+      "variantGroup": "ph1-week13-assembly-relative-base",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。生成後のファイルを配信して確認しましょう。",
+      "hint": "base: \"./\"にして再ビルドし、配置先でアセットのURLを確認します。",
+      "success": "GitHub Pagesのサブパスへ置くため、教材の相対base設定を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week13.md",
+        "line": 311,
+        "heading": "本番用に固めて公開する",
+        "sha256": "6218679975c1aca28c7fc520a8c7ecc300fb17a7b8f89165c243e519b1768748"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week13-1/README.md",
+          "line": 1,
+          "heading": "問題1：カウンターに「減らす」「リセット」を足す（20分）",
+          "sha256": "25e34b812054d2104b3a0211bb1cd82c62827d8c5a05a9e57dd59ff9528f0fae"
+        },
+        {
+          "path": "drill-ph1/week13-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（import のファイル名）（15分）",
+          "sha256": "9b38b5ecb97238073c2ca9633e8438747e13e3f987944c0eb7ef1f5b4d2a2ed1"
+        },
+        {
+          "path": "drill-ph1/week13-3/README.md",
+          "line": 1,
+          "heading": "問題3：前週のホバーカードを、Vite に引っ越す（25分）",
+          "sha256": "0921b5c84ae616eab8c100bf5576d73c1db535ea4acb24fe943dd82833a1f2c0"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
   }
 ]

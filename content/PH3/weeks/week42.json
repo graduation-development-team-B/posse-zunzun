@@ -1,0 +1,1103 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week42-assembly-request-rules",
+      "weekUnitId": "week-unit-week42",
+      "format": "fillBlank",
+      "prompt": "FormRequestでnameを必須・文字列・100文字以内にしてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nclass StoreQuizRequest extends FormRequest {\n  public function rules(): array {\n    return ['name' => __BLANK__];\n  }\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "['required', 'string', 'max:100']"
+          },
+          {
+            "id": "wrong",
+            "text": "['nullable', 'string', 'max:100']"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "nullableでは必須という指定になりません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "[",
+            "'required', ",
+            "'string', ",
+            "'max:100'",
+            "]"
+          ],
+          "wrong": [
+            "[",
+            "'nullable', ",
+            "'string', ",
+            "'max:100'",
+            "]"
+          ]
+        }
+      },
+      "explanation": "requiredを含めて入力を検証します。PCでは空欄・100文字・101文字の結果を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "FormRequestでnameを必須・文字列・100文字以内にしてください。",
+      "conceptId": "ph3-week42-request-rules",
+      "variantGroup": "ph3-week42-assembly-request-rules",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。",
+      "drillConnection": "PH3 Week42のPOSSE課題へ接続。空欄・100文字・101文字の結果を確認しましょう。",
+      "hint": "必須であることを明示するルールが必要です。",
+      "success": "FormRequestでnameを必須・文字列・100文字以内にしてください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-assembly-validated-create",
+      "weekUnitId": "week-unit-week42",
+      "format": "fillBlank",
+      "prompt": "StoreQuizRequestはnameだけを検証します。Quizのnameはfillableです。検証済みの値だけで新規クイズを作ってください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nfunction store(StoreQuizRequest $request) {\n  return Quiz::create(__BLANK__);\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$request->validated()"
+          },
+          {
+            "id": "wrong",
+            "text": "$request->all()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "allは検証対象外の入力も含むため、検証済みだけという指定ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$request->",
+            "validated(",
+            ")"
+          ],
+          "wrong": [
+            "$request->",
+            "all(",
+            ")"
+          ]
+        }
+      },
+      "explanation": "validated()から保存値を受け取ります。PCでは余分な入力項目が保存へ渡らないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "StoreQuizRequestはnameだけを検証します。Quizのnameはfillableです。検証済みの値だけで新規クイズを作ってください。",
+      "conceptId": "ph3-week42-validated-create",
+      "variantGroup": "ph3-week42-assembly-validated-create",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。",
+      "drillConnection": "PH3 Week42のPOSSE課題へ接続。余分な入力項目が保存へ渡らないか確認しましょう。",
+      "hint": "FormRequestの検証に通ったデータを取得します。",
+      "success": "StoreQuizRequestはnameだけを検証します。Quizのnameはfillableです。検証済みの値だけで新規クイズを作ってください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-assembly-error-message",
+      "weekUnitId": "week-unit-week42",
+      "format": "fillBlank",
+      "prompt": "nameにバリデーションエラーがある時、そのメッセージをBladeで表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "@error('name')\n  <p>{{ __BLANK__ }}</p>\n@enderror",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$message"
+          },
+          {
+            "id": "wrong",
+            "text": "$name"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "エラー本文を表す提供変数は$messageです。"
+        }
+      },
+      "assembly": {
+        "language": "blade",
+        "optionTokens": {
+          "correct": [
+            "$",
+            "message"
+          ],
+          "wrong": [
+            "$",
+            "name"
+          ]
+        }
+      },
+      "explanation": "@errorで対象項目のエラーを表示します。PCでは空欄送信後に理由が見えるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "nameにバリデーションエラーがある時、そのメッセージをBladeで表示してください。",
+      "conceptId": "ph3-week42-error-message",
+      "variantGroup": "ph3-week42-assembly-error-message",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。",
+      "drillConnection": "PH3 Week42のPOSSE課題へ接続。空欄送信後に理由が見えるか確認しましょう。",
+      "hint": "@errorのブロックが渡すメッセージ変数を使います。",
+      "success": "nameにバリデーションエラーがある時、そのメッセージをBladeで表示してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的意味レビューのみ。Blade/Laravelは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "blade"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-assembly-redirect-flash",
+      "weekUnitId": "week-unit-week42",
+      "format": "fillBlank",
+      "prompt": "quizzes.storeの保存は成功済みです。登録済みのadmin.quizzes.indexへ戻り、statusのフラッシュメッセージを付けてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nfunction afterStore() {\n  return redirect()->route('admin.quizzes.index')->__BLANK__;\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "with('status', '新しいクイズを作成しました！')"
+          },
+          {
+            "id": "wrong",
+            "text": "with('error', '新しいクイズを作成しました！')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "一覧側が読むstatusとキーが合わないため、成功メッセージを受け取れません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "with(",
+            "'status', ",
+            "'新しいクイズを作成しました！'",
+            ")"
+          ],
+          "wrong": [
+            "with(",
+            "'error', ",
+            "'新しいクイズを作成しました！'",
+            ")"
+          ]
+        }
+      },
+      "explanation": "withで次のリクエストへ成功情報を渡します。PCでは一覧でsession('status')が表示されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "quizzes.storeの保存は成功済みです。登録済みのadmin.quizzes.indexへ戻り、statusのフラッシュメッセージを付けてください。",
+      "conceptId": "ph3-week42-redirect-flash",
+      "variantGroup": "ph3-week42-assembly-redirect-flash",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。",
+      "drillConnection": "PH3 Week42のPOSSE課題へ接続。一覧でsession('status')が表示されるか確認しましょう。",
+      "hint": "受け取り側とフラッシュメッセージのキーを合わせます。",
+      "success": "quizzes.storeの保存は成功済みです。登録済みのadmin.quizzes.indexへ戻り、statusのフラッシュメッセージを付けてください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-assembly-all-up-buttons",
+      "weekUnitId": "week-unit-week42",
+      "format": "fillBlank",
+      "prompt": "upToSortNumberは定義済みです。全ての.js-up-buttonにclickイベントを登録してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "document.querySelectorAll('.js-up-button').forEach((button) => {\n  __BLANK__;\n});",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "button.addEventListener('click', upToSortNumber)"
+          },
+          {
+            "id": "wrong",
+            "text": "button.addEventListener('input', upToSortNumber)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "inputではボタンのクリックを処理する指定になりません。"
+        }
+      },
+      "assembly": {
+        "language": "js",
+        "optionTokens": {
+          "correct": [
+            "button.",
+            "addEventListener(",
+            "'click', ",
+            "upToSortNumber",
+            ")"
+          ],
+          "wrong": [
+            "button.",
+            "addEventListener(",
+            "'input', ",
+            "upToSortNumber",
+            ")"
+          ]
+        }
+      },
+      "explanation": "querySelectorAllの結果をforEachし、各ボタンへ登録します。PCでは先頭以外の行のボタンも押して確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "upToSortNumberは定義済みです。全ての.js-up-buttonにclickイベントを登録してください。",
+      "conceptId": "ph3-week42-all-up-buttons",
+      "variantGroup": "ph3-week42-assembly-all-up-buttons",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。",
+      "drillConnection": "week42-1の関連ドリルへ接続。先頭以外の行のボタンも押して確認しましょう。",
+      "hint": "全件をループし、それぞれへclickを登録します。",
+      "success": "upToSortNumberは定義済みです。全ての.js-up-buttonにclickイベントを登録してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parserでJSの正答構文確認。 固定入力で正誤比較。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week42-1/README.md",
+          "line": 1,
+          "heading": "42週目ミニドリル 1問目",
+          "sha256": "22b60af40f6bd5dcbdf8ccb041c797e3b32c884d5dbea8fb8a14d1ac42e2fc89",
+          "scope": "repository"
+        },
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week42-1/src/resources/views/quiz/index.blade.php",
+          "line": 1,
+          "heading": "@extends('layouts.app')",
+          "sha256": "ba2bdc4739e36b4dfd70a5f6ed8f3698f193c5fe1fb3ee5af01d9b5bcb3e9f10",
+          "scope": "repository"
+        }
+      ],
+      "codeLanguage": "js"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-form-request-role",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "FormRequestのrulesで指定するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "Composer依存のバージョン"
+          },
+          {
+            "id": "wrong3",
+            "text": "すべてのDBのバックアップ先"
+          },
+          {
+            "id": "correct",
+            "text": "リクエストの入力値が満たすべき検証ルール"
+          },
+          {
+            "id": "wrong1",
+            "text": "一覧画面のCSSの色"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "検証ルールの役割ではありません。",
+          "wrong2": "依存の管理はcomposer.jsonなどで行います。",
+          "wrong3": "入力検証の定義とは別です。"
+        }
+      },
+      "explanation": "rulesで入力の妥当性を検証します。 PCでは保存処理の前に対象FormRequestが使われているか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「リクエストの入力値が満たすべき検証ルール」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-form-request-role",
+      "variantGroup": "ph3-week42-choice-form-request-role",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week42のPOSSE課題。保存処理の前に対象FormRequestが使われているか確認しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "値の必須・型・長さを定義します。",
+      "success": "条件に適合する候補を1つ選ぶ：リクエストの入力値が満たすべき検証ルール",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-title-rules",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "nameを必須・文字列・100文字以内にするルールはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "[\"required\", \"string\", \"min:100\"]"
+          },
+          {
+            "id": "correct",
+            "text": "[\"required\", \"string\", \"max:100\"]"
+          },
+          {
+            "id": "wrong1",
+            "text": "[\"nullable\", \"string\", \"max:100\"]"
+          },
+          {
+            "id": "wrong2",
+            "text": "[\"required\", \"integer\", \"max:100\"]"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "未入力を許可するため必須の要件を満たしません。",
+          "wrong2": "タイトルは整数ではなく文字列です。",
+          "wrong3": "最小100文字となり上限の指定ではありません。"
+        }
+      },
+      "explanation": "required・string・maxで各条件を指定します。 PCでは未入力・100文字・101文字を試しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「[\"required\", \"string\", \"max:100\"]」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-title-rules",
+      "variantGroup": "ph3-week42-choice-title-rules",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week42のPOSSE課題。未入力・100文字・101文字を試しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "必須・型・上限の3点をそろえます。",
+      "success": "条件に適合する候補を1つ選ぶ：[\"required\", \"string\", \"max:100\"]",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-validation-boundary",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "nameにrequired|string|max:100を指定しています。すべて通常の文字列で前後の空白はありません。長さの条件を通るものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "100文字のタイトル"
+          },
+          {
+            "id": "wrong1",
+            "text": "101文字のタイトル"
+          },
+          {
+            "id": "wrong2",
+            "text": "200文字のタイトル"
+          },
+          {
+            "id": "wrong3",
+            "text": "空文字"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "max:100の上限を超えています。",
+          "wrong2": "上限100文字を超えています。",
+          "wrong3": "requiredに適合しません。"
+        }
+      },
+      "explanation": "100文字以下を許可し、空文字はrequiredで拒否します。 PCでは境界の100文字と101文字で結果を比較しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「100文字のタイトル」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-validation-boundary",
+      "variantGroup": "ph3-week42-choice-validation-boundary",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week42のPOSSE課題。境界の100文字と101文字で結果を比較しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "上限そのものは許可されます。",
+      "success": "条件に適合する候補を1つ選ぶ：100文字のタイトル",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-validated-input",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "FormRequestで検証したnameだけを保存する際、入力全体より優先して使う取得方法はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "$request->all()"
+          },
+          {
+            "id": "wrong2",
+            "text": "$_GETだけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "$request->header(\"User-Agent\")"
+          },
+          {
+            "id": "correct",
+            "text": "$request->validated()"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "未検証の余分な入力も含まれ得ます。",
+          "wrong2": "FormRequestの検証済み値を取り出す方法ではありません。",
+          "wrong3": "タイトルの検証済み配列ではありません。"
+        }
+      },
+      "explanation": "validatedで検証済みデータを取得します。 PCでは余分な入力が保存対象へ入らないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$request->validated()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-validated-input",
+      "variantGroup": "ph3-week42-choice-validated-input",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week42のPOSSE課題。余分な入力が保存対象へ入らないか確認しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "検証を通ったキーの集合を使います。",
+      "success": "条件に適合する候補を1つ選ぶ：$request->validated()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-field-error",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "nameの検証エラーだけをBladeに表示する構文はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "@csrfだけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "{{ $request->all() }}だけ"
+          },
+          {
+            "id": "correct",
+            "text": "@error(\"name\") {{ $message }} @enderror"
+          },
+          {
+            "id": "wrong1",
+            "text": "@error(\"email\") {{ $message }} @enderror"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "対象のフィールド名がnameではありません。",
+          "wrong2": "CSRFトークンは検証メッセージではありません。",
+          "wrong3": "入力の表示はnameの検証エラー表示になりません。"
+        }
+      },
+      "explanation": "errorで対象フィールドのメッセージを表示します。 PCでは未入力の送信でname欄の近くにエラーが出るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「@error(\"name\") {{ $message }} @enderror」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-field-error",
+      "variantGroup": "ph3-week42-choice-field-error",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week42のPOSSE課題。未入力の送信でname欄の近くにエラーが出るか確認しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "フォームのname属性とエラーのキーをそろえます。",
+      "success": "条件に適合する候補を1つ選ぶ：@error(\"name\") {{ $message }} @enderror",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-success-after-save",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "クイズ作成の成功通知を一覧へ表示します。正しい処理順はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "入力を無検証で保存→成功通知"
+          },
+          {
+            "id": "correct",
+            "text": "検証→保存成功→フラッシュ通知付きリダイレクト"
+          },
+          {
+            "id": "wrong1",
+            "text": "成功通知→検証失敗→保存を省略"
+          },
+          {
+            "id": "wrong2",
+            "text": "リダイレクト→その後に保存"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "失敗したのに成功したと通知してしまいます。",
+          "wrong2": "返却後の処理を前提にせず、保存後に移動します。",
+          "wrong3": "必須・文字数などの要件を保証できません。"
+        }
+      },
+      "explanation": "検証と保存を終えてから成功を伝えます。 PCでは不正な入力では成功通知が出ないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "提示条件に対して「検証→保存成功→フラッシュ通知付きリダイレクト」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-success-after-save",
+      "variantGroup": "ph3-week42-choice-success-after-save",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week42のPOSSE課題。不正な入力では成功通知が出ないか確認しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "通知は成功した処理に対応させます。",
+      "success": "条件に適合する候補を1つ選ぶ：検証→保存成功→フラッシュ通知付きリダイレクト",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-deleted-label",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "削除済みも含む管理用一覧で、SoftDeletesモデル$quizの削除状態を判別するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$quiz->trashed()"
+          },
+          {
+            "id": "wrong1",
+            "text": "$quiz->name === \"削除済み\""
+          },
+          {
+            "id": "wrong2",
+            "text": "$quiz->id === 0"
+          },
+          {
+            "id": "wrong3",
+            "text": "$quiz->questions->count() === 0"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "表示名の文字列は削除状態を表す信頼できる条件ではありません。",
+          "wrong2": "論理削除で主キーを0へ変えるわけではありません。",
+          "wrong3": "設問が0件でも削除済みとは限りません。"
+        }
+      },
+      "explanation": "trashedで論理削除済みかを確認できます。 PCでは削除済みラベルとDBのdeleted_atを照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$quiz->trashed()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-deleted-label",
+      "variantGroup": "ph3-week42-choice-deleted-label",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week42のPOSSE課題。削除済みラベルとDBのdeleted_atを照合しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "削除日時に基づくモデルの判定を使います。",
+      "success": "条件に適合する候補を1つ選ぶ：$quiz->trashed()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-deleted-edit-block",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "管理用一覧で論理削除済みクイズの編集リンクを消しました。編集を確実に禁止するにはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "CSSだけでリンクの色を灰色にする"
+          },
+          {
+            "id": "wrong2",
+            "text": "URLを利用者へ見せないだけにする"
+          },
+          {
+            "id": "wrong3",
+            "text": "削除済みのnameを空文字に変える"
+          },
+          {
+            "id": "correct",
+            "text": "編集・更新処理でも削除済み状態を確認し拒否する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "URLへ直接アクセスした場合を拒否できません。",
+          "wrong2": "表示を隠すだけでは保存処理を守れません。",
+          "wrong3": "削除状態による操作制限の代わりにはなりません。"
+        }
+      },
+      "explanation": "削除済みデータを編集不可にする条件をサーバーにも置きます。 PCでは削除済みIDを直接送って更新されないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「編集・更新処理でも削除済み状態を確認し拒否する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-deleted-edit-block",
+      "variantGroup": "ph3-week42-choice-deleted-edit-block",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week42のPOSSE課題。削除済みIDを直接送って更新されないか確認しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "画面とサーバーの両方で同じ条件を守ります。",
+      "success": "条件に適合する候補を1つ選ぶ：編集・更新処理でも削除済み状態を確認し拒否する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-query-selector-all",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "各行の.upボタンすべてにクリック処理を付けます。取得後の正しい対応はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "NodeListへ直接addEventListenerを呼ぶ"
+          },
+          {
+            "id": "wrong3",
+            "text": "1番目のボタンだけへ毎回追加する"
+          },
+          {
+            "id": "correct",
+            "text": "querySelectorAll(\".up\")の各要素にforEachでイベントを付ける"
+          },
+          {
+            "id": "wrong1",
+            "text": "querySelector(\".up\")だけで全要素に付くと考える"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "querySelectorが返すのは最初の1要素です。",
+          "wrong2": "NodeList全体はボタン1要素ではありません。",
+          "wrong3": "2行目以降へイベントが付きません。"
+        }
+      },
+      "explanation": "集合を走査して各ボタンにリスナーを登録します。 PCでは2行目以降のボタンでも動くか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「querySelectorAll(\".up\")の各要素にforEachでイベントを付ける」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-query-selector-all",
+      "variantGroup": "ph3-week42-choice-query-selector-all",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [
+        {
+          "path": "docs/quiz-sources/PH3/drill-ph3/week42-1/README.md",
+          "line": 1,
+          "heading": "42週目ミニドリル 1問目",
+          "sha256": "22b60af40f6bd5dcbdf8ccb041c797e3b32c884d5dbea8fb8a14d1ac42e2fc89",
+          "scope": "repository"
+        }
+      ],
+      "drillConnection": "week42-1の関連ドリル。2行目以降のボタンでも動くか確認しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "取得する集合と個々の要素を区別します。",
+      "success": "条件に適合する候補を1つ選ぶ：querySelectorAll(\".up\")の各要素にforEachでイベントを付ける",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week42-choice-error-investigation",
+      "weekUnitId": "week-unit-week42",
+      "format": "singleChoice",
+      "prompt": "新規作成時に例外が出ました。原因を絞る最初の調べ方として適切なのはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "DB全体を削除して原因が消えたと判断する"
+          },
+          {
+            "id": "correct",
+            "text": "エラー文と該当行を読み、入力と期待結果を小さく再現する"
+          },
+          {
+            "id": "wrong1",
+            "text": "エラー文を見ずに全ファイル名を変更する"
+          },
+          {
+            "id": "wrong2",
+            "text": "成功メッセージだけを固定表示する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "原因を絞れず新しい不具合も生みます。",
+          "wrong2": "失敗した保存処理は直りません。",
+          "wrong3": "再現条件と原因を確認できずデータも失います。"
+        }
+      },
+      "explanation": "エラー箇所と入力から仮説を立て、一つずつ確認します。 PCでは再現手順と最初のエラーメッセージを記録しましょう。",
+      "sourceReference": {
+        "weekKey": "week42",
+        "sectionHeading": "Week 42"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「エラー文と該当行を読み、入力と期待結果を小さく再現する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week42-error-investigation",
+      "variantGroup": "ph3-week42-choice-error-investigation",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 592,
+        "heading": "Week 42",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week42のPOSSE課題。再現手順と最初のエラーメッセージを記録しましょう。",
+      "priorKnowledge": "Week41の管理用ルート。Week42のFormRequestとエラー確認。DOMイベントはPH1の既習。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "起きた事実と期待との差を具体化します。",
+      "success": "条件に適合する候補を1つ選ぶ：エラー文と該当行を読み、入力と期待結果を小さく再現する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

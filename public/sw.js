@@ -1,8 +1,9 @@
 /* ミニドリル PWA のサービスワーカー（手書きの最小構成）
  * - ページ遷移：ネットワーク優先、オフライン時はキャッシュ
  * - 同一オリジンの静的ファイルと Google Fonts：キャッシュ優先で裏で更新
+ * - localhost と Metro の開発バンドルはキャッシュを使わない
  * 配信内容を変えたら CACHE のバージョンを上げる。 */
-const CACHE = 'minidrill-v9';
+const CACHE = 'minidrill-v10';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(['/', '/manifest.json'])));
@@ -23,6 +24,12 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
+  // 開発バンドルのURLは内容が変わっても同じ。古い教材を返すと、
+  // 新しい問題IDを持つ途中セッションが復元時に破棄されてしまう。
+  const host = self.location.hostname;
+  const local = ['localhost', '127.0.0.1', '[::1]'].includes(host) || host.endsWith('.localhost');
+  if (local || url.searchParams.get('dev') === 'true') return;
+
   const isFont = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
   if (url.origin !== self.location.origin && !isFont) return;
 

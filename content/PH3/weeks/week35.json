@@ -1,0 +1,1088 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week35-assembly-create-quiz-table",
+      "weekUnitId": "week-unit-week35",
+      "format": "fillBlank",
+      "prompt": "quizzesテーブルを新規作成します。SchemaとBlueprintはimport済みです。テーブル作成の呼び出しを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\n__BLANK__ {\n  $table->id();\n  $table->string('name');\n});",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Schema::create('quizzes', function (Blueprint $table)"
+          },
+          {
+            "id": "wrong",
+            "text": "Schema::table('quizzes', function (Blueprint $table)"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "tableは既存テーブルの変更で、今回の新規作成ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "Schema::create(",
+            "'quizzes', ",
+            "function (Blueprint $table)"
+          ],
+          "wrong": [
+            "Schema::table(",
+            "'quizzes', ",
+            "function (Blueprint $table)"
+          ]
+        }
+      },
+      "explanation": "Schema::createで表を新規作成します。PCではmigrate後にquizzesの列を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "quizzesテーブルを新規作成します。SchemaとBlueprintはimport済みです。テーブル作成の呼び出しを組み立ててください。",
+      "conceptId": "ph3-week35-create-quiz-table",
+      "variantGroup": "ph3-week35-assembly-create-quiz-table",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。",
+      "drillConnection": "PH3 Week35のPOSSE課題へ接続。migrate後にquizzesの列を確認しましょう。",
+      "hint": "新規作成と既存変更のメソッドを分けます。",
+      "success": "quizzesテーブルを新規作成します。SchemaとBlueprintはimport済みです。テーブル作成の呼び出しを組み立ててください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-assembly-question-foreign-key",
+      "weekUnitId": "week-unit-week35",
+      "format": "fillBlank",
+      "prompt": "questionsのquiz_id列は作成済みです。quizzes.idへの外部キーを定義してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n// Schema::create内の$tableを使う\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "$table->foreign('quiz_id')->references('id')->on('quizzes')"
+          },
+          {
+            "id": "wrong",
+            "text": "$table->foreign('quiz_id')->references('id')->on('choices')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "quiz_idが指す先はクイズの表quizzesであり、選択肢のchoicesではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "$table->foreign(",
+            "'quiz_id'",
+            ")->references(",
+            "'id'",
+            ")->on('quizzes')"
+          ],
+          "wrong": [
+            "$table->foreign(",
+            "'quiz_id'",
+            ")->references(",
+            "'id'",
+            ")->on('choices')"
+          ]
+        }
+      },
+      "explanation": "questions.quiz_idをquizzes.idへ対応させます。PCでは親子の表を図で確認してからマイグレーションを実行しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "questionsのquiz_id列は作成済みです。quizzes.idへの外部キーを定義してください。",
+      "conceptId": "ph3-week35-question-foreign-key",
+      "variantGroup": "ph3-week35-assembly-question-foreign-key",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。",
+      "drillConnection": "PH3 Week35のPOSSE課題へ接続。親子の表を図で確認してからマイグレーションを実行しましょう。",
+      "hint": "所属を示す列と参照先の親テーブルを合わせます。",
+      "success": "questionsのquiz_id列は作成済みです。quizzes.idへの外部キーを定義してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-assembly-fillable-name",
+      "weekUnitId": "week-unit-week35",
+      "format": "fillBlank",
+      "prompt": "Quizでnameだけを一括代入可能にします。Modelはimport済みとします。モデルのプロパティを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nclass Quiz extends Model {\n  __BLANK__\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "protected $fillable = ['name'];"
+          },
+          {
+            "id": "wrong",
+            "text": "protected $hidden = ['name'];"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "hiddenは配列やJSONに出す属性を隠す設定で、一括代入の許可ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "protected ",
+            "$fillable ",
+            "= ",
+            "['name']",
+            ";"
+          ],
+          "wrong": [
+            "protected ",
+            "$hidden ",
+            "= ",
+            "['name']",
+            ";"
+          ]
+        }
+      },
+      "explanation": "fillableへ必要な列名だけを記載します。PCでは検証済みのnameをcreateやupdateで保存できるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Quizでnameだけを一括代入可能にします。Modelはimport済みとします。モデルのプロパティを組み立ててください。",
+      "conceptId": "ph3-week35-fillable-name",
+      "variantGroup": "ph3-week35-assembly-fillable-name",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。",
+      "drillConnection": "PH3 Week35のPOSSE課題へ接続。検証済みのnameをcreateやupdateで保存できるか確認しましょう。",
+      "hint": "一括代入で更新できる列を許可リストへ指定します。",
+      "success": "Quizでnameだけを一括代入可能にします。Modelはimport済みとします。モデルのプロパティを組み立ててください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-assembly-seed-record",
+      "weekUnitId": "week-unit-week35",
+      "format": "fillBlank",
+      "prompt": "Quizはimport済みで、nameはfillableにあります。Seederでnameが「ITクイズ」の1件を作成してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Quiz::create(['name' => 'ITクイズ'])"
+          },
+          {
+            "id": "wrong",
+            "text": "Quiz::create(['title' => 'ITクイズ'])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "用意した列はnameなので、titleを渡しても指定の列へ保存できません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "Quiz::create(",
+            "['name' => ",
+            "'ITクイズ'",
+            "]",
+            ")"
+          ],
+          "wrong": [
+            "Quiz::create(",
+            "['title' => ",
+            "'ITクイズ'",
+            "]",
+            ")"
+          ]
+        }
+      },
+      "explanation": "createへ属性の配列を渡します。PCではSeeder実行後にnameの保存値を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Quizはimport済みで、nameはfillableにあります。Seederでnameが「ITクイズ」の1件を作成してください。",
+      "conceptId": "ph3-week35-seed-record",
+      "variantGroup": "ph3-week35-assembly-seed-record",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。",
+      "drillConnection": "PH3 Week35のPOSSE課題へ接続。Seeder実行後にnameの保存値を確認しましょう。",
+      "hint": "モデルで使う属性名をテーブルの列に合わせます。",
+      "success": "Quizはimport済みで、nameはfillableにあります。Seederでnameが「ITクイズ」の1件を作成してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-assembly-name-validation",
+      "weekUnitId": "week-unit-week35",
+      "format": "fillBlank",
+      "prompt": "フォームのnameを、必須・文字列・100文字以内として検証します。FormRequestのrules内の項目です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nclass StoreQuizRequest extends FormRequest {\n  public function rules(): array {\n    return ['name' => __BLANK__];\n  }\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "['required', 'string', 'max:100']"
+          },
+          {
+            "id": "wrong",
+            "text": "['required', 'string', 'min:100']"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "min:100は100文字以上という逆の条件です。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "[",
+            "'required', ",
+            "'string', ",
+            "'max:100'",
+            "]"
+          ],
+          "wrong": [
+            "[",
+            "'required', ",
+            "'string', ",
+            "'min:100'",
+            "]"
+          ]
+        }
+      },
+      "explanation": "required・string・max:100を組み合わせます。PCでは空欄・100文字・101文字を送って確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "フォームのnameを、必須・文字列・100文字以内として検証します。FormRequestのrules内の項目です。",
+      "conceptId": "ph3-week35-name-validation",
+      "variantGroup": "ph3-week35-assembly-name-validation",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。",
+      "drillConnection": "PH3 Week35のPOSSE課題へ接続。空欄・100文字・101文字を送って確認しましょう。",
+      "hint": "上限のルールにmaxを使います。",
+      "success": "フォームのnameを、必須・文字列・100文字以内として検証します。FormRequestのrules内の項目です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-migration-purpose",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "マイグレーションで主に管理するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "テーブルや列などDB構造の変更"
+          },
+          {
+            "id": "wrong1",
+            "text": "各利用者のログイン中のCookieだけ"
+          },
+          {
+            "id": "wrong2",
+            "text": "画面に表示するクイズの色だけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "すべてのPHP依存のバージョンだけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "CookieはDBの構造変更そのものではありません。",
+          "wrong2": "見た目はCSSやビューで扱います。",
+          "wrong3": "PHP依存の管理はComposerが担当します。"
+        }
+      },
+      "explanation": "マイグレーションは構造変更の履歴を共有します。 PCではquizzesを作るupと戻すdownの対応を読みましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「テーブルや列などDB構造の変更」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-migration-purpose",
+      "variantGroup": "ph3-week35-choice-migration-purpose",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。quizzesを作るupと戻すdownの対応を読みましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "DBの構造をコードで再現する仕組みです。",
+      "success": "条件に適合する候補を1つ選ぶ：テーブルや列などDB構造の変更",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-foreign-key-direction",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "questions.quiz_idがquizzes.idを参照します。この列が表すものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "各クイズの表示色"
+          },
+          {
+            "id": "wrong2",
+            "text": "各選択肢の正誤"
+          },
+          {
+            "id": "wrong3",
+            "text": "ログイン中の利用者のパスワード"
+          },
+          {
+            "id": "correct",
+            "text": "各設問が所属するクイズ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "quiz_idは親クイズへの参照です。",
+          "wrong2": "正誤はchoices.is_correctで扱います。",
+          "wrong3": "設問とクイズの関係を表す列です。"
+        }
+      },
+      "explanation": "questionsの各行から所属するquizzesの行へつながります。 PCでは2つのクイズに異なるquiz_idの設問を用意して確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "提示条件に対して「各設問が所属するクイズ」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-foreign-key-direction",
+      "variantGroup": "ph3-week35-choice-foreign-key-direction",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。2つのクイズに異なるquiz_idの設問を用意して確認しましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "子の行から親の行を指します。",
+      "success": "条件に適合する候補を1つ選ぶ：各設問が所属するクイズ",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-nullable-supplement",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "設問補足supplementは未入力ならNULLで保存できます。マイグレーションの指定はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "$table->string(\"supplement\")->default(\"必須\");"
+          },
+          {
+            "id": "wrong3",
+            "text": "$table->dropColumn(\"supplement\");"
+          },
+          {
+            "id": "correct",
+            "text": "$table->string(\"supplement\")->nullable();"
+          },
+          {
+            "id": "wrong1",
+            "text": "$table->string(\"supplement\")->unique();"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "uniqueは重複の制約で、NULL許可の指定とは異なります。",
+          "wrong2": "未入力時の固定文字列とNULL許可は異なります。",
+          "wrong3": "列を削除すると補足を保存できなくなります。"
+        }
+      },
+      "explanation": "nullableでNULLを許可します。 PCではDBの列定義と補足なしの保存結果を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「$table->string(\"supplement\")->nullable();」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-nullable-supplement",
+      "variantGroup": "ph3-week35-choice-nullable-supplement",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。DBの列定義と補足なしの保存結果を照合しましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "値がない状態を列で許可します。",
+      "success": "条件に適合する候補を1つ選ぶ：$table->string(\"supplement\")->nullable();",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-model-table",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "Quizモデルを用意する主な目的はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "Bladeの見出しを必ず生成する"
+          },
+          {
+            "id": "correct",
+            "text": "quizzesのデータを取得・保存する処理を扱う"
+          },
+          {
+            "id": "wrong1",
+            "text": "ブラウザのCSSを自動で全画面に配る"
+          },
+          {
+            "id": "wrong2",
+            "text": "すべてのURLを定義する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "モデルの中心的な責務はデータ操作です。",
+          "wrong2": "URLの登録はルートの役割です。",
+          "wrong3": "表示用のHTMLはビューで扱います。"
+        }
+      },
+      "explanation": "Eloquentモデルを通してレコードを扱えます。 PCではQuizモデルとquizzesテーブルの対応を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「quizzesのデータを取得・保存する処理を扱う」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-model-table",
+      "variantGroup": "ph3-week35-choice-model-table",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。Quizモデルとquizzesテーブルの対応を確認しましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "MVCのデータを扱う役割です。",
+      "success": "条件に適合する候補を1つ選ぶ：quizzesのデータを取得・保存する処理を扱う",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-fillable-allowlist",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "Quiz::createでnameだけを一括代入させます。fillableの設定はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "protected $fillable = [\"name\"];"
+          },
+          {
+            "id": "wrong1",
+            "text": "protected $hidden = [\"name\"];"
+          },
+          {
+            "id": "wrong2",
+            "text": "protected $fillable = [\"id\", \"is_admin\"];"
+          },
+          {
+            "id": "wrong3",
+            "text": "protected $table = \"name\";"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "hiddenは配列やJSONで隠す属性の指定です。",
+          "wrong2": "nameを許可せず不要な属性を指定しています。",
+          "wrong3": "tableは対応テーブル名の指定です。"
+        }
+      },
+      "explanation": "必要な列だけをfillableへ指定します。 PCではモデルと保存する検証済み配列のキーを照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「protected $fillable = [\"name\"];」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-fillable-allowlist",
+      "variantGroup": "ph3-week35-choice-fillable-allowlist",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。モデルと保存する検証済み配列のキーを照合しましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "一括代入できる属性を許可する設定です。",
+      "success": "条件に適合する候補を1つ選ぶ：protected $fillable = [\"name\"];",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-seeder-versus-migration",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "クイズのタイトル「ITクイズ」を初期データとして登録します。担当する仕組みはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "Bladeのコンポーネント"
+          },
+          {
+            "id": "wrong2",
+            "text": "ルート名だけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "CSSの変数"
+          },
+          {
+            "id": "correct",
+            "text": "Seeder"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "共通表示の仕組みで、初期データの登録ではありません。",
+          "wrong2": "URLの識別名だけではレコードを登録しません。",
+          "wrong3": "見た目の値はDBの初期行を作成しません。"
+        }
+      },
+      "explanation": "Seederへ初期データの登録を記述します。 PCではSeeder実行後にquizzesのnameを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Seeder」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-seeder-versus-migration",
+      "variantGroup": "ph3-week35-choice-seeder-versus-migration",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。Seeder実行後にquizzesのnameを確認しましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "構造を作る処理と行を入れる処理を分けます。",
+      "success": "条件に適合する候補を1つ選ぶ：Seeder",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-factory-role",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "テスト用に内容が異なるダミーレコードを多数作りたいとき、属性の生成ルールをまとめる仕組みはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "@foreachだけ"
+          },
+          {
+            "id": "wrong3",
+            "text": "composer.lockだけ"
+          },
+          {
+            "id": "correct",
+            "text": "Factory"
+          },
+          {
+            "id": "wrong1",
+            "text": "Route::getだけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ルート定義はダミーデータの生成規則ではありません。",
+          "wrong2": "既存データの繰り返し表示であり、DBの行を生成しません。",
+          "wrong3": "依存の固定情報であり、モデル属性の生成規則ではありません。"
+        }
+      },
+      "explanation": "Factoryに属性の生成方法を定義し、必要な件数を作れます。 PCでは対象モデルのFactoryで生成される列を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「Factory」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-factory-role",
+      "variantGroup": "ph3-week35-choice-factory-role",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。対象モデルのFactoryで生成される列を確認しましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "テストデータの形を定義します。",
+      "success": "条件に適合する候補を1つ選ぶ：Factory",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-rollback-down",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "upで新規作成したchoicesテーブルをロールバック時に削除します。downの内容はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "return view(\"choices.index\");"
+          },
+          {
+            "id": "correct",
+            "text": "Schema::dropIfExists(\"choices\");"
+          },
+          {
+            "id": "wrong1",
+            "text": "Schema::create(\"choices\", function ($table) {});"
+          },
+          {
+            "id": "wrong2",
+            "text": "Schema::dropIfExists(\"users\");"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "作成を戻す場面で再度作成してはいけません。",
+          "wrong2": "戻す対象はchoicesでありusersではありません。",
+          "wrong3": "画面を返してもテーブルは削除されません。"
+        }
+      },
+      "explanation": "作成したテーブルに対応する削除をdownへ書きます。 PCでは破棄可能なローカルDBでロールバックの対象を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「Schema::dropIfExists(\"choices\");」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-rollback-down",
+      "variantGroup": "ph3-week35-choice-rollback-down",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。破棄可能なローカルDBでロールバックの対象を確認しましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "upで変更した対象を逆の操作で戻します。",
+      "success": "条件に適合する候補を1つ選ぶ：Schema::dropIfExists(\"choices\");",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-choice-parent",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "choices.question_idが示すものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "その選択肢が属する設問"
+          },
+          {
+            "id": "wrong1",
+            "text": "選択肢自身の主キーidと必ず同じ値"
+          },
+          {
+            "id": "wrong2",
+            "text": "クイズのタイトルの文字数"
+          },
+          {
+            "id": "wrong3",
+            "text": "正解なら1、不正解なら0という値"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "所属先と自分自身の主キーは別です。",
+          "wrong2": "設問への参照を示す列です。",
+          "wrong3": "正誤のフラグはis_correctです。"
+        }
+      },
+      "explanation": "question_idでchoicesとquestionsを対応させます。 PCでは同じ設問の選択肢に同じquestion_idが入るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "提示条件に対して「その選択肢が属する設問」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-choice-parent",
+      "variantGroup": "ph3-week35-choice-choice-parent",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。同じ設問の選択肢に同じquestion_idが入るか確認しましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "選択肢から一つ上の親を指します。",
+      "success": "条件に適合する候補を1つ選ぶ：その選択肢が属する設問",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week35-choice-validation-versus-fillable",
+      "weekUnitId": "week-unit-week35",
+      "format": "singleChoice",
+      "prompt": "nameをfillableに追加しました。この設定だけでは保証されないものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "nameを一括代入の許可対象に含めること"
+          },
+          {
+            "id": "wrong2",
+            "text": "一括代入で許可する属性を指定すること"
+          },
+          {
+            "id": "wrong3",
+            "text": "createへ渡せる属性の範囲を設定すること"
+          },
+          {
+            "id": "correct",
+            "text": "nameが必須で100文字以内であること"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "それはfillableの役割です。",
+          "wrong2": "fillableは属性の許可リストです。",
+          "wrong3": "それはfillableによる設定の範囲です。"
+        }
+      },
+      "explanation": "fillableは必須や長さのルールを検証しません。 PCでは保存前のバリデーションへrequiredとmaxを用意しましょう。",
+      "sourceReference": {
+        "weekKey": "week35",
+        "sectionHeading": "Week 35"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「nameが必須で100文字以内であること」を選び、その理由を説明する。",
+      "conceptId": "ph3-week35-validation-versus-fillable",
+      "variantGroup": "ph3-week35-choice-validation-versus-fillable",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 223,
+        "heading": "Week 35",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week35のPOSSE課題。保存前のバリデーションへrequiredとmaxを用意しましょう。",
+      "priorKnowledge": "Week34のMVCとフォーム。Week35のマイグレーション・fillable・Seeder・バリデーション。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "属性の許可と値の検証を区別します。",
+      "success": "条件に適合する候補を1つ選ぶ：nameが必須で100文字以内であること",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

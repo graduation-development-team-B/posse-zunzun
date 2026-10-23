@@ -8,14 +8,14 @@ const targets = [
   "知識の組み立て",
   "結果の確認・修正",
 ];
-const modes = ["choice", "preview", "console", "terminal"];
+const modes = ["choice", "preview", "console", "terminal", "assembly"];
 const read = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 const write = (file, value) => {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, JSON.stringify(value, null, 2) + "\n");
 };
 function mode(q) {
-  return q.console
+  return q.assembly ? "assembly" : q.console
     ? "console"
     : q.preview
       ? "preview"
@@ -58,11 +58,10 @@ function validate(data, options = {}) {
     if (
       !Number.isInteger(unit.minQuestions) ||
       !Number.isInteger(unit.maxQuestions) ||
-      unit.minQuestions < 10 ||
-      unit.maxQuestions > 15 ||
+      unit.minQuestions < 1 ||
       unit.minQuestions > unit.maxQuestions
     )
-      add(unit.key, "問題数は10〜15問の範囲");
+      add(unit.key, "問題数設定は1問以上の整数・最小値以下でない最大値が必要");
     const eligible = data.rows.filter(
       (r) =>
         r.unit.id === unit.id &&
@@ -111,7 +110,7 @@ function validate(data, options = {}) {
       if (typeof a[key] !== "string" || !a[key].trim()) add(id, `${key}が必要`);
     if (!Number.isInteger(a.revision) || a.revision < 1)
       add(id, "問題の版が不正");
-    if (!modes.includes(mode(q)) || (q.preview && q.console))
+    if (!modes.includes(mode(q)) || [q.preview, q.console, q.assembly].filter(Boolean).length > 1)
       add(id, "未対応または重複した実行形式");
     const p = q.payload;
     if (!p) {
@@ -160,15 +159,30 @@ function validate(data, options = {}) {
       )
         add(id, "穴埋め箇所は1箇所・候補選択のみ");
       if (
-        (q.preview || q.console) &&
+        (q.preview || q.console || q.assembly) &&
         (q.format !== "fillBlank" || p.mode !== "choice")
       )
         add(id, "実行形式には候補穴埋めが必要");
       if (q.console && !Array.isArray(q.console.expectedOutput))
         add(id, "期待出力が必要");
+      if (q.assembly) {
+        const a = q.assembly;
+        if (a.inputMode !== undefined && a.inputMode !== "classes") add(id, "未対応の組み立て入力モード");
+        if (typeof a.language !== "string" || !a.language.trim() || !a.optionTokens || typeof a.optionTokens !== "object") add(id, "組み立ての言語とトークン定義が必要");
+        else {
+          if (Object.keys(a.optionTokens).length !== p.options.length) add(id, "組み立て候補の数が不一致");
+          for (const o of p.options) {
+            const tokens = a.optionTokens[o.id];
+            if (!Array.isArray(tokens) || tokens.length < 2 || tokens.length > 24 || tokens.some(t => typeof t !== "string" || !t.trim()) || tokens.join("") !== o.text) add(id, `組み立て候補が不正: ${o.id}`);
+            else if (a.inputMode === "classes" && tokens.some(t => t.trim().split(/\s+/).length !== 1)) add(id, "class入力の各断片は単一クラスにする");
+          }
+          if (new Set(p.options.map(o => o.text)).size !== p.options.length) add(id, "組み立て候補が重複");
+        }
+      }
     }
     for (const support of a.supportingSources ?? []) {
       if (
+        (support.scope !== undefined && !["workspace", "repository"].includes(support.scope)) ||
         !support.path ||
         !Number.isInteger(support.line) ||
         support.line < 1 ||
@@ -182,9 +196,10 @@ function validate(data, options = {}) {
         options.workspace ??
         process.env.QUIZ_WORKSPACE ??
         path.resolve(root, "../");
-      const file = path.resolve(workspace, support.path);
+      const sourceRoot = support.scope === "repository" ? root : workspace;
+      const file = path.resolve(sourceRoot, support.path);
       if (
-        !file.startsWith(path.resolve(workspace) + path.sep) ||
+        !file.startsWith(path.resolve(sourceRoot) + path.sep) ||
         !fs.existsSync(file)
       ) {
         add(id, `補足教材が見つからない: ${support.path}`);
@@ -207,6 +222,7 @@ function validate(data, options = {}) {
     }
     const s = a.source;
     if (
+      (s?.scope !== undefined && !["workspace", "repository"].includes(s.scope)) ||
       !s?.path ||
       !s.heading ||
       q.sourceReference?.sectionHeading !== s.heading ||
@@ -220,9 +236,10 @@ function validate(data, options = {}) {
         options.workspace ??
         process.env.QUIZ_WORKSPACE ??
         path.resolve(root, "../");
-      const file = path.resolve(workspace, s.path);
+      const sourceRoot = s.scope === "repository" ? root : workspace;
+      const file = path.resolve(sourceRoot, s.path);
       if (
-        !file.startsWith(path.resolve(workspace) + path.sep) ||
+        !file.startsWith(path.resolve(sourceRoot) + path.sep) ||
         !fs.existsSync(file)
       )
         add(id, `教材が見つからない: ${s.path}（QUIZ_WORKSPACEを指定）`);

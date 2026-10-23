@@ -1,6 +1,6 @@
 # Week20｜SQLの実行・集計・グループ化
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -429,3 +429,172 @@ Table doesn't existと出ました。最初に確認することは？
 - 誤答b: DBのテーブル存在とは無関係です。
 - 誤答c: SQLの対象は変わりません。
 - 誤答d: 原因の確認になりません。
+
+## question-ph2-week20-assembly-count-details（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: order_detailsは1行が1種類で、同じ注文内で商品は重複しません。注文ごとの種類数をkindsへ集計してください。
+- 出典: drill-ph2/src/week20-1/README.md:3 / 問題
+- ドリル接続: Week20の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。個数が2以上の明細を含めて違いを確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week20-count-details
+- 類題: ph2-week20-assembly-count-details / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+order_detailsは1行が1種類で、同じ注文内で商品は重複しません。注文ごとの種類数をkindsへ集計してください。
+
+```sql
+SELECT order_id, __BLANK__ AS kinds
+FROM order_details GROUP BY order_id;
+```
+
+- correct: COUNT(*)（正答）
+- wrong: SUM(quantity)
+
+達成条件: order_detailsは1行が1種類で、同じ注文内で商品は重複しません。注文ごとの種類数をkindsへ集計してください。
+
+ヒント: COUNT(*)で明細の行数を数えます。
+
+解説: COUNT(*)で明細の行数を数えます。PCでは個数が2以上の明細を含めて違いを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: SUM(quantity)は購入個数の合計であり、明細の種類数ではありません。
+
+## question-ph2-week20-assembly-sum-quantity（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 注文ごとにquantityの合計個数をamountへ求めてください。
+- 出典: drill-ph2/src/week20-2/README.md:11 / 問題
+- ドリル接続: Week20の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。quantityが2と3の2行なら5になることを確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week20-sum-quantity
+- 類題: ph2-week20-assembly-sum-quantity / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+注文ごとにquantityの合計個数をamountへ求めてください。
+
+```sql
+SELECT order_id, __BLANK__ AS amount
+FROM order_details GROUP BY order_id;
+```
+
+- correct: SUM(quantity)（正答）
+- wrong: COUNT(quantity)
+
+達成条件: 注文ごとにquantityの合計個数をamountへ求めてください。
+
+ヒント: 合計値にはSUMを使います。
+
+解説: 合計値にはSUMを使います。PCではquantityが2と3の2行なら5になることを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: COUNTは値が入っている行を数えるため、quantity自体の足し算になりません。
+
+## question-ph2-week20-assembly-sum-cost（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: priceは単価、quantityは個数です。注文ごとの代金合計を求めてください。
+- 出典: drill-ph2/src/week20-3/README.md:9 / 問題
+- ドリル接続: Week20の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。100円×2個と300円×1個なら500円になるか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week20-sum-cost
+- 類題: ph2-week20-assembly-sum-cost / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+priceは単価、quantityは個数です。注文ごとの代金合計を求めてください。
+
+```sql
+SELECT order_id, __BLANK__ AS total
+FROM order_details GROUP BY order_id;
+```
+
+- correct: SUM(price * quantity)（正答）
+- wrong: SUM(price + quantity)
+
+達成条件: priceは単価、quantityは個数です。注文ごとの代金合計を求めてください。
+
+ヒント: 1行の金額を掛け算し、その結果をSUMで足します。
+
+解説: 1行の金額を掛け算し、その結果をSUMで足します。PCでは100円×2個と300円×1個なら500円になるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 単価と個数を足しても明細の金額にはなりません。
+
+## question-ph2-week20-assembly-group-order（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 全明細を注文IDごとに分けて合計します。FROM以降を組み立ててください。
+- 出典: drill-ph2/src/week20-2/README.md:3 / 目的
+- ドリル接続: Week20の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。複数注文を含めて結果の行数を確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜20の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week20-group-order
+- 類題: ph2-week20-assembly-group-order / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+全明細を注文IDごとに分けて合計します。FROM以降を組み立ててください。
+
+```sql
+SELECT order_id, SUM(quantity) AS amount
+__BLANK__
+```
+
+- correct: FROM order_details GROUP BY order_id;（正答）
+- wrong: FROM order_details GROUP BY quantity;
+
+達成条件: 全明細を注文IDごとに分けて合計します。FROM以降を組み立ててください。
+
+ヒント: 集計する単位をGROUP BYへ指定します。
+
+解説: 集計する単位をGROUP BYへ指定します。PCでは複数注文を含めて結果の行数を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: quantityで分けると注文ごとの合計ではなく、個数が同じ行のグループになります。
+
+## question-ph2-week20-assembly-select-database（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: MySQLへ接続済みです。既存のph2drillを、この接続で使うデータベースに選択してください。
+- 出典: drill-ph2/src/week19-1/README.md:16 / 問題
+- ドリル接続: Week20のターミナルからSQLを実行する準備。Week19ドリルのUSEを復習し、別のDBへ誤ってクエリを発行するのを防ぐ。
+- 既習: Week19ドリルのMySQL接続とUSEによるDB選択。
+- 概念: ph2-week20-select-database
+- 類題: ph2-week20-assembly-select-database / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+MySQLへ接続済みです。既存のph2drillを、この接続で使うデータベースに選択してください。
+
+```sql
+__BLANK__
+```
+
+- correct: USE ph2drill;（正答）
+- wrong: SHOW DATABASES;
+
+達成条件: MySQLへ接続済みです。既存のph2drillを、この接続で使うデータベースに選択してください。
+
+ヒント: 一覧を見る命令と、使用する箱を選ぶ命令を区別しましょう。
+
+解説: USEの後にデータベース名を書きます。PCでは選択したDB内でSELECTを実行し、対象テーブルを確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。MySQL固有構文は教材・公式仕様との静的照合のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: SHOW DATABASESは一覧を表示する操作で、使用するDBの選択ではありません。

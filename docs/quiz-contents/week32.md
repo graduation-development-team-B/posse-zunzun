@@ -1,6 +1,6 @@
 # Week32｜非同期通信・JSON・チャート
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -434,3 +434,174 @@ element.remove();
 - 誤答b: DOMだけ変わった可能性があります。
 - 誤答c: 失敗しても画面だけ変わる不具合を見逃します。
 - 誤答d: 通信と保存の状態は分かりません。
+
+## question-ph2-week32-assembly-async-json（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: async関数内です。取得済みResponseのJSON本文を読んだ値をresultへ受け取ってください。
+- 出典: curriculum/PH2/PH2.md:1383 / Week 32
+- ドリル接続: Week32の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。成功応答のJSON構造を確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week32-async-json
+- 類題: ph2-week32-assembly-async-json / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+async関数内です。取得済みResponseのJSON本文を読んだ値をresultへ受け取ってください。
+
+```js
+const result = __BLANK__;
+```
+
+- correct: await response.json()（正答）
+- wrong: response.json()
+
+達成条件: async関数内です。取得済みResponseのJSON本文を読んだ値をresultへ受け取ってください。
+
+ヒント: 本文の読み取りも完了を待ちます。
+
+解説: 本文の読み取りも完了を待ちます。PCでは成功応答のJSON構造を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: awaitがないとresultは読み取った値ではなくPromiseです。
+
+## question-ph2-week32-assembly-post-delete（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: idは整数です。PHPが$_POST["delete-id"]で読むフォーム形式のbodyを組み立ててください。ヘッダーとmethodは固定済みです。
+- 出典: curriculum/PH2/Week32.md:65 / 4. 非同期処理の実装（具体例）
+- ドリル接続: Week32の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。NetworkとPHPの受信値を対応させましょう。
+- 既習: PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week32-post-delete
+- 類題: ph2-week32-assembly-post-delete / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+idは整数です。PHPが$_POST["delete-id"]で読むフォーム形式のbodyを組み立ててください。ヘッダーとmethodは固定済みです。
+
+```js
+fetch(url, { method: "POST",
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  body: __BLANK__
+});
+```
+
+- correct: `delete-id=${id}`（正答）
+- wrong: `id=${id}`
+
+達成条件: idは整数です。PHPが$_POST["delete-id"]で読むフォーム形式のbodyを組み立ててください。ヘッダーとmethodは固定済みです。
+
+ヒント: 送信するキー名とPHPで読むキーをそろえます。
+
+解説: 送信するキー名とPHPで読むキーをそろえます。PCではNetworkとPHPの受信値を対応させましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: キーがidではPHPのdelete-idと一致しません。
+
+## question-ph2-week32-assembly-chart-columns（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: dataはGoogle ChartsのDataTableです。先頭を日付の文字列、2列目を時間の数値としてください。
+- 出典: drill-ph2/src/week32/README.md:3 / 問題
+- ドリル接続: Week32の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。["2022-06-14",3]という行で確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week32-chart-columns
+- 類題: ph2-week32-assembly-chart-columns / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+dataはGoogle ChartsのDataTableです。先頭を日付の文字列、2列目を時間の数値としてください。
+
+```js
+__BLANK__
+```
+
+- correct: data.addColumn("string", "日付");
+data.addColumn("number", "時間");（正答）
+- wrong: data.addColumn("number", "日付");
+data.addColumn("string", "時間");
+
+達成条件: dataはGoogle ChartsのDataTableです。先頭を日付の文字列、2列目を時間の数値としてください。
+
+ヒント: データの並びと列の型を合わせます。
+
+解説: データの並びと列の型を合わせます。PCでは["2022-06-14",3]という行で確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 列の型が逆で、[日付文字列,数値]のデータに合いません。
+
+## question-ph2-week32-assembly-http-guard（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: HTTP成功時だけ後続で要素を消します。response取得後、失敗ならErrorを投げる条件を組み立ててください。
+- 出典: curriculum/PH2/Week32.md:65 / 4. 非同期処理の実装（具体例）
+- ドリル接続: Week32の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。サーバー成功の仕様も確認し、失敗時に要素が残るか見ましょう。
+- 既習: PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week32-http-guard
+- 類題: ph2-week32-assembly-http-guard / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+HTTP成功時だけ後続で要素を消します。response取得後、失敗ならErrorを投げる条件を組み立ててください。
+
+```js
+if (__BLANK__) { throw new Error("削除失敗"); }
+element.remove();
+```
+
+- correct: !response.ok（正答）
+- wrong: response.ok
+
+達成条件: HTTP成功時だけ後続で要素を消します。response取得後、失敗ならErrorを投げる条件を組み立ててください。
+
+ヒント: HTTPが失敗の応答でもfetchが完了する場合があります。
+
+解説: HTTPが失敗の応答でもfetchが完了する場合があります。PCではサーバー成功の仕様も確認し、失敗時に要素が残るか見ましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 成功時にエラーへ進む逆の条件です。
+
+## question-ph2-week32-assembly-remove-target（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: PHPから削除成功の応答を確認済みです。todoItemは削除対象のli、buttonはその中のボタンです。li全体を取り除いてください。
+- 出典: curriculum/PH2/Week32.md:65 / 4. 非同期処理の実装（具体例）
+- ドリル接続: Week32の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。成功時に行全体が消え、再取得後も戻らないか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜32の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week32-remove-target
+- 類題: ph2-week32-assembly-remove-target / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+PHPから削除成功の応答を確認済みです。todoItemは削除対象のli、buttonはその中のボタンです。li全体を取り除いてください。
+
+```js
+__BLANK__;
+```
+
+- correct: todoItem.remove()（正答）
+- wrong: button.remove()
+
+達成条件: PHPから削除成功の応答を確認済みです。todoItemは削除対象のli、buttonはその中のボタンです。li全体を取り除いてください。
+
+ヒント: 削除対象の親liへremoveを呼びます。
+
+解説: 削除対象の親liへremoveを呼びます。PCでは成功時に行全体が消え、再取得後も戻らないか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認 / Node VM; 外部通信なし・固定入力で正答と主要誤答を比較。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: ボタンだけを消してもli内のタスク文字が残ります。

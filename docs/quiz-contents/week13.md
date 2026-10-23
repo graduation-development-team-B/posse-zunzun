@@ -1,6 +1,6 @@
 # Week13｜Node.js・pnpm・Vite（開発環境の引っ越し）
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -417,3 +417,171 @@ GitHub Pagesの/app/配下へ公開したのに、/assets/...を探して404に�
 検証: 2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。
 
 - 誤答true: 依存の実体はpackage.jsonとpnpm-lock.yamlなどからpnpm installで再現します。教材ではnode_modulesをGitの対象から除外し、設定とロックファイルを記録します。
+
+## question-week13-assembly-dev-command（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: package.jsonのscriptsには"dev":"vite"があります。開発サーバーを起動するコマンドを組み立ててください。
+- 出典: curriculum/PH1/Week13.md:243 / 設定書（package.json）を読む
+- ドリル接続: Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。表示されたLocalのURLを開きましょう。
+- 既習: Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week13-dev-command
+- 類題: ph1-week13-assembly-dev-command / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+package.jsonのscriptsには"dev":"vite"があります。開発サーバーを起動するコマンドを組み立ててください。
+
+```sh
+__BLANK__
+```
+
+- correct: pnpm run dev（正答）
+- wrong: pnpm run build
+
+達成条件: package.jsonのscriptsには"dev":"vite"があります。開発サーバーを起動するコマンドを組み立ててください。
+
+ヒント: pnpm runはscripts内の名前を指定します。
+
+解説: pnpm runはscripts内の名前を指定します。PCでは表示されたLocalのURLを開きましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: buildは本番用ファイルを生成する処理で、devサーバーの起動ではありません。
+
+## question-week13-assembly-install-command（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 雛形を作ったmy-counter-appの中にいます。package.jsonの依存をインストールしてください。
+- 出典: curriculum/PH1/Week13.md:133 / 作業場を立ち上げる
+- ドリル接続: Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。完了後にpnpm run devで開発サーバーを起動しましょう。
+- 既習: Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week13-install-command
+- 類題: ph1-week13-assembly-install-command / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+雛形を作ったmy-counter-appの中にいます。package.jsonの依存をインストールしてください。
+
+```sh
+__BLANK__
+```
+
+- correct: pnpm install（正答）
+- wrong: pnpm run install
+
+達成条件: 雛形を作ったmy-counter-appの中にいます。package.jsonの依存をインストールしてください。
+
+ヒント: pnpm installで依存をそろえます。
+
+解説: pnpm installで依存をそろえます。PCでは完了後にpnpm run devで開発サーバーを起動しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: run installはscriptsのinstallを呼ぶ指定で、依存をそろえるinstallコマンドではありません。
+
+## question-week13-assembly-css-import（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: src/main.jsとsrc/style.cssは同じフォルダです。main.jsからCSSを読み込む文を組み立ててください。
+- 出典: curriculum/PH1/Week13.md:280 / main.jsを書き換えて、カウンターにする
+- ドリル接続: Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。保存してViteのエラーが消えるか確認しましょう。
+- 既習: Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week13-css-import
+- 類題: ph1-week13-assembly-css-import / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+src/main.jsとsrc/style.cssは同じフォルダです。main.jsからCSSを読み込む文を組み立ててください。
+
+```js
+__BLANK__
+document.querySelector("#app").innerHTML = "<h1>一覧</h1>";
+```
+
+- correct: import "./style.css";（正答）
+- wrong: import "./styles.css";
+
+達成条件: src/main.jsとsrc/style.cssは同じフォルダです。main.jsからCSSを読み込む文を組み立ててください。
+
+ヒント: 相対パスと実在するファイル名を合わせます。
+
+解説: 相対パスと実在するファイル名を合わせます。PCでは保存してViteのエラーが消えるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 提示したファイル名はstyle.cssであり、styles.cssではありません。
+
+## question-week13-assembly-module-script（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: ViteのHTMLから/src/main.jsをJavaScriptモジュールとして読み込んでください。
+- 出典: curriculum/PH1/Week13.md:216 / 作業場の中には何が入っているか
+- ドリル接続: Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。開発サーバーから画面を開きましょう。
+- 既習: Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week13-module-script
+- 類題: ph1-week13-assembly-module-script / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+ViteのHTMLから/src/main.jsをJavaScriptモジュールとして読み込んでください。
+
+```html
+<div id="app"></div>
+__BLANK__
+```
+
+- correct: <script type="module" src="/src/main.js"></script>（正答）
+- wrong: <script type="text/plain" src="/src/main.js"></script>
+
+達成条件: ViteのHTMLから/src/main.jsをJavaScriptモジュールとして読み込んでください。
+
+ヒント: type="module"を指定してimportを使う入口を読み込みます。
+
+解説: type="module"を指定してimportを使う入口を読み込みます。PCでは開発サーバーから画面を開きましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: text/plainではJavaScriptモジュールとして実行されません。
+
+## question-week13-assembly-relative-base（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: GitHub Pagesのサブパスへ置くため、教材の相対base設定を組み立ててください。
+- 出典: curriculum/PH1/Week13.md:311 / 本番用に固めて公開する
+- ドリル接続: Week13の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。生成後のファイルを配信して確認しましょう。
+- 既習: Week01〜13の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week13-relative-base
+- 類題: ph1-week13-assembly-relative-base / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+GitHub Pagesのサブパスへ置くため、教材の相対base設定を組み立ててください。
+
+```js
+// vite.config.js
+export default { __BLANK__ };
+```
+
+- correct: base: "./"（正答）
+- wrong: base: "/"
+
+達成条件: GitHub Pagesのサブパスへ置くため、教材の相対base設定を組み立ててください。
+
+ヒント: base: "./"にして再ビルドし、配置先でアセットのURLを確認します。
+
+解説: base: "./"にして再ビルドし、配置先でアセットのURLを確認します。PCでは生成後のファイルを配信して確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: /はサイトのルートを基準にする指定です。

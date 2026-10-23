@@ -1,0 +1,1076 @@
+[
+  {
+    "question": {
+      "id": "question-ph3-week34-assembly-controller-route",
+      "weekUnitId": "week-unit-week34",
+      "format": "fillBlank",
+      "prompt": "UserControllerはimport済みでindexメソッドがあります。GET /usersをindexへ結び付けてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nuse Illuminate\\Support\\Facades\\Route;\nuse App\\Http\\Controllers\\UserController;\n__BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "Route::get('/users', [UserController::class, 'index'])"
+          },
+          {
+            "id": "wrong",
+            "text": "Route::post('/users', [UserController::class, 'index'])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "postではGETで開く一覧ページに対応できません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "Route::get(",
+            "'/users', ",
+            "[UserController::class, 'index']",
+            ")"
+          ],
+          "wrong": [
+            "Route::post(",
+            "'/users', ",
+            "[UserController::class, 'index']",
+            ")"
+          ]
+        }
+      },
+      "explanation": "Route::getでURLとindexを結び付けます。PCではphp artisan route:listでGETの登録を確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "UserControllerはimport済みでindexメソッドがあります。GET /usersをindexへ結び付けてください。",
+      "conceptId": "ph3-week34-controller-route",
+      "variantGroup": "ph3-week34-assembly-controller-route",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。",
+      "drillConnection": "PH3 Week34のPOSSE課題へ接続。php artisan route:listでGETの登録を確認しましょう。",
+      "hint": "表示用のHTTPメソッドとコントローラのアクションを対応させます。",
+      "success": "UserControllerはimport済みでindexメソッドがあります。GET /usersをindexへ結び付けてください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-assembly-return-view",
+      "weekUnitId": "week-unit-week34",
+      "format": "fillBlank",
+      "prompt": "resources/views/users/index.blade.phpへ、取得済み配列$usersをusersというキーで渡してください。コントローラのメソッド内です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nfunction index() {\n  $users = []; // 取得済みの一覧とする\n  return __BLANK__;\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "view('users.index', ['users' => $users])"
+          },
+          {
+            "id": "wrong",
+            "text": "view('users.index', ['user' => $users])"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "ビュー側が使うusersというキーと一致しません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "view(",
+            "'users.index', ",
+            "['users' => $users]",
+            ")"
+          ],
+          "wrong": [
+            "view(",
+            "'users.index', ",
+            "['user' => $users]",
+            ")"
+          ]
+        }
+      },
+      "explanation": "viewの第2引数のキーがBladeの変数名になります。PCではBladeから$usersを参照できるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "resources/views/users/index.blade.phpへ、取得済み配列$usersをusersというキーで渡してください。コントローラのメソッド内です。",
+      "conceptId": "ph3-week34-return-view",
+      "variantGroup": "ph3-week34-assembly-return-view",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。",
+      "drillConnection": "PH3 Week34のPOSSE課題へ接続。Bladeから$usersを参照できるか確認しましょう。",
+      "hint": "ビュー名はディレクトリをドットで区切り、渡すキーを合わせます。",
+      "success": "resources/views/users/index.blade.phpへ、取得済み配列$usersをusersというキーで渡してください。コントローラのメソッド内です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -lで正答の構文確認。Laravel実行ではない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "php"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-assembly-escaped-name",
+      "weekUnitId": "week-unit-week34",
+      "format": "fillBlank",
+      "prompt": "$user->nameは利用者が入力した文字列です。BladeでHTMLとして解釈させずに名前を表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<p>__BLANK__</p>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "{{ $user->name }}"
+          },
+          {
+            "id": "wrong",
+            "text": "{!! $user->name !!}"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "{!! !!}はエスケープしないため、入力をHTMLとして扱ってしまいます。"
+        }
+      },
+      "assembly": {
+        "language": "blade",
+        "optionTokens": {
+          "correct": [
+            "{{ ",
+            "$user->name ",
+            "}}"
+          ],
+          "wrong": [
+            "{!! ",
+            "$user->name ",
+            "!!}"
+          ]
+        }
+      },
+      "explanation": "{{ }}で入力をエスケープして表示します。PCではタグを含む文字も文字として表示されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "$user->nameは利用者が入力した文字列です。BladeでHTMLとして解釈させずに名前を表示してください。",
+      "conceptId": "ph3-week34-escaped-name",
+      "variantGroup": "ph3-week34-assembly-escaped-name",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。",
+      "drillConnection": "PH3 Week34のPOSSE課題へ接続。タグを含む文字も文字として表示されるか確認しましょう。",
+      "hint": "Bladeの通常のエコー構文でエスケープします。",
+      "success": "$user->nameは利用者が入力した文字列です。BladeでHTMLとして解釈させずに名前を表示してください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的意味レビューのみ。Blade/Laravelは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "blade"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-assembly-layout-component",
+      "weekUnitId": "week-unit-week34",
+      "format": "fillBlank",
+      "prompt": "提供済みのapp-layoutコンポーネントで、見出しを囲んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "<x-app-layout><h1>ユーザー</h1></x-app-layout>"
+          },
+          {
+            "id": "wrong",
+            "text": "<x-app-layout><h1>ユーザー</h1></x-user-layout>"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "開始と終了のコンポーネント名が一致しません。"
+        }
+      },
+      "assembly": {
+        "language": "blade",
+        "optionTokens": {
+          "correct": [
+            "<x-app-layout>",
+            "<h1>ユーザー</h1>",
+            "</x-app-layout>"
+          ],
+          "wrong": [
+            "<x-app-layout>",
+            "<h1>ユーザー</h1>",
+            "</x-user-layout>"
+          ]
+        }
+      },
+      "explanation": "共通部分をx-app-layoutへまとめます。PCでは他ページと共通のヘッダーなどが表示されるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "提供済みのapp-layoutコンポーネントで、見出しを囲んでください。",
+      "conceptId": "ph3-week34-layout-component",
+      "variantGroup": "ph3-week34-assembly-layout-component",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。",
+      "drillConnection": "PH3 Week34のPOSSE課題へ接続。他ページと共通のヘッダーなどが表示されるか確認しましょう。",
+      "hint": "コンポーネント名を対応させて共通レイアウトを再利用します。",
+      "success": "提供済みのapp-layoutコンポーネントで、見出しを囲んでください。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的意味レビューのみ。Blade/Laravelは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "blade"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-assembly-route-list",
+      "weekUnitId": "week-unit-week34",
+      "format": "fillBlank",
+      "prompt": "URLとControllerの結び付きを、Artisanのルート一覧で確認してください。Laravelプロジェクト直下です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "php artisan route:list"
+          },
+          {
+            "id": "wrong",
+            "text": "php artisan migrate:status"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "migrate:statusはDB変更の実行状況であり、URLの一覧ではありません。"
+        }
+      },
+      "assembly": {
+        "language": "sh",
+        "optionTokens": {
+          "correct": [
+            "php ",
+            "artisan ",
+            "route:list"
+          ],
+          "wrong": [
+            "php ",
+            "artisan ",
+            "migrate:status"
+          ]
+        }
+      },
+      "explanation": "route:listでHTTPメソッド・URI・アクションを照合します。PCでは/usersがUserControllerのindexを指すか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "URLとControllerの結び付きを、Artisanのルート一覧で確認してください。Laravelプロジェクト直下です。",
+      "conceptId": "ph3-week34-route-list",
+      "variantGroup": "ph3-week34-assembly-route-list",
+      "variantNote": "新規の独立した組み立て問題。前問の状態や正解に依存しない。",
+      "dependency": "なし",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。",
+      "drillConnection": "PH3 Week34のPOSSE課題へ接続。/usersがUserControllerのindexを指すか確認しましょう。",
+      "hint": "routeに関する一覧表示コマンドを使います。",
+      "success": "URLとControllerの結び付きを、Artisanのルート一覧で確認してください。Laravelプロジェクト直下です。",
+      "grading": "実行なし。候補のコード断片を順序付きで照合。過不足・未定義の組合せは不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。sh -nによる構文確認のみ。コマンドは実行しない。 限定トークン採点はtests/content/assembly.test.mjs。Laravelの実行はなし。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "codeLanguage": "sh"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-mvc-controller",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "GET /usersを受け、モデルで取得したユーザー一覧をビューへ渡す役割はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "CSSファイル"
+          },
+          {
+            "id": "wrong3",
+            "text": "マイグレーションだけ"
+          },
+          {
+            "id": "correct",
+            "text": "コントローラー"
+          },
+          {
+            "id": "wrong1",
+            "text": "Bladeテンプレートだけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "Bladeは主に渡されたデータの表示を担当します。",
+          "wrong2": "CSSは画面の見た目を指定します。",
+          "wrong3": "マイグレーションはDB構造の変更を管理します。"
+        }
+      },
+      "explanation": "コントローラーが取得と表示への受け渡しをつなぎます。 PCではUserControllerのindexで取得とreturnを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「コントローラー」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-mvc-controller",
+      "variantGroup": "ph3-week34-choice-mvc-controller",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。UserControllerのindexで取得とreturnを確認しましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "リクエストとモデルと表示をつなぐ役割です。",
+      "success": "条件に適合する候補を1つ選ぶ：コントローラー",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-web-route-file",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "Laravel 10で、セッションを利用する通常のWebページのルートを定義する標準のファイルはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "public/users.php"
+          },
+          {
+            "id": "correct",
+            "text": "routes/web.php"
+          },
+          {
+            "id": "wrong1",
+            "text": "resources/views/web.php"
+          },
+          {
+            "id": "wrong2",
+            "text": "database/seeders/web.php"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ビューのディレクトリはルート定義の標準配置ではありません。",
+          "wrong2": "シーダーは初期データを登録する場所です。",
+          "wrong3": "標準のWebルートはroutes/web.phpへ定義します。"
+        }
+      },
+      "explanation": "通常のWebルートはroutes/web.phpに登録します。 PCでは/usersの定義をweb.phpで探しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「routes/web.php」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-web-route-file",
+      "variantGroup": "ph3-week34-choice-web-route-file",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。/usersの定義をweb.phpで探しましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "URLとアクションの結び付きを記述する場所です。",
+      "success": "条件に適合する候補を1つ選ぶ：routes/web.php",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-controller-import",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "web.phpに[UserController::class, \"index\"]と書いたところ、クラスが見つかりません。UserControllerはApp\\Http\\Controllersに存在します。まず確認するものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "use App\\Http\\Controllers\\UserController; の記載"
+          },
+          {
+            "id": "wrong1",
+            "text": "usersテーブルの全行削除"
+          },
+          {
+            "id": "wrong2",
+            "text": "Bladeの文字色"
+          },
+          {
+            "id": "wrong3",
+            "text": "MySQLのパスワードの文字数だけ"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "クラスの名前解決とDBのデータは別です。",
+          "wrong2": "表示色ではPHPのクラスを解決できません。",
+          "wrong3": "Controllerの名前空間の指定を確認する必要があります。"
+        }
+      },
+      "explanation": "短いクラス名を使うには対応するimportを確認します。 PCではweb.phpのuse文と実際の名前空間を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「use App\\Http\\Controllers\\UserController; の記載」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-controller-import",
+      "variantGroup": "ph3-week34-choice-controller-import",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。web.phpのuse文と実際の名前空間を照合しましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ファイルが存在しても名前空間の指定が必要です。",
+      "success": "条件に適合する候補を1つ選ぶ：use App\\Http\\Controllers\\UserController; の記載",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-view-dot-path",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "view(\"users.index\")が指す標準のBladeファイルはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "routes/users/index.php"
+          },
+          {
+            "id": "wrong2",
+            "text": "app/Models/users.index.php"
+          },
+          {
+            "id": "wrong3",
+            "text": "public/users.index.blade.php"
+          },
+          {
+            "id": "correct",
+            "text": "resources/views/users/index.blade.php"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ルート定義の配置とビューの配置は別です。",
+          "wrong2": "モデルの場所へビューを置く指定ではありません。",
+          "wrong3": "Laravelの標準ビュー配置はresources/viewsです。"
+        }
+      },
+      "explanation": "users.indexはusers内のindexビューを指します。 PCではビューのファイル名とreturn viewの指定を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「resources/views/users/index.blade.php」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-view-dot-path",
+      "variantGroup": "ph3-week34-choice-view-dot-path",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。ビューのファイル名とreturn viewの指定を照合しましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ドットはビューのディレクトリの区切りです。",
+      "success": "条件に適合する候補を1つ選ぶ：resources/views/users/index.blade.php",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-view-variable-key",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "Controllerがview(\"users.index\", [\"members\" => $users])を返します。Bladeで一覧へアクセスする変数はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "$index"
+          },
+          {
+            "id": "wrong3",
+            "text": "$view"
+          },
+          {
+            "id": "correct",
+            "text": "$members"
+          },
+          {
+            "id": "wrong1",
+            "text": "$users"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "ビューへ渡す変数名は配列のキーmembersです。",
+          "wrong2": "ビューのファイル名が変数名になるわけではありません。",
+          "wrong3": "view呼び出しだけでこの変数が定義されるわけではありません。"
+        }
+      },
+      "explanation": "元のPHP変数名ではなく、渡したキーを使います。 PCではBladeのforeachとデータを渡すキーをそろえましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "提示条件に対して「$members」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-view-variable-key",
+      "variantGroup": "ph3-week34-choice-view-variable-key",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。Bladeのforeachとデータを渡すキーをそろえましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "キーがビュー内の変数名になります。",
+      "success": "条件に適合する候補を1つ選ぶ：$members",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-get-page",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "ブラウザでURLを開いたときにユーザー一覧を表示します。対応させるHTTPメソッドはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "PATCH"
+          },
+          {
+            "id": "correct",
+            "text": "GET"
+          },
+          {
+            "id": "wrong1",
+            "text": "POST"
+          },
+          {
+            "id": "wrong2",
+            "text": "DELETE"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "POSTは一般に作成などの送信に使い、通常のURL表示のGETと異なります。",
+          "wrong2": "削除を表すメソッドで、一覧を開く要求とは異なります。",
+          "wrong3": "部分更新を表すメソッドで、一覧表示の要求とは異なります。"
+        }
+      },
+      "explanation": "GETのルートを一覧表示のアクションに結び付けます。 PCではroute:listでGET /usersを確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「GET」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-get-page",
+      "variantGroup": "ph3-week34-choice-get-page",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。route:listでGET /usersを確認しましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "通常のリンクを開くリクエストです。",
+      "success": "条件に適合する候補を1つ選ぶ：GET",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-escape-output",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "利用者の名前が文字列「<b>Aya</b>」です。Bladeの{{ $name }}で表示した結果はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "タグも含めた文字列として表示される"
+          },
+          {
+            "id": "wrong1",
+            "text": "Ayaだけが必ず太字で表示される"
+          },
+          {
+            "id": "wrong2",
+            "text": "DBのnameが自動的に空になる"
+          },
+          {
+            "id": "wrong3",
+            "text": "PHPの関数bが呼び出される"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "通常の{{ }}はHTMLをエスケープします。",
+          "wrong2": "表示処理はDBの保存値を削除しません。",
+          "wrong3": "文字列内のHTMLタグはPHPの関数ではありません。"
+        }
+      },
+      "explanation": "エスケープでタグを表示用の文字として扱います。 PCではローカル画面でタグを含む名前が文字として出るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "結果の確認・修正",
+      "objective": "提示条件に対して「タグも含めた文字列として表示される」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-escape-output",
+      "variantGroup": "ph3-week34-choice-escape-output",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。ローカル画面でタグを含む名前が文字として出るか確認しましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "通常のBlade出力はHTMLとして解釈させません。",
+      "success": "条件に適合する候補を1つ選ぶ：タグも含めた文字列として表示される",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-component-purpose",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "複数ページに同じヘッダーを表示します。<x-app-layout>を使う目的はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong1",
+            "text": "ページごとに異なるDBを必ず作成する"
+          },
+          {
+            "id": "wrong2",
+            "text": "URLをすべて同じパスへ置き換える"
+          },
+          {
+            "id": "wrong3",
+            "text": "すべてのデータを自動で管理者専用にする"
+          },
+          {
+            "id": "correct",
+            "text": "共通レイアウトをまとめて再利用する"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "レイアウトの再利用とDBの分割は別です。",
+          "wrong2": "共通レイアウトを使っても各ページのURLは保てます。",
+          "wrong3": "レイアウトだけではサーバー側のアクセス制御になりません。"
+        }
+      },
+      "explanation": "共通部分をコンポーネントへ集めて変更を反映しやすくします。 PCでは2ページで共通ヘッダーが同じコンポーネントを使うか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「共通レイアウトをまとめて再利用する」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-component-purpose",
+      "variantGroup": "ph3-week34-choice-component-purpose",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。2ページで共通ヘッダーが同じコンポーネントを使うか確認しましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "同じHTML構造の重複を減らします。",
+      "success": "条件に適合する候補を1つ選ぶ：共通レイアウトをまとめて再利用する",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-route-name",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "URLを変えてもリンクを直す箇所を減らすため、名前付きルートusers.indexを使います。BladeでURLを作る方法はどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong2",
+            "text": "env(\"users.index\")"
+          },
+          {
+            "id": "wrong3",
+            "text": "asset(\"users.index\")"
+          },
+          {
+            "id": "correct",
+            "text": "route(\"users.index\")"
+          },
+          {
+            "id": "wrong1",
+            "text": "view(\"users.index\")"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "viewはビューを返すためのヘルパーで、名前付きルートのURL生成ではありません。",
+          "wrong2": "環境変数の取得ではルートURLを生成できません。",
+          "wrong3": "assetはアセットへのURLを作るためのヘルパーです。"
+        }
+      },
+      "explanation": "routeヘルパーに登録済みの名前を渡します。 PCではルートのnameとBladeのrouteの引数を照合しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の選択",
+      "objective": "提示条件に対して「route(\"users.index\")」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-route-name",
+      "variantGroup": "ph3-week34-choice-route-name",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。ルートのnameとBladeのrouteの引数を照合しましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "ページのルート名からURLを作ります。",
+      "success": "条件に適合する候補を1つ選ぶ：route(\"users.index\")",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph3-week34-choice-action-method",
+      "weekUnitId": "week-unit-week34",
+      "format": "singleChoice",
+      "prompt": "ルートが[UserController::class, \"index\"]を参照しています。indexアクションとして定義すべきものはどれですか？",
+      "payload": {
+        "kind": "choice",
+        "options": [
+          {
+            "id": "wrong3",
+            "text": "Bladeのclass=\"index\"属性"
+          },
+          {
+            "id": "correct",
+            "text": "UserController内のpublic function index()"
+          },
+          {
+            "id": "wrong1",
+            "text": "usersテーブル内のindexという行"
+          },
+          {
+            "id": "wrong2",
+            "text": "public/index.cssというCSSファイル"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong1": "アクションはコントローラーのメソッドです。",
+          "wrong2": "CSSファイルはアクションではありません。",
+          "wrong3": "HTMLのclass名とPHPのメソッドは別です。"
+        }
+      },
+      "explanation": "アクションはコントローラー内のpublicメソッドです。 PCではルートの文字列とメソッド名が一致するか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week34",
+        "sectionHeading": "Week 34"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "言葉の理解",
+      "objective": "提示条件に対して「UserController内のpublic function index()」を選び、その理由を説明する。",
+      "conceptId": "ph3-week34-action-method",
+      "variantGroup": "ph3-week34-choice-action-method",
+      "variantNote": "新規の独立した4択問題。組み立て問題とは提示形式と判断対象を区別する。",
+      "dependency": "なし。前問の正答・操作状態に依存しない。",
+      "source": {
+        "path": "curriculum/PH3.md",
+        "line": 145,
+        "heading": "Week 34",
+        "sha256": "e72b3f4b5273cd5fbedf70d9fa61b3b2ac41b01b3ca1b03e6c37f977dd33fd95"
+      },
+      "supportingSources": [],
+      "drillConnection": "PH3 Week34のPOSSE課題。ルートの文字列とメソッド名が一致するか確認しましょう。",
+      "priorKnowledge": "Week33のLaravel環境。Week34のMVC・ルーティング・Blade。 設問内の追加条件は固定。書籍本文・動画・画像を確認したとは扱わない。",
+      "hint": "クラスにある呼び出し可能なメソッドを探します。",
+      "success": "条件に適合する候補を1つ選ぶ：UserController内のpublic function index()",
+      "grading": "単一の正答IDで採点。3つの誤答には候補別理由を表示。",
+      "inputFormat": "4択の単一選択",
+      "runtime": "Web・Native共通の選択UI。Laravel・DB・Dockerはアプリ内で実行しない。",
+      "initialState": "問題文の独立した条件。実サービス・DBへ変更しない。",
+      "editableRange": "回答候補のみ。",
+      "hintUse": "hintUsedへ記録し、自力回答と区別する。",
+      "validation": "2026-10-23 初稿保存後の別工程で、教材のWeek範囲・既習・提示条件での単一正答・3誤答の理由・ヒント・解説と次のPC操作を静的に意味レビュー。作者による自己レビュー。Laravel本体・DBは実行しない。docs/quiz-reviews/ph3-choice-week33-48.mdを参照。"
+    },
+    "status": "published"
+  }
+]

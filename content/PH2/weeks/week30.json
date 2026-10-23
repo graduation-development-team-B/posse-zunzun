@@ -1086,5 +1086,444 @@
       "validation": "2026-10-07：作成後の別工程で、教材・ドリルとの対応、既習範囲、提示条件での単一正答、全候補の誤答理由、解説を自己レビュー。出典・ドリルの行・SHA・形式を機械検証。静的な候補選択の意味確認。提示コードの実行を確認したとは扱わない。 参照：docs/quiz-reviews/ph2-week17-32.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-assembly-daily-key",
+      "weekUnitId": "week-unit-week30",
+      "format": "fillBlank",
+      "prompt": "MySQLのDATE_FORMATで、時刻を除いた年-月-日を取り出してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT __BLANK__ AS day, SUM(hours) FROM studies GROUP BY day;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "DATE_FORMAT(date, '%Y-%m-%d')"
+          },
+          {
+            "id": "wrong",
+            "text": "DATE_FORMAT(date, '%Y-%m')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "年-月だけでは月単位になり、日ごとに分けられません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "DATE_FORMAT(",
+            "date, ",
+            "'%Y-%m-%d'",
+            ")"
+          ],
+          "wrong": [
+            "DATE_FORMAT(",
+            "date, ",
+            "'%Y-%m'",
+            ")"
+          ]
+        }
+      },
+      "explanation": "日単位のキーには年・月・日を含めます。PCでは同じ日の違う時刻が同じキーになるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "MySQLのDATE_FORMATで、時刻を除いた年-月-日を取り出してください。",
+      "conceptId": "ph2-week30-daily-key",
+      "variantGroup": "ph2-week30-assembly-daily-key",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week30の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。同じ日の違う時刻が同じキーになるか確認しましょう。",
+      "hint": "日単位のキーには年・月・日を含めます。",
+      "success": "MySQLのDATE_FORMATで、時刻を除いた年-月-日を取り出してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。MySQL固有構文は教材・公式仕様との静的照合のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week30-1/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1245,
+          "heading": "Week 30",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-assembly-monthly-key",
+      "weekUnitId": "week-unit-week30",
+      "format": "fillBlank",
+      "prompt": "違う年の同じ月を混ぜず、年-月で集計するMySQLのキーを組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT student_id, __BLANK__ AS month, SUM(hours)\nFROM studies GROUP BY student_id, month;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "DATE_FORMAT(date, '%Y-%m')"
+          },
+          {
+            "id": "wrong",
+            "text": "DATE_FORMAT(date, '%m')"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "月だけでは2022年6月と2023年6月が同じキーになります。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "DATE_FORMAT(",
+            "date, ",
+            "'%Y-%m'",
+            ")"
+          ],
+          "wrong": [
+            "DATE_FORMAT(",
+            "date, ",
+            "'%m'",
+            ")"
+          ]
+        }
+      },
+      "explanation": "集計単位に必要な年も含めます。PCでは別年の同じ月で確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "違う年の同じ月を混ぜず、年-月で集計するMySQLのキーを組み立ててください。",
+      "conceptId": "ph2-week30-monthly-key",
+      "variantGroup": "ph2-week30-assembly-monthly-key",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week30の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。別年の同じ月で確認しましょう。",
+      "hint": "集計単位に必要な年も含めます。",
+      "success": "違う年の同じ月を混ぜず、年-月で集計するMySQLのキーを組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。MySQL固有構文は教材・公式仕様との静的照合のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week30-3/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "9ec591f1d35e6b901c67b07f816a104fd0cfc96738afcce507ffb3cd9c58bb2d"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1245,
+          "heading": "Week 30",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-assembly-toggle-status",
+      "weekUnitId": "week-unit-week30",
+      "format": "fillBlank",
+      "prompt": "statusは0か1です。0なら1、1なら0に切り替える式を組み立ててください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "UPDATE todos SET status = __BLANK__ WHERE id = :id;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "1 - status"
+          },
+          {
+            "id": "wrong",
+            "text": "1 + status"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "1+statusではstatus=1が2になり、0へ戻りません。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "1 ",
+            "- ",
+            "status"
+          ],
+          "wrong": [
+            "1 ",
+            "+ ",
+            "status"
+          ]
+        }
+      },
+      "explanation": "1から引くと0と1が入れ替わります。PCでは同じタスクで2回操作して元へ戻るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "Week 30"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "statusは0か1です。0なら1、1なら0に切り替える式を組み立ててください。",
+      "conceptId": "ph2-week30-toggle-status",
+      "variantGroup": "ph2-week30-assembly-toggle-status",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week30の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。同じタスクで2回操作して元へ戻るか確認しましょう。",
+      "hint": "1から引くと0と1が入れ替わります。",
+      "success": "statusは0か1です。0なら1、1なら0に切り替える式を組み立ててください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。SQLite固定データで正誤比較（MySQL実行ではない）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "line": 1245,
+        "heading": "Week 30",
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-1/README.md",
+          "line": 1,
+          "heading": "30週目ミニドリル 1問目",
+          "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-assembly-weekly-monday",
+      "weekUnitId": "week-unit-week30",
+      "format": "fillBlank",
+      "prompt": "MySQLのWEEKDAYは月曜0〜日曜6です。DATE_SUBで日数を引き、各日をその週の月曜へそろえてください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "SELECT DATE_SUB(DATE(date), INTERVAL (__BLANK__) DAY) AS week_start FROM studies;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "WEEKDAY(date)"
+          },
+          {
+            "id": "wrong",
+            "text": "WEEKDAY(date) + 1"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "+1すると月曜日からも1日を引いて日曜日へずれます。"
+        }
+      },
+      "assembly": {
+        "language": "sql",
+        "optionTokens": {
+          "correct": [
+            "WEEKDAY(",
+            "date",
+            ")"
+          ],
+          "wrong": [
+            "WEEKDAY(",
+            "date",
+            ") + 1"
+          ]
+        }
+      },
+      "explanation": "当日の曜日番号だけ引けば、その週の月曜にそろいます。PCでは月曜と日曜の両端で確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "問題"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "MySQLのWEEKDAYは月曜0〜日曜6です。DATE_SUBで日数を引き、各日をその週の月曜へそろえてください。",
+      "conceptId": "ph2-week30-weekly-monday",
+      "variantGroup": "ph2-week30-assembly-weekly-monday",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week30の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。月曜と日曜の両端で確認しましょう。",
+      "hint": "当日の曜日番号だけ引けば、その週の月曜にそろいます。",
+      "success": "MySQLのWEEKDAYは月曜0〜日曜6です。DATE_SUBで日数を引き、各日をその週の月曜へそろえてください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。MySQL固有構文は教材・公式仕様との静的照合のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "drill-ph2/src/week30-2/README.md",
+        "line": 3,
+        "heading": "問題",
+        "sha256": "b69a94439eb8127e29dce5ac6d0f5d792d5db240718fe073b0cfb6cce8fa2ea9"
+      },
+      "supportingSources": [
+        {
+          "path": "curriculum/PH2/PH2.md",
+          "line": 1245,
+          "heading": "Week 30",
+          "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "sql"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-ph2-week30-assembly-crud-return",
+      "weekUnitId": "week-unit-week30",
+      "format": "fillBlank",
+      "prompt": "To-DoのINSERTは成功済みです。通常のフォーム送信後、/index.phpへ戻すLocationヘッダーを組み立ててください。出力前です。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<?php\nheader(__BLANK__);\nexit;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "\"Location: /index.php\""
+          },
+          {
+            "id": "wrong",
+            "text": "\"Location: /create/index.php\""
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "作成処理のURLへ戻しており、一覧の/index.phpではありません。"
+        }
+      },
+      "assembly": {
+        "language": "php",
+        "optionTokens": {
+          "correct": [
+            "\"Location: ",
+            "/index.php",
+            "\""
+          ],
+          "wrong": [
+            "\"Location: ",
+            "/create/index.php",
+            "\""
+          ]
+        }
+      },
+      "explanation": "保存後に一覧へリダイレクトし、更新されたDBの値を取得します。PCでは一覧へ戻った後も新しいタスクが残るか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week30",
+        "sectionHeading": "Week 30"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "To-DoのINSERTは成功済みです。通常のフォーム送信後、/index.phpへ戻すLocationヘッダーを組み立ててください。出力前です。",
+      "conceptId": "ph2-week30-crud-return",
+      "variantGroup": "ph2-week30-assembly-crud-return",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "PH1の基礎とPH2のWeek17〜30の該当範囲。Week29〜31は新規インプットなし。PH2.mdの課題とドリルに出てくる既習知識を復習する。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week30の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。一覧へ戻った後も新しいタスクが残るか確認しましょう。",
+      "hint": "保存後に一覧へリダイレクトし、更新されたDBの値を取得します。",
+      "success": "To-DoのINSERTは成功済みです。通常のフォーム送信後、/index.phpへ戻すLocationヘッダーを組み立ててください。出力前です。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH2/PH2.md",
+        "line": 1245,
+        "heading": "Week 30",
+        "sha256": "bf39b88b6b151be68b6f423cdd0fb35a8a2fbf66f9fd38bc00357f69d4a3bef7"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph2/src/week30-1/README.md",
+          "line": 1,
+          "heading": "30週目ミニドリル 1問目",
+          "sha256": "7cab9f992a265069bfb69a0784905cb16466fe60900032867198c7e602b6e823"
+        },
+        {
+          "path": "drill-ph2/db/init.sql",
+          "line": 1,
+          "heading": "CREATE DATABASE IF NOT EXISTS ph2drill;",
+          "sha256": "dff045f26f4d1a4c1e2994ee8f7e21e9f6358406628400ae1dd64dd1d4a5a95c"
+        }
+      ],
+      "codeLanguage": "php"
+    },
+    "status": "published"
   }
 ]

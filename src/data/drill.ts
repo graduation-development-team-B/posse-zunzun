@@ -29,9 +29,9 @@ export const PHASES: Phase[] = [
   {
     id: "ph3",
     code: "PH3",
-    title: "[PH3の名前]",
-    sub: "[含まれるWeek]",
-    short: "[名前]",
+    title: "Laravelでアプリを作ろう",
+    sub: "Week33〜48",
+    short: "Laravel",
   },
 ];
 

@@ -1,5 +1,5 @@
 import { Link, type Href } from 'expo-router';
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { Drill } from '@/constants/drill';
@@ -19,12 +19,28 @@ type FeedbackSheetProps = {
   onNext?: () => void;
   nextDisabled?: boolean;
   source?: string;
+  explanationRead?: boolean;
+  onExplanationRead?: () => Promise<unknown>;
 };
 
 /** 確定後に画面下からせり上がる「正解／おしい」パネル */
-export function FeedbackSheet({ variant, title, children, link, nextHref, onNext, nextDisabled, source }: FeedbackSheetProps) {
+export function FeedbackSheet({ variant, title, children, link, nextHref, onNext, nextDisabled, source, explanationRead = false, onExplanationRead }: FeedbackSheetProps) {
+  const [expanded, setExpanded] = useState(false);
+  const [savingRead, setSavingRead] = useState(false);
   const ok = variant === 'correct';
   const tone = ok ? Drill.success : Drill.danger;
+
+  const toggleExplanation = () => {
+    if (expanded) {
+      setExpanded(false);
+      return;
+    }
+    setExpanded(true);
+    if (!explanationRead && onExplanationRead) {
+      setSavingRead(true);
+      void onExplanationRead().catch(() => {}).finally(() => setSavingRead(false));
+    }
+  };
 
   return (
     <View aria-live="polite" style={[styles.sheet, { borderTopColor: tone }]}>
@@ -37,7 +53,36 @@ export function FeedbackSheet({ variant, title, children, link, nextHref, onNext
           {title}
         </DText>
       </View>
-      {children}
+      {ok ? children : (
+        <View style={disclosureStyles.disclosure}>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={`つまづきポイント${expanded ? 'を閉じる' : 'を開く'}`}
+            accessibilityState={{ expanded, disabled: savingRead }}
+            disabled={savingRead}
+            onPress={toggleExplanation}
+            style={disclosureStyles.disclosureButton}
+          >
+            <DText size={15} weight="bold" color={Drill.text}>つまづきポイント</DText>
+            <DText size={18} weight="bold" color={Drill.accentText}>{expanded ? '−' : '＋'}</DText>
+          </Pressable>
+          {expanded && (
+            <View style={disclosureStyles.disclosureContent}>
+              {children}
+              {Boolean(source) && <DText size={12} color={Drill.textSub}>{source}</DText>}
+              <Link href="/materials" asChild>
+                <Pressable accessibilityRole="link" style={styles.link}>
+                  <Icon name="book" size={16} color={Drill.chipText} />
+                  <DText size={13} weight="bold" color={Drill.chipText}>教材の該当箇所を開く（30秒）</DText>
+                </Pressable>
+              </Link>
+              {explanationRead && (
+                <DText size={12} weight="bold" color={Drill.accentText}>解説を読んだ！ +5 XP</DText>
+              )}
+            </View>
+          )}
+        </View>
+      )}
       {link && (
         <Link href={link.href} asChild>
           <Pressable role="link" style={styles.link}>
@@ -48,7 +93,7 @@ export function FeedbackSheet({ variant, title, children, link, nextHref, onNext
           </Pressable>
         </Link>
       )}
-      {Boolean(source) && <View style={styles.link}><Icon name="book" size={16} color={Drill.chipText}/><DText size={13} weight="bold" color={Drill.chipText}>{source}</DText></View>}
+      {ok && Boolean(source) && <View style={styles.link}><Icon name="book" size={16} color={Drill.chipText}/><DText size={13} weight="bold" color={Drill.chipText}>{source}</DText></View>}
       <CtaButton label="次へ" href={nextHref} onPress={onNext} disabled={nextDisabled} minHeight={54} />
     </View>
   );
@@ -79,4 +124,10 @@ const styles = StyleSheet.create({
   mascot: { position: 'absolute', right: 14 },
   titleRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   link: { flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: 32 },
+});
+
+const disclosureStyles = StyleSheet.create({
+  disclosure: { borderRadius: 12, backgroundColor: Drill.bg, overflow: 'hidden' },
+  disclosureButton: { minHeight: 48, paddingHorizontal: 14, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  disclosureContent: { gap: 10, paddingHorizontal: 14, paddingBottom: 14 },
 });

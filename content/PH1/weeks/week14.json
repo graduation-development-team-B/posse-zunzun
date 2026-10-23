@@ -844,5 +844,482 @@
       "validation": "2026-10-07：作成後に別工程で教材との対応、既習範囲、条件下の単一正答、全誤答理由を意味レビュー。出典見出し・行・SHAと形式を機械検証。選択肢IDの採点を確認。DOM・CSS・非同期・JSXは静的な候補選択であり、このコードの実行を確認したとは扱わない。 詳細はdocs/quiz-reviews/week07-16.md。"
     },
     "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-assembly-jsx-title",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "titleは\"イベント予定\"です。JSXでtitleの値をh2へ表示してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const title = \"イベント予定\";\nconst heading = <h2>__BLANK__</h2>;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "{title}"
+          },
+          {
+            "id": "wrong",
+            "text": "{\"title\"}"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "\"title\"は変数ではなく固定の文字列です。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "{",
+            "title",
+            "}"
+          ],
+          "wrong": [
+            "{",
+            "\"title\"",
+            "}"
+          ]
+        }
+      },
+      "explanation": "JSXの波括弧内に変数を書きます。PCではtitleの値を変えて表示も変わるか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "見た目はHTML、書いているのはJavaScript"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "titleは\"イベント予定\"です。JSXでtitleの値をh2へ表示してください。",
+      "conceptId": "ph1-week14-jsx-title",
+      "variantGroup": "ph1-week14-assembly-jsx-title",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。titleの値を変えて表示も変わるか確認しましょう。",
+      "hint": "JSXの波括弧内に変数を書きます。",
+      "success": "titleは\"イベント予定\"です。JSXでtitleの値をh2へ表示してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "line": 87,
+        "heading": "見た目はHTML、書いているのはJavaScript",
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week14-1/README.md",
+          "line": 1,
+          "heading": "問題1：MemberCard を作って props を渡す（20分）",
+          "sha256": "5eb36a6f49c1859c1b97bde175f00770c39aacd919993f4e75eddb7391ee83c2"
+        },
+        {
+          "path": "drill-ph1/week14-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（key 忘れ）（15分）",
+          "sha256": "62aa1ec27d707799a005eb60c61e1abc496741b47d9f7a428dfa95064a693db5"
+        },
+        {
+          "path": "drill-ph1/week14-3/README.md",
+          "line": 1,
+          "heading": "問題3：Week08 の一覧描画を、React の map で書き直す（25分）",
+          "sha256": "d3f9b68413e1fa502f5a5bd33f3d65616e8312f18ca96b5dd20b0c1b6c4f4591"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-assembly-props-card",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "MemberCardはnameとroleを受け取ります。nameを\"鈴木\"、roleを\"デザイナー\"として呼び出してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "const card = __BLANK__;",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "<MemberCard name=\"鈴木\" role=\"デザイナー\" />"
+          },
+          {
+            "id": "wrong",
+            "text": "<MemberCard name=\"デザイナー\" role=\"鈴木\" />"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "渡すpropsの名前と値が逆です。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "<MemberCard ",
+            "name=\"鈴木\" ",
+            "role=\"デザイナー\" ",
+            "/>"
+          ],
+          "wrong": [
+            "<MemberCard ",
+            "name=\"デザイナー\" ",
+            "role=\"鈴木\" ",
+            "/>"
+          ]
+        }
+      },
+      "explanation": "親でprops名と値を対応させます。PCでは子の受け取り名と表示位置も確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "型は同じ、中身だけ変えたい"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "MemberCardはnameとroleを受け取ります。nameを\"鈴木\"、roleを\"デザイナー\"として呼び出してください。",
+      "conceptId": "ph1-week14-props-card",
+      "variantGroup": "ph1-week14-assembly-props-card",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。子の受け取り名と表示位置も確認しましょう。",
+      "hint": "親でprops名と値を対応させます。",
+      "success": "MemberCardはnameとroleを受け取ります。nameを\"鈴木\"、roleを\"デザイナー\"として呼び出してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "line": 258,
+        "heading": "型は同じ、中身だけ変えたい",
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week14-1/README.md",
+          "line": 1,
+          "heading": "問題1：MemberCard を作って props を渡す（20分）",
+          "sha256": "5eb36a6f49c1859c1b97bde175f00770c39aacd919993f4e75eddb7391ee83c2"
+        },
+        {
+          "path": "drill-ph1/week14-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（key 忘れ）（15分）",
+          "sha256": "62aa1ec27d707799a005eb60c61e1abc496741b47d9f7a428dfa95064a693db5"
+        },
+        {
+          "path": "drill-ph1/week14-3/README.md",
+          "line": 1,
+          "heading": "問題3：Week08 の一覧描画を、React の map で書き直す（25分）",
+          "sha256": "d3f9b68413e1fa502f5a5bd33f3d65616e8312f18ca96b5dd20b0c1b6c4f4591"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-assembly-map-key",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "membersには重複しない固定idがあります。各メンバーをカードに変換し、同じidをkeyへ渡してください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "<div>{members.map((member) => (\n  __BLANK__\n))}</div>",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "<MemberCard key={member.id} name={member.name} />"
+          },
+          {
+            "id": "wrong",
+            "text": "<MemberCard key={member.name} name={member.name} />"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "名前が重複し得るため、安定した一意のkeyには固定idを使います。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "<MemberCard ",
+            "key={member.id} ",
+            "name={member.name} ",
+            "/>"
+          ],
+          "wrong": [
+            "<MemberCard ",
+            "key={member.name} ",
+            "name={member.name} ",
+            "/>"
+          ]
+        }
+      },
+      "explanation": "mapが直接返す要素にkeyを置きます。PCでは名前が同じデータでも警告が出ないか確認しましょう。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "本が10冊に増えたら"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "membersには重複しない固定idがあります。各メンバーをカードに変換し、同じidをkeyへ渡してください。",
+      "conceptId": "ph1-week14-map-key",
+      "variantGroup": "ph1-week14-assembly-map-key",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。名前が同じデータでも警告が出ないか確認しましょう。",
+      "hint": "mapが直接返す要素にkeyを置きます。",
+      "success": "membersには重複しない固定idがあります。各メンバーをカードに変換し、同じidをkeyへ渡してください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "line": 319,
+        "heading": "本が10冊に増えたら",
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week14-1/README.md",
+          "line": 1,
+          "heading": "問題1：MemberCard を作って props を渡す（20分）",
+          "sha256": "5eb36a6f49c1859c1b97bde175f00770c39aacd919993f4e75eddb7391ee83c2"
+        },
+        {
+          "path": "drill-ph1/week14-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（key 忘れ）（15分）",
+          "sha256": "62aa1ec27d707799a005eb60c61e1abc496741b47d9f7a428dfa95064a693db5"
+        },
+        {
+          "path": "drill-ph1/week14-3/README.md",
+          "line": 1,
+          "heading": "問題3：Week08 の一覧描画を、React の map で書き直す（25分）",
+          "sha256": "d3f9b68413e1fa502f5a5bd33f3d65616e8312f18ca96b5dd20b0c1b6c4f4591"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-assembly-component-return",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "Greetingを、あいさつを表示する関数コンポーネントにしてください。返す文を組み立てます。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "function Greeting() {\n  __BLANK__\n}",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "return <p>こんにちは</p>;"
+          },
+          {
+            "id": "wrong",
+            "text": "return <p>こんにちは</div>;"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "開始タグpと終了タグdivの対応が取れていません。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "return ",
+            "<p>",
+            "こんにちは",
+            "</p>",
+            ";"
+          ],
+          "wrong": [
+            "return ",
+            "<p>",
+            "こんにちは",
+            "</div>",
+            ";"
+          ]
+        }
+      },
+      "explanation": "returnで対応の取れたJSXを返します。PCでは<Greeting />と大文字始まりで呼び出しましょう。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "同じカードを、一度作れば何度でも"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "Greetingを、あいさつを表示する関数コンポーネントにしてください。返す文を組み立てます。",
+      "conceptId": "ph1-week14-component-return",
+      "variantGroup": "ph1-week14-assembly-component-return",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。<Greeting />と大文字始まりで呼び出しましょう。",
+      "hint": "returnで対応の取れたJSXを返します。",
+      "success": "Greetingを、あいさつを表示する関数コンポーネントにしてください。返す文を組み立てます。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "line": 195,
+        "heading": "同じカードを、一度作れば何度でも",
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week14-1/README.md",
+          "line": 1,
+          "heading": "問題1：MemberCard を作って props を渡す（20分）",
+          "sha256": "5eb36a6f49c1859c1b97bde175f00770c39aacd919993f4e75eddb7391ee83c2"
+        },
+        {
+          "path": "drill-ph1/week14-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（key 忘れ）（15分）",
+          "sha256": "62aa1ec27d707799a005eb60c61e1abc496741b47d9f7a428dfa95064a693db5"
+        },
+        {
+          "path": "drill-ph1/week14-3/README.md",
+          "line": 1,
+          "heading": "問題3：Week08 の一覧描画を、React の map で書き直す（25分）",
+          "sha256": "d3f9b68413e1fa502f5a5bd33f3d65616e8312f18ca96b5dd20b0c1b6c4f4591"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
+  },
+  {
+    "question": {
+      "id": "question-week14-assembly-default-import",
+      "weekUnitId": "week-unit-week14",
+      "format": "fillBlank",
+      "prompt": "MemberCard.jsxはexport default済みです。src/App.jsxから同じsrc内のcomponents/MemberCard.jsxを読み込んでください。",
+      "payload": {
+        "kind": "fillBlank",
+        "content": "__BLANK__",
+        "blankToken": "__BLANK__",
+        "mode": "choice",
+        "options": [
+          {
+            "id": "correct",
+            "text": "import MemberCard from \"./components/MemberCard.jsx\";"
+          },
+          {
+            "id": "wrong",
+            "text": "import MemberCard from \"../components/MemberCard.jsx\";"
+          }
+        ],
+        "correctOptionId": "correct",
+        "incorrectReasons": {
+          "wrong": "../ではsrcの外へ移動してしまい、提示した配置に合いません。"
+        }
+      },
+      "assembly": {
+        "language": "jsx",
+        "optionTokens": {
+          "correct": [
+            "import ",
+            "MemberCard ",
+            "from ",
+            "\"./components/MemberCard.jsx\"",
+            ";"
+          ],
+          "wrong": [
+            "import ",
+            "MemberCard ",
+            "from ",
+            "\"../components/MemberCard.jsx\"",
+            ";"
+          ]
+        }
+      },
+      "explanation": "現在のApp.jsxからcomponentsへ入る相対パスを指定します。PCではファイル名の大文字小文字も合わせましょう。",
+      "sourceReference": {
+        "weekKey": "week14",
+        "sectionHeading": "部品を、別ファイルに引っ越す"
+      },
+      "published": true,
+      "deleted": false
+    },
+    "author": {
+      "revision": 1,
+      "target": "知識の組み立て",
+      "objective": "MemberCard.jsxはexport default済みです。src/App.jsxから同じsrc内のcomponents/MemberCard.jsxを読み込んでください。",
+      "conceptId": "ph1-week14-default-import",
+      "variantGroup": "ph1-week14-assembly-default-import",
+      "variantNote": "既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。",
+      "dependency": "なし",
+      "priorKnowledge": "Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。",
+      "drillConnection": "Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。ファイル名の大文字小文字も合わせましょう。",
+      "hint": "現在のApp.jsxからcomponentsへ入る相対パスを指定します。",
+      "success": "MemberCard.jsxはexport default済みです。src/App.jsxから同じsrc内のcomponents/MemberCard.jsxを読み込んでください。",
+      "grading": "実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。",
+      "validation": "2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。",
+      "source": {
+        "path": "curriculum/PH1/Week14.md",
+        "line": 402,
+        "heading": "部品を、別ファイルに引っ越す",
+        "sha256": "4a31916da3013a02bebd14995f883263d6f14e2552d0c89db0acd9c2cd38fe69"
+      },
+      "supportingSources": [
+        {
+          "path": "drill-ph1/week14-1/README.md",
+          "line": 1,
+          "heading": "問題1：MemberCard を作って props を渡す（20分）",
+          "sha256": "5eb36a6f49c1859c1b97bde175f00770c39aacd919993f4e75eddb7391ee83c2"
+        },
+        {
+          "path": "drill-ph1/week14-2/README.md",
+          "line": 1,
+          "heading": "問題2：バグ診断（key 忘れ）（15分）",
+          "sha256": "62aa1ec27d707799a005eb60c61e1abc496741b47d9f7a428dfa95064a693db5"
+        },
+        {
+          "path": "drill-ph1/week14-3/README.md",
+          "line": 1,
+          "heading": "問題3：Week08 の一覧描画を、React の map で書き直す（25分）",
+          "sha256": "d3f9b68413e1fa502f5a5bd33f3d65616e8312f18ca96b5dd20b0c1b6c4f4591"
+        }
+      ],
+      "codeLanguage": "jsx"
+    },
+    "status": "published"
   }
 ]

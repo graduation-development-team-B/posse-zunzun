@@ -1,6 +1,6 @@
 # Week03｜Flexboxレイアウト
 
-12問。言葉の理解: 3 / 知識の選択: 5 / 知識の組み立て: 2 / 結果の確認・修正: 2
+17問。言葉の理解: 3 / 知識の選択: 5 / 知識の組み立て: 7 / 結果の確認・修正: 2
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -417,3 +417,172 @@ Flexboxのデフォルト動作では、子要素がコンテナの幅を超え�
 - 誤答b: ul内のナビゲーション項目の配置の問題ではなく、ヘッダー内のロゴとナビゲーション自体の配置が問題です。
 - 誤答c: justify-centerにすると中央寄せになります。左右両端への配置にはjustify-betweenが必要です。
 - 誤答d: positionは位置取りで、flexboxのレイアウトとは別の概念です。
+
+## question-week3-assembly-row-parent（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: リンクを横並びにし、リンク間に16pxの間隔を作ってください。親navのクラスを組み立てます。
+- 出典: curriculum/PH1/Week03.md:42 / 2. Flexboxの基本：「親」に `flex` をつける
+- ドリル接続: Week03の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。navに指定し、リンク同士の間隔を確認しましょう。
+- 既習: Week01〜03のインプット。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week3-row-parent
+- 類題: ph1-week3-assembly-row-parent / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+リンクを横並びにし、リンク間に16pxの間隔を作ってください。親navのクラスを組み立てます。
+
+```html
+<nav class="__BLANK__">
+  <a href="#a">案内</a><a href="#b">予約</a>
+</nav>
+```
+
+- correct: flex gap-4（正答）
+- wrong: block gap-4
+
+達成条件: リンクを横並びにし、リンク間に16pxの間隔を作ってください。親navのクラスを組み立てます。
+
+ヒント: 子を並べる親にflexを置き、gap-4で間隔を指定します。
+
+解説: 子を並べる親にflexを置き、gap-4で間隔を指定します。PCではnavに指定し、リンク同士の間隔を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: blockではFlexboxにならず、この指定だけではリンク間のgapを作れません。
+
+## question-week3-assembly-header-between（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: ロゴとナビを左右両端に配置し、高さの違う文字を上下中央にそろえてください。
+- 出典: curriculum/PH1/Week03.md:76 / 3. justify-content：横方向の並び方を決める
+- ドリル接続: Week03の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。高さを変えてそろい方を見ましょう。
+- 既習: Week01〜03のインプット。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week3-header-between
+- 類題: ph1-week3-assembly-header-between / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+ロゴとナビを左右両端に配置し、高さの違う文字を上下中央にそろえてください。
+
+```html
+<header class="__BLANK__">
+  <span>LOGO</span><nav>メニュー</nav>
+</header>
+```
+
+- correct: flex justify-between items-center（正答）
+- wrong: flex justify-center items-center
+
+達成条件: ロゴとナビを左右両端に配置し、高さの違う文字を上下中央にそろえてください。
+
+ヒント: row方向のflexではjustify-betweenが横の両端、items-centerが縦の中央を指定します。
+
+解説: row方向のflexではjustify-betweenが横の両端、items-centerが縦の中央を指定します。PCでは高さを変えてそろい方を見ましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: justify-centerでは両要素が中央へ集まり、左右両端にはなりません。
+
+## question-week3-assembly-vertical-gap（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 3つの手順を縦に並べ、手順の間を24px空けてください。
+- 出典: curriculum/PH1/Week03.md:179 / 6. flex-col：縦方向に並べる
+- ドリル接続: Week03の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。olの親クラスを編集しましょう。
+- 既習: Week01〜03のインプット。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week3-vertical-gap
+- 類題: ph1-week3-assembly-vertical-gap / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+3つの手順を縦に並べ、手順の間を24px空けてください。
+
+```html
+<ol class="__BLANK__"><li>準備</li><li>実装</li><li>確認</li></ol>
+```
+
+- correct: flex flex-col gap-6（正答）
+- wrong: flex flex-row gap-6
+
+達成条件: 3つの手順を縦に並べ、手順の間を24px空けてください。
+
+ヒント: flexで並べ方を有効にしてflex-colで縦方向、gap-6で間隔を指定します。
+
+解説: flexで並べ方を有効にしてflex-colで縦方向、gap-6で間隔を指定します。PCではolの親クラスを編集しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: flex-rowでは手順が横方向に並びます。
+
+## question-week3-assembly-wrap-cards（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: カードの幅は固定済みです。親幅に収まらないカードを次の行へ折り返し、間隔16pxにしてください。
+- 出典: curriculum/PH1/Week03.md:196 / 7. flex-wrap：はみ出した時に折り返す
+- ドリル接続: Week03の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。flex-wrapを親に指定すると、収まらない子が次の行へ移ります。PCで画面幅を狭めて確認しましょう。
+- 既習: Week01〜03のインプット。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week3-wrap-cards
+- 類題: ph1-week3-assembly-wrap-cards / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+カードの幅は固定済みです。親幅に収まらないカードを次の行へ折り返し、間隔16pxにしてください。
+
+```html
+<div class="__BLANK__"><article class="w-48">A</article><article class="w-48">B</article></div>
+```
+
+- correct: flex flex-wrap gap-4（正答）
+- wrong: flex flex-nowrap gap-4
+
+達成条件: カードの幅は固定済みです。親幅に収まらないカードを次の行へ折り返し、間隔16pxにしてください。
+
+ヒント: flex-wrapを親に指定すると、収まらない子が次の行へ移ります。
+
+解説: flex-wrapを親に指定すると、収まらない子が次の行へ移ります。PCで画面幅を狭めて確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: flex-nowrapは折り返さない指定です。
+
+## question-week3-assembly-responsive-direction（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 375pxでは縦並び、768px以上では横並びにしてください。間隔は16pxです。
+- 出典: curriculum/PH1/Week03.md:213 / 8. スマホ幅で縦並びにする（レスポンシブ対応）
+- ドリル接続: Week03の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。375pxと768pxの両方を確認しましょう。
+- 既習: Week01〜03のインプット。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week3-responsive-direction
+- 類題: ph1-week3-assembly-responsive-direction / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+375pxでは縦並び、768px以上では横並びにしてください。間隔は16pxです。
+
+```html
+<div class="__BLANK__"><p>説明</p><aside>補足</aside></div>
+```
+
+- correct: flex flex-col md:flex-row gap-4（正答）
+- wrong: flex flex-row md:flex-col gap-4
+
+達成条件: 375pxでは縦並び、768px以上では横並びにしてください。間隔は16pxです。
+
+ヒント: 接頭辞なしを縦、md以上を横にします。
+
+解説: 接頭辞なしを縦、md以上を横にします。PCでは375pxと768pxの両方を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。classの順序は不問、重複・過不足は不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 基準とmd以上の向きが逆です。

@@ -1,6 +1,6 @@
 # Week14｜React基礎（JSX・コンポーネント・props・map）
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -444,3 +444,173 @@ function App() {
 - 誤答b: エラーが消えても、両方残すという条件を満たしません。
 - 誤答c: 隣り合うルート要素の構文は変わりません。
 - 誤答d: 複数の要素をまとめる問題とは別で、JSXの書き方も外れます。
+
+## question-week14-assembly-jsx-title（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: titleは"イベント予定"です。JSXでtitleの値をh2へ表示してください。
+- 出典: curriculum/PH1/Week14.md:87 / 見た目はHTML、書いているのはJavaScript
+- ドリル接続: Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。titleの値を変えて表示も変わるか確認しましょう。
+- 既習: Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week14-jsx-title
+- 類題: ph1-week14-assembly-jsx-title / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+titleは"イベント予定"です。JSXでtitleの値をh2へ表示してください。
+
+```jsx
+const title = "イベント予定";
+const heading = <h2>__BLANK__</h2>;
+```
+
+- correct: {title}（正答）
+- wrong: {"title"}
+
+達成条件: titleは"イベント予定"です。JSXでtitleの値をh2へ表示してください。
+
+ヒント: JSXの波括弧内に変数を書きます。
+
+解説: JSXの波括弧内に変数を書きます。PCではtitleの値を変えて表示も変わるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: "title"は変数ではなく固定の文字列です。
+
+## question-week14-assembly-props-card（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: MemberCardはnameとroleを受け取ります。nameを"鈴木"、roleを"デザイナー"として呼び出してください。
+- 出典: curriculum/PH1/Week14.md:258 / 型は同じ、中身だけ変えたい
+- ドリル接続: Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。子の受け取り名と表示位置も確認しましょう。
+- 既習: Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week14-props-card
+- 類題: ph1-week14-assembly-props-card / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+MemberCardはnameとroleを受け取ります。nameを"鈴木"、roleを"デザイナー"として呼び出してください。
+
+```jsx
+const card = __BLANK__;
+```
+
+- correct: <MemberCard name="鈴木" role="デザイナー" />（正答）
+- wrong: <MemberCard name="デザイナー" role="鈴木" />
+
+達成条件: MemberCardはnameとroleを受け取ります。nameを"鈴木"、roleを"デザイナー"として呼び出してください。
+
+ヒント: 親でprops名と値を対応させます。
+
+解説: 親でprops名と値を対応させます。PCでは子の受け取り名と表示位置も確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 渡すpropsの名前と値が逆です。
+
+## question-week14-assembly-map-key（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: membersには重複しない固定idがあります。各メンバーをカードに変換し、同じidをkeyへ渡してください。
+- 出典: curriculum/PH1/Week14.md:319 / 本が10冊に増えたら
+- ドリル接続: Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。名前が同じデータでも警告が出ないか確認しましょう。
+- 既習: Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week14-map-key
+- 類題: ph1-week14-assembly-map-key / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+membersには重複しない固定idがあります。各メンバーをカードに変換し、同じidをkeyへ渡してください。
+
+```jsx
+<div>{members.map((member) => (
+  __BLANK__
+))}</div>
+```
+
+- correct: <MemberCard key={member.id} name={member.name} />（正答）
+- wrong: <MemberCard key={member.name} name={member.name} />
+
+達成条件: membersには重複しない固定idがあります。各メンバーをカードに変換し、同じidをkeyへ渡してください。
+
+ヒント: mapが直接返す要素にkeyを置きます。
+
+解説: mapが直接返す要素にkeyを置きます。PCでは名前が同じデータでも警告が出ないか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 名前が重複し得るため、安定した一意のkeyには固定idを使います。
+
+## question-week14-assembly-component-return（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: Greetingを、あいさつを表示する関数コンポーネントにしてください。返す文を組み立てます。
+- 出典: curriculum/PH1/Week14.md:195 / 同じカードを、一度作れば何度でも
+- ドリル接続: Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。<Greeting />と大文字始まりで呼び出しましょう。
+- 既習: Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week14-component-return
+- 類題: ph1-week14-assembly-component-return / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+Greetingを、あいさつを表示する関数コンポーネントにしてください。返す文を組み立てます。
+
+```jsx
+function Greeting() {
+  __BLANK__
+}
+```
+
+- correct: return <p>こんにちは</p>;（正答）
+- wrong: return <p>こんにちは</div>;
+
+達成条件: Greetingを、あいさつを表示する関数コンポーネントにしてください。返す文を組み立てます。
+
+ヒント: returnで対応の取れたJSXを返します。
+
+解説: returnで対応の取れたJSXを返します。PCでは<Greeting />と大文字始まりで呼び出しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 開始タグpと終了タグdivの対応が取れていません。
+
+## question-week14-assembly-default-import（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: MemberCard.jsxはexport default済みです。src/App.jsxから同じsrc内のcomponents/MemberCard.jsxを読み込んでください。
+- 出典: curriculum/PH1/Week14.md:402 / 部品を、別ファイルに引っ越す
+- ドリル接続: Week14の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。ファイル名の大文字小文字も合わせましょう。
+- 既習: Week01〜14の当該インプット。周辺の要素・データ・関数は提示されたものを使用する。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph1-week14-default-import
+- 類題: ph1-week14-assembly-default-import / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+MemberCard.jsxはexport default済みです。src/App.jsxから同じsrc内のcomponents/MemberCard.jsxを読み込んでください。
+
+```jsx
+__BLANK__
+```
+
+- correct: import MemberCard from "./components/MemberCard.jsx";（正答）
+- wrong: import MemberCard from "../components/MemberCard.jsx";
+
+達成条件: MemberCard.jsxはexport default済みです。src/App.jsxから同じsrc内のcomponents/MemberCard.jsxを読み込んでください。
+
+ヒント: 現在のApp.jsxからcomponentsへ入る相対パスを指定します。
+
+解説: 現在のApp.jsxからcomponentsへ入る相対パスを指定します。PCではファイル名の大文字小文字も合わせましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。TypeScript parser; JSはimport/export以外をasync関数内で構文確認。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: ../ではsrcの外へ移動してしまい、提示した配置に合いません。

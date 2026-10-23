@@ -26,7 +26,6 @@ import {
 } from "@/lib/quiz/session";
 import {
   absoluteTerminalPath,
-  createTerminalStageState,
   resolveTerminalStage,
   runTerminalStageCommand,
 } from "@/lib/quiz/terminalToken";
@@ -81,7 +80,7 @@ export default function QuizScreen() {
 
 function QuestionScreen({ question: q }: { question: QuestionItem }) {
   const router = useRouter();
-  const { state, mutate, confirmAnswer, error } = useLearning();
+  const { state, mutate, confirmAnswer, readWrongExplanation, error } = useLearning();
   const feedback = useFeedback();
   const session = state.session!;
   const draft = draftFor(state, q, catalog);
@@ -181,6 +180,7 @@ function QuestionScreen({ question: q }: { question: QuestionItem }) {
     !checked &&
     (mode === "choice"
       ? !!draft.optionId
+      : mode === "assembly" ? draft.tokens.length > 0
       : mode === "terminal"
         ? draft.terminal?.isComplete
         : executed === input &&
@@ -219,7 +219,8 @@ function QuestionScreen({ question: q }: { question: QuestionItem }) {
   };
   const onHint = () => attempt(s => editDraft(s, q, { hintUsed: true }, catalog));
   const shared = { q, answer, busy, error, current: session.cursor + 1, total: session.refs.length,
-    onSelect, onHint, onConfirm: () => void confirm(), onNext: () => void next() };
+    onSelect, onHint, onConfirm: () => void confirm(), onNext: () => void next(),
+    onExplanationRead: () => readWrongExplanation(q.id) };
   if (mode === 'choice') return <ChoiceWorkspace {...shared} selectedId={draft.optionId} hintUsed={draft.hintUsed} />;
   return <InteractiveWorkspace {...shared} mode={mode} draft={draft} available={available}
     canConfirm={!!canConfirm && !((mode === 'console' || mode === 'preview') && Platform.OS !== 'web')}
@@ -227,7 +228,6 @@ function QuestionScreen({ question: q }: { question: QuestionItem }) {
     location={resolved ? resolved.stage.inputMode === 'pullRequest' ? 'PRの反映先・変更元を設定' : absoluteTerminalPath(resolved.activity.root.name, draft.terminal?.cwd ?? resolved.stage.startCwd) : undefined}
     onAdd={token => change(s => editDraft(s, q, { tokens: [...draftFor(s, q, catalog).tokens, token] }, catalog))}
     onUndo={() => change(s => editDraft(s, q, mode === 'console' ? { optionId: '' } : { tokens: draftFor(s, q, catalog).tokens.slice(0, -1) }, catalog))}
-    onClear={() => { setPreviewRun(null); change(s => editDraft(s, q, { tokens: [], optionId: '', ...(resolved ? { terminal: createTerminalStageState(resolved.stage) } : {}) }, catalog)); }}
     onExecute={() => void execute()}
     onPreviewReady={() => { if (previewRun?.generation === execution.current) setExecuted(previewRun.signature); }}
   />;

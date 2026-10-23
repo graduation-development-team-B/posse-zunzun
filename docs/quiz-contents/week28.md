@@ -1,6 +1,6 @@
 # Week28｜Composerとライブラリ
 
-12問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 3 / 結果の確認・修正: 3
+17問。言葉の理解: 3 / 知識の選択: 3 / 知識の組み立て: 8 / 結果の確認・修正: 3
 
 作者向け資料。独立問題。公開されるのは制作状態publishedの問題。
 
@@ -418,3 +418,175 @@ echo Carbon::now();
 - 誤答b: 導入と利用の成功を確かめていません。
 - 誤答c: 対象のPHPライブラリを確認していません。
 - 誤答d: 成功したか分かりません。
+
+## question-ph2-week28-assembly-composer-install（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: composer.jsonとlockは一致しています。lockに固定した依存をそろえるコマンドを組み立ててください。
+- 出典: curriculum/PH2/Week28.md:33 / 3. composer.lock とは？
+- ドリル接続: Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。対象プロジェクト内で実行しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week28-composer-install
+- 類題: ph2-week28-assembly-composer-install / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+composer.jsonとlockは一致しています。lockに固定した依存をそろえるコマンドを組み立ててください。
+
+```sh
+__BLANK__
+```
+
+- correct: composer install（正答）
+- wrong: composer update
+
+達成条件: composer.jsonとlockは一致しています。lockに固定した依存をそろえるコマンドを組み立ててください。
+
+ヒント: 共有済みlockを使う再現にはinstallです。
+
+解説: 共有済みlockを使う再現にはinstallです。PCでは対象プロジェクト内で実行しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: updateは依存の解決を更新し得るため、lockのバージョンを再現するinstallとは目的が異なります。
+
+## question-ph2-week28-assembly-composer-require（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: 教材の画像アップロード用パッケージverot/class.upload.phpを依存へ追加してください。
+- 出典: curriculum/PH2/Week28.md:15 / 2. composer.json とは？
+- ドリル接続: Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。jsonとlockの変更内容を確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week28-composer-require
+- 類題: ph2-week28-assembly-composer-require / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+教材の画像アップロード用パッケージverot/class.upload.phpを依存へ追加してください。
+
+```sh
+__BLANK__
+```
+
+- correct: composer require verot/class.upload.php（正答）
+- wrong: composer remove verot/class.upload.php
+
+達成条件: 教材の画像アップロード用パッケージverot/class.upload.phpを依存へ追加してください。
+
+ヒント: requireは新しい依存を登録・解決します。
+
+解説: requireは新しい依存を登録・解決します。PCではjsonとlockの変更内容を確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。静的確認のみ（ランタイムなし）。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: removeは依存を取り除く操作です。
+
+## question-ph2-week28-assembly-autoload-path（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: プロジェクト直下にvendor、実行ファイルはsrc/week28/index.phpです。そのファイルからautoloadを読み込んでください。
+- 出典: drill-ph2/src/week28/README.md:3 / 問題
+- ドリル接続: Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。フォルダ構成と照合し、クラスが見つかるか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week28-autoload-path
+- 類題: ph2-week28-assembly-autoload-path / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+プロジェクト直下にvendor、実行ファイルはsrc/week28/index.phpです。そのファイルからautoloadを読み込んでください。
+
+```php
+<?php
+__BLANK__
+use Carbon\Carbon;
+```
+
+- correct: require "../../vendor/autoload.php";（正答）
+- wrong: require "../vendor/autoload.php";
+
+達成条件: プロジェクト直下にvendor、実行ファイルはsrc/week28/index.phpです。そのファイルからautoloadを読み込んでください。
+
+ヒント: 2階層上のvendorを参照します。
+
+解説: 2階層上のvendorを参照します。PCではフォルダ構成と照合し、クラスが見つかるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: 1階層上だけではsrc内を指し、プロジェクト直下のvendorへ届きません。
+
+## question-ph2-week28-assembly-carbon-use（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: autoloadは読み込み済みです。Carbon名前空間のCarbonクラスをuse宣言し、続くCarbon::now()を利用できるようにしてください。
+- 出典: drill-ph2/src/week28/README.md:3 / 問題
+- ドリル接続: Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。教材の開始コードと同じ宣言か確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week28-carbon-use
+- 類題: ph2-week28-assembly-carbon-use / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+autoloadは読み込み済みです。Carbon名前空間のCarbonクラスをuse宣言し、続くCarbon::now()を利用できるようにしてください。
+
+```php
+<?php
+require "../../vendor/autoload.php";
+__BLANK__
+echo Carbon::now();
+```
+
+- correct: use Carbon\Carbon;（正答）
+- wrong: use Carbon\Calendar;
+
+達成条件: autoloadは読み込み済みです。Carbon名前空間のCarbonクラスをuse宣言し、続くCarbon::now()を利用できるようにしてください。
+
+ヒント: 完全修飾名Carbon\Carbonをuseで取り込みます。
+
+解説: 完全修飾名Carbon\Carbonをuseで取り込みます。PCでは教材の開始コードと同じ宣言か確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: Calendarでは、後のCarbonというクラス名を導入できません。
+
+## question-ph2-week28-assembly-carbon-now（版1・published）
+
+- 形式: assembly
+- 主対象: 知識の組み立て
+- 学習目標: Carbonは導入・読み込み済みです。Carbon::now()は現在時刻を返す提供済みメソッドです。その呼び出しを組み立ててください。
+- 出典: drill-ph2/src/week28/README.md:3 / 問題
+- ドリル接続: Week28の教材・ドリルで必要な構文と対象の対応を短い空欄で練習。対象コンテナで時刻が表示されるか確認しましょう。
+- 既習: PH1の基礎とPH2のWeek17〜28の該当範囲。問題内の周辺コード・値・処理は固定の前提。書籍本文を取得・確認したとは扱わない。。既習コード・固定部分の役割は問題文に明記。
+- 概念: ph2-week28-carbon-now
+- 類題: ph2-week28-assembly-carbon-now / 既存の候補選択問題とは独立。複数断片の選択・接続を練習する追加問題。
+- 依存: なし
+
+Carbonは導入・読み込み済みです。Carbon::now()は現在時刻を返す提供済みメソッドです。その呼び出しを組み立ててください。
+
+```php
+<?php
+use Carbon\Carbon;
+echo __BLANK__;
+```
+
+- correct: Carbon::now()（正答）
+- wrong: Carbon->now()
+
+達成条件: Carbonは導入・読み込み済みです。Carbon::now()は現在時刻を返す提供済みメソッドです。その呼び出しを組み立ててください。
+
+ヒント: 教材の提供メソッドをCarbon::now()で呼びます。
+
+解説: 教材の提供メソッドをCarbon::now()で呼びます。PCでは対象コンテナで時刻が表示されるか確認しましょう。
+
+採点: 実行なし。空欄に置いた候補トークン列を正答列と照合。順序・過不足を判定。候補にない組み合わせも不正解。ヒント利用を記録する。
+
+検証: 2026-10-23 初稿作成後の別工程で教材・既習・正答・主要誤答を静的意味レビュー済み。PHP CLI -l; 構文のみ。限定トークン採点の確認はtests/content/assembly.test.mjs。アプリ内の実行はなし。
+
+- 誤答wrong: ここはクラス名からの呼び出しなので、オブジェクトの->ではなく::を使います。
