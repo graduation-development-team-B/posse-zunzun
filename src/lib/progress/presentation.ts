@@ -2,26 +2,9 @@ import type { ContentCatalog } from "../../types/content.ts";
 import type { DayRecord } from "../../components/drill/week-strip.tsx";
 import type { MascotName } from "../../components/drill/mascot.tsx";
 import { localDay, metrics, type Progress } from "../quiz/session.ts";
+import { EVOLUTION_STAGES, levelDisplay } from "./evolution.ts";
+export { levelDisplay } from "./evolution.ts";
 
-export function levelDisplay(xp: number) {
-  const level = Math.floor(Math.max(0, xp) / 100) + 1;
-  const name =
-    level >= 5
-      ? "大花火"
-      : level >= 3
-        ? "キャンプ"
-        : level >= 2
-          ? "たき火"
-          : "火種";
-  return {
-    level,
-    name,
-    xp: Math.max(0, xp) % 100,
-    max: 100,
-    remaining: 100 - (Math.max(0, xp) % 100),
-    mascot: (level >= 2 ? "lv2" : "default") as MascotName,
-  };
-}
 export function presentationData(
   state: Progress,
   catalog: ContentCatalog,
@@ -120,18 +103,10 @@ export function presentationData(
     counts,
   };
   const level = levelDisplay(stats.xp);
-  const evolution = [
-    { name: "火種", req: "Lv.1", size: 36, level: 1 },
-    { name: "たき火", req: "Lv.2", size: 52, level: 2 },
-    { name: "キャンプ", req: "Lv.3", size: 62, level: 3 },
-    { name: "大花火", req: "Lv.5", size: 74, level: 5 },
-  ].map((e, i, all) => ({
+  const evolution = EVOLUTION_STAGES.map((e, i) => ({
     ...e,
-    state: (e.level > level.level
-      ? "lock"
-      : all[i + 1]?.level <= level.level
-        ? "past"
-        : "now") as "lock" | "past" | "now",
+    req: `Lv.${e.level}`,
+    state: (i > level.stageIndex ? "lock" : i < level.stageIndex ? "past" : "now") as "lock" | "past" | "now",
   }));
   const badges = [
     { mark: "1", name: "はじめの一歩", got: stats.answered > 0 },

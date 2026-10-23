@@ -1,4 +1,4 @@
-const XP_PER_LEVEL = 100;
+import { XP_PER_LEVEL } from "./evolution.ts";
 
 export type XpSegment = {
   level: number;
