@@ -19,7 +19,7 @@ import { xpFrame, xpTimeline } from "@/lib/progress/xp-animation";
 import { Icon } from "./icons";
 import { DText } from "./ui";
 
-export function XpReward({ before, after }: { before: number; after: number }) {
+export function XpReward({ before, after, onLevelChange }: { before: number; after: number; onLevelChange?: (level: number) => void }) {
   const timeline = useMemo(() => xpTimeline(before, after), [before, after]);
   const reducedMotion = useReducedMotion();
   const clock = useSharedValue(reducedMotion ? timeline.duration : 0);
@@ -28,6 +28,9 @@ export function XpReward({ before, after }: { before: number; after: number }) {
   const [display, setDisplay] = useState(() =>
     xpFrame(timeline, reducedMotion ? timeline.duration : 0),
   );
+  useEffect(() => {
+    onLevelChange?.(display.level);
+  }, [display.level, onLevelChange]);
 
   useAnimatedReaction(
     () => ({
@@ -122,6 +125,7 @@ export function XpReward({ before, after }: { before: number; after: number }) {
   });
   const level = levelDisplay((display.level - 1) * 100);
   const leveledUp = display.level > Math.floor(timeline.before / 100) + 1;
+  const evolved = level.mascot !== levelDisplay(timeline.before).mascot;
 
   return (
     <View style={styles.block}>
@@ -196,9 +200,11 @@ export function XpReward({ before, after }: { before: number; after: number }) {
           color={Drill.xpText}
         />
         <DText size={13} weight="bold" color={Drill.xpText}>
-          {leveledUp
-            ? `レベルアップ！ Lv.${display.level}になった！`
-            : `あと${100 - display.xp} XPで次のレベルに進化！`}
+          {evolved
+            ? `進化！ ${level.name}になった！`
+            : leveledUp
+              ? `レベルアップ！ Lv.${display.level}になった！`
+              : `あと${100 - display.xp} XPでLv.${display.level + 1}！`}
         </DText>
       </View>
     </View>

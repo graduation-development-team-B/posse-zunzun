@@ -56,9 +56,9 @@ export default function HomeScreen() {
         <View style={styles.hero}>
           <View style={styles.heroRow}>
             <Mascot
-              name={line.mascot}
+              name={level.mascot}
               width={112}
-              alt="熱中くん"
+              alt={`熱中くん（Lv.${level.level}・${level.name}）`}
               onPress={() => setTalk(talk + 1)}
               pressLabel="熱中くんに話しかける"
             />
@@ -92,7 +92,7 @@ export default function HomeScreen() {
                   </DText>
                 </View>
                 <DText size={12} color={Drill.textSub}>
-                  あと{level.remaining} XPで進化 →
+                  {level.nextEvolution ? `あと${level.evolutionRemaining} XPで次の進化 →` : '最終進化に到達！ →'}
                 </DText>
               </View>
               <ProgressBar ratio={level.xp/level.max} fill={Drill.xp} />

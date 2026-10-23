@@ -1,5 +1,7 @@
 import { Link, useLocalSearchParams, useRouter } from 'expo-router';
+import { useCallback, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
+import Animated, { FadeIn, ReduceMotion } from 'react-native-reanimated';
 
 import { CtaButton } from '@/components/drill/buttons';
 import { Icon } from '@/components/drill/icons';
@@ -8,6 +10,9 @@ import { XpReward } from '@/components/drill/xp-reward';
 import { Body, Card, DText, Footer, Screen } from '@/components/drill/ui';
 import { Drill, Radius } from '@/constants/drill';
 import { useDashboard } from '@/lib/progress/dashboard';
+import { levelDisplay } from '@/lib/progress/evolution';
+
+const EVOLUTION_ENTRY = FadeIn.duration(420).reduceMotion(ReduceMotion.System);
 
 /** 完了すると自動でXPが増え、Week選択へ進める。 */
 export default function DoneScreen() {
@@ -15,16 +20,27 @@ export default function DoneScreen() {
   const { state, stats, error } = useDashboard();
   const { session: id } = useLocalSearchParams<{session?:string}>();
   const session = state.session;
+  const sessionId = session?.id;
+  const [shownLevel, setShownLevel] = useState<{ sessionId: string; level: number } | null>(null);
+  const onLevelChange = useCallback((level: number) => {
+    if (sessionId) setShownLevel({ sessionId, level });
+  }, [sessionId]);
   const answers = state.answers.filter(a=>a.sessionId===session?.id);
   const gained=answers.reduce((sum,a)=>sum+a.xp,0);
   const R={streakDays:stats.streak,gained,xpBefore:stats.xp-gained,xpAfter:stats.xp,xpMax:100,rewards:[{label:`${answers.length}問やりきった`,xp:answers.length*5},{label:`正解 ${answers.filter(a=>a.correct).length}問`,xp:answers.filter(a=>a.correct).length*5},{label:`誤答の解説を読んだ ${answers.filter(a=>a.explanationRead).length}問`,xp:answers.filter(a=>a.explanationRead).length*5},{label:`ヒントを使った ${answers.filter(a=>a.hintUsed).length}問`,xp:0}]};
+  const animatedLevel = shownLevel !== null && shownLevel.sessionId === sessionId
+    ? shownLevel.level
+    : levelDisplay(R.xpBefore).level;
+  const evolution = levelDisplay((animatedLevel - 1) * 100);
   if (!session?.completedAt || (id && id!==session.id)) return <Screen><Body><DText>{error || '完了した学習の結果はここに表示されます。'}</DText><CtaButton label="Weekを選ぶ" onPress={() => router.replace('/materials')} /></Body></Screen>;
 
   return (
     <Screen>
       <Body paddingTop={24} paddingBottom={20} gap={14}>
         <View style={styles.hero}>
-          <Mascot name="lv2Glow" width={128} alt="熱中くん" />
+          <Animated.View key={evolution.mascot} entering={EVOLUTION_ENTRY}>
+            <Mascot name={evolution.mascot} width={144} alt={`熱中くん（Lv.${animatedLevel}・${evolution.name}）`} />
+          </Animated.View>
           <DText size={24} weight="bold" role="heading" aria-level={1}>
             今回の{answers.length}問、完了！
           </DText>
@@ -61,7 +77,7 @@ export default function DoneScreen() {
               {`+${R.gained} XP`}
             </DText>
           </View>
-          <XpReward key={session.id} before={R.xpBefore} after={R.xpAfter} />
+          <XpReward key={session.id} before={R.xpBefore} after={R.xpAfter} onLevelChange={onLevelChange} />
           <View style={styles.rewardList}>
             {R.rewards.map((r) => (
               <View key={r.label} style={styles.rewardRow}>

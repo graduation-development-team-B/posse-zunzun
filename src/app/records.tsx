@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Fragment, useCallback, useEffect, useRef } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { BottomNav } from '@/components/drill/bottom-nav';
 import { Icon } from '@/components/drill/icons';
@@ -12,6 +12,11 @@ import type { CalendarData } from '@/lib/progress/presentation';
 /** 記録タブ：熱中くんの成長・連続日数・カレンダー・バッジ */
 export default function RecordsScreen() {
   const { stats, level, calendar: CALENDAR, evolution: EVOLUTION, badges: BADGES, error } = useDashboard();
+  const roadmap = useRef<ScrollView>(null);
+  const showCurrentStage = useCallback(() => {
+    roadmap.current?.scrollTo({ x: Math.max(0, (level.stageIndex - 1) * 96), animated: false });
+  }, [level.stageIndex]);
+  useEffect(showCurrentStage, [showCurrentStage]);
   return (
     <Screen>
       <View style={styles.header}>
@@ -22,10 +27,10 @@ export default function RecordsScreen() {
       <Body paddingTop={8} paddingBottom={28} gap={14}>
         {Boolean(error) && <DText role="alert" color={Drill.danger}>{error}</DText>}
         <View style={styles.hero}>
-          <Mascot name={level.mascot} width={120} alt={`熱中くん（Lv.${level.level}）`} />
+          <Mascot name={level.mascot} width={144} alt={`熱中くん（Lv.${level.level}・${level.name}）`} />
           <Pill label={`Lv.${level.level} ${level.name}`} background={Drill.xp} color={Drill.text} size={12} paddingV={3} paddingH={10} style={styles.center} />
           <DText size={13} lh={1.6} color={Drill.textSub} style={styles.centerText}>
-            毎日解くほど熱中くんの火が大きくなります
+            {level.description}
           </DText>
           <View style={styles.xp}>
             <ProgressBar ratio={level.xp/level.max} height={10} fill={Drill.xp} />
@@ -38,17 +43,22 @@ export default function RecordsScreen() {
               </DText>
             </View>
           </View>
+          <DText size={12} weight="bold" color={Drill.accentText} style={styles.centerText}>
+            {level.nextEvolution
+              ? `Lv.${level.nextEvolution.level} ${level.nextEvolution.name}まであと${level.evolutionRemaining} XP`
+              : '最終進化「レジェンド期」に到達！'}
+          </DText>
         </View>
 
         <Card style={styles.stages}>
           <DText size={14} weight="bold" role="heading" aria-level={2} style={styles.stagesTitle}>
             進化のみちのり
           </DText>
-          <View style={styles.stageRow}>
+          <ScrollView ref={roadmap} horizontal showsHorizontalScrollIndicator onContentSizeChange={showCurrentStage} accessibilityLabel="熱中くんの全10段階の進化" contentContainerStyle={[styles.stageRow, evolutionStyles.roadmap]}>
             {EVOLUTION.map((s) => (
-              <View key={s.name} style={styles.stage}>
+              <View key={s.name} style={evolutionStyles.stage}>
                 <View style={styles.stageImg}>
-                  <Mascot name="default" width={s.size} locked={s.state === 'lock'} />
+                  <Mascot name={s.mascot} width={68} locked={s.state === 'lock'} alt={`${s.name}（${s.req}・${s.state === 'now' ? '現在の姿' : s.state === 'lock' ? '未解放' : '解放済み'}）`} />
                 </View>
                 <View style={[styles.stageLabel, s.state === 'now' && { backgroundColor: Drill.accent }]}>
                   <DText size={11} weight="bold" color={s.state === 'now' ? Drill.text : Drill.chipText}>
@@ -60,7 +70,8 @@ export default function RecordsScreen() {
                 </DText>
               </View>
             ))}
-          </View>
+          </ScrollView>
+          <DText size={11} color={Drill.textMuted}>横にスワイプして全10段階を見る →</DText>
         </Card>
 
         <View style={styles.stats}>
@@ -186,6 +197,11 @@ function CalendarCell({ day, calendar: CALENDAR }: { day: number; calendar: Cale
     </View>
   );
 }
+
+const evolutionStyles = StyleSheet.create({
+  roadmap: { gap: 8, paddingBottom: 8 },
+  stage: { width: 88, flexShrink: 0, alignItems: 'center', gap: 6 },
+});
 
 const styles = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'center', paddingTop: 12, paddingBottom: 4, paddingHorizontal: 20, minHeight: 56 },
